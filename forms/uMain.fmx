@@ -5,6 +5,7 @@ object frmMain: TfrmMain
   ClientHeight = 505
   ClientWidth = 817
   Position = DesktopCenter
+  StyleBook = dm.sbDental
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -28,6 +29,15 @@ object frmMain: TfrmMain
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
+        object sbMenu: TSpeedButton
+          Align = Top
+          Size.Width = 200.000000000000000000
+          Size.Height = 70.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'detailstoolbuttonmultiview'
+          Text = 'Dental System'
+          TextSettings.Trimming = None
+        end
       end
     end
     object lytContent: TLayout

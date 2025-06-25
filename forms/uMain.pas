@@ -5,7 +5,7 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
-  FMX.Controls.Presentation, FMX.MultiView, FMX.TabControl;
+  FMX.Controls.Presentation, FMX.MultiView, FMX.TabControl, FMX.StdCtrls;
 
 type
   TfrmMain = class(TForm)
@@ -14,6 +14,7 @@ type
     lytContent: TLayout;
     tcController: TTabControl;
     mvSidebar: TMultiView;
+    sbMenu: TSpeedButton;
   private
     { Private declarations }
   public
@@ -26,5 +27,7 @@ var
 implementation
 
 {$R *.fmx}
+
+uses uDm;
 
 end.
