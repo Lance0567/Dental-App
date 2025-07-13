@@ -158,7 +158,7 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="frames\uDashboard.pas">
-            <Form>Frame1</Form>
+            <Form>fDashboard</Form>
             <FormType>fmx</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>

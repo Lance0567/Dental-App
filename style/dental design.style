@@ -31321,15 +31321,14 @@ object TStyleContainer
     StyleName = 'toolbarstyle'
     Align = Center
     SourceLookup = 'Windows 10 Modern Darkstyle.png'
-    Visible = False
     SourceLink = <
       item
         CapInsets.Left = 2.000000000000000000
         CapInsets.Right = 2.000000000000000000
-        SourceRect.Left = 2.000000000000000000
-        SourceRect.Top = 46.000000000000000000
-        SourceRect.Right = 48.000000000000000000
-        SourceRect.Bottom = 92.000000000000000000
+        SourceRect.Left = 420.000000000000000000
+        SourceRect.Top = 184.000000000000000000
+        SourceRect.Right = 446.000000000000000000
+        SourceRect.Bottom = 216.000000000000000000
       end
       item
         CapInsets.Left = 3.000000000000000000
@@ -63629,6 +63628,7 @@ object TStyleContainer
     Size.Width = 449.000000000000000000
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
+    Visible = False
     TabOrder = 171
     FixedHeight = 60
     object TButtonStyleObject

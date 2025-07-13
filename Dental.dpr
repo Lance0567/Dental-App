@@ -5,7 +5,7 @@ uses
   FMX.Forms,
   uMain in 'forms\uMain.pas' {frmMain},
   uDm in 'data module\uDm.pas' {dm: TDataModule},
-  uDashboard in 'frames\uDashboard.pas' {Frame1: TFrame};
+  uDashboard in 'frames\uDashboard.pas' {fDashboard: TFrame};
 
 {$R *.res}
 

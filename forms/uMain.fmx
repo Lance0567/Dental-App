@@ -11,6 +11,7 @@ object frmMain: TfrmMain
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
+  OnResize = FormResize
   DesignerMasterStyle = 0
   object lytContainer: TLayout
     Align = Client
@@ -177,20 +178,151 @@ object frmMain: TfrmMain
       Size.Height = 505.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 2
-      object ToolBar1: TToolBar
+      inline fDashboard: TfDashboard
+        Align = Client
         Size.Width = 572.000000000000000000
-        Size.Height = 46.000000000000000000
+        Size.Height = 505.000000000000000000
         Size.PlatformDefault = False
-        StyleLookup = 'ToolBar1Style1'
-        TabOrder = 0
-        object lSidebarWidth: TLabel
-          Align = Top
-          StyledSettings = [Family, Size, Style]
+        inherited ScrollBox1: TScrollBox
           Size.Width = 572.000000000000000000
-          Size.Height = 17.000000000000000000
-          Size.PlatformDefault = False
-          Text = 'Width: 245'
-          TabOrder = 6
+          Size.Height = 505.000000000000000000
+          Viewport.Width = 561.000000000000000000
+          Viewport.Height = 505.000000000000000000
+          inherited lytBottom: TLayout
+            Position.Y = 805.000000000000000000
+            Size.Width = 561.000000000000000000
+          end
+          inherited glytCards: TGridLayout
+            ItemWidth = 250.000000000000000000
+            Position.Y = 135.000000000000000000
+            Size.Width = 546.000000000000000000
+            inherited rCard1: TRectangle
+              Size.Width = 240.000000000000000000
+              inherited Layout1: TLayout
+                Size.Width = 200.000000000000000000
+                inherited Label1: TLabel
+                  Size.Width = 200.000000000000000000
+                  TextSettings.Font.StyleExt = {00070000000000000004000000}
+                end
+              end
+              inherited Label2: TLabel
+                Size.Width = 200.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                inherited cIcon1: TCircle
+                  Position.X = 150.000000000000000000
+                end
+              end
+            end
+            inherited rCard2: TRectangle
+              Size.Width = 240.000000000000000000
+              inherited lytCardD2: TLayout
+                Size.Width = 200.000000000000000000
+                inherited lbActiveClients: TLabel
+                  Size.Width = 200.000000000000000000
+                  TextSettings.Font.StyleExt = {00070000000000000004000000}
+                end
+              end
+              inherited lbActiveClientsC: TLabel
+                Size.Width = 200.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                inherited cIcon2: TCircle
+                  Position.X = 150.000000000000000000
+                end
+              end
+            end
+            inherited rCard3: TRectangle
+              Size.Width = 240.000000000000000000
+              inherited lytCardD3: TLayout
+                Size.Width = 200.000000000000000000
+                inherited lbFullyPaid: TLabel
+                  Size.Width = 200.000000000000000000
+                  TextSettings.Font.StyleExt = {00070000000000000004000000}
+                end
+              end
+              inherited lbFullyPaidC: TLabel
+                Size.Width = 200.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                inherited cIcon3: TCircle
+                  Position.X = 150.000000000000000000
+                end
+              end
+            end
+            inherited rCard4: TRectangle
+              Size.Width = 240.000000000000000000
+              inherited lytCardD4: TLayout
+                Size.Width = 200.000000000000000000
+                inherited lbPartiallyPaid: TLabel
+                  Size.Width = 200.000000000000000000
+                  TextSettings.Font.StyleExt = {00070000000000000004000000}
+                end
+              end
+              inherited lbPartiallyPaidC: TLabel
+                Size.Width = 200.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                inherited cIcon4: TCircle
+                  Position.X = 150.000000000000000000
+                end
+              end
+            end
+          end
+          inherited lytHeader: TLayout
+            Margins.Top = 20.000000000000000000
+            Position.Y = 80.000000000000000000
+            Size.Width = 561.000000000000000000
+            inherited lytTitle: TLayout
+              Size.Width = 541.000000000000000000
+              inherited lbTitle: TLabel
+                Size.Width = 541.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+              end
+              inherited lbDescription: TLabel
+                Size.Width = 541.000000000000000000
+              end
+            end
+          end
+          inherited lytRecords: TLayout
+            Position.Y = 435.000000000000000000
+            Size.Width = 561.000000000000000000
+            Size.Height = 350.000000000000000000
+            inherited rUrgentContracts: TRectangle
+              Size.Width = 216.000000000000000000
+              Size.Height = 340.000000000000000000
+              inherited Layout3: TLayout
+                Size.Width = 176.000000000000000000
+                inherited lbRecordedAppointments: TLabel
+                  Size.Width = 176.000000000000000000
+                  TextSettings.Font.StyleExt = {00070000000000000004000000}
+                end
+              end
+              inherited Grid1: TGrid
+                Size.Width = 176.000000000000000000
+                Size.Height = 263.000000000000000000
+                Viewport.Width = 172.000000000000000000
+                Viewport.Height = 238.000000000000000000
+              end
+            end
+            inherited rQuickActions: TRectangle
+              Position.X = 256.000000000000000000
+              Size.Height = 340.000000000000000000
+              inherited Layout4: TLayout
+                inherited lbQuickActions: TLabel
+                  TextSettings.Font.StyleExt = {00070000000000000004000000}
+                end
+              end
+            end
+          end
+          inherited rToolbar: TRectangle
+            Size.Width = 561.000000000000000000
+            inherited lytToolbarH: TLayout
+              Size.Width = 561.000000000000000000
+              inherited lytUser: TLayout
+                Position.X = 421.000000000000000000
+              end
+            end
+            inherited lBevel: TLine
+              Size.Width = 561.000000000000000000
+            end
+          end
         end
       end
     end

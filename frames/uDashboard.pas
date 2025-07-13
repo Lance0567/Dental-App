@@ -7,10 +7,10 @@ uses
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   System.Skia, System.Rtti, FMX.Grid.Style, FMX.Calendar, FMX.ScrollBox,
   FMX.Grid, FMX.Skia, FMX.ImgList, FMX.Controls.Presentation, FMX.Objects,
-  FMX.Layouts;
+  FMX.Layouts, Math;
 
 type
-  TFrame1 = class(TFrame)
+  TfDashboard = class(TFrame)
     ScrollBox1: TScrollBox;
     lytBottom: TLayout;
     glytCards: TGridLayout;
@@ -43,17 +43,26 @@ type
     gIcon3: TGlyph;
     cIcon4: TCircle;
     gIcon4: TGlyph;
-    Layout2: TLayout;
-    Rectangle1: TRectangle;
+    lytRecords: TLayout;
+    rQuickActions: TRectangle;
     Layout3: TLayout;
     lbRecordedAppointments: TLabel;
     Layout4: TLayout;
     lbQuickActions: TLabel;
     Grid1: TGrid;
-    Layout5: TLayout;
+    btnReportIssue: TButton;
+    rToolbar: TRectangle;
+    lytToolbarH: TLayout;
+    lDate: TLabel;
+    gIcon: TGlyph;
+    lBevel: TLine;
+    lytUser: TLayout;
+    Layout2: TLayout;
     btnNewPatient: TButton;
     btnNewAppointment: TButton;
-    btnReportIssue: TButton;
+    slUserName: TSkLabel;
+    RoundRect1: TRoundRect;
+    procedure glytCardsResize(Sender: TObject);
   private
     { Private declarations }
   public
@@ -65,5 +74,15 @@ implementation
 {$R *.fmx}
 
 uses uDm;
+
+procedure TfDashboard.glytCardsResize(Sender: TObject);
+var
+  AvailableWidth: Integer;
+  ItemsPerRow: Integer;
+begin
+  AvailableWidth := Trunc(glytCards.Width);
+  ItemsPerRow := Max(1, AvailableWidth div 265);
+  glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
+end;
 
 end.
