@@ -1,0 +1,535 @@
+object Frame1: TFrame1
+  Size.Width = 621.000000000000000000
+  Size.Height = 416.000000000000000000
+  Size.PlatformDefault = False
+  object ScrollBox1: TScrollBox
+    Align = Client
+    Size.Width = 621.000000000000000000
+    Size.Height = 416.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Viewport.Width = 605.000000000000000000
+    Viewport.Height = 416.000000000000000000
+    object lytBottom: TLayout
+      Align = Top
+      Margins.Top = 20.000000000000000000
+      Position.Y = 693.000000000000000000
+      Size.Width = 605.000000000000000000
+      Size.Height = 10.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+    end
+    object glytCards: TGridLayout
+      Align = Top
+      ItemHeight = 135.000000000000000000
+      ItemWidth = 290.000000000000000000
+      Padding.Top = 15.000000000000000000
+      Orientation = Horizontal
+      Margins.Left = 15.000000000000000000
+      Position.X = 15.000000000000000000
+      Position.Y = 65.000000000000000000
+      Size.Width = 590.000000000000000000
+      Size.Height = 300.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      object rCard1: TRectangle
+        Align = Center
+        Fill.Kind = Gradient
+        Fill.Gradient.Points = <
+          item
+            Color = claWhite
+            Offset = 0.000000000000000000
+          end
+          item
+            Color = xFFE5EDF6
+            Offset = 1.000000000000000000
+          end>
+        Fill.Gradient.StartPosition.X = 0.633974611759185800
+        Fill.Gradient.StartPosition.Y = 1.000000000000000000
+        Fill.Gradient.StopPosition.X = 0.366025418043136600
+        Fill.Gradient.StopPosition.Y = 0.000000009855696703
+        Padding.Left = 20.000000000000000000
+        Padding.Top = 20.000000000000000000
+        Padding.Right = 20.000000000000000000
+        Padding.Bottom = 30.000000000000000000
+        Margins.Left = 5.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Right = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Size.Width = 280.000000000000000000
+        Size.Height = 125.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = xFFDBD9D9
+        XRadius = 15.000000000000000000
+        YRadius = 15.000000000000000000
+        object Layout1: TLayout
+          Align = Top
+          Position.X = 20.000000000000000000
+          Position.Y = 20.000000000000000000
+          Size.Width = 240.000000000000000000
+          Size.Height = 25.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object Label1: TLabel
+            Align = Client
+            StyledSettings = []
+            Size.Width = 240.000000000000000000
+            Size.Height = 25.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Inter Variable Text'
+            TextSettings.Font.Size = 15.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            Text = 'Active Clients'
+            TabOrder = 0
+          end
+        end
+        object Label2: TLabel
+          Align = Client
+          StyledSettings = [Family]
+          Size.Width = 240.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 24.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          Text = '29'
+          TabOrder = 1
+          object cIcon1: TCircle
+            Align = Right
+            Fill.Color = xFFC8EDDF
+            Padding.Left = 10.000000000000000000
+            Padding.Top = 10.000000000000000000
+            Padding.Right = 10.000000000000000000
+            Padding.Bottom = 10.000000000000000000
+            Position.X = 190.000000000000000000
+            Size.Width = 50.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Kind = None
+            object gIcon1: TGlyph
+              Align = Client
+              Size.Width = 30.000000000000000000
+              Size.Height = 30.000000000000000000
+              Size.PlatformDefault = False
+              ImageIndex = 5
+              Images = dm.imgList
+            end
+          end
+        end
+      end
+      object rCard2: TRectangle
+        Align = Center
+        Fill.Kind = Gradient
+        Fill.Gradient.Points = <
+          item
+            Color = claWhite
+            Offset = 0.000000000000000000
+          end
+          item
+            Color = xFFE5EDF6
+            Offset = 1.000000000000000000
+          end>
+        Fill.Gradient.StartPosition.X = 0.633974611759185800
+        Fill.Gradient.StartPosition.Y = 1.000000000000000000
+        Fill.Gradient.StopPosition.X = 0.366025418043136600
+        Fill.Gradient.StopPosition.Y = 0.000000009855696703
+        Padding.Left = 20.000000000000000000
+        Padding.Top = 20.000000000000000000
+        Padding.Right = 20.000000000000000000
+        Padding.Bottom = 30.000000000000000000
+        Margins.Left = 5.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Right = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Size.Width = 280.000000000000000000
+        Size.Height = 125.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = xFFDBD9D9
+        XRadius = 15.000000000000000000
+        YRadius = 15.000000000000000000
+        object lytCardD2: TLayout
+          Align = Top
+          Position.X = 20.000000000000000000
+          Position.Y = 20.000000000000000000
+          Size.Width = 240.000000000000000000
+          Size.Height = 25.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object lbActiveClients: TLabel
+            Align = Client
+            StyledSettings = []
+            Size.Width = 240.000000000000000000
+            Size.Height = 25.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Inter Variable Text'
+            TextSettings.Font.Size = 15.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            Text = 'Active Clients'
+            TabOrder = 0
+          end
+        end
+        object lbActiveClientsC: TLabel
+          Align = Client
+          StyledSettings = [Family]
+          Size.Width = 240.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 24.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          Text = '29'
+          TabOrder = 1
+          object cIcon2: TCircle
+            Align = Right
+            Fill.Color = xFFC8EDDF
+            Padding.Left = 12.000000000000000000
+            Padding.Top = 12.000000000000000000
+            Padding.Right = 12.000000000000000000
+            Padding.Bottom = 12.000000000000000000
+            Position.X = 190.000000000000000000
+            Size.Width = 50.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Kind = None
+            object gIcon2: TGlyph
+              Align = Client
+              Size.Width = 26.000000000000000000
+              Size.Height = 26.000000000000000000
+              Size.PlatformDefault = False
+              ImageIndex = 7
+              Images = dm.imgList
+            end
+          end
+        end
+      end
+      object rCard3: TRectangle
+        Align = Center
+        Fill.Color = claWhite
+        Padding.Left = 20.000000000000000000
+        Padding.Top = 20.000000000000000000
+        Padding.Right = 20.000000000000000000
+        Padding.Bottom = 30.000000000000000000
+        Margins.Left = 5.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Right = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Size.Width = 280.000000000000000000
+        Size.Height = 125.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = xFFDBD9D9
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        object lytCardD3: TLayout
+          Align = Top
+          Position.X = 20.000000000000000000
+          Position.Y = 20.000000000000000000
+          Size.Width = 240.000000000000000000
+          Size.Height = 25.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object lbFullyPaid: TLabel
+            Align = Client
+            StyledSettings = []
+            Size.Width = 240.000000000000000000
+            Size.Height = 25.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Inter Variable Text'
+            TextSettings.Font.Size = 15.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            Text = 'Fully Paid'
+            TabOrder = 0
+          end
+        end
+        object lbFullyPaidC: TLabel
+          Align = Client
+          StyledSettings = [Family]
+          Size.Width = 240.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 24.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          Text = '1'
+          TabOrder = 1
+          object cIcon3: TCircle
+            Align = Right
+            Fill.Color = xFFC8EDDF
+            Padding.Left = 12.000000000000000000
+            Padding.Top = 12.000000000000000000
+            Padding.Right = 12.000000000000000000
+            Padding.Bottom = 12.000000000000000000
+            Position.X = 190.000000000000000000
+            Size.Width = 50.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Kind = None
+            object gIcon3: TGlyph
+              Align = Client
+              Size.Width = 26.000000000000000000
+              Size.Height = 26.000000000000000000
+              Size.PlatformDefault = False
+              ImageIndex = 6
+              Images = dm.imgList
+            end
+          end
+        end
+      end
+      object rCard4: TRectangle
+        Align = Center
+        Fill.Color = claWhite
+        Padding.Left = 20.000000000000000000
+        Padding.Top = 20.000000000000000000
+        Padding.Right = 20.000000000000000000
+        Padding.Bottom = 30.000000000000000000
+        Margins.Left = 5.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Right = 5.000000000000000000
+        Margins.Bottom = 5.000000000000000000
+        Size.Width = 280.000000000000000000
+        Size.Height = 125.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = xFFDBD9D9
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        object lytCardD4: TLayout
+          Align = Top
+          Position.X = 20.000000000000000000
+          Position.Y = 20.000000000000000000
+          Size.Width = 240.000000000000000000
+          Size.Height = 25.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object lbPartiallyPaid: TLabel
+            Align = Client
+            StyledSettings = []
+            Size.Width = 240.000000000000000000
+            Size.Height = 25.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Inter Variable Text'
+            TextSettings.Font.Size = 15.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            Text = 'Partially Paid'
+            TabOrder = 0
+          end
+        end
+        object lbPartiallyPaidC: TLabel
+          Align = Client
+          StyledSettings = [Family]
+          Size.Width = 240.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 24.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          Text = '13'
+          TabOrder = 1
+          object cIcon4: TCircle
+            Align = Right
+            Fill.Color = xFFC8EDDF
+            Padding.Left = 12.000000000000000000
+            Padding.Top = 12.000000000000000000
+            Padding.Right = 12.000000000000000000
+            Padding.Bottom = 12.000000000000000000
+            Position.X = 190.000000000000000000
+            Size.Width = 50.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Kind = None
+            object gIcon4: TGlyph
+              Align = Client
+              Size.Width = 26.000000000000000000
+              Size.Height = 26.000000000000000000
+              Size.PlatformDefault = False
+              ImageIndex = 8
+              Images = dm.imgList
+            end
+          end
+        end
+      end
+    end
+    object lytHeader: TLayout
+      Align = Top
+      Margins.Top = 10.000000000000000000
+      Position.Y = 10.000000000000000000
+      Size.Width = 605.000000000000000000
+      Size.Height = 55.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object lytTitle: TLayout
+        Align = Client
+        Margins.Left = 20.000000000000000000
+        Size.Width = 585.000000000000000000
+        Size.Height = 55.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object lbTitle: TLabel
+          Align = Client
+          StyledSettings = []
+          Size.Width = 585.000000000000000000
+          Size.Height = 38.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Family = 'Arial Rounded MT'
+          TextSettings.Font.Size = 30.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = claBlue
+          Text = 'Dashboard'
+          TabOrder = 0
+        end
+        object lbDescription: TLabel
+          Align = Bottom
+          StyledSettings = []
+          Position.Y = 38.000000000000000000
+          Size.Width = 585.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Family = 'Inter Variable Text'
+          TextSettings.Font.Size = 16.000000000000000000
+          TextSettings.FontColor = xFF687482
+          Text = 'Welcome to Roces Dental Clinic Management System'
+          TabOrder = 1
+        end
+      end
+    end
+    object Layout2: TLayout
+      Align = Top
+      Position.Y = 365.000000000000000000
+      Size.Width = 605.000000000000000000
+      Size.Height = 308.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      object rUrgentContracts: TRectangle
+        Align = Left
+        Padding.Left = 20.000000000000000000
+        Padding.Top = 10.000000000000000000
+        Padding.Right = 20.000000000000000000
+        Padding.Bottom = 20.000000000000000000
+        Margins.Left = 20.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 20.000000000000000000
+        Position.X = 20.000000000000000000
+        Position.Y = 10.000000000000000000
+        Size.Width = 357.000000000000000000
+        Size.Height = 298.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        XRadius = 9.000000000000000000
+        YRadius = 9.000000000000000000
+        object Layout3: TLayout
+          Align = Top
+          Padding.Bottom = 10.000000000000000000
+          Position.X = 20.000000000000000000
+          Position.Y = 10.000000000000000000
+          Size.Width = 317.000000000000000000
+          Size.Height = 47.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          object lbRecordedAppointments: TLabel
+            Align = Client
+            StyledSettings = [FontColor]
+            Size.Width = 317.000000000000000000
+            Size.Height = 37.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Candara'
+            TextSettings.Font.Size = 25.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            Text = 'Recorded Appointments'
+            TabOrder = 0
+          end
+        end
+        object Grid1: TGrid
+          Align = Client
+          CanFocus = True
+          ClipChildren = True
+          Size.Width = 317.000000000000000000
+          Size.Height = 221.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 2
+          Viewport.Width = 313.000000000000000000
+          Viewport.Height = 196.000000000000000000
+        end
+      end
+      object Rectangle1: TRectangle
+        Align = Left
+        Padding.Left = 20.000000000000000000
+        Padding.Top = 10.000000000000000000
+        Padding.Right = 20.000000000000000000
+        Padding.Bottom = 20.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 25.000000000000000000
+        Position.X = 397.000000000000000000
+        Position.Y = 10.000000000000000000
+        Size.Width = 200.000000000000000000
+        Size.Height = 298.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        XRadius = 9.000000000000000000
+        YRadius = 9.000000000000000000
+        object Layout4: TLayout
+          Align = Top
+          Padding.Bottom = 10.000000000000000000
+          Position.X = 20.000000000000000000
+          Position.Y = 10.000000000000000000
+          Size.Width = 160.000000000000000000
+          Size.Height = 47.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          object lbQuickActions: TLabel
+            Align = Client
+            StyledSettings = [FontColor]
+            Size.Width = 160.000000000000000000
+            Size.Height = 37.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Candara'
+            TextSettings.Font.Size = 25.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            Text = 'Quick Actions'
+            TabOrder = 0
+          end
+        end
+        object Layout5: TLayout
+          Align = Top
+          Margins.Top = 10.000000000000000000
+          Position.X = 20.000000000000000000
+          Position.Y = 67.000000000000000000
+          Size.Width = 160.000000000000000000
+          Size.Height = 80.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 2
+          object btnNewPatient: TButton
+            Align = Left
+            StyledSettings = [Family, Style, FontColor]
+            Margins.Right = 10.000000000000000000
+            Size.Width = 75.000000000000000000
+            Size.Height = 80.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 3
+            Text = 'New Patient'
+            TextSettings.WordWrap = True
+            TextSettings.Trimming = None
+          end
+          object btnNewAppointment: TButton
+            Align = Left
+            StyledSettings = [Family, Style, FontColor]
+            Margins.Right = 10.000000000000000000
+            Position.X = 85.000000000000000000
+            Size.Width = 75.000000000000000000
+            Size.Height = 80.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 2
+            Text = 'New Appointment'
+            TextSettings.WordWrap = True
+            TextSettings.Trimming = None
+          end
+        end
+        object btnReportIssue: TButton
+          Align = Top
+          Margins.Top = 10.000000000000000000
+          Position.X = 20.000000000000000000
+          Position.Y = 157.000000000000000000
+          Size.Width = 160.000000000000000000
+          Size.Height = 68.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 3
+          Text = 'Report Issue'
+          TextSettings.Trimming = None
+        end
+      end
+    end
+  end
+end
