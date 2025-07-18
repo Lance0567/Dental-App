@@ -58,14 +58,16 @@ type
     lBevel: TLine;
     lytUser: TLayout;
     Layout2: TLayout;
-    btnNewPatient: TButton;
-    btnNewAppointment: TButton;
     slUserName: TSkLabel;
     RoundRect1: TRoundRect;
-    procedure glytCardsResize(Sender: TObject);
+    btnNewPatient: TCornerButton;
+    btnNewAppointment: TCornerButton;
+    procedure FrameResize(Sender: TObject);
   private
+
     { Private declarations }
   public
+    procedure CardsResize;
     { Public declarations }
   end;
 
@@ -73,16 +75,55 @@ implementation
 
 {$R *.fmx}
 
-uses uDm;
+uses uDm, uMain;
 
-procedure TfDashboard.glytCardsResize(Sender: TObject);
+procedure TfDashboard.FrameResize(Sender: TObject);
+begin
+  // Cards responsive
+  if frmMain.ClientWidth >= 1300 then
+  begin
+    glytCards.Height := 170;
+    glytCards.ItemWidth := 345;
+    glytCards.Padding.Right := 0;
+    glytCards.Padding.Left := 0;
+  end
+  else if frmMain.ClientWidth <= 800 then
+  begin
+    glytCards.Height := 610;
+  end
+  else
+  begin
+    glytCards.Height := 321;
+    glytCards.ItemWidth := 270;
+  end;
+end;
+
+// Card Resize
+procedure TfDashboard.CardsResize;
 var
   AvailableWidth: Integer;
   ItemsPerRow: Integer;
 begin
   AvailableWidth := Trunc(glytCards.Width);
-  ItemsPerRow := Max(1, AvailableWidth div 265);
-  glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
+
+  // Device Dimension setter
+  if frmMain.Width > 1900 then
+  begin
+    glytCards.Height := 170;
+    glytCards.Width := 1660;
+  end;
+
+  // Dimension condition
+  if frmMain.ClientWidth > 1900 then
+  begin
+    ItemsPerRow := Max(1, AvailableWidth div 400);
+    glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
+  end
+  else if frmMain.ClientWidth > 1300 then
+  begin
+    ItemsPerRow := Max(1, AvailableWidth div 265);
+    glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
+  end;
 end;
 
 end.

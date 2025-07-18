@@ -2,6 +2,7 @@ object fDashboard: TfDashboard
   Size.Width = 580.000000000000000000
   Size.Height = 416.000000000000000000
   Size.PlatformDefault = False
+  OnResize = FrameResize
   object ScrollBox1: TScrollBox
     Align = Client
     Size.Width = 580.000000000000000000
@@ -32,7 +33,6 @@ object fDashboard: TfDashboard
       Size.Height = 300.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 2
-      OnResize = glytCardsResize
       object rCard1: TRectangle
         Align = Center
         Fill.Kind = Gradient
@@ -439,8 +439,8 @@ object fDashboard: TfDashboard
           Size.Height = 303.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 2
-          Viewport.Width = 175.000000000000000000
-          Viewport.Height = 278.000000000000000000
+          Viewport.Width = 179.000000000000000000
+          Viewport.Height = 303.000000000000000000
         end
       end
       object rQuickActions: TRectangle
@@ -502,31 +502,33 @@ object fDashboard: TfDashboard
           Size.Height = 80.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 3
-          object btnNewPatient: TButton
+          object btnNewPatient: TCornerButton
             Align = Left
-            StyledSettings = [Family, Style, FontColor]
             Margins.Right = 10.000000000000000000
             Position.X = 20.000000000000000000
-            Size.Width = 90.000000000000000000
+            Sides = [Top, Left, Bottom, Right]
+            Size.Width = 93.000000000000000000
             Size.Height = 80.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 3
             Text = 'New Patient'
-            TextSettings.WordWrap = True
             TextSettings.Trimming = None
+            XRadius = 3.000000000000000000
+            YRadius = 3.000000000000000000
           end
-          object btnNewAppointment: TButton
+          object btnNewAppointment: TCornerButton
             Align = Left
-            StyledSettings = [Family, Style, FontColor]
-            Margins.Right = 10.000000000000000000
-            Position.X = 120.000000000000000000
-            Size.Width = 90.000000000000000000
+            Position.X = 123.000000000000000000
+            Sides = [Top, Left, Bottom, Right]
+            Size.Width = 99.000000000000000000
             Size.Height = 80.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 2
             Text = 'New Appointment'
             TextSettings.WordWrap = True
             TextSettings.Trimming = None
+            XRadius = 3.000000000000000000
+            YRadius = 3.000000000000000000
           end
         end
       end

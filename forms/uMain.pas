@@ -23,9 +23,11 @@ type
     lbMainMenu: TLabel;
     lDivider: TLine;
     fDashboard: TfDashboard;
+    lHeightNWidth: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure mvSidebarResize(Sender: TObject);
     procedure FormResize(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -44,26 +46,36 @@ uses uDm;
 { Form create }
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
-  // default Show sidebar
+  // Default Show sidebar
   mvSidebar.ShowMaster;
   mvSidebar.NavigationPaneOptions.CollapsedWidth := 50;
-
-  // Form Caption
-  Self.Caption := 'Dental System | '+ 'Height: ' +
-  Self.Height.ToString + ', ' + 'Width: ' + Self.Width.ToString;
 end;
 
 { Form Resized }
 procedure TfrmMain.FormResize(Sender: TObject);
 begin
-  if Self.Height >= 544 then
+  if Self.Height <= 544 then
   begin
-    fDashboard.glytCards.Height := 170;
+    fDashboard.glytCards.Height := 300;
   end
   else
   begin
-    fDashboard.glytCards.Height := 300;
+    fDashboard.glytCards.Height := 170;
   end;
+
+  // Form Caption
+  Self.Caption := 'Dental System | '+ 'Height: ' +
+  Self.ClientHeight.ToString + ', ' + 'Width: ' + Self.ClientWidth.ToString + ' Card width: '
+  + fDashboard.glytCards.Width.ToString + ' Card height: ' + fDashboard.glytCards.Height.ToString;
+
+  // Dashboard cards resize
+  fDashboard.CardsResize;
+end;
+
+procedure TfrmMain.FormShow(Sender: TObject);
+begin
+  // Dashboard cards resize
+  fDashboard.CardsResize;
 end;
 
 { Sidebar Resized }

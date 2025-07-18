@@ -12,6 +12,7 @@ object frmMain: TfrmMain
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
   OnResize = FormResize
+  OnShow = FormShow
   DesignerMasterStyle = 0
   object lytContainer: TLayout
     Align = Client
@@ -170,6 +171,17 @@ object frmMain: TfrmMain
             Stroke.Color = claWhite
           end
         end
+        object lHeightNWidth: TLabel
+          Align = Top
+          Margins.Left = 10.000000000000000000
+          Position.X = 10.000000000000000000
+          Position.Y = 250.000000000000000000
+          Size.Width = 235.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Dimension:'
+          TabOrder = 6
+        end
       end
     end
     object lytContent: TLayout
@@ -297,8 +309,8 @@ object frmMain: TfrmMain
               inherited Grid1: TGrid
                 Size.Width = 176.000000000000000000
                 Size.Height = 263.000000000000000000
-                Viewport.Width = 172.000000000000000000
-                Viewport.Height = 238.000000000000000000
+                Viewport.Width = 176.000000000000000000
+                Viewport.Height = 263.000000000000000000
               end
             end
             inherited rQuickActions: TRectangle
