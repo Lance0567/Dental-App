@@ -1,0 +1,179 @@
+object fPatients: TfPatients
+  Size.Width = 580.000000000000000000
+  Size.Height = 416.000000000000000000
+  Size.PlatformDefault = False
+  object lytHeader: TLayout
+    Align = Top
+    Margins.Top = 10.000000000000000000
+    Position.Y = 70.000000000000000000
+    Size.Width = 580.000000000000000000
+    Size.Height = 55.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object lytTitle: TLayout
+      Align = Client
+      Margins.Left = 20.000000000000000000
+      Size.Width = 560.000000000000000000
+      Size.Height = 55.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object lbTitle: TLabel
+        Align = Client
+        StyledSettings = []
+        Size.Width = 560.000000000000000000
+        Size.Height = 38.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Family = 'Arial Rounded MT'
+        TextSettings.Font.Size = 30.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claBlue
+        Text = 'Patients'
+        TabOrder = 0
+      end
+      object lbDescription: TLabel
+        Align = Bottom
+        StyledSettings = []
+        Position.Y = 38.000000000000000000
+        Size.Width = 560.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Family = 'Inter Variable Text'
+        TextSettings.Font.Size = 16.000000000000000000
+        TextSettings.FontColor = xFF687482
+        Text = 'Manage and view patient records'
+        TabOrder = 1
+      end
+    end
+  end
+  object rToolbar: TRectangle
+    Align = MostTop
+    Fill.Color = claWhite
+    Size.Width = 580.000000000000000000
+    Size.Height = 60.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    Stroke.Thickness = 0.500000000000000000
+    object lytToolbarH: TLayout
+      Align = Client
+      Size.Width = 580.000000000000000000
+      Size.Height = 60.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 5
+      object lDate: TLabel
+        Align = Left
+        StyledSettings = [Family, Size, Style]
+        Margins.Left = 5.000000000000000000
+        Position.X = 40.000000000000000000
+        Size.Width = 572.000000000000000000
+        Size.Height = 60.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Date'
+        TabOrder = 5
+      end
+      object gIcon: TGlyph
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Align = MostLeft
+        Position.X = 10.000000000000000000
+        Position.Y = 10.000000000000000000
+        Size.Width = 25.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        ImageIndex = 9
+        Images = dm.imgList
+      end
+      object lytUser: TLayout
+        Align = Right
+        Position.X = 440.000000000000000000
+        Size.Width = 140.000000000000000000
+        Size.Height = 60.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 6
+        object slUserName: TSkLabel
+          Align = Client
+          Margins.Left = 15.000000000000000000
+          Size.Width = 85.000000000000000000
+          Size.Height = 60.000000000000000000
+          Size.PlatformDefault = False
+          Words = <
+            item
+              Name = 'Item 0'
+              Text = 'Sofia Chen'
+            end
+            item
+              Name = 'Item 1'
+              Text = #13#10'Receptionist'
+            end>
+        end
+        object RoundRect1: TRoundRect
+          Align = Left
+          Margins.Top = 10.000000000000000000
+          Margins.Bottom = 10.000000000000000000
+          Position.Y = 10.000000000000000000
+          Size.Width = 40.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+        end
+      end
+    end
+    object lBevel: TLine
+      Align = Client
+      LineType = Bottom
+      Size.Width = 580.000000000000000000
+      Size.Height = 60.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Thickness = 0.100000001490116100
+    end
+  end
+  object lytSearch: TLayout
+    Align = Top
+    Padding.Left = 20.000000000000000000
+    Margins.Top = 15.000000000000000000
+    Position.Y = 140.000000000000000000
+    Size.Width = 580.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    object Layout1: TLayout
+      Align = Client
+      Padding.Top = 10.000000000000000000
+      Padding.Bottom = 10.000000000000000000
+      Size.Width = 388.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object Edit1: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Left
+        TabOrder = 0
+        Position.Y = 10.000000000000000000
+        Size.Width = 217.000000000000000000
+        Size.Height = 30.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object Layout2: TLayout
+      Align = Right
+      Padding.Top = 10.000000000000000000
+      Padding.Bottom = 10.000000000000000000
+      Position.X = 408.000000000000000000
+      Size.Width = 172.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object btnAddNewPatient: TCornerButton
+        Align = Client
+        Sides = [Top, Left, Bottom, Right]
+        Size.Width = 172.000000000000000000
+        Size.Height = 30.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = 'Add New Patient'
+        TextSettings.Trimming = None
+        XRadius = 13.000000000000000000
+        YRadius = 13.000000000000000000
+      end
+    end
+  end
+end

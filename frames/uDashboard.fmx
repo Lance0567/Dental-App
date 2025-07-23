@@ -11,15 +11,6 @@ object fDashboard: TfDashboard
     TabOrder = 0
     Viewport.Width = 564.000000000000000000
     Viewport.Height = 416.000000000000000000
-    object lytBottom: TLayout
-      Align = Top
-      Margins.Top = 20.000000000000000000
-      Position.Y = 835.000000000000000000
-      Size.Width = 564.000000000000000000
-      Size.Height = 10.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 0
-    end
     object glytCards: TGridLayout
       Align = Top
       ItemHeight = 135.000000000000000000
@@ -481,33 +472,19 @@ object fDashboard: TfDashboard
             TabOrder = 0
           end
         end
-        object btnReportIssue: TButton
-          Align = Top
-          Margins.Top = 10.000000000000000000
-          Position.X = 20.000000000000000000
-          Position.Y = 147.000000000000000000
-          Size.Width = 240.000000000000000000
-          Size.Height = 68.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 2
-          Text = 'Report Issue'
-          TextSettings.Trimming = None
-        end
         object Layout2: TLayout
           Align = Top
-          Padding.Left = 20.000000000000000000
           Position.X = 20.000000000000000000
           Position.Y = 57.000000000000000000
           Size.Width = 240.000000000000000000
           Size.Height = 80.000000000000000000
           Size.PlatformDefault = False
-          TabOrder = 3
+          TabOrder = 2
           object btnNewPatient: TCornerButton
             Align = Left
             Margins.Right = 10.000000000000000000
-            Position.X = 20.000000000000000000
             Sides = [Top, Left, Bottom, Right]
-            Size.Width = 93.000000000000000000
+            Size.Width = 114.000000000000000000
             Size.Height = 80.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 3
@@ -518,9 +495,9 @@ object fDashboard: TfDashboard
           end
           object btnNewAppointment: TCornerButton
             Align = Left
-            Position.X = 123.000000000000000000
+            Position.X = 124.000000000000000000
             Sides = [Top, Left, Bottom, Right]
-            Size.Width = 99.000000000000000000
+            Size.Width = 114.000000000000000000
             Size.Height = 80.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 2
@@ -531,7 +508,31 @@ object fDashboard: TfDashboard
             YRadius = 3.000000000000000000
           end
         end
+        object btnReportAnIssue: TCornerButton
+          Align = Top
+          Margins.Top = 10.000000000000000000
+          Position.X = 20.000000000000000000
+          Position.Y = 147.000000000000000000
+          Sides = [Top, Left, Bottom, Right]
+          Size.Width = 240.000000000000000000
+          Size.Height = 62.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 3
+          Text = 'Report an Issue'
+          TextSettings.Trimming = None
+          XRadius = 3.000000000000000000
+          YRadius = 3.000000000000000000
+        end
       end
+    end
+    object lytBottom: TLayout
+      Align = Top
+      Margins.Top = 20.000000000000000000
+      Position.Y = 835.000000000000000000
+      Size.Width = 564.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
     end
     object rToolbar: TRectangle
       Align = MostTop

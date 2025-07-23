@@ -3,7 +3,7 @@ unit uDashboard;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   System.Skia, System.Rtti, FMX.Grid.Style, FMX.Calendar, FMX.ScrollBox,
   FMX.Grid, FMX.Skia, FMX.ImgList, FMX.Controls.Presentation, FMX.Objects,
@@ -12,7 +12,6 @@ uses
 type
   TfDashboard = class(TFrame)
     ScrollBox1: TScrollBox;
-    lytBottom: TLayout;
     glytCards: TGridLayout;
     lytHeader: TLayout;
     lbTitle: TLabel;
@@ -50,18 +49,19 @@ type
     Layout4: TLayout;
     lbQuickActions: TLabel;
     Grid1: TGrid;
-    btnReportIssue: TButton;
+    Layout2: TLayout;
+    btnNewPatient: TCornerButton;
+    btnNewAppointment: TCornerButton;
+    lytBottom: TLayout;
+    btnReportAnIssue: TCornerButton;
     rToolbar: TRectangle;
     lytToolbarH: TLayout;
     lDate: TLabel;
     gIcon: TGlyph;
-    lBevel: TLine;
     lytUser: TLayout;
-    Layout2: TLayout;
     slUserName: TSkLabel;
     RoundRect1: TRoundRect;
-    btnNewPatient: TCornerButton;
-    btnNewAppointment: TCornerButton;
+    lBevel: TLine;
     procedure FrameResize(Sender: TObject);
   private
 
@@ -77,28 +77,37 @@ implementation
 
 uses uDm, uMain;
 
+{ Frame Resize }
 procedure TfDashboard.FrameResize(Sender: TObject);
 begin
-  // Cards responsive
-  if frmMain.ClientWidth >= 1300 then
+  // Cards width responsive
+  if frmMain.ClientWidth > 1900 then
   begin
-    glytCards.Height := 170;
-    glytCards.ItemWidth := 345;
+    glytCards.ItemWidth := 320;
     glytCards.Padding.Right := 0;
     glytCards.Padding.Left := 0;
   end
-  else if frmMain.ClientWidth <= 800 then
+  else if (frmMain.ClientHeight <= 505) and (frmMain.ClientWidth <= 800) then
   begin
-    glytCards.Height := 610;
+    glytCards.Height := 420;
   end
   else
   begin
-    glytCards.Height := 321;
     glytCards.ItemWidth := 270;
+  end;
+
+  // Cards height responsive
+  if frmMain.ClientHeight < 510 then
+  begin
+    glytCards.Height := 300;
+  end
+  else
+  begin
+    glytCards.Height := 160;
   end;
 end;
 
-// Card Resize
+{ Card Resize }
 procedure TfDashboard.CardsResize;
 var
   AvailableWidth: Integer;
@@ -107,16 +116,24 @@ begin
   AvailableWidth := Trunc(glytCards.Width);
 
   // Device Dimension setter
-  if frmMain.Width > 1900 then
+  if frmMain.Width > 1900 then   // Dimension greater than 1900
   begin
-    glytCards.Height := 170;
     glytCards.Width := 1660;
+  end
+  else
+  begin
+    glytCards.Width := 275;
   end;
 
   // Dimension condition
   if frmMain.ClientWidth > 1900 then
   begin
     ItemsPerRow := Max(1, AvailableWidth div 400);
+    glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
+  end
+  else if (frmMain.ClientWidth > 840) AND (frmMain.ClientWidth < 1300) then
+  begin
+    ItemsPerRow := Max(1, AvailableWidth div 290);
     glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
   end
   else if frmMain.ClientWidth > 1300 then
