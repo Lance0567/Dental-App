@@ -39947,6 +39947,7 @@ object TStyleContainer
   object TLayout
     StyleName = 'gridstyle'
     Align = Center
+    Visible = False
     TabOrder = 76
     object TBrushObject
       StyleName = 'AlternatingRowBackground'
@@ -62894,7 +62895,7 @@ object TStyleContainer
       FocusedColor = claBlack
       NormalColor = claWhite
       PressedColor = claWhite
-      object label: TLabel
+      object TLabel
         StyleName = 'label'
         Align = Top
         StyledSettings = [Family, Style]
@@ -66829,6 +66830,85 @@ object TStyleContainer
       Text = 'Text'
       TextSettings.Font.Size = 16.000000000000000000
       TextSettings.WordWrap = False
+    end
+  end
+  object TStyleObject
+    StyleName = 'mvSidebarStyle1'
+    Align = Center
+    SourceLookup = 'Windows 10 Modern Darkstyle.png'
+    Size.Width = 245.000000000000000000
+    Size.Height = 505.000000000000000000
+    Size.PlatformDefault = False
+    SourceLink = <
+      item
+        CapInsets.Left = 2.000000000000000000
+        CapInsets.Top = 2.000000000000000000
+        CapInsets.Right = 2.000000000000000000
+        CapInsets.Bottom = 2.000000000000000000
+        SourceRect.Left = 2.000000000000000000
+        SourceRect.Top = 46.000000000000000000
+        SourceRect.Right = 48.000000000000000000
+        SourceRect.Bottom = 92.000000000000000000
+      end
+      item
+        CapInsets.Left = 3.000000000000000000
+        CapInsets.Top = 3.000000000000000000
+        CapInsets.Right = 3.000000000000000000
+        CapInsets.Bottom = 3.000000000000000000
+        Scale = 1.500000000000000000
+        SourceRect.Left = 3.000000000000000000
+        SourceRect.Top = 69.000000000000000000
+        SourceRect.Right = 72.000000000000000000
+        SourceRect.Bottom = 138.000000000000000000
+      end
+      item
+        CapInsets.Left = 4.000000000000000000
+        CapInsets.Top = 4.000000000000000000
+        CapInsets.Right = 4.000000000000000000
+        CapInsets.Bottom = 4.000000000000000000
+        Scale = 2.000000000000000000
+        SourceRect.Left = 4.000000000000000000
+        SourceRect.Top = 92.000000000000000000
+        SourceRect.Right = 96.000000000000000000
+        SourceRect.Bottom = 184.000000000000000000
+      end
+      item
+        CapInsets.Left = 6.000000000000000000
+        CapInsets.Top = 6.000000000000000000
+        CapInsets.Right = 6.000000000000000000
+        CapInsets.Bottom = 6.000000000000000000
+        Scale = 3.000000000000000000
+        SourceRect.Left = 6.000000000000000000
+        SourceRect.Top = 138.000000000000000000
+        SourceRect.Right = 144.000000000000000000
+        SourceRect.Bottom = 276.000000000000000000
+      end>
+    object TBrushObject
+      StyleName = 'dropline'
+      Brush.Color = xFF151515
+    end
+    object TRectangle
+      StyleName = 'rmBackground'
+      Align = Contents
+      Fill.Kind = Gradient
+      Fill.Gradient.Points = <
+        item
+          Color = xFF3379C4
+          Offset = 0.000000000000000000
+        end
+        item
+          Color = xFF134E5E
+          Offset = 1.000000000000000000
+        end>
+      Fill.Gradient.StartPosition.X = 0.500000000000000000
+      Fill.Gradient.StartPosition.Y = 1.000000000000000000
+      Fill.Gradient.StopPosition.X = 0.499999970197677600
+      Fill.Gradient.StopPosition.Y = 0.000000000000000000
+      Sides = [Left, Bottom, Right]
+      Size.Width = 245.000000000000000000
+      Size.Height = 505.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
     end
   end
 end

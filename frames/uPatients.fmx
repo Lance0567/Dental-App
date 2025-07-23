@@ -126,7 +126,7 @@ object fPatients: TfPatients
       Stroke.Thickness = 0.100000001490116100
     end
   end
-  object lytSearch: TLayout
+  object lytComponents: TLayout
     Align = Top
     Padding.Left = 20.000000000000000000
     Margins.Top = 15.000000000000000000
@@ -135,7 +135,7 @@ object fPatients: TfPatients
     Size.Height = 50.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 3
-    object Layout1: TLayout
+    object lytSearch: TLayout
       Align = Client
       Padding.Top = 10.000000000000000000
       Padding.Bottom = 10.000000000000000000
@@ -143,7 +143,7 @@ object fPatients: TfPatients
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
-      object Edit1: TEdit
+      object eSearch: TEdit
         Touch.InteractiveGestures = [LongTap, DoubleTap]
         Align = Left
         TabOrder = 0
@@ -175,5 +175,27 @@ object fPatients: TfPatients
         YRadius = 13.000000000000000000
       end
     end
+  end
+  object Layout1: TLayout
+    Align = Bottom
+    Position.Y = 366.000000000000000000
+    Size.Width = 580.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+  end
+  object Grid1: TGrid
+    Align = Client
+    CanFocus = True
+    ClipChildren = True
+    Margins.Left = 20.000000000000000000
+    Margins.Top = 10.000000000000000000
+    Margins.Right = 20.000000000000000000
+    Size.Width = 540.000000000000000000
+    Size.Height = 166.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    Viewport.Width = 536.000000000000000000
+    Viewport.Height = 141.000000000000000000
   end
 end

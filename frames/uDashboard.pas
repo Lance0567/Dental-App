@@ -136,7 +136,7 @@ begin
     ItemsPerRow := Max(1, AvailableWidth div 290);
     glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
   end
-  else if frmMain.ClientWidth > 1300 then
+  else if (frmMain.ClientWidth < 840) OR (frmMain.ClientWidth > 1300) then
   begin
     ItemsPerRow := Max(1, AvailableWidth div 265);
     glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);

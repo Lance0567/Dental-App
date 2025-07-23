@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Controls.Presentation, FMX.Layouts, System.Skia, FMX.Objects, FMX.Skia,
-  FMX.ImgList, FMX.Edit;
+  FMX.ImgList, FMX.Edit, System.Rtti, FMX.Grid.Style, FMX.ScrollBox, FMX.Grid;
 
 type
   TfPatients = class(TFrame)
@@ -22,11 +22,13 @@ type
     slUserName: TSkLabel;
     RoundRect1: TRoundRect;
     lBevel: TLine;
+    lytComponents: TLayout;
+    eSearch: TEdit;
     lytSearch: TLayout;
-    Edit1: TEdit;
-    Layout1: TLayout;
     Layout2: TLayout;
     btnAddNewPatient: TCornerButton;
+    Layout1: TLayout;
+    Grid1: TGrid;
   private
     { Private declarations }
   public

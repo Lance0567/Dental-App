@@ -23,6 +23,9 @@ type
     lbMainMenu: TLabel;
     lDivider: TLine;
     fDashboard: TfDashboard;
+    tcController: TTabControl;
+    tiDashboard: TTabItem;
+    tiPatients: TTabItem;
     procedure FormCreate(Sender: TObject);
     procedure mvSidebarResize(Sender: TObject);
     procedure FormResize(Sender: TObject);
