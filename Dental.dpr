@@ -7,7 +7,8 @@ uses
   uDm in 'data module\uDm.pas' {dm: TDataModule},
   uDashboard in 'frames\uDashboard.pas' {fDashboard: TFrame},
   uPatients in 'frames\uPatients.pas' {fPatients: TFrame},
-  uAppointments in 'frames\uAppointments.pas' {fAppointments: TFrame};
+  uAppointments in 'frames\uAppointments.pas' {fAppointments: TFrame},
+  uPatientModal in 'modals\uPatientModal.pas' {fPatientModal: TFrame};
 
 {$R *.res}
 

@@ -54,6 +54,7 @@ object fPatients: TfPatients
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Left
           TabOrder = 0
+          Text = 'Search patients...'
           Position.Y = 10.000000000000000000
           Size.Width = 217.000000000000000000
           Size.Height = 30.000000000000000000

@@ -1,0 +1,172 @@
+object fPatientModal: TfPatientModal
+  Size.Width = 580.000000000000000000
+  Size.Height = 416.000000000000000000
+  Size.PlatformDefault = False
+  object lytContentH: TLayout
+    Align = Client
+    Size.Width = 580.000000000000000000
+    Size.Height = 416.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object rBackground: TRectangle
+      Align = Contents
+      Fill.Color = claBlack
+      Padding.Left = 100.000000000000000000
+      Padding.Top = 50.000000000000000000
+      Padding.Right = 100.000000000000000000
+      Padding.Bottom = 50.000000000000000000
+      Opacity = 0.699999988079071000
+      Size.Width = 580.000000000000000000
+      Size.Height = 416.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object rModalInfo: TRectangle
+      Align = Client
+      Fill.Color = claWhite
+      Margins.Left = 100.000000000000000000
+      Margins.Top = 50.000000000000000000
+      Margins.Right = 100.000000000000000000
+      Margins.Bottom = 50.000000000000000000
+      Size.Width = 380.000000000000000000
+      Size.Height = 316.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      XRadius = 13.000000000000000000
+      YRadius = 13.000000000000000000
+      object lytPatientH: TLayout
+        Align = Top
+        Position.Y = 50.000000000000000000
+        Size.Width = 380.000000000000000000
+        Size.Height = 161.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object lytPatientProfile: TLayout
+          Align = Left
+          Size.Width = 161.000000000000000000
+          Size.Height = 161.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object cProfilePhoto: TCircle
+            Align = MostTop
+            Fill.Color = xFF59D5F5
+            Size.Width = 161.000000000000000000
+            Size.Height = 89.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Color = xFF9DF4FA
+            object Glyph1: TGlyph
+              Align = Center
+              Size.Width = 44.000000000000000000
+              Size.Height = 44.000000000000000000
+              Size.PlatformDefault = False
+              ImageIndex = 3
+              Images = dm.imgList
+            end
+          end
+          object lbProfilePhoto: TLabel
+            Align = Top
+            StyledSettings = [Family, FontColor]
+            Margins.Top = 10.000000000000000000
+            Position.Y = 99.000000000000000000
+            Size.Width = 161.000000000000000000
+            Size.Height = 17.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 14.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.HorzAlign = Center
+            Text = 'Profile Photo'
+            TabOrder = 1
+          end
+          object btnPhotoUpload: TCornerButton
+            Align = Top
+            Margins.Left = 20.000000000000000000
+            Margins.Top = 5.000000000000000000
+            Margins.Right = 20.000000000000000000
+            Position.X = 20.000000000000000000
+            Position.Y = 121.000000000000000000
+            Sides = [Top, Left, Bottom, Right]
+            Size.Width = 121.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 2
+            Text = 'Choose File No file'
+            TextSettings.Trimming = None
+            XRadius = 3.000000000000000000
+            YRadius = 3.000000000000000000
+          end
+        end
+        object lytPatientDetails: TLayout
+          Align = Client
+          Size.Width = 219.000000000000000000
+          Size.Height = 161.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+        end
+      end
+      object lytMedicalNotes: TLayout
+        Align = Client
+        Padding.Left = 15.000000000000000000
+        Size.Width = 380.000000000000000000
+        Size.Height = 55.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object lbMedicalNotes: TLabel
+          Align = Left
+          Position.X = 15.000000000000000000
+          Size.Width = 120.000000000000000000
+          Size.Height = 55.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Medical Notes'
+          TabOrder = 0
+        end
+      end
+      object lytButtonSaveH: TLayout
+        Align = Bottom
+        Padding.Top = 10.000000000000000000
+        Padding.Right = 20.000000000000000000
+        Padding.Bottom = 10.000000000000000000
+        Position.Y = 266.000000000000000000
+        Size.Width = 380.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        object btnSavePatient: TCornerButton
+          Align = Right
+          Position.X = 272.000000000000000000
+          Position.Y = 10.000000000000000000
+          Sides = [Top, Left, Bottom, Right]
+          Size.Width = 88.000000000000000000
+          Size.Height = 30.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Text = 'Save Patient'
+          TextSettings.Trimming = None
+          XRadius = 8.000000000000000000
+          YRadius = 8.000000000000000000
+        end
+      end
+      object lytTitle: TLayout
+        Align = MostTop
+        Padding.Left = 15.000000000000000000
+        Padding.Top = 10.000000000000000000
+        Padding.Bottom = 10.000000000000000000
+        Size.Width = 380.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        object lbTitle: TLabel
+          Align = Left
+          StyledSettings = [Family, FontColor]
+          Position.X = 15.000000000000000000
+          Position.Y = 10.000000000000000000
+          Size.Width = 120.000000000000000000
+          Size.Height = 30.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          Text = 'Add New Patient'
+          TabOrder = 0
+        end
+      end
+    end
+  end
+end

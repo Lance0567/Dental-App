@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
   FMX.Controls.Presentation, FMX.MultiView, FMX.TabControl, FMX.StdCtrls,
-  FMX.Objects, uDashboard, FMX.ImgList, uPatients, uAppointments;
+  FMX.Objects, uDashboard, FMX.ImgList, uPatients, uAppointments, uPatientModal;
 
 type
   TfrmMain = class(TForm)
@@ -29,6 +29,7 @@ type
     fPatients: TfPatients;
     tiAppointments: TTabItem;
     fAppointments: TfAppointments;
+    fPatientModal: TfPatientModal;
     procedure FormCreate(Sender: TObject);
     procedure mvSidebarResize(Sender: TObject);
     procedure FormResize(Sender: TObject);
