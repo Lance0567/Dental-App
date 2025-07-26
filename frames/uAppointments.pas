@@ -1,4 +1,4 @@
-unit uPatients;
+unit uAppointments;
 
 interface
 
@@ -6,10 +6,12 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Controls.Presentation, FMX.Layouts, System.Skia, FMX.Objects, FMX.Skia,
-  FMX.ImgList, FMX.Edit, System.Rtti, FMX.Grid.Style, FMX.ScrollBox, FMX.Grid;
+  FMX.ImgList, FMX.Calendar, FMX.TMSFNCTypes, FMX.TMSFNCUtils,
+  FMX.TMSFNCGraphics, FMX.TMSFNCGraphicsTypes, FMX.TMSFNCCustomControl,
+  FMX.TMSFNCCalendar;
 
 type
-  TfPatients = class(TFrame)
+  TfAppointments = class(TFrame)
     lytHeader: TLayout;
     lytTitle: TLayout;
     lbTitle: TLabel;
@@ -22,14 +24,9 @@ type
     slUserName: TSkLabel;
     RoundRect1: TRoundRect;
     lBevel: TLine;
-    lytComponents: TLayout;
-    eSearch: TEdit;
-    lytSearch: TLayout;
-    lytButtonH: TLayout;
-    btnAddNewPatient: TCornerButton;
-    lytBottom: TLayout;
-    gPatients: TGrid;
-    ScrollBox1: TScrollBox;
+    Rectangle1: TRectangle;
+    Layout1: TLayout;
+    TMSFNCCalendar1: TTMSFNCCalendar;
   private
     { Private declarations }
   public

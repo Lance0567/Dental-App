@@ -1,0 +1,194 @@
+object fAppointments: TfAppointments
+  Size.Width = 580.000000000000000000
+  Size.Height = 416.000000000000000000
+  Size.PlatformDefault = False
+  object lytHeader: TLayout
+    Align = Top
+    Margins.Top = 10.000000000000000000
+    Position.Y = 70.000000000000000000
+    Size.Width = 580.000000000000000000
+    Size.Height = 55.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object lytTitle: TLayout
+      Align = Client
+      Margins.Left = 30.000000000000000000
+      Size.Width = 550.000000000000000000
+      Size.Height = 55.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object lbTitle: TLabel
+        Align = Client
+        StyledSettings = []
+        Size.Width = 550.000000000000000000
+        Size.Height = 38.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Family = 'Arial Rounded MT'
+        TextSettings.Font.Size = 30.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claBlue
+        Text = 'Appointments'
+        TabOrder = 0
+      end
+      object lbDescription: TLabel
+        Align = Bottom
+        StyledSettings = []
+        Position.Y = 38.000000000000000000
+        Size.Width = 550.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Family = 'Inter Variable Text'
+        TextSettings.Font.Size = 16.000000000000000000
+        TextSettings.FontColor = xFF687482
+        Text = 'Schedule and manage patient appointments'
+        TabOrder = 1
+      end
+    end
+  end
+  object rToolbar: TRectangle
+    Align = MostTop
+    Fill.Color = claWhite
+    Size.Width = 580.000000000000000000
+    Size.Height = 60.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    Stroke.Thickness = 0.500000000000000000
+    object lytToolbarH: TLayout
+      Align = Client
+      Size.Width = 580.000000000000000000
+      Size.Height = 60.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 5
+      object lDate: TLabel
+        Align = Left
+        StyledSettings = [Family, Size, Style]
+        Margins.Left = 5.000000000000000000
+        Position.X = 40.000000000000000000
+        Size.Width = 572.000000000000000000
+        Size.Height = 60.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Date'
+        TabOrder = 5
+      end
+      object gIcon: TGlyph
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Align = MostLeft
+        Position.X = 10.000000000000000000
+        Position.Y = 10.000000000000000000
+        Size.Width = 25.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        ImageIndex = 9
+        Images = dm.imgList
+      end
+      object lytUser: TLayout
+        Align = Right
+        Position.X = 440.000000000000000000
+        Size.Width = 140.000000000000000000
+        Size.Height = 60.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 6
+        object slUserName: TSkLabel
+          Align = Client
+          Margins.Left = 15.000000000000000000
+          Size.Width = 85.000000000000000000
+          Size.Height = 60.000000000000000000
+          Size.PlatformDefault = False
+          Words = <
+            item
+              Name = 'Item 0'
+              Text = 'Sofia Chen'
+            end
+            item
+              Name = 'Item 1'
+              Text = #13#10'Receptionist'
+            end>
+        end
+        object RoundRect1: TRoundRect
+          Align = Left
+          Margins.Top = 10.000000000000000000
+          Margins.Bottom = 10.000000000000000000
+          Position.Y = 10.000000000000000000
+          Size.Width = 40.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+        end
+      end
+    end
+    object lBevel: TLine
+      Align = Client
+      LineType = Bottom
+      Size.Width = 580.000000000000000000
+      Size.Height = 60.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Thickness = 0.100000001490116100
+    end
+  end
+  object Rectangle1: TRectangle
+    Align = Client
+    Fill.Color = claWhite
+    Padding.Left = 20.000000000000000000
+    Padding.Top = 20.000000000000000000
+    Padding.Right = 20.000000000000000000
+    Padding.Bottom = 20.000000000000000000
+    Margins.Left = 30.000000000000000000
+    Margins.Top = 20.000000000000000000
+    Margins.Right = 30.000000000000000000
+    Size.Width = 520.000000000000000000
+    Size.Height = 236.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    XRadius = 13.000000000000000000
+    YRadius = 13.000000000000000000
+    object TMSFNCCalendar1: TTMSFNCCalendar
+      Align = Client
+      Size.Width = 480.000000000000000000
+      Size.Height = 196.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 6
+      Header.Arrow.ArrowLeftBitmap = <>
+      Header.Arrow.ArrowRightBitmap = <>
+      Header.Fill.Kind = gfkGradient
+      Header.Fill.Color = xFFF6F8FC
+      Header.Fill.ColorTo = xFFEEF2F9
+      Header.Font.Size = 14.000000000000000000
+      Header.Font.StyleExt = {00070000000000000004000000}
+      Footer.Fill.Kind = gfkGradient
+      Footer.Fill.Color = xFFF6F8FC
+      Footer.Fill.ColorTo = xFFEEF2F9
+      Footer.Font.Size = 14.000000000000000000
+      Day = 27
+      Month = 7
+      Year = 2025
+      Date = 45865.000000000000000000
+      Events = <>
+      WeekNumberAppearance.Font.Color = xFF7A7A7A
+      DayNameAppearance.Font.Color = xFF7A7A7A
+      DateAppearance.SelectedFill.Color = claBlue
+      DateAppearance.SelectedFont.Size = 14.000000000000000000
+      DateAppearance.SelectedFont.Color = claWhite
+      DateAppearance.SelectedFont.StyleExt = {00070000000000000004000000}
+      DateAppearance.SelectedStroke.Color = xFF2D9BEF
+      DateAppearance.DisabledFont.Color = claLightgray
+      DateAppearance.DateBeforeFont.Color = xFFBBBBBB
+      DateAppearance.DateAfterFont.Color = xFFBBBBBB
+      DateAppearance.TodayFont.Color = xFF2D9BEF
+      DateAppearance.TodayFont.StyleExt = {00070000000000000004000000}
+      DateAppearance.BadgeFont.Size = 10.000000000000000000
+      DateAppearance.BadgeFont.Color = claWhite
+      DateAppearance.ShowFocus = False
+      LineAppearance.Stroke.Color = claDarkgray
+    end
+  end
+  object Layout1: TLayout
+    Align = Bottom
+    Margins.Top = 10.000000000000000000
+    Position.Y = 391.000000000000000000
+    Size.Width = 580.000000000000000000
+    Size.Height = 25.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+  end
+end

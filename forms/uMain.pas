@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
   FMX.Controls.Presentation, FMX.MultiView, FMX.TabControl, FMX.StdCtrls,
-  FMX.Objects, uDashboard, FMX.ImgList;
+  FMX.Objects, uDashboard, FMX.ImgList, uPatients, uAppointments;
 
 type
   TfrmMain = class(TForm)
@@ -26,11 +26,19 @@ type
     tcController: TTabControl;
     tiDashboard: TTabItem;
     tiPatients: TTabItem;
+    fPatients: TfPatients;
+    tiAppointments: TTabItem;
+    fAppointments: TfAppointments;
     procedure FormCreate(Sender: TObject);
     procedure mvSidebarResize(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure tcControllerChange(Sender: TObject);
+    procedure sbPatientsClick(Sender: TObject);
+    procedure sbDashboardClick(Sender: TObject);
+    procedure sbAppointmentsClick(Sender: TObject);
   private
+    procedure HideFrames;
     { Private declarations }
   public
     { Public declarations }
@@ -44,6 +52,14 @@ implementation
 {$R *.fmx}
 
 uses uDm;
+
+{ Hide Frames }
+procedure TfrmMain.HideFrames;
+begin
+  fDashboard.Visible := False;
+  fPatients.Visible := False;
+  fAppointments.Visible := False;
+end;
 
 { Form create }
 procedure TfrmMain.FormCreate(Sender: TObject);
@@ -114,6 +130,48 @@ begin
   lytSidebar.Width := mvSidebar.Width;
 
   fDashboard.CardsResize;
+end;
+
+{ Appointments tab }
+procedure TfrmMain.sbAppointmentsClick(Sender: TObject);
+begin
+  // Hide frames
+  HideFrames;
+
+  // Switch tab index
+  tcController.TabIndex := 2;
+  fAppointments.Visible := True;
+end;
+
+{ Dashboard tab }
+procedure TfrmMain.sbDashboardClick(Sender: TObject);
+begin
+  // Hide frames
+  HideFrames;
+
+  // Switch tab index
+  tcController.TabIndex := 0;
+  fDashboard.Visible := True;
+  fDashboard.ScrollBox1.ViewportPosition := PointF(0,0); // reset scrollbox
+end;
+
+{ Patients tab }
+procedure TfrmMain.sbPatientsClick(Sender: TObject);
+begin
+  // Hide frames
+  HideFrames;
+
+  // Switch tab index
+  tcController.TabIndex := 1;
+  fPatients.Visible := True;
+  fPatients.ScrollBox1.ViewportPosition := PointF(0,0); // reset scrollbox
+end;
+
+procedure TfrmMain.tcControllerChange(Sender: TObject);
+begin
+  case tcController.TabIndex of
+    0:
+  end;
 end;
 
 end.
