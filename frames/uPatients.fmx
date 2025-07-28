@@ -21,8 +21,8 @@ object fPatients: TfPatients
       Size.Height = 136.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 4
-      Viewport.Width = 516.000000000000000000
-      Viewport.Height = 111.000000000000000000
+      Viewport.Width = 520.000000000000000000
+      Viewport.Height = 136.000000000000000000
     end
     object lytBottom: TLayout
       Align = Bottom

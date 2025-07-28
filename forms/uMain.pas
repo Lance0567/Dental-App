@@ -38,6 +38,7 @@ type
     procedure sbPatientsClick(Sender: TObject);
     procedure sbDashboardClick(Sender: TObject);
     procedure sbAppointmentsClick(Sender: TObject);
+    procedure fPatientsbtnAddNewPatientClick(Sender: TObject);
   private
     procedure HideFrames;
     { Private declarations }
@@ -78,6 +79,7 @@ begin
   Self.ClientHeight.ToString + ', ' + 'Width: ' + Self.ClientWidth.ToString + ' Card width: '
   + fDashboard.glytCards.Width.ToString + ' Card height: ' + fDashboard.glytCards.Height.ToString;
 
+  // Fixed dimension
   if Self.ClientHeight < 505 then
   begin
     Self.Height := 505;
@@ -109,10 +111,41 @@ begin
   fDashboard.CardsResize;
 end;
 
+{ Add Patient Modal }
+procedure TfrmMain.fPatientsbtnAddNewPatientClick(Sender: TObject);
+begin
+  fPatientModal.Visible := True;
+
+  // Modal content margins
+  fPatientModal.rModalInfo.Margins.Left := 310;
+  fPatientModal.rModalInfo.Margins.Right := 310;
+  fPatientModal.rModalInfo.Margins.Top := 60;
+  fPatientModal.rModalInfo.Margins.Bottom := 60;
+
+  // Details 1
+  fPatientModal.lytFullName.Width := 240;
+  fPatientModal.lytDateOfBirth.Width := 240;
+
+  // Details 2
+  fPatientModal.lytGender.Width := 240;
+  fPatientModal.lytContactNumber.Width := 240;
+
+  // Details 3
+  fPatientModal.lytEmailAddress.Width := 240;
+  fPatientModal.lytAddress.Width := 240;
+
+  // Medical notes
+  fPatientModal.mMedicalNotes.Text := 'Enter any relevant medical history, allergies, or notes';
+
+  // Profile Icon
+  fPatientModal.gIcon.Visible := False;
+  fPatientModal.lNameH.Visible := False;
+end;
+
 { Sidebar Resized }
 procedure TfrmMain.mvSidebarResize(Sender: TObject);
 begin
-  // Date formatted
+  // Date formatted display
   fDashboard.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);;
 
   // Sidebar adjustment
@@ -170,6 +203,7 @@ end;
 
 procedure TfrmMain.tcControllerChange(Sender: TObject);
 begin
+  // Change database connection according to the selected tab
   case tcController.TabIndex of
     0:
   end;

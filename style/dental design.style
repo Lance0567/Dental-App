@@ -26615,9 +26615,7 @@ object TStyleContainer
   object TLayout
     StyleName = 'editstyle'
     Align = Center
-    Visible = False
     TabOrder = 11
-    FixedHeight = 32
     object TActiveStyleObject
       StyleName = 'background'
       Align = Contents
@@ -26627,46 +26625,46 @@ object TStyleContainer
         item
           CapInsets.Left = 2.000000000000000000
           CapInsets.Right = 2.000000000000000000
-          SourceRect.Left = 208.000000000000000000
-          SourceRect.Top = 3.000000000000000000
-          SourceRect.Right = 234.000000000000000000
-          SourceRect.Bottom = 35.000000000000000000
+          SourceRect.Left = 420.000000000000000000
+          SourceRect.Top = 184.000000000000000000
+          SourceRect.Right = 446.000000000000000000
+          SourceRect.Bottom = 216.000000000000000000
         end
         item
           CapInsets.Left = 3.000000000000000000
           CapInsets.Right = 3.000000000000000000
           Scale = 1.500000000000000000
-          SourceRect.Left = 312.000000000000000000
-          SourceRect.Top = 4.000000000000000000
-          SourceRect.Right = 351.000000000000000000
-          SourceRect.Bottom = 52.000000000000000000
+          SourceRect.Left = 630.000000000000000000
+          SourceRect.Top = 276.000000000000000000
+          SourceRect.Right = 668.000000000000000000
+          SourceRect.Bottom = 323.000000000000000000
         end
         item
           CapInsets.Left = 4.000000000000000000
           CapInsets.Right = 4.000000000000000000
           Scale = 2.000000000000000000
-          SourceRect.Left = 416.000000000000000000
-          SourceRect.Top = 6.000000000000000000
-          SourceRect.Right = 468.000000000000000000
-          SourceRect.Bottom = 70.000000000000000000
+          SourceRect.Left = 840.000000000000000000
+          SourceRect.Top = 368.000000000000000000
+          SourceRect.Right = 892.000000000000000000
+          SourceRect.Bottom = 432.000000000000000000
         end
         item
           CapInsets.Left = 6.000000000000000000
           CapInsets.Right = 6.000000000000000000
           Scale = 3.000000000000000000
-          SourceRect.Left = 624.000000000000000000
-          SourceRect.Top = 9.000000000000000000
-          SourceRect.Right = 702.000000000000000000
-          SourceRect.Bottom = 105.000000000000000000
+          SourceRect.Left = 1259.000000000000000000
+          SourceRect.Top = 552.000000000000000000
+          SourceRect.Right = 1338.000000000000000000
+          SourceRect.Bottom = 648.000000000000000000
         end>
       SourceLink = <
         item
           CapInsets.Left = 2.000000000000000000
           CapInsets.Right = 2.000000000000000000
-          SourceRect.Left = 151.000000000000000000
-          SourceRect.Top = 3.000000000000000000
-          SourceRect.Right = 177.000000000000000000
-          SourceRect.Bottom = 35.000000000000000000
+          SourceRect.Left = 119.000000000000000000
+          SourceRect.Top = 4.000000000000000000
+          SourceRect.Right = 145.000000000000000000
+          SourceRect.Bottom = 36.000000000000000000
         end
         item
           CapInsets.Left = 3.000000000000000000
@@ -26697,6 +26695,23 @@ object TStyleContainer
         end>
       TouchAnimation.Link = <>
     end
+    object TRectangle
+      StyleName = 'backgroundColor'
+      Align = Contents
+      Fill.Color = claWhite
+      HitTest = False
+      Margins.Left = 1.000000000000000000
+      Margins.Top = 3.000000000000000000
+      Margins.Right = 1.000000000000000000
+      Margins.Bottom = 3.000000000000000000
+      Size.Width = 48.000000000000000000
+      Size.Height = 44.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Color = claDarkgray
+      Stroke.Thickness = 0.899999976158142100
+      XRadius = 13.000000000000000000
+      YRadius = 13.000000000000000000
+    end
     object TLayout
       StyleName = 'content'
       Align = Client
@@ -26708,6 +26723,7 @@ object TStyleContainer
       Size.Width = 42.000000000000000000
       Size.Height = 44.000000000000000000
       Size.PlatformDefault = False
+      TabOrder = 1
     end
     object TLayout
       StyleName = 'buttons'
@@ -26721,10 +26737,15 @@ object TStyleContainer
       Size.Width = 0.000000000000000000
       Size.Height = 46.000000000000000000
       Size.PlatformDefault = False
+      TabOrder = 2
     end
     object TColorObject
       StyleName = 'caretcolor'
       Color = xFF426BF2
+    end
+    object TFontObject
+      StyleName = 'font'
+      Font.Size = 16.000000000000000000
     end
     object TBrushObject
       StyleName = 'foreground'
@@ -26733,16 +26754,15 @@ object TStyleContainer
       StyleName = 'selection'
       Brush.Color = x7F0062B1
     end
-    object TFontObject
-      StyleName = 'font'
-      Font.Size = 16.000000000000000000
-    end
     object TLabel
       StyleName = 'prompt'
+      Align = Contents
       Locked = True
       Opacity = 0.500000000000000000
+      Margins.Left = 10.000000000000000000
       TextSettings.Trimming = None
       Visible = False
+      TabOrder = 3
     end
   end
   object TLayout
@@ -61111,267 +61131,10 @@ object TStyleContainer
     end
   end
   object TLayout
-    StyleName = 'cleareditbutton'
-    Align = Center
-    Visible = False
-    TabOrder = 164
-    FixedWidth = 28
-    FixedHeight = 28
-    object TButtonStyleObject
-      StyleName = 'background'
-      Align = Contents
-      SourceLookup = 'Windows 10 Modern Darkstyle.png'
-      WrapMode = Center
-      HotLink = <
-        item
-          SourceRect.Left = 417.000000000000000000
-          SourceRect.Top = 142.000000000000000000
-          SourceRect.Right = 445.000000000000000000
-          SourceRect.Bottom = 170.000000000000000000
-        end
-        item
-          Scale = 1.500000000000000000
-          SourceRect.Left = 626.000000000000000000
-          SourceRect.Top = 213.000000000000000000
-          SourceRect.Right = 668.000000000000000000
-          SourceRect.Bottom = 255.000000000000000000
-        end
-        item
-          Scale = 2.000000000000000000
-          SourceRect.Left = 834.000000000000000000
-          SourceRect.Top = 284.000000000000000000
-          SourceRect.Right = 890.000000000000000000
-          SourceRect.Bottom = 340.000000000000000000
-        end
-        item
-          Scale = 3.000000000000000000
-          SourceRect.Left = 1251.000000000000000000
-          SourceRect.Top = 426.000000000000000000
-          SourceRect.Right = 1335.000000000000000000
-          SourceRect.Bottom = 510.000000000000000000
-        end>
-      FocusedLink = <
-        item
-          SourceRect.Left = 379.000000000000000000
-          SourceRect.Top = 7.000000000000000000
-          SourceRect.Right = 407.000000000000000000
-          SourceRect.Bottom = 35.000000000000000000
-        end
-        item
-          Scale = 1.500000000000000000
-          SourceRect.Left = 568.000000000000000000
-          SourceRect.Top = 10.000000000000000000
-          SourceRect.Right = 610.000000000000000000
-          SourceRect.Bottom = 52.000000000000000000
-        end
-        item
-          Scale = 2.000000000000000000
-          SourceRect.Left = 758.000000000000000000
-          SourceRect.Top = 14.000000000000000000
-          SourceRect.Right = 814.000000000000000000
-          SourceRect.Bottom = 70.000000000000000000
-        end
-        item
-          Scale = 3.000000000000000000
-          SourceRect.Left = 1137.000000000000000000
-          SourceRect.Top = 21.000000000000000000
-          SourceRect.Right = 1221.000000000000000000
-          SourceRect.Bottom = 105.000000000000000000
-        end>
-      NormalLink = <
-        item
-          SourceRect.Left = 379.000000000000000000
-          SourceRect.Top = 7.000000000000000000
-          SourceRect.Right = 407.000000000000000000
-          SourceRect.Bottom = 35.000000000000000000
-        end
-        item
-          Scale = 1.500000000000000000
-          SourceRect.Left = 568.000000000000000000
-          SourceRect.Top = 10.000000000000000000
-          SourceRect.Right = 610.000000000000000000
-          SourceRect.Bottom = 52.000000000000000000
-        end
-        item
-          Scale = 2.000000000000000000
-          SourceRect.Left = 758.000000000000000000
-          SourceRect.Top = 14.000000000000000000
-          SourceRect.Right = 814.000000000000000000
-          SourceRect.Bottom = 70.000000000000000000
-        end
-        item
-          Scale = 3.000000000000000000
-          SourceRect.Left = 1137.000000000000000000
-          SourceRect.Top = 21.000000000000000000
-          SourceRect.Right = 1221.000000000000000000
-          SourceRect.Bottom = 105.000000000000000000
-        end>
-      PressedLink = <
-        item
-          SourceRect.Left = 415.000000000000000000
-          SourceRect.Top = 7.000000000000000000
-          SourceRect.Right = 443.000000000000000000
-          SourceRect.Bottom = 35.000000000000000000
-        end
-        item
-          Scale = 1.500000000000000000
-          SourceRect.Left = 622.000000000000000000
-          SourceRect.Top = 10.000000000000000000
-          SourceRect.Right = 664.000000000000000000
-          SourceRect.Bottom = 52.000000000000000000
-        end
-        item
-          Scale = 2.000000000000000000
-          SourceRect.Left = 830.000000000000000000
-          SourceRect.Top = 14.000000000000000000
-          SourceRect.Right = 886.000000000000000000
-          SourceRect.Bottom = 70.000000000000000000
-        end
-        item
-          Scale = 3.000000000000000000
-          SourceRect.Left = 1245.000000000000000000
-          SourceRect.Top = 21.000000000000000000
-          SourceRect.Right = 1329.000000000000000000
-          SourceRect.Bottom = 105.000000000000000000
-        end>
-      TouchAnimation.Link = <>
-    end
-    object TGlyph
-      StyleName = 'glyphstyle'
-      Margins.Left = 1.000000000000000000
-      Margins.Top = 1.000000000000000000
-      Margins.Right = 1.000000000000000000
-      Margins.Bottom = 1.000000000000000000
-      Align = VertCenter
-      Size.Width = 16.000000000000000000
-      Size.Height = 24.000000000000000000
-      Size.PlatformDefault = False
-    end
-    object TButtonStyleObject
-      StyleName = 'icon'
-      Align = Contents
-      SourceLookup = 'Windows 10 Modern Darkstyle.png'
-      WrapMode = Center
-      HotLink = <
-        item
-          SourceRect.Left = 203.000000000000000000
-          SourceRect.Top = 105.000000000000000000
-          SourceRect.Right = 223.000000000000000000
-          SourceRect.Bottom = 125.000000000000000000
-        end
-        item
-          Scale = 1.500000000000000000
-          SourceRect.Left = 304.000000000000000000
-          SourceRect.Top = 157.000000000000000000
-          SourceRect.Right = 334.000000000000000000
-          SourceRect.Bottom = 187.000000000000000000
-        end
-        item
-          Scale = 2.000000000000000000
-          SourceRect.Left = 406.000000000000000000
-          SourceRect.Top = 210.000000000000000000
-          SourceRect.Right = 446.000000000000000000
-          SourceRect.Bottom = 250.000000000000000000
-        end
-        item
-          Scale = 3.000000000000000000
-          SourceRect.Left = 609.000000000000000000
-          SourceRect.Top = 315.000000000000000000
-          SourceRect.Right = 669.000000000000000000
-          SourceRect.Bottom = 375.000000000000000000
-        end>
-      FocusedLink = <
-        item
-          SourceRect.Left = 203.000000000000000000
-          SourceRect.Top = 105.000000000000000000
-          SourceRect.Right = 223.000000000000000000
-          SourceRect.Bottom = 125.000000000000000000
-        end
-        item
-          Scale = 1.500000000000000000
-          SourceRect.Left = 304.000000000000000000
-          SourceRect.Top = 157.000000000000000000
-          SourceRect.Right = 334.000000000000000000
-          SourceRect.Bottom = 187.000000000000000000
-        end
-        item
-          Scale = 2.000000000000000000
-          SourceRect.Left = 406.000000000000000000
-          SourceRect.Top = 210.000000000000000000
-          SourceRect.Right = 446.000000000000000000
-          SourceRect.Bottom = 250.000000000000000000
-        end
-        item
-          Scale = 3.000000000000000000
-          SourceRect.Left = 609.000000000000000000
-          SourceRect.Top = 315.000000000000000000
-          SourceRect.Right = 669.000000000000000000
-          SourceRect.Bottom = 375.000000000000000000
-        end>
-      NormalLink = <
-        item
-          SourceRect.Left = 203.000000000000000000
-          SourceRect.Top = 105.000000000000000000
-          SourceRect.Right = 223.000000000000000000
-          SourceRect.Bottom = 125.000000000000000000
-        end
-        item
-          Scale = 1.500000000000000000
-          SourceRect.Left = 304.000000000000000000
-          SourceRect.Top = 157.000000000000000000
-          SourceRect.Right = 334.000000000000000000
-          SourceRect.Bottom = 187.000000000000000000
-        end
-        item
-          Scale = 2.000000000000000000
-          SourceRect.Left = 406.000000000000000000
-          SourceRect.Top = 210.000000000000000000
-          SourceRect.Right = 446.000000000000000000
-          SourceRect.Bottom = 250.000000000000000000
-        end
-        item
-          Scale = 3.000000000000000000
-          SourceRect.Left = 609.000000000000000000
-          SourceRect.Top = 315.000000000000000000
-          SourceRect.Right = 669.000000000000000000
-          SourceRect.Bottom = 375.000000000000000000
-        end>
-      PressedLink = <
-        item
-          SourceRect.Left = 226.000000000000000000
-          SourceRect.Top = 105.000000000000000000
-          SourceRect.Right = 246.000000000000000000
-          SourceRect.Bottom = 125.000000000000000000
-        end
-        item
-          Scale = 1.500000000000000000
-          SourceRect.Left = 338.000000000000000000
-          SourceRect.Top = 157.000000000000000000
-          SourceRect.Right = 368.000000000000000000
-          SourceRect.Bottom = 187.000000000000000000
-        end
-        item
-          Scale = 2.000000000000000000
-          SourceRect.Left = 452.000000000000000000
-          SourceRect.Top = 210.000000000000000000
-          SourceRect.Right = 492.000000000000000000
-          SourceRect.Bottom = 250.000000000000000000
-        end
-        item
-          Scale = 3.000000000000000000
-          SourceRect.Left = 678.000000000000000000
-          SourceRect.Top = 315.000000000000000000
-          SourceRect.Right = 738.000000000000000000
-          SourceRect.Bottom = 375.000000000000000000
-        end>
-      TouchAnimation.Link = <>
-    end
-  end
-  object TLayout
     StyleName = 'listboxheaderlabel'
     Align = Center
     Visible = False
-    TabOrder = 165
+    TabOrder = 164
     object TText
       StyleName = 'text'
       Align = Client
@@ -61428,7 +61191,7 @@ object TStyleContainer
     StyleName = 'pagecurltoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 167
+    TabOrder = 166
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -61693,7 +61456,7 @@ object TStyleContainer
     StyleName = 'transparentedit'
     Align = Center
     Visible = False
-    TabOrder = 168
+    TabOrder = 167
     FixedHeight = 32
     object TStyleObject
       StyleName = 'background'
@@ -61788,7 +61551,7 @@ object TStyleContainer
     StyleName = 'additembutton'
     Align = Center
     Visible = False
-    TabOrder = 169
+    TabOrder = 168
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -62053,7 +61816,7 @@ object TStyleContainer
     StyleName = 'deleteitembutton'
     Align = Center
     Visible = False
-    TabOrder = 170
+    TabOrder = 169
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -62318,7 +62081,7 @@ object TStyleContainer
     StyleName = 'detailstoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 171
+    TabOrder = 170
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -62586,7 +62349,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 172
+    TabOrder = 171
     FixedHeight = 60
     object TButtonStyleObject
       StyleName = 'background'
@@ -62940,7 +62703,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 173
+    TabOrder = 172
     FixedHeight = 29
     object TButtonStyleObject
       StyleName = 'background'
@@ -63133,7 +62896,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 174
+    TabOrder = 173
     FixedHeight = 29
     object TButtonStyleObject
       StyleName = 'background'
@@ -63326,7 +63089,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 175
+    TabOrder = 174
     FixedHeight = 46
     object TButtonStyleObject
       StyleName = 'background'
@@ -63516,7 +63279,7 @@ object TStyleContainer
     StyleName = 'spinleftbutton'
     Align = Center
     Visible = False
-    TabOrder = 176
+    TabOrder = 175
     FixedWidth = 28
     FixedHeight = 28
     object TButtonStyleObject
@@ -63773,7 +63536,7 @@ object TStyleContainer
     StyleName = 'spinrightbutton'
     Align = Center
     Visible = False
-    TabOrder = 177
+    TabOrder = 176
     FixedWidth = 28
     FixedHeight = 28
     object TButtonStyleObject
@@ -64030,7 +63793,7 @@ object TStyleContainer
     StyleName = 'ellipseseditbutton'
     Align = Center
     Visible = False
-    TabOrder = 178
+    TabOrder = 177
     FixedWidth = 28
     FixedHeight = 28
     object TButtonStyleObject
@@ -64287,7 +64050,7 @@ object TStyleContainer
     StyleName = 'passwordeditbutton'
     Align = Center
     Visible = False
-    TabOrder = 179
+    TabOrder = 178
     FixedWidth = 28
     FixedHeight = 28
     object TButtonStyleObject
@@ -64544,7 +64307,7 @@ object TStyleContainer
     StyleName = 'searcheditbutton'
     Align = Center
     Visible = False
-    TabOrder = 180
+    TabOrder = 179
     FixedWidth = 28
     FixedHeight = 28
     object TButtonStyleObject
@@ -64801,7 +64564,7 @@ object TStyleContainer
     StyleName = 'settingstoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 181
+    TabOrder = 180
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -65069,7 +64832,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 182
+    TabOrder = 181
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -65378,7 +65141,7 @@ object TStyleContainer
     StyleName = 'escapetoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 183
+    TabOrder = 182
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -65646,7 +65409,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 184
+    TabOrder = 183
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -65955,7 +65718,7 @@ object TStyleContainer
     StyleName = 'drawertoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 185
+    TabOrder = 184
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -66223,7 +65986,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 186
+    TabOrder = 185
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -66839,6 +66602,7 @@ object TStyleContainer
     Size.Width = 245.000000000000000000
     Size.Height = 505.000000000000000000
     Size.PlatformDefault = False
+    Visible = False
     SourceLink = <
       item
         CapInsets.Left = 2.000000000000000000

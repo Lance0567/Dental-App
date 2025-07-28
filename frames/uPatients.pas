@@ -40,4 +40,6 @@ implementation
 
 {$R *.fmx}
 
+uses uPatientModal;
+
 end.
