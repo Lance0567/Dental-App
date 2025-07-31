@@ -395,9 +395,6 @@ object frmMain: TfrmMain
                 Size.Width = 605.000000000000000000
                 inherited lytSearch: TLayout
                   Size.Width = 373.000000000000000000
-                  inherited eSearch: TEdit
-                    Size.Height = 32.000000000000000000
-                  end
                 end
                 inherited lytButtonH: TLayout
                   Position.X = 403.000000000000000000
@@ -503,7 +500,6 @@ object frmMain: TfrmMain
     Size.Width = 850.000000000000000000
     Size.Height = 505.000000000000000000
     Size.PlatformDefault = False
-    Visible = False
     inherited lytContentH: TLayout
       Size.Width = 850.000000000000000000
       Size.Height = 505.000000000000000000
@@ -519,22 +515,31 @@ object frmMain: TfrmMain
         Size.Width = 670.000000000000000000
         Size.Height = 405.000000000000000000
         inherited ScrollBox1: TScrollBox
+          Padding.Bottom = 12.000000000000000000
           Size.Width = 670.000000000000000000
           Size.Height = 405.000000000000000000
-          Viewport.Width = 670.000000000000000000
+          Viewport.Width = 659.000000000000000000
           Viewport.Height = 405.000000000000000000
-          inherited lytTitle: TLayout
-            Size.Width = 650.000000000000000000
-            inherited lbTitle: TLabel
-              Size.Width = 585.000000000000000000
-              TextSettings.Font.StyleExt = {00070000000000000004000000}
+          inherited lytButtonSaveH: TLayout
+            Size.Width = 629.000000000000000000
+            inherited btnSavePatient: TCornerButton
+              Position.X = 499.000000000000000000
             end
-            inherited btnClose: TSpeedButton
-              Position.X = 600.000000000000000000
+          end
+          inherited lytMedicalNotes: TLayout
+            Size.Width = 629.000000000000000000
+            inherited lbMedicalNotes: TLabel
+              Size.Width = 589.000000000000000000
+              TextSettings.Font.StyleExt = {00060000000000000004000000}
+            end
+            inherited mMedicalNotes: TMemo
+              Size.Width = 589.000000000000000000
+              Viewport.Width = 581.000000000000000000
+              Viewport.Height = 117.000000000000000000
             end
           end
           inherited lytPatientH: TLayout
-            Size.Width = 650.000000000000000000
+            Size.Width = 629.000000000000000000
             inherited lytPatientProfile: TLayout
               inherited cProfilePhoto: TCircle
                 inherited lNameH: TLabel
@@ -546,9 +551,10 @@ object frmMain: TfrmMain
               end
             end
             inherited lytPatientDetails: TLayout
-              Size.Width = 449.000000000000000000
+              Size.Width = 428.000000000000000000
               inherited lytDetails1: TLayout
-                Size.Width = 449.000000000000000000
+                Margins.Bottom = 15.000000000000000000
+                Size.Width = 428.000000000000000000
                 inherited lytFullName: TLayout
                   inherited lbFullName: TLabel
                     TextSettings.Font.StyleExt = {00060000000000000004000000}
@@ -558,22 +564,14 @@ object frmMain: TfrmMain
                   inherited lbDateOfBirth: TLabel
                     TextSettings.Font.StyleExt = {00060000000000000004000000}
                   end
-                  inherited deDateOfBirth: TDateEdit
-                    Size.Height = 32.000000000000000000
-                  end
-                  inherited lAgeCounter: TLabel
-                    Size.Height = 21.000000000000000000
-                  end
                 end
               end
               inherited lytDetails2: TLayout
-                Size.Width = 449.000000000000000000
+                Position.Y = 115.000000000000000000
+                Size.Width = 428.000000000000000000
                 inherited lytGender: TLayout
                   inherited lbGender: TLabel
                     TextSettings.Font.StyleExt = {00060000000000000004000000}
-                  end
-                  inherited cbGender: TComboBox
-                    Size.Height = 32.000000000000000000
                   end
                 end
                 inherited lytContactNumber: TLayout
@@ -583,7 +581,8 @@ object frmMain: TfrmMain
                 end
               end
               inherited lytDetails3: TLayout
-                Size.Width = 449.000000000000000000
+                Position.Y = 195.000000000000000000
+                Size.Width = 428.000000000000000000
                 inherited lytEmailAddress: TLayout
                   inherited lbEmailAddress: TLabel
                     TextSettings.Font.StyleExt = {00060000000000000004000000}
@@ -597,24 +596,14 @@ object frmMain: TfrmMain
               end
             end
           end
-          inherited lytMedicalNotes: TLayout
-            Size.Width = 650.000000000000000000
-            Size.Height = 15.000000000000000000
-            inherited lbMedicalNotes: TLabel
-              Size.Width = 600.000000000000000000
-              TextSettings.Font.StyleExt = {00060000000000000004000000}
+          inherited lytTitle: TLayout
+            Size.Width = 629.000000000000000000
+            inherited lbTitle: TLabel
+              Size.Width = 579.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
             end
-            inherited mMedicalNotes: TMemo
-              Size.Width = 600.000000000000000000
-              Viewport.Width = 600.000000000000000000
-              Viewport.Height = 0.000000000000000000
-            end
-          end
-          inherited lytButtonSaveH: TLayout
-            Position.Y = 335.000000000000000000
-            Size.Width = 650.000000000000000000
-            inherited btnSavePatient: TCornerButton
-              Position.X = 520.000000000000000000
+            inherited btnClose: TSpeedButton
+              Position.X = 594.000000000000000000
             end
           end
         end

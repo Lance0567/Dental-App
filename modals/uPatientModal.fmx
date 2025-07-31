@@ -2,6 +2,7 @@ object fPatientModal: TfPatientModal
   Size.Width = 772.000000000000000000
   Size.Height = 540.000000000000000000
   Size.PlatformDefault = False
+  OnResize = FrameResize
   object lytContentH: TLayout
     Align = Client
     Size.Width = 772.000000000000000000
@@ -31,57 +32,85 @@ object fPatientModal: TfPatientModal
       YRadius = 13.000000000000000000
       object ScrollBox1: TScrollBox
         Align = Client
-        Padding.Left = 10.000000000000000000
-        Padding.Top = 10.000000000000000000
-        Padding.Right = 10.000000000000000000
-        Padding.Bottom = 10.000000000000000000
+        Padding.Left = 15.000000000000000000
+        Padding.Top = 5.000000000000000000
+        Padding.Right = 15.000000000000000000
         Size.Width = 592.000000000000000000
         Size.Height = 440.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
-        Viewport.Width = 592.000000000000000000
+        Viewport.Width = 576.000000000000000000
         Viewport.Height = 440.000000000000000000
-        object lytTitle: TLayout
-          Align = MostTop
-          Padding.Left = 15.000000000000000000
+        object lytButtonSaveH: TLayout
+          Align = Top
           Padding.Top = 10.000000000000000000
+          Padding.Right = 10.000000000000000000
           Padding.Bottom = 10.000000000000000000
-          Position.X = 10.000000000000000000
-          Position.Y = 10.000000000000000000
-          Size.Width = 572.000000000000000000
-          Size.Height = 50.000000000000000000
+          Position.X = 15.000000000000000000
+          Position.Y = 505.000000000000000000
+          Size.Width = 546.000000000000000000
+          Size.Height = 60.000000000000000000
           Size.PlatformDefault = False
-          TabOrder = 3
-          object lbTitle: TLabel
-            Align = Client
-            StyledSettings = [Family]
-            Size.Width = 507.000000000000000000
-            Size.Height = 30.000000000000000000
+          TabOrder = 2
+          object btnSavePatient: TCornerButton
+            Align = Right
+            Position.X = 416.000000000000000000
+            Position.Y = 10.000000000000000000
+            Sides = [Top, Left, Bottom, Right]
+            Size.Width = 120.000000000000000000
+            Size.Height = 40.000000000000000000
             Size.PlatformDefault = False
-            TextSettings.Font.Size = 18.000000000000000000
-            TextSettings.Font.StyleExt = {00070000000000000004000000}
-            Text = 'Add New Patient'
+            TabOrder = 8
+            Text = 'Save Patient'
+            TextSettings.Trimming = None
+            XRadius = 8.000000000000000000
+            YRadius = 8.000000000000000000
+          end
+        end
+        object lytMedicalNotes: TLayout
+          Align = Top
+          Padding.Left = 25.000000000000000000
+          Padding.Right = 15.000000000000000000
+          Padding.Bottom = 10.000000000000000000
+          Position.X = 15.000000000000000000
+          Position.Y = 325.000000000000000000
+          Size.Width = 546.000000000000000000
+          Size.Height = 180.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          object lbMedicalNotes: TLabel
+            Align = Top
+            StyledSettings = [Family, Size]
+            Margins.Top = 5.000000000000000000
+            Position.X = 25.000000000000000000
+            Position.Y = 5.000000000000000000
+            Size.Width = 506.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+            Text = 'Medical Notes'
             TabOrder = 0
           end
-          object btnClose: TSpeedButton
-            Align = Right
-            Margins.Right = 10.000000000000000000
-            Position.X = 522.000000000000000000
-            Position.Y = 10.000000000000000000
-            Size.Width = 40.000000000000000000
-            Size.Height = 30.000000000000000000
+          object mMedicalNotes: TMemo
+            Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+            DataDetectorTypes = []
+            StyledSettings = [Family, Size, Style]
+            OnChange = mMedicalNotesChange
+            Align = Client
+            Size.Width = 506.000000000000000000
+            Size.Height = 125.000000000000000000
             Size.PlatformDefault = False
-            StyleLookup = 'cleareditbutton'
-            Text = 'btnClose'
-            TextSettings.Trimming = None
-            OnClick = btnCloseClick
+            TabOrder = 7
+            OnClick = mMedicalNotesClick
+            Viewport.Width = 502.000000000000000000
+            Viewport.Height = 121.000000000000000000
           end
         end
         object lytPatientH: TLayout
-          Align = Top
-          Position.X = 10.000000000000000000
-          Position.Y = 60.000000000000000000
-          Size.Width = 572.000000000000000000
+          Align = MostTop
+          Position.X = 15.000000000000000000
+          Position.Y = 65.000000000000000000
+          Size.Width = 546.000000000000000000
           Size.Height = 260.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
@@ -156,26 +185,27 @@ object fPatientModal: TfPatientModal
           end
           object lytPatientDetails: TLayout
             Align = Client
-            Size.Width = 371.000000000000000000
+            Size.Width = 345.000000000000000000
             Size.Height = 260.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
             object lytDetails1: TLayout
               Align = Top
-              Size.Width = 371.000000000000000000
-              Size.Height = 90.000000000000000000
+              Size.Width = 345.000000000000000000
+              Size.Height = 95.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 0
+              OnResize = lytDetails1Resize
               object lytFullName: TLayout
                 Align = Left
-                Size.Width = 175.000000000000000000
-                Size.Height = 90.000000000000000000
+                Size.Width = 165.000000000000000000
+                Size.Height = 95.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 0
                 object lbFullName: TLabel
                   Align = Top
                   StyledSettings = [Family, Size]
-                  Size.Width = 175.000000000000000000
+                  Size.Width = 165.000000000000000000
                   Size.Height = 17.000000000000000000
                   Size.PlatformDefault = False
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
@@ -188,7 +218,7 @@ object fPatientModal: TfPatientModal
                   TabOrder = 1
                   Position.Y = 27.000000000000000000
                   Margins.Top = 10.000000000000000000
-                  Size.Width = 175.000000000000000000
+                  Size.Width = 165.000000000000000000
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
                   TextPrompt = 'Enter patient'#39's full name'
@@ -198,16 +228,16 @@ object fPatientModal: TfPatientModal
               end
               object lytDateOfBirth: TLayout
                 Align = Left
-                Margins.Left = 15.000000000000000000
-                Position.X = 190.000000000000000000
-                Size.Width = 175.000000000000000000
-                Size.Height = 90.000000000000000000
+                Margins.Left = 16.000000000000000000
+                Position.X = 181.000000000000000000
+                Size.Width = 165.000000000000000000
+                Size.Height = 95.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 1
                 object lbDateOfBirth: TLabel
                   Align = Top
                   StyledSettings = [Family, Size]
-                  Size.Width = 175.000000000000000000
+                  Size.Width = 165.000000000000000000
                   Size.Height = 17.000000000000000000
                   Size.PlatformDefault = False
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
@@ -219,7 +249,7 @@ object fPatientModal: TfPatientModal
                   Align = Top
                   Margins.Top = 10.000000000000000000
                   Position.Y = 27.000000000000000000
-                  Size.Width = 175.000000000000000000
+                  Size.Width = 165.000000000000000000
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
                   StyledSettings = [Family, Size, Style]
@@ -228,9 +258,8 @@ object fPatientModal: TfPatientModal
                 object lAgeCounter: TLabel
                   Align = Client
                   StyledSettings = [Family, Size, Style]
-                  Margins.Top = 10.000000000000000000
-                  Size.Width = 175.000000000000000000
-                  Size.Height = 13.000000000000000000
+                  Size.Width = 165.000000000000000000
+                  Size.Height = 28.000000000000000000
                   Size.PlatformDefault = False
                   Text = 'Age: 0 years'
                   TabOrder = 1
@@ -239,22 +268,22 @@ object fPatientModal: TfPatientModal
             end
             object lytDetails2: TLayout
               Align = Top
-              Margins.Top = 10.000000000000000000
+              Margins.Top = 5.000000000000000000
               Position.Y = 100.000000000000000000
-              Size.Width = 371.000000000000000000
+              Size.Width = 345.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 2
               object lytGender: TLayout
                 Align = Left
-                Size.Width = 175.000000000000000000
+                Size.Width = 165.000000000000000000
                 Size.Height = 70.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 0
                 object lbGender: TLabel
                   Align = Top
                   StyledSettings = [Family, Size]
-                  Size.Width = 175.000000000000000000
+                  Size.Width = 165.000000000000000000
                   Size.Height = 17.000000000000000000
                   Size.PlatformDefault = False
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
@@ -267,26 +296,27 @@ object fPatientModal: TfPatientModal
                     'Male'
                     'Femal'
                     'Other')
+                  ItemIndex = 0
                   Margins.Top = 10.000000000000000000
                   Position.Y = 27.000000000000000000
-                  Size.Width = 175.000000000000000000
+                  Size.Width = 165.000000000000000000
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
-                  TabOrder = 1
+                  TabOrder = 3
                 end
               end
               object lytContactNumber: TLayout
                 Align = Left
-                Margins.Left = 15.000000000000000000
-                Position.X = 190.000000000000000000
-                Size.Width = 175.000000000000000000
+                Margins.Left = 16.000000000000000000
+                Position.X = 181.000000000000000000
+                Size.Width = 165.000000000000000000
                 Size.Height = 70.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 1
                 object lbContactNumber: TLabel
                   Align = Top
                   StyledSettings = [Family, Size]
-                  Size.Width = 175.000000000000000000
+                  Size.Width = 165.000000000000000000
                   Size.Height = 17.000000000000000000
                   Size.PlatformDefault = False
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
@@ -296,10 +326,10 @@ object fPatientModal: TfPatientModal
                 object eContactNumber: TEdit
                   Touch.InteractiveGestures = [LongTap, DoubleTap]
                   Align = Top
-                  TabOrder = 1
+                  TabOrder = 4
                   Position.Y = 27.000000000000000000
                   Margins.Top = 10.000000000000000000
-                  Size.Width = 175.000000000000000000
+                  Size.Width = 165.000000000000000000
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
                   TextPrompt = 'Enter contact number'
@@ -311,20 +341,20 @@ object fPatientModal: TfPatientModal
               Align = Top
               Margins.Top = 10.000000000000000000
               Position.Y = 180.000000000000000000
-              Size.Width = 371.000000000000000000
+              Size.Width = 345.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 1
               object lytEmailAddress: TLayout
                 Align = Left
-                Size.Width = 175.000000000000000000
+                Size.Width = 165.000000000000000000
                 Size.Height = 70.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 0
                 object lbEmailAddress: TLabel
                   Align = Top
                   StyledSettings = [Family, Size]
-                  Size.Width = 175.000000000000000000
+                  Size.Width = 165.000000000000000000
                   Size.Height = 17.000000000000000000
                   Size.PlatformDefault = False
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
@@ -334,10 +364,10 @@ object fPatientModal: TfPatientModal
                 object eEmailAddress: TEdit
                   Touch.InteractiveGestures = [LongTap, DoubleTap]
                   Align = Top
-                  TabOrder = 1
+                  TabOrder = 5
                   Position.Y = 27.000000000000000000
                   Margins.Top = 10.000000000000000000
-                  Size.Width = 175.000000000000000000
+                  Size.Width = 165.000000000000000000
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
                   TextPrompt = 'Enter email address'
@@ -346,16 +376,16 @@ object fPatientModal: TfPatientModal
               end
               object lytAddress: TLayout
                 Align = Left
-                Margins.Left = 15.000000000000000000
-                Position.X = 190.000000000000000000
-                Size.Width = 175.000000000000000000
+                Margins.Left = 16.000000000000000000
+                Position.X = 181.000000000000000000
+                Size.Width = 165.000000000000000000
                 Size.Height = 70.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 1
                 object lbAddress: TLabel
                   Align = Top
                   StyledSettings = [Family, Size]
-                  Size.Width = 175.000000000000000000
+                  Size.Width = 165.000000000000000000
                   Size.Height = 17.000000000000000000
                   Size.PlatformDefault = False
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
@@ -365,10 +395,10 @@ object fPatientModal: TfPatientModal
                 object eAddress: TEdit
                   Touch.InteractiveGestures = [LongTap, DoubleTap]
                   Align = Top
-                  TabOrder = 1
+                  TabOrder = 6
                   Position.Y = 27.000000000000000000
                   Margins.Top = 10.000000000000000000
-                  Size.Width = 175.000000000000000000
+                  Size.Width = 165.000000000000000000
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
                   TextPrompt = 'Enter full address'
@@ -378,64 +408,41 @@ object fPatientModal: TfPatientModal
             end
           end
         end
-        object lytMedicalNotes: TLayout
-          Align = Client
-          Padding.Left = 25.000000000000000000
-          Padding.Right = 25.000000000000000000
-          Padding.Bottom = 25.000000000000000000
-          Size.Width = 572.000000000000000000
+        object lytTitle: TLayout
+          Align = MostTop
+          Padding.Left = 15.000000000000000000
+          Padding.Top = 10.000000000000000000
+          Padding.Bottom = 10.000000000000000000
+          Margins.Bottom = 10.000000000000000000
+          Position.X = 15.000000000000000000
+          Position.Y = 5.000000000000000000
+          Size.Width = 546.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
-          TabOrder = 1
-          object lbMedicalNotes: TLabel
-            Align = Top
-            StyledSettings = [Family, Size]
-            Position.X = 25.000000000000000000
-            Size.Width = 522.000000000000000000
-            Size.Height = 40.000000000000000000
-            Size.PlatformDefault = False
-            TextSettings.Font.StyleExt = {00060000000000000004000000}
-            Text = 'Medical Notes'
-            TabOrder = 0
-          end
-          object mMedicalNotes: TMemo
-            Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
-            DataDetectorTypes = []
-            StyledSettings = [Family, Size, Style]
+          TabOrder = 3
+          object lbTitle: TLabel
             Align = Client
-            Size.Width = 522.000000000000000000
-            Size.Height = 0.000000000000000000
+            StyledSettings = [Family]
+            Size.Width = 496.000000000000000000
+            Size.Height = 30.000000000000000000
             Size.PlatformDefault = False
-            TabOrder = 1
-            OnClick = mMedicalNotesClick
-            Viewport.Width = 522.000000000000000000
-            Viewport.Height = 0.000000000000000000
-          end
-        end
-        object lytButtonSaveH: TLayout
-          Align = Bottom
-          Padding.Top = 10.000000000000000000
-          Padding.Right = 10.000000000000000000
-          Padding.Bottom = 10.000000000000000000
-          Position.X = 10.000000000000000000
-          Position.Y = 370.000000000000000000
-          Size.Width = 572.000000000000000000
-          Size.Height = 60.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 2
-          object btnSavePatient: TCornerButton
-            Align = Right
-            Position.X = 442.000000000000000000
-            Position.Y = 10.000000000000000000
-            Sides = [Top, Left, Bottom, Right]
-            Size.Width = 120.000000000000000000
-            Size.Height = 40.000000000000000000
-            Size.PlatformDefault = False
+            TextSettings.Font.Size = 18.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            Text = 'Add New Patient'
             TabOrder = 0
-            Text = 'Save Patient'
+          end
+          object btnClose: TSpeedButton
+            Align = Right
+            Margins.Right = -5.000000000000000000
+            Position.X = 511.000000000000000000
+            Position.Y = 10.000000000000000000
+            Size.Width = 40.000000000000000000
+            Size.Height = 30.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'cleareditbutton'
+            Text = 'btnClose'
             TextSettings.Trimming = None
-            XRadius = 8.000000000000000000
-            YRadius = 8.000000000000000000
+            OnClick = btnCloseClick
           end
         end
       end

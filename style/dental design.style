@@ -26615,6 +26615,7 @@ object TStyleContainer
   object TLayout
     StyleName = 'editstyle'
     Align = Center
+    Visible = False
     TabOrder = 11
     object TActiveStyleObject
       StyleName = 'background'
@@ -26716,11 +26717,11 @@ object TStyleContainer
       StyleName = 'content'
       Align = Client
       Locked = True
-      Margins.Left = 3.000000000000000000
+      Margins.Left = 10.000000000000000000
       Margins.Top = 3.000000000000000000
       Margins.Right = 3.000000000000000000
       Margins.Bottom = 3.000000000000000000
-      Size.Width = 42.000000000000000000
+      Size.Width = 35.000000000000000000
       Size.Height = 44.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
@@ -26947,49 +26948,13 @@ object TStyleContainer
     Align = Center
     Visible = False
     TabOrder = 13
-    FixedHeight = 32
+    FixedHeight = 40
     object TActiveStyleObject
       StyleName = 'background'
       Align = Contents
       SourceLookup = 'Windows 10 Modern Darkstyle.png'
       ActiveTrigger = Focused
       ActiveLink = <
-        item
-          CapInsets.Left = 2.000000000000000000
-          CapInsets.Right = 2.000000000000000000
-          SourceRect.Left = 208.000000000000000000
-          SourceRect.Top = 3.000000000000000000
-          SourceRect.Right = 234.000000000000000000
-          SourceRect.Bottom = 35.000000000000000000
-        end
-        item
-          CapInsets.Left = 3.000000000000000000
-          CapInsets.Right = 3.000000000000000000
-          Scale = 1.500000000000000000
-          SourceRect.Left = 312.000000000000000000
-          SourceRect.Top = 4.000000000000000000
-          SourceRect.Right = 351.000000000000000000
-          SourceRect.Bottom = 52.000000000000000000
-        end
-        item
-          CapInsets.Left = 4.000000000000000000
-          CapInsets.Right = 4.000000000000000000
-          Scale = 2.000000000000000000
-          SourceRect.Left = 416.000000000000000000
-          SourceRect.Top = 6.000000000000000000
-          SourceRect.Right = 468.000000000000000000
-          SourceRect.Bottom = 70.000000000000000000
-        end
-        item
-          CapInsets.Left = 6.000000000000000000
-          CapInsets.Right = 6.000000000000000000
-          Scale = 3.000000000000000000
-          SourceRect.Left = 624.000000000000000000
-          SourceRect.Top = 9.000000000000000000
-          SourceRect.Right = 702.000000000000000000
-          SourceRect.Bottom = 105.000000000000000000
-        end>
-      SourceLink = <
         item
           CapInsets.Left = 2.000000000000000000
           CapInsets.Right = 2.000000000000000000
@@ -27025,7 +26990,60 @@ object TStyleContainer
           SourceRect.Right = 531.000000000000000000
           SourceRect.Bottom = 105.000000000000000000
         end>
+      SourceLink = <
+        item
+          CapInsets.Left = 2.000000000000000000
+          CapInsets.Right = 2.000000000000000000
+          SourceRect.Left = 122.000000000000000000
+          SourceRect.Top = 3.000000000000000000
+          SourceRect.Right = 148.000000000000000000
+          SourceRect.Bottom = 35.000000000000000000
+        end
+        item
+          CapInsets.Left = 3.000000000000000000
+          CapInsets.Right = 3.000000000000000000
+          Scale = 1.500000000000000000
+          SourceRect.Left = 179.000000000000000000
+          SourceRect.Top = 3.000000000000000000
+          SourceRect.Right = 218.000000000000000000
+          SourceRect.Bottom = 51.000000000000000000
+        end
+        item
+          CapInsets.Left = 4.000000000000000000
+          CapInsets.Right = 4.000000000000000000
+          Scale = 2.000000000000000000
+          SourceRect.Left = 241.000000000000000000
+          SourceRect.Top = 5.000000000000000000
+          SourceRect.Right = 293.000000000000000000
+          SourceRect.Bottom = 69.000000000000000000
+        end
+        item
+          CapInsets.Left = 6.000000000000000000
+          CapInsets.Right = 6.000000000000000000
+          Scale = 3.000000000000000000
+          SourceRect.Left = 359.000000000000000000
+          SourceRect.Top = 10.000000000000000000
+          SourceRect.Right = 437.000000000000000000
+          SourceRect.Bottom = 106.000000000000000000
+        end>
       TouchAnimation.Link = <>
+    end
+    object TRectangle
+      StyleName = 'backgroundColor'
+      Align = Contents
+      Fill.Color = claWhite
+      HitTest = False
+      Margins.Left = 1.000000000000000000
+      Margins.Top = 3.000000000000000000
+      Margins.Right = 1.000000000000000000
+      Margins.Bottom = 3.000000000000000000
+      Size.Width = 48.000000000000000000
+      Size.Height = 44.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Color = claDarkgray
+      Stroke.Thickness = 0.899999976158142100
+      XRadius = 13.000000000000000000
+      YRadius = 13.000000000000000000
     end
     object TButton
       StyleName = 'arrow'
@@ -27034,9 +27052,9 @@ object TStyleContainer
       Cursor = crArrow
       Margins.Left = 2.000000000000000000
       Margins.Top = 2.000000000000000000
-      Margins.Right = 2.000000000000000000
+      Margins.Right = 5.000000000000000000
       Margins.Bottom = 2.000000000000000000
-      Position.X = 28.000000000000000000
+      Position.X = 25.000000000000000000
       Position.Y = 2.000000000000000000
       Size.Width = 20.000000000000000000
       Size.Height = 46.000000000000000000
@@ -27050,7 +27068,7 @@ object TStyleContainer
       CanFocus = False
       Margins.Top = 2.000000000000000000
       Margins.Bottom = 2.000000000000000000
-      Position.X = 6.000000000000000000
+      Position.X = 3.000000000000000000
       Position.Y = 2.000000000000000000
       Size.Width = 20.000000000000000000
       Size.Height = 46.000000000000000000
@@ -27062,11 +27080,11 @@ object TStyleContainer
       StyleName = 'Text'
       Align = Client
       Locked = True
-      Margins.Left = 2.000000000000000000
+      Margins.Left = 10.000000000000000000
       Margins.Top = 2.000000000000000000
       Margins.Right = 2.000000000000000000
       Margins.Bottom = 2.000000000000000000
-      Size.Width = 2.000000000000000000
+      Size.Width = 0.000000000000000000
       Size.Height = 46.000000000000000000
       Size.PlatformDefault = False
       TextSettings.Font.Size = 16.000000000000000000
@@ -41530,9 +41548,8 @@ object TStyleContainer
   object TLayout
     StyleName = 'comboboxstyle'
     Align = Center
-    Visible = False
     TabOrder = 85
-    FixedHeight = 32
+    FixedHeight = 40
     object TButtonStyleObject
       StyleName = 'background'
       Align = Contents
@@ -41617,37 +41634,37 @@ object TStyleContainer
         item
           CapInsets.Left = 6.000000000000000000
           CapInsets.Right = 6.000000000000000000
-          SourceRect.Left = 151.000000000000000000
-          SourceRect.Top = 3.000000000000000000
-          SourceRect.Right = 177.000000000000000000
-          SourceRect.Bottom = 35.000000000000000000
+          SourceRect.Left = 122.000000000000000000
+          SourceRect.Top = 2.000000000000000000
+          SourceRect.Right = 148.000000000000000000
+          SourceRect.Bottom = 34.000000000000000000
         end
         item
           CapInsets.Left = 9.000000000000000000
           CapInsets.Right = 9.000000000000000000
           Scale = 1.500000000000000000
-          SourceRect.Left = 226.000000000000000000
-          SourceRect.Top = 4.000000000000000000
-          SourceRect.Right = 265.000000000000000000
-          SourceRect.Bottom = 52.000000000000000000
+          SourceRect.Left = 180.000000000000000000
+          SourceRect.Top = 3.000000000000000000
+          SourceRect.Right = 219.000000000000000000
+          SourceRect.Bottom = 51.000000000000000000
         end
         item
           CapInsets.Left = 12.000000000000000000
           CapInsets.Right = 12.000000000000000000
           Scale = 2.000000000000000000
-          SourceRect.Left = 302.000000000000000000
+          SourceRect.Left = 239.000000000000000000
           SourceRect.Top = 6.000000000000000000
-          SourceRect.Right = 354.000000000000000000
+          SourceRect.Right = 291.000000000000000000
           SourceRect.Bottom = 70.000000000000000000
         end
         item
           CapInsets.Left = 18.000000000000000000
           CapInsets.Right = 18.000000000000000000
           Scale = 3.000000000000000000
-          SourceRect.Left = 453.000000000000000000
-          SourceRect.Top = 9.000000000000000000
-          SourceRect.Right = 531.000000000000000000
-          SourceRect.Bottom = 105.000000000000000000
+          SourceRect.Left = 365.000000000000000000
+          SourceRect.Top = 7.000000000000000000
+          SourceRect.Right = 443.000000000000000000
+          SourceRect.Bottom = 103.000000000000000000
         end>
       PressedLink = <
         item
@@ -41816,15 +41833,32 @@ object TStyleContainer
         end
       end
     end
+    object TRectangle
+      StyleName = 'backgroundColor'
+      Align = Contents
+      Fill.Color = claWhite
+      HitTest = False
+      Margins.Left = 1.000000000000000000
+      Margins.Top = 3.000000000000000000
+      Margins.Right = 1.000000000000000000
+      Margins.Bottom = 3.000000000000000000
+      Size.Width = 48.000000000000000000
+      Size.Height = 44.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Color = claDarkgray
+      Stroke.Thickness = 0.899999976158142100
+      XRadius = 13.000000000000000000
+      YRadius = 13.000000000000000000
+    end
     object TLayout
       StyleName = 'content'
       Align = Client
       Locked = True
-      Margins.Left = 2.000000000000000000
+      Margins.Left = 5.000000000000000000
       Margins.Top = 2.000000000000000000
       Margins.Right = 20.000000000000000000
       Margins.Bottom = 2.000000000000000000
-      Size.Width = 28.000000000000000000
+      Size.Width = 25.000000000000000000
       Size.Height = 46.000000000000000000
       Size.PlatformDefault = False
     end
@@ -62648,7 +62682,6 @@ object TStyleContainer
       Size.Width = 351.000000000000000000
       Size.Height = 542.000000000000000000
       Size.PlatformDefault = False
-      Text = 'Text'
       TextSettings.Font.Size = 17.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       TextSettings.FontColor = claWhite
@@ -66590,7 +66623,6 @@ object TStyleContainer
       Size.Width = 230.000000000000000000
       Size.Height = 58.000000000000000000
       Size.PlatformDefault = False
-      Text = 'Text'
       TextSettings.Font.Size = 16.000000000000000000
       TextSettings.WordWrap = False
     end

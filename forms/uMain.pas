@@ -79,7 +79,7 @@ begin
   Self.ClientHeight.ToString + ', ' + 'Width: ' + Self.ClientWidth.ToString + ' Card width: '
   + fDashboard.glytCards.Width.ToString + ' Card height: ' + fDashboard.glytCards.Height.ToString;
 
-  // Fixed dimension
+  // Fixed form dimension
   if Self.ClientHeight < 505 then
   begin
     Self.Height := 505;
@@ -103,6 +103,9 @@ begin
     fDashboard.lytRecords.Align := TAlignLayout.Top;
     fDashboard.lytRecords.Height := 390;
   end;
+
+  // Patient Modal responsive
+  fPatientModal.lytDetails1Resize(Sender);
 end;
 
 procedure TfrmMain.FormShow(Sender: TObject);
@@ -115,30 +118,17 @@ end;
 procedure TfrmMain.fPatientsbtnAddNewPatientClick(Sender: TObject);
 begin
   fPatientModal.Visible := True;
+  fPatientModal.ScrollBox1.ViewportPosition := PointF(0, 0);  // reset scrollbox
+  fPatientModal.Tag := 0;
 
-  // Modal content margins
-  fPatientModal.rModalInfo.Margins.Left := 310;
-  fPatientModal.rModalInfo.Margins.Right := 310;
-  fPatientModal.rModalInfo.Margins.Top := 60;
-  fPatientModal.rModalInfo.Margins.Bottom := 60;
-
-  // Details 1
-  fPatientModal.lytFullName.Width := 240;
-  fPatientModal.lytDateOfBirth.Width := 240;
-
-  // Details 2
-  fPatientModal.lytGender.Width := 240;
-  fPatientModal.lytContactNumber.Width := 240;
-
-  // Details 3
-  fPatientModal.lytEmailAddress.Width := 240;
-  fPatientModal.lytAddress.Width := 240;
+  // Patient Modal responsive
+  fPatientModal.lytDetails1Resize(Sender);
 
   // Medical notes
   fPatientModal.mMedicalNotes.Text := 'Enter any relevant medical history, allergies, or notes';
 
   // Profile Icon
-  fPatientModal.gIcon.Visible := False;
+  fPatientModal.gIcon.ImageIndex := 10;
   fPatientModal.lNameH.Visible := False;
 end;
 
