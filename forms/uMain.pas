@@ -33,7 +33,6 @@ type
     procedure FormCreate(Sender: TObject);
     procedure mvSidebarResize(Sender: TObject);
     procedure FormResize(Sender: TObject);
-    procedure FormShow(Sender: TObject);
     procedure tcControllerChange(Sender: TObject);
     procedure sbPatientsClick(Sender: TObject);
     procedure sbDashboardClick(Sender: TObject);
@@ -69,6 +68,9 @@ begin
   // Default Show sidebar
   mvSidebar.ShowMaster;
   mvSidebar.NavigationPaneOptions.CollapsedWidth := 50;
+
+  fDashboard.FrameResize(Sender);
+  fDashboard.CardsResize;
 end;
 
 { Form Resized }
@@ -90,9 +92,6 @@ begin
     Self.Width := 835;
   end;
 
-  // Dashboard cards resize
-  fDashboard.CardsResize;
-
   // Records layout
   if Self.ClientWidth > 1900 then
   begin
@@ -106,10 +105,7 @@ begin
 
   // Patient Modal responsive
   fPatientModal.lytDetails1Resize(Sender);
-end;
 
-procedure TfrmMain.FormShow(Sender: TObject);
-begin
   // Dashboard cards resize
   fDashboard.CardsResize;
 end;
@@ -154,6 +150,11 @@ begin
   lytSidebar.Width := mvSidebar.Width;
 
   fDashboard.CardsResize;
+
+  // Form caption
+  Self.Caption := 'Dental System | '+ 'Height: ' +
+  Self.ClientHeight.ToString + ', ' + 'Width: ' + Self.ClientWidth.ToString + ' Card width: '
+  + fDashboard.glytCards.Width.ToString + ' Card height: ' + fDashboard.glytCards.Height.ToString;
 end;
 
 { Appointments tab }
@@ -173,10 +174,17 @@ begin
   // Hide frames
   HideFrames;
 
+  // Dashboard card resize
+  fDashboard.CardsResize;
+
   // Switch tab index
   tcController.TabIndex := 0;
   fDashboard.Visible := True;
   fDashboard.ScrollBox1.ViewportPosition := PointF(0,0); // reset scrollbox
+
+  Self.Caption := 'Dental System | '+ 'Height: ' +
+  Self.ClientHeight.ToString + ', ' + 'Width: ' + Self.ClientWidth.ToString + ' Card width: '
+  + fDashboard.Width.ToString + ' Card height: ' + fDashboard.Height.ToString;
 end;
 
 { Patients tab }

@@ -55,6 +55,7 @@ type
     lytTitle: TLayout;
     lbTitle: TLabel;
     btnClose: TSpeedButton;
+    lTag: TLabel;
     procedure mMedicalNotesClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure eFullNameChangeTracking(Sender: TObject);
@@ -126,7 +127,7 @@ end;
 
 procedure TfPatientModal.mMedicalNotesChange(Sender: TObject);
 begin
-  if mMedicalNotes.Text.Trim = '' then
+  if (mMedicalNotes.Text.Trim = '') then
   begin
     mMedicalNotes.Text := 'Enter any relevant medical history, allergies, or notes';
   end;
@@ -139,6 +140,8 @@ begin
     mMedicalNotes.Text := '';
     Self.Tag := 1;
   end;
+
+  lTag.Text := 'Tag Number : ' + Self.Tag.ToString;
 end;
 
 end.

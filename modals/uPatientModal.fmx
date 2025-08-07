@@ -66,6 +66,16 @@ object fPatientModal: TfPatientModal
             XRadius = 8.000000000000000000
             YRadius = 8.000000000000000000
           end
+          object lTag: TLabel
+            Align = Left
+            StyledSettings = [Family, Size, Style]
+            Position.Y = 10.000000000000000000
+            Size.Width = 120.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            Text = 'Tag Number :'
+            TabOrder = 9
+          end
         end
         object lytMedicalNotes: TLayout
           Align = Top

@@ -12,7 +12,6 @@ object frmMain: TfrmMain
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
   OnResize = FormResize
-  OnShow = FormShow
   DesignerMasterStyle = 0
   object lytContainer: TLayout
     Align = Client
@@ -187,7 +186,7 @@ object frmMain: TfrmMain
         Size.Width = 605.000000000000000000
         Size.Height = 505.000000000000000000
         Size.PlatformDefault = False
-        TabIndex = 1
+        TabIndex = 0
         TabOrder = 0
         TabPosition = Dots
         OnChange = tcControllerChange
@@ -203,7 +202,7 @@ object frmMain: TfrmMain
             item
             end>
           TextSettings.Trimming = None
-          IsSelected = False
+          IsSelected = True
           Size.Width = 12.000000000000000000
           Size.Height = 12.000000000000000000
           Size.PlatformDefault = False
@@ -286,24 +285,24 @@ object frmMain: TfrmMain
                 Size.Width = 594.000000000000000000
                 Size.Height = 350.000000000000000000
                 inherited rUrgentContracts: TRectangle
-                  Size.Width = 234.000000000000000000
+                  Size.Width = 239.000000000000000000
                   Size.Height = 340.000000000000000000
                   inherited Layout3: TLayout
-                    Size.Width = 194.000000000000000000
+                    Size.Width = 199.000000000000000000
                     inherited lbRecordedAppointments: TLabel
-                      Size.Width = 194.000000000000000000
+                      Size.Width = 199.000000000000000000
                       TextSettings.Font.StyleExt = {00070000000000000004000000}
                     end
                   end
                   inherited Grid1: TGrid
-                    Size.Width = 194.000000000000000000
+                    Size.Width = 199.000000000000000000
                     Size.Height = 263.000000000000000000
-                    Viewport.Width = 194.000000000000000000
+                    Viewport.Width = 199.000000000000000000
                     Viewport.Height = 263.000000000000000000
                   end
                 end
                 inherited rQuickActions: TRectangle
-                  Position.X = 284.000000000000000000
+                  Position.X = 289.000000000000000000
                   Size.Height = 340.000000000000000000
                   inherited lytQuickActions: TLayout
                     inherited lbQuickActions: TLabel
@@ -362,7 +361,7 @@ object frmMain: TfrmMain
             item
             end>
           TextSettings.Trimming = None
-          IsSelected = True
+          IsSelected = False
           Size.Width = 12.000000000000000000
           Size.Height = 12.000000000000000000
           Size.PlatformDefault = False
@@ -384,8 +383,8 @@ object frmMain: TfrmMain
               inherited gPatients: TGrid
                 Size.Width = 545.000000000000000000
                 Size.Height = 225.000000000000000000
-                Viewport.Width = 541.000000000000000000
-                Viewport.Height = 200.000000000000000000
+                Viewport.Width = 545.000000000000000000
+                Viewport.Height = 225.000000000000000000
               end
               inherited lytBottom: TLayout
                 Position.Y = 455.000000000000000000
@@ -500,6 +499,7 @@ object frmMain: TfrmMain
     Size.Width = 850.000000000000000000
     Size.Height = 505.000000000000000000
     Size.PlatformDefault = False
+    Visible = False
     inherited lytContentH: TLayout
       Size.Width = 850.000000000000000000
       Size.Height = 505.000000000000000000
@@ -534,8 +534,8 @@ object frmMain: TfrmMain
             end
             inherited mMedicalNotes: TMemo
               Size.Width = 589.000000000000000000
-              Viewport.Width = 581.000000000000000000
-              Viewport.Height = 117.000000000000000000
+              Viewport.Width = 589.000000000000000000
+              Viewport.Height = 125.000000000000000000
             end
           end
           inherited lytPatientH: TLayout

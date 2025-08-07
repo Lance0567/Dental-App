@@ -80,15 +80,36 @@ uses uDm, uMain;
 { Frame Resize }
 procedure TfDashboard.FrameResize(Sender: TObject);
 begin
-  if (frmMain.ClientWidth > 1900) OR (frmMain.ClientWidth > 1300) then
+  // Client width resize
+  if (frmMain.ClientWidth > 1900) then
   begin
+    glytCards.Height := 120;
     glytCards.ItemWidth := 320;
+  end
+  else if (frmMain.ClientWidth > 1360) AND (frmMain.ClientHeight >= 505) then
+  begin
+    // Cards
     glytCards.Height := 160;
+    glytCards.ItemWidth := 320;
+
+    // Quick actions
+    rUrgentContracts.Width := 205;
+    rQuickActions.Width := 280;
+
+    // Button text font size
+    btnNewPatient.TextSettings.Font.Size := 14;
+    btnNewAppointment.TextSettings.Font.Size := 14;
+    btnReportAnIssue.TextSettings.Font.Size := 14;
+  end
+  else if (frmMain.ClientWidth > 1165) then
+  begin
+    glytCards.Height := 120;
   end
   else if (frmMain.ClientWidth <= 850) AND (frmMain.ClientHeight <= 505) then
   begin
     // Cards
-    glytCards.Height := 300;
+    glytCards.Height := 290;
+    glytCards.ItemWidth := 260;
 
     // Quick actions
     rUrgentContracts.Width := 280;
@@ -98,19 +119,10 @@ begin
     btnNewPatient.TextSettings.Font.Size := 12;
     btnNewAppointment.TextSettings.Font.Size := 12;
     btnReportAnIssue.TextSettings.Font.Size := 12;
-  end;
+  end
 
-  if (frmMain.ClientWidth >= 900) AND (frmMain.ClientHeight >= 505) then
-  begin
-    // Quick actions
-    rUrgentContracts.Width := 205;
-    rQuickActions.Width := 280;
+  // Card container resized
 
-    // Button text font size
-    btnNewPatient.TextSettings.Font.Size := 14;
-    btnNewAppointment.TextSettings.Font.Size := 14;
-    btnReportAnIssue.TextSettings.Font.Size := 14;
-  end;
 end;
 
 { Card Resize }
@@ -131,20 +143,37 @@ begin
     glytCards.Width := 275;
   end;
 
-  // Dimension condition
+  // Client Dimension condition
   if frmMain.ClientWidth > 1900 then
   begin
     ItemsPerRow := Max(1, AvailableWidth div 400);
     glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
   end
-  else if (frmMain.ClientWidth > 900) AND (frmMain.ClientWidth < 1300) then
+  else if (frmMain.ClientWidth > 900) then
+  begin
+    ItemsPerRow := Max(1, AvailableWidth div 250);
+    glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
+  end
+  else if (frmMain.ClientWidth <= 850) then
+  begin
+    ItemsPerRow := Max(1, AvailableWidth div 240);
+    glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
+  end;
+
+  // Frame Dimension condition
+  if Self.Width >= 1278 then
   begin
     ItemsPerRow := Max(1, AvailableWidth div 290);
     glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
   end
-  else if (frmMain.ClientWidth < 840) OR (frmMain.ClientWidth > 1300) then
+  else if Self.Width >= 1084 then
   begin
-    ItemsPerRow := Max(1, AvailableWidth div 265);
+    ItemsPerRow := Max(1, AvailableWidth div 220);
+    glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
+  end
+  else if (Self.Width <= 569) OR (glytCards.Width >= 763) then
+  begin
+    ItemsPerRow := Max(1, AvailableWidth div 300);
     glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
   end;
 end;
