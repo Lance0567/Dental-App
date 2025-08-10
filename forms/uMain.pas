@@ -71,6 +71,12 @@ begin
 
   fDashboard.FrameResize(Sender);
   fDashboard.CardsResize;
+
+  // Patient Modal content responsive
+  fPatientModal.EditComponentsResponsive;
+
+  // Hide date text
+//  fPatientModal.deDateOfBirth
 end;
 
 { Form Resized }
@@ -103,9 +109,6 @@ begin
     fDashboard.lytRecords.Height := 390;
   end;
 
-  // Patient Modal responsive
-  fPatientModal.lytDetails1Resize(Sender);
-
   // Dashboard cards resize
   fDashboard.CardsResize;
 end;
@@ -113,26 +116,34 @@ end;
 { Add Patient Modal }
 procedure TfrmMain.fPatientsbtnAddNewPatientClick(Sender: TObject);
 begin
+  // Patient Modal visibility
   fPatientModal.Visible := True;
   fPatientModal.ScrollBox1.ViewportPosition := PointF(0, 0);  // reset scrollbox
   fPatientModal.Tag := 0;
 
-  // Patient Modal responsive
-  fPatientModal.lytDetails1Resize(Sender);
+  // Gender Display text value
+  fPatientModal.lGenderText.Text := fPatientModal.cbGender.Text;
 
   // Medical notes
   fPatientModal.mMedicalNotes.Text := 'Enter any relevant medical history, allergies, or notes';
 
   // Profile Icon
   fPatientModal.gIcon.ImageIndex := 10;
+  fPatientModal.gIcon.Visible := True;
   fPatientModal.lNameH.Visible := False;
+
+  // Font color Style settings of date edit
+  fPatientModal.deDateOfBirth.StyledSettings :=
+  fPatientModal.deDateOfBirth.StyledSettings - [TStyledSetting.FontColor];
 end;
 
 { Sidebar Resized }
 procedure TfrmMain.mvSidebarResize(Sender: TObject);
 begin
   // Date formatted display
-  fDashboard.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);;
+  fDashboard.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
+  fPatients.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
+  fAppointments.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
 
   // Sidebar adjustment
   if mvSidebar.Width < 51 then

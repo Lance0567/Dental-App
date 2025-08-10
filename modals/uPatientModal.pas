@@ -56,15 +56,22 @@ type
     lbTitle: TLabel;
     btnClose: TSpeedButton;
     lTag: TLabel;
+    lGenderText: TLabel;
+    lDateText: TLabel;
+    Glyph1: TGlyph;
     procedure mMedicalNotesClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure eFullNameChangeTracking(Sender: TObject);
     procedure FrameResize(Sender: TObject);
-    procedure lytDetails1Resize(Sender: TObject);
     procedure mMedicalNotesChange(Sender: TObject);
+    procedure lytDetails1Resize(Sender: TObject);
+    procedure lytDetails2Resize(Sender: TObject);
+    procedure lytDetails3Resize(Sender: TObject);
+    procedure cbGenderChange(Sender: TObject);
   private
     { Private declarations }
   public
+    procedure EditComponentsResponsive;
     { Public declarations }
   end;
 
@@ -72,7 +79,22 @@ implementation
 
 {$R *.fmx}
 
-uses uDm, uMain;
+uses uMain, uDm;
+
+procedure TfPatientModal.cbGenderChange(Sender: TObject);
+begin
+  lGenderText.Text := cbGender.Text;
+end;
+
+procedure TfPatientModal.EditComponentsResponsive;
+begin
+  lytFullName.Width := Trunc(lytDetails1.Width / 2) - 15; // -15 to account for spacing
+  lytDateOfBirth.Width := Trunc(lytDetails1.Width / 2) - 15;
+  lytGender.Width := Trunc(lytDetails2.Width / 2) - 15;
+  lytContactNumber.Width := Trunc(lytDetails2.Width / 2) - 15;
+  lytEmailAddress.Width := Trunc(lytDetails3.Width / 2) - 15;
+  lytAddress.Width := Trunc(lytDetails3.Width / 2) - 15;
+end;
 
 procedure TfPatientModal.btnCloseClick(Sender: TObject);
 begin
@@ -117,17 +139,22 @@ end;
 
 procedure TfPatientModal.lytDetails1Resize(Sender: TObject);
 begin
-  lytFullName.Width := Trunc(lytDetails1.Width / 2) - 15; // -15 to account for spacing
-  lytDateOfBirth.Width := Trunc(lytDetails1.Width / 2) - 15;
-  lytGender.Width := Trunc(lytDetails2.Width / 2) - 15;
-  lytContactNumber.Width := Trunc(lytDetails2.Width / 2) - 15;
-  lytEmailAddress.Width := Trunc(lytDetails3.Width / 2) - 15;
-  lytAddress.Width := Trunc(lytDetails3.Width / 2) - 15;
+  EditComponentsResponsive;
+end;
+
+procedure TfPatientModal.lytDetails2Resize(Sender: TObject);
+begin
+  EditComponentsResponsive;
+end;
+
+procedure TfPatientModal.lytDetails3Resize(Sender: TObject);
+begin
+  EditComponentsResponsive;
 end;
 
 procedure TfPatientModal.mMedicalNotesChange(Sender: TObject);
 begin
-  if (mMedicalNotes.Text.Trim = '') then
+  if (mMedicalNotes.Text.Trim = '') AND (Self.Tag = 1) then
   begin
     mMedicalNotes.Text := 'Enter any relevant medical history, allergies, or notes';
   end;

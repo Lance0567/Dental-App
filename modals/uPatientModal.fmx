@@ -63,8 +63,8 @@ object fPatientModal: TfPatientModal
             TabOrder = 8
             Text = 'Save Patient'
             TextSettings.Trimming = None
-            XRadius = 8.000000000000000000
-            YRadius = 8.000000000000000000
+            XRadius = 13.000000000000000000
+            YRadius = 13.000000000000000000
           end
           object lTag: TLabel
             Align = Left
@@ -262,8 +262,28 @@ object fPatientModal: TfPatientModal
                   Size.Width = 165.000000000000000000
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
-                  StyledSettings = [Family, Size, Style]
                   TabOrder = 2
+                  object lDateText: TLabel
+                    Align = Client
+                    StyledSettings = [Family, Size, Style]
+                    Size.Width = 140.000000000000000000
+                    Size.Height = 40.000000000000000000
+                    Size.PlatformDefault = False
+                    Text = 'Pick a date'
+                    Visible = False
+                    TabOrder = 75
+                  end
+                  object Glyph1: TGlyph
+                    Margins.Left = 15.000000000000000000
+                    Margins.Top = 10.000000000000000000
+                    Margins.Bottom = 10.000000000000000000
+                    Align = Left
+                    Position.X = 15.000000000000000000
+                    Position.Y = 10.000000000000000000
+                    Size.Width = 20.000000000000000000
+                    Size.Height = 20.000000000000000000
+                    Size.PlatformDefault = False
+                  end
                 end
                 object lAgeCounter: TLabel
                   Align = Client
@@ -284,6 +304,7 @@ object fPatientModal: TfPatientModal
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 2
+              OnResize = lytDetails2Resize
               object lytGender: TLayout
                 Align = Left
                 Size.Width = 165.000000000000000000
@@ -304,7 +325,7 @@ object fPatientModal: TfPatientModal
                   Align = Top
                   Items.Strings = (
                     'Male'
-                    'Femal'
+                    'Female'
                     'Other')
                   ItemIndex = 0
                   Margins.Top = 10.000000000000000000
@@ -313,6 +334,17 @@ object fPatientModal: TfPatientModal
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
                   TabOrder = 3
+                  OnChange = cbGenderChange
+                  object lGenderText: TLabel
+                    Align = Client
+                    StyledSettings = [Family, Size, Style]
+                    Margins.Left = 5.000000000000000000
+                    Size.Width = 160.000000000000000000
+                    Size.Height = 40.000000000000000000
+                    Size.PlatformDefault = False
+                    Text = 'Male'
+                    TabOrder = 86
+                  end
                 end
               end
               object lytContactNumber: TLayout
@@ -355,6 +387,7 @@ object fPatientModal: TfPatientModal
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 1
+              OnResize = lytDetails3Resize
               object lytEmailAddress: TLayout
                 Align = Left
                 Size.Width = 165.000000000000000000
