@@ -61,10 +61,8 @@ object frmMain: TfrmMain
           Align = Top
           StyledSettings = [Style]
           ImageIndex = 13
-          Margins.Top = 5.000000000000000000
-          Position.Y = 5.000000000000000000
           Size.Width = 245.000000000000000000
-          Size.Height = 60.000000000000000000
+          Size.Height = 65.000000000000000000
           Size.PlatformDefault = False
           StyleLookup = 'detailstoolbuttonmultiview'
           Text = 'Roces Dental'
@@ -187,7 +185,7 @@ object frmMain: TfrmMain
         Size.Width = 605.000000000000000000
         Size.Height = 505.000000000000000000
         Size.PlatformDefault = False
-        TabIndex = 1
+        TabIndex = 0
         TabOrder = 0
         TabPosition = Dots
         OnChange = tcControllerChange
@@ -203,7 +201,7 @@ object frmMain: TfrmMain
             item
             end>
           TextSettings.Trimming = None
-          IsSelected = False
+          IsSelected = True
           Size.Width = 12.000000000000000000
           Size.Height = 12.000000000000000000
           Size.PlatformDefault = False
@@ -318,6 +316,7 @@ object frmMain: TfrmMain
                       TextSettings.Font.StyleExt = {00060000000000000004000000}
                       XRadius = 13.000000000000000000
                       YRadius = 13.000000000000000000
+                      OnClick = fDashboardbtnNewPatientClick
                     end
                     inherited btnNewAppointment: TCornerButton
                       StyledSettings = [Family, FontColor]
@@ -326,6 +325,7 @@ object frmMain: TfrmMain
                       TextSettings.Font.StyleExt = {00060000000000000004000000}
                       XRadius = 13.000000000000000000
                       YRadius = 13.000000000000000000
+                      OnClick = fDashboardbtnNewAppointmentClick
                     end
                   end
                   inherited btnReportAnIssue: TCornerButton
@@ -362,7 +362,7 @@ object frmMain: TfrmMain
             item
             end>
           TextSettings.Trimming = None
-          IsSelected = True
+          IsSelected = False
           Size.Width = 12.000000000000000000
           Size.Height = 12.000000000000000000
           Size.PlatformDefault = False
@@ -395,6 +395,9 @@ object frmMain: TfrmMain
                 Size.Width = 605.000000000000000000
                 inherited lytSearch: TLayout
                   Size.Width = 373.000000000000000000
+                  inherited eSearch: TEdit
+                    StyledSettings = [Family, Size, Style]
+                  end
                 end
                 inherited lytButtonH: TLayout
                   Position.X = 403.000000000000000000
@@ -577,7 +580,7 @@ object frmMain: TfrmMain
                     StyledSettings = [Family, Size, Style]
                     inherited lDateText: TLabel
                       Margins.Left = 5.000000000000000000
-                      TabOrder = 71
+                      TabOrder = 48
                     end
                   end
                   inherited lAgeCounter: TLabel

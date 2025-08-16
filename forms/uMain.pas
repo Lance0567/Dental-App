@@ -38,6 +38,8 @@ type
     procedure sbDashboardClick(Sender: TObject);
     procedure sbAppointmentsClick(Sender: TObject);
     procedure fPatientsbtnAddNewPatientClick(Sender: TObject);
+    procedure fDashboardbtnNewPatientClick(Sender: TObject);
+    procedure fDashboardbtnNewAppointmentClick(Sender: TObject);
   private
     procedure HideFrames;
     { Private declarations }
@@ -60,6 +62,30 @@ begin
   fDashboard.Visible := False;
   fPatients.Visible := False;
   fAppointments.Visible := False;
+end;
+
+{ New Appointment }
+procedure TfrmMain.fDashboardbtnNewAppointmentClick(Sender: TObject);
+begin
+  HideFrames;
+
+  // Switch to appointments tab
+  tcController.TabIndex := 2;
+
+  // Show appointments frames
+  fAppointments.Visible := True;
+end;
+
+{ New Patient }
+procedure TfrmMain.fDashboardbtnNewPatientClick(Sender: TObject);
+begin
+  HideFrames;
+
+  // Switch to patients tab
+  tcController.TabIndex := 1;
+
+  // Show patients frame
+  fPatients.Visible := True;
 end;
 
 { Form create }
@@ -126,6 +152,9 @@ begin
 
   // Medical notes
   fPatientModal.mMedicalNotes.Text := 'Enter any relevant medical history, allergies, or notes';
+  fPatientModal.MemoTrackingReset := 'Empty';
+  fPatientModal.lTag.Text := 'Tag Number : ' + fPatientModal.MemoTrackingReset;
+  fPatientModal.lDateText.Visible := True;
 
   // Profile Icon
   fPatientModal.gIcon.ImageIndex := 10;

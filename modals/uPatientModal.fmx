@@ -70,7 +70,7 @@ object fPatientModal: TfPatientModal
             Align = Left
             StyledSettings = [Family, Size, Style]
             Position.Y = 10.000000000000000000
-            Size.Width = 120.000000000000000000
+            Size.Width = 201.000000000000000000
             Size.Height = 40.000000000000000000
             Size.PlatformDefault = False
             Text = 'Tag Number :'
@@ -105,12 +105,12 @@ object fPatientModal: TfPatientModal
             Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
             DataDetectorTypes = []
             StyledSettings = [Family, Size, Style]
-            OnChange = mMedicalNotesChange
             Align = Client
             Size.Width = 506.000000000000000000
             Size.Height = 125.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 7
+            OnExit = mMedicalNotesExit
             OnClick = mMedicalNotesClick
             Viewport.Width = 502.000000000000000000
             Viewport.Height = 121.000000000000000000
@@ -255,34 +255,29 @@ object fPatientModal: TfPatientModal
                   TabOrder = 0
                 end
                 object deDateOfBirth: TDateEdit
-                  Date = 45865.000000000000000000
+                  Date = 45885.000000000000000000
+                  TodayDefault = True
                   Align = Top
                   Margins.Top = 10.000000000000000000
                   Position.Y = 27.000000000000000000
                   Size.Width = 165.000000000000000000
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
+                  StyledSettings = [Family, Size, Style]
                   TabOrder = 2
+                  TextSettings.FontColor = claWhite
+                  OnEnter = deDateOfBirthEnter
                   object lDateText: TLabel
                     Align = Client
                     StyledSettings = [Family, Size, Style]
-                    Size.Width = 140.000000000000000000
-                    Size.Height = 40.000000000000000000
+                    Margins.Left = 45.000000000000000000
+                    Margins.Top = -3.000000000000000000
+                    Size.Width = 120.000000000000000000
+                    Size.Height = 43.000000000000000000
                     Size.PlatformDefault = False
+                    TextSettings.FontColor = claGray
                     Text = 'Pick a date'
-                    Visible = False
-                    TabOrder = 75
-                  end
-                  object Glyph1: TGlyph
-                    Margins.Left = 15.000000000000000000
-                    Margins.Top = 10.000000000000000000
-                    Margins.Bottom = 10.000000000000000000
-                    Align = Left
-                    Position.X = 15.000000000000000000
-                    Position.Y = 10.000000000000000000
-                    Size.Width = 20.000000000000000000
-                    Size.Height = 20.000000000000000000
-                    Size.PlatformDefault = False
+                    TabOrder = 55
                   end
                 end
                 object lAgeCounter: TLabel

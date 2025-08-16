@@ -21,8 +21,8 @@ object fPatients: TfPatients
       Size.Height = 136.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 4
-      Viewport.Width = 520.000000000000000000
-      Viewport.Height = 136.000000000000000000
+      Viewport.Width = 516.000000000000000000
+      Viewport.Height = 111.000000000000000000
     end
     object lytBottom: TLayout
       Align = Bottom
@@ -44,8 +44,8 @@ object fPatients: TfPatients
       TabOrder = 2
       object lytSearch: TLayout
         Align = Client
-        Padding.Top = 10.000000000000000000
-        Padding.Bottom = 10.000000000000000000
+        Padding.Top = 5.000000000000000000
+        Padding.Bottom = 5.000000000000000000
         Size.Width = 348.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
@@ -54,11 +54,11 @@ object fPatients: TfPatients
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Left
           TabOrder = 0
-          Text = 'Search patients...'
-          Position.Y = 10.000000000000000000
+          Position.Y = 5.000000000000000000
           Size.Width = 217.000000000000000000
-          Size.Height = 30.000000000000000000
+          Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
+          TextPrompt = 'Search patients...'
         end
       end
       object lytButtonH: TLayout

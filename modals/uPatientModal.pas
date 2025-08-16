@@ -58,19 +58,20 @@ type
     lTag: TLabel;
     lGenderText: TLabel;
     lDateText: TLabel;
-    Glyph1: TGlyph;
     procedure mMedicalNotesClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure eFullNameChangeTracking(Sender: TObject);
     procedure FrameResize(Sender: TObject);
-    procedure mMedicalNotesChange(Sender: TObject);
     procedure lytDetails1Resize(Sender: TObject);
     procedure lytDetails2Resize(Sender: TObject);
     procedure lytDetails3Resize(Sender: TObject);
     procedure cbGenderChange(Sender: TObject);
+    procedure mMedicalNotesExit(Sender: TObject);
+    procedure deDateOfBirthEnter(Sender: TObject);
   private
     { Private declarations }
   public
+    MemoTrackingReset: String;
     procedure EditComponentsResponsive;
     { Public declarations }
   end;
@@ -84,6 +85,12 @@ uses uMain, uDm;
 procedure TfPatientModal.cbGenderChange(Sender: TObject);
 begin
   lGenderText.Text := cbGender.Text;
+end;
+
+procedure TfPatientModal.deDateOfBirthEnter(Sender: TObject);
+begin
+  deDateOfBirth.TextSettings.FontColor := TAlphaColors.Black;
+  lDateText.Visible := False;
 end;
 
 procedure TfPatientModal.EditComponentsResponsive;
@@ -152,23 +159,30 @@ begin
   EditComponentsResponsive;
 end;
 
-procedure TfPatientModal.mMedicalNotesChange(Sender: TObject);
+procedure TfPatientModal.mMedicalNotesClick(Sender: TObject);
 begin
-  if (mMedicalNotes.Text.Trim = '') AND (Self.Tag = 1) then
+  if MemoTrackingReset = 'Empty' then
+  begin
+    MemoTrackingReset := 'Clicked';
+    mMedicalNotes.Text := '';
+  end;
+
+  lTag.Text := 'Tag Number : ' + MemoTrackingReset;
+end;
+
+procedure TfPatientModal.mMedicalNotesExit(Sender: TObject);
+begin
+  if (MemoTrackingReset = 'Clicked') AND (mMedicalNotes.Text.Trim.IsEmpty) then
+  begin
+    MemoTrackingReset := 'Empty';
+  end;
+
+  if (MemoTrackingReset = 'Empty') then
   begin
     mMedicalNotes.Text := 'Enter any relevant medical history, allergies, or notes';
   end;
-end;
 
-procedure TfPatientModal.mMedicalNotesClick(Sender: TObject);
-begin
-  if Self.Tag = 0 then
-  begin
-    mMedicalNotes.Text := '';
-    Self.Tag := 1;
-  end;
-
-  lTag.Text := 'Tag Number : ' + Self.Tag.ToString;
+  lTag.Text := 'Tag Number : ' + MemoTrackingReset;
 end;
 
 end.
