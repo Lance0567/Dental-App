@@ -154,6 +154,7 @@ begin
   fPatientModal.mMedicalNotes.Text := 'Enter any relevant medical history, allergies, or notes';
   fPatientModal.MemoTrackingReset := 'Empty';
   fPatientModal.lTag.Text := 'Tag Number : ' + fPatientModal.MemoTrackingReset;
+  fPatientModal.deDateOfBirth.TextSettings.FontColor := TAlphaColors.White;
   fPatientModal.lDateText.Visible := True;
 
   // Profile Icon

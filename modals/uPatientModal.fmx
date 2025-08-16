@@ -74,6 +74,7 @@ object fPatientModal: TfPatientModal
             Size.Height = 40.000000000000000000
             Size.PlatformDefault = False
             Text = 'Tag Number :'
+            Visible = False
             TabOrder = 9
           end
         end
@@ -256,7 +257,7 @@ object fPatientModal: TfPatientModal
                 end
                 object deDateOfBirth: TDateEdit
                   Date = 45885.000000000000000000
-                  TodayDefault = True
+                  OnChange = deDateOfBirthChange
                   Align = Top
                   Margins.Top = 10.000000000000000000
                   Position.Y = 27.000000000000000000
@@ -266,7 +267,6 @@ object fPatientModal: TfPatientModal
                   StyledSettings = [Family, Size, Style]
                   TabOrder = 2
                   TextSettings.FontColor = claWhite
-                  OnEnter = deDateOfBirthEnter
                   object lDateText: TLabel
                     Align = Client
                     StyledSettings = [Family, Size, Style]
@@ -277,15 +277,17 @@ object fPatientModal: TfPatientModal
                     Size.PlatformDefault = False
                     TextSettings.FontColor = claGray
                     Text = 'Pick a date'
-                    TabOrder = 55
+                    TabOrder = 51
                   end
                 end
                 object lAgeCounter: TLabel
                   Align = Client
-                  StyledSettings = [Family, Size, Style]
+                  StyledSettings = [Family, Size]
                   Size.Width = 165.000000000000000000
                   Size.Height = 28.000000000000000000
                   Size.PlatformDefault = False
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
+                  TextSettings.FontColor = claGray
                   Text = 'Age: 0 years'
                   TabOrder = 1
                 end

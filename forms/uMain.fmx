@@ -296,8 +296,8 @@ object frmMain: TfrmMain
                   inherited Grid1: TGrid
                     Size.Width = 199.000000000000000000
                     Size.Height = 263.000000000000000000
-                    Viewport.Width = 199.000000000000000000
-                    Viewport.Height = 263.000000000000000000
+                    Viewport.Width = 195.000000000000000000
+                    Viewport.Height = 238.000000000000000000
                   end
                 end
                 inherited rQuickActions: TRectangle
@@ -537,20 +537,26 @@ object frmMain: TfrmMain
             end
             inherited mMedicalNotes: TMemo
               Size.Width = 589.000000000000000000
-              Viewport.Width = 589.000000000000000000
-              Viewport.Height = 125.000000000000000000
+              Viewport.Width = 575.000000000000000000
+              Viewport.Height = 111.000000000000000000
             end
           end
           inherited lytPatientH: TLayout
             Size.Width = 629.000000000000000000
             inherited lytPatientProfile: TLayout
               inherited cProfilePhoto: TCircle
+                Margins.Top = -3.000000000000000000
+                Position.Y = -3.000000000000000000
                 inherited lNameH: TLabel
                   TextSettings.Font.StyleExt = {00070000000000000004000000}
                 end
               end
               inherited lbProfilePhoto: TLabel
+                Position.Y = 119.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
+              end
+              inherited btnPhotoUpload: TCornerButton
+                Position.Y = 146.000000000000000000
               end
             end
             inherited lytPatientDetails: TLayout
@@ -577,14 +583,14 @@ object frmMain: TfrmMain
                   end
                   inherited deDateOfBirth: TDateEdit
                     Size.Width = 195.000000000000000000
-                    StyledSettings = [Family, Size, Style]
                     inherited lDateText: TLabel
-                      Margins.Left = 5.000000000000000000
-                      TabOrder = 48
+                      Size.Width = 150.000000000000000000
+                      TabOrder = 15
                     end
                   end
                   inherited lAgeCounter: TLabel
                     Size.Width = 195.000000000000000000
+                    TextSettings.Font.StyleExt = {00060000000000000004000000}
                   end
                 end
               end
@@ -603,7 +609,6 @@ object frmMain: TfrmMain
                     inherited lGenderText: TLabel
                       Margins.Left = 10.000000000000000000
                       Size.Width = 185.000000000000000000
-                      TabOrder = 85
                     end
                   end
                 end

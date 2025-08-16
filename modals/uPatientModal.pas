@@ -67,7 +67,7 @@ type
     procedure lytDetails3Resize(Sender: TObject);
     procedure cbGenderChange(Sender: TObject);
     procedure mMedicalNotesExit(Sender: TObject);
-    procedure deDateOfBirthEnter(Sender: TObject);
+    procedure deDateOfBirthChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -87,7 +87,7 @@ begin
   lGenderText.Text := cbGender.Text;
 end;
 
-procedure TfPatientModal.deDateOfBirthEnter(Sender: TObject);
+procedure TfPatientModal.deDateOfBirthChange(Sender: TObject);
 begin
   deDateOfBirth.TextSettings.FontColor := TAlphaColors.Black;
   lDateText.Visible := False;
