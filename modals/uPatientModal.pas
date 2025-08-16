@@ -112,16 +112,20 @@ procedure TfPatientModal.eFullNameChangeTracking(Sender: TObject);
 begin
   // Getter of first letter of the Full name
   if eFullName.Text.Trim <> '' then
-    lNameH.Text := UpperCase(eFullName.Text.Trim[1])
-  else
+  begin
+    lNameH.Text := UpperCase(eFullName.Text.Trim[1]);
+
+    // Profile pic changer
+    gIcon.ImageIndex := -1;
+    lNameH.Visible := True;
+  end;
+
+  if eFullName.Text.Trim = '' then
   begin
     lNameH.Text := '';
     gIcon.ImageIndex := 10;
+    lNameH.Visible := False;
   end;
-
-  // Profile pic changer
-  gIcon.ImageIndex := -1;
-  lNameH.Visible := True;
 end;
 
 procedure TfPatientModal.FrameResize(Sender: TObject);

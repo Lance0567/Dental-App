@@ -277,7 +277,7 @@ object fPatientModal: TfPatientModal
                     Size.PlatformDefault = False
                     TextSettings.FontColor = claGray
                     Text = 'Pick a date'
-                    TabOrder = 51
+                    TabOrder = 49
                   end
                 end
                 object lAgeCounter: TLabel

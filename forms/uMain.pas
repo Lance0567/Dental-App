@@ -150,17 +150,19 @@ begin
   // Gender Display text value
   fPatientModal.lGenderText.Text := fPatientModal.cbGender.Text;
 
+  // Profile Icon
+  fPatientModal.gIcon.ImageIndex := 10;
+  fPatientModal.gIcon.Visible := True;
+  fPatientModal.lNameH.Visible := False;
+  fPatientModal.lNameH.Text := '';
+  fPatientModal.eFullName.Text := '';
+
   // Medical notes
   fPatientModal.mMedicalNotes.Text := 'Enter any relevant medical history, allergies, or notes';
   fPatientModal.MemoTrackingReset := 'Empty';
   fPatientModal.lTag.Text := 'Tag Number : ' + fPatientModal.MemoTrackingReset;
   fPatientModal.deDateOfBirth.TextSettings.FontColor := TAlphaColors.White;
   fPatientModal.lDateText.Visible := True;
-
-  // Profile Icon
-  fPatientModal.gIcon.ImageIndex := 10;
-  fPatientModal.gIcon.Visible := True;
-  fPatientModal.lNameH.Visible := False;
 
   // Font color Style settings of date edit
   fPatientModal.deDateOfBirth.StyledSettings :=
