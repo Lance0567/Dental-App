@@ -228,12 +228,16 @@ object fPatientModal: TfPatientModal
                   Align = Top
                   TabOrder = 1
                   Position.Y = 27.000000000000000000
+                  Hint = 'Please fillout this field.'
+                  HelpType = htKeyword
                   Margins.Top = 10.000000000000000000
                   Size.Width = 165.000000000000000000
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
                   TextPrompt = 'Enter patient'#39's full name'
                   StyledSettings = [Family, Size, Style]
+                  ParentShowHint = False
+                  ShowHint = True
                   OnChangeTracking = eFullNameChangeTracking
                 end
               end
@@ -277,7 +281,7 @@ object fPatientModal: TfPatientModal
                     Size.PlatformDefault = False
                     TextSettings.FontColor = claGray
                     Text = 'Pick a date'
-                    TabOrder = 49
+                    TabOrder = 47
                   end
                 end
                 object lAgeCounter: TLabel
@@ -367,12 +371,15 @@ object fPatientModal: TfPatientModal
                   Align = Top
                   TabOrder = 4
                   Position.Y = 27.000000000000000000
+                  Hint = 'Please fillout this field.'
                   Margins.Top = 10.000000000000000000
                   Size.Width = 165.000000000000000000
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
                   TextPrompt = 'Enter contact number'
                   StyledSettings = [Family, Size, Style]
+                  ParentShowHint = False
+                  ShowHint = True
                 end
               end
             end

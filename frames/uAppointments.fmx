@@ -21,18 +21,18 @@ object fAppointments: TfAppointments
         Align = Client
         StyledSettings = []
         Size.Width = 550.000000000000000000
-        Size.Height = 38.000000000000000000
+        Size.Height = 33.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Family = 'Arial Rounded MT'
-        TextSettings.Font.Size = 30.000000000000000000
+        TextSettings.Font.Size = 32.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
-        TextSettings.FontColor = claBlue
         Text = 'Appointments'
         TabOrder = 0
       end
       object lbDescription: TLabel
         Align = Bottom
         StyledSettings = []
+        Margins.Top = 5.000000000000000000
         Position.Y = 38.000000000000000000
         Size.Width = 550.000000000000000000
         Size.Height = 17.000000000000000000
@@ -53,6 +53,14 @@ object fAppointments: TfAppointments
     Size.PlatformDefault = False
     Stroke.Kind = None
     Stroke.Thickness = 0.500000000000000000
+    object lBevel: TLine
+      Align = Client
+      LineType = Bottom
+      Size.Width = 580.000000000000000000
+      Size.Height = 60.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Thickness = 0.100000001490116100
+    end
     object lytToolbarH: TLayout
       Align = Client
       Size.Width = 580.000000000000000000
@@ -67,6 +75,7 @@ object fAppointments: TfAppointments
         Size.Width = 572.000000000000000000
         Size.Height = 60.000000000000000000
         Size.PlatformDefault = False
+        TextSettings.FontColor = claDimgray
         Text = 'Date'
         TabOrder = 5
       end
@@ -114,16 +123,9 @@ object fAppointments: TfAppointments
           Size.Width = 40.000000000000000000
           Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
+          Stroke.Kind = None
         end
       end
-    end
-    object lBevel: TLine
-      Align = Client
-      LineType = Bottom
-      Size.Width = 580.000000000000000000
-      Size.Height = 60.000000000000000000
-      Size.PlatformDefault = False
-      Stroke.Thickness = 0.100000001490116100
     end
   end
   object Rectangle1: TRectangle
@@ -139,7 +141,7 @@ object fAppointments: TfAppointments
     Size.Width = 520.000000000000000000
     Size.Height = 236.000000000000000000
     Size.PlatformDefault = False
-    Stroke.Kind = None
+    Stroke.Color = xFFDBD9D9
     XRadius = 13.000000000000000000
     YRadius = 13.000000000000000000
     object TMSFNCCalendar1: TTMSFNCCalendar
@@ -182,7 +184,7 @@ object fAppointments: TfAppointments
       LineAppearance.Stroke.Color = claDarkgray
     end
   end
-  object Layout1: TLayout
+  object lytBottom: TLayout
     Align = Bottom
     Margins.Top = 10.000000000000000000
     Position.Y = 391.000000000000000000

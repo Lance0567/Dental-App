@@ -25,7 +25,7 @@ type
     RoundRect1: TRoundRect;
     lBevel: TLine;
     Rectangle1: TRectangle;
-    Layout1: TLayout;
+    lytBottom: TLayout;
     TMSFNCCalendar1: TTMSFNCCalendar;
   private
     { Private declarations }

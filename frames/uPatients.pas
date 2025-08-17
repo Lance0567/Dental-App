@@ -20,7 +20,7 @@ type
     gIcon: TGlyph;
     lytUser: TLayout;
     slUserName: TSkLabel;
-    RoundRect1: TRoundRect;
+    rrUserImage: TRoundRect;
     lBevel: TLine;
     lytComponents: TLayout;
     eSearch: TEdit;
@@ -30,6 +30,7 @@ type
     lytBottom: TLayout;
     gPatients: TGrid;
     ScrollBox1: TScrollBox;
+    rPatients: TRectangle;
   private
     { Private declarations }
   public

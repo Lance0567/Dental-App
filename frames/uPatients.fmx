@@ -10,20 +10,6 @@ object fPatients: TfPatients
     TabOrder = 2
     Viewport.Width = 580.000000000000000000
     Viewport.Height = 416.000000000000000000
-    object gPatients: TGrid
-      Align = Client
-      CanFocus = True
-      ClipChildren = True
-      Margins.Left = 30.000000000000000000
-      Margins.Top = 20.000000000000000000
-      Margins.Right = 30.000000000000000000
-      Size.Width = 520.000000000000000000
-      Size.Height = 136.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 4
-      Viewport.Width = 516.000000000000000000
-      Viewport.Height = 111.000000000000000000
-    end
     object lytBottom: TLayout
       Align = Bottom
       Margins.Top = 20.000000000000000000
@@ -46,7 +32,7 @@ object fPatients: TfPatients
         Align = Client
         Padding.Top = 5.000000000000000000
         Padding.Bottom = 5.000000000000000000
-        Size.Width = 348.000000000000000000
+        Size.Width = 358.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
@@ -65,8 +51,8 @@ object fPatients: TfPatients
         Align = Right
         Padding.Top = 8.000000000000000000
         Padding.Bottom = 8.000000000000000000
-        Margins.Right = 30.000000000000000000
-        Position.X = 378.000000000000000000
+        Margins.Right = 20.000000000000000000
+        Position.X = 388.000000000000000000
         Size.Width = 172.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
@@ -104,18 +90,18 @@ object fPatients: TfPatients
           Align = Client
           StyledSettings = []
           Size.Width = 550.000000000000000000
-          Size.Height = 38.000000000000000000
+          Size.Height = 33.000000000000000000
           Size.PlatformDefault = False
           TextSettings.Font.Family = 'Arial Rounded MT'
-          TextSettings.Font.Size = 30.000000000000000000
+          TextSettings.Font.Size = 32.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
-          TextSettings.FontColor = claBlue
           Text = 'Patients'
           TabOrder = 0
         end
         object lbDescription: TLabel
           Align = Bottom
           StyledSettings = []
+          Margins.Top = 5.000000000000000000
           Position.Y = 38.000000000000000000
           Size.Width = 550.000000000000000000
           Size.Height = 17.000000000000000000
@@ -136,6 +122,14 @@ object fPatients: TfPatients
       Size.PlatformDefault = False
       Stroke.Kind = None
       Stroke.Thickness = 0.500000000000000000
+      object lBevel: TLine
+        Align = Client
+        LineType = Bottom
+        Size.Width = 580.000000000000000000
+        Size.Height = 60.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Thickness = 0.100000001490116100
+      end
       object lytToolbarH: TLayout
         Align = Client
         Size.Width = 580.000000000000000000
@@ -189,7 +183,7 @@ object fPatients: TfPatients
                 Text = #13#10'Receptionist'
               end>
           end
-          object RoundRect1: TRoundRect
+          object rrUserImage: TRoundRect
             Align = Left
             Margins.Top = 10.000000000000000000
             Margins.Bottom = 10.000000000000000000
@@ -197,16 +191,37 @@ object fPatients: TfPatients
             Size.Width = 40.000000000000000000
             Size.Height = 40.000000000000000000
             Size.PlatformDefault = False
+            Stroke.Kind = None
           end
         end
       end
-      object lBevel: TLine
+    end
+    object rPatients: TRectangle
+      Align = Client
+      Fill.Color = claWhite
+      Padding.Left = 20.000000000000000000
+      Padding.Top = 20.000000000000000000
+      Padding.Right = 20.000000000000000000
+      Padding.Bottom = 20.000000000000000000
+      Margins.Left = 30.000000000000000000
+      Margins.Top = 15.000000000000000000
+      Margins.Right = 20.000000000000000000
+      Size.Width = 530.000000000000000000
+      Size.Height = 141.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Color = xFFDBD9D9
+      XRadius = 9.000000000000000000
+      YRadius = 9.000000000000000000
+      object gPatients: TGrid
         Align = Client
-        LineType = Bottom
-        Size.Width = 580.000000000000000000
-        Size.Height = 60.000000000000000000
+        CanFocus = True
+        ClipChildren = True
+        Size.Width = 490.000000000000000000
+        Size.Height = 101.000000000000000000
         Size.PlatformDefault = False
-        Stroke.Thickness = 0.100000001490116100
+        TabOrder = 4
+        Viewport.Width = 486.000000000000000000
+        Viewport.Height = 76.000000000000000000
       end
     end
   end

@@ -42,6 +42,7 @@ type
     procedure fDashboardbtnNewAppointmentClick(Sender: TObject);
   private
     procedure HideFrames;
+    procedure ButtonPressed;
     { Private declarations }
   public
     { Public declarations }
@@ -62,6 +63,13 @@ begin
   fDashboard.Visible := False;
   fPatients.Visible := False;
   fAppointments.Visible := False;
+end;
+
+procedure TfrmMain.ButtonPressed;
+begin
+  sbDashboard.IsPressed := False;
+  sbPatients.IsPressed := False;
+  sbAppointments.IsPressed := False;
 end;
 
 { New Appointment }
@@ -86,11 +94,17 @@ begin
 
   // Show patients frame
   fPatients.Visible := True;
+
+  // Button pressed
+  sbPatients.IsPressed := True;
 end;
 
 { Form create }
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
+  // Default tab index
+  tcController.TabIndex := 0;
+
   // Default Show sidebar
   mvSidebar.ShowMaster;
   mvSidebar.NavigationPaneOptions.CollapsedWidth := 50;
@@ -100,9 +114,6 @@ begin
 
   // Patient Modal content responsive
   fPatientModal.EditComponentsResponsive;
-
-  // Hide date text
-//  fPatientModal.deDateOfBirth
 end;
 
 { Form Resized }
