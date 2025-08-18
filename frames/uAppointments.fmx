@@ -4,8 +4,8 @@ object fAppointments: TfAppointments
   Size.PlatformDefault = False
   object lytHeader: TLayout
     Align = Top
-    Margins.Top = 10.000000000000000000
-    Position.Y = 70.000000000000000000
+    Margins.Top = 20.000000000000000000
+    Position.Y = 80.000000000000000000
     Size.Width = 580.000000000000000000
     Size.Height = 55.000000000000000000
     Size.PlatformDefault = False
@@ -69,12 +69,13 @@ object fAppointments: TfAppointments
       TabOrder = 5
       object lDate: TLabel
         Align = Left
-        StyledSettings = [Family, Size, Style]
+        StyledSettings = [Family, Style]
         Margins.Left = 5.000000000000000000
         Position.X = 40.000000000000000000
         Size.Width = 572.000000000000000000
         Size.Height = 60.000000000000000000
         Size.PlatformDefault = False
+        TextSettings.Font.Size = 16.000000000000000000
         TextSettings.FontColor = claDimgray
         Text = 'Date'
         TabOrder = 5
@@ -94,24 +95,29 @@ object fAppointments: TfAppointments
       end
       object lytUser: TLayout
         Align = Right
-        Position.X = 440.000000000000000000
-        Size.Width = 140.000000000000000000
+        Position.X = 425.000000000000000000
+        Size.Width = 155.000000000000000000
         Size.Height = 60.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 6
         object slUserName: TSkLabel
           Align = Client
           Margins.Left = 15.000000000000000000
-          Size.Width = 85.000000000000000000
+          Size.Width = 100.000000000000000000
           Size.Height = 60.000000000000000000
           Size.PlatformDefault = False
           Words = <
             item
+              Font.Weight = Semibold
               Name = 'Item 0'
+              StyledSettings = [Family, Size, FontColor]
               Text = 'Sofia Chen'
             end
             item
+              Font.Size = 13.000000000000000000
+              FontColor = claGray
               Name = 'Item 1'
+              StyledSettings = [Family, Style]
               Text = #13#10'Receptionist'
             end>
         end
@@ -139,7 +145,7 @@ object fAppointments: TfAppointments
     Margins.Top = 20.000000000000000000
     Margins.Right = 30.000000000000000000
     Size.Width = 520.000000000000000000
-    Size.Height = 236.000000000000000000
+    Size.Height = 226.000000000000000000
     Size.PlatformDefault = False
     Stroke.Color = xFFDBD9D9
     XRadius = 13.000000000000000000
@@ -147,7 +153,7 @@ object fAppointments: TfAppointments
     object TMSFNCCalendar1: TTMSFNCCalendar
       Align = Client
       Size.Width = 480.000000000000000000
-      Size.Height = 196.000000000000000000
+      Size.Height = 186.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 6
       Header.Arrow.ArrowLeftBitmap = <>

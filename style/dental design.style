@@ -40044,6 +40044,7 @@ object TStyleContainer
   object TLayout
     StyleName = 'gridstyle'
     Align = Center
+    Visible = False
     TabOrder = 76
     object TBrushObject
       StyleName = 'AlternatingRowBackground'
@@ -66647,7 +66648,6 @@ object TStyleContainer
     Size.Width = 240.000000000000000000
     Size.Height = 62.000000000000000000
     Size.PlatformDefault = False
-    Visible = False
     TabOrder = 93
     object TRectangle
       StyleName = 'background'
@@ -66658,7 +66658,7 @@ object TStyleContainer
       Size.Width = 240.000000000000000000
       Size.Height = 62.000000000000000000
       Size.PlatformDefault = False
-      Stroke.Kind = None
+      Stroke.Color = xFFDBD9D9
       object TInnerGlowEffect
         Softness = 0.100000001490116100
         GlowColor = xFF4F4848
@@ -66690,6 +66690,7 @@ object TStyleContainer
       Size.Width = 230.000000000000000000
       Size.Height = 58.000000000000000000
       Size.PlatformDefault = False
+      Text = 'Text'
       TextSettings.Font.Size = 16.000000000000000000
       TextSettings.WordWrap = False
     end

@@ -44,8 +44,6 @@ type
     gIcon4: TGlyph;
     lytRecords: TLayout;
     rQuickActions: TRectangle;
-    lytQuickActions: TLayout;
-    lbQuickActions: TLabel;
     gRecordedAppointments: TGrid;
     lytTwoColumns: TLayout;
     btnNewPatient: TCornerButton;
@@ -60,7 +58,8 @@ type
     slUserName: TSkLabel;
     rrUserImage: TRoundRect;
     lBevel: TLine;
-    lbRecordedAppointments: TLabel;
+    lbTodayAppointments: TLabel;
+    lbQuickActions: TLabel;
     procedure FrameResize(Sender: TObject);
   private
 
@@ -148,7 +147,7 @@ begin
   else if (frmMain.ClientWidth > 900) then
   begin
     ItemsPerRow := Max(1, AvailableWidth div 270);
-    glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
+    glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4 + 4) / ItemsPerRow);
   end
   else if (frmMain.ClientWidth <= 850) then
   begin

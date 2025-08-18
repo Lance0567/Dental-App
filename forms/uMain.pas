@@ -13,14 +13,12 @@ type
     lytContainer: TLayout;
     lytSidebar: TLayout;
     mvSidebar: TMultiView;
-    sbSettings: TSpeedButton;
     sbMenu: TSpeedButton;
     sbAppointments: TSpeedButton;
     sbDashboard: TSpeedButton;
     sbPatients: TSpeedButton;
     lytContent: TLayout;
     lytMenuH: TLayout;
-    lbMainMenu: TLabel;
     lDivider: TLine;
     fDashboard: TfDashboard;
     tcController: TTabControl;
@@ -30,6 +28,7 @@ type
     tiAppointments: TTabItem;
     fAppointments: TfAppointments;
     fPatientModal: TfPatientModal;
+    lbMainMenu: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure mvSidebarResize(Sender: TObject);
     procedure FormResize(Sender: TObject);
@@ -42,7 +41,7 @@ type
     procedure fDashboardbtnNewAppointmentClick(Sender: TObject);
   private
     procedure HideFrames;
-    procedure ButtonPressed;
+    procedure ButtonPressedResetter;
     { Private declarations }
   public
     { Public declarations }
@@ -65,7 +64,8 @@ begin
   fAppointments.Visible := False;
 end;
 
-procedure TfrmMain.ButtonPressed;
+{ Hide Button highlight navbar }
+procedure TfrmMain.ButtonPressedResetter;
 begin
   sbDashboard.IsPressed := False;
   sbPatients.IsPressed := False;
@@ -82,6 +82,10 @@ begin
 
   // Show appointments frames
   fAppointments.Visible := True;
+
+  // Button pressed
+  ButtonPressedResetter;  // resetter
+  sbAppointments.IsPressed := True;
 end;
 
 { New Patient }
@@ -96,6 +100,7 @@ begin
   fPatients.Visible := True;
 
   // Button pressed
+  ButtonPressedResetter;  // resetter
   sbPatients.IsPressed := True;
 end;
 

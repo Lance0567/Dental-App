@@ -23,7 +23,7 @@ object fPatients: TfPatients
       Align = Top
       Padding.Left = 30.000000000000000000
       Margins.Top = 15.000000000000000000
-      Position.Y = 140.000000000000000000
+      Position.Y = 150.000000000000000000
       Size.Width = 580.000000000000000000
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
@@ -73,8 +73,8 @@ object fPatients: TfPatients
     end
     object lytHeader: TLayout
       Align = Top
-      Margins.Top = 10.000000000000000000
-      Position.Y = 70.000000000000000000
+      Margins.Top = 20.000000000000000000
+      Position.Y = 80.000000000000000000
       Size.Width = 580.000000000000000000
       Size.Height = 55.000000000000000000
       Size.PlatformDefault = False
@@ -138,12 +138,13 @@ object fPatients: TfPatients
         TabOrder = 5
         object lDate: TLabel
           Align = Left
-          StyledSettings = [Family, Size, Style]
+          StyledSettings = [Family, Style]
           Margins.Left = 5.000000000000000000
           Position.X = 40.000000000000000000
           Size.Width = 572.000000000000000000
           Size.Height = 60.000000000000000000
           Size.PlatformDefault = False
+          TextSettings.Font.Size = 16.000000000000000000
           Text = 'Date'
           TabOrder = 5
         end
@@ -162,24 +163,29 @@ object fPatients: TfPatients
         end
         object lytUser: TLayout
           Align = Right
-          Position.X = 440.000000000000000000
-          Size.Width = 140.000000000000000000
+          Position.X = 425.000000000000000000
+          Size.Width = 155.000000000000000000
           Size.Height = 60.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 6
           object slUserName: TSkLabel
             Align = Client
             Margins.Left = 15.000000000000000000
-            Size.Width = 85.000000000000000000
+            Size.Width = 100.000000000000000000
             Size.Height = 60.000000000000000000
             Size.PlatformDefault = False
             Words = <
               item
+                Font.Weight = Semibold
                 Name = 'Item 0'
+                StyledSettings = [Family, Size, FontColor]
                 Text = 'Sofia Chen'
               end
               item
+                Font.Size = 13.000000000000000000
+                FontColor = claGray
                 Name = 'Item 1'
+                StyledSettings = [Family, Style]
                 Text = #13#10'Receptionist'
               end>
           end
@@ -207,7 +213,7 @@ object fPatients: TfPatients
       Margins.Top = 15.000000000000000000
       Margins.Right = 20.000000000000000000
       Size.Width = 530.000000000000000000
-      Size.Height = 141.000000000000000000
+      Size.Height = 131.000000000000000000
       Size.PlatformDefault = False
       Stroke.Color = xFFDBD9D9
       XRadius = 9.000000000000000000
@@ -217,11 +223,11 @@ object fPatients: TfPatients
         CanFocus = True
         ClipChildren = True
         Size.Width = 490.000000000000000000
-        Size.Height = 101.000000000000000000
+        Size.Height = 91.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 4
         Viewport.Width = 486.000000000000000000
-        Viewport.Height = 76.000000000000000000
+        Viewport.Height = 66.000000000000000000
       end
     end
   end

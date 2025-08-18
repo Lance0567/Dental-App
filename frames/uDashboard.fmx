@@ -20,7 +20,7 @@ object fDashboard: TfDashboard
       Orientation = Horizontal
       Margins.Left = 25.000000000000000000
       Position.X = 25.000000000000000000
-      Position.Y = 125.000000000000000000
+      Position.Y = 135.000000000000000000
       Size.Width = 539.000000000000000000
       Size.Height = 300.000000000000000000
       Size.PlatformDefault = False
@@ -338,8 +338,8 @@ object fDashboard: TfDashboard
     end
     object lytHeader: TLayout
       Align = Top
-      Margins.Top = 10.000000000000000000
-      Position.Y = 70.000000000000000000
+      Margins.Top = 20.000000000000000000
+      Position.Y = 80.000000000000000000
       Size.Width = 564.000000000000000000
       Size.Height = 55.000000000000000000
       Size.PlatformDefault = False
@@ -383,7 +383,7 @@ object fDashboard: TfDashboard
       Align = Top
       Padding.Left = 30.000000000000000000
       Padding.Right = 30.000000000000000000
-      Position.Y = 425.000000000000000000
+      Position.Y = 435.000000000000000000
       Size.Width = 564.000000000000000000
       Size.Height = 390.000000000000000000
       Size.PlatformDefault = False
@@ -406,26 +406,26 @@ object fDashboard: TfDashboard
           Align = Client
           CanFocus = True
           ClipChildren = True
-          Margins.Top = 10.000000000000000000
           Size.Width = 184.000000000000000000
-          Size.Height = 305.000000000000000000
+          Size.Height = 295.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
-          Viewport.Width = 184.000000000000000000
-          Viewport.Height = 305.000000000000000000
+          Viewport.Width = 180.000000000000000000
+          Viewport.Height = 270.000000000000000000
         end
-        object lbRecordedAppointments: TLabel
+        object lbTodayAppointments: TLabel
           Align = Top
           StyledSettings = []
+          Margins.Bottom = 15.000000000000000000
           Position.X = 20.000000000000000000
           Position.Y = 10.000000000000000000
           Size.Width = 184.000000000000000000
-          Size.Height = 35.000000000000000000
+          Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
           TextSettings.Font.Family = 'Candara'
           TextSettings.Font.Size = 25.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
-          Text = 'Recorded Appointments'
+          Text = 'Today'#39's Appointments'
           TabOrder = 0
         end
       end
@@ -445,36 +445,14 @@ object fDashboard: TfDashboard
         Stroke.Color = xFFDBD9D9
         XRadius = 9.000000000000000000
         YRadius = 9.000000000000000000
-        object lytQuickActions: TLayout
-          Align = Top
-          Padding.Bottom = 10.000000000000000000
-          Position.X = 20.000000000000000000
-          Position.Y = 10.000000000000000000
-          Size.Width = 240.000000000000000000
-          Size.Height = 47.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 1
-          object lbQuickActions: TLabel
-            Align = Client
-            StyledSettings = []
-            Size.Width = 240.000000000000000000
-            Size.Height = 37.000000000000000000
-            Size.PlatformDefault = False
-            TextSettings.Font.Family = 'Candara'
-            TextSettings.Font.Size = 25.000000000000000000
-            TextSettings.Font.StyleExt = {00070000000000000004000000}
-            Text = 'Quick Actions'
-            TabOrder = 0
-          end
-        end
         object lytTwoColumns: TLayout
           Align = Top
           Position.X = 20.000000000000000000
-          Position.Y = 57.000000000000000000
+          Position.Y = 65.000000000000000000
           Size.Width = 240.000000000000000000
           Size.Height = 80.000000000000000000
           Size.PlatformDefault = False
-          TabOrder = 2
+          TabOrder = 1
           object btnNewPatient: TCornerButton
             Align = Scale
             Margins.Right = 10.000000000000000000
@@ -510,25 +488,40 @@ object fDashboard: TfDashboard
           Align = Top
           Margins.Top = 10.000000000000000000
           Position.X = 20.000000000000000000
-          Position.Y = 147.000000000000000000
+          Position.Y = 155.000000000000000000
           Sides = [Top, Left, Bottom, Right]
           Size.Width = 240.000000000000000000
           Size.Height = 62.000000000000000000
           Size.PlatformDefault = False
-          TabOrder = 3
+          TabOrder = 2
           Text = 'Report an Issue'
           TextSettings.Trimming = None
           XRadius = 3.000000000000000000
           YRadius = 3.000000000000000000
+        end
+        object lbQuickActions: TLabel
+          Align = MostTop
+          StyledSettings = []
+          Margins.Bottom = 15.000000000000000000
+          Position.X = 20.000000000000000000
+          Position.Y = 10.000000000000000000
+          Size.Width = 240.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Family = 'Candara'
+          TextSettings.Font.Size = 25.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          Text = 'Quick Actions'
+          TabOrder = 0
         end
       end
     end
     object lytBottom: TLayout
       Align = Top
       Margins.Top = 20.000000000000000000
-      Position.Y = 835.000000000000000000
+      Position.Y = 845.000000000000000000
       Size.Width = 564.000000000000000000
-      Size.Height = 50.000000000000000000
+      Size.Height = 20.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
     end
@@ -556,12 +549,13 @@ object fDashboard: TfDashboard
         TabOrder = 5
         object lDate: TLabel
           Align = Left
-          StyledSettings = [Family, Size, Style]
+          StyledSettings = [Family, Style]
           Margins.Left = 5.000000000000000000
           Position.X = 40.000000000000000000
           Size.Width = 572.000000000000000000
           Size.Height = 60.000000000000000000
           Size.PlatformDefault = False
+          TextSettings.Font.Size = 16.000000000000000000
           TextSettings.FontColor = claDimgray
           Text = 'Date'
           TabOrder = 5
@@ -581,24 +575,29 @@ object fDashboard: TfDashboard
         end
         object lytUser: TLayout
           Align = Right
-          Position.X = 424.000000000000000000
-          Size.Width = 140.000000000000000000
+          Position.X = 409.000000000000000000
+          Size.Width = 155.000000000000000000
           Size.Height = 60.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 6
           object slUserName: TSkLabel
             Align = Client
             Margins.Left = 15.000000000000000000
-            Size.Width = 85.000000000000000000
+            Size.Width = 100.000000000000000000
             Size.Height = 60.000000000000000000
             Size.PlatformDefault = False
             Words = <
               item
+                Font.Weight = Semibold
                 Name = 'Item 0'
+                StyledSettings = [Family, FontColor]
                 Text = 'Sofia Chen'
               end
               item
+                Font.Size = 13.000000000000000000
+                FontColor = claGray
                 Name = 'Item 1'
+                StyledSettings = [Family, Style]
                 Text = #13#10'Receptionist'
               end>
           end
