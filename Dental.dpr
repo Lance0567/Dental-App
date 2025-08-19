@@ -9,7 +9,8 @@ uses
   uPatients in 'frames\uPatients.pas' {fPatients: TFrame},
   uAppointments in 'frames\uAppointments.pas' {fAppointments: TFrame},
   uPatientModal in 'modals\uPatientModal.pas' {fPatientModal: TFrame},
-  uGlobal in 'global\uGlobal.pas';
+  uGlobal in 'global\uGlobal.pas',
+  uUsers in 'frames\uUsers.pas' {fUsers: TFrame};
 
 {$R *.res}
 

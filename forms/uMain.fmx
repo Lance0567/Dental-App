@@ -17,13 +17,13 @@ object frmMain: TfrmMain
   object lytContainer: TLayout
     Align = Client
     Size.Width = 850.000000000000000000
-    Size.Height = 505.000000000000000000
+    Size.Height = 481.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 2
     object lytSidebar: TLayout
       Align = Left
       Size.Width = 245.000000000000000000
-      Size.Height = 505.000000000000000000
+      Size.Height = 481.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
       object mvSidebar: TMultiView
@@ -57,10 +57,10 @@ object frmMain: TfrmMain
           StaysPressed = True
           Align = Top
           GroupName = 'Navigations'
-          StyledSettings = [Family]
+          StyledSettings = [Family, Style, FontColor]
           Images = dm.imgList
           ImageIndex = 1
-          Position.Y = 207.000000000000000000
+          Position.Y = 212.000000000000000000
           Size.Width = 245.000000000000000000
           Size.Height = 46.000000000000000000
           Size.PlatformDefault = False
@@ -80,10 +80,11 @@ object frmMain: TfrmMain
           StaysPressed = True
           Align = Top
           GroupName = 'Navigations'
-          StyledSettings = [Family]
+          StyledSettings = [Family, Style, FontColor]
           Images = dm.imgList
           ImageIndex = 2
-          Position.Y = 115.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Position.Y = 120.000000000000000000
           Size.Width = 245.000000000000000000
           Size.Height = 46.000000000000000000
           Size.PlatformDefault = False
@@ -103,10 +104,10 @@ object frmMain: TfrmMain
           StaysPressed = True
           Align = Top
           GroupName = 'Navigations'
-          StyledSettings = [Family]
+          StyledSettings = [Family, Style, FontColor]
           Images = dm.imgList
           ImageIndex = 3
-          Position.Y = 161.000000000000000000
+          Position.Y = 166.000000000000000000
           Size.Width = 245.000000000000000000
           Size.Height = 46.000000000000000000
           Size.PlatformDefault = False
@@ -127,45 +128,45 @@ object frmMain: TfrmMain
           Margins.Top = 20.000000000000000000
           Position.Y = 85.000000000000000000
           Size.Width = 245.000000000000000000
-          Size.Height = 10.000000000000000000
+          Size.Height = 25.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 4
           object lDivider: TLine
-            Align = Client
+            Align = MostTop
             LineType = Top
             Size.Width = 245.000000000000000000
-            Size.Height = 10.000000000000000000
+            Size.Height = 5.000000000000000000
             Size.PlatformDefault = False
             Stroke.Color = claWhite
           end
-        end
-        object lbMainMenu: TLabel
-          Align = Top
-          StyledSettings = [Style]
-          Margins.Left = 15.000000000000000000
-          Position.X = 15.000000000000000000
-          Position.Y = 95.000000000000000000
-          Size.Width = 230.000000000000000000
-          Size.Height = 20.000000000000000000
-          Size.PlatformDefault = False
-          TextSettings.Font.Family = 'Inter Variable Text'
-          TextSettings.Font.Size = 14.000000000000000000
-          TextSettings.FontColor = xFFC6C2C2
-          Text = 'Main Menu'
-          TabOrder = 5
+          object lbMainMenu: TLabel
+            Align = Top
+            StyledSettings = [Style]
+            Margins.Left = 15.000000000000000000
+            Margins.Top = 5.000000000000000000
+            Position.X = 15.000000000000000000
+            Position.Y = 10.000000000000000000
+            Size.Width = 230.000000000000000000
+            Size.Height = 20.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Microsoft YaHei UI'
+            TextSettings.FontColor = xFFC6C2C2
+            Text = 'MAIN MENU'
+            TabOrder = 5
+          end
         end
       end
     end
     object lytContent: TLayout
       Align = Client
       Size.Width = 605.000000000000000000
-      Size.Height = 505.000000000000000000
+      Size.Height = 481.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 2
       object tcController: TTabControl
         Align = Client
         Size.Width = 605.000000000000000000
-        Size.Height = 505.000000000000000000
+        Size.Height = 481.000000000000000000
         Size.PlatformDefault = False
         TabIndex = 0
         TabOrder = 0
@@ -173,11 +174,11 @@ object frmMain: TfrmMain
         OnChange = tcControllerChange
         Sizes = (
           605s
-          505s
+          481s
           605s
-          505s
+          481s
           605s
-          505s)
+          481s)
         object tiDashboard: TTabItem
           CustomIcon = <
             item
@@ -195,13 +196,13 @@ object frmMain: TfrmMain
           inline fDashboard: TfDashboard
             Align = Client
             Size.Width = 605.000000000000000000
-            Size.Height = 505.000000000000000000
+            Size.Height = 481.000000000000000000
             Size.PlatformDefault = False
             inherited ScrollBox1: TScrollBox
               Size.Width = 605.000000000000000000
-              Size.Height = 505.000000000000000000
+              Size.Height = 481.000000000000000000
               Viewport.Width = 594.000000000000000000
-              Viewport.Height = 505.000000000000000000
+              Viewport.Height = 481.000000000000000000
               inherited glytCards: TGridLayout
                 ItemWidth = 275.000000000000000000
                 Margins.Right = 5.000000000000000000
@@ -299,8 +300,8 @@ object frmMain: TfrmMain
                   inherited gRecordedAppointments: TGrid
                     Size.Width = 199.000000000000000000
                     Size.Height = 255.000000000000000000
-                    Viewport.Width = 195.000000000000000000
-                    Viewport.Height = 230.000000000000000000
+                    Viewport.Width = 199.000000000000000000
+                    Viewport.Height = 255.000000000000000000
                   end
                   inherited lbTodayAppointments: TLabel
                     Size.Width = 199.000000000000000000
@@ -380,11 +381,11 @@ object frmMain: TfrmMain
           inline fPatients: TfPatients
             Align = Client
             Size.Width = 605.000000000000000000
-            Size.Height = 505.000000000000000000
+            Size.Height = 481.000000000000000000
             Size.PlatformDefault = False
             inherited ScrollBox1: TScrollBox
               Size.Width = 605.000000000000000000
-              Size.Height = 505.000000000000000000
+              Size.Height = 481.000000000000000000
               Viewport.Width = 605.000000000000000000
               Viewport.Height = 505.000000000000000000
               inherited lytBottom: TLayout
@@ -464,7 +465,7 @@ object frmMain: TfrmMain
           inline fAppointments: TfAppointments
             Align = Client
             Size.Width = 605.000000000000000000
-            Size.Height = 505.000000000000000000
+            Size.Height = 481.000000000000000000
             Size.PlatformDefault = False
             inherited lytHeader: TLayout
               Size.Width = 605.000000000000000000
@@ -493,17 +494,17 @@ object frmMain: TfrmMain
             end
             inherited Rectangle1: TRectangle
               Size.Width = 545.000000000000000000
-              Size.Height = 315.000000000000000000
+              Size.Height = 291.000000000000000000
               inherited TMSFNCCalendar1: TTMSFNCCalendar
                 Size.Width = 505.000000000000000000
-                Size.Height = 275.000000000000000000
+                Size.Height = 251.000000000000000000
                 Header.Font.StyleExt = {00070000000000000004000000}
                 DateAppearance.SelectedFont.StyleExt = {00070000000000000004000000}
                 DateAppearance.TodayFont.StyleExt = {00070000000000000004000000}
               end
             end
             inherited lytBottom: TLayout
-              Position.Y = 480.000000000000000000
+              Position.Y = 456.000000000000000000
               Size.Width = 605.000000000000000000
             end
           end

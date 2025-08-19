@@ -19,7 +19,6 @@ type
     sbPatients: TSpeedButton;
     lytContent: TLayout;
     lytMenuH: TLayout;
-    lDivider: TLine;
     fDashboard: TfDashboard;
     tcController: TTabControl;
     tiDashboard: TTabItem;
@@ -28,6 +27,7 @@ type
     tiAppointments: TTabItem;
     fAppointments: TfAppointments;
     fPatientModal: TfPatientModal;
+    lDivider: TLine;
     lbMainMenu: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure mvSidebarResize(Sender: TObject);

@@ -75,7 +75,7 @@ object fAppointments: TfAppointments
         Size.Width = 572.000000000000000000
         Size.Height = 60.000000000000000000
         Size.PlatformDefault = False
-        TextSettings.Font.Size = 16.000000000000000000
+        TextSettings.Font.Size = 15.000000000000000000
         TextSettings.FontColor = claDimgray
         Text = 'Date'
         TabOrder = 5
