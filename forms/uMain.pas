@@ -32,10 +32,10 @@ type
     lbMainMenu: TLabel;
     sbUsers: TSpeedButton;
     tiUsers: TTabItem;
-    fUsers1: TfUsers;
+    fUsers: TfUsers;
     tiUserProfile: TTabItem;
-    fUserProfile1: TfUserProfile;
-    fUserModal1: TfUserModal;
+    fUserProfile: TfUserProfile;
+    fUserModal: TfUserModal;
     procedure FormCreate(Sender: TObject);
     procedure mvSidebarResize(Sender: TObject);
     procedure FormResize(Sender: TObject);
@@ -47,6 +47,7 @@ type
     procedure fDashboardbtnNewPatientClick(Sender: TObject);
     procedure fDashboardbtnNewAppointmentClick(Sender: TObject);
     procedure fUsers1btnAddNewUserClick(Sender: TObject);
+    procedure sbUsersClick(Sender: TObject);
   private
     procedure HideFrames;
     procedure ButtonPressedResetter;
@@ -70,6 +71,8 @@ begin
   fDashboard.Visible := False;
   fPatients.Visible := False;
   fAppointments.Visible := False;
+  fUsers.Visible := False;
+  fUserProfile.Visible := False;
 end;
 
 { Hide Button highlight navbar }
@@ -193,9 +196,15 @@ begin
   fPatientModal.deDateOfBirth.StyledSettings - [TStyledSetting.FontColor];
 end;
 
+{ Add New User }
 procedure TfrmMain.fUsers1btnAddNewUserClick(Sender: TObject);
 begin
+  // User Modal visibility
+  fUserModal.Visible := True;
 
+  // Role & Status text value
+  fUserModal.lRoleInput.Text := fUserModal.cbRole.Text;
+  fUserModal.lStatusInput.Text := fUserModal.cbStatus.Text;
 end;
 
 { Sidebar Resized }
@@ -269,6 +278,17 @@ begin
   tcController.TabIndex := 1;
   fPatients.Visible := True;
   fPatients.ScrollBox1.ViewportPosition := PointF(0,0); // reset scrollbox
+end;
+
+{ Users tab }
+procedure TfrmMain.sbUsersClick(Sender: TObject);
+begin
+  // Hide frames
+
+  // Switch tab index
+  tcController.TabIndex := 3;
+  fUsers.Visible := True;
+  fUsers.ScrollBox1.ViewportPosition := PointF(0, 0); // reset scrollbox
 end;
 
 procedure TfrmMain.tcControllerChange(Sender: TObject);

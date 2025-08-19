@@ -226,8 +226,8 @@ object fPatients: TfPatients
         Size.Height = 96.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 4
-        Viewport.Width = 510.000000000000000000
-        Viewport.Height = 96.000000000000000000
+        Viewport.Width = 506.000000000000000000
+        Viewport.Height = 71.000000000000000000
       end
     end
   end

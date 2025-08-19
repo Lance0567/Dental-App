@@ -46,6 +46,7 @@ object fUsers: TfUsers
           Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
           TextPrompt = 'Search users by name...'
+          StyledSettings = [Family, Size, Style]
         end
       end
       object lytButtonH: TLayout

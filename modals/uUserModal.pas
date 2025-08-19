@@ -43,15 +43,18 @@ type
     lytPhoneNumber: TLayout;
     lContactNumber: TLabel;
     ePhoneNumber: TEdit;
-    SkLabel1: TSkLabel;
-    Layout1: TLayout;
+    slRoleAndAccess: TSkLabel;
+    lytRole: TLayout;
     lRole: TLabel;
-    ComboBox1: TComboBox;
-    Layout2: TLayout;
+    cbRole: TComboBox;
+    lytStatus: TLayout;
     lStatus: TLabel;
     cbStatus: TComboBox;
     btnCancel: TCornerButton;
     rPatients: TRectangle;
+    lRoleInput: TLabel;
+    lStatusInput: TLabel;
+    procedure btnCloseClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -63,5 +66,10 @@ implementation
 {$R *.fmx}
 
 uses uDm;
+
+procedure TfUserModal.btnCloseClick(Sender: TObject);
+begin
+  Self.Visible := False;
+end;
 
 end.
