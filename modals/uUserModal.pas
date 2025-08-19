@@ -37,7 +37,7 @@ type
     eEmailAddress: TEdit;
     lProfilePhoto: TLabel;
     lytButtonSaveH: TLayout;
-    btnSavePatient: TCornerButton;
+    btnCreateUser: TCornerButton;
     lTag: TLabel;
     lPersonalInfo: TLabel;
     lytPhoneNumber: TLayout;
@@ -47,6 +47,11 @@ type
     Layout1: TLayout;
     lRole: TLabel;
     ComboBox1: TComboBox;
+    Layout2: TLayout;
+    lStatus: TLabel;
+    cbStatus: TComboBox;
+    btnCancel: TCornerButton;
+    rPatients: TRectangle;
   private
     { Private declarations }
   public
