@@ -1,0 +1,410 @@
+object fUserModal: TfUserModal
+  Size.Width = 772.000000000000000000
+  Size.Height = 540.000000000000000000
+  Size.PlatformDefault = False
+  object lytContentH: TLayout
+    Align = Client
+    Size.Width = 772.000000000000000000
+    Size.Height = 540.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object rBackground: TRectangle
+      Align = Contents
+      Fill.Color = claBlack
+      Opacity = 0.699999988079071000
+      Size.Width = 772.000000000000000000
+      Size.Height = 540.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object rModalInfo: TRectangle
+      Align = Client
+      Fill.Color = claWhite
+      Margins.Left = 90.000000000000000000
+      Margins.Top = 50.000000000000000000
+      Margins.Right = 90.000000000000000000
+      Margins.Bottom = 50.000000000000000000
+      Size.Width = 592.000000000000000000
+      Size.Height = 440.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      XRadius = 13.000000000000000000
+      YRadius = 13.000000000000000000
+      object ScrollBox1: TScrollBox
+        Align = Client
+        Padding.Left = 20.000000000000000000
+        Padding.Top = 15.000000000000000000
+        Padding.Right = 15.000000000000000000
+        Padding.Bottom = 15.000000000000000000
+        Size.Width = 592.000000000000000000
+        Size.Height = 440.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Viewport.Width = 576.000000000000000000
+        Viewport.Height = 440.000000000000000000
+        object lytPatientH: TLayout
+          Align = MostTop
+          Margins.Top = 20.000000000000000000
+          Position.X = 20.000000000000000000
+          Position.Y = 70.000000000000000000
+          Size.Width = 541.000000000000000000
+          Size.Height = 700.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object lytEmailAddress: TLayout
+            Align = Top
+            Margins.Top = 20.000000000000000000
+            Position.Y = 140.000000000000000000
+            Size.Width = 541.000000000000000000
+            Size.Height = 70.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 5
+            object lEmailAddress: TLabel
+              Align = Top
+              StyledSettings = [Family]
+              Size.Width = 541.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 14.000000000000000000
+              TextSettings.Font.StyleExt = {00060000000000000004000000}
+              Text = 'Email Address'
+              TabOrder = 0
+            end
+            object eEmailAddress: TEdit
+              Touch.InteractiveGestures = [LongTap, DoubleTap]
+              Align = Top
+              TabOrder = 1
+              Position.Y = 27.000000000000000000
+              Hint = 'Please fillout this field.'
+              HelpType = htKeyword
+              Margins.Top = 10.000000000000000000
+              Size.Width = 541.000000000000000000
+              Size.Height = 40.000000000000000000
+              Size.PlatformDefault = False
+              TextPrompt = 'Enter full name'
+              StyledSettings = [Family, Size, Style]
+              ParentShowHint = False
+              ShowHint = True
+            end
+          end
+          object lytButtonSaveH: TLayout
+            Align = Top
+            Padding.Top = 10.000000000000000000
+            Padding.Right = 15.000000000000000000
+            Padding.Bottom = 10.000000000000000000
+            Margins.Top = 10.000000000000000000
+            Position.Y = 574.000000000000000000
+            Size.Width = 541.000000000000000000
+            Size.Height = 60.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 6
+            object btnSavePatient: TCornerButton
+              Align = Right
+              Position.X = 406.000000000000000000
+              Position.Y = 10.000000000000000000
+              Sides = [Top, Left, Bottom, Right]
+              Size.Width = 120.000000000000000000
+              Size.Height = 40.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 8
+              Text = 'Save Patient'
+              TextSettings.Trimming = None
+              XRadius = 13.000000000000000000
+              YRadius = 13.000000000000000000
+            end
+            object lTag: TLabel
+              Align = Left
+              StyledSettings = [Family, Size, Style]
+              Position.Y = 10.000000000000000000
+              Size.Width = 201.000000000000000000
+              Size.Height = 40.000000000000000000
+              Size.PlatformDefault = False
+              Text = 'Tag Number :'
+              Visible = False
+              TabOrder = 9
+            end
+          end
+          object lytFullName: TLayout
+            Align = Top
+            Margins.Top = 20.000000000000000000
+            Position.Y = 50.000000000000000000
+            Size.Width = 541.000000000000000000
+            Size.Height = 70.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 4
+            object lbFullName: TLabel
+              Align = Top
+              StyledSettings = [Family]
+              Size.Width = 541.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 14.000000000000000000
+              TextSettings.Font.StyleExt = {00060000000000000004000000}
+              Text = 'Full Name'
+              TabOrder = 0
+            end
+            object eFullName: TEdit
+              Touch.InteractiveGestures = [LongTap, DoubleTap]
+              Align = Top
+              TabOrder = 1
+              Position.Y = 27.000000000000000000
+              Hint = 'Please fillout this field.'
+              HelpType = htKeyword
+              Margins.Top = 10.000000000000000000
+              Size.Width = 541.000000000000000000
+              Size.Height = 40.000000000000000000
+              Size.PlatformDefault = False
+              TextPrompt = 'Enter full name'
+              StyledSettings = [Family, Size, Style]
+              ParentShowHint = False
+              ShowHint = True
+            end
+          end
+          object lytPatientProfile: TLayout
+            Align = Top
+            Margins.Top = 20.000000000000000000
+            Position.Y = 320.000000000000000000
+            Size.Width = 541.000000000000000000
+            Size.Height = 110.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            object lytProfilePhoto: TLayout
+              Align = Left
+              Position.Y = 17.000000000000000000
+              Size.Width = 95.000000000000000000
+              Size.Height = 93.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 1
+              object cProfilePhoto: TCircle
+                Align = Center
+                Fill.Color = xFFF3F5F7
+                Size.Width = 80.000000000000000000
+                Size.Height = 90.000000000000000000
+                Size.PlatformDefault = False
+                Stroke.Color = xFFDBD9D9
+                object gIcon: TGlyph
+                  Align = Center
+                  Size.Width = 44.000000000000000000
+                  Size.Height = 35.000000000000000000
+                  Size.PlatformDefault = False
+                  ImageIndex = 10
+                  Images = dm.imgList
+                end
+                object lNameH: TLabel
+                  Align = Client
+                  StyledSettings = [Family, FontColor]
+                  Size.Width = 201.000000000000000000
+                  Size.Height = 112.000000000000000000
+                  Size.PlatformDefault = False
+                  TextSettings.Font.Size = 34.000000000000000000
+                  TextSettings.Font.StyleExt = {00070000000000000004000000}
+                  TextSettings.HorzAlign = Center
+                  Text = 'L'
+                  Visible = False
+                  TabOrder = 0
+                end
+              end
+            end
+            object lytPhotoButton: TLayout
+              Align = Client
+              Padding.Left = 5.000000000000000000
+              Size.Width = 446.000000000000000000
+              Size.Height = 93.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 2
+              object lytPhotoButtonH: TLayout
+                Align = Top
+                Padding.Top = 5.000000000000000000
+                Padding.Bottom = 5.000000000000000000
+                Margins.Top = 10.000000000000000000
+                Position.X = 5.000000000000000000
+                Position.Y = 10.000000000000000000
+                Size.Width = 441.000000000000000000
+                Size.Height = 45.000000000000000000
+                Size.PlatformDefault = False
+                TabOrder = 0
+                object btnPhotoUpload: TCornerButton
+                  Align = Left
+                  Images = dm.imgList
+                  ImageIndex = 17
+                  Position.Y = 5.000000000000000000
+                  Sides = [Top, Left, Bottom, Right]
+                  Size.Width = 115.000000000000000000
+                  Size.Height = 35.000000000000000000
+                  Size.PlatformDefault = False
+                  TabOrder = 1
+                  Text = 'Upload'
+                  TextSettings.Trimming = None
+                  XRadius = 8.000000000000000000
+                  YRadius = 8.000000000000000000
+                end
+                object btnCamera: TCornerButton
+                  Align = Left
+                  Margins.Left = 10.000000000000000000
+                  Position.X = 125.000000000000000000
+                  Position.Y = 5.000000000000000000
+                  Sides = [Top, Left, Bottom, Right]
+                  Size.Width = 115.000000000000000000
+                  Size.Height = 35.000000000000000000
+                  Size.PlatformDefault = False
+                  TabOrder = 2
+                  Text = 'Camera'
+                  TextSettings.Trimming = None
+                  XRadius = 8.000000000000000000
+                  YRadius = 8.000000000000000000
+                end
+              end
+              object lProfileUploadDesc: TLabel
+                Align = Top
+                StyledSettings = [Family, Size, Style]
+                Margins.Left = 2.000000000000000000
+                Position.X = 7.000000000000000000
+                Position.Y = 55.000000000000000000
+                Size.Width = 439.000000000000000000
+                Size.Height = 30.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.FontColor = claGray
+                Text = 'Upload a photo or use your camera'
+                TabOrder = 1
+              end
+            end
+            object lProfilePhoto: TLabel
+              Align = Top
+              StyledSettings = [Family]
+              Size.Width = 541.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 14.000000000000000000
+              TextSettings.Font.StyleExt = {00060000000000000004000000}
+              Text = 'Profile Photo'
+              TabOrder = 0
+            end
+          end
+          object lPersonalInfo: TLabel
+            Align = MostTop
+            StyledSettings = [Family]
+            Size.Width = 541.000000000000000000
+            Size.Height = 30.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 18.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            Text = 'Personal Information'
+            TabOrder = 0
+          end
+          object lytPhoneNumber: TLayout
+            Align = Top
+            Margins.Top = 20.000000000000000000
+            Position.Y = 230.000000000000000000
+            Size.Width = 541.000000000000000000
+            Size.Height = 70.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 2
+            object lContactNumber: TLabel
+              Align = Top
+              StyledSettings = [Family]
+              Size.Width = 541.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 14.000000000000000000
+              TextSettings.Font.StyleExt = {00060000000000000004000000}
+              Text = 'Contact Number'
+              TabOrder = 0
+            end
+            object ePhoneNumber: TEdit
+              Touch.InteractiveGestures = [LongTap, DoubleTap]
+              Align = Top
+              TabOrder = 1
+              Position.Y = 27.000000000000000000
+              Hint = 'Please fillout this field.'
+              HelpType = htKeyword
+              Margins.Top = 10.000000000000000000
+              Size.Width = 541.000000000000000000
+              Size.Height = 40.000000000000000000
+              Size.PlatformDefault = False
+              TextPrompt = 'Enter contact number'
+              StyledSettings = [Family, Size, Style]
+              ParentShowHint = False
+              ShowHint = True
+            end
+          end
+          object SkLabel1: TSkLabel
+            Align = Top
+            Margins.Top = 20.000000000000000000
+            Position.Y = 450.000000000000000000
+            Size.Width = 541.000000000000000000
+            Size.Height = 24.000000000000000000
+            Size.PlatformDefault = False
+            StyledSettings = [FontColor]
+            TextSettings.Font.Families = 'Segoe UI'
+            TextSettings.Font.Size = 18.000000000000000000
+            TextSettings.Font.Weight = Bold
+            Words = <
+              item
+                Text = 'Role & Access'
+              end>
+          end
+          object Layout1: TLayout
+            Align = Top
+            Margins.Top = 20.000000000000000000
+            Position.Y = 494.000000000000000000
+            Size.Width = 541.000000000000000000
+            Size.Height = 70.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 3
+            object lRole: TLabel
+              Align = Top
+              StyledSettings = [Family]
+              Size.Width = 541.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 14.000000000000000000
+              TextSettings.Font.StyleExt = {00060000000000000004000000}
+              Text = 'Role'
+              TabOrder = 0
+            end
+            object ComboBox1: TComboBox
+              Align = Top
+              ItemIndex = 0
+              Margins.Top = 10.000000000000000000
+              Position.Y = 27.000000000000000000
+              Size.Width = 541.000000000000000000
+              Size.Height = 40.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 1
+            end
+          end
+        end
+        object lytTitle: TLayout
+          Align = MostTop
+          Position.X = 20.000000000000000000
+          Position.Y = 15.000000000000000000
+          Size.Width = 541.000000000000000000
+          Size.Height = 35.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          object lbTitle: TLabel
+            Align = Client
+            StyledSettings = [Family]
+            Size.Width = 506.000000000000000000
+            Size.Height = 35.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 18.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            Text = 'Add New User'
+            TabOrder = 0
+          end
+          object btnClose: TSpeedButton
+            Align = Right
+            Margins.Right = -5.000000000000000000
+            Position.X = 506.000000000000000000
+            Size.Width = 40.000000000000000000
+            Size.Height = 35.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'cleareditbutton'
+            Text = 'btnClose'
+            TextSettings.Trimming = None
+          end
+        end
+      end
+    end
+  end
+end

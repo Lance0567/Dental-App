@@ -44,7 +44,6 @@ type
     gIcon4: TGlyph;
     lytRecords: TLayout;
     rQuickActions: TRectangle;
-    gRecordedAppointments: TGrid;
     lytTwoColumns: TLayout;
     btnNewPatient: TCornerButton;
     btnNewAppointment: TCornerButton;
@@ -60,6 +59,7 @@ type
     lBevel: TLine;
     lbTodayAppointments: TLabel;
     lbQuickActions: TLabel;
+    gPatients: TGrid;
     procedure FrameResize(Sender: TObject);
   private
 

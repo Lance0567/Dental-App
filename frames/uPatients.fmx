@@ -13,17 +13,18 @@ object fPatients: TfPatients
     object lytBottom: TLayout
       Align = Bottom
       Margins.Top = 20.000000000000000000
-      Position.Y = 366.000000000000000000
+      Position.Y = 381.000000000000000000
       Size.Width = 580.000000000000000000
-      Size.Height = 50.000000000000000000
+      Size.Height = 35.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 3
     end
     object lytComponents: TLayout
       Align = Top
       Padding.Left = 30.000000000000000000
-      Margins.Top = 15.000000000000000000
-      Position.Y = 150.000000000000000000
+      Padding.Right = 30.000000000000000000
+      Margins.Top = 20.000000000000000000
+      Position.Y = 155.000000000000000000
       Size.Width = 580.000000000000000000
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
@@ -32,7 +33,7 @@ object fPatients: TfPatients
         Align = Client
         Padding.Top = 5.000000000000000000
         Padding.Bottom = 5.000000000000000000
-        Size.Width = 358.000000000000000000
+        Size.Width = 348.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
@@ -51,8 +52,7 @@ object fPatients: TfPatients
         Align = Right
         Padding.Top = 8.000000000000000000
         Padding.Bottom = 8.000000000000000000
-        Margins.Right = 20.000000000000000000
-        Position.X = 388.000000000000000000
+        Position.X = 378.000000000000000000
         Size.Width = 172.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
@@ -211,10 +211,9 @@ object fPatients: TfPatients
       Padding.Right = 20.000000000000000000
       Padding.Bottom = 20.000000000000000000
       Margins.Left = 30.000000000000000000
-      Margins.Top = 15.000000000000000000
-      Margins.Right = 20.000000000000000000
-      Size.Width = 530.000000000000000000
-      Size.Height = 131.000000000000000000
+      Margins.Top = 20.000000000000000000
+      Size.Width = 550.000000000000000000
+      Size.Height = 136.000000000000000000
       Size.PlatformDefault = False
       Stroke.Color = xFFDBD9D9
       XRadius = 9.000000000000000000
@@ -223,12 +222,12 @@ object fPatients: TfPatients
         Align = Client
         CanFocus = True
         ClipChildren = True
-        Size.Width = 490.000000000000000000
-        Size.Height = 91.000000000000000000
+        Size.Width = 510.000000000000000000
+        Size.Height = 96.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 4
-        Viewport.Width = 486.000000000000000000
-        Viewport.Height = 66.000000000000000000
+        Viewport.Width = 510.000000000000000000
+        Viewport.Height = 96.000000000000000000
       end
     end
   end

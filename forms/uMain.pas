@@ -6,7 +6,8 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
   FMX.Controls.Presentation, FMX.MultiView, FMX.TabControl, FMX.StdCtrls,
-  FMX.Objects, uDashboard, FMX.ImgList, uPatients, uAppointments, uPatientModal;
+  FMX.Objects, uDashboard, FMX.ImgList, uPatients, uAppointments, uPatientModal,
+  uUsers, uUserProfile;
 
 type
   TfrmMain = class(TForm)
@@ -29,6 +30,11 @@ type
     fPatientModal: TfPatientModal;
     lDivider: TLine;
     lbMainMenu: TLabel;
+    sbUsers: TSpeedButton;
+    tiUsers: TTabItem;
+    fUsers1: TfUsers;
+    tiUserProfile: TTabItem;
+    fUserProfile1: TfUserProfile;
     procedure FormCreate(Sender: TObject);
     procedure mvSidebarResize(Sender: TObject);
     procedure FormResize(Sender: TObject);
@@ -39,6 +45,7 @@ type
     procedure fPatientsbtnAddNewPatientClick(Sender: TObject);
     procedure fDashboardbtnNewPatientClick(Sender: TObject);
     procedure fDashboardbtnNewAppointmentClick(Sender: TObject);
+    procedure fUsers1btnAddNewUserClick(Sender: TObject);
   private
     procedure HideFrames;
     procedure ButtonPressedResetter;
@@ -183,6 +190,11 @@ begin
   // Font color Style settings of date edit
   fPatientModal.deDateOfBirth.StyledSettings :=
   fPatientModal.deDateOfBirth.StyledSettings - [TStyledSetting.FontColor];
+end;
+
+procedure TfrmMain.fUsers1btnAddNewUserClick(Sender: TObject);
+begin
+
 end;
 
 { Sidebar Resized }

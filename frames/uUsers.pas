@@ -24,7 +24,7 @@ type
     lbDescription: TLabel;
     rToolbar: TRectangle;
     lBevel: TLine;
-    S: TLayout;
+    lytToolbarH: TLayout;
     lDate: TLabel;
     gIcon: TGlyph;
     lytUser: TLayout;
