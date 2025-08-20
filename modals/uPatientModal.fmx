@@ -54,14 +54,17 @@ object fPatientModal: TfPatientModal
           TabOrder = 2
           object btnSavePatient: TCornerButton
             Align = Right
-            Position.X = 411.000000000000000000
+            StyledSettings = [Family]
+            Position.X = 401.000000000000000000
             Position.Y = 10.000000000000000000
             Sides = [Top, Left, Bottom, Right]
-            Size.Width = 120.000000000000000000
+            Size.Width = 130.000000000000000000
             Size.Height = 40.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 8
             Text = 'Save Patient'
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+            TextSettings.FontColor = xFF004D47
             TextSettings.Trimming = None
             XRadius = 13.000000000000000000
             YRadius = 13.000000000000000000
@@ -76,6 +79,22 @@ object fPatientModal: TfPatientModal
             Text = 'Tag Number :'
             Visible = False
             TabOrder = 9
+          end
+          object btnCancel: TCornerButton
+            Align = Right
+            Margins.Left = 25.000000000000000000
+            Margins.Right = 10.000000000000000000
+            Position.X = 301.000000000000000000
+            Position.Y = 10.000000000000000000
+            Sides = [Top, Left, Bottom, Right]
+            Size.Width = 90.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 3
+            Text = 'Cancel'
+            TextSettings.Trimming = None
+            XRadius = 13.000000000000000000
+            YRadius = 13.000000000000000000
           end
         end
         object lytMedicalNotes: TLayout
@@ -135,11 +154,11 @@ object fPatientModal: TfPatientModal
             TabOrder = 0
             object cProfilePhoto: TCircle
               Align = MostTop
-              Fill.Color = xFF70D3F9
+              Fill.Color = xFFA6E3D1
               Size.Width = 201.000000000000000000
               Size.Height = 112.000000000000000000
               Size.PlatformDefault = False
-              Stroke.Color = xFF9DF4FA
+              Stroke.Color = xFFE2F7EF
               Stroke.Thickness = 3.000000000000000000
               object gIcon: TGlyph
                 Align = Center
@@ -162,6 +181,15 @@ object fPatientModal: TfPatientModal
                 Visible = False
                 TabOrder = 0
               end
+              object imgProfilePhoto: TImage
+                MultiResBitmap = <
+                  item
+                  end>
+                Align = Center
+                Size.Width = 110.000000000000000000
+                Size.Height = 112.000000000000000000
+                Size.PlatformDefault = False
+              end
             end
             object lbProfilePhoto: TLabel
               Align = Top
@@ -177,22 +205,39 @@ object fPatientModal: TfPatientModal
               Text = 'Profile Photo'
               TabOrder = 1
             end
-            object btnPhotoUpload: TCornerButton
+            object btnUpload: TCornerButton
               Align = Top
-              Margins.Left = 20.000000000000000000
+              Margins.Left = 25.000000000000000000
               Margins.Top = 10.000000000000000000
-              Margins.Right = 20.000000000000000000
-              Position.X = 20.000000000000000000
+              Margins.Right = 25.000000000000000000
+              Position.X = 25.000000000000000000
               Position.Y = 159.000000000000000000
               Sides = [Top, Left, Bottom, Right]
-              Size.Width = 161.000000000000000000
+              Size.Width = 151.000000000000000000
+              Size.Height = 35.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 3
+              Text = 'Upload'
+              TextSettings.Trimming = None
+              XRadius = 13.000000000000000000
+              YRadius = 13.000000000000000000
+            end
+            object btnCamera: TCornerButton
+              Align = Top
+              Margins.Left = 25.000000000000000000
+              Margins.Top = 10.000000000000000000
+              Margins.Right = 25.000000000000000000
+              Position.X = 25.000000000000000000
+              Position.Y = 204.000000000000000000
+              Sides = [Top, Left, Bottom, Right]
+              Size.Width = 151.000000000000000000
               Size.Height = 35.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 2
-              Text = 'Choose File No file'
+              Text = 'Camera'
               TextSettings.Trimming = None
-              XRadius = 8.000000000000000000
-              YRadius = 8.000000000000000000
+              XRadius = 13.000000000000000000
+              YRadius = 13.000000000000000000
             end
           end
           object lytPatientDetails: TLayout
@@ -303,8 +348,8 @@ object fPatientModal: TfPatientModal
             end
             object lytDetails2: TLayout
               Align = Top
-              Margins.Top = 5.000000000000000000
-              Position.Y = 100.000000000000000000
+              Margins.Top = 10.000000000000000000
+              Position.Y = 105.000000000000000000
               Size.Width = 345.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
@@ -392,7 +437,7 @@ object fPatientModal: TfPatientModal
             object lytDetails3: TLayout
               Align = Top
               Margins.Top = 10.000000000000000000
-              Position.Y = 180.000000000000000000
+              Position.Y = 185.000000000000000000
               Size.Width = 345.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False

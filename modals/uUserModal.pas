@@ -55,6 +55,7 @@ type
     lRoleInput: TLabel;
     lStatusInput: TLabel;
     procedure btnCloseClick(Sender: TObject);
+    procedure cbRoleChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -70,6 +71,11 @@ uses uDm;
 procedure TfUserModal.btnCloseClick(Sender: TObject);
 begin
   Self.Visible := False;
+end;
+
+procedure TfUserModal.cbRoleChange(Sender: TObject);
+begin
+  lRoleInput.Text := cbRole.Text;
 end;
 
 end.

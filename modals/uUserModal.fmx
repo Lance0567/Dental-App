@@ -303,6 +303,8 @@ object fUserModal: TfUserModal
                   end
                   object btnCamera: TCornerButton
                     Align = Left
+                    Images = dm.imgList
+                    ImageIndex = 18
                     Margins.Left = 10.000000000000000000
                     Position.X = 125.000000000000000000
                     Position.Y = 5.000000000000000000
@@ -313,8 +315,8 @@ object fUserModal: TfUserModal
                     TabOrder = 2
                     Text = 'Camera'
                     TextSettings.Trimming = None
-                    XRadius = 8.000000000000000000
-                    YRadius = 8.000000000000000000
+                    XRadius = 13.000000000000000000
+                    YRadius = 13.000000000000000000
                   end
                 end
                 object lProfileUploadDesc: TLabel
@@ -438,6 +440,7 @@ object fUserModal: TfUserModal
                 Size.Height = 40.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 1
+                OnChange = cbRoleChange
                 object lRoleInput: TLabel
                   Align = Client
                   StyledSettings = [Family, Style]

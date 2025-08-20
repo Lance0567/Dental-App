@@ -729,7 +729,6 @@ object frmMain: TfrmMain
     Size.Width = 850.000000000000000000
     Size.Height = 505.000000000000000000
     Size.PlatformDefault = False
-    Visible = False
     inherited lytContentH: TLayout
       Size.Width = 850.000000000000000000
       Size.Height = 505.000000000000000000
@@ -753,7 +752,17 @@ object frmMain: TfrmMain
           inherited lytButtonSaveH: TLayout
             Size.Width = 629.000000000000000000
             inherited btnSavePatient: TCornerButton
-              Position.X = 494.000000000000000000
+              Position.X = 484.000000000000000000
+              StyleLookup = 'btnSavePatientStyle1'
+              TextSettings.Font.Size = 14.000000000000000000
+              TextSettings.Font.StyleExt = {00060000000000000004000000}
+            end
+            inherited btnCancel: TCornerButton
+              StyledSettings = [Family, FontColor]
+              Position.X = 384.000000000000000000
+              StyleLookup = 'btnPhotoUploadStyle1'
+              TextSettings.Font.Size = 14.000000000000000000
+              TextSettings.Font.StyleExt = {00060000000000000004000000}
             end
           end
           inherited lytMedicalNotes: TLayout
@@ -764,16 +773,18 @@ object frmMain: TfrmMain
             end
             inherited mMedicalNotes: TMemo
               Size.Width = 589.000000000000000000
-              Viewport.Width = 589.000000000000000000
-              Viewport.Height = 125.000000000000000000
+              Viewport.Width = 575.000000000000000000
+              Viewport.Height = 111.000000000000000000
             end
           end
           inherited lytPatientH: TLayout
             Size.Width = 629.000000000000000000
             inherited lytPatientProfile: TLayout
               inherited cProfilePhoto: TCircle
+                Fill.Color = xFFA6E3D1
                 Margins.Top = -3.000000000000000000
                 Position.Y = -3.000000000000000000
+                Stroke.Color = xFFE2F7EF
                 inherited lNameH: TLabel
                   TextSettings.Font.StyleExt = {00070000000000000004000000}
                 end
@@ -782,14 +793,25 @@ object frmMain: TfrmMain
                 Position.Y = 129.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
               end
-              inherited btnPhotoUpload: TCornerButton
+              inherited btnUpload: TCornerButton
+                StyledSettings = [Family, FontColor]
                 Position.Y = 156.000000000000000000
+                StyleLookup = 'btnPhotoUploadStyle1'
+                TextSettings.Font.Size = 14.000000000000000000
+                TextSettings.Font.StyleExt = {00060000000000000004000000}
+                TextSettings.Trimming = Character
+              end
+              inherited btnCamera: TCornerButton
+                StyledSettings = [Family, FontColor]
+                Position.Y = 201.000000000000000000
+                StyleLookup = 'btnPhotoUploadStyle1'
+                TextSettings.Font.Size = 14.000000000000000000
+                TextSettings.Font.StyleExt = {00060000000000000004000000}
               end
             end
             inherited lytPatientDetails: TLayout
               Size.Width = 428.000000000000000000
               inherited lytDetails1: TLayout
-                Margins.Bottom = 15.000000000000000000
                 Size.Width = 428.000000000000000000
                 inherited lytFullName: TLayout
                   Size.Width = 195.000000000000000000
@@ -822,7 +844,6 @@ object frmMain: TfrmMain
                 end
               end
               inherited lytDetails2: TLayout
-                Position.Y = 115.000000000000000000
                 Size.Width = 428.000000000000000000
                 inherited lytGender: TLayout
                   Size.Width = 195.000000000000000000
@@ -831,12 +852,13 @@ object frmMain: TfrmMain
                     TextSettings.Font.StyleExt = {00060000000000000004000000}
                   end
                   inherited cbGender: TComboBox
+                    ItemIndex = 2
                     Size.Width = 195.000000000000000000
                     StyleLookup = 'cbGenderStyle1'
                     inherited lGenderText: TLabel
                       Margins.Left = 10.000000000000000000
                       Size.Width = 185.000000000000000000
-                      TabOrder = 86
+                      TabOrder = 87
                     end
                   end
                 end
@@ -853,7 +875,6 @@ object frmMain: TfrmMain
                 end
               end
               inherited lytDetails3: TLayout
-                Position.Y = 195.000000000000000000
                 Size.Width = 428.000000000000000000
                 inherited lytEmailAddress: TLayout
                   Size.Width = 195.000000000000000000
@@ -943,10 +964,20 @@ object frmMain: TfrmMain
               inherited lytButtonSaveH: TLayout
                 Size.Width = 479.000000000000000000
                 inherited btnCreateUser: TCornerButton
+                  StyledSettings = [Family]
                   Position.X = 359.000000000000000000
+                  StyleLookup = 'btnSavePatientStyle1'
+                  TextSettings.Font.Size = 14.000000000000000000
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
+                  TextSettings.FontColor = xFF004D47
+                  TextSettings.Trimming = Character
                 end
                 inherited btnCancel: TCornerButton
+                  StyledSettings = [Family, FontColor]
                   Position.X = 269.000000000000000000
+                  StyleLookup = 'btnPhotoUploadStyle1'
+                  TextSettings.Font.Size = 14.000000000000000000
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
                 end
               end
               inherited lytFullName: TLayout
@@ -973,12 +1004,17 @@ object frmMain: TfrmMain
                   inherited lytPhotoButtonH: TLayout
                     Size.Width = 379.000000000000000000
                     inherited btnPhotoUpload: TCornerButton
+                      StyledSettings = [Family, FontColor]
                       StyleLookup = 'btnPhotoUploadStyle1'
+                      TextSettings.Font.Size = 14.000000000000000000
+                      TextSettings.Font.StyleExt = {00060000000000000004000000}
+                      TextSettings.Trimming = Character
                     end
                     inherited btnCamera: TCornerButton
-                      Images = dm.imgList
-                      ImageIndex = 18
+                      StyledSettings = [Family, FontColor]
                       StyleLookup = 'btnPhotoUploadStyle1'
+                      TextSettings.Font.Size = 14.000000000000000000
+                      TextSettings.Font.StyleExt = {00060000000000000004000000}
                     end
                   end
                   inherited lProfileUploadDesc: TLabel
@@ -1031,7 +1067,6 @@ object frmMain: TfrmMain
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
                 end
                 inherited cbStatus: TComboBox
-                  ItemIndex = 1
                   Size.Width = 479.000000000000000000
                   StyleLookup = 'cbGenderStyle1'
                   inherited lStatusInput: TLabel

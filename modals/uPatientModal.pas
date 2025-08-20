@@ -28,7 +28,7 @@ type
     gIcon: TGlyph;
     lNameH: TLabel;
     lbProfilePhoto: TLabel;
-    btnPhotoUpload: TCornerButton;
+    btnUpload: TCornerButton;
     lytPatientDetails: TLayout;
     lytDetails1: TLayout;
     lytFullName: TLayout;
@@ -58,6 +58,9 @@ type
     lTag: TLabel;
     lGenderText: TLabel;
     lDateText: TLabel;
+    btnCamera: TCornerButton;
+    btnCancel: TCornerButton;
+    imgProfilePhoto: TImage;
     procedure mMedicalNotesClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure eFullNameChangeTracking(Sender: TObject);
@@ -82,17 +85,7 @@ implementation
 
 uses uMain, uDm;
 
-procedure TfPatientModal.cbGenderChange(Sender: TObject);
-begin
-  lGenderText.Text := cbGender.Text;
-end;
-
-procedure TfPatientModal.deDateOfBirthChange(Sender: TObject);
-begin
-  deDateOfBirth.TextSettings.FontColor := TAlphaColors.Black;
-  lDateText.Visible := False;
-end;
-
+{  }
 procedure TfPatientModal.EditComponentsResponsive;
 begin
   lytFullName.Width := Trunc(lytDetails1.Width / 2) - 15; // -15 to account for spacing
@@ -103,11 +96,25 @@ begin
   lytAddress.Width := Trunc(lytDetails3.Width / 2) - 15;
 end;
 
+{ Gender display dropdown }
+procedure TfPatientModal.cbGenderChange(Sender: TObject);
+begin
+  lGenderText.Text := cbGender.Text;
+end;
+
+{ Date display }
+procedure TfPatientModal.deDateOfBirthChange(Sender: TObject);
+begin
+  deDateOfBirth.TextSettings.FontColor := TAlphaColors.Black;
+  lDateText.Visible := False;
+end;
+
 procedure TfPatientModal.btnCloseClick(Sender: TObject);
 begin
   Self.Visible := False;
 end;
 
+{ Patient profile setter }
 procedure TfPatientModal.eFullNameChangeTracking(Sender: TObject);
 begin
   // Getter of first letter of the Full name
@@ -128,15 +135,16 @@ begin
   end;
 end;
 
+{ Modal Frame Resize }
 procedure TfPatientModal.FrameResize(Sender: TObject);
 begin
   // Modal content margins
   if (frmMain.ClientHeight >= 520) AND (frmMain.ClientWidth >= 870) then
   begin
-  rModalInfo.Margins.Left := 310;
-  rModalInfo.Margins.Right := 310;
-  rModalInfo.Margins.Top := 60;
-  rModalInfo.Margins.Bottom := 60;
+    rModalInfo.Margins.Left := 310;
+    rModalInfo.Margins.Right := 310;
+    rModalInfo.Margins.Top := 60;
+    rModalInfo.Margins.Bottom := 60;
   end;
 
   if (frmMain.ClientHeight <= 510) AND (frmMain.ClientWidth <= 860) then
@@ -148,21 +156,25 @@ begin
   end;
 end;
 
+{ Details 1 responsive }
 procedure TfPatientModal.lytDetails1Resize(Sender: TObject);
 begin
   EditComponentsResponsive;
 end;
 
+{ Details 2 responsive }
 procedure TfPatientModal.lytDetails2Resize(Sender: TObject);
 begin
   EditComponentsResponsive;
 end;
 
+{ Details 3 responsive }
 procedure TfPatientModal.lytDetails3Resize(Sender: TObject);
 begin
   EditComponentsResponsive;
 end;
 
+{ Medical memo text prompt remover }
 procedure TfPatientModal.mMedicalNotesClick(Sender: TObject);
 begin
   if MemoTrackingReset = 'Empty' then
@@ -174,6 +186,7 @@ begin
   lTag.Text := 'Tag Number : ' + MemoTrackingReset;
 end;
 
+{ Medical memo text prompt inserter }
 procedure TfPatientModal.mMedicalNotesExit(Sender: TObject);
 begin
   if (MemoTrackingReset = 'Clicked') AND (mMedicalNotes.Text.Trim.IsEmpty) then
