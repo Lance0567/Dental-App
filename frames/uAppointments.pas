@@ -24,9 +24,9 @@ type
     slUserName: TSkLabel;
     RoundRect1: TRoundRect;
     lBevel: TLine;
-    Rectangle1: TRectangle;
+    rCalendar: TRectangle;
     lytBottom: TLayout;
-    TMSFNCCalendar1: TTMSFNCCalendar;
+    tmsCalendar: TTMSFNCCalendar;
   private
     { Private declarations }
   public

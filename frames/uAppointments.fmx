@@ -134,7 +134,7 @@ object fAppointments: TfAppointments
       end
     end
   end
-  object Rectangle1: TRectangle
+  object rCalendar: TRectangle
     Align = Client
     Fill.Color = claWhite
     Padding.Left = 20.000000000000000000
@@ -150,7 +150,8 @@ object fAppointments: TfAppointments
     Stroke.Color = xFFDBD9D9
     XRadius = 13.000000000000000000
     YRadius = 13.000000000000000000
-    object TMSFNCCalendar1: TTMSFNCCalendar
+    object tmsCalendar: TTMSFNCCalendar
+      Color = claNull
       Align = Client
       Size.Width = 480.000000000000000000
       Size.Height = 186.000000000000000000
@@ -167,6 +168,7 @@ object fAppointments: TfAppointments
       Footer.Fill.Color = xFFF6F8FC
       Footer.Fill.ColorTo = xFFEEF2F9
       Footer.Font.Size = 14.000000000000000000
+      Fill.Color = claNull
       Day = 27
       Month = 7
       Year = 2025

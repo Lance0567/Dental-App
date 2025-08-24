@@ -20,7 +20,8 @@ type
     imgList: TImageList;
     conDental: TFDConnection;
     qPatients: TFDQuery;
-    qUser: TFDQuery;
+    qUsers: TFDQuery;
+    procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -35,5 +36,26 @@ implementation
 {%CLASSGROUP 'FMX.Controls.TControl'}
 
 {$R *.dfm}
+
+procedure Tdm.DataModuleCreate(Sender: TObject);
+var
+  DBPath: String;
+begin
+  // Connection clearing
+  conDental.Connected := False;
+  conDental.Params.Values['Database'] := '';
+
+  // Get the directory of the executable relative path
+  DBPath := ExtractFilePath(ParamStr(0)) + 'database\dental.db';
+  conDental.Params.Values['DriverID'] := 'SQLite';
+  conDental.Params.Values['Database'] := DBPath;
+
+  // Deactivate queries
+  qUsers.Close;
+  qPatients.Close;
+
+  // activate connection
+  conDental.Connected := True;
+end;
 
 end.

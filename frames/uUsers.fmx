@@ -228,8 +228,8 @@ object fUsers: TfUsers
         Size.Height = 96.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 4
-        Viewport.Width = 476.000000000000000000
-        Viewport.Height = 71.000000000000000000
+        Viewport.Width = 480.000000000000000000
+        Viewport.Height = 96.000000000000000000
       end
     end
   end

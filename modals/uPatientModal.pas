@@ -9,7 +9,7 @@ uses
   FMX.Memo.Types, FMX.TMSFNCTypes, FMX.TMSFNCUtils, FMX.TMSFNCGraphics,
   FMX.TMSFNCGraphicsTypes, FMX.TMSFNCCustomControl, FMX.TMSFNCWebBrowser,
   FMX.TMSFNCCustomWEBControl, FMX.TMSFNCMemo, FMX.ScrollBox, FMX.Memo,
-  FMX.DateTimeCtrls, FMX.Edit, FMX.ListBox;
+  FMX.DateTimeCtrls, FMX.Edit, FMX.ListBox, Data.DB, FMX.Media, FCamera;
 
 type
   TfPatientModal = class(TFrame)
@@ -61,6 +61,20 @@ type
     btnCamera: TCornerButton;
     btnCancel: TCornerButton;
     imgProfilePhoto: TImage;
+    cCapturePhoto: TFCamera;
+    rCameralModal: TRectangle;
+    imgPreview: TImage;
+    lytImgTools: TLayout;
+    Timer1: TTimer;
+    Layout2: TLayout;
+    lCamera: TLabel;
+    cbCamera: TComboBox;
+    lFormat: TLabel;
+    cbFormat: TComboBox;
+    btnTakePicture: TCornerButton;
+    btnSaveCurrentImage: TCornerButton;
+    Layout1: TLayout;
+    btnCameraClose: TSpeedButton;
     procedure mMedicalNotesClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure eFullNameChangeTracking(Sender: TObject);
@@ -71,9 +85,17 @@ type
     procedure cbGenderChange(Sender: TObject);
     procedure mMedicalNotesExit(Sender: TObject);
     procedure deDateOfBirthChange(Sender: TObject);
+    procedure btnSavePatientClick(Sender: TObject);
+    procedure btnCancelClick(Sender: TObject);
+    procedure btnCameraClick(Sender: TObject);
+    procedure ccCaptureSampleBufferReady(Sender: TObject;
+      const ATime: TMediaTime);
+    procedure btnSaveCurrentImageClick(Sender: TObject);
+    procedure btnCameraCloseClick(Sender: TObject);
   private
     { Private declarations }
   public
+    FCapturedImage: TBitmap;
     MemoTrackingReset: String;
     procedure EditComponentsResponsive;
     { Public declarations }
@@ -85,7 +107,7 @@ implementation
 
 uses uMain, uDm;
 
-{  }
+{ Layout Responsiveness adjuster }
 procedure TfPatientModal.EditComponentsResponsive;
 begin
   lytFullName.Width := Trunc(lytDetails1.Width / 2) - 15; // -15 to account for spacing
@@ -94,6 +116,45 @@ begin
   lytContactNumber.Width := Trunc(lytDetails2.Width / 2) - 15;
   lytEmailAddress.Width := Trunc(lytDetails3.Width / 2) - 15;
   lytAddress.Width := Trunc(lytDetails3.Width / 2) - 15;
+end;
+
+{ Save Image }
+procedure TfPatientModal.btnSaveCurrentImageClick(Sender: TObject);
+begin
+  cCapturePhoto.CurrentImageToFile('image.bmp');
+end;
+
+{ Save Button }
+procedure TfPatientModal.btnSavePatientClick(Sender: TObject);
+var
+  ms: TMemoryStream;
+begin
+  dm.qPatients.Append;
+
+  // Field to save
+  dm.qPatients.FieldByName('fullname').AsString := eFullName.Text;
+  dm.qPatients.FieldByName('birth_date').AsDateTime := deDateOfBirth.Date;
+  dm.qPatients.FieldByName('gender').AsString := cbGender.Text;
+  dm.qPatients.FieldByName('contact_number').AsString := eContactNumber.Text;
+  dm.qPatients.FieldByName('email_address').AsString := eEmailAddress.Text;
+  dm.qPatients.FieldByName('address').AsString := eAddress.Text;
+  dm.qPatients.FieldByName('medical_notes').AsString := mMedicalNotes.Text;
+
+  // Save image to LONGBLOB
+  if Assigned(imgProfilePhoto.Bitmap) and not imgProfilePhoto.Bitmap.IsEmpty then
+  begin
+    ms := TMemoryStream.Create;
+    try
+      imgProfilePhoto.Bitmap.SaveToStream(ms);
+      ms.Position := 0;
+      TBlobField(dm.qPatients.FieldByName('profile_photo')).LoadFromStream(ms);
+    finally
+      ms.Free;
+    end;
+  end;
+
+  dm.qPatients.Post;
+  dm.qPatients.Refresh;
 end;
 
 { Gender display dropdown }
@@ -109,6 +170,25 @@ begin
   lDateText.Visible := False;
 end;
 
+{ Camera button }
+procedure TfPatientModal.btnCameraClick(Sender: TObject);
+begin
+  rCameralModal.Visible := True;
+end;
+
+{ Close Camera }
+procedure TfPatientModal.btnCameraCloseClick(Sender: TObject);
+begin
+  rCameralModal.Visible := False;
+end;
+
+{ Cancel button }
+procedure TfPatientModal.btnCancelClick(Sender: TObject);
+begin
+  Self.Visible := False;
+end;
+
+{ Close button }
 procedure TfPatientModal.btnCloseClick(Sender: TObject);
 begin
   Self.Visible := False;

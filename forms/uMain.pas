@@ -48,6 +48,7 @@ type
     procedure fDashboardbtnNewAppointmentClick(Sender: TObject);
     procedure fUsers1btnAddNewUserClick(Sender: TObject);
     procedure sbUsersClick(Sender: TObject);
+    procedure fPatientModalbtnSavePatientClick(Sender: TObject);
   private
     procedure HideFrames;
     procedure ButtonPressedResetter;
@@ -167,6 +168,11 @@ begin
 end;
 
 { Add Patient Modal }
+procedure TfrmMain.fPatientModalbtnSavePatientClick(Sender: TObject);
+begin
+  fPatientModal.btnSavePatientClick(Sender);
+end;
+
 procedure TfrmMain.fPatientsbtnAddNewPatientClick(Sender: TObject);
 begin
   // Patient Modal visibility
@@ -214,6 +220,7 @@ begin
   fDashboard.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
   fPatients.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
   fAppointments.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
+  fUsers.lDate.Text := FormatDateTime('dddd, mmmm d, yyyy', Now);
 
   // Sidebar adjustment
   if mvSidebar.Width < 51 then

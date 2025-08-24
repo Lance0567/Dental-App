@@ -26,7 +26,7 @@ object fUserModal: TfUserModal
       Size.Width = 512.000000000000000000
       Size.Height = 440.000000000000000000
       Size.PlatformDefault = False
-      Stroke.Kind = None
+      Stroke.Color = xFFDBD9D9
       XRadius = 13.000000000000000000
       YRadius = 13.000000000000000000
       object ScrollBox1: TScrollBox
