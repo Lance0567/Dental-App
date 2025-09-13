@@ -174,8 +174,13 @@ end;
 
 procedure TfrmMain.fPatientsbtnAddNewPatientClick(Sender: TObject);
 begin
+  // Clear image
+  fPatientModal.imgProfilePhoto.Bitmap := nil;
+
   // Patient Modal visibility
   fPatientModal.Visible := True;
+  fPatientModal.gIcon.Visible := True;  // Show user icon
+  fPatientModal.cbGender.ItemIndex := 0;
   fPatientModal.ScrollBox1.ViewportPosition := PointF(0, 0);  // reset scrollbox
   fPatientModal.Tag := 0;
 

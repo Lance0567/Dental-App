@@ -135,8 +135,8 @@ object fPatientModal: TfPatientModal
             TabOrder = 7
             OnExit = mMedicalNotesExit
             OnClick = mMedicalNotesClick
-            Viewport.Width = 506.000000000000000000
-            Viewport.Height = 125.000000000000000000
+            Viewport.Width = 502.000000000000000000
+            Viewport.Height = 121.000000000000000000
           end
         end
         object lytPatientH: TLayout
@@ -188,9 +188,11 @@ object fPatientModal: TfPatientModal
                   item
                   end>
                 Align = Center
-                Size.Width = 110.000000000000000000
-                Size.Height = 112.000000000000000000
+                Size.Width = 150.000000000000000000
+                Size.Height = 110.000000000000000000
                 Size.PlatformDefault = False
+                WrapMode = Stretch
+                OnClick = imgProfilePhotoClick
               end
             end
             object lbProfilePhoto: TLabel
@@ -332,7 +334,7 @@ object fPatientModal: TfPatientModal
                     Size.PlatformDefault = False
                     TextSettings.FontColor = claGray
                     Text = 'Pick a date'
-                    TabOrder = 14
+                    TabOrder = 15
                   end
                 end
                 object lAgeCounter: TLabel
@@ -397,7 +399,7 @@ object fPatientModal: TfPatientModal
                     Size.Height = 40.000000000000000000
                     Size.PlatformDefault = False
                     Text = 'Male'
-                    TabOrder = 85
+                    TabOrder = 86
                   end
                 end
               end
@@ -558,6 +560,7 @@ object fPatientModal: TfPatientModal
     Size.Height = 400.000000000000000000
     Size.PlatformDefault = False
     Stroke.Color = claGray
+    Visible = False
     XRadius = 13.000000000000000000
     YRadius = 13.000000000000000000
     object lytImgTools: TLayout
@@ -606,7 +609,7 @@ object fPatientModal: TfPatientModal
             TextSettings.Font.Size = 14.000000000000000000
             TextSettings.FontColor = claDimgray
             Text = 'Default Camera'
-            TabOrder = 85
+            TabOrder = 86
           end
         end
       end
@@ -658,15 +661,15 @@ object fPatientModal: TfPatientModal
       Padding.Top = 5.000000000000000000
       Padding.Right = 10.000000000000000000
       Size.Width = 400.000000000000000000
-      Size.Height = 25.000000000000000000
+      Size.Height = 35.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
       object btnCameraClose: TSpeedButton
         Align = Right
-        Position.X = 367.000000000000000000
+        Position.X = 360.000000000000000000
         Position.Y = 5.000000000000000000
-        Size.Width = 23.000000000000000000
-        Size.Height = 20.000000000000000000
+        Size.Width = 30.000000000000000000
+        Size.Height = 30.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = 'cleareditbutton'
         Text = 'btnClose'
@@ -677,7 +680,7 @@ object fPatientModal: TfPatientModal
     object lytPaintBox: TLayout
       Align = Client
       Margins.Left = 70.000000000000000000
-      Margins.Top = 20.000000000000000000
+      Margins.Top = 10.000000000000000000
       Margins.Right = 70.000000000000000000
       Margins.Bottom = 20.000000000000000000
       Size.Width = 260.000000000000000000
@@ -692,6 +695,7 @@ object fPatientModal: TfPatientModal
         Size.Width = 260.000000000000000000
         Size.Height = 190.000000000000000000
         Size.PlatformDefault = False
+        WrapMode = Stretch
       end
     end
   end

@@ -95,6 +95,7 @@ type
       const ATime: TMediaTime);
     procedure btnTakePictureClick(Sender: TObject);
     procedure cbCameraOptionChange(Sender: TObject);
+    procedure imgProfilePhotoClick(Sender: TObject);
   private
     FCapturing: Boolean;
     FStatus: Boolean;
@@ -158,6 +159,20 @@ begin
   end;
 end;
 
+{ Show captured photo }
+procedure TfPatientModal.imgProfilePhotoClick(Sender: TObject);
+begin
+  // Show Captured photo
+  rCameralModal.Visible := True;
+
+  // Hide component
+  lytImgTools.Visible := False;
+
+  // Adjust lytPaintBox height
+  lytPaintBox.Margins.Bottom := 60;
+  lytPaintBox.Margins.Top := 60;
+end;
+
 { Save Button }
 procedure TfPatientModal.btnSavePatientClick(Sender: TObject);
 var
@@ -204,6 +219,12 @@ begin
 
     // Disable the camera component
     ccCapturePhoto.Active := False;
+
+    // Show captured image
+    imgProfilePhoto.Visible := True;
+
+    // Hide Icon for no captured image
+    gIcon.Visible := False;
   end
   else
   begin
@@ -263,8 +284,15 @@ begin
   FStatus := False;
   UpdateCameraList;
 
+  // Adjust lytPaintBox height
+  lytPaintBox.Margins.Bottom := 20;
+  lytPaintBox.Margins.Top := 10;
+
   // Show Capture photo modal
   rCameralModal.Visible := True;
+
+  // Show components
+  lytImgTools.Visible := True;
 
   // Set the current camera used
   lCameraDesc.Text := cbCameraOption.Text;

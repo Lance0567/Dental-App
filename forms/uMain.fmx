@@ -853,7 +853,6 @@ object frmMain: TfrmMain
                     TextSettings.Font.StyleExt = {00060000000000000004000000}
                   end
                   inherited cbGender: TComboBox
-                    ItemIndex = 2
                     Size.Width = 195.000000000000000000
                     StyleLookup = 'cbGenderStyle1'
                     inherited lGenderText: TLabel
@@ -937,12 +936,6 @@ object frmMain: TfrmMain
         inherited btnTakePicture: TCornerButton
           TextSettings.Font.Size = 13.000000000000000000
           TextSettings.Font.StyleExt = {00060000000000000004000000}
-        end
-      end
-      inherited lytClosebtn: TLayout
-        inherited btnCameraClose: TSpeedButton
-          Position.X = 365.000000000000000000
-          Size.Width = 25.000000000000000000
         end
       end
     end
