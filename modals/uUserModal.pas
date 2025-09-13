@@ -56,6 +56,7 @@ type
     lStatusInput: TLabel;
     procedure btnCloseClick(Sender: TObject);
     procedure cbRoleChange(Sender: TObject);
+    procedure FrameResize(Sender: TObject);
   private
     { Private declarations }
   public
@@ -66,7 +67,7 @@ implementation
 
 {$R *.fmx}
 
-uses uDm;
+uses uDm, uMain;
 
 procedure TfUserModal.btnCloseClick(Sender: TObject);
 begin
@@ -76,6 +77,26 @@ end;
 procedure TfUserModal.cbRoleChange(Sender: TObject);
 begin
   lRoleInput.Text := cbRole.Text;
+end;
+
+procedure TfUserModal.FrameResize(Sender: TObject);
+begin
+  // Modal content margins
+  if (frmMain.ClientHeight >= 520) AND (frmMain.ClientWidth >= 870) then
+  begin
+    rModalInfo.Margins.Left := 310;
+    rModalInfo.Margins.Right := 310;
+    rModalInfo.Margins.Top := 60;
+    rModalInfo.Margins.Bottom := 60;
+  end;
+
+  if (frmMain.ClientHeight <= 510) AND (frmMain.ClientWidth <= 860) then
+  begin
+    rModalInfo.Margins.Left := 70;
+    rModalInfo.Margins.Right := 70;
+    rModalInfo.Margins.Top := 30;
+    rModalInfo.Margins.Bottom := 30;
+  end;
 end;
 
 end.

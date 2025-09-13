@@ -2,6 +2,7 @@ object fUserModal: TfUserModal
   Size.Width = 772.000000000000000000
   Size.Height = 540.000000000000000000
   Size.PlatformDefault = False
+  OnResize = FrameResize
   object lytContentH: TLayout
     Align = Client
     Size.Width = 772.000000000000000000
@@ -129,7 +130,7 @@ object fUserModal: TfUserModal
                 Size.Width = 396.000000000000000000
                 Size.Height = 40.000000000000000000
                 Size.PlatformDefault = False
-                TextPrompt = 'Enter full name'
+                TextPrompt = 'Enter email address'
                 StyledSettings = [Family, Style]
                 ParentShowHint = False
                 ShowHint = True

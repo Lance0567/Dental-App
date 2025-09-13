@@ -65,7 +65,6 @@ implementation
 {$R *.fmx}
 
 uses uDm;
-
 { Hide Frames }
 procedure TfrmMain.HideFrames;
 begin

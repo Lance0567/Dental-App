@@ -212,7 +212,8 @@ object fPatients: TfPatients
       Padding.Bottom = 20.000000000000000000
       Margins.Left = 30.000000000000000000
       Margins.Top = 20.000000000000000000
-      Size.Width = 550.000000000000000000
+      Margins.Right = 30.000000000000000000
+      Size.Width = 520.000000000000000000
       Size.Height = 136.000000000000000000
       Size.PlatformDefault = False
       Stroke.Color = xFFDBD9D9
@@ -222,12 +223,12 @@ object fPatients: TfPatients
         Align = Client
         CanFocus = True
         ClipChildren = True
-        Size.Width = 510.000000000000000000
+        Size.Width = 480.000000000000000000
         Size.Height = 96.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 4
-        Viewport.Width = 510.000000000000000000
-        Viewport.Height = 96.000000000000000000
+        Viewport.Width = 476.000000000000000000
+        Viewport.Height = 71.000000000000000000
       end
     end
   end

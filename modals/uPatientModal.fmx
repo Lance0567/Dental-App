@@ -61,7 +61,7 @@ object fPatientModal: TfPatientModal
             Size.Width = 130.000000000000000000
             Size.Height = 40.000000000000000000
             Size.PlatformDefault = False
-            TabOrder = 5
+            TabOrder = 4
             Text = 'Save Patient'
             TextSettings.Font.StyleExt = {00060000000000000004000000}
             TextSettings.FontColor = xFF004D47
@@ -79,7 +79,7 @@ object fPatientModal: TfPatientModal
             Size.PlatformDefault = False
             Text = 'Tag Number :'
             Visible = False
-            TabOrder = 6
+            TabOrder = 5
           end
           object btnCancel: TCornerButton
             Align = Right
@@ -135,8 +135,8 @@ object fPatientModal: TfPatientModal
             TabOrder = 7
             OnExit = mMedicalNotesExit
             OnClick = mMedicalNotesClick
-            Viewport.Width = 502.000000000000000000
-            Viewport.Height = 121.000000000000000000
+            Viewport.Width = 506.000000000000000000
+            Viewport.Height = 125.000000000000000000
           end
         end
         object lytPatientH: TLayout
@@ -332,7 +332,7 @@ object fPatientModal: TfPatientModal
                     Size.PlatformDefault = False
                     TextSettings.FontColor = claGray
                     Text = 'Pick a date'
-                    TabOrder = 15
+                    TabOrder = 14
                   end
                 end
                 object lAgeCounter: TLabel
@@ -397,7 +397,7 @@ object fPatientModal: TfPatientModal
                     Size.Height = 40.000000000000000000
                     Size.PlatformDefault = False
                     Text = 'Male'
-                    TabOrder = 86
+                    TabOrder = 85
                   end
                 end
               end
@@ -560,76 +560,75 @@ object fPatientModal: TfPatientModal
     Stroke.Color = claGray
     XRadius = 13.000000000000000000
     YRadius = 13.000000000000000000
-    object imgPreview: TImage
-      MultiResBitmap = <
-        item
-        end>
-      Align = Client
-      Margins.Left = 90.000000000000000000
-      Margins.Top = 20.000000000000000000
-      Margins.Right = 90.000000000000000000
-      Margins.Bottom = 30.000000000000000000
-      Size.Width = 220.000000000000000000
-      Size.Height = 184.000000000000000000
-      Size.PlatformDefault = False
-    end
     object lytImgTools: TLayout
       Align = Bottom
-      Position.Y = 259.000000000000000000
+      Position.Y = 255.000000000000000000
       Size.Width = 400.000000000000000000
-      Size.Height = 141.000000000000000000
+      Size.Height = 145.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 1
-      object Layout2: TLayout
+      TabOrder = 0
+      object lytCameraOption: TLayout
         Align = Top
         Size.Width = 400.000000000000000000
         Size.Height = 30.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         object lCamera: TLabel
-          Align = Left
-          StyledSettings = [Family, Style]
-          Margins.Left = 15.000000000000000000
-          Position.X = 15.000000000000000000
-          Size.Width = 50.000000000000000000
+          Align = Client
+          StyledSettings = [Family]
+          Margins.Right = 15.000000000000000000
+          Size.Width = 82.000000000000000000
           Size.Height = 30.000000000000000000
           Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.Font.StyleExt = {00060000000000000004000000}
+          TextSettings.HorzAlign = Trailing
           Text = 'Camera:'
-          TabOrder = 3
-        end
-        object cbCamera: TComboBox
-          Align = Left
-          Margins.Top = 5.000000000000000000
-          Margins.Bottom = 5.000000000000000000
-          Position.X = 65.000000000000000000
-          Position.Y = 5.000000000000000000
-          Size.Width = 120.000000000000000000
-          Size.Height = 20.000000000000000000
-          Size.PlatformDefault = False
           TabOrder = 1
         end
-        object lFormat: TLabel
-          Align = Left
-          StyledSettings = [Family, Style]
-          Margins.Left = 15.000000000000000000
-          Position.X = 200.000000000000000000
-          Size.Width = 50.000000000000000000
+        object cbCameraOption: TComboBox
+          Align = Right
+          Margins.Right = 95.000000000000000000
+          Position.X = 97.000000000000000000
+          Size.Width = 208.000000000000000000
           Size.Height = 30.000000000000000000
           Size.PlatformDefault = False
-          Text = 'Format:'
-          TabOrder = 2
-        end
-        object cbFormat: TComboBox
-          Align = Left
-          Margins.Top = 5.000000000000000000
-          Margins.Bottom = 5.000000000000000000
-          Position.X = 250.000000000000000000
-          Position.Y = 5.000000000000000000
-          Size.Width = 120.000000000000000000
-          Size.Height = 20.000000000000000000
-          Size.PlatformDefault = False
           TabOrder = 0
+          OnChange = cbCameraOptionChange
+          object lCameraDesc: TLabel
+            Align = Left
+            StyledSettings = [Family]
+            Margins.Left = 10.000000000000000000
+            Position.X = 10.000000000000000000
+            Size.Width = 120.000000000000000000
+            Size.Height = 30.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 14.000000000000000000
+            TextSettings.FontColor = claDimgray
+            Text = 'Default Camera'
+            TabOrder = 85
+          end
         end
+      end
+      object btnSaveCurrentImage: TCornerButton
+        Align = Top
+        StyledSettings = [Family, FontColor]
+        Margins.Left = 120.000000000000000000
+        Margins.Top = 15.000000000000000000
+        Margins.Right = 120.000000000000000000
+        Position.X = 120.000000000000000000
+        Position.Y = 95.000000000000000000
+        Sides = [Top, Left, Bottom, Right]
+        Size.Width = 160.000000000000000000
+        Size.Height = 30.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'btnPhotoUploadStyle1'
+        TabOrder = 1
+        Text = 'Save Current Image'
+        TextSettings.Font.StyleExt = {00060000000000000004000000}
+        TextSettings.Trimming = None
+        XRadius = 8.000000000000000000
+        YRadius = 8.000000000000000000
       end
       object btnTakePicture: TCornerButton
         Align = Top
@@ -650,40 +649,24 @@ object fPatientModal: TfPatientModal
         TextSettings.Trimming = None
         XRadius = 8.000000000000000000
         YRadius = 8.000000000000000000
-      end
-      object btnSaveCurrentImage: TCornerButton
-        Align = Top
-        StyledSettings = [Family, FontColor]
-        Margins.Left = 120.000000000000000000
-        Margins.Top = 10.000000000000000000
-        Margins.Right = 120.000000000000000000
-        Position.X = 120.000000000000000000
-        Position.Y = 90.000000000000000000
-        Sides = [Top, Left, Bottom, Right]
-        Size.Width = 160.000000000000000000
-        Size.Height = 30.000000000000000000
-        Size.PlatformDefault = False
-        StyleLookup = 'btnPhotoUploadStyle1'
-        TabOrder = 1
-        Text = 'Save Current Image'
-        TextSettings.Font.StyleExt = {00060000000000000004000000}
-        TextSettings.Trimming = None
-        XRadius = 8.000000000000000000
-        YRadius = 8.000000000000000000
-        OnClick = btnSaveCurrentImageClick
+        OnClick = btnTakePictureClick
       end
     end
-    object Layout1: TLayout
+    object lytClosebtn: TLayout
       Align = Top
+      Padding.Left = 10.000000000000000000
+      Padding.Top = 5.000000000000000000
+      Padding.Right = 10.000000000000000000
       Size.Width = 400.000000000000000000
       Size.Height = 25.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 2
+      TabOrder = 1
       object btnCameraClose: TSpeedButton
         Align = Right
-        Position.X = 360.000000000000000000
-        Size.Width = 40.000000000000000000
-        Size.Height = 25.000000000000000000
+        Position.X = 367.000000000000000000
+        Position.Y = 5.000000000000000000
+        Size.Width = 23.000000000000000000
+        Size.Height = 20.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = 'cleareditbutton'
         Text = 'btnClose'
@@ -691,13 +674,34 @@ object fPatientModal: TfPatientModal
         OnClick = btnCameraCloseClick
       end
     end
+    object lytPaintBox: TLayout
+      Align = Client
+      Margins.Left = 70.000000000000000000
+      Margins.Top = 20.000000000000000000
+      Margins.Right = 70.000000000000000000
+      Margins.Bottom = 20.000000000000000000
+      Size.Width = 260.000000000000000000
+      Size.Height = 190.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      object imgPhoto: TImage
+        MultiResBitmap = <
+          item
+          end>
+        Align = Client
+        Size.Width = 260.000000000000000000
+        Size.Height = 190.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
   end
-  object cCapturePhoto: TFCamera
-    Left = 344
+  object ccCapturePhoto: TCameraComponent
+    OnSampleBufferReady = ccCapturePhotoSampleBufferReady
+    Left = 248
     Top = 16
   end
-  object Timer1: TTimer
-    Left = 440
+  object sdSavePicture: TSaveDialog
+    Left = 424
     Top = 16
   end
 end

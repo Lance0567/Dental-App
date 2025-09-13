@@ -9,7 +9,9 @@ uses
   FMX.Memo.Types, FMX.TMSFNCTypes, FMX.TMSFNCUtils, FMX.TMSFNCGraphics,
   FMX.TMSFNCGraphicsTypes, FMX.TMSFNCCustomControl, FMX.TMSFNCWebBrowser,
   FMX.TMSFNCCustomWEBControl, FMX.TMSFNCMemo, FMX.ScrollBox, FMX.Memo,
-  FMX.DateTimeCtrls, FMX.Edit, FMX.ListBox, Data.DB, FMX.Media, FCamera;
+  FMX.DateTimeCtrls, FMX.Edit, FMX.ListBox, Data.DB, FMX.Media, FCamera,
+  FMX.MediaLibrary, System.Actions, FMX.ActnList, FMX.StdActns,
+  FMX.MediaLibrary.Actions;
 
 type
   TfPatientModal = class(TFrame)
@@ -61,20 +63,20 @@ type
     btnCamera: TCornerButton;
     btnCancel: TCornerButton;
     imgProfilePhoto: TImage;
-    cCapturePhoto: TFCamera;
     rCameralModal: TRectangle;
-    imgPreview: TImage;
     lytImgTools: TLayout;
-    Timer1: TTimer;
-    Layout2: TLayout;
+    lytCameraOption: TLayout;
     lCamera: TLabel;
-    cbCamera: TComboBox;
-    lFormat: TLabel;
-    cbFormat: TComboBox;
-    btnTakePicture: TCornerButton;
+    cbCameraOption: TComboBox;
     btnSaveCurrentImage: TCornerButton;
-    Layout1: TLayout;
+    lytClosebtn: TLayout;
     btnCameraClose: TSpeedButton;
+    lytPaintBox: TLayout;
+    btnTakePicture: TCornerButton;
+    ccCapturePhoto: TCameraComponent;
+    sdSavePicture: TSaveDialog;
+    imgPhoto: TImage;
+    lCameraDesc: TLabel;
     procedure mMedicalNotesClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure eFullNameChangeTracking(Sender: TObject);
@@ -88,14 +90,18 @@ type
     procedure btnSavePatientClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnCameraClick(Sender: TObject);
-    procedure ccCaptureSampleBufferReady(Sender: TObject;
-      const ATime: TMediaTime);
-    procedure btnSaveCurrentImageClick(Sender: TObject);
     procedure btnCameraCloseClick(Sender: TObject);
+    procedure ccCapturePhotoSampleBufferReady(Sender: TObject;
+      const ATime: TMediaTime);
+    procedure btnTakePictureClick(Sender: TObject);
+    procedure cbCameraOptionChange(Sender: TObject);
   private
+    FCapturing: Boolean;
+    FStatus: Boolean;
+    procedure UpdateCameraList;
+    procedure ShowCameraFrame;
     { Private declarations }
   public
-    FCapturedImage: TBitmap;
     MemoTrackingReset: String;
     procedure EditComponentsResponsive;
     { Public declarations }
@@ -106,6 +112,19 @@ implementation
 {$R *.fmx}
 
 uses uMain, uDm;
+
+procedure TfPatientModal.UpdateCameraList;
+begin
+  cbCameraOption.Clear;
+  // FMX currently provides only Default camera selection, but you can fake list
+  cbCameraOption.Items.Add('Default Camera');
+  cbCameraOption.ItemIndex := 0;
+end;
+
+procedure TfPatientModal.ShowCameraFrame;
+begin
+  ccCapturePhoto.SampleBufferToBitmap(imgPhoto.Bitmap, True);
+end;
 
 { Layout Responsiveness adjuster }
 procedure TfPatientModal.EditComponentsResponsive;
@@ -118,10 +137,25 @@ begin
   lytAddress.Width := Trunc(lytDetails3.Width / 2) - 15;
 end;
 
-{ Save Image }
-procedure TfPatientModal.btnSaveCurrentImageClick(Sender: TObject);
+{ Modal Frame Resize }
+procedure TfPatientModal.FrameResize(Sender: TObject);
 begin
-  cCapturePhoto.CurrentImageToFile('image.bmp');
+  // Modal content margins
+  if (frmMain.ClientHeight >= 520) AND (frmMain.ClientWidth >= 870) then
+  begin
+    rModalInfo.Margins.Left := 310;
+    rModalInfo.Margins.Right := 310;
+    rModalInfo.Margins.Top := 60;
+    rModalInfo.Margins.Bottom := 60;
+  end;
+
+  if (frmMain.ClientHeight <= 510) AND (frmMain.ClientWidth <= 860) then
+  begin
+    rModalInfo.Margins.Left := 70;
+    rModalInfo.Margins.Right := 70;
+    rModalInfo.Margins.Top := 30;
+    rModalInfo.Margins.Bottom := 30;
+  end;
 end;
 
 { Save Button }
@@ -157,10 +191,62 @@ begin
   dm.qPatients.Refresh;
 end;
 
+{ Take picture }
+procedure TfPatientModal.btnTakePictureClick(Sender: TObject);
+begin
+  if not FStatus then
+  begin
+    btnTakePicture.Text := 'Retake photo';
+    FStatus := True;
+
+    // Show captured image on the image holder
+    imgProfilePhoto.Bitmap.Assign(imgPhoto.Bitmap);
+
+    // Disable the camera component
+    ccCapturePhoto.Active := False;
+  end
+  else
+  begin
+    // Run the camera activation after a 3-second delay in a background thread
+    TThread.CreateAnonymousThread(
+      procedure
+      begin
+        ccCapturePhoto.Active := True;
+        FCapturing := True;
+
+        // Wait for 3 seconds
+        TThread.Sleep(3000);
+
+        // Execute the rest of the code on the main UI thread
+        TThread.Synchronize(nil,
+          procedure
+          begin
+            // Show captured image on the image holder
+            imgProfilePhoto.Bitmap.Assign(imgPhoto.Bitmap);
+
+            // Disable the camera component
+            ccCapturePhoto.Active := False;
+          end);
+      end).Start;
+  end;
+end;
+
 { Gender display dropdown }
+procedure TfPatientModal.cbCameraOptionChange(Sender: TObject);
+begin
+  lCameraDesc.Text := cbCameraOption.Text;
+end;
+
 procedure TfPatientModal.cbGenderChange(Sender: TObject);
 begin
   lGenderText.Text := cbGender.Text;
+end;
+
+{ Camera component buffer }
+procedure TfPatientModal.ccCapturePhotoSampleBufferReady(Sender: TObject;
+  const ATime: TMediaTime);
+begin
+  TThread.Synchronize(nil, ShowCameraFrame);
 end;
 
 { Date display }
@@ -173,13 +259,35 @@ end;
 { Camera button }
 procedure TfPatientModal.btnCameraClick(Sender: TObject);
 begin
+  FCapturing := False;
+  FStatus := False;
+  UpdateCameraList;
+
+  // Show Capture photo modal
   rCameralModal.Visible := True;
+
+  // Set the current camera used
+  lCameraDesc.Text := cbCameraOption.Text;
+
+  if not FCapturing then
+  begin
+    ccCapturePhoto.Kind := TCameraKind.Default;  // or ckBackCamera
+    ccCapturePhoto.Active := True;
+    FCapturing := True;
+  end
+  else
+  begin
+    ccCapturePhoto.Active := False;
+    FCapturing := False;
+  end;
 end;
 
 { Close Camera }
 procedure TfPatientModal.btnCameraCloseClick(Sender: TObject);
 begin
   rCameralModal.Visible := False;
+  ccCapturePhoto.Active := False;
+  FCapturing := False;
 end;
 
 { Cancel button }
@@ -212,27 +320,6 @@ begin
     lNameH.Text := '';
     gIcon.ImageIndex := 10;
     lNameH.Visible := False;
-  end;
-end;
-
-{ Modal Frame Resize }
-procedure TfPatientModal.FrameResize(Sender: TObject);
-begin
-  // Modal content margins
-  if (frmMain.ClientHeight >= 520) AND (frmMain.ClientWidth >= 870) then
-  begin
-    rModalInfo.Margins.Left := 310;
-    rModalInfo.Margins.Right := 310;
-    rModalInfo.Margins.Top := 60;
-    rModalInfo.Margins.Bottom := 60;
-  end;
-
-  if (frmMain.ClientHeight <= 510) AND (frmMain.ClientWidth <= 860) then
-  begin
-    rModalInfo.Margins.Left := 70;
-    rModalInfo.Margins.Right := 70;
-    rModalInfo.Margins.Top := 30;
-    rModalInfo.Margins.Bottom := 30;
   end;
 end;
 
