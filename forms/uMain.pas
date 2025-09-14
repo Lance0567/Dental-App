@@ -49,6 +49,7 @@ type
     procedure fUsers1btnAddNewUserClick(Sender: TObject);
     procedure sbUsersClick(Sender: TObject);
     procedure fPatientModalbtnSavePatientClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     procedure HideFrames;
     procedure ButtonPressedResetter;
@@ -116,6 +117,11 @@ begin
 end;
 
 { Form create }
+procedure TfrmMain.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Application.Terminate;
+end;
+
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
   // Default tab index
@@ -176,6 +182,9 @@ procedure TfrmMain.fPatientsbtnAddNewPatientClick(Sender: TObject);
 begin
   // Clear image
   fPatientModal.imgProfilePhoto.Bitmap := nil;
+
+  // Hide Image Frame
+  fPatientModal.rImageFrame.Visible := False;
 
   // Patient Modal visibility
   fPatientModal.Visible := True;

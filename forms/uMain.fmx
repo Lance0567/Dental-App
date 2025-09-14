@@ -12,6 +12,7 @@ object frmMain: TfrmMain
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
+  OnClose = FormClose
   OnResize = FormResize
   DesignerMasterStyle = 0
   object lytContainer: TLayout
@@ -786,8 +787,14 @@ object frmMain: TfrmMain
               inherited cProfilePhoto: TCircle
                 Margins.Top = -3.000000000000000000
                 Position.Y = -3.000000000000000000
-                inherited lNameH: TLabel
+                inherited gIcon: TGlyph [0]
+                end
+                inherited lNameH: TLabel [1]
                   TextSettings.Font.StyleExt = {00070000000000000004000000}
+                end
+                inherited imgProfilePhoto: TImage [2]
+                end
+                inherited rImageFrame: TRectangle [3]
                 end
               end
               inherited lbProfilePhoto: TLabel

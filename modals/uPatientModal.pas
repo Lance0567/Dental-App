@@ -1,4 +1,4 @@
-unit uPatientModal;
+﻿unit uPatientModal;
 
 interface
 
@@ -11,7 +11,7 @@ uses
   FMX.TMSFNCCustomWEBControl, FMX.TMSFNCMemo, FMX.ScrollBox, FMX.Memo,
   FMX.DateTimeCtrls, FMX.Edit, FMX.ListBox, Data.DB, FMX.Media, FCamera,
   FMX.MediaLibrary, System.Actions, FMX.ActnList, FMX.StdActns,
-  FMX.MediaLibrary.Actions;
+  FMX.MediaLibrary.Actions, FMX.DialogService;
 
 type
   TfPatientModal = class(TFrame)
@@ -77,6 +77,7 @@ type
     sdSavePicture: TSaveDialog;
     imgPhoto: TImage;
     lCameraDesc: TLabel;
+    rImageFrame: TRectangle;
     procedure mMedicalNotesClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure eFullNameChangeTracking(Sender: TObject);
@@ -96,6 +97,7 @@ type
     procedure btnTakePictureClick(Sender: TObject);
     procedure cbCameraOptionChange(Sender: TObject);
     procedure imgProfilePhotoClick(Sender: TObject);
+    procedure btnUploadClick(Sender: TObject);
   private
     FCapturing: Boolean;
     FStatus: Boolean;
@@ -107,6 +109,10 @@ type
     procedure EditComponentsResponsive;
     { Public declarations }
   end;
+
+  const
+  TARGET_WIDTH  = 320;
+  TARGET_HEIGHT = 240;
 
 implementation
 
@@ -122,9 +128,32 @@ begin
   cbCameraOption.ItemIndex := 0;
 end;
 
+{ Camera live }
 procedure TfPatientModal.ShowCameraFrame;
+var
+  TempBitmap: TBitmap;
 begin
-  ccCapturePhoto.SampleBufferToBitmap(imgPhoto.Bitmap, True);
+  TempBitmap := TBitmap.Create;
+  try
+    // Get camera frame into a temporary bitmap
+    ccCapturePhoto.SampleBufferToBitmap(TempBitmap, True);
+
+    // Resize to 320x240 for consistent appearance
+    imgPhoto.Bitmap.SetSize(TARGET_WIDTH, TARGET_HEIGHT);
+    imgPhoto.Bitmap.Clear(TAlphaColors.Black); // Optional: background fill
+    imgPhoto.Bitmap.Canvas.BeginScene;
+    try
+      imgPhoto.Bitmap.Canvas.DrawBitmap(
+        TempBitmap,
+        RectF(0, 0, TempBitmap.Width, TempBitmap.Height),
+        RectF(0, 0, TARGET_WIDTH, TARGET_HEIGHT),
+        1, True);
+    finally
+      imgPhoto.Bitmap.Canvas.EndScene;
+    end;
+  finally
+    TempBitmap.Free;
+  end;
 end;
 
 { Layout Responsiveness adjuster }
@@ -169,8 +198,13 @@ begin
   lytImgTools.Visible := False;
 
   // Adjust lytPaintBox height
-  lytPaintBox.Margins.Bottom := 60;
-  lytPaintBox.Margins.Top := 60;
+  lytPaintBox.Margins.Bottom := 45;
+  lytPaintBox.Margins.Left := 60;
+  lytPaintBox.Margins.Right := 60;
+  lytPaintBox.Margins.Top := 25;
+
+  // Dispaly the image
+  imgPhoto.Bitmap.Assign(imgProfilePhoto.Bitmap);
 end;
 
 { Save Button }
@@ -225,6 +259,9 @@ begin
 
     // Hide Icon for no captured image
     gIcon.Visible := False;
+
+    // Show Image frame
+    rImageFrame.Visible := True;
   end
   else
   begin
@@ -236,7 +273,7 @@ begin
         FCapturing := True;
 
         // Wait for 3 seconds
-        TThread.Sleep(3000);
+        TThread.Sleep(1500);
 
         // Execute the rest of the code on the main UI thread
         TThread.Synchronize(nil,
@@ -249,6 +286,29 @@ begin
             ccCapturePhoto.Active := False;
           end);
       end).Start;
+  end;
+end;
+
+{ Upload Photo }
+procedure TfPatientModal.btnUploadClick(Sender: TObject);
+var
+  LOpenDialog: TOpenDialog;
+begin
+  LOpenDialog := TOpenDialog.Create(Self);
+  try
+    // Filter for image types
+    LOpenDialog.Filter := 'Image Files|*.bmp;*.jpg;*.jpeg;*.png|All Files|*.*';
+    LOpenDialog.Title := 'Select a photo to upload';
+
+    if LOpenDialog.Execute then
+    begin
+      // ✅ Load the selected file into the TImage
+      imgProfilePhoto.Bitmap.LoadFromFile(LOpenDialog.FileName);
+    end;
+  finally
+    LOpenDialog.Free;
+    rImageFrame.Visible := True;
+
   end;
 end;
 
@@ -286,6 +346,8 @@ begin
 
   // Adjust lytPaintBox height
   lytPaintBox.Margins.Bottom := 20;
+  lytPaintBox.Margins.Left := 70;
+  lytPaintBox.Margins.Right := 70;
   lytPaintBox.Margins.Top := 10;
 
   // Show Capture photo modal
