@@ -12,7 +12,8 @@ uses
   uGlobal in 'global\uGlobal.pas',
   uUsers in 'frames\uUsers.pas' {fUsers: TFrame},
   uUserProfile in 'frames\uUserProfile.pas' {fUserProfile: TFrame},
-  uUserModal in 'modals\uUserModal.pas' {fUserModal: TFrame};
+  uUserModal in 'modals\uUserModal.pas' {fUserModal: TFrame},
+  uUserDetails in 'modals\uUserDetails.pas' {fUserDetails: TFrame};
 
 {$R *.res}
 

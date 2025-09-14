@@ -15,7 +15,7 @@ type
     rBackground: TRectangle;
     rModalInfo: TRectangle;
     ScrollBox1: TScrollBox;
-    lytPatientH: TLayout;
+    lytUserH: TLayout;
     lytFullName: TLayout;
     lbFullName: TLabel;
     eFullName: TEdit;
@@ -51,7 +51,7 @@ type
     lStatus: TLabel;
     cbStatus: TComboBox;
     btnCancel: TCornerButton;
-    rPatients: TRectangle;
+    rUser: TRectangle;
     lRoleInput: TLabel;
     lStatusInput: TLabel;
     procedure btnCloseClick(Sender: TObject);

@@ -1,11 +1,11 @@
 object fUserModal: TfUserModal
-  Size.Width = 772.000000000000000000
+  Size.Width = 722.000000000000000000
   Size.Height = 540.000000000000000000
   Size.PlatformDefault = False
   OnResize = FrameResize
   object lytContentH: TLayout
     Align = Client
-    Size.Width = 772.000000000000000000
+    Size.Width = 722.000000000000000000
     Size.Height = 540.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
@@ -13,7 +13,7 @@ object fUserModal: TfUserModal
       Align = Contents
       Fill.Color = claBlack
       Opacity = 0.699999988079071000
-      Size.Width = 772.000000000000000000
+      Size.Width = 722.000000000000000000
       Size.Height = 540.000000000000000000
       Size.PlatformDefault = False
     end
@@ -24,7 +24,7 @@ object fUserModal: TfUserModal
       Margins.Top = 50.000000000000000000
       Margins.Right = 130.000000000000000000
       Margins.Bottom = 50.000000000000000000
-      Size.Width = 512.000000000000000000
+      Size.Width = 462.000000000000000000
       Size.Height = 440.000000000000000000
       Size.PlatformDefault = False
       Stroke.Color = xFFDBD9D9
@@ -36,25 +36,25 @@ object fUserModal: TfUserModal
         Padding.Top = 15.000000000000000000
         Padding.Right = 25.000000000000000000
         Padding.Bottom = 15.000000000000000000
-        Size.Width = 512.000000000000000000
+        Size.Width = 462.000000000000000000
         Size.Height = 440.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
-        Viewport.Width = 496.000000000000000000
+        Viewport.Width = 446.000000000000000000
         Viewport.Height = 440.000000000000000000
         object lytTitle: TLayout
           Align = MostTop
           Margins.Right = -15.000000000000000000
           Position.X = 25.000000000000000000
           Position.Y = 15.000000000000000000
-          Size.Width = 461.000000000000000000
+          Size.Width = 411.000000000000000000
           Size.Height = 35.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
           object lbTitle: TLabel
             Align = Client
             StyledSettings = [Family]
-            Size.Width = 426.000000000000000000
+            Size.Width = 376.000000000000000000
             Size.Height = 35.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.Size = 18.000000000000000000
@@ -65,7 +65,7 @@ object fUserModal: TfUserModal
           object btnClose: TSpeedButton
             Align = Right
             Margins.Right = -5.000000000000000000
-            Position.X = 426.000000000000000000
+            Position.X = 376.000000000000000000
             Size.Width = 40.000000000000000000
             Size.Height = 35.000000000000000000
             Size.PlatformDefault = False
@@ -75,7 +75,7 @@ object fUserModal: TfUserModal
             OnClick = btnCloseClick
           end
         end
-        object rPatients: TRectangle
+        object rUser: TRectangle
           Align = Top
           Fill.Color = claWhite
           Padding.Left = 25.000000000000000000
@@ -85,17 +85,17 @@ object fUserModal: TfUserModal
           Margins.Top = 20.000000000000000000
           Position.X = 25.000000000000000000
           Position.Y = 70.000000000000000000
-          Size.Width = 446.000000000000000000
+          Size.Width = 396.000000000000000000
           Size.Height = 765.000000000000000000
           Size.PlatformDefault = False
           Stroke.Color = xFFDBD9D9
           XRadius = 16.000000000000000000
           YRadius = 16.000000000000000000
-          object lytPatientH: TLayout
+          object lytUserH: TLayout
             Align = MostTop
             Position.X = 25.000000000000000000
             Position.Y = 20.000000000000000000
-            Size.Width = 396.000000000000000000
+            Size.Width = 346.000000000000000000
             Size.Height = 730.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
@@ -103,14 +103,14 @@ object fUserModal: TfUserModal
               Align = Top
               Margins.Top = 20.000000000000000000
               Position.Y = 140.000000000000000000
-              Size.Width = 396.000000000000000000
+              Size.Width = 346.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 6
               object lEmailAddress: TLabel
                 Align = Top
                 StyledSettings = [Family]
-                Size.Width = 396.000000000000000000
+                Size.Width = 346.000000000000000000
                 Size.Height = 17.000000000000000000
                 Size.PlatformDefault = False
                 TextSettings.Font.Size = 14.000000000000000000
@@ -127,7 +127,7 @@ object fUserModal: TfUserModal
                 Hint = 'Please fillout this field.'
                 HelpType = htKeyword
                 Margins.Top = 10.000000000000000000
-                Size.Width = 396.000000000000000000
+                Size.Width = 346.000000000000000000
                 Size.Height = 40.000000000000000000
                 Size.PlatformDefault = False
                 TextPrompt = 'Enter email address'
@@ -142,13 +142,13 @@ object fUserModal: TfUserModal
               Padding.Bottom = 10.000000000000000000
               Margins.Top = 10.000000000000000000
               Position.Y = 664.000000000000000000
-              Size.Width = 396.000000000000000000
+              Size.Width = 346.000000000000000000
               Size.Height = 60.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 7
               object btnCreateUser: TCornerButton
                 Align = Right
-                Position.X = 276.000000000000000000
+                Position.X = 226.000000000000000000
                 Position.Y = 10.000000000000000000
                 Sides = [Top, Left, Bottom, Right]
                 Size.Width = 120.000000000000000000
@@ -174,7 +174,7 @@ object fUserModal: TfUserModal
               object btnCancel: TCornerButton
                 Align = Right
                 Margins.Right = 10.000000000000000000
-                Position.X = 186.000000000000000000
+                Position.X = 136.000000000000000000
                 Position.Y = 10.000000000000000000
                 Sides = [Top, Left, Bottom, Right]
                 Size.Width = 80.000000000000000000
@@ -191,14 +191,14 @@ object fUserModal: TfUserModal
               Align = Top
               Margins.Top = 20.000000000000000000
               Position.Y = 50.000000000000000000
-              Size.Width = 396.000000000000000000
+              Size.Width = 346.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 5
               object lbFullName: TLabel
                 Align = Top
                 StyledSettings = [Family]
-                Size.Width = 396.000000000000000000
+                Size.Width = 346.000000000000000000
                 Size.Height = 17.000000000000000000
                 Size.PlatformDefault = False
                 TextSettings.Font.Size = 14.000000000000000000
@@ -215,7 +215,7 @@ object fUserModal: TfUserModal
                 Hint = 'Please fillout this field.'
                 HelpType = htKeyword
                 Margins.Top = 10.000000000000000000
-                Size.Width = 396.000000000000000000
+                Size.Width = 346.000000000000000000
                 Size.Height = 40.000000000000000000
                 Size.PlatformDefault = False
                 TextPrompt = 'Enter full name'
@@ -228,7 +228,7 @@ object fUserModal: TfUserModal
               Align = Top
               Margins.Top = 20.000000000000000000
               Position.Y = 320.000000000000000000
-              Size.Width = 396.000000000000000000
+              Size.Width = 346.000000000000000000
               Size.Height = 110.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 1
@@ -272,7 +272,7 @@ object fUserModal: TfUserModal
               object lytPhotoButton: TLayout
                 Align = Client
                 Padding.Left = 5.000000000000000000
-                Size.Width = 301.000000000000000000
+                Size.Width = 251.000000000000000000
                 Size.Height = 93.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 2
@@ -283,7 +283,7 @@ object fUserModal: TfUserModal
                   Margins.Top = 10.000000000000000000
                   Position.X = 5.000000000000000000
                   Position.Y = 10.000000000000000000
-                  Size.Width = 296.000000000000000000
+                  Size.Width = 246.000000000000000000
                   Size.Height = 45.000000000000000000
                   Size.PlatformDefault = False
                   TabOrder = 0
@@ -326,7 +326,7 @@ object fUserModal: TfUserModal
                   Margins.Left = 2.000000000000000000
                   Position.X = 7.000000000000000000
                   Position.Y = 55.000000000000000000
-                  Size.Width = 294.000000000000000000
+                  Size.Width = 244.000000000000000000
                   Size.Height = 30.000000000000000000
                   Size.PlatformDefault = False
                   TextSettings.FontColor = claGray
@@ -337,7 +337,7 @@ object fUserModal: TfUserModal
               object lProfilePhoto: TLabel
                 Align = Top
                 StyledSettings = [Family]
-                Size.Width = 396.000000000000000000
+                Size.Width = 346.000000000000000000
                 Size.Height = 17.000000000000000000
                 Size.PlatformDefault = False
                 TextSettings.Font.Size = 14.000000000000000000
@@ -349,7 +349,7 @@ object fUserModal: TfUserModal
             object lPersonalInfo: TLabel
               Align = MostTop
               StyledSettings = [Family]
-              Size.Width = 396.000000000000000000
+              Size.Width = 346.000000000000000000
               Size.Height = 30.000000000000000000
               Size.PlatformDefault = False
               TextSettings.Font.Size = 18.000000000000000000
@@ -361,14 +361,14 @@ object fUserModal: TfUserModal
               Align = Top
               Margins.Top = 20.000000000000000000
               Position.Y = 230.000000000000000000
-              Size.Width = 396.000000000000000000
+              Size.Width = 346.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 2
               object lContactNumber: TLabel
                 Align = Top
                 StyledSettings = [Family]
-                Size.Width = 396.000000000000000000
+                Size.Width = 346.000000000000000000
                 Size.Height = 17.000000000000000000
                 Size.PlatformDefault = False
                 TextSettings.Font.Size = 14.000000000000000000
@@ -385,7 +385,7 @@ object fUserModal: TfUserModal
                 Hint = 'Please fillout this field.'
                 HelpType = htKeyword
                 Margins.Top = 10.000000000000000000
-                Size.Width = 396.000000000000000000
+                Size.Width = 346.000000000000000000
                 Size.Height = 40.000000000000000000
                 Size.PlatformDefault = False
                 TextPrompt = 'Enter contact number'
@@ -398,7 +398,7 @@ object fUserModal: TfUserModal
               Align = Top
               Margins.Top = 20.000000000000000000
               Position.Y = 450.000000000000000000
-              Size.Width = 396.000000000000000000
+              Size.Width = 346.000000000000000000
               Size.Height = 24.000000000000000000
               Size.PlatformDefault = False
               StyledSettings = [FontColor]
@@ -414,14 +414,14 @@ object fUserModal: TfUserModal
               Align = Top
               Margins.Top = 20.000000000000000000
               Position.Y = 494.000000000000000000
-              Size.Width = 396.000000000000000000
+              Size.Width = 346.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 4
               object lRole: TLabel
                 Align = Top
                 StyledSettings = [Family]
-                Size.Width = 396.000000000000000000
+                Size.Width = 346.000000000000000000
                 Size.Height = 17.000000000000000000
                 Size.PlatformDefault = False
                 TextSettings.Font.Size = 14.000000000000000000
@@ -437,7 +437,7 @@ object fUserModal: TfUserModal
                 ItemIndex = 1
                 Margins.Top = 10.000000000000000000
                 Position.Y = 27.000000000000000000
-                Size.Width = 396.000000000000000000
+                Size.Width = 346.000000000000000000
                 Size.Height = 40.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 1
@@ -446,7 +446,7 @@ object fUserModal: TfUserModal
                   Align = Client
                   StyledSettings = [Family, Style]
                   Margins.Left = 5.000000000000000000
-                  Size.Width = 391.000000000000000000
+                  Size.Width = 341.000000000000000000
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
                   Text = 'Receptionist'
@@ -458,14 +458,14 @@ object fUserModal: TfUserModal
               Align = Top
               Margins.Top = 20.000000000000000000
               Position.Y = 584.000000000000000000
-              Size.Width = 396.000000000000000000
+              Size.Width = 346.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 3
               object lStatus: TLabel
                 Align = Top
                 StyledSettings = [Family]
-                Size.Width = 396.000000000000000000
+                Size.Width = 346.000000000000000000
                 Size.Height = 17.000000000000000000
                 Size.PlatformDefault = False
                 TextSettings.Font.Size = 14.000000000000000000
@@ -481,7 +481,7 @@ object fUserModal: TfUserModal
                 ItemIndex = 0
                 Margins.Top = 10.000000000000000000
                 Position.Y = 27.000000000000000000
-                Size.Width = 396.000000000000000000
+                Size.Width = 346.000000000000000000
                 Size.Height = 40.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 1
@@ -489,7 +489,7 @@ object fUserModal: TfUserModal
                   Align = Client
                   StyledSettings = [Family, Style]
                   Margins.Left = 5.000000000000000000
-                  Size.Width = 391.000000000000000000
+                  Size.Width = 341.000000000000000000
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
                   Text = 'Active'
