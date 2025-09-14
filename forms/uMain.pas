@@ -203,6 +203,9 @@ begin
   fPatientModal.lNameH.Text := '';
   fPatientModal.eFullName.Text := '';
 
+  // Reset Age
+  fPatientModal.lAgeCounter.Text := 'Age: 0 years';
+
   // Medical notes
   fPatientModal.mMedicalNotes.Text := 'Enter any relevant medical history, allergies, or notes';
   fPatientModal.MemoTrackingReset := 'Empty';

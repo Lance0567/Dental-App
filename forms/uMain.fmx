@@ -787,14 +787,8 @@ object frmMain: TfrmMain
               inherited cProfilePhoto: TCircle
                 Margins.Top = -3.000000000000000000
                 Position.Y = -3.000000000000000000
-                inherited gIcon: TGlyph [0]
-                end
-                inherited lNameH: TLabel [1]
+                inherited lNameH: TLabel
                   TextSettings.Font.StyleExt = {00070000000000000004000000}
-                end
-                inherited imgProfilePhoto: TImage [2]
-                end
-                inherited rImageFrame: TRectangle [3]
                 end
               end
               inherited lbProfilePhoto: TLabel
@@ -847,7 +841,6 @@ object frmMain: TfrmMain
                   end
                   inherited lAgeCounter: TLabel
                     Size.Width = 195.000000000000000000
-                    TextSettings.Font.StyleExt = {00060000000000000004000000}
                   end
                 end
               end
@@ -929,9 +922,9 @@ object frmMain: TfrmMain
           inherited cbCameraOption: TComboBox
             Margins.Top = -5.000000000000000000
             Position.Y = -5.000000000000000000
-            Size.Height = 40.000000000000000000
+            Size.Height = 35.000000000000000000
             inherited lCameraDesc: TLabel
-              Size.Height = 40.000000000000000000
+              Size.Height = 35.000000000000000000
               TabOrder = 86
             end
           end

@@ -8,7 +8,7 @@ uses
   FMX.Controls.Presentation, FMX.Layouts, System.Skia, FMX.Objects, FMX.Skia,
   FMX.ImgList, FMX.Calendar, FMX.TMSFNCTypes, FMX.TMSFNCUtils,
   FMX.TMSFNCGraphics, FMX.TMSFNCGraphicsTypes, FMX.TMSFNCCustomControl,
-  FMX.TMSFNCCalendar;
+  FMX.TMSFNCCalendar, FMX.Menus;
 
 type
   TfAppointments = class(TFrame)
@@ -22,11 +22,11 @@ type
     gIcon: TGlyph;
     lytUser: TLayout;
     slUserName: TSkLabel;
-    RoundRect1: TRoundRect;
     lBevel: TLine;
     rCalendar: TRectangle;
     lytBottom: TLayout;
     tmsCalendar: TTMSFNCCalendar;
+    RoundRect1: TRoundRect;
   private
     { Private declarations }
   public

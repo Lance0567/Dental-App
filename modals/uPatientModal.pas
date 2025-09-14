@@ -11,7 +11,7 @@ uses
   FMX.TMSFNCCustomWEBControl, FMX.TMSFNCMemo, FMX.ScrollBox, FMX.Memo,
   FMX.DateTimeCtrls, FMX.Edit, FMX.ListBox, Data.DB, FMX.Media, FCamera,
   FMX.MediaLibrary, System.Actions, FMX.ActnList, FMX.StdActns,
-  FMX.MediaLibrary.Actions, FMX.DialogService;
+  FMX.MediaLibrary.Actions, FMX.DialogService, System.DateUtils;
 
 type
   TfPatientModal = class(TFrame)
@@ -330,11 +330,30 @@ begin
   TThread.Synchronize(nil, ShowCameraFrame);
 end;
 
-{ Date display }
+{ Date display and age calculation }
 procedure TfPatientModal.deDateOfBirthChange(Sender: TObject);
+var
+  DOB: TDate;
+  Age: Integer;
+  Today: TDate;
 begin
+  // Style updates
   deDateOfBirth.TextSettings.FontColor := TAlphaColors.Black;
   lDateText.Visible := False;
+
+  // Directly use the Date property of TDateEdit
+  DOB := deDateOfBirth.Date;
+  Today := Date;
+
+  // Calculate age
+  Age := YearsBetween(Today, DOB);
+
+  // Adjust if birthday hasn't occurred yet this year
+  if (MonthOf(Today) < MonthOf(DOB)) or
+     ((MonthOf(Today) = MonthOf(DOB)) and (DayOf(Today) < DayOf(DOB))) then
+    Dec(Age);
+
+  lAgeCounter.Text := 'Age: ' + Age.ToString + ' years';
 end;
 
 { Camera button }
