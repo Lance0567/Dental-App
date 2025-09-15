@@ -31,6 +31,7 @@ type
     gPatients: TGrid;
     ScrollBox1: TScrollBox;
     rPatients: TRectangle;
+    procedure gPatientsCellDblClick(const Column: TColumn; const Row: Integer);
   private
     { Private declarations }
   public
@@ -41,6 +42,18 @@ implementation
 
 {$R *.fmx}
 
-uses uPatientModal;
+uses uPatientModal, uMain, uDashboard, uDm;
+
+
+{ Double click record to Edit record }
+procedure TfPatients.gPatientsCellDblClick(const Column: TColumn;
+  const Row: Integer);
+begin
+  frmMain.fPatientModal.Visible := True;  // Show patient modal
+  frmMain.fPatientModal.RecordStatus := 'Edit'; // Set record Status
+
+  // Populate the modal form
+  frmMain.fPatientModal.eFullName.Text := dm.qPatients.FieldByName('fullname').AsString;
+end;
 
 end.

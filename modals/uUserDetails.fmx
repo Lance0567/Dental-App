@@ -132,7 +132,7 @@ object fUserDetails: TfUserDetails
               Padding.Bottom = 5.000000000000000000
               Margins.Top = 5.000000000000000000
               Position.X = 5.000000000000000000
-              Position.Y = 35.000000000000000000
+              Position.Y = 40.000000000000000000
               Size.Width = 384.000000000000000000
               Size.Height = 33.000000000000000000
               Size.PlatformDefault = False
@@ -202,7 +202,9 @@ object fUserDetails: TfUserDetails
             object lPersonalInfo: TLabel
               Align = MostTop
               StyledSettings = [Family]
+              Margins.Top = 5.000000000000000000
               Position.X = 5.000000000000000000
+              Position.Y = 5.000000000000000000
               Size.Width = 384.000000000000000000
               Size.Height = 30.000000000000000000
               Size.PlatformDefault = False

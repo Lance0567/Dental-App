@@ -101,11 +101,13 @@ type
   private
     FCapturing: Boolean;
     FStatus: Boolean;
+
     procedure UpdateCameraList;
     procedure ShowCameraFrame;
     { Private declarations }
   public
     MemoTrackingReset: String;
+    RecordStatus: String;
     procedure EditComponentsResponsive;
     { Public declarations }
   end;
@@ -212,7 +214,14 @@ procedure TfPatientModal.btnSavePatientClick(Sender: TObject);
 var
   ms: TMemoryStream;
 begin
-  dm.qPatients.Append;
+  if RecordStatus = 'Add' then
+  begin
+    dm.qPatients.Append;
+  end
+  else
+  begin
+    dm.qPatients.Edit;
+  end;
 
   // Field to save
   dm.qPatients.FieldByName('fullname').AsString := eFullName.Text;

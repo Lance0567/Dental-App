@@ -227,6 +227,7 @@ object fPatients: TfPatients
         Size.Height = 96.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 4
+        OnCellDblClick = gPatientsCellDblClick
         Viewport.Width = 480.000000000000000000
         Viewport.Height = 96.000000000000000000
       end

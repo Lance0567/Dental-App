@@ -7,7 +7,7 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
   FMX.Controls.Presentation, FMX.MultiView, FMX.TabControl, FMX.StdCtrls,
   FMX.Objects, uDashboard, FMX.ImgList, uPatients, uAppointments, uPatientModal,
-  uUsers, uUserProfile, uUserModal;
+  uUsers, uUserProfile, uUserModal, System.Skia, FMX.Skia, FMX.Ani;
 
 type
   TfrmMain = class(TForm)
@@ -36,6 +36,13 @@ type
     tiUserProfile: TTabItem;
     fUserProfile: TfUserProfile;
     fUserModal: TfUserModal;
+    lytPopUpBottom: TLayout;
+    lytPopUpMessage: TLayout;
+    rPopUp: TRectangle;
+    FloatAnimation1: TFloatAnimation;
+    gPopUp: TGlyph;
+    Timer1: TTimer;
+    lbPopUp: TSkLabel;
     procedure FormCreate(Sender: TObject);
     procedure mvSidebarResize(Sender: TObject);
     procedure FormResize(Sender: TObject);
@@ -50,9 +57,12 @@ type
     procedure sbUsersClick(Sender: TObject);
     procedure fPatientModalbtnSavePatientClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FloatAnimation1Finish(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
   private
     procedure HideFrames;
     procedure ButtonPressedResetter;
+    procedure RecordMessage(const AEntity: string);
     { Private declarations }
   public
     { Public declarations }
@@ -116,6 +126,12 @@ begin
   sbPatients.IsPressed := True;
 end;
 
+{ Float animation }
+procedure TfrmMain.FloatAnimation1Finish(Sender: TObject);
+begin
+  FloatAnimation1.Enabled := False;
+end;
+
 { Form create }
 procedure TfrmMain.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
@@ -172,19 +188,71 @@ begin
   fDashboard.CardsResize;
 end;
 
-{ Add Patient Modal }
+{ Save/Update Patient Modal }
 procedure TfrmMain.fPatientModalbtnSavePatientClick(Sender: TObject);
 begin
   fPatientModal.btnSavePatientClick(Sender);
 end;
 
+{ Timer }
+procedure TfrmMain.Timer1Timer(Sender: TObject);
+begin
+  Timer1.Enabled := False; // Stop the timer
+  lytPopUpBottom.Visible := False; // Hide the snackbar
+end;
+
+{ Pop up Message }
+procedure TfrmMain.RecordMessage(const AEntity: string);
+begin
+  // pop up function
+  rPopUp.Height := 0;
+  lytPopUpBottom.Visible := True;
+  FloatAnimation1.Enabled := True;
+  Timer1.Enabled := True; // Start the 5-second countdown
+
+  // Message of the pop up and color setting
+  case Self.Tag of
+    0:
+      begin
+        lbPopUp.TextSettings.FontColor := TAlphaColors.White;
+        lbPopUp.Text := 'Successfully added the ' + AEntity + '!';
+        rPopUp.Fill.Color := TAlphaColorRec.Green;
+      end;
+    1:
+      begin
+        lbPopUp.TextSettings.FontColor := TAlphaColors.Black;
+        lbPopUp.Text := 'Successfully updated the ' + AEntity + '!';
+        rPopUp.Fill.Color := TAlphaColorRec.Yellow;
+      end;
+    2:
+      begin
+        lbPopUp.TextSettings.FontColor := TAlphaColors.White;
+        lbPopUp.Text := 'Successfully deleted the ' + AEntity + '!';
+        rPopUp.Fill.Color := TAlphaColorRec.Red;
+      end;
+  end;
+end;
+
+{ Add new patient }
 procedure TfrmMain.fPatientsbtnAddNewPatientClick(Sender: TObject);
 begin
+  // Set the record status to Add
+  fPatientModal.RecordStatus := 'Add';
+
+  // Set title
+  fPatientModal.lbTitle.Text := 'Add New Patient';
+
+  // Set button text
+  fPatientModal.btnSavePatient.Text := 'Save Patient';
+
   // Clear image
   fPatientModal.imgProfilePhoto.Bitmap := nil;
 
   // Hide Image Frame
   fPatientModal.rImageFrame.Visible := False;
+
+  // Reset scrollbox
+  fPatientModal.ScrollBox1.ViewportPosition := PointF(0, 0);
 
   // Patient Modal visibility
   fPatientModal.Visible := True;

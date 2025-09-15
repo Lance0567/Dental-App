@@ -20,7 +20,7 @@ object frmMain: TfrmMain
     Size.Width = 850.000000000000000000
     Size.Height = 505.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 2
+    TabOrder = 3
     object lytSidebar: TLayout
       Align = Left
       Size.Width = 245.000000000000000000
@@ -612,8 +612,8 @@ object frmMain: TfrmMain
                 inherited gPatients: TGrid
                   Size.Width = 505.000000000000000000
                   Size.Height = 185.000000000000000000
-                  Viewport.Width = 501.000000000000000000
-                  Viewport.Height = 160.000000000000000000
+                  Viewport.Width = 505.000000000000000000
+                  Viewport.Height = 185.000000000000000000
                 end
               end
             end
@@ -728,6 +728,7 @@ object frmMain: TfrmMain
     Size.Width = 850.000000000000000000
     Size.Height = 505.000000000000000000
     Size.PlatformDefault = False
+    Visible = False
     inherited lytContentH: TLayout
       Size.Width = 850.000000000000000000
       Size.Height = 505.000000000000000000
@@ -777,8 +778,8 @@ object frmMain: TfrmMain
             end
             inherited mMedicalNotes: TMemo
               Size.Width = 589.000000000000000000
-              Viewport.Width = 569.000000000000000000
-              Viewport.Height = 105.000000000000000000
+              Viewport.Width = 589.000000000000000000
+              Viewport.Height = 125.000000000000000000
             end
           end
           inherited lytPatientH: TLayout
@@ -858,7 +859,7 @@ object frmMain: TfrmMain
                     inherited lGenderText: TLabel
                       Margins.Left = 10.000000000000000000
                       Size.Width = 185.000000000000000000
-                      TabOrder = 87
+                      TabOrder = 86
                     end
                   end
                 end
@@ -1003,6 +1004,13 @@ object frmMain: TfrmMain
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
                 end
               end
+            end
+          end
+          inherited rRoleAndAccess: TRectangle
+            inherited lytRoleAndAccessH: TLayout
+              inherited lytButtonSaveH: TLayout
+                TabOrder = 4
+              end
               inherited lytRole: TLayout
                 inherited lRole: TLabel
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
@@ -1013,8 +1021,97 @@ object frmMain: TfrmMain
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
                 end
               end
+              inherited Layout1: TLayout
+                inherited lDepartment: TLabel
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
+                end
+              end
             end
           end
+        end
+      end
+    end
+  end
+  object lytPopUpBottom: TLayout
+    Align = Contents
+    ClipParent = True
+    Padding.Left = 550.000000000000000000
+    Size.Width = 850.000000000000000000
+    Size.Height = 505.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+    TabOrder = 2
+    object lytPopUpMessage: TLayout
+      Align = Bottom
+      Position.X = 550.000000000000000000
+      Position.Y = 405.000000000000000000
+      Size.Width = 300.000000000000000000
+      Size.Height = 100.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object rPopUp: TRectangle
+        Align = Right
+        ClipChildren = True
+        Fill.Color = claWhite
+        Position.X = -100.000000000000000000
+        Size.Width = 400.000000000000000000
+        Size.Height = 100.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        XRadius = 8.000000000000000000
+        YRadius = 8.000000000000000000
+        object FloatAnimation1: TFloatAnimation
+          Duration = 0.200000002980232200
+          OnFinish = FloatAnimation1Finish
+          PropertyName = 'Height'
+          StartValue = 0.000000000000000000
+          StopValue = 40.000000000000000000
+        end
+        object gPopUp: TGlyph
+          Margins.Top = 25.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 25.000000000000000000
+          Align = Right
+          Position.X = 328.000000000000000000
+          Position.Y = 25.000000000000000000
+          Size.Width = 62.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          ImageIndex = 8
+          Images = dm.imgList
+        end
+        object Timer1: TTimer
+          Enabled = False
+          Interval = 5000
+          OnTimer = Timer1Timer
+          Left = 560
+          Top = 16
+        end
+        object lbPopUp: TSkLabel
+          Align = Client
+          Margins.Left = 30.000000000000000000
+          Margins.Top = -20.000000000000000000
+          Size.Width = 298.000000000000000000
+          Size.Height = 120.000000000000000000
+          Size.PlatformDefault = False
+          Words = <
+            item
+              Font.Families = 'Segoe UI Variable Small'
+              Font.Size = 15.000000000000000000
+              Font.Weight = Bold
+              HeightMultiplier = 3.000000000000000000
+              Name = 'Item 0'
+              StyledSettings = [FontColor]
+              Text = 'Patient information saved'#11
+            end
+            item
+              Font.Size = 15.000000000000000000
+              Font.Weight = Semibold
+              FontColor = claDimgray
+              Name = 'Item 1'
+              StyledSettings = [Family]
+              Text = 'The patient details have been saved successfully.'
+            end>
         end
       end
     end
