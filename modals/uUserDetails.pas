@@ -17,8 +17,6 @@ type
     lytTitle: TLayout;
     lbTitle: TLabel;
     btnClose: TSpeedButton;
-    rUser: TRectangle;
-    lytUserH: TLayout;
     lytPatientProfile: TLayout;
     lytProfilePhoto: TLayout;
     cProfilePhoto: TCircle;
@@ -26,14 +24,49 @@ type
     lNameH: TLabel;
     lytPhotoButton: TLayout;
     lytPhotoButtonH: TLayout;
-    lProfileUploadDesc: TLabel;
-    lytButtonSaveH: TLayout;
-    btnCreateUser: TCornerButton;
-    lTag: TLabel;
-    btnCancel: TCornerButton;
-    lPersonalInfo: TLabel;
     rRoleH: TRectangle;
-    Rectangle1: TRectangle;
+    rStatusH: TRectangle;
+    lPersonalInfo: TLabel;
+    Line1: TLine;
+    lytContactInfoH: TLayout;
+    lytContactTitle: TLayout;
+    lytEmailH: TLayout;
+    lytPhone: TLayout;
+    gContactInfo: TGlyph;
+    lContactTitle: TLabel;
+    gEmail: TGlyph;
+    slEmail: TSkLabel;
+    slPhone: TSkLabel;
+    gRole: TGlyph;
+    lRole: TLabel;
+    lStatus: TLabel;
+    Line2: TLine;
+    lytWorkInfoH: TLayout;
+    lytWorkTitle: TLayout;
+    gWorkInfo: TGlyph;
+    lWorkInfo: TLabel;
+    lytRole: TLayout;
+    slRole: TSkLabel;
+    lytDepartment: TLayout;
+    slDepartment: TSkLabel;
+    lytWorkInfo1: TLayout;
+    lytWorkInfo2: TLayout;
+    lytHireDate: TLayout;
+    slHireDate: TSkLabel;
+    lytLastLogin: TLayout;
+    slLastLogin: TSkLabel;
+    Layout1: TLayout;
+    cEmail: TCircle;
+    Circle1: TCircle;
+    gPhone: TGlyph;
+    cRole: TCircle;
+    gReceptionist: TGlyph;
+    cDepartment: TCircle;
+    gDepartment: TGlyph;
+    cHireDate: TCircle;
+    gHireDate: TGlyph;
+    cLastLogin: TCircle;
+    gLastLogin: TGlyph;
   private
     { Private declarations }
   public
@@ -43,5 +76,7 @@ type
 implementation
 
 {$R *.fmx}
+
+uses uDm;
 
 end.

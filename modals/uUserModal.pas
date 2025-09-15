@@ -36,27 +36,36 @@ type
     lEmailAddress: TLabel;
     eEmailAddress: TEdit;
     lProfilePhoto: TLabel;
-    lytButtonSaveH: TLayout;
-    btnCreateUser: TCornerButton;
-    lTag: TLabel;
     lPersonalInfo: TLabel;
     lytPhoneNumber: TLayout;
     lContactNumber: TLabel;
     ePhoneNumber: TEdit;
-    slRoleAndAccess: TSkLabel;
+    rUser: TRectangle;
+    rRoleAndAccess: TRectangle;
+    lytRoleAndAccessH: TLayout;
+    lytButtonSaveH: TLayout;
+    btnCreateUser: TCornerButton;
+    lTag: TLabel;
+    btnCancel: TCornerButton;
     lytRole: TLayout;
     lRole: TLabel;
     cbRole: TComboBox;
+    lRoleInput: TLabel;
     lytStatus: TLayout;
     lStatus: TLabel;
     cbStatus: TComboBox;
-    btnCancel: TCornerButton;
-    rUser: TRectangle;
-    lRoleInput: TLabel;
     lStatusInput: TLabel;
+    slRoleAndAccess: TSkLabel;
+    Layout1: TLayout;
+    lDepartment: TLabel;
+    eDepartment: TEdit;
     procedure btnCloseClick(Sender: TObject);
     procedure cbRoleChange(Sender: TObject);
     procedure FrameResize(Sender: TObject);
+    procedure cbStatusMouseWheel(Sender: TObject; Shift: TShiftState;
+      WheelDelta: Integer; var Handled: Boolean);
+    procedure cbRoleMouseWheel(Sender: TObject; Shift: TShiftState;
+      WheelDelta: Integer; var Handled: Boolean);
   private
     { Private declarations }
   public
@@ -79,6 +88,21 @@ begin
   lRoleInput.Text := cbRole.Text;
 end;
 
+{ Prevents Mouse wheel on Role }
+procedure TfUserModal.cbRoleMouseWheel(Sender: TObject; Shift: TShiftState;
+  WheelDelta: Integer; var Handled: Boolean);
+begin
+  Handled := True; // Prevents the combo box from scrolling
+end;
+
+{ Prevents Mouse wheel on Status }
+procedure TfUserModal.cbStatusMouseWheel(Sender: TObject; Shift: TShiftState;
+  WheelDelta: Integer; var Handled: Boolean);
+begin
+  Handled := True; // Prevents the combo box from scrolling
+end;
+
+{ Frame Resize }
 procedure TfUserModal.FrameResize(Sender: TObject);
 begin
   // Modal content margins

@@ -971,53 +971,19 @@ object frmMain: TfrmMain
               Position.X = 509.000000000000000000
             end
           end
-          inherited rPatients: TRectangle
-            Size.Width = 529.000000000000000000
-            XRadius = 15.000000000000000000
-            YRadius = 15.000000000000000000
-            inherited lytPatientH: TLayout
-              Size.Width = 479.000000000000000000
+          inherited rUser: TRectangle
+            inherited lytUserH: TLayout
               inherited lytEmailAddress: TLayout
-                Size.Width = 479.000000000000000000
                 inherited lEmailAddress: TLabel
-                  Size.Width = 479.000000000000000000
-                  TextSettings.Font.StyleExt = {00060000000000000004000000}
-                end
-                inherited eEmailAddress: TEdit
-                  Size.Width = 479.000000000000000000
-                end
-              end
-              inherited lytButtonSaveH: TLayout
-                Size.Width = 479.000000000000000000
-                inherited btnCreateUser: TCornerButton
-                  StyledSettings = [Family]
-                  Position.X = 359.000000000000000000
-                  StyleLookup = 'btnSavePatientStyle1'
-                  TextSettings.Font.Size = 14.000000000000000000
-                  TextSettings.Font.StyleExt = {00060000000000000004000000}
-                  TextSettings.FontColor = xFF004D47
-                  TextSettings.Trimming = Character
-                end
-                inherited btnCancel: TCornerButton
-                  StyledSettings = [Family, FontColor]
-                  Position.X = 269.000000000000000000
-                  StyleLookup = 'btnPhotoUploadStyle1'
-                  TextSettings.Font.Size = 14.000000000000000000
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
                 end
               end
               inherited lytFullName: TLayout
-                Size.Width = 479.000000000000000000
                 inherited lbFullName: TLabel
-                  Size.Width = 479.000000000000000000
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
-                end
-                inherited eFullName: TEdit
-                  Size.Width = 479.000000000000000000
                 end
               end
               inherited lytPatientProfile: TLayout
-                Size.Width = 479.000000000000000000
                 inherited lytProfilePhoto: TLayout
                   inherited cProfilePhoto: TCircle
                     inherited lNameH: TLabel
@@ -1025,79 +991,26 @@ object frmMain: TfrmMain
                     end
                   end
                 end
-                inherited lytPhotoButton: TLayout
-                  Size.Width = 384.000000000000000000
-                  inherited lytPhotoButtonH: TLayout
-                    Size.Width = 379.000000000000000000
-                    inherited btnPhotoUpload: TCornerButton
-                      StyledSettings = [Family, FontColor]
-                      StyleLookup = 'btnPhotoUploadStyle1'
-                      TextSettings.Font.Size = 14.000000000000000000
-                      TextSettings.Font.StyleExt = {00060000000000000004000000}
-                      TextSettings.Trimming = Character
-                    end
-                    inherited btnCamera: TCornerButton
-                      StyledSettings = [Family, FontColor]
-                      StyleLookup = 'btnPhotoUploadStyle1'
-                      TextSettings.Font.Size = 14.000000000000000000
-                      TextSettings.Font.StyleExt = {00060000000000000004000000}
-                    end
-                  end
-                  inherited lProfileUploadDesc: TLabel
-                    Size.Width = 377.000000000000000000
-                  end
-                end
                 inherited lProfilePhoto: TLabel
-                  Size.Width = 479.000000000000000000
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
                 end
               end
               inherited lPersonalInfo: TLabel
-                Size.Width = 479.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
               end
               inherited lytPhoneNumber: TLayout
-                Size.Width = 479.000000000000000000
                 inherited lContactNumber: TLabel
-                  Size.Width = 479.000000000000000000
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
                 end
-                inherited ePhoneNumber: TEdit
-                  Size.Width = 479.000000000000000000
-                end
-              end
-              inherited slRoleAndAccess: TSkLabel
-                Size.Width = 479.000000000000000000
               end
               inherited lytRole: TLayout
-                Size.Width = 479.000000000000000000
                 inherited lRole: TLabel
-                  Size.Width = 479.000000000000000000
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
-                end
-                inherited cbRole: TComboBox
-                  Size.Width = 479.000000000000000000
-                  StyleLookup = 'cbGenderStyle1'
-                  inherited lRoleInput: TLabel
-                    Margins.Left = 10.000000000000000000
-                    Size.Width = 469.000000000000000000
-                    TextSettings.Font.Size = 14.000000000000000000
-                  end
                 end
               end
               inherited lytStatus: TLayout
-                Size.Width = 479.000000000000000000
                 inherited lStatus: TLabel
-                  Size.Width = 479.000000000000000000
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
-                end
-                inherited cbStatus: TComboBox
-                  Size.Width = 479.000000000000000000
-                  StyleLookup = 'cbGenderStyle1'
-                  inherited lStatusInput: TLabel
-                    Margins.Left = 10.000000000000000000
-                    Size.Width = 469.000000000000000000
-                  end
                 end
               end
             end
