@@ -32,7 +32,6 @@ type
     lbMainMenu: TLabel;
     sbUsers: TSpeedButton;
     tiUsers: TTabItem;
-    fUsers: TfUsers;
     tiUserProfile: TTabItem;
     fUserProfile: TfUserProfile;
     fUserModal: TfUserModal;
@@ -43,6 +42,7 @@ type
     gPopUp: TGlyph;
     Timer1: TTimer;
     lbPopUp: TSkLabel;
+    fUsers: TfUsers;
     procedure FormCreate(Sender: TObject);
     procedure mvSidebarResize(Sender: TObject);
     procedure FormResize(Sender: TObject);

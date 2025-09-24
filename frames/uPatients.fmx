@@ -33,7 +33,7 @@ object fPatients: TfPatients
         Align = Client
         Padding.Top = 5.000000000000000000
         Padding.Bottom = 5.000000000000000000
-        Size.Width = 348.000000000000000000
+        Size.Width = 380.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
@@ -42,7 +42,7 @@ object fPatients: TfPatients
           Align = Left
           TabOrder = 0
           Position.Y = 5.000000000000000000
-          Size.Width = 217.000000000000000000
+          Size.Width = 230.000000000000000000
           Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
           TextPrompt = 'Search patients...'
@@ -50,24 +50,27 @@ object fPatients: TfPatients
       end
       object lytButtonH: TLayout
         Align = Right
-        Padding.Top = 8.000000000000000000
-        Padding.Bottom = 8.000000000000000000
-        Position.X = 378.000000000000000000
-        Size.Width = 172.000000000000000000
+        Padding.Top = 7.000000000000000000
+        Padding.Bottom = 7.000000000000000000
+        Position.X = 410.000000000000000000
+        Size.Width = 140.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
         object btnAddNewPatient: TCornerButton
           Align = Client
+          StyledSettings = [FontColor]
           Sides = [Top, Left, Bottom, Right]
-          Size.Width = 172.000000000000000000
-          Size.Height = 34.000000000000000000
+          Size.Width = 140.000000000000000000
+          Size.Height = 36.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
           Text = 'Add New Patient'
+          TextSettings.Font.Family = 'Segoe UI Variable Small'
+          TextSettings.Font.Size = 14.000000000000000000
           TextSettings.Trimming = None
-          XRadius = 13.000000000000000000
-          YRadius = 13.000000000000000000
+          XRadius = 11.000000000000000000
+          YRadius = 11.000000000000000000
         end
       end
     end
@@ -138,12 +141,13 @@ object fPatients: TfPatients
         TabOrder = 5
         object lDate: TLabel
           Align = Left
-          StyledSettings = [Family, Style]
+          StyledSettings = [Style]
           Margins.Left = 5.000000000000000000
           Position.X = 40.000000000000000000
           Size.Width = 572.000000000000000000
           Size.Height = 60.000000000000000000
           Size.PlatformDefault = False
+          TextSettings.Font.Family = 'Segoe UI Variable Display'
           TextSettings.Font.Size = 15.000000000000000000
           TextSettings.FontColor = claGray
           Text = 'Date'
@@ -183,10 +187,11 @@ object fPatients: TfPatients
                 Text = 'Sofia Chen'
               end
               item
+                Font.Families = 'Segoe UI Variable Display'
                 Font.Size = 13.000000000000000000
                 FontColor = claGray
                 Name = 'Item 1'
-                StyledSettings = [Family, Style]
+                StyledSettings = [Style]
                 Text = #13#10'Receptionist'
               end>
           end
@@ -206,10 +211,10 @@ object fPatients: TfPatients
     object rPatients: TRectangle
       Align = Client
       Fill.Color = claWhite
-      Padding.Left = 20.000000000000000000
-      Padding.Top = 20.000000000000000000
-      Padding.Right = 20.000000000000000000
-      Padding.Bottom = 20.000000000000000000
+      Padding.Left = 25.000000000000000000
+      Padding.Top = 25.000000000000000000
+      Padding.Right = 25.000000000000000000
+      Padding.Bottom = 25.000000000000000000
       Margins.Left = 30.000000000000000000
       Margins.Top = 20.000000000000000000
       Margins.Right = 30.000000000000000000
@@ -223,13 +228,13 @@ object fPatients: TfPatients
         Align = Client
         CanFocus = True
         ClipChildren = True
-        Size.Width = 480.000000000000000000
-        Size.Height = 96.000000000000000000
+        Size.Width = 470.000000000000000000
+        Size.Height = 86.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 4
         OnCellDblClick = gPatientsCellDblClick
-        Viewport.Width = 480.000000000000000000
-        Viewport.Height = 96.000000000000000000
+        Viewport.Width = 466.000000000000000000
+        Viewport.Height = 61.000000000000000000
       end
     end
   end

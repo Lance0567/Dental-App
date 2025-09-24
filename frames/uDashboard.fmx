@@ -53,8 +53,8 @@ object fDashboard: TfDashboard
         Size.Height = 125.000000000000000000
         Size.PlatformDefault = False
         Stroke.Color = xFFDBD9D9
-        XRadius = 15.000000000000000000
-        YRadius = 15.000000000000000000
+        XRadius = 13.000000000000000000
+        YRadius = 13.000000000000000000
         object Layout1: TLayout
           Align = Top
           Position.X = 20.000000000000000000
@@ -78,12 +78,14 @@ object fDashboard: TfDashboard
         end
         object Label2: TLabel
           Align = Client
-          StyledSettings = [Family]
+          StyledSettings = []
           Size.Width = 210.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
-          TextSettings.Font.Size = 24.000000000000000000
+          TextSettings.Font.Family = 'Roboto'
+          TextSettings.Font.Size = 30.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.VertAlign = Leading
           Text = '29'
           TabOrder = 1
           object cIcon1: TCircle
@@ -137,8 +139,8 @@ object fDashboard: TfDashboard
         Size.Height = 125.000000000000000000
         Size.PlatformDefault = False
         Stroke.Color = xFFDBD9D9
-        XRadius = 15.000000000000000000
-        YRadius = 15.000000000000000000
+        XRadius = 13.000000000000000000
+        YRadius = 13.000000000000000000
         object lytCardD2: TLayout
           Align = Top
           Position.X = 20.000000000000000000
@@ -162,12 +164,14 @@ object fDashboard: TfDashboard
         end
         object lbActiveClientsC: TLabel
           Align = Client
-          StyledSettings = [Family]
+          StyledSettings = []
           Size.Width = 210.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
-          TextSettings.Font.Size = 24.000000000000000000
+          TextSettings.Font.Family = 'Roboto'
+          TextSettings.Font.Size = 30.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.VertAlign = Leading
           Text = '29'
           TabOrder = 1
           object cIcon2: TCircle
@@ -208,8 +212,8 @@ object fDashboard: TfDashboard
         Size.Height = 125.000000000000000000
         Size.PlatformDefault = False
         Stroke.Color = xFFDBD9D9
-        XRadius = 10.000000000000000000
-        YRadius = 10.000000000000000000
+        XRadius = 13.000000000000000000
+        YRadius = 13.000000000000000000
         object lytCardD3: TLayout
           Align = Top
           Position.X = 20.000000000000000000
@@ -233,12 +237,14 @@ object fDashboard: TfDashboard
         end
         object lbFullyPaidC: TLabel
           Align = Client
-          StyledSettings = [Family]
+          StyledSettings = []
           Size.Width = 210.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
-          TextSettings.Font.Size = 24.000000000000000000
+          TextSettings.Font.Family = 'Roboto'
+          TextSettings.Font.Size = 30.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.VertAlign = Leading
           Text = '1'
           TabOrder = 1
           object cIcon3: TCircle
@@ -279,8 +285,8 @@ object fDashboard: TfDashboard
         Size.Height = 125.000000000000000000
         Size.PlatformDefault = False
         Stroke.Color = xFFDBD9D9
-        XRadius = 10.000000000000000000
-        YRadius = 10.000000000000000000
+        XRadius = 13.000000000000000000
+        YRadius = 13.000000000000000000
         object lytCardD4: TLayout
           Align = Top
           Position.X = 20.000000000000000000
@@ -304,12 +310,14 @@ object fDashboard: TfDashboard
         end
         object lbPartiallyPaidC: TLabel
           Align = Client
-          StyledSettings = [Family]
+          StyledSettings = []
           Size.Width = 210.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
-          TextSettings.Font.Size = 24.000000000000000000
+          TextSettings.Font.Family = 'Roboto'
+          TextSettings.Font.Size = 30.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.VertAlign = Leading
           Text = '13'
           TabOrder = 1
           object cIcon4: TCircle
@@ -392,7 +400,7 @@ object fDashboard: TfDashboard
         Align = Client
         Fill.Color = claWhite
         Padding.Left = 20.000000000000000000
-        Padding.Top = 10.000000000000000000
+        Padding.Top = 15.000000000000000000
         Padding.Right = 20.000000000000000000
         Padding.Bottom = 20.000000000000000000
         Margins.Top = 10.000000000000000000
@@ -400,14 +408,14 @@ object fDashboard: TfDashboard
         Size.Height = 380.000000000000000000
         Size.PlatformDefault = False
         Stroke.Color = xFFDBD9D9
-        XRadius = 9.000000000000000000
-        YRadius = 9.000000000000000000
+        XRadius = 13.000000000000000000
+        YRadius = 13.000000000000000000
         object lbTodayAppointments: TLabel
           Align = Top
           StyledSettings = []
           Margins.Bottom = 15.000000000000000000
           Position.X = 20.000000000000000000
-          Position.Y = 10.000000000000000000
+          Position.Y = 15.000000000000000000
           Size.Width = 164.000000000000000000
           Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
@@ -422,18 +430,18 @@ object fDashboard: TfDashboard
           CanFocus = True
           ClipChildren = True
           Size.Width = 164.000000000000000000
-          Size.Height = 295.000000000000000000
+          Size.Height = 290.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 4
           Viewport.Width = 164.000000000000000000
-          Viewport.Height = 295.000000000000000000
+          Viewport.Height = 290.000000000000000000
         end
       end
       object rQuickActions: TRectangle
         Align = Right
         Fill.Color = claWhite
         Padding.Left = 20.000000000000000000
-        Padding.Top = 10.000000000000000000
+        Padding.Top = 15.000000000000000000
         Padding.Right = 20.000000000000000000
         Padding.Bottom = 20.000000000000000000
         Margins.Left = 20.000000000000000000
@@ -444,12 +452,12 @@ object fDashboard: TfDashboard
         Size.Height = 380.000000000000000000
         Size.PlatformDefault = False
         Stroke.Color = xFFDBD9D9
-        XRadius = 9.000000000000000000
-        YRadius = 9.000000000000000000
+        XRadius = 13.000000000000000000
+        YRadius = 13.000000000000000000
         object lytTwoColumns: TLayout
           Align = Top
           Position.X = 20.000000000000000000
-          Position.Y = 65.000000000000000000
+          Position.Y = 70.000000000000000000
           Size.Width = 240.000000000000000000
           Size.Height = 80.000000000000000000
           Size.PlatformDefault = False
@@ -468,6 +476,15 @@ object fDashboard: TfDashboard
             TextSettings.Trimming = None
             XRadius = 3.000000000000000000
             YRadius = 3.000000000000000000
+            object FloatAnimation1: TFloatAnimation
+              Duration = 0.200000002980232200
+              Inverse = True
+              PropertyName = 'Position.Y'
+              StartValue = -1.000000000000000000
+              StopValue = -5.000000000000000000
+              Trigger = 'IsMouseOver=true'
+              TriggerInverse = 'IsMouseOver=false'
+            end
           end
           object btnNewAppointment: TCornerButton
             Align = Scale
@@ -483,13 +500,22 @@ object fDashboard: TfDashboard
             TextSettings.Trimming = None
             XRadius = 3.000000000000000000
             YRadius = 3.000000000000000000
+            object FloatAnimation2: TFloatAnimation
+              Duration = 0.200000002980232200
+              Inverse = True
+              PropertyName = 'Position.Y'
+              StartValue = -1.000000000000000000
+              StopValue = -5.000000000000000000
+              Trigger = 'IsMouseOver=true'
+              TriggerInverse = 'IsMouseOver=false'
+            end
           end
         end
         object btnReportAnIssue: TCornerButton
           Align = Top
           Margins.Top = 10.000000000000000000
           Position.X = 20.000000000000000000
-          Position.Y = 155.000000000000000000
+          Position.Y = 160.000000000000000000
           Sides = [Top, Left, Bottom, Right]
           Size.Width = 240.000000000000000000
           Size.Height = 62.000000000000000000
@@ -499,13 +525,22 @@ object fDashboard: TfDashboard
           TextSettings.Trimming = None
           XRadius = 3.000000000000000000
           YRadius = 3.000000000000000000
+          object FloatAnimation3: TFloatAnimation
+            Duration = 0.200000002980232200
+            Inverse = True
+            PropertyName = 'Margins.Top'
+            StartValue = 10.000000000000000000
+            StopValue = 5.000000000000000000
+            Trigger = 'IsMouseOver=true'
+            TriggerInverse = 'IsMouseOver=false'
+          end
         end
         object lbQuickActions: TLabel
           Align = MostTop
           StyledSettings = []
           Margins.Bottom = 15.000000000000000000
           Position.X = 20.000000000000000000
-          Position.Y = 10.000000000000000000
+          Position.Y = 15.000000000000000000
           Size.Width = 240.000000000000000000
           Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
@@ -550,12 +585,13 @@ object fDashboard: TfDashboard
         TabOrder = 5
         object lDate: TLabel
           Align = Left
-          StyledSettings = [Family, Style]
+          StyledSettings = [Style]
           Margins.Left = 5.000000000000000000
           Position.X = 40.000000000000000000
           Size.Width = 572.000000000000000000
           Size.Height = 60.000000000000000000
           Size.PlatformDefault = False
+          TextSettings.Font.Family = 'Segoe UI Variable Display'
           TextSettings.Font.Size = 15.000000000000000000
           TextSettings.FontColor = claDimgray
           Text = 'Date'
@@ -595,10 +631,11 @@ object fDashboard: TfDashboard
                 Text = 'Sofia Chen'
               end
               item
+                Font.Families = 'Segoe UI Variable Display'
                 Font.Size = 13.000000000000000000
                 FontColor = claGray
                 Name = 'Item 1'
-                StyledSettings = [Family, Style]
+                StyledSettings = [Style]
                 Text = #13#10'Receptionist'
               end>
           end

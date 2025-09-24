@@ -42250,22 +42250,22 @@ object TStyleContainer
     object TRectangle
       StyleName = 'background'
       Align = Contents
-      Fill.Kind = Gradient
-      Fill.Gradient.Points = <
-        item
-          Color = xFF262626
-          Offset = 0.000000000000000000
-        end
-        item
-          Color = xFF262626
-          Offset = 1.000000000000000000
-        end>
+      Fill.Color = xFEA6E3D1
       Locked = True
       HitTest = False
       Size.Width = 50.000000000000000000
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
-      Stroke.Color = xFF262626
+      Stroke.Kind = None
+      object TColorAnimation
+        Duration = 0.200000002980232200
+        Inverse = True
+        PropertyName = 'Fill.Color'
+        StartValue = xFEA6E3D1
+        StopValue = xFE7FDEC2
+        Trigger = 'IsMouseOver=true'
+        TriggerInverse = 'IsMouseOver=false'
+      end
       object TInnerGlowEffect
         Softness = 0.100000001490116100
         GlowColor = xFF4F4848
@@ -42297,8 +42297,8 @@ object TStyleContainer
       Size.Width = 40.000000000000000000
       Size.Height = 46.000000000000000000
       Size.PlatformDefault = False
+      Text = 'Text'
       TextSettings.Font.Size = 16.000000000000000000
-      TextSettings.FontColor = claWhite
       TextSettings.WordWrap = False
     end
   end
@@ -66292,6 +66292,25 @@ object TStyleContainer
         Opacity = 0.899999976158142100
         Trigger = 'IsPressed=true'
         Enabled = False
+      end
+      object TShadowEffect
+        StyleName = 'ShadowEffect'
+        Distance = 2.000000000000000000
+        Direction = 55.000000000000000000
+        Softness = 0.330000013113021900
+        Opacity = 0.300000011920929000
+        ShadowColor = claBlack
+        Trigger = 'IsMouseOver=true'
+        Enabled = False
+      end
+      object FloatAnimation2: TFloatAnimation
+        Duration = 0.200000002980232200
+        Inverse = True
+        PropertyName = 'Scale.X'
+        StartValue = 1.000000000000000000
+        StopValue = 1.019999980926514000
+        Trigger = 'IsMouseOver=true'
+        TriggerInverse = 'IsMouseOver=false'
       end
     end
     object TGlyph

@@ -7,7 +7,7 @@ uses
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   System.Skia, System.Rtti, FMX.Grid.Style, FMX.Calendar, FMX.ScrollBox,
   FMX.Grid, FMX.Skia, FMX.ImgList, FMX.Controls.Presentation, FMX.Objects,
-  FMX.Layouts, Math;
+  FMX.Layouts, Math, FMX.Ani;
 
 type
   TfDashboard = class(TFrame)
@@ -60,6 +60,9 @@ type
     lbTodayAppointments: TLabel;
     lbQuickActions: TLabel;
     gPatients: TGrid;
+    FloatAnimation1: TFloatAnimation;
+    FloatAnimation2: TFloatAnimation;
+    FloatAnimation3: TFloatAnimation;
     procedure FrameResize(Sender: TObject);
   private
 
