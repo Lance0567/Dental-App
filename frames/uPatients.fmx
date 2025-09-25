@@ -2,6 +2,8 @@ object fPatients: TfPatients
   Size.Width = 580.000000000000000000
   Size.Height = 416.000000000000000000
   Size.PlatformDefault = False
+  OnResize = FrameResize
+  OnResized = FrameResized
   object ScrollBox1: TScrollBox
     Align = Client
     Size.Width = 580.000000000000000000
@@ -33,7 +35,7 @@ object fPatients: TfPatients
         Align = Client
         Padding.Top = 5.000000000000000000
         Padding.Bottom = 5.000000000000000000
-        Size.Width = 380.000000000000000000
+        Size.Width = 370.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
@@ -46,14 +48,16 @@ object fPatients: TfPatients
           Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
           TextPrompt = 'Search patients...'
+          StyledSettings = [Family, Size]
+          OnChangeTracking = eSearchChangeTracking
         end
       end
       object lytButtonH: TLayout
         Align = Right
-        Padding.Top = 7.000000000000000000
-        Padding.Bottom = 7.000000000000000000
-        Position.X = 410.000000000000000000
-        Size.Width = 140.000000000000000000
+        Padding.Top = 5.000000000000000000
+        Padding.Bottom = 5.000000000000000000
+        Position.X = 400.000000000000000000
+        Size.Width = 150.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
@@ -61,8 +65,8 @@ object fPatients: TfPatients
           Align = Client
           StyledSettings = [FontColor]
           Sides = [Top, Left, Bottom, Right]
-          Size.Width = 140.000000000000000000
-          Size.Height = 36.000000000000000000
+          Size.Width = 150.000000000000000000
+          Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
           Text = 'Add New Patient'
@@ -71,6 +75,7 @@ object fPatients: TfPatients
           TextSettings.Trimming = None
           XRadius = 11.000000000000000000
           YRadius = 11.000000000000000000
+          OnClick = btnAddNewPatientClick
         end
       end
     end
@@ -231,11 +236,65 @@ object fPatients: TfPatients
         Size.Width = 470.000000000000000000
         Size.Height = 86.000000000000000000
         Size.PlatformDefault = False
+        TextSettings.Font.Size = 15.000000000000000000
+        StyledSettings = [Family]
         TabOrder = 4
+        RowCount = 0
+        Options = [ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
+        OnResize = gPatientsResize
         OnCellDblClick = gPatientsCellDblClick
-        Viewport.Width = 466.000000000000000000
-        Viewport.Height = 61.000000000000000000
+        Viewport.Width = 470.000000000000000000
+        Viewport.Height = 86.000000000000000000
       end
+    end
+  end
+  object bsdbPatients: TBindSourceDB
+    DataSet = dm.qPatients
+    ScopeMappings = <>
+    Left = 288
+    Top = 160
+  end
+  object blPatients: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 284
+    Top = 93
+    object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = bsdbPatients
+      GridControl = gPatients
+      Columns = <
+        item
+          MemberName = 'id'
+          Header = 'ID'
+          Width = 80
+          Alignment = taLeftJustify
+        end
+        item
+          MemberName = 'fullname'
+          Header = 'Fullname'
+          Width = 200
+        end
+        item
+          MemberName = 'birth_date'
+          Header = 'Birth Date'
+          Width = 130
+        end
+        item
+          MemberName = 'gender'
+          Header = 'Gender'
+          Width = 90
+        end
+        item
+          MemberName = 'contact_number'
+          Header = 'Contact Number'
+          Width = 150
+        end
+        item
+          MemberName = 'address'
+          Header = 'Address'
+          Width = 230
+        end>
     end
   end
 end

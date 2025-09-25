@@ -33,7 +33,7 @@ object fUsers: TfUsers
         Align = Client
         Padding.Top = 5.000000000000000000
         Padding.Bottom = 5.000000000000000000
-        Size.Width = 380.000000000000000000
+        Size.Width = 370.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
@@ -51,10 +51,10 @@ object fUsers: TfUsers
       end
       object lytButtonH: TLayout
         Align = Right
-        Padding.Top = 7.000000000000000000
-        Padding.Bottom = 7.000000000000000000
-        Position.X = 410.000000000000000000
-        Size.Width = 140.000000000000000000
+        Padding.Top = 5.000000000000000000
+        Padding.Bottom = 5.000000000000000000
+        Position.X = 400.000000000000000000
+        Size.Width = 150.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
@@ -62,8 +62,8 @@ object fUsers: TfUsers
           Align = Client
           StyledSettings = [FontColor]
           Sides = [Top, Left, Bottom, Right]
-          Size.Width = 140.000000000000000000
-          Size.Height = 36.000000000000000000
+          Size.Width = 150.000000000000000000
+          Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
           Text = 'Add New User'

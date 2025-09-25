@@ -21,6 +21,8 @@ type
     conDental: TFDConnection;
     qPatients: TFDQuery;
     qUsers: TFDQuery;
+    qTemp: TFDQuery;
+    qAppointments: TFDQuery;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }

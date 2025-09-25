@@ -55,7 +55,7 @@ object fDashboard: TfDashboard
         Stroke.Color = xFFDBD9D9
         XRadius = 13.000000000000000000
         YRadius = 13.000000000000000000
-        object Layout1: TLayout
+        object lytCardD1: TLayout
           Align = Top
           Position.X = 20.000000000000000000
           Position.Y = 20.000000000000000000
@@ -76,7 +76,7 @@ object fDashboard: TfDashboard
             TabOrder = 0
           end
         end
-        object Label2: TLabel
+        object lbTotalPatientsC: TLabel
           Align = Client
           StyledSettings = []
           Size.Width = 210.000000000000000000
@@ -162,7 +162,7 @@ object fDashboard: TfDashboard
             TabOrder = 0
           end
         end
-        object lbActiveClientsC: TLabel
+        object lbTodaysAppointmentC: TLabel
           Align = Client
           StyledSettings = []
           Size.Width = 210.000000000000000000
@@ -235,7 +235,7 @@ object fDashboard: TfDashboard
             TabOrder = 0
           end
         end
-        object lbFullyPaidC: TLabel
+        object lbNewAppointmentsC: TLabel
           Align = Client
           StyledSettings = []
           Size.Width = 210.000000000000000000
@@ -308,7 +308,7 @@ object fDashboard: TfDashboard
             TabOrder = 0
           end
         end
-        object lbPartiallyPaidC: TLabel
+        object lbCompletedC: TLabel
           Align = Client
           StyledSettings = []
           Size.Width = 210.000000000000000000
@@ -396,7 +396,7 @@ object fDashboard: TfDashboard
       Size.Height = 390.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 3
-      object rUrgentContracts: TRectangle
+      object rTodaysAppointment: TRectangle
         Align = Client
         Fill.Color = claWhite
         Padding.Left = 20.000000000000000000

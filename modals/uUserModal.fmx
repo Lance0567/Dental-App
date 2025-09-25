@@ -376,7 +376,7 @@ object fUserModal: TfUserModal
               Size.Width = 346.000000000000000000
               Size.Height = 60.000000000000000000
               Size.PlatformDefault = False
-              TabOrder = 6
+              TabOrder = 4
               object btnCreateUser: TCornerButton
                 Align = Right
                 Position.X = 226.000000000000000000
@@ -461,7 +461,7 @@ object fUserModal: TfUserModal
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
                   Text = 'Receptionist'
-                  TabOrder = 86
+                  TabOrder = 85
                 end
               end
             end
@@ -505,7 +505,7 @@ object fUserModal: TfUserModal
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
                   Text = 'Active'
-                  TabOrder = 86
+                  TabOrder = 85
                 end
               end
             end

@@ -15,25 +15,25 @@ type
     glytCards: TGridLayout;
     lytHeader: TLayout;
     lbTitle: TLabel;
-    rUrgentContracts: TRectangle;
+    rTodaysAppointment: TRectangle;
     lbDescription: TLabel;
     lytTitle: TLayout;
     rCard1: TRectangle;
-    Layout1: TLayout;
+    lytCardD1: TLayout;
     lbTotalPatients: TLabel;
-    Label2: TLabel;
+    lbTotalPatientsC: TLabel;
     rCard2: TRectangle;
     lytCardD2: TLayout;
     lbAppointments: TLabel;
-    lbActiveClientsC: TLabel;
+    lbTodaysAppointmentC: TLabel;
     rCard3: TRectangle;
     lytCardD3: TLayout;
     lbNewAppointments: TLabel;
-    lbFullyPaidC: TLabel;
+    lbNewAppointmentsC: TLabel;
     rCard4: TRectangle;
     lytCardD4: TLayout;
     lbCompleted: TLabel;
-    lbPartiallyPaidC: TLabel;
+    lbCompletedC: TLabel;
     cIcon1: TCircle;
     gIcon1: TGlyph;
     cIcon2: TCircle;
@@ -94,7 +94,7 @@ begin
     glytCards.ItemWidth := 320;
 
     // Quick actions
-    rUrgentContracts.Width := 205;
+    rTodaysAppointment.Width := 205;
     rQuickActions.Width := 280;
 
     // Button text font size
@@ -113,7 +113,7 @@ begin
     glytCards.ItemWidth := 275;
 
     // Quick actions
-    rUrgentContracts.Width := 280;
+    rTodaysAppointment.Width := 280;
     rQuickActions.Width := 215;
 
     // Button text font size

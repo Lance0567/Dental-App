@@ -128,6 +128,7 @@ object fPatientModal: TfPatientModal
             Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
             DataDetectorTypes = []
             StyledSettings = [Family, Size, Style]
+            TextSettings.WordWrap = True
             Align = Client
             Size.Width = 506.000000000000000000
             Size.Height = 125.000000000000000000
@@ -135,8 +136,8 @@ object fPatientModal: TfPatientModal
             TabOrder = 7
             OnExit = mMedicalNotesExit
             OnClick = mMedicalNotesClick
-            Viewport.Width = 502.000000000000000000
-            Viewport.Height = 121.000000000000000000
+            Viewport.Width = 506.000000000000000000
+            Viewport.Height = 125.000000000000000000
           end
         end
         object lytPatientH: TLayout
@@ -261,194 +262,6 @@ object fPatientModal: TfPatientModal
             Size.Height = 260.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
-            object lytDetails1: TLayout
-              Align = Top
-              Size.Width = 345.000000000000000000
-              Size.Height = 95.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 0
-              OnResize = lytDetails1Resize
-              object lytFullName: TLayout
-                Align = Left
-                Size.Width = 165.000000000000000000
-                Size.Height = 95.000000000000000000
-                Size.PlatformDefault = False
-                TabOrder = 0
-                object lbFullName: TLabel
-                  Align = Top
-                  StyledSettings = [Family]
-                  Size.Width = 165.000000000000000000
-                  Size.Height = 17.000000000000000000
-                  Size.PlatformDefault = False
-                  TextSettings.Font.Size = 14.000000000000000000
-                  TextSettings.Font.StyleExt = {00060000000000000004000000}
-                  Text = 'Full Name'
-                  TabOrder = 0
-                end
-                object eFullName: TEdit
-                  Touch.InteractiveGestures = [LongTap, DoubleTap]
-                  Align = Top
-                  TabOrder = 1
-                  Position.Y = 27.000000000000000000
-                  Hint = 'Please fillout this field.'
-                  HelpType = htKeyword
-                  Margins.Top = 10.000000000000000000
-                  Size.Width = 165.000000000000000000
-                  Size.Height = 40.000000000000000000
-                  Size.PlatformDefault = False
-                  TextPrompt = 'Enter patient'#39's full name'
-                  StyledSettings = [Family, Size, Style]
-                  ParentShowHint = False
-                  ShowHint = True
-                  OnChangeTracking = eFullNameChangeTracking
-                end
-              end
-              object lytDateOfBirth: TLayout
-                Align = Left
-                Margins.Left = 16.000000000000000000
-                Position.X = 181.000000000000000000
-                Size.Width = 165.000000000000000000
-                Size.Height = 95.000000000000000000
-                Size.PlatformDefault = False
-                TabOrder = 1
-                object lbDateOfBirth: TLabel
-                  Align = Top
-                  StyledSettings = [Family]
-                  Size.Width = 165.000000000000000000
-                  Size.Height = 17.000000000000000000
-                  Size.PlatformDefault = False
-                  TextSettings.Font.Size = 14.000000000000000000
-                  TextSettings.Font.StyleExt = {00060000000000000004000000}
-                  Text = 'Date of Birth'
-                  TabOrder = 0
-                end
-                object deDateOfBirth: TDateEdit
-                  Date = 45885.000000000000000000
-                  OnChange = deDateOfBirthChange
-                  Align = Top
-                  Margins.Top = 10.000000000000000000
-                  Position.Y = 27.000000000000000000
-                  Size.Width = 165.000000000000000000
-                  Size.Height = 40.000000000000000000
-                  Size.PlatformDefault = False
-                  StyledSettings = [Family, Size, Style]
-                  TabOrder = 2
-                  TextSettings.FontColor = claWhite
-                  object lDateText: TLabel
-                    Align = Client
-                    StyledSettings = [Family, Size, Style]
-                    Margins.Left = 45.000000000000000000
-                    Margins.Top = -3.000000000000000000
-                    Size.Width = 120.000000000000000000
-                    Size.Height = 43.000000000000000000
-                    Size.PlatformDefault = False
-                    TextSettings.FontColor = claGray
-                    Text = 'Pick a date'
-                    TabOrder = 15
-                  end
-                end
-                object lAgeCounter: TLabel
-                  Align = Client
-                  StyledSettings = []
-                  Size.Width = 165.000000000000000000
-                  Size.Height = 28.000000000000000000
-                  Size.PlatformDefault = False
-                  TextSettings.Font.Family = 'Segoe UI Variable Text'
-                  TextSettings.Font.Size = 14.000000000000000000
-                  TextSettings.FontColor = claGray
-                  Text = 'Age: 0 years'
-                  TabOrder = 1
-                end
-              end
-            end
-            object lytDetails2: TLayout
-              Align = Top
-              Margins.Top = 10.000000000000000000
-              Position.Y = 105.000000000000000000
-              Size.Width = 345.000000000000000000
-              Size.Height = 70.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 2
-              OnResize = lytDetails2Resize
-              object lytGender: TLayout
-                Align = Left
-                Size.Width = 165.000000000000000000
-                Size.Height = 70.000000000000000000
-                Size.PlatformDefault = False
-                TabOrder = 0
-                object lbGender: TLabel
-                  Align = Top
-                  StyledSettings = [Family]
-                  Size.Width = 165.000000000000000000
-                  Size.Height = 17.000000000000000000
-                  Size.PlatformDefault = False
-                  TextSettings.Font.Size = 14.000000000000000000
-                  TextSettings.Font.StyleExt = {00060000000000000004000000}
-                  Text = 'Gender'
-                  TabOrder = 0
-                end
-                object cbGender: TComboBox
-                  Align = Top
-                  Items.Strings = (
-                    'Male'
-                    'Female'
-                    'Other')
-                  ItemIndex = 0
-                  Margins.Top = 10.000000000000000000
-                  Position.Y = 27.000000000000000000
-                  Size.Width = 165.000000000000000000
-                  Size.Height = 40.000000000000000000
-                  Size.PlatformDefault = False
-                  TabOrder = 3
-                  OnChange = cbGenderChange
-                  object lGenderText: TLabel
-                    Align = Client
-                    StyledSettings = [Family, Size, Style]
-                    Margins.Left = 5.000000000000000000
-                    Size.Width = 160.000000000000000000
-                    Size.Height = 40.000000000000000000
-                    Size.PlatformDefault = False
-                    Text = 'Male'
-                    TabOrder = 86
-                  end
-                end
-              end
-              object lytContactNumber: TLayout
-                Align = Left
-                Margins.Left = 16.000000000000000000
-                Position.X = 181.000000000000000000
-                Size.Width = 165.000000000000000000
-                Size.Height = 70.000000000000000000
-                Size.PlatformDefault = False
-                TabOrder = 1
-                object lbContactNumber: TLabel
-                  Align = Top
-                  StyledSettings = [Family]
-                  Size.Width = 165.000000000000000000
-                  Size.Height = 17.000000000000000000
-                  Size.PlatformDefault = False
-                  TextSettings.Font.Size = 14.000000000000000000
-                  TextSettings.Font.StyleExt = {00060000000000000004000000}
-                  Text = 'Contact Number'
-                  TabOrder = 0
-                end
-                object eContactNumber: TEdit
-                  Touch.InteractiveGestures = [LongTap, DoubleTap]
-                  Align = Top
-                  TabOrder = 4
-                  Position.Y = 27.000000000000000000
-                  Hint = 'Please fillout this field.'
-                  Margins.Top = 10.000000000000000000
-                  Size.Width = 165.000000000000000000
-                  Size.Height = 40.000000000000000000
-                  Size.PlatformDefault = False
-                  TextPrompt = 'Enter contact number'
-                  StyledSettings = [Family, Size, Style]
-                  ParentShowHint = False
-                  ShowHint = True
-                end
-              end
-            end
             object lytDetails3: TLayout
               Align = Top
               Margins.Top = 10.000000000000000000
@@ -518,6 +331,292 @@ object fPatientModal: TfPatientModal
                   Size.PlatformDefault = False
                   TextPrompt = 'Enter full address'
                   StyledSettings = [Family, Size, Style]
+                end
+              end
+            end
+            object lytDetails2: TLayout
+              Align = Top
+              Margins.Top = 10.000000000000000000
+              Position.Y = 105.000000000000000000
+              Size.Width = 345.000000000000000000
+              Size.Height = 70.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 2
+              OnResize = lytDetails2Resize
+              object lytGender: TLayout
+                Align = Left
+                Size.Width = 165.000000000000000000
+                Size.Height = 70.000000000000000000
+                Size.PlatformDefault = False
+                TabOrder = 0
+                object lbGender: TLabel
+                  Align = Top
+                  StyledSettings = [Family]
+                  Size.Width = 165.000000000000000000
+                  Size.Height = 17.000000000000000000
+                  Size.PlatformDefault = False
+                  TextSettings.Font.Size = 14.000000000000000000
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
+                  Text = 'Gender'
+                  TabOrder = 0
+                end
+                object cbGender: TComboBox
+                  Align = Top
+                  Items.Strings = (
+                    'Male'
+                    'Female'
+                    'Other')
+                  ItemIndex = 0
+                  Margins.Top = 10.000000000000000000
+                  Position.Y = 27.000000000000000000
+                  Size.Width = 165.000000000000000000
+                  Size.Height = 40.000000000000000000
+                  Size.PlatformDefault = False
+                  TabOrder = 3
+                  OnChange = cbGenderChange
+                  object lGenderText: TLabel
+                    Align = Client
+                    StyledSettings = [Family, Size, Style]
+                    Margins.Left = 5.000000000000000000
+                    Size.Width = 160.000000000000000000
+                    Size.Height = 40.000000000000000000
+                    Size.PlatformDefault = False
+                    Text = 'Male'
+                    TabOrder = 85
+                  end
+                end
+              end
+              object lytContactNumber: TLayout
+                Align = Left
+                Margins.Left = 16.000000000000000000
+                Position.X = 181.000000000000000000
+                Size.Width = 165.000000000000000000
+                Size.Height = 70.000000000000000000
+                Size.PlatformDefault = False
+                TabOrder = 1
+                object lbContactNumber: TLabel
+                  Align = Top
+                  StyledSettings = [Family]
+                  Size.Width = 165.000000000000000000
+                  Size.Height = 17.000000000000000000
+                  Size.PlatformDefault = False
+                  TextSettings.Font.Size = 14.000000000000000000
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
+                  Text = 'Contact Number'
+                  TabOrder = 0
+                end
+                object eContactNumber: TEdit
+                  Touch.InteractiveGestures = [LongTap, DoubleTap]
+                  Align = Top
+                  TabOrder = 4
+                  Position.Y = 27.000000000000000000
+                  Hint = 'Please fillout this field.'
+                  Margins.Top = 10.000000000000000000
+                  Size.Width = 165.000000000000000000
+                  Size.Height = 40.000000000000000000
+                  Size.PlatformDefault = False
+                  TextPrompt = 'Enter contact number'
+                  StyledSettings = [Family, Size, Style]
+                  ParentShowHint = False
+                  ShowHint = True
+                end
+                object crContactNumber: TCalloutRectangle
+                  Align = Top
+                  Fill.Color = claWhite
+                  Padding.Left = 8.000000000000000000
+                  Padding.Top = 15.000000000000000000
+                  Padding.Bottom = 10.000000000000000000
+                  Margins.Left = 30.000000000000000000
+                  Margins.Top = -5.000000000000000000
+                  Margins.Right = 30.000000000000000000
+                  Position.X = 30.000000000000000000
+                  Position.Y = 62.000000000000000000
+                  Size.Width = 105.000000000000000000
+                  Size.Height = 50.000000000000000000
+                  Size.PlatformDefault = False
+                  Stroke.Color = claDimgray
+                  Visible = False
+                  XRadius = 4.000000000000000000
+                  YRadius = 4.000000000000000000
+                  CalloutWidth = 23.000000000000000000
+                  CalloutLength = 8.000000000000000000
+                  object gContactNumber: TGlyph
+                    Align = Left
+                    Position.X = 8.000000000000000000
+                    Position.Y = 15.000000000000000000
+                    Size.Width = 25.000000000000000000
+                    Size.Height = 25.000000000000000000
+                    Size.PlatformDefault = False
+                    ImageIndex = 31
+                    Images = dm.imgList
+                  end
+                  object lContactNumberW: TLabel
+                    Align = Client
+                    StyledSettings = [Family, Style]
+                    Margins.Left = 5.000000000000000000
+                    Size.Width = 67.000000000000000000
+                    Size.Height = 25.000000000000000000
+                    Size.PlatformDefault = False
+                    TextSettings.Font.Size = 13.000000000000000000
+                    Text = 'Please fill out this field.'
+                    TabOrder = 1
+                  end
+                  object ShadowEffect2: TShadowEffect
+                    Distance = 6.000000000000000000
+                    Direction = 55.000000000000000000
+                    Softness = 0.300000011920929000
+                    Opacity = 0.300000011920929000
+                    ShadowColor = claBlack
+                  end
+                end
+              end
+            end
+            object lytDetails1: TLayout
+              Align = Top
+              Size.Width = 345.000000000000000000
+              Size.Height = 95.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+              OnResize = lytDetails1Resize
+              object lytFullName: TLayout
+                Align = Left
+                Size.Width = 165.000000000000000000
+                Size.Height = 95.000000000000000000
+                Size.PlatformDefault = False
+                TabOrder = 0
+                object lbFullName: TLabel
+                  Align = Top
+                  StyledSettings = [Family]
+                  Size.Width = 165.000000000000000000
+                  Size.Height = 17.000000000000000000
+                  Size.PlatformDefault = False
+                  TextSettings.Font.Size = 14.000000000000000000
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
+                  Text = 'Full Name'
+                  TabOrder = 0
+                end
+                object eFullName: TEdit
+                  Touch.InteractiveGestures = [LongTap, DoubleTap]
+                  Align = Top
+                  TabOrder = 1
+                  Position.Y = 27.000000000000000000
+                  Hint = 'Please fillout this field.'
+                  HelpType = htKeyword
+                  Margins.Top = 10.000000000000000000
+                  Size.Width = 165.000000000000000000
+                  Size.Height = 40.000000000000000000
+                  Size.PlatformDefault = False
+                  TextPrompt = 'Enter patient'#39's full name'
+                  StyledSettings = [Family, Size, Style]
+                  ParentShowHint = False
+                  ShowHint = True
+                  OnChangeTracking = eFullNameChangeTracking
+                end
+                object crFullName: TCalloutRectangle
+                  Align = Top
+                  Fill.Color = claWhite
+                  Padding.Left = 8.000000000000000000
+                  Padding.Top = 15.000000000000000000
+                  Padding.Bottom = 10.000000000000000000
+                  Margins.Left = 30.000000000000000000
+                  Margins.Top = -5.000000000000000000
+                  Margins.Right = 30.000000000000000000
+                  Position.X = 30.000000000000000000
+                  Position.Y = 62.000000000000000000
+                  Size.Width = 105.000000000000000000
+                  Size.Height = 50.000000000000000000
+                  Size.PlatformDefault = False
+                  Stroke.Color = claDimgray
+                  Visible = False
+                  XRadius = 4.000000000000000000
+                  YRadius = 4.000000000000000000
+                  CalloutWidth = 23.000000000000000000
+                  CalloutLength = 8.000000000000000000
+                  object gFullName: TGlyph
+                    Align = Left
+                    Position.X = 8.000000000000000000
+                    Position.Y = 15.000000000000000000
+                    Size.Width = 25.000000000000000000
+                    Size.Height = 25.000000000000000000
+                    Size.PlatformDefault = False
+                    ImageIndex = 31
+                    Images = dm.imgList
+                  end
+                  object lFullNameW: TLabel
+                    Align = Client
+                    StyledSettings = [Family, Style]
+                    Margins.Left = 5.000000000000000000
+                    Size.Width = 67.000000000000000000
+                    Size.Height = 25.000000000000000000
+                    Size.PlatformDefault = False
+                    TextSettings.Font.Size = 13.000000000000000000
+                    Text = 'Please fill out this field.'
+                    TabOrder = 1
+                  end
+                  object ShadowEffect1: TShadowEffect
+                    Distance = 6.000000000000000000
+                    Direction = 55.000000000000000000
+                    Softness = 0.300000011920929000
+                    Opacity = 0.300000011920929000
+                    ShadowColor = claBlack
+                  end
+                end
+              end
+              object lytDateOfBirth: TLayout
+                Align = Left
+                Margins.Left = 16.000000000000000000
+                Position.X = 181.000000000000000000
+                Size.Width = 165.000000000000000000
+                Size.Height = 95.000000000000000000
+                Size.PlatformDefault = False
+                TabOrder = 1
+                object lbDateOfBirth: TLabel
+                  Align = Top
+                  StyledSettings = [Family]
+                  Size.Width = 165.000000000000000000
+                  Size.Height = 17.000000000000000000
+                  Size.PlatformDefault = False
+                  TextSettings.Font.Size = 14.000000000000000000
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
+                  Text = 'Date of Birth'
+                  TabOrder = 0
+                end
+                object deDateOfBirth: TDateEdit
+                  Date = 45885.000000000000000000
+                  OnChange = deDateOfBirthChange
+                  Align = Top
+                  Margins.Top = 10.000000000000000000
+                  Position.Y = 27.000000000000000000
+                  Size.Width = 165.000000000000000000
+                  Size.Height = 40.000000000000000000
+                  Size.PlatformDefault = False
+                  StyledSettings = [Family, Size, Style]
+                  TabOrder = 2
+                  TextSettings.FontColor = claWhite
+                  object lDateText: TLabel
+                    Align = Client
+                    StyledSettings = [Family, Size, Style]
+                    Margins.Left = 45.000000000000000000
+                    Margins.Top = -3.000000000000000000
+                    Size.Width = 120.000000000000000000
+                    Size.Height = 43.000000000000000000
+                    Size.PlatformDefault = False
+                    TextSettings.FontColor = claGray
+                    Text = 'Pick a date'
+                    TabOrder = 14
+                  end
+                end
+                object lAgeCounter: TLabel
+                  Align = Client
+                  StyledSettings = []
+                  Size.Width = 165.000000000000000000
+                  Size.Height = 28.000000000000000000
+                  Size.PlatformDefault = False
+                  TextSettings.Font.Family = 'Segoe UI Variable Text'
+                  TextSettings.Font.Size = 15.000000000000000000
+                  TextSettings.FontColor = claGray
+                  Text = 'Age: 0 years'
+                  TabOrder = 1
                 end
               end
             end

@@ -1,0 +1,371 @@
+object frmLogin: TfrmLogin
+  Left = 0
+  Top = 0
+  BorderStyle = None
+  Caption = 'Login'
+  ClientHeight = 545
+  ClientWidth = 537
+  Padding.Left = 50.000000000000000000
+  Padding.Top = 20.000000000000000000
+  Padding.Right = 50.000000000000000000
+  Padding.Bottom = 20.000000000000000000
+  Position = DesktopCenter
+  StyleBook = dm.sbDental
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object rLogin: TRectangle
+    Align = Client
+    Fill.Color = claWhite
+    Padding.Left = 25.000000000000000000
+    Padding.Right = 25.000000000000000000
+    Size.Width = 437.000000000000000000
+    Size.Height = 505.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Color = xFFCDCDCD
+    XRadius = 15.000000000000000000
+    YRadius = 15.000000000000000000
+    object lytBorder: TLayout
+      Align = Top
+      Margins.Top = 5.000000000000000000
+      Margins.Right = -18.000000000000000000
+      Position.X = 25.000000000000000000
+      Position.Y = 5.000000000000000000
+      Size.Width = 405.000000000000000000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object btnClose: TSpeedButton
+        Align = Right
+        Images = dm.imgList
+        ImageIndex = 30
+        Position.X = 378.000000000000000000
+        Size.Width = 27.000000000000000000
+        Size.Height = 30.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'btnCloseStyle1'
+        Text = 'Close'
+        TextSettings.Trimming = None
+      end
+      object btnMinimize: TSpeedButton
+        Align = Right
+        Images = dm.imgList
+        ImageIndex = 34
+        Position.X = 352.000000000000000000
+        Size.Width = 26.000000000000000000
+        Size.Height = 30.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'btnCloseStyle1'
+        Text = 'Minimize'
+        TextSettings.Trimming = None
+      end
+    end
+    object lytLogo: TLayout
+      Align = Top
+      Padding.Left = 50.000000000000000000
+      Padding.Right = 50.000000000000000000
+      Position.X = 25.000000000000000000
+      Position.Y = 35.000000000000000000
+      Size.Width = 387.000000000000000000
+      Size.Height = 54.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object rLogo: TRectangle
+        Align = Center
+        Fill.Color = xFEA6E3D1
+        Padding.Left = 10.000000000000000000
+        Padding.Top = 10.000000000000000000
+        Padding.Right = 10.000000000000000000
+        Padding.Bottom = 10.000000000000000000
+        Size.Width = 50.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        XRadius = 13.000000000000000000
+        YRadius = 13.000000000000000000
+        object gLogo: TGlyph
+          Align = Client
+          Size.Width = 30.000000000000000000
+          Size.Height = 30.000000000000000000
+          Size.PlatformDefault = False
+          ImageIndex = 4
+          Images = dm.imgList
+        end
+      end
+    end
+    object slSignIn: TSkLabel
+      Align = Top
+      Margins.Top = 10.000000000000000000
+      Position.X = 25.000000000000000000
+      Position.Y = 123.000000000000000000
+      Size.Width = 387.000000000000000000
+      Size.Height = 43.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.HorzAlign = Center
+      Words = <
+        item
+          Font.Size = 18.000000000000000000
+          Font.Weight = Bold
+          Name = 'Item 0'
+          StyledSettings = [Family, FontColor]
+          Text = 'Sign In'#11
+        end
+        item
+          FontColor = claGray
+          Name = 'Item 1'
+          StyledSettings = [Family, Size, Style]
+          Text = 'Enter your credentials to access your account'
+        end>
+    end
+    object lytUsername: TLayout
+      Align = Top
+      Margins.Top = 15.000000000000000000
+      Position.X = 25.000000000000000000
+      Position.Y = 181.000000000000000000
+      Size.Width = 387.000000000000000000
+      Size.Height = 55.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 4
+      object lbUserName: TLabel
+        Align = Top
+        StyledSettings = [Family]
+        Size.Width = 387.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.Font.StyleExt = {00060000000000000004000000}
+        Text = 'Username'
+        TabOrder = 0
+      end
+      object eUsername: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Client
+        StyleLookup = 'eUsernameStyle1'
+        TabOrder = 1
+        TextSettings.Font.Size = 13.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Size.Width = 387.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TextPrompt = 'Enter your username'
+        StyledSettings = [Family, Style]
+      end
+    end
+    object lytPassword: TLayout
+      Align = Top
+      Margins.Top = 10.000000000000000000
+      Position.X = 25.000000000000000000
+      Position.Y = 246.000000000000000000
+      Size.Width = 387.000000000000000000
+      Size.Height = 55.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      object lbPassword: TLabel
+        Align = Top
+        StyledSettings = [Family]
+        Size.Width = 387.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.Font.StyleExt = {00060000000000000004000000}
+        Text = 'Password'
+        TabOrder = 0
+      end
+      object ePassword: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Client
+        StyleLookup = 'ePasswordStyle1'
+        TabOrder = 1
+        TextSettings.Font.Family = 'Segoe UI Variable Display'
+        TextSettings.Font.Size = 13.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Size.Width = 387.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TextPrompt = 'Enter your password'
+        StyledSettings = [Style]
+      end
+    end
+    object lytBottom: TLayout
+      Align = Top
+      Margins.Top = 10.000000000000000000
+      Position.X = 25.000000000000000000
+      Position.Y = 311.000000000000000000
+      Size.Width = 387.000000000000000000
+      Size.Height = 176.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 5
+      object cbRememberMe: TCheckBox
+        Align = Top
+        StyledSettings = [Family]
+        Margins.Left = 120.000000000000000000
+        Position.X = 120.000000000000000000
+        Size.Width = 267.000000000000000000
+        Size.Height = 19.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = 'Remeber my password'
+      end
+      object lDivider: TLine
+        Align = Top
+        LineType = Top
+        Margins.Left = 50.000000000000000000
+        Margins.Right = 50.000000000000000000
+        Position.X = 50.000000000000000000
+        Position.Y = 79.000000000000000000
+        Size.Width = 287.000000000000000000
+        Size.Height = 5.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = claGray
+      end
+      object lytLoginAndCancel: TLayout
+        Align = Top
+        Position.Y = 19.000000000000000000
+        Size.Width = 387.000000000000000000
+        Size.Height = 60.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        object btnLogin: TCornerButton
+          Align = Scale
+          StyledSettings = [Style, FontColor]
+          Position.X = 92.142829895019530000
+          Position.Y = 11.000000000000000000
+          Sides = [Top, Left, Bottom, Right]
+          Size.Width = 96.479026794433590000
+          Size.Height = 30.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          Text = 'LOGIN'
+          TextSettings.Font.Family = 'Calibri'
+          XRadius = 5.000000000000000000
+          YRadius = 5.000000000000000000
+        end
+        object btnCancel: TCornerButton
+          Align = Scale
+          StyledSettings = [Style, FontColor]
+          Position.X = 208.217010498046900000
+          Position.Y = 11.000000000000000000
+          Sides = [Top, Left, Bottom, Right]
+          Size.Width = 95.932434082031250000
+          Size.Height = 30.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Text = 'CANCEL'
+          TextSettings.Font.Family = 'Calibri'
+          TextSettings.Trimming = None
+          XRadius = 5.000000000000000000
+          YRadius = 5.000000000000000000
+        end
+      end
+      object lytHelp: TLayout
+        Align = Top
+        Padding.Top = 5.000000000000000000
+        Padding.Right = 35.000000000000000000
+        Padding.Bottom = 5.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Position.Y = 94.000000000000000000
+        Size.Width = 387.000000000000000000
+        Size.Height = 35.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 4
+        object lbCantSignIn: TLabel
+          Align = Left
+          StyledSettings = [Family, Style]
+          Margins.Right = 15.000000000000000000
+          Position.Y = 5.000000000000000000
+          Size.Width = 173.000000000000000000
+          Size.Height = 25.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'Label1Style1'
+          TextSettings.HorzAlign = Trailing
+          Text = 'Can'#39't sign in?'
+          TabOrder = 0
+        end
+        object btnGiveMeHelp: TCornerButton
+          Align = Left
+          StyledSettings = [Style, FontColor]
+          Position.X = 188.000000000000000000
+          Position.Y = 5.000000000000000000
+          Sides = [Top, Left, Bottom, Right]
+          Size.Width = 150.000000000000000000
+          Size.Height = 25.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'btnGiveMeHelpStyle1'
+          TabOrder = 1
+          Text = 'Give me help!'
+          TextSettings.Font.Family = 'Calibri'
+          TextSettings.HorzAlign = Leading
+          TextSettings.Trimming = None
+          XRadius = 5.000000000000000000
+          YRadius = 5.000000000000000000
+        end
+      end
+      object lytCreateAccount: TLayout
+        Align = Top
+        Padding.Top = 5.000000000000000000
+        Padding.Right = 35.000000000000000000
+        Padding.Bottom = 5.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Position.Y = 134.000000000000000000
+        Size.Width = 387.000000000000000000
+        Size.Height = 35.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        object lbCreateAccount: TLabel
+          Align = Left
+          StyledSettings = [Family, Style]
+          Margins.Right = 15.000000000000000000
+          Position.Y = 5.000000000000000000
+          Size.Width = 173.000000000000000000
+          Size.Height = 25.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'Label1Style1'
+          TextSettings.HorzAlign = Trailing
+          Text = 'Don'#39't have a User account yet?'
+          TabOrder = 0
+        end
+        object btnCreateAccount: TCornerButton
+          Align = Left
+          StyledSettings = [Style, FontColor]
+          Position.X = 188.000000000000000000
+          Position.Y = 5.000000000000000000
+          Sides = [Top, Left, Bottom, Right]
+          Size.Width = 150.000000000000000000
+          Size.Height = 25.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'btnGiveMeHelpStyle1'
+          TabOrder = 1
+          Text = 'Create an account'
+          TextSettings.Font.Family = 'Calibri'
+          TextSettings.HorzAlign = Leading
+          TextSettings.Trimming = None
+          XRadius = 5.000000000000000000
+          YRadius = 5.000000000000000000
+        end
+      end
+    end
+    object seLogin: TShadowEffect
+      Distance = 11.000000000000000000
+      Direction = 65.000000000000000000
+      Softness = 0.300000011920929000
+      Opacity = 0.500000000000000000
+      ShadowColor = claBlack
+    end
+    object lbLogoTitle: TLabel
+      Align = Top
+      StyledSettings = []
+      Position.X = 25.000000000000000000
+      Position.Y = 89.000000000000000000
+      Size.Width = 387.000000000000000000
+      Size.Height = 24.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Family = 'Roboto'
+      TextSettings.Font.Size = 19.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.HorzAlign = Center
+      Text = 'Roces Dental Clinic'
+      TabOrder = 6
+    end
+  end
+end

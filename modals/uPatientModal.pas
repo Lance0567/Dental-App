@@ -11,7 +11,7 @@ uses
   FMX.TMSFNCCustomWEBControl, FMX.TMSFNCMemo, FMX.ScrollBox, FMX.Memo,
   FMX.DateTimeCtrls, FMX.Edit, FMX.ListBox, Data.DB, FMX.Media, FCamera,
   FMX.MediaLibrary, System.Actions, FMX.ActnList, FMX.StdActns,
-  FMX.MediaLibrary.Actions, FMX.DialogService, System.DateUtils;
+  FMX.MediaLibrary.Actions, FMX.DialogService, System.DateUtils, FMX.Effects;
 
 type
   TfPatientModal = class(TFrame)
@@ -78,6 +78,14 @@ type
     imgPhoto: TImage;
     lCameraDesc: TLabel;
     rImageFrame: TRectangle;
+    crContactNumber: TCalloutRectangle;
+    gContactNumber: TGlyph;
+    lContactNumberW: TLabel;
+    crFullName: TCalloutRectangle;
+    gFullName: TGlyph;
+    lFullNameW: TLabel;
+    ShadowEffect1: TShadowEffect;
+    ShadowEffect2: TShadowEffect;
     procedure mMedicalNotesClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure eFullNameChangeTracking(Sender: TObject);
@@ -101,7 +109,6 @@ type
   private
     FCapturing: Boolean;
     FStatus: Boolean;
-
     procedure UpdateCameraList;
     procedure ShowCameraFrame;
     { Private declarations }
@@ -109,6 +116,7 @@ type
     MemoTrackingReset: String;
     RecordStatus: String;
     procedure EditComponentsResponsive;
+    procedure ClearItems;
     { Public declarations }
   end;
 
@@ -209,11 +217,56 @@ begin
   imgPhoto.Bitmap.Assign(imgProfilePhoto.Bitmap);
 end;
 
+{ Clear items for add patient modal }
+procedure TfPatientModal.ClearItems;
+begin
+  // Clear Fields
+  eFullName.Text := '';
+  eContactNumber.Text := '';
+  cbGender.ItemIndex := -1;
+  eEmailAddress.Text := '';
+  eAddress.Text := '';
+
+  // Clear Image
+  imgProfilePhoto.Bitmap := nil;
+end;
+
 { Save Button }
 procedure TfPatientModal.btnSavePatientClick(Sender: TObject);
 var
   ms: TMemoryStream;
+  HasError: Boolean;
 begin
+  HasError := False;
+
+  // FullName Fields validation
+  if eFullName.Text = '' then
+  begin
+    crFullName.Visible := True;
+    HasError := True;
+  end
+  else
+  begin
+    crFullName.Visible := False;
+  end;
+
+  // Contact Number validation
+  if eContactNumber.Text = '' then
+  begin
+    crContactNumber.Visible := True;
+    HasError := True;
+  end
+  else
+  begin
+    crContactNumber.Visible := False;
+  end;
+
+  // Stop if any error is found
+  if HasError = True then
+  begin
+    Exit;
+  end;
+
   if RecordStatus = 'Add' then
   begin
     dm.qPatients.Append;
@@ -230,6 +283,10 @@ begin
   dm.qPatients.FieldByName('contact_number').AsString := eContactNumber.Text;
   dm.qPatients.FieldByName('email_address').AsString := eEmailAddress.Text;
   dm.qPatients.FieldByName('address').AsString := eAddress.Text;
+
+  // Set Medical Notes to empty
+  if mMedicalNotes.Text = 'Enter any relevant medical history, allergies, or notes' then
+    mMedicalNotes.Text := '';
   dm.qPatients.FieldByName('medical_notes').AsString := mMedicalNotes.Text;
 
   // Save image to LONGBLOB
@@ -247,6 +304,18 @@ begin
 
   dm.qPatients.Post;
   dm.qPatients.Refresh;
+  ClearItems; // Clear fields
+
+  // Set record pop up message
+  if RecordStatus = 'Add' then
+    frmMain.Tag := 0
+  else
+    frmMain.Tag := 1;
+
+  frmMain.RecordMessage('Patient', 'patient');
+
+  // Hide patient modal
+  Self.Visible := False;
 end;
 
 { Take picture }
@@ -317,7 +386,6 @@ begin
   finally
     LOpenDialog.Free;
     rImageFrame.Visible := True;
-
   end;
 end;
 
@@ -342,27 +410,36 @@ end;
 { Date display and age calculation }
 procedure TfPatientModal.deDateOfBirthChange(Sender: TObject);
 var
-  DOB: TDate;
+  DOB, Today: TDate;
   Age: Integer;
-  Today: TDate;
 begin
-  // Style updates
+  // UI tweaks
   deDateOfBirth.TextSettings.FontColor := TAlphaColors.Black;
   lDateText.Visible := False;
 
-  // Directly use the Date property of TDateEdit
+  // Get the date value (TDateEdit.Date is safer than parsing Text)
   DOB := deDateOfBirth.Date;
   Today := Date;
 
-  // Calculate age
-  Age := YearsBetween(Today, DOB);
+  // Validate
+  if (DOB <= 0) or (DOB > Today) then
+  begin
+    lAgeCounter.Text := 'Age: 0 years';
+    Exit;
+  end;
 
-  // Adjust if birthday hasn't occurred yet this year
+  // Basic year difference
+  Age := YearOf(Today) - YearOf(DOB);
+
+  // If birthday this year hasn't happened yet, subtract 1
   if (MonthOf(Today) < MonthOf(DOB)) or
      ((MonthOf(Today) = MonthOf(DOB)) and (DayOf(Today) < DayOf(DOB))) then
     Dec(Age);
 
-  lAgeCounter.Text := 'Age: ' + Age.ToString + ' years';
+  if Age < 0 then
+    Age := 0; // defensive
+
+  lAgeCounter.Text := Format('Age: %d years', [Age]);
 end;
 
 { Camera button }

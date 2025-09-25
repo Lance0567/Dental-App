@@ -7,7 +7,8 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
   FMX.Controls.Presentation, FMX.MultiView, FMX.TabControl, FMX.StdCtrls,
   FMX.Objects, uDashboard, FMX.ImgList, uPatients, uAppointments, uPatientModal,
-  uUsers, uUserProfile, uUserModal, System.Skia, FMX.Skia, FMX.Ani;
+  uUsers, uUserProfile, uUserModal, System.Skia, FMX.Skia, FMX.Ani, FireDAC.Stan.Param,
+  FMX.Effects;
 
 type
   TfrmMain = class(TForm)
@@ -43,6 +44,7 @@ type
     Timer1: TTimer;
     lbPopUp: TSkLabel;
     fUsers: TfUsers;
+    ShadowEffect1: TShadowEffect;
     procedure FormCreate(Sender: TObject);
     procedure mvSidebarResize(Sender: TObject);
     procedure FormResize(Sender: TObject);
@@ -62,9 +64,11 @@ type
   private
     procedure HideFrames;
     procedure ButtonPressedResetter;
-    procedure RecordMessage(const AEntity: string);
+    procedure Dashboard;
+    procedure QueryHandler;
     { Private declarations }
   public
+    procedure RecordMessage(const AEntity, ADetail: string);
     { Public declarations }
   end;
 
@@ -76,6 +80,7 @@ implementation
 {$R *.fmx}
 
 uses uDm;
+
 { Hide Frames }
 procedure TfrmMain.HideFrames;
 begin
@@ -132,14 +137,21 @@ begin
   FloatAnimation1.Enabled := False;
 end;
 
-{ Form create }
+{ Form Close }
 procedure TfrmMain.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Application.Terminate;
 end;
 
+{ Form Create }
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
+  if not Assigned(fDashboard) then
+    fDashboard := TfDashboard.Create(Self);
+
+  if not Assigned(fPatients) then
+    fPatients := TfPatients.Create(Self);
+
   // Default tab index
   tcController.TabIndex := 0;
 
@@ -202,7 +214,7 @@ begin
 end;
 
 { Pop up Message }
-procedure TfrmMain.RecordMessage(const AEntity: string);
+procedure TfrmMain.RecordMessage(const AEntity, ADetail: string);
 begin
   // pop up function
   rPopUp.Height := 0;
@@ -214,21 +226,36 @@ begin
   case Self.Tag of
     0:
       begin
-        lbPopUp.TextSettings.FontColor := TAlphaColors.White;
-        lbPopUp.Text := 'Successfully added the ' + AEntity + '!';
-        rPopUp.Fill.Color := TAlphaColorRec.Green;
+        lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.Black;
+        lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Dimgray;
+        lbPopUp.Words.Items[0].Text := AEntity + ' information saved';
+        lbPopUp.Words.Items[1].Text := 'The ' + ADetail +
+          ' details have been saved successfully.';
+        rPopUp.Fill.Color := TAlphaColorRec.White;
+        // Icon set to green success
+        gPopUp.ImageIndex := 8;
       end;
     1:
       begin
-        lbPopUp.TextSettings.FontColor := TAlphaColors.Black;
-        lbPopUp.Text := 'Successfully updated the ' + AEntity + '!';
-        rPopUp.Fill.Color := TAlphaColorRec.Yellow;
+        lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.Black;
+        lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Dimgray;
+        lbPopUp.Words.Items[0].Text := AEntity + ' information updated';
+        lbPopUp.Words.Items[1].Text := 'The ' + ADetail +
+          ' details have been updated successfully.';
+        rPopUp.Fill.Color := TAlphaColorRec.White;
+        // Icon set to yellow success
+        gPopUp.ImageIndex := 32;
       end;
     2:
       begin
-        lbPopUp.TextSettings.FontColor := TAlphaColors.White;
-        lbPopUp.Text := 'Successfully deleted the ' + AEntity + '!';
-        rPopUp.Fill.Color := TAlphaColorRec.Red;
+        lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.White;
+        lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Gray;
+        lbPopUp.Words.Items[0].Text := AEntity + ' information deleted';
+        lbPopUp.Words.Items[1].Text := 'The ' + ADetail +
+          ' details have been saved successfully.';
+        rPopUp.Fill.Color := TAlphaColorRec.White;
+        // Icon set to red success
+        gPopUp.ImageIndex := 33;
       end;
   end;
 end;
@@ -236,54 +263,7 @@ end;
 { Add new patient }
 procedure TfrmMain.fPatientsbtnAddNewPatientClick(Sender: TObject);
 begin
-  // Set the record status to Add
-  fPatientModal.RecordStatus := 'Add';
-
-  // Set title
-  fPatientModal.lbTitle.Text := 'Add New Patient';
-
-  // Set button text
-  fPatientModal.btnSavePatient.Text := 'Save Patient';
-
-  // Clear image
-  fPatientModal.imgProfilePhoto.Bitmap := nil;
-
-  // Hide Image Frame
-  fPatientModal.rImageFrame.Visible := False;
-
-  // Reset scrollbox
-  fPatientModal.ScrollBox1.ViewportPosition := PointF(0, 0);
-
-  // Patient Modal visibility
-  fPatientModal.Visible := True;
-  fPatientModal.gIcon.Visible := True;  // Show user icon
-  fPatientModal.cbGender.ItemIndex := 0;
-  fPatientModal.ScrollBox1.ViewportPosition := PointF(0, 0);  // reset scrollbox
-  fPatientModal.Tag := 0;
-
-  // Gender Display text value
-  fPatientModal.lGenderText.Text := fPatientModal.cbGender.Text;
-
-  // Profile Icon
-  fPatientModal.gIcon.ImageIndex := 10;
-  fPatientModal.gIcon.Visible := True;
-  fPatientModal.lNameH.Visible := False;
-  fPatientModal.lNameH.Text := '';
-  fPatientModal.eFullName.Text := '';
-
-  // Reset Age
-  fPatientModal.lAgeCounter.Text := 'Age: 0 years';
-
-  // Medical notes
-  fPatientModal.mMedicalNotes.Text := 'Enter any relevant medical history, allergies, or notes';
-  fPatientModal.MemoTrackingReset := 'Empty';
-  fPatientModal.lTag.Text := 'Tag Number : ' + fPatientModal.MemoTrackingReset;
-  fPatientModal.deDateOfBirth.TextSettings.FontColor := TAlphaColors.White;
-  fPatientModal.lDateText.Visible := True;
-
-  // Font color Style settings of date edit
-  fPatientModal.deDateOfBirth.StyledSettings :=
-  fPatientModal.deDateOfBirth.StyledSettings - [TStyledSetting.FontColor];
+  fPatients.btnAddNewPatientClick(Sender);
 end;
 
 { Add New User }
@@ -369,6 +349,9 @@ begin
   tcController.TabIndex := 1;
   fPatients.Visible := True;
   fPatients.ScrollBox1.ViewportPosition := PointF(0,0); // reset scrollbox
+
+  // Grid responsive
+  fPatients.GridContentsResponsive;
 end;
 
 { Users tab }
@@ -382,11 +365,90 @@ begin
   fUsers.ScrollBox1.ViewportPosition := PointF(0, 0); // reset scrollbox
 end;
 
+{ Query Management }
+procedure TfrmMain.QueryHandler;
+begin
+  dm.qPatients.Close;
+  dm.qAppointments.Close;
+  dm.qUsers.Close;
+end;
+
+{ Dashboard tab }
+procedure TfrmMain.Dashboard;
+var
+  totalPatients: Integer;
+  todaysAppointments: Integer;
+  newAppointments: Integer;
+  completed: Integer;
+  todayStr: string;
+begin
+  // Assign value to total patients variable
+  dm.qTemp.Close;
+  dm.qTemp.SQL.Text :=
+    'SELECT COUNT(id) AS Total_patients ' +
+    'FROM patients';
+  dm.qTemp.Open;
+  totalPatients := dm.qTemp.FieldByName('Total_Patients').AsInteger;
+  fDashboard.lbTotalPatientsC.Text := totalPatients.ToString;
+
+  // Assign value to today's appointment
+  // Format today's date as YYYY-MM-DD (adjust to match your database format)
+  todayStr := FormatDateTime('yyyy-mm-dd', Date);
+
+  dm.qTemp.Close;
+  dm.qTemp.SQL.Text :=
+    'SELECT COUNT(status) AS Todays_Appointments ' +
+    'FROM appointments ' +
+    'WHERE (status IN (''New'', ''Ongoing'')) ' +
+    '  AND (DATE(date) = :today)';  // Use a parameter for today's date
+
+  // Assign parameter value
+  dm.qTemp.ParamByName('today').AsString := todayStr;
+  dm.qTemp.Open;
+
+  // Read the field value
+  todaysAppointments := dm.qTemp.FieldByName('Todays_Appointments').AsInteger;
+  fDashboard.lbTodaysAppointmentC.Text := todaysAppointments.ToString;
+
+  // Assign value to new appointments
+  dm.qTemp.Close;
+  dm.qTemp.SQL.Text :=
+    'SELECT COUNT(status) as New_Appointments ' +
+    'FROM appointments ' +
+    'WHERE status = ''New''';
+  dm.qTemp.Open;
+  newAppointments := dm.qTemp.FieldByName('New_Appointments').AsInteger;
+  fDashboard.lbNewAppointmentsC.Text := newAppointments.ToString;
+
+  // Assign value to completed appointments
+  dm.qTemp.Active := False;
+  dm.qTemp.SQL.Text :=
+    'SELECT COUNT(status) as Completed_Appointments ' +
+    'FROM appointments ' +
+    'WHERE status = ''Completed''';
+  dm.qTemp.Open;
+  completed := dm.qTemp.FieldByName('Completed_Appointments').AsInteger;
+  fDashboard.lbCompletedC.Text := completed.ToString;
+end;
+
+{ Tab controller change }
 procedure TfrmMain.tcControllerChange(Sender: TObject);
 begin
+  // Deactivate queries for optimization
+  QueryHandler;
+
+  // Patient Grid reponsive
+  if tcController.TabIndex = 1 then
+  begin
+    fPatients.GridContentsResponsive;
+  end;
+
   // Change database connection according to the selected tab
   case tcController.TabIndex of
-    0:
+    0: Dashboard;
+    1: dm.qPatients.Open;
+    2: dm.qAppointments.Open;
+    3: dm.qUsers.Open;
   end;
 end;
 

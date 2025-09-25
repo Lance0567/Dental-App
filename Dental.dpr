@@ -13,13 +13,16 @@ uses
   uUsers in 'frames\uUsers.pas' {fUsers: TFrame},
   uUserProfile in 'frames\uUserProfile.pas' {fUserProfile: TFrame},
   uUserModal in 'modals\uUserModal.pas' {fUserModal: TFrame},
-  uUserDetails in 'modals\uUserDetails.pas' {fUserDetails: TFrame};
+  uUserDetails in 'modals\uUserDetails.pas' {fUserDetails: TFrame},
+  uUpdateProfilePhoto in 'modals\uUpdateProfilePhoto.pas' {fUpdateProfilePhoto: TFrame},
+  uLogin in 'forms\uLogin.pas' {frmLogin};
 
 {$R *.res}
 
 begin
   Application.Initialize;
-  Application.CreateForm(TfrmMain, frmMain);
   Application.CreateForm(Tdm, dm);
+  Application.CreateForm(TfrmMain, frmMain);
+  Application.CreateForm(TfrmLogin, frmLogin);
   Application.Run;
 end.
