@@ -282,14 +282,11 @@ begin
     Exit;
   end;
 
+  // Handle record state
   if RecordStatus = 'Add' then
-  begin
-    dm.qPatients.Append;
-  end
+    dm.qPatients.Append
   else
-  begin
     dm.qPatients.Edit;
-  end;
 
   // Field to save
   dm.qPatients.FieldByName('fullname').AsString := eFullName.Text;
