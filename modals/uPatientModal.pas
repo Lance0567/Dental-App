@@ -6,10 +6,8 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Layouts, FMX.Objects, FMX.ImgList, FMX.Controls.Presentation,
-  FMX.Memo.Types, FMX.TMSFNCTypes, FMX.TMSFNCUtils, FMX.TMSFNCGraphics,
-  FMX.TMSFNCGraphicsTypes, FMX.TMSFNCCustomControl, FMX.TMSFNCWebBrowser,
-  FMX.TMSFNCCustomWEBControl, FMX.TMSFNCMemo, FMX.ScrollBox, FMX.Memo,
-  FMX.DateTimeCtrls, FMX.Edit, FMX.ListBox, Data.DB, FMX.Media, FCamera,
+  FMX.Memo.Types, FMX.ScrollBox, FMX.Memo,
+  FMX.DateTimeCtrls, FMX.Edit, FMX.ListBox, Data.DB, FMX.Media,
   FMX.MediaLibrary, System.Actions, FMX.ActnList, FMX.StdActns,
   FMX.MediaLibrary.Actions, FMX.DialogService, System.DateUtils, FMX.Effects;
 
@@ -222,10 +220,27 @@ procedure TfPatientModal.ClearItems;
 begin
   // Clear Fields
   eFullName.Text := '';
+
+  // Date of Birth
+  deDateOfBirth.TextSettings.FontColor := TAlphaColors.White;
+  lDateText.Visible := True;
+
+  // Font color Style settings of Date of Birth
+  deDateOfBirth.StyledSettings :=
+  deDateOfBirth.StyledSettings - [TStyledSetting.FontColor];
+
+  // Reset Age
+  lAgeCounter.Text := 'Age: 0 years';
+
+  cbGender.ItemIndex := 0;
   eContactNumber.Text := '';
-  cbGender.ItemIndex := -1;
+  cbGender.ItemIndex := - 1;
   eEmailAddress.Text := '';
   eAddress.Text := '';
+
+  // Medical notes
+  mMedicalNotes.Text := 'Enter any relevant medical history, allergies, or notes';
+  MemoTrackingReset := 'Empty';
 
   // Clear Image
   imgProfilePhoto.Bitmap := nil;
@@ -239,7 +254,7 @@ var
 begin
   HasError := False;
 
-  // FullName Fields validation
+  // FullName validation
   if eFullName.Text = '' then
   begin
     crFullName.Visible := True;

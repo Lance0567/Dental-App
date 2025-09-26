@@ -6,9 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Controls.Presentation, FMX.Layouts, System.Skia, FMX.Objects, FMX.Skia,
-  FMX.ImgList, FMX.Calendar, FMX.TMSFNCTypes, FMX.TMSFNCUtils,
-  FMX.TMSFNCGraphics, FMX.TMSFNCGraphicsTypes, FMX.TMSFNCCustomControl,
-  FMX.TMSFNCCalendar, FMX.Menus;
+  FMX.ImgList, FMX.Calendar, FMX.Menus;
 
 type
   TfAppointments = class(TFrame)
@@ -25,7 +23,6 @@ type
     lBevel: TLine;
     rCalendar: TRectangle;
     lytBottom: TLayout;
-    tmsCalendar: TTMSFNCCalendar;
     RoundRect1: TRoundRect;
   private
     { Private declarations }

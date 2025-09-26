@@ -136,8 +136,8 @@ object fPatientModal: TfPatientModal
             TabOrder = 7
             OnExit = mMedicalNotesExit
             OnClick = mMedicalNotesClick
-            Viewport.Width = 506.000000000000000000
-            Viewport.Height = 125.000000000000000000
+            Viewport.Width = 502.000000000000000000
+            Viewport.Height = 121.000000000000000000
           end
         end
         object lytPatientH: TLayout
@@ -382,7 +382,7 @@ object fPatientModal: TfPatientModal
                     Size.Height = 40.000000000000000000
                     Size.PlatformDefault = False
                     Text = 'Male'
-                    TabOrder = 85
+                    TabOrder = 86
                   end
                 end
               end
@@ -603,7 +603,7 @@ object fPatientModal: TfPatientModal
                     Size.PlatformDefault = False
                     TextSettings.FontColor = claGray
                     Text = 'Pick a date'
-                    TabOrder = 14
+                    TabOrder = 15
                   end
                 end
                 object lAgeCounter: TLabel

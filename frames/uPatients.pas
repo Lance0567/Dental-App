@@ -148,9 +148,7 @@ begin
   // Patient Modal visibility
   frmMain.fPatientModal.Visible := True;
   frmMain.fPatientModal.gIcon.Visible := True;  // Show user icon
-  frmMain.fPatientModal.cbGender.ItemIndex := 0;
   frmMain.fPatientModal.ScrollBox1.ViewportPosition := PointF(0, 0);  // reset scrollbox
-  frmMain.fPatientModal.Tag := 0;
 
   // Gender Display text value
   frmMain.fPatientModal.lGenderText.Text := frmMain.fPatientModal.cbGender.Text;
@@ -160,23 +158,12 @@ begin
   frmMain.fPatientModal.gIcon.Visible := True;
   frmMain.fPatientModal.lNameH.Visible := False;
 
-  // Reset Age
-  frmMain.fPatientModal.lAgeCounter.Text := 'Age: 0 years';
-
   // Hide validation components
   frmMain.fPatientModal.crFullName.Visible := False;
   frmMain.fPatientModal.crContactNumber.Visible := False;
 
-  // Medical notes
-  frmMain.fPatientModal.mMedicalNotes.Text := 'Enter any relevant medical history, allergies, or notes';
-  frmMain.fPatientModal.MemoTrackingReset := 'Empty';
+  // Patient Modal tag
   frmMain.fPatientModal.lTag.Text := 'Tag Number : ' + frmMain.fPatientModal.MemoTrackingReset;
-  frmMain.fPatientModal.deDateOfBirth.TextSettings.FontColor := TAlphaColors.White;
-  frmMain.fPatientModal.lDateText.Visible := True;
-
-  // Font color Style settings of date edit
-  frmMain.fPatientModal.deDateOfBirth.StyledSettings :=
-  frmMain.fPatientModal.deDateOfBirth.StyledSettings - [TStyledSetting.FontColor];
 end;
 
 { Edit Patient record }

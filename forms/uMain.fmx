@@ -524,13 +524,6 @@ object frmMain: TfrmMain
             inherited rCalendar: TRectangle
               Size.Width = 545.000000000000000000
               Size.Height = 315.000000000000000000
-              inherited tmsCalendar: TTMSFNCCalendar
-                Size.Width = 505.000000000000000000
-                Size.Height = 275.000000000000000000
-                Header.Font.StyleExt = {00070000000000000004000000}
-                DateAppearance.SelectedFont.StyleExt = {00070000000000000004000000}
-                DateAppearance.TodayFont.StyleExt = {00070000000000000004000000}
-              end
             end
             inherited lytBottom: TLayout
               Position.Y = 480.000000000000000000
@@ -609,8 +602,8 @@ object frmMain: TfrmMain
                 inherited gPatients: TGrid
                   Size.Width = 495.000000000000000000
                   Size.Height = 175.000000000000000000
-                  Viewport.Width = 491.000000000000000000
-                  Viewport.Height = 145.000000000000000000
+                  Viewport.Width = 495.000000000000000000
+                  Viewport.Height = 175.000000000000000000
                 end
               end
             end
@@ -1074,9 +1067,8 @@ object frmMain: TfrmMain
               inherited slRoleAndAccess: TSkLabel
                 Size.Width = 479.000000000000000000
               end
-              inherited Layout1: TLayout
+              inherited lytDepartment: TLayout
                 Size.Width = 479.000000000000000000
-                TabOrder = 7
                 inherited lDepartment: TLabel
                   Size.Width = 479.000000000000000000
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
