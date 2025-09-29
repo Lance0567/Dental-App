@@ -194,6 +194,7 @@ object fUserModal: TfUserModal
                     TextSettings.Trimming = None
                     XRadius = 13.000000000000000000
                     YRadius = 13.000000000000000000
+                    OnClick = btnPhotoUploadClick
                   end
                   object btnCamera: TCornerButton
                     Align = Left
@@ -211,6 +212,7 @@ object fUserModal: TfUserModal
                     TextSettings.Trimming = None
                     XRadius = 13.000000000000000000
                     YRadius = 13.000000000000000000
+                    OnClick = btnCameraClick
                   end
                 end
                 object lProfileUploadDesc: TLabel
@@ -791,7 +793,7 @@ object fUserModal: TfUserModal
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
                   Text = 'Receptionist'
-                  TabOrder = 85
+                  TabOrder = 86
                 end
               end
             end
@@ -893,6 +895,158 @@ object fUserModal: TfUserModal
             end
           end
         end
+      end
+    end
+  end
+  object ccCapturePhoto: TCameraComponent
+    OnSampleBufferReady = ccCapturePhotoSampleBufferReady
+    Left = 248
+    Top = 16
+  end
+  object sdSavePicture: TSaveDialog
+    Left = 424
+    Top = 16
+  end
+  object rCameralModal: TRectangle
+    Align = Center
+    Fill.Color = claWhite
+    Size.Width = 350.000000000000000000
+    Size.Height = 350.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Color = claGray
+    XRadius = 13.000000000000000000
+    YRadius = 13.000000000000000000
+    object lytImgTools: TLayout
+      Align = Bottom
+      Position.Y = 205.000000000000000000
+      Size.Width = 350.000000000000000000
+      Size.Height = 145.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object lytCameraOption: TLayout
+        Align = Top
+        Size.Width = 350.000000000000000000
+        Size.Height = 30.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object lCamera: TLabel
+          Align = Client
+          StyledSettings = [Family]
+          Size.Width = 95.000000000000000000
+          Size.Height = 30.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.Font.StyleExt = {00060000000000000004000000}
+          TextSettings.HorzAlign = Trailing
+          Text = 'Camera:'
+          TabOrder = 1
+        end
+        object cbCameraOption: TComboBox
+          Align = Right
+          Margins.Left = 5.000000000000000000
+          Margins.Right = 50.000000000000000000
+          Position.X = 100.000000000000000000
+          Size.Width = 200.000000000000000000
+          Size.Height = 30.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object lCameraDesc: TLabel
+            Align = Left
+            StyledSettings = [Family]
+            Margins.Left = 10.000000000000000000
+            Position.X = 10.000000000000000000
+            Size.Width = 175.000000000000000000
+            Size.Height = 30.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 14.000000000000000000
+            TextSettings.FontColor = claDimgray
+            Text = 'Default Camera'
+            TabOrder = 86
+          end
+        end
+      end
+      object btnSaveCurrentImage: TCornerButton
+        Align = Top
+        StyledSettings = [Family, FontColor]
+        Margins.Left = 100.000000000000000000
+        Margins.Top = 15.000000000000000000
+        Margins.Right = 100.000000000000000000
+        Position.X = 100.000000000000000000
+        Position.Y = 95.000000000000000000
+        Sides = [Top, Left, Bottom, Right]
+        Size.Width = 150.000000000000000000
+        Size.Height = 30.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'btnPhotoUploadStyle1'
+        TabOrder = 1
+        Text = 'Save Current Image'
+        TextSettings.Font.StyleExt = {00060000000000000004000000}
+        TextSettings.Trimming = None
+        XRadius = 8.000000000000000000
+        YRadius = 8.000000000000000000
+        OnClick = btnSaveCurrentImageClick
+      end
+      object btnTakePicture: TCornerButton
+        Align = Top
+        StyledSettings = [Family, FontColor]
+        Margins.Left = 130.000000000000000000
+        Margins.Top = 20.000000000000000000
+        Margins.Right = 130.000000000000000000
+        Position.X = 130.000000000000000000
+        Position.Y = 50.000000000000000000
+        Sides = [Top, Left, Bottom, Right]
+        Size.Width = 90.000000000000000000
+        Size.Height = 30.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'btnPhotoUploadStyle1'
+        TabOrder = 2
+        Text = 'Take photo'
+        TextSettings.Font.StyleExt = {00060000000000000004000000}
+        TextSettings.Trimming = None
+        XRadius = 8.000000000000000000
+        YRadius = 8.000000000000000000
+        OnClick = btnTakePictureClick
+      end
+    end
+    object lytClosebtn: TLayout
+      Align = Top
+      Padding.Left = 10.000000000000000000
+      Padding.Top = 5.000000000000000000
+      Padding.Right = 10.000000000000000000
+      Size.Width = 350.000000000000000000
+      Size.Height = 35.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object btnCameraClose: TSpeedButton
+        Align = Right
+        Position.X = 310.000000000000000000
+        Position.Y = 5.000000000000000000
+        Size.Width = 30.000000000000000000
+        Size.Height = 30.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'cleareditbutton'
+        Text = 'btnClose'
+        TextSettings.Trimming = None
+      end
+    end
+    object lytPaintBox: TLayout
+      Align = Client
+      Margins.Left = 70.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 70.000000000000000000
+      Margins.Bottom = 20.000000000000000000
+      Size.Width = 210.000000000000000000
+      Size.Height = 140.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      object imgPhoto: TImage
+        MultiResBitmap = <
+          item
+          end>
+        Align = Client
+        Size.Width = 210.000000000000000000
+        Size.Height = 140.000000000000000000
+        Size.PlatformDefault = False
       end
     end
   end
