@@ -147,8 +147,7 @@ begin
 
   // Patient Modal visibility
   frmMain.fPatientModal.Visible := True;
-  frmMain.fPatientModal.gIcon.Visible := True;  // Show user icon
-  frmMain.fPatientModal.ScrollBox1.ViewportPosition := PointF(0, 0);  // reset scrollbox
+  frmMain.fPatientModal.gIcon.Visible := True;  // Show user ico
 
   // Gender Display text value
   frmMain.fPatientModal.lGenderText.Text := frmMain.fPatientModal.cbGender.Text;
@@ -167,11 +166,6 @@ begin
 end;
 
 { Edit Patient record }
-procedure TfPatients.FrameResized(Sender: TObject);
-begin
-  GridContentsResponsive2;
-end;
-
 procedure TfPatients.gPatientsCellDblClick(const Column: TColumn;
   const Row: Integer);
 var
@@ -264,8 +258,14 @@ begin
   end;
 end;
 
-{ Frame Resized }
+{ Frame Resize }
 procedure TfPatients.FrameResize(Sender: TObject);
+begin
+  GridContentsResponsive2;
+end;
+
+{ Frame Resized }
+procedure TfPatients.FrameResized(Sender: TObject);
 begin
   GridContentsResponsive2;
 end;

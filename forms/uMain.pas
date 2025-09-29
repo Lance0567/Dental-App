@@ -8,7 +8,7 @@ uses
   FMX.Controls.Presentation, FMX.MultiView, FMX.TabControl, FMX.StdCtrls,
   FMX.Objects, uDashboard, FMX.ImgList, uPatients, uAppointments, uPatientModal,
   uUsers, uUserProfile, uUserModal, System.Skia, FMX.Skia, FMX.Ani, FireDAC.Stan.Param,
-  FMX.Effects;
+  FMX.Effects, FMX.Grid;
 
 type
   TfrmMain = class(TForm)
@@ -146,14 +146,32 @@ end;
 { Form Create }
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
+  // Create Dashboard Frame if not yet created
   if not Assigned(fDashboard) then
     fDashboard := TfDashboard.Create(Self);
 
-  if not Assigned(fPatients) then
-    fPatients := TfPatients.Create(Self);
-
   // Default tab index
   tcController.TabIndex := 0;
+
+  // Open Records for the Dashboard cards
+  Dashboard;
+
+  // Table style for Dashboard
+  if fDashboard.gTodaysAppointment.RowCount = 0 then // no records
+    fDashboard.gTodaysAppointment.StyleLookup := 'gPatientsStyle1'
+  else
+    fDashboard.gTodaysAppointment.StyleLookup := ''; // with records
+
+  // Table style for Patients
+  if fPatients.gPatients.RowCount = 0 then
+    fPatients.gPatients.StyleLookup := 'gPatientsStyle1'
+  else
+    fPatients.gPatients.StyleLookup := '';
+
+  // Table style for Users
+  if fUsers.gUsers.RowCount = 0 then
+    fUsers.gUsers.StyleLookup := 'gPatientsStyle1';
+
 
   // Default Show sidebar
   mvSidebar.ShowMaster;
@@ -383,7 +401,9 @@ var
   todayStr: string;
 begin
   // Assign value to total patients variable
-  dm.qTemp.Close;
+  if dm.qTemp.Active then
+    dm.qTemp.Close;
+
   dm.qTemp.SQL.Text :=
     'SELECT COUNT(id) AS Total_patients ' +
     'FROM patients';
@@ -395,7 +415,9 @@ begin
   // Format today's date as YYYY-MM-DD (adjust to match your database format)
   todayStr := FormatDateTime('yyyy-mm-dd', Date);
 
-  dm.qTemp.Close;
+  if dm.qTemp.Active then
+    dm.qTemp.Close;
+
   dm.qTemp.SQL.Text :=
     'SELECT COUNT(status) AS Todays_Appointments ' +
     'FROM appointments ' +
@@ -411,7 +433,9 @@ begin
   fDashboard.lbTodaysAppointmentC.Text := todaysAppointments.ToString;
 
   // Assign value to new appointments
-  dm.qTemp.Close;
+  if dm.qTemp.Active then
+    dm.qTemp.Close;
+
   dm.qTemp.SQL.Text :=
     'SELECT COUNT(status) as New_Appointments ' +
     'FROM appointments ' +
@@ -421,7 +445,9 @@ begin
   fDashboard.lbNewAppointmentsC.Text := newAppointments.ToString;
 
   // Assign value to completed appointments
-  dm.qTemp.Active := False;
+  if dm.qTemp.Active then
+    dm.qTemp.Close;
+
   dm.qTemp.SQL.Text :=
     'SELECT COUNT(status) as Completed_Appointments ' +
     'FROM appointments ' +

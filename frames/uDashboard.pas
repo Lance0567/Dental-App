@@ -59,7 +59,7 @@ type
     lBevel: TLine;
     lbTodayAppointments: TLabel;
     lbQuickActions: TLabel;
-    gPatients: TGrid;
+    gTodaysAppointment: TGrid;
     FloatAnimation1: TFloatAnimation;
     FloatAnimation2: TFloatAnimation;
     FloatAnimation3: TFloatAnimation;
