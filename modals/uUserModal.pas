@@ -115,6 +115,8 @@ type
     procedure btnPhotoUploadClick(Sender: TObject);
     procedure btnTakePictureClick(Sender: TObject);
     procedure btnSaveCurrentImageClick(Sender: TObject);
+    procedure btnCameraCloseClick(Sender: TObject);
+    procedure cbCameraOptionChange(Sender: TObject);
   private
     FCapturing: Boolean;
     FStatus: Boolean;
@@ -314,6 +316,14 @@ begin
     ShowMessage('No image to save.');
 end;
 
+{ Close Camera }
+procedure TfUserModal.btnCameraCloseClick(Sender: TObject);
+begin
+  rCameralModal.Visible := False;
+  ccCapturePhoto.Active := False;
+  FCapturing := False;
+end;
+
 { Cancel Button }
 procedure TfUserModal.btnCancelClick(Sender: TObject);
 begin
@@ -464,6 +474,12 @@ begin
 
   // Hide patient modal
   Self.Visible := False;
+end;
+
+{ Camera option OnChange }
+procedure TfUserModal.cbCameraOptionChange(Sender: TObject);
+begin
+  lCameraDesc.Text := cbCameraOption.Text;
 end;
 
 { Role On Change }

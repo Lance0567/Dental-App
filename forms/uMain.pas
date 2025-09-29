@@ -8,7 +8,7 @@ uses
   FMX.Controls.Presentation, FMX.MultiView, FMX.TabControl, FMX.StdCtrls,
   FMX.Objects, uDashboard, FMX.ImgList, uPatients, uAppointments, uPatientModal,
   uUsers, uUserProfile, uUserModal, System.Skia, FMX.Skia, FMX.Ani, FireDAC.Stan.Param,
-  FMX.Effects, FMX.Grid;
+  FMX.Effects, FMX.Grid, Data.DB;
 
 type
   TfrmMain = class(TForm)
@@ -157,21 +157,22 @@ begin
   Dashboard;
 
   // Table style for Dashboard
-  if fDashboard.gTodaysAppointment.RowCount = 0 then // no records
+  if dm.qAppointments.IsEmpty then // no records
     fDashboard.gTodaysAppointment.StyleLookup := 'gPatientsStyle1'
   else
     fDashboard.gTodaysAppointment.StyleLookup := ''; // with records
 
   // Table style for Patients
-  if fPatients.gPatients.RowCount = 0 then
+  if dm.qPatients.IsEmpty then
     fPatients.gPatients.StyleLookup := 'gPatientsStyle1'
   else
     fPatients.gPatients.StyleLookup := '';
 
   // Table style for Users
-  if fUsers.gUsers.RowCount = 0 then
-    fUsers.gUsers.StyleLookup := 'gPatientsStyle1';
-
+  if dm.qUsers.IsEmpty then
+    fUsers.gUsers.StyleLookup := 'gPatientsStyle1'
+  else
+    fUsers.gUsers.StyleLookup := '';
 
   // Default Show sidebar
   mvSidebar.ShowMaster;

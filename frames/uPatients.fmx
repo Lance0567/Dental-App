@@ -227,8 +227,8 @@ object fPatients: TfPatients
       Size.Height = 136.000000000000000000
       Size.PlatformDefault = False
       Stroke.Color = xFFDBD9D9
-      XRadius = 9.000000000000000000
-      YRadius = 9.000000000000000000
+      XRadius = 13.000000000000000000
+      YRadius = 13.000000000000000000
       object gPatients: TGrid
         Align = Client
         CanFocus = True

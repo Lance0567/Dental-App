@@ -669,7 +669,6 @@ object fPatientModal: TfPatientModal
     Size.Height = 400.000000000000000000
     Size.PlatformDefault = False
     Stroke.Color = claGray
-    Visible = False
     XRadius = 13.000000000000000000
     YRadius = 13.000000000000000000
     object lytImgTools: TLayout
@@ -785,6 +784,17 @@ object fPatientModal: TfPatientModal
         Text = 'btnClose'
         TextSettings.Trimming = None
         OnClick = btnCameraCloseClick
+      end
+      object lPreviewImage: TLabel
+        Align = Client
+        StyledSettings = [Family]
+        Size.Width = 350.000000000000000000
+        Size.Height = 30.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 18.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Text = 'Preview Image'
+        TabOrder = 0
       end
     end
     object lytPaintBox: TLayout

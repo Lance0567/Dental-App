@@ -84,6 +84,7 @@ type
     lFullNameW: TLabel;
     ShadowEffect1: TShadowEffect;
     ShadowEffect2: TShadowEffect;
+    lPreviewImage: TLabel;
     procedure mMedicalNotesClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure eFullNameChangeTracking(Sender: TObject);
@@ -129,6 +130,7 @@ implementation
 
 uses uMain, uDm;
 
+{ Camera option list }
 procedure TfPatientModal.UpdateCameraList;
 begin
   cbCameraOption.Clear;
@@ -202,6 +204,9 @@ procedure TfPatientModal.imgProfilePhotoClick(Sender: TObject);
 begin
   // Show Captured photo
   rCameralModal.Visible := True;
+
+  // Show Label in camera modal
+  lPreviewImage.Visible := True;
 
   // Hide component
   lytImgTools.Visible := False;
@@ -421,12 +426,13 @@ begin
   end;
 end;
 
-{ Gender display dropdown }
+{ Camera Option OnChange }
 procedure TfPatientModal.cbCameraOptionChange(Sender: TObject);
 begin
   lCameraDesc.Text := cbCameraOption.Text;
 end;
 
+{ Gender display dropdown }
 procedure TfPatientModal.cbGenderChange(Sender: TObject);
 begin
   lGenderText.Text := cbGender.Text;
@@ -486,6 +492,9 @@ begin
   lytPaintBox.Margins.Left := 70;
   lytPaintBox.Margins.Right := 70;
   lytPaintBox.Margins.Top := 10;
+
+  // Hide label in camera modal
+  lPreviewImage.Visible := False;
 
   // Show Capture photo modal
   rCameralModal.Visible := True;

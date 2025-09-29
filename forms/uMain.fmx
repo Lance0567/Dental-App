@@ -333,8 +333,8 @@ object frmMain: TfrmMain
                     Size.Width = 199.000000000000000000
                     Size.Height = 250.000000000000000000
                     StyleLookup = 'gPatientsStyle1'
-                    Viewport.Width = 199.000000000000000000
-                    Viewport.Height = 250.000000000000000000
+                    Viewport.Width = 195.000000000000000000
+                    Viewport.Height = 220.000000000000000000
                   end
                 end
                 inherited rQuickActions: TRectangle
@@ -847,7 +847,6 @@ object frmMain: TfrmMain
                     inherited lGenderText: TLabel
                       Margins.Left = 10.000000000000000000
                       Size.Width = 185.000000000000000000
-                      TabOrder = 86
                     end
                   end
                 end
@@ -921,7 +920,6 @@ object frmMain: TfrmMain
             Size.Height = 35.000000000000000000
             inherited lCameraDesc: TLabel
               Size.Height = 35.000000000000000000
-              TabOrder = 86
             end
           end
         end
@@ -1106,6 +1104,35 @@ object frmMain: TfrmMain
               end
             end
           end
+        end
+      end
+    end
+    inherited ccCapturePhoto: TCameraComponent
+      OnSampleBufferReady = nil
+    end
+    inherited rCameralModal: TRectangle
+      inherited lytImgTools: TLayout
+        inherited lytCameraOption: TLayout
+          inherited lCamera: TLabel
+            Margins.Right = 15.000000000000000000
+            Size.Width = 80.000000000000000000
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+          end
+          inherited cbCameraOption: TComboBox
+            OnChange = nil
+          end
+        end
+        inherited btnSaveCurrentImage: TCornerButton
+          TextSettings.Font.StyleExt = {00060000000000000004000000}
+        end
+        inherited btnTakePicture: TCornerButton
+          TextSettings.Font.StyleExt = {00060000000000000004000000}
+          OnClick = nil
+        end
+      end
+      inherited lytClosebtn: TLayout
+        inherited btnCameraClose: TSpeedButton
+          OnClick = nil
         end
       end
     end
