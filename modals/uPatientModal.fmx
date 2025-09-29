@@ -718,7 +718,7 @@ object fPatientModal: TfPatientModal
             TextSettings.Font.Size = 14.000000000000000000
             TextSettings.FontColor = claDimgray
             Text = 'Default Camera'
-            TabOrder = 85
+            TabOrder = 86
           end
         end
       end
@@ -741,6 +741,7 @@ object fPatientModal: TfPatientModal
         TextSettings.Trimming = None
         XRadius = 8.000000000000000000
         YRadius = 8.000000000000000000
+        OnClick = btnSaveCurrentImageClick
       end
       object btnTakePicture: TCornerButton
         Align = Top

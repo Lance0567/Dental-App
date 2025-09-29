@@ -104,6 +104,7 @@ type
     procedure cbCameraOptionChange(Sender: TObject);
     procedure imgProfilePhotoClick(Sender: TObject);
     procedure btnUploadClick(Sender: TObject);
+    procedure btnSaveCurrentImageClick(Sender: TObject);
   private
     FCapturing: Boolean;
     FStatus: Boolean;
@@ -246,6 +247,25 @@ begin
   imgProfilePhoto.Bitmap := nil;
 end;
 
+{ Save current image }
+procedure TfPatientModal.btnSaveCurrentImageClick(Sender: TObject);
+begin
+  if (imgPhoto.Bitmap <> nil) and not imgPhoto.Bitmap.IsEmpty then
+  begin
+    sdSavePicture.Filter := 'PNG Image|*.png|JPEG Image|*.jpg|Bitmap Image|*.bmp';
+    sdSavePicture.DefaultExt := 'png';
+    sdSavePicture.FileName := 'CapturedImage.png';
+
+    if sdSavePicture.Execute then
+    begin
+      imgPhoto.Bitmap.SaveToFile(sdSavePicture.FileName);
+      ShowMessage('Image saved to: ' + sdSavePicture.FileName);
+    end;
+  end
+  else
+    ShowMessage('No image to save.');
+end;
+
 { Save Button }
 procedure TfPatientModal.btnSavePatientClick(Sender: TObject);
 var
@@ -362,7 +382,7 @@ begin
         ccCapturePhoto.Active := True;
         FCapturing := True;
 
-        // Wait for 3 seconds
+        // Wait for 1.5 seconds
         TThread.Sleep(1500);
 
         // Execute the rest of the code on the main UI thread
