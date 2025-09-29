@@ -1009,6 +1009,7 @@ object frmMain: TfrmMain
                 end
               end
               inherited lytEmailAddress: TLayout
+                Position.Y = 230.000000000000000000
                 Size.Width = 479.000000000000000000
                 inherited lEmailAddress: TLabel
                   Size.Width = 479.000000000000000000
@@ -1038,6 +1039,17 @@ object frmMain: TfrmMain
                   Size.Width = 479.000000000000000000
                 end
               end
+              inherited lytPassword: TLayout
+                Position.Y = 320.000000000000000000
+                Size.Width = 479.000000000000000000
+                inherited lPassword: TLabel
+                  Size.Width = 479.000000000000000000
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
+                end
+                inherited ePassword: TEdit
+                  Size.Width = 479.000000000000000000
+                end
+              end
             end
           end
           inherited rRoleAndAccess: TRectangle
@@ -1046,7 +1058,7 @@ object frmMain: TfrmMain
               Size.Width = 479.000000000000000000
               inherited lytButtonSaveH: TLayout
                 Size.Width = 479.000000000000000000
-                inherited btnCreateUser: TCornerButton
+                inherited btnSaveUser: TCornerButton
                   Position.X = 359.000000000000000000
                 end
                 inherited btnCancel: TCornerButton

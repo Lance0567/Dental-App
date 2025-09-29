@@ -35,7 +35,7 @@ object fUserModal: TfUserModal
         Padding.Left = 25.000000000000000000
         Padding.Top = 15.000000000000000000
         Padding.Right = 25.000000000000000000
-        Padding.Bottom = 15.000000000000000000
+        Padding.Bottom = 20.000000000000000000
         Size.Width = 462.000000000000000000
         Size.Height = 440.000000000000000000
         Size.PlatformDefault = False
@@ -87,7 +87,7 @@ object fUserModal: TfUserModal
           Position.X = 25.000000000000000000
           Position.Y = 65.000000000000000000
           Size.Width = 396.000000000000000000
-          Size.Height = 470.000000000000000000
+          Size.Height = 660.000000000000000000
           Size.PlatformDefault = False
           Stroke.Color = xFFDBD9D9
           XRadius = 16.000000000000000000
@@ -95,87 +95,13 @@ object fUserModal: TfUserModal
           object lytUserH: TLayout
             Align = Client
             Size.Width = 346.000000000000000000
-            Size.Height = 430.000000000000000000
+            Size.Height = 620.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
-            object lytEmailAddress: TLayout
-              Align = Top
-              Margins.Top = 20.000000000000000000
-              Position.Y = 140.000000000000000000
-              Size.Width = 346.000000000000000000
-              Size.Height = 70.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 4
-              object lEmailAddress: TLabel
-                Align = Top
-                StyledSettings = [Family]
-                Size.Width = 346.000000000000000000
-                Size.Height = 17.000000000000000000
-                Size.PlatformDefault = False
-                TextSettings.Font.Size = 14.000000000000000000
-                TextSettings.Font.StyleExt = {00060000000000000004000000}
-                Text = 'Email Address'
-                TabOrder = 0
-              end
-              object eEmailAddress: TEdit
-                Touch.InteractiveGestures = [LongTap, DoubleTap]
-                Align = Top
-                TabOrder = 1
-                TextSettings.Font.Size = 14.000000000000000000
-                Position.Y = 27.000000000000000000
-                Hint = 'Please fillout this field.'
-                HelpType = htKeyword
-                Margins.Top = 10.000000000000000000
-                Size.Width = 346.000000000000000000
-                Size.Height = 40.000000000000000000
-                Size.PlatformDefault = False
-                TextPrompt = 'Enter email address'
-                StyledSettings = [Family, Style]
-                ParentShowHint = False
-                ShowHint = True
-              end
-            end
-            object lytFullName: TLayout
-              Align = Top
-              Margins.Top = 20.000000000000000000
-              Position.Y = 50.000000000000000000
-              Size.Width = 346.000000000000000000
-              Size.Height = 70.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 3
-              object lbFullName: TLabel
-                Align = Top
-                StyledSettings = [Family]
-                Size.Width = 346.000000000000000000
-                Size.Height = 17.000000000000000000
-                Size.PlatformDefault = False
-                TextSettings.Font.Size = 14.000000000000000000
-                TextSettings.Font.StyleExt = {00060000000000000004000000}
-                Text = 'Full Name'
-                TabOrder = 0
-              end
-              object eFullName: TEdit
-                Touch.InteractiveGestures = [LongTap, DoubleTap]
-                Align = Top
-                TabOrder = 1
-                TextSettings.Font.Size = 14.000000000000000000
-                Position.Y = 27.000000000000000000
-                Hint = 'Please fillout this field.'
-                HelpType = htKeyword
-                Margins.Top = 10.000000000000000000
-                Size.Width = 346.000000000000000000
-                Size.Height = 40.000000000000000000
-                Size.PlatformDefault = False
-                TextPrompt = 'Enter full name'
-                StyledSettings = [Family, Style]
-                ParentShowHint = False
-                ShowHint = True
-              end
-            end
             object lytPatientProfile: TLayout
               Align = Top
               Margins.Top = 20.000000000000000000
-              Position.Y = 320.000000000000000000
+              Position.Y = 500.000000000000000000
               Size.Width = 346.000000000000000000
               Size.Height = 110.000000000000000000
               Size.PlatformDefault = False
@@ -214,6 +140,25 @@ object fUserModal: TfUserModal
                     Text = 'L'
                     Visible = False
                     TabOrder = 0
+                  end
+                  object imgProfilePhoto: TImage
+                    MultiResBitmap = <
+                      item
+                      end>
+                    Align = Center
+                    Size.Width = 85.000000000000000000
+                    Size.Height = 85.000000000000000000
+                    Size.PlatformDefault = False
+                    WrapMode = Stretch
+                  end
+                  object rImageFrame: TRectangle
+                    Align = Center
+                    Fill.Color = claNull
+                    Size.Width = 95.000000000000000000
+                    Size.Height = 90.000000000000000000
+                    Size.PlatformDefault = False
+                    Stroke.Color = claGray
+                    Visible = False
                   end
                 end
               end
@@ -306,10 +251,10 @@ object fUserModal: TfUserModal
               Text = 'Personal Information'
               TabOrder = 0
             end
-            object lytPhoneNumber: TLayout
+            object lytContactNumber: TLayout
               Align = Top
               Margins.Top = 20.000000000000000000
-              Position.Y = 230.000000000000000000
+              Position.Y = 410.000000000000000000
               Size.Width = 346.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
@@ -325,7 +270,7 @@ object fUserModal: TfUserModal
                 Text = 'Contact Number'
                 TabOrder = 0
               end
-              object ePhoneNumber: TEdit
+              object eContactNumber: TEdit
                 Touch.InteractiveGestures = [LongTap, DoubleTap]
                 Align = Top
                 TabOrder = 1
@@ -342,6 +287,399 @@ object fUserModal: TfUserModal
                 ParentShowHint = False
                 ShowHint = True
               end
+              object crContactNumber: TCalloutRectangle
+                Align = Top
+                Fill.Color = claWhite
+                Padding.Left = 8.000000000000000000
+                Padding.Top = 15.000000000000000000
+                Padding.Bottom = 10.000000000000000000
+                Margins.Left = 30.000000000000000000
+                Margins.Top = -5.000000000000000000
+                Margins.Right = 30.000000000000000000
+                Position.X = 30.000000000000000000
+                Position.Y = 62.000000000000000000
+                Size.Width = 286.000000000000000000
+                Size.Height = 50.000000000000000000
+                Size.PlatformDefault = False
+                Stroke.Color = claDimgray
+                Visible = False
+                XRadius = 4.000000000000000000
+                YRadius = 4.000000000000000000
+                CalloutWidth = 23.000000000000000000
+                CalloutLength = 8.000000000000000000
+                object gContactNumber: TGlyph
+                  Align = Left
+                  Position.X = 8.000000000000000000
+                  Position.Y = 15.000000000000000000
+                  Size.Width = 25.000000000000000000
+                  Size.Height = 25.000000000000000000
+                  Size.PlatformDefault = False
+                  ImageIndex = 31
+                  Images = dm.imgList
+                end
+                object lContactNumberW: TLabel
+                  Align = Client
+                  StyledSettings = [Family, Style]
+                  Margins.Left = 5.000000000000000000
+                  Size.Width = 248.000000000000000000
+                  Size.Height = 25.000000000000000000
+                  Size.PlatformDefault = False
+                  TextSettings.Font.Size = 13.000000000000000000
+                  Text = 'Please fill out this field.'
+                  TabOrder = 1
+                end
+                object ShadowEffect3: TShadowEffect
+                  Distance = 6.000000000000000000
+                  Direction = 55.000000000000000000
+                  Softness = 0.300000011920929000
+                  Opacity = 0.300000011920929000
+                  ShadowColor = claBlack
+                end
+              end
+            end
+            object lytEmailAddress: TLayout
+              Align = Top
+              Margins.Top = 20.000000000000000000
+              Position.Y = 320.000000000000000000
+              Size.Width = 346.000000000000000000
+              Size.Height = 70.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 6
+              object lEmailAddress: TLabel
+                Align = Top
+                StyledSettings = [Family]
+                Size.Width = 346.000000000000000000
+                Size.Height = 17.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Size = 14.000000000000000000
+                TextSettings.Font.StyleExt = {00060000000000000004000000}
+                Text = 'Email Address'
+                TabOrder = 0
+              end
+              object eEmailAddress: TEdit
+                Touch.InteractiveGestures = [LongTap, DoubleTap]
+                Align = Top
+                TabOrder = 1
+                TextSettings.Font.Size = 14.000000000000000000
+                Position.Y = 27.000000000000000000
+                Hint = 'Please fillout this field.'
+                HelpType = htKeyword
+                Margins.Top = 10.000000000000000000
+                Size.Width = 346.000000000000000000
+                Size.Height = 40.000000000000000000
+                Size.PlatformDefault = False
+                TextPrompt = 'Enter email address'
+                StyledSettings = [Family, Style]
+                ParentShowHint = False
+                ShowHint = True
+              end
+              object crEmailAddress: TCalloutRectangle
+                Align = Top
+                Fill.Color = claWhite
+                Padding.Left = 8.000000000000000000
+                Padding.Top = 15.000000000000000000
+                Padding.Bottom = 10.000000000000000000
+                Margins.Left = 30.000000000000000000
+                Margins.Top = -5.000000000000000000
+                Margins.Right = 30.000000000000000000
+                Position.X = 30.000000000000000000
+                Position.Y = 62.000000000000000000
+                Size.Width = 286.000000000000000000
+                Size.Height = 50.000000000000000000
+                Size.PlatformDefault = False
+                Stroke.Color = claDimgray
+                Visible = False
+                XRadius = 4.000000000000000000
+                YRadius = 4.000000000000000000
+                CalloutWidth = 23.000000000000000000
+                CalloutLength = 8.000000000000000000
+                object gEmailAddress: TGlyph
+                  Align = Left
+                  Position.X = 8.000000000000000000
+                  Position.Y = 15.000000000000000000
+                  Size.Width = 25.000000000000000000
+                  Size.Height = 25.000000000000000000
+                  Size.PlatformDefault = False
+                  ImageIndex = 31
+                  Images = dm.imgList
+                end
+                object lEmailAddressW: TLabel
+                  Align = Client
+                  StyledSettings = [Family, Style]
+                  Margins.Left = 5.000000000000000000
+                  Size.Width = 248.000000000000000000
+                  Size.Height = 25.000000000000000000
+                  Size.PlatformDefault = False
+                  TextSettings.Font.Size = 13.000000000000000000
+                  Text = 'Please fill out this field.'
+                  TabOrder = 1
+                end
+                object ShadowEffect2: TShadowEffect
+                  Distance = 6.000000000000000000
+                  Direction = 55.000000000000000000
+                  Softness = 0.300000011920929000
+                  Opacity = 0.300000011920929000
+                  ShadowColor = claBlack
+                end
+              end
+            end
+            object lytFullName: TLayout
+              Align = Top
+              Margins.Top = 20.000000000000000000
+              Position.Y = 50.000000000000000000
+              Size.Width = 346.000000000000000000
+              Size.Height = 70.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 5
+              object lbFullName: TLabel
+                Align = Top
+                StyledSettings = [Family]
+                Size.Width = 346.000000000000000000
+                Size.Height = 17.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Size = 14.000000000000000000
+                TextSettings.Font.StyleExt = {00060000000000000004000000}
+                Text = 'Full Name'
+                TabOrder = 0
+              end
+              object eFullName: TEdit
+                Touch.InteractiveGestures = [LongTap, DoubleTap]
+                Align = Top
+                TabOrder = 1
+                TextSettings.Font.Size = 14.000000000000000000
+                Position.Y = 27.000000000000000000
+                Hint = 'Please fillout this field.'
+                HelpType = htKeyword
+                Margins.Top = 10.000000000000000000
+                Size.Width = 346.000000000000000000
+                Size.Height = 40.000000000000000000
+                Size.PlatformDefault = False
+                TextPrompt = 'Enter full name'
+                StyledSettings = [Family, Style]
+                ParentShowHint = False
+                ShowHint = True
+              end
+              object crFullName: TCalloutRectangle
+                Align = Top
+                Fill.Color = claWhite
+                Padding.Left = 8.000000000000000000
+                Padding.Top = 15.000000000000000000
+                Padding.Bottom = 10.000000000000000000
+                Margins.Left = 30.000000000000000000
+                Margins.Top = -5.000000000000000000
+                Margins.Right = 30.000000000000000000
+                Position.X = 30.000000000000000000
+                Position.Y = 62.000000000000000000
+                Size.Width = 286.000000000000000000
+                Size.Height = 50.000000000000000000
+                Size.PlatformDefault = False
+                Stroke.Color = claDimgray
+                Visible = False
+                XRadius = 4.000000000000000000
+                YRadius = 4.000000000000000000
+                CalloutWidth = 23.000000000000000000
+                CalloutLength = 8.000000000000000000
+                object gFullName: TGlyph
+                  Align = Left
+                  Position.X = 8.000000000000000000
+                  Position.Y = 15.000000000000000000
+                  Size.Width = 25.000000000000000000
+                  Size.Height = 25.000000000000000000
+                  Size.PlatformDefault = False
+                  ImageIndex = 31
+                  Images = dm.imgList
+                end
+                object lFullNameW: TLabel
+                  Align = Client
+                  StyledSettings = [Family, Style]
+                  Margins.Left = 5.000000000000000000
+                  Size.Width = 248.000000000000000000
+                  Size.Height = 25.000000000000000000
+                  Size.PlatformDefault = False
+                  TextSettings.Font.Size = 13.000000000000000000
+                  Text = 'Please fill out this field.'
+                  TabOrder = 1
+                end
+                object ShadowEffect1: TShadowEffect
+                  Distance = 6.000000000000000000
+                  Direction = 55.000000000000000000
+                  Softness = 0.300000011920929000
+                  Opacity = 0.300000011920929000
+                  ShadowColor = claBlack
+                end
+              end
+            end
+            object lytUsername: TLayout
+              Align = Top
+              Margins.Top = 20.000000000000000000
+              Position.Y = 140.000000000000000000
+              Size.Width = 346.000000000000000000
+              Size.Height = 70.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 4
+              object lUserName: TLabel
+                Align = Top
+                StyledSettings = [Family]
+                Size.Width = 346.000000000000000000
+                Size.Height = 17.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Size = 14.000000000000000000
+                TextSettings.Font.StyleExt = {00060000000000000004000000}
+                Text = 'Username'
+                TabOrder = 0
+              end
+              object eUsername: TEdit
+                Touch.InteractiveGestures = [LongTap, DoubleTap]
+                Align = Top
+                TabOrder = 1
+                TextSettings.Font.Size = 14.000000000000000000
+                Position.Y = 27.000000000000000000
+                Hint = 'Please fillout this field.'
+                HelpType = htKeyword
+                Margins.Top = 10.000000000000000000
+                Size.Width = 346.000000000000000000
+                Size.Height = 40.000000000000000000
+                Size.PlatformDefault = False
+                TextPrompt = 'Enter username'
+                StyledSettings = [Family, Style]
+                ParentShowHint = False
+                ShowHint = True
+              end
+              object crUsername: TCalloutRectangle
+                Align = Top
+                Fill.Color = claWhite
+                Padding.Left = 8.000000000000000000
+                Padding.Top = 15.000000000000000000
+                Padding.Bottom = 10.000000000000000000
+                Margins.Left = 30.000000000000000000
+                Margins.Top = -5.000000000000000000
+                Margins.Right = 30.000000000000000000
+                Position.X = 30.000000000000000000
+                Position.Y = 62.000000000000000000
+                Size.Width = 286.000000000000000000
+                Size.Height = 50.000000000000000000
+                Size.PlatformDefault = False
+                Stroke.Color = claDimgray
+                Visible = False
+                XRadius = 4.000000000000000000
+                YRadius = 4.000000000000000000
+                CalloutWidth = 23.000000000000000000
+                CalloutLength = 8.000000000000000000
+                object gUsername: TGlyph
+                  Align = Left
+                  Position.X = 8.000000000000000000
+                  Position.Y = 15.000000000000000000
+                  Size.Width = 25.000000000000000000
+                  Size.Height = 25.000000000000000000
+                  Size.PlatformDefault = False
+                  ImageIndex = 31
+                  Images = dm.imgList
+                end
+                object lUsernameW: TLabel
+                  Align = Client
+                  StyledSettings = [Family, Style]
+                  Margins.Left = 5.000000000000000000
+                  Size.Width = 248.000000000000000000
+                  Size.Height = 25.000000000000000000
+                  Size.PlatformDefault = False
+                  TextSettings.Font.Size = 13.000000000000000000
+                  Text = 'Please fill out this field.'
+                  TabOrder = 1
+                end
+                object ShadowEffect4: TShadowEffect
+                  Distance = 6.000000000000000000
+                  Direction = 55.000000000000000000
+                  Softness = 0.300000011920929000
+                  Opacity = 0.300000011920929000
+                  ShadowColor = claBlack
+                end
+              end
+            end
+            object lytPassword: TLayout
+              Align = Top
+              Margins.Top = 20.000000000000000000
+              Position.Y = 230.000000000000000000
+              Size.Width = 346.000000000000000000
+              Size.Height = 70.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 3
+              object lPassword: TLabel
+                Align = Top
+                StyledSettings = [Family]
+                Size.Width = 346.000000000000000000
+                Size.Height = 17.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Size = 14.000000000000000000
+                TextSettings.Font.StyleExt = {00060000000000000004000000}
+                Text = 'Password'
+                TabOrder = 0
+              end
+              object ePassword: TEdit
+                Touch.InteractiveGestures = [LongTap, DoubleTap]
+                Align = Top
+                TabOrder = 1
+                TextSettings.Font.Size = 14.000000000000000000
+                Position.Y = 27.000000000000000000
+                Hint = 'Please fillout this field.'
+                HelpType = htKeyword
+                Margins.Top = 10.000000000000000000
+                Size.Width = 346.000000000000000000
+                Size.Height = 40.000000000000000000
+                Size.PlatformDefault = False
+                TextPrompt = 'Enter username'
+                StyledSettings = [Family, Style]
+                ParentShowHint = False
+                ShowHint = True
+              end
+              object crPassword: TCalloutRectangle
+                Align = Top
+                Fill.Color = claWhite
+                Padding.Left = 8.000000000000000000
+                Padding.Top = 15.000000000000000000
+                Padding.Bottom = 10.000000000000000000
+                Margins.Left = 30.000000000000000000
+                Margins.Top = -5.000000000000000000
+                Margins.Right = 30.000000000000000000
+                Position.X = 30.000000000000000000
+                Position.Y = 62.000000000000000000
+                Size.Width = 286.000000000000000000
+                Size.Height = 50.000000000000000000
+                Size.PlatformDefault = False
+                Stroke.Color = claDimgray
+                Visible = False
+                XRadius = 4.000000000000000000
+                YRadius = 4.000000000000000000
+                CalloutWidth = 23.000000000000000000
+                CalloutLength = 8.000000000000000000
+                object gPassword: TGlyph
+                  Align = Left
+                  Position.X = 8.000000000000000000
+                  Position.Y = 15.000000000000000000
+                  Size.Width = 25.000000000000000000
+                  Size.Height = 25.000000000000000000
+                  Size.PlatformDefault = False
+                  ImageIndex = 31
+                  Images = dm.imgList
+                end
+                object lPasswordW: TLabel
+                  Align = Client
+                  StyledSettings = [Family, Style]
+                  Margins.Left = 5.000000000000000000
+                  Size.Width = 248.000000000000000000
+                  Size.Height = 25.000000000000000000
+                  Size.PlatformDefault = False
+                  TextSettings.Font.Size = 13.000000000000000000
+                  Text = 'Please fill out this field.'
+                  TabOrder = 1
+                end
+                object ShadowEffect5: TShadowEffect
+                  Distance = 6.000000000000000000
+                  Direction = 55.000000000000000000
+                  Softness = 0.300000011920929000
+                  Opacity = 0.300000011920929000
+                  ShadowColor = claBlack
+                end
+              end
             end
           end
         end
@@ -354,7 +692,7 @@ object fUserModal: TfUserModal
           Padding.Bottom = 20.000000000000000000
           Margins.Top = 20.000000000000000000
           Position.X = 25.000000000000000000
-          Position.Y = 555.000000000000000000
+          Position.Y = 745.000000000000000000
           Size.Width = 396.000000000000000000
           Size.Height = 410.000000000000000000
           Size.PlatformDefault = False
@@ -377,7 +715,7 @@ object fUserModal: TfUserModal
               Size.Height = 60.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 4
-              object btnCreateUser: TCornerButton
+              object btnSaveUser: TCornerButton
                 Align = Right
                 Position.X = 226.000000000000000000
                 Position.Y = 10.000000000000000000
@@ -390,17 +728,7 @@ object fUserModal: TfUserModal
                 TextSettings.Trimming = None
                 XRadius = 13.000000000000000000
                 YRadius = 13.000000000000000000
-              end
-              object lTag: TLabel
-                Align = Left
-                StyledSettings = [Family, Size, Style]
-                Position.Y = 10.000000000000000000
-                Size.Width = 201.000000000000000000
-                Size.Height = 40.000000000000000000
-                Size.PlatformDefault = False
-                Text = 'Tag Number :'
-                Visible = False
-                TabOrder = 10
+                OnClick = btnSaveUserClick
               end
               object btnCancel: TCornerButton
                 Align = Right
@@ -416,6 +744,7 @@ object fUserModal: TfUserModal
                 TextSettings.Trimming = None
                 XRadius = 13.000000000000000000
                 YRadius = 13.000000000000000000
+                OnClick = btnCancelClick
               end
             end
             object lytRole: TLayout
@@ -441,6 +770,7 @@ object fUserModal: TfUserModal
               end
               object cbRole: TComboBox
                 Align = Top
+                DisableMouseWheel = True
                 Items.Strings = (
                   'Admin'
                   'Receptionist')
@@ -486,6 +816,7 @@ object fUserModal: TfUserModal
               end
               object cbStatus: TComboBox
                 Align = Top
+                DisableMouseWheel = True
                 Items.Strings = (
                   'Active'
                   'Inactive')
@@ -523,7 +854,7 @@ object fUserModal: TfUserModal
                   Text = 'Role & Access'
                 end>
             end
-            object Layout1: TLayout
+            object lytDepartment: TLayout
               Align = Top
               Margins.Top = 20.000000000000000000
               Position.Y = 134.000000000000000000

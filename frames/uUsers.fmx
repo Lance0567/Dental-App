@@ -72,6 +72,7 @@ object fUsers: TfUsers
           TextSettings.Trimming = None
           XRadius = 11.000000000000000000
           YRadius = 11.000000000000000000
+          OnClick = btnAddNewUserClick
         end
       end
     end
@@ -225,7 +226,7 @@ object fUsers: TfUsers
       Stroke.Color = xFFDBD9D9
       XRadius = 9.000000000000000000
       YRadius = 9.000000000000000000
-      object gPatients: TGrid
+      object gUsers: TGrid
         Align = Client
         CanFocus = True
         ClipChildren = True
@@ -233,8 +234,10 @@ object fUsers: TfUsers
         Size.Height = 86.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 4
-        Viewport.Width = 466.000000000000000000
-        Viewport.Height = 61.000000000000000000
+        Options = [ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
+        OnCellDblClick = gUsersCellDblClick
+        Viewport.Width = 470.000000000000000000
+        Viewport.Height = 86.000000000000000000
       end
     end
   end
