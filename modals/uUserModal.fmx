@@ -108,9 +108,9 @@ object fUserModal: TfUserModal
               TabOrder = 1
               object lytProfilePhoto: TLayout
                 Align = Left
-                Position.Y = 17.000000000000000000
+                Position.Y = 27.000000000000000000
                 Size.Width = 95.000000000000000000
-                Size.Height = 93.000000000000000000
+                Size.Height = 83.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 1
                 object cProfilePhoto: TCircle
@@ -166,7 +166,7 @@ object fUserModal: TfUserModal
                 Align = Client
                 Padding.Left = 5.000000000000000000
                 Size.Width = 251.000000000000000000
-                Size.Height = 93.000000000000000000
+                Size.Height = 83.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 2
                 object lytPhotoButtonH: TLayout
@@ -182,6 +182,7 @@ object fUserModal: TfUserModal
                   TabOrder = 0
                   object btnPhotoUpload: TCornerButton
                     Align = Left
+                    StyledSettings = [FontColor]
                     Images = dm.imgList
                     ImageIndex = 17
                     Position.Y = 5.000000000000000000
@@ -191,6 +192,9 @@ object fUserModal: TfUserModal
                     Size.PlatformDefault = False
                     TabOrder = 1
                     Text = 'Upload'
+                    TextSettings.Font.Family = 'Segoe UI Variable Display'
+                    TextSettings.Font.Size = 14.000000000000000000
+                    TextSettings.Font.StyleExt = {00060000000000000004000000}
                     TextSettings.Trimming = None
                     XRadius = 13.000000000000000000
                     YRadius = 13.000000000000000000
@@ -198,6 +202,7 @@ object fUserModal: TfUserModal
                   end
                   object btnCamera: TCornerButton
                     Align = Left
+                    StyledSettings = [FontColor]
                     Images = dm.imgList
                     ImageIndex = 18
                     Margins.Left = 10.000000000000000000
@@ -209,6 +214,9 @@ object fUserModal: TfUserModal
                     Size.PlatformDefault = False
                     TabOrder = 2
                     Text = 'Camera'
+                    TextSettings.Font.Family = 'Segoe UI Variable Display'
+                    TextSettings.Font.Size = 14.000000000000000000
+                    TextSettings.Font.StyleExt = {00060000000000000004000000}
                     TextSettings.Trimming = None
                     XRadius = 13.000000000000000000
                     YRadius = 13.000000000000000000
@@ -232,6 +240,7 @@ object fUserModal: TfUserModal
               object lProfilePhoto: TLabel
                 Align = Top
                 StyledSettings = [Family]
+                Margins.Bottom = 10.000000000000000000
                 Size.Width = 346.000000000000000000
                 Size.Height = 17.000000000000000000
                 Size.PlatformDefault = False
@@ -719,6 +728,7 @@ object fUserModal: TfUserModal
               TabOrder = 4
               object btnSaveUser: TCornerButton
                 Align = Right
+                StyledSettings = []
                 Position.X = 226.000000000000000000
                 Position.Y = 10.000000000000000000
                 Sides = [Top, Left, Bottom, Right]
@@ -727,6 +737,10 @@ object fUserModal: TfUserModal
                 Size.PlatformDefault = False
                 TabOrder = 9
                 Text = 'Create User'
+                TextSettings.Font.Family = 'Segoe UI Variable Display'
+                TextSettings.Font.Size = 14.000000000000000000
+                TextSettings.Font.StyleExt = {00060000000000000004000000}
+                TextSettings.FontColor = xFF004D47
                 TextSettings.Trimming = None
                 XRadius = 13.000000000000000000
                 YRadius = 13.000000000000000000
@@ -734,6 +748,7 @@ object fUserModal: TfUserModal
               end
               object btnCancel: TCornerButton
                 Align = Right
+                StyledSettings = [FontColor]
                 Margins.Right = 10.000000000000000000
                 Position.X = 136.000000000000000000
                 Position.Y = 10.000000000000000000
@@ -743,6 +758,9 @@ object fUserModal: TfUserModal
                 Size.PlatformDefault = False
                 TabOrder = 8
                 Text = 'Cancel'
+                TextSettings.Font.Family = 'Segoe UI Variable Display'
+                TextSettings.Font.Size = 14.000000000000000000
+                TextSettings.Font.StyleExt = {00060000000000000004000000}
                 TextSettings.Trimming = None
                 XRadius = 13.000000000000000000
                 YRadius = 13.000000000000000000
@@ -838,7 +856,7 @@ object fUserModal: TfUserModal
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
                   Text = 'Active'
-                  TabOrder = 85
+                  TabOrder = 86
                 end
               end
             end
