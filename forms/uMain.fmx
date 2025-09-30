@@ -756,7 +756,6 @@ object frmMain: TfrmMain
               Position.X = 484.000000000000000000
               StyleLookup = 'btnSavePatientStyle1'
               TabOrder = 5
-              TextSettings.Font.Size = 14.000000000000000000
               TextSettings.Font.StyleExt = {00060000000000000004000000}
               OnClick = fPatientModalbtnSavePatientClick
             end
@@ -764,10 +763,8 @@ object frmMain: TfrmMain
               TabOrder = 4
             end
             inherited btnCancel: TCornerButton
-              StyledSettings = [Family, FontColor]
               Position.X = 384.000000000000000000
-              StyleLookup = 'btnPhotoUploadStyle1'
-              TextSettings.Font.Size = 14.000000000000000000
+              StyleLookup = 'btnCancelStyle1'
               TextSettings.Font.StyleExt = {00060000000000000004000000}
             end
           end
@@ -779,8 +776,8 @@ object frmMain: TfrmMain
             end
             inherited mMedicalNotes: TMemo
               Size.Width = 589.000000000000000000
-              Viewport.Width = 569.000000000000000000
-              Viewport.Height = 105.000000000000000000
+              Viewport.Width = 589.000000000000000000
+              Viewport.Height = 125.000000000000000000
             end
           end
           inherited lytPatientH: TLayout
@@ -995,6 +992,17 @@ object frmMain: TfrmMain
                   Size.Width = 384.000000000000000000
                   inherited lytPhotoButtonH: TLayout
                     Size.Width = 379.000000000000000000
+                    inherited btnPhotoUpload: TCornerButton
+                      Size.Width = 120.000000000000000000
+                      StyleLookup = 'btnPhotoUploadStyle1'
+                      TextSettings.Font.StyleExt = {00060000000000000004000000}
+                    end
+                    inherited btnCamera: TCornerButton
+                      Position.X = 130.000000000000000000
+                      Size.Width = 120.000000000000000000
+                      StyleLookup = 'btnPhotoUploadStyle1'
+                      TextSettings.Font.StyleExt = {00060000000000000004000000}
+                    end
                   end
                   inherited lProfileUploadDesc: TLabel
                     Size.Width = 377.000000000000000000
@@ -1071,9 +1079,13 @@ object frmMain: TfrmMain
                 Size.Width = 479.000000000000000000
                 inherited btnSaveUser: TCornerButton
                   Position.X = 359.000000000000000000
+                  StyleLookup = 'btnSavePatientStyle1'
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
                 end
                 inherited btnCancel: TCornerButton
                   Position.X = 269.000000000000000000
+                  StyleLookup = 'btnCancelStyle1'
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
                 end
               end
               inherited lytRole: TLayout
@@ -1086,6 +1098,7 @@ object frmMain: TfrmMain
                   Size.Width = 479.000000000000000000
                   inherited lRoleInput: TLabel
                     Size.Width = 474.000000000000000000
+                    TabOrder = 86
                   end
                 end
               end
@@ -1099,6 +1112,7 @@ object frmMain: TfrmMain
                   Size.Width = 479.000000000000000000
                   inherited lStatusInput: TLabel
                     Size.Width = 474.000000000000000000
+                    TabOrder = 86
                   end
                 end
               end

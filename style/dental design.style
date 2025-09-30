@@ -42174,7 +42174,7 @@ object TStyleContainer
     StyleName = 'cornerbuttonstyle'
     Align = Center
     Visible = False
-    TabOrder = 110
+    TabOrder = 111
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -42234,7 +42234,7 @@ object TStyleContainer
     StyleName = 'textcellstyle'
     Align = Center
     Visible = False
-    TabOrder = 111
+    TabOrder = 112
     object TLayout
       StyleName = 'content'
       Align = Contents
@@ -42267,7 +42267,7 @@ object TStyleContainer
     StyleName = 'checkcellstyle'
     Align = Center
     Visible = False
-    TabOrder = 112
+    TabOrder = 113
     object TLayout
       Align = Left
       Size.Width = 20.000000000000000000
@@ -42546,7 +42546,7 @@ object TStyleContainer
     StyleName = 'progresscellstyle'
     Align = Center
     Visible = False
-    TabOrder = 113
+    TabOrder = 114
     object TLayout
       StyleName = 'track'
       Align = Contents
@@ -42680,7 +42680,7 @@ object TStyleContainer
     StyleName = 'popupcellstyle'
     Align = Center
     Visible = False
-    TabOrder = 114
+    TabOrder = 115
     object TLayout
       Align = Right
       Position.X = 35.000000000000000000
@@ -42734,7 +42734,7 @@ object TStyleContainer
     StyleName = 'imagecellstyle'
     Align = Center
     Visible = False
-    TabOrder = 115
+    TabOrder = 116
     object TImage
       StyleName = 'image'
       MultiResBitmap = <
@@ -44221,7 +44221,7 @@ object TStyleContainer
     StyleName = 'tableviewstyle'
     Align = Center
     Visible = False
-    TabOrder = 117
+    TabOrder = 118
     object TBrushObject
       StyleName = 'AlternatingRowBackground'
       Brush.Color = xFF191919
@@ -44344,7 +44344,7 @@ object TStyleContainer
     StyleName = 'magnifierglassstyle'
     Align = Center
     Visible = False
-    TabOrder = 118
+    TabOrder = 119
     FixedWidth = 150
     FixedHeight = 150
     object TCircle
@@ -44409,7 +44409,7 @@ object TStyleContainer
     Size.Height = 50.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 119
+    TabOrder = 120
     object TRectangle
       StyleName = 'content'
       Align = Client
@@ -44480,7 +44480,7 @@ object TStyleContainer
     Size.Height = 50.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 120
+    TabOrder = 121
     object TRectangle
       StyleName = 'content'
       Align = Client
@@ -44495,7 +44495,7 @@ object TStyleContainer
     StyleName = 'backtoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 121
+    TabOrder = 122
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -44763,7 +44763,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 122
+    TabOrder = 123
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -45075,7 +45075,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 123
+    TabOrder = 124
     object TButtonStyleObject
       StyleName = 'background'
       Align = Contents
@@ -45299,7 +45299,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 124
+    TabOrder = 125
     object TButtonStyleObject
       StyleName = 'background'
       Align = Contents
@@ -45523,7 +45523,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 125
+    TabOrder = 126
     object TButtonStyleObject
       StyleName = 'background'
       Align = Contents
@@ -45747,7 +45747,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 126
+    TabOrder = 127
     FixedHeight = 46
     object TButtonStyleObject
       StyleName = 'background'
@@ -45938,7 +45938,7 @@ object TStyleContainer
     StyleName = 'tooledit'
     Align = Center
     Visible = False
-    TabOrder = 127
+    TabOrder = 128
     FixedHeight = 32
     object TActiveStyleObject
       StyleName = 'background'
@@ -46072,7 +46072,7 @@ object TStyleContainer
     StyleName = 'searchedit'
     Align = Center
     Visible = False
-    TabOrder = 128
+    TabOrder = 129
     FixedHeight = 32
     object TActiveStyleObject
       StyleName = 'background'
@@ -46205,7 +46205,7 @@ object TStyleContainer
     StyleName = 'stepperbuttonleft'
     Align = Center
     Visible = False
-    TabOrder = 129
+    TabOrder = 130
     FixedWidth = 47
     FixedHeight = 29
     object TButtonStyleObject
@@ -46462,7 +46462,7 @@ object TStyleContainer
     StyleName = 'stepperbuttonright'
     Align = Center
     Visible = False
-    TabOrder = 130
+    TabOrder = 131
     FixedWidth = 47
     FixedHeight = 29
     object TButtonStyleObject
@@ -46722,7 +46722,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 131
+    TabOrder = 132
     FixedHeight = 46
     object TButtonStyleObject
       StyleName = 'background'
@@ -46915,7 +46915,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 132
+    TabOrder = 133
     FixedHeight = 46
     object TButtonStyleObject
       StyleName = 'background'
@@ -47108,7 +47108,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 133
+    TabOrder = 134
     FixedHeight = 46
     object TButtonStyleObject
       StyleName = 'background'
@@ -47301,7 +47301,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 134
+    TabOrder = 135
     FixedHeight = 46
     object TButtonStyleObject
       StyleName = 'background'
@@ -47491,7 +47491,7 @@ object TStyleContainer
     StyleName = 'refreshtoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 135
+    TabOrder = 136
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -47759,7 +47759,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 136
+    TabOrder = 137
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -48068,7 +48068,7 @@ object TStyleContainer
     StyleName = 'actiontoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 137
+    TabOrder = 138
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -48336,7 +48336,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 138
+    TabOrder = 139
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -48645,7 +48645,7 @@ object TStyleContainer
     StyleName = 'playtoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 139
+    TabOrder = 140
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -48913,7 +48913,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 140
+    TabOrder = 141
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -49222,7 +49222,7 @@ object TStyleContainer
     StyleName = 'rewindtoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 141
+    TabOrder = 142
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -49490,7 +49490,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 142
+    TabOrder = 143
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -49799,7 +49799,7 @@ object TStyleContainer
     StyleName = 'forwardtoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 143
+    TabOrder = 144
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -50067,7 +50067,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 144
+    TabOrder = 145
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -50376,7 +50376,7 @@ object TStyleContainer
     StyleName = 'pausetoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 145
+    TabOrder = 146
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -50644,7 +50644,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 146
+    TabOrder = 147
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -50953,7 +50953,7 @@ object TStyleContainer
     StyleName = 'stoptoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 147
+    TabOrder = 148
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -51221,7 +51221,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 148
+    TabOrder = 149
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -51530,7 +51530,7 @@ object TStyleContainer
     StyleName = 'addtoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 149
+    TabOrder = 150
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -51798,7 +51798,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 150
+    TabOrder = 151
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -52107,7 +52107,7 @@ object TStyleContainer
     StyleName = 'priortoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 151
+    TabOrder = 152
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -52375,7 +52375,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 152
+    TabOrder = 153
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -52684,7 +52684,7 @@ object TStyleContainer
     StyleName = 'nexttoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 153
+    TabOrder = 154
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -52952,7 +52952,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 154
+    TabOrder = 155
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -53261,7 +53261,7 @@ object TStyleContainer
     StyleName = 'arrowuptoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 155
+    TabOrder = 156
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -53529,7 +53529,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 156
+    TabOrder = 157
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -53838,7 +53838,7 @@ object TStyleContainer
     StyleName = 'arrowuptoolbuttonborderedleft'
     Align = Center
     Visible = False
-    TabOrder = 157
+    TabOrder = 158
     FixedHeight = 46
     object TButtonStyleObject
       StyleName = 'background'
@@ -54132,7 +54132,7 @@ object TStyleContainer
     StyleName = 'arrowdowntoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 158
+    TabOrder = 159
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -54400,7 +54400,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 159
+    TabOrder = 160
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -54709,7 +54709,7 @@ object TStyleContainer
     StyleName = 'arrowdowntoolbuttonborderedright'
     Align = Center
     Visible = False
-    TabOrder = 160
+    TabOrder = 161
     FixedHeight = 46
     object TButtonStyleObject
       StyleName = 'background'
@@ -55003,7 +55003,7 @@ object TStyleContainer
     StyleName = 'arrowlefttoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 161
+    TabOrder = 162
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -55271,7 +55271,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 162
+    TabOrder = 163
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -55580,7 +55580,7 @@ object TStyleContainer
     StyleName = 'arrowrighttoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 163
+    TabOrder = 164
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -55848,7 +55848,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 164
+    TabOrder = 165
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -56157,7 +56157,7 @@ object TStyleContainer
     StyleName = 'replytoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 165
+    TabOrder = 166
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -56425,7 +56425,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 166
+    TabOrder = 167
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -56734,7 +56734,7 @@ object TStyleContainer
     StyleName = 'searchtoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 167
+    TabOrder = 168
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -57002,7 +57002,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 168
+    TabOrder = 169
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -57311,7 +57311,7 @@ object TStyleContainer
     StyleName = 'bookmarkstoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 169
+    TabOrder = 170
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -57579,7 +57579,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 170
+    TabOrder = 171
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -57888,7 +57888,7 @@ object TStyleContainer
     StyleName = 'trashtoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 171
+    TabOrder = 172
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -58156,7 +58156,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 172
+    TabOrder = 173
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -58465,7 +58465,7 @@ object TStyleContainer
     StyleName = 'organizetoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 173
+    TabOrder = 174
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -58733,7 +58733,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 174
+    TabOrder = 175
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -59042,7 +59042,7 @@ object TStyleContainer
     StyleName = 'cameratoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 175
+    TabOrder = 176
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -59310,7 +59310,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 176
+    TabOrder = 177
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -59619,7 +59619,7 @@ object TStyleContainer
     StyleName = 'composetoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 177
+    TabOrder = 178
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -59887,7 +59887,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 178
+    TabOrder = 179
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -60196,7 +60196,7 @@ object TStyleContainer
     StyleName = 'infotoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 179
+    TabOrder = 180
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -60464,7 +60464,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 180
+    TabOrder = 181
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -60773,7 +60773,7 @@ object TStyleContainer
     StyleName = 'toollabel'
     Align = Center
     Visible = False
-    TabOrder = 181
+    TabOrder = 182
     object TText
       StyleName = 'text'
       Align = Client
@@ -60787,7 +60787,7 @@ object TStyleContainer
     StyleName = 'listboxheaderlabel'
     Align = Center
     Visible = False
-    TabOrder = 182
+    TabOrder = 183
     object TText
       StyleName = 'text'
       Align = Client
@@ -60844,7 +60844,7 @@ object TStyleContainer
     StyleName = 'pagecurltoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 184
+    TabOrder = 185
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -61109,7 +61109,7 @@ object TStyleContainer
     StyleName = 'transparentedit'
     Align = Center
     Visible = False
-    TabOrder = 185
+    TabOrder = 186
     FixedHeight = 32
     object TStyleObject
       StyleName = 'background'
@@ -61204,7 +61204,7 @@ object TStyleContainer
     StyleName = 'additembutton'
     Align = Center
     Visible = False
-    TabOrder = 186
+    TabOrder = 187
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -61469,7 +61469,7 @@ object TStyleContainer
     StyleName = 'deleteitembutton'
     Align = Center
     Visible = False
-    TabOrder = 187
+    TabOrder = 188
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -61734,7 +61734,7 @@ object TStyleContainer
     StyleName = 'detailstoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 188
+    TabOrder = 189
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -62003,7 +62003,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 189
+    TabOrder = 190
     FixedHeight = 65
     object TButtonStyleObject
       StyleName = 'background'
@@ -62359,7 +62359,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 190
+    TabOrder = 191
     FixedHeight = 29
     object TButtonStyleObject
       StyleName = 'background'
@@ -62552,7 +62552,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 191
+    TabOrder = 192
     FixedHeight = 29
     object TButtonStyleObject
       StyleName = 'background'
@@ -62745,7 +62745,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 192
+    TabOrder = 193
     FixedHeight = 46
     object TButtonStyleObject
       StyleName = 'background'
@@ -62935,7 +62935,7 @@ object TStyleContainer
     StyleName = 'spinleftbutton'
     Align = Center
     Visible = False
-    TabOrder = 193
+    TabOrder = 194
     FixedWidth = 28
     FixedHeight = 28
     object TButtonStyleObject
@@ -63192,7 +63192,7 @@ object TStyleContainer
     StyleName = 'spinrightbutton'
     Align = Center
     Visible = False
-    TabOrder = 194
+    TabOrder = 195
     FixedWidth = 28
     FixedHeight = 28
     object TButtonStyleObject
@@ -63449,7 +63449,7 @@ object TStyleContainer
     StyleName = 'ellipseseditbutton'
     Align = Center
     Visible = False
-    TabOrder = 195
+    TabOrder = 196
     FixedWidth = 28
     FixedHeight = 28
     object TButtonStyleObject
@@ -63706,7 +63706,7 @@ object TStyleContainer
     StyleName = 'passwordeditbutton'
     Align = Center
     Visible = False
-    TabOrder = 196
+    TabOrder = 197
     FixedWidth = 28
     FixedHeight = 28
     object TButtonStyleObject
@@ -63963,7 +63963,7 @@ object TStyleContainer
     StyleName = 'searcheditbutton'
     Align = Center
     Visible = False
-    TabOrder = 197
+    TabOrder = 198
     FixedWidth = 28
     FixedHeight = 28
     object TButtonStyleObject
@@ -64220,7 +64220,7 @@ object TStyleContainer
     StyleName = 'settingstoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 198
+    TabOrder = 199
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -64488,7 +64488,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 199
+    TabOrder = 200
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -64797,7 +64797,7 @@ object TStyleContainer
     StyleName = 'escapetoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 200
+    TabOrder = 201
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -65065,7 +65065,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 201
+    TabOrder = 202
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -65374,7 +65374,7 @@ object TStyleContainer
     StyleName = 'drawertoolbutton'
     Align = Center
     Visible = False
-    TabOrder = 202
+    TabOrder = 203
     FixedWidth = 46
     FixedHeight = 46
     object TButtonStyleObject
@@ -65642,7 +65642,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 203
+    TabOrder = 204
     FixedHeight = 50
     object TButtonStyleObject
       StyleName = 'background'
@@ -67106,7 +67106,7 @@ object TStyleContainer
     Size.Height = 35.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 107
+    TabOrder = 108
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -67127,7 +67127,7 @@ object TStyleContainer
     end
     object TGlyph
       StyleName = 'glyphstyle'
-      Margins.Left = 15.000000000000000000
+      Margins.Left = 20.000000000000000000
       Margins.Top = 4.000000000000000000
       Margins.Right = 2.000000000000000000
       Margins.Bottom = 2.000000000000000000
@@ -67141,13 +67141,13 @@ object TStyleContainer
       Align = Client
       Locked = True
       HitTest = False
-      Margins.Left = 5.000000000000000000
       Margins.Top = 2.000000000000000000
       Margins.Right = 5.000000000000000000
       Margins.Bottom = 2.000000000000000000
-      Size.Width = 105.000000000000000000
+      Size.Width = 110.000000000000000000
       Size.Height = 31.000000000000000000
       Size.PlatformDefault = False
+      Text = 'Text'
       TextSettings.Font.Size = 16.000000000000000000
       TextSettings.WordWrap = False
     end
@@ -67159,7 +67159,7 @@ object TStyleContainer
     Size.Height = 40.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 108
+    TabOrder = 109
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -70428,7 +70428,7 @@ object TStyleContainer
     Size.Height = 25.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 109
+    TabOrder = 110
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -70490,6 +70490,7 @@ object TStyleContainer
     Size.Width = 199.000000000000000000
     Size.Height = 250.000000000000000000
     Size.PlatformDefault = False
+    Visible = False
     TabOrder = 84
     object TBrushObject
       StyleName = 'AlternatingRowBackground'
@@ -70621,6 +70622,59 @@ object TStyleContainer
       Opacity = 0.899999976158142100
       Trigger = 'IsFocused=true'
       Enabled = False
+    end
+  end
+  object TLayout
+    StyleName = 'btnCancelStyle1'
+    Align = Center
+    Size.Width = 115.000000000000000000
+    Size.Height = 35.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 107
+    object TRectangle
+      StyleName = 'background'
+      Align = Contents
+      Fill.Color = claWhite
+      Locked = True
+      HitTest = False
+      Size.Width = 115.000000000000000000
+      Size.Height = 35.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Color = xFFDBD9D9
+      object TInnerGlowEffect
+        Softness = 0.100000001490116100
+        GlowColor = xFF4F4848
+        Opacity = 0.899999976158142100
+        Trigger = 'IsPressed=true'
+        Enabled = False
+      end
+    end
+    object TGlyph
+      StyleName = 'glyphstyle'
+      Margins.Left = 20.000000000000000000
+      Margins.Top = 4.000000000000000000
+      Margins.Right = 2.000000000000000000
+      Margins.Bottom = 2.000000000000000000
+      Align = Left
+      Size.Width = 16.000000000000000000
+      Size.Height = 16.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object TText
+      StyleName = 'text'
+      Align = Client
+      Locked = True
+      HitTest = False
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 2.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 2.000000000000000000
+      Size.Width = 105.000000000000000000
+      Size.Height = 31.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Text'
+      TextSettings.Font.Size = 16.000000000000000000
+      TextSettings.WordWrap = False
     end
   end
 end
