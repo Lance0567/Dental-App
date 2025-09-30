@@ -9543,10 +9543,10 @@ object fAppointments: TfAppointments
   object rCalendar: TRectangle
     Align = Client
     Fill.Color = claWhite
-    Padding.Left = 20.000000000000000000
-    Padding.Top = 20.000000000000000000
-    Padding.Right = 20.000000000000000000
-    Padding.Bottom = 20.000000000000000000
+    Padding.Left = 25.000000000000000000
+    Padding.Top = 25.000000000000000000
+    Padding.Right = 25.000000000000000000
+    Padding.Bottom = 25.000000000000000000
     Margins.Left = 30.000000000000000000
     Margins.Top = 20.000000000000000000
     Margins.Right = 30.000000000000000000
@@ -9556,6 +9556,17 @@ object fAppointments: TfAppointments
     Stroke.Color = xFFDBD9D9
     XRadius = 13.000000000000000000
     YRadius = 13.000000000000000000
+    object gAppointment: TGrid
+      Align = Client
+      CanFocus = True
+      ClipChildren = True
+      Size.Width = 470.000000000000000000
+      Size.Height = 176.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Viewport.Width = 466.000000000000000000
+      Viewport.Height = 151.000000000000000000
+    end
   end
   object lytBottom: TLayout
     Align = Bottom
