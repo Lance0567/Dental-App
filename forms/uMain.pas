@@ -168,6 +168,12 @@ begin
   else
     fPatients.gPatients.StyleLookup := '';
 
+  // Table style for Appointments
+  if dm.qAppointments.IsEmpty then
+    fAppointments.gAppointment.StyleLookup := 'gPatientStyle1'
+  else
+    fAppointments.gAppointment.StyleLookup := '';
+
   // Table style for Users
   if dm.qUsers.IsEmpty then
     fUsers.gUsers.StyleLookup := 'gPatientsStyle1'

@@ -333,8 +333,8 @@ object frmMain: TfrmMain
                     Size.Width = 199.000000000000000000
                     Size.Height = 250.000000000000000000
                     StyleLookup = 'gPatientsStyle1'
-                    Viewport.Width = 195.000000000000000000
-                    Viewport.Height = 220.000000000000000000
+                    Viewport.Width = 199.000000000000000000
+                    Viewport.Height = 250.000000000000000000
                   end
                 end
                 inherited rQuickActions: TRectangle
@@ -529,6 +529,12 @@ object frmMain: TfrmMain
             inherited rCalendar: TRectangle
               Size.Width = 545.000000000000000000
               Size.Height = 315.000000000000000000
+              inherited gAppointment: TGrid
+                Size.Width = 495.000000000000000000
+                Size.Height = 265.000000000000000000
+                Viewport.Width = 495.000000000000000000
+                Viewport.Height = 265.000000000000000000
+              end
             end
             inherited lytBottom: TLayout
               Position.Y = 480.000000000000000000
@@ -773,8 +779,8 @@ object frmMain: TfrmMain
             end
             inherited mMedicalNotes: TMemo
               Size.Width = 589.000000000000000000
-              Viewport.Width = 589.000000000000000000
-              Viewport.Height = 125.000000000000000000
+              Viewport.Width = 569.000000000000000000
+              Viewport.Height = 105.000000000000000000
             end
           end
           inherited lytPatientH: TLayout
@@ -792,18 +798,18 @@ object frmMain: TfrmMain
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
               end
               inherited btnUpload: TCornerButton
-                StyledSettings = [Family, FontColor]
+                Images = dm.imgList
+                ImageIndex = 17
                 Position.Y = 151.000000000000000000
                 StyleLookup = 'btnPhotoUploadStyle1'
-                TextSettings.Font.Size = 14.000000000000000000
                 TextSettings.Font.StyleExt = {00060000000000000004000000}
                 TextSettings.Trimming = Character
               end
               inherited btnCamera: TCornerButton
-                StyledSettings = [Family, FontColor]
+                Images = dm.imgList
+                ImageIndex = 18
                 Position.Y = 196.000000000000000000
                 StyleLookup = 'btnPhotoUploadStyle1'
-                TextSettings.Font.Size = 14.000000000000000000
                 TextSettings.Font.StyleExt = {00060000000000000004000000}
               end
             end
@@ -847,6 +853,7 @@ object frmMain: TfrmMain
                     inherited lGenderText: TLabel
                       Margins.Left = 10.000000000000000000
                       Size.Width = 185.000000000000000000
+                      TabOrder = 86
                     end
                   end
                 end
@@ -920,6 +927,7 @@ object frmMain: TfrmMain
             Size.Height = 35.000000000000000000
             inherited lCameraDesc: TLabel
               Size.Height = 35.000000000000000000
+              TabOrder = 86
             end
           end
         end
@@ -930,6 +938,11 @@ object frmMain: TfrmMain
         inherited btnTakePicture: TCornerButton
           TextSettings.Font.Size = 13.000000000000000000
           TextSettings.Font.StyleExt = {00060000000000000004000000}
+        end
+      end
+      inherited lytClosebtn: TLayout
+        inherited lPreviewImage: TLabel
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
         end
       end
     end
