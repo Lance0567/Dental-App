@@ -422,7 +422,10 @@ begin
     end;
   finally
     LOpenDialog.Free;
-    rImageFrame.Visible := True;
+    if imgProfilePhoto.Bitmap.IsEmpty then
+      rImageFrame.Visible := False
+    else
+      rImageFrame.Visible := True;
   end;
 end;
 

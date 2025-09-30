@@ -54,7 +54,7 @@ object fPatientModal: TfPatientModal
           TabOrder = 2
           object btnSavePatient: TCornerButton
             Align = Right
-            StyledSettings = [Family]
+            StyledSettings = []
             Position.X = 401.000000000000000000
             Position.Y = 10.000000000000000000
             Sides = [Top, Left, Bottom, Right]
@@ -63,6 +63,8 @@ object fPatientModal: TfPatientModal
             Size.PlatformDefault = False
             TabOrder = 4
             Text = 'Save Patient'
+            TextSettings.Font.Family = 'Segoe UI Variable Display'
+            TextSettings.Font.Size = 14.000000000000000000
             TextSettings.Font.StyleExt = {00060000000000000004000000}
             TextSettings.FontColor = xFF004D47
             TextSettings.Trimming = None
@@ -83,6 +85,7 @@ object fPatientModal: TfPatientModal
           end
           object btnCancel: TCornerButton
             Align = Right
+            StyledSettings = [FontColor]
             Margins.Left = 25.000000000000000000
             Margins.Right = 10.000000000000000000
             Position.X = 301.000000000000000000
@@ -93,6 +96,9 @@ object fPatientModal: TfPatientModal
             Size.PlatformDefault = False
             TabOrder = 3
             Text = 'Cancel'
+            TextSettings.Font.Family = 'Segoe UI Variable Display'
+            TextSettings.Font.Size = 14.000000000000000000
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
             TextSettings.Trimming = None
             XRadius = 13.000000000000000000
             YRadius = 13.000000000000000000
@@ -221,17 +227,21 @@ object fPatientModal: TfPatientModal
             end
             object btnUpload: TCornerButton
               Align = Top
-              Margins.Left = 30.000000000000000000
+              StyledSettings = [FontColor]
+              Margins.Left = 40.000000000000000000
               Margins.Top = 15.000000000000000000
-              Margins.Right = 30.000000000000000000
-              Position.X = 30.000000000000000000
+              Margins.Right = 40.000000000000000000
+              Position.X = 40.000000000000000000
               Position.Y = 154.000000000000000000
               Sides = [Top, Left, Bottom, Right]
-              Size.Width = 141.000000000000000000
+              Size.Width = 121.000000000000000000
               Size.Height = 35.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 3
               Text = 'Upload'
+              TextSettings.Font.Family = 'Segoe UI Variable Display'
+              TextSettings.Font.Size = 14.000000000000000000
+              TextSettings.Font.StyleExt = {00060000000000000004000000}
               TextSettings.Trimming = None
               XRadius = 13.000000000000000000
               YRadius = 13.000000000000000000
@@ -239,17 +249,21 @@ object fPatientModal: TfPatientModal
             end
             object btnCamera: TCornerButton
               Align = Top
-              Margins.Left = 30.000000000000000000
+              StyledSettings = [FontColor]
+              Margins.Left = 40.000000000000000000
               Margins.Top = 10.000000000000000000
-              Margins.Right = 30.000000000000000000
-              Position.X = 30.000000000000000000
+              Margins.Right = 40.000000000000000000
+              Position.X = 40.000000000000000000
               Position.Y = 199.000000000000000000
               Sides = [Top, Left, Bottom, Right]
-              Size.Width = 141.000000000000000000
+              Size.Width = 121.000000000000000000
               Size.Height = 35.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 2
               Text = 'Camera'
+              TextSettings.Font.Family = 'Segoe UI Variable Display'
+              TextSettings.Font.Size = 14.000000000000000000
+              TextSettings.Font.StyleExt = {00060000000000000004000000}
               TextSettings.Trimming = None
               XRadius = 13.000000000000000000
               YRadius = 13.000000000000000000
@@ -669,6 +683,7 @@ object fPatientModal: TfPatientModal
     Size.Height = 400.000000000000000000
     Size.PlatformDefault = False
     Stroke.Color = claGray
+    Visible = False
     XRadius = 13.000000000000000000
     YRadius = 13.000000000000000000
     object lytImgTools: TLayout
@@ -717,7 +732,7 @@ object fPatientModal: TfPatientModal
             TextSettings.Font.Size = 14.000000000000000000
             TextSettings.FontColor = claDimgray
             Text = 'Default Camera'
-            TabOrder = 86
+            TabOrder = 85
           end
         end
       end
@@ -766,8 +781,8 @@ object fPatientModal: TfPatientModal
     end
     object lytClosebtn: TLayout
       Align = Top
-      Padding.Left = 10.000000000000000000
-      Padding.Top = 5.000000000000000000
+      Padding.Left = 20.000000000000000000
+      Padding.Top = 10.000000000000000000
       Padding.Right = 10.000000000000000000
       Size.Width = 400.000000000000000000
       Size.Height = 35.000000000000000000
@@ -776,9 +791,9 @@ object fPatientModal: TfPatientModal
       object btnCameraClose: TSpeedButton
         Align = Right
         Position.X = 360.000000000000000000
-        Position.Y = 5.000000000000000000
+        Position.Y = 10.000000000000000000
         Size.Width = 30.000000000000000000
-        Size.Height = 30.000000000000000000
+        Size.Height = 25.000000000000000000
         Size.PlatformDefault = False
         StyleLookup = 'cleareditbutton'
         Text = 'btnClose'
@@ -788,8 +803,8 @@ object fPatientModal: TfPatientModal
       object lPreviewImage: TLabel
         Align = Client
         StyledSettings = [Family]
-        Size.Width = 350.000000000000000000
-        Size.Height = 30.000000000000000000
+        Size.Width = 340.000000000000000000
+        Size.Height = 25.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Size = 18.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
