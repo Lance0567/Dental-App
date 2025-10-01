@@ -106,6 +106,7 @@ type
     procedure imgProfilePhotoClick(Sender: TObject);
     procedure btnUploadClick(Sender: TObject);
     procedure btnSaveCurrentImageClick(Sender: TObject);
+    procedure eContactNumberChangeTracking(Sender: TObject);
   private
     FCapturing: Boolean;
     FStatus: Boolean;
@@ -250,6 +251,10 @@ begin
 
   // Clear Image
   imgProfilePhoto.Bitmap := nil;
+
+  // Hide all warning validation
+  crContactNumber.Visible := False;
+  crFullName.Visible := False;
 end;
 
 { Save current image }
@@ -541,7 +546,7 @@ begin
   Self.Visible := False;
 end;
 
-{ Patient profile setter }
+{ Patient profile setter & fullname warning reset }
 procedure TfPatientModal.eFullNameChangeTracking(Sender: TObject);
 begin
   // Getter of first letter of the Full name
@@ -560,6 +565,14 @@ begin
     gIcon.ImageIndex := 10;
     lNameH.Visible := False;
   end;
+
+  crFullName.Visible := False;
+end;
+
+{ Contact number warning reset }
+procedure TfPatientModal.eContactNumberChangeTracking(Sender: TObject);
+begin
+  crContactNumber.Visible := False;
 end;
 
 { Details 1 responsive }

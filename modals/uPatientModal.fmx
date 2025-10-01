@@ -433,6 +433,7 @@ object fPatientModal: TfPatientModal
                   StyledSettings = [Family, Size, Style]
                   ParentShowHint = False
                   ShowHint = True
+                  OnChangeTracking = eContactNumberChangeTracking
                 end
                 object crContactNumber: TCalloutRectangle
                   Align = Top
