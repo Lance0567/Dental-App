@@ -170,7 +170,7 @@ begin
 
   // Table style for Appointments
   if dm.qAppointments.IsEmpty then
-    fAppointments.gAppointment.StyleLookup := 'gPatientStyle1'
+    fAppointments.gAppointment.StyleLookup := 'gPatientsStyle1'
   else
     fAppointments.gAppointment.StyleLookup := '';
 

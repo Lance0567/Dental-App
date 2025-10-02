@@ -56,7 +56,6 @@ type
     lbTitle: TLabel;
     btnClose: TSpeedButton;
     lTag: TLabel;
-    lGenderText: TLabel;
     lDateText: TLabel;
     btnCamera: TCornerButton;
     btnCancel: TCornerButton;
@@ -85,6 +84,7 @@ type
     ShadowEffect1: TShadowEffect;
     ShadowEffect2: TShadowEffect;
     lPreviewImage: TLabel;
+    GlowEffect1: TGlowEffect;
     procedure mMedicalNotesClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure eFullNameChangeTracking(Sender: TObject);
@@ -92,7 +92,6 @@ type
     procedure lytDetails1Resize(Sender: TObject);
     procedure lytDetails2Resize(Sender: TObject);
     procedure lytDetails3Resize(Sender: TObject);
-    procedure cbGenderChange(Sender: TObject);
     procedure mMedicalNotesExit(Sender: TObject);
     procedure deDateOfBirthChange(Sender: TObject);
     procedure btnSavePatientClick(Sender: TObject);
@@ -241,7 +240,6 @@ begin
 
   cbGender.ItemIndex := 0;
   eContactNumber.Text := '';
-  cbGender.ItemIndex := - 1;
   eEmailAddress.Text := '';
   eAddress.Text := '';
 
@@ -438,12 +436,6 @@ end;
 procedure TfPatientModal.cbCameraOptionChange(Sender: TObject);
 begin
   lCameraDesc.Text := cbCameraOption.Text;
-end;
-
-{ Gender display dropdown }
-procedure TfPatientModal.cbGenderChange(Sender: TObject);
-begin
-  lGenderText.Text := cbGender.Text;
 end;
 
 { Camera component buffer }

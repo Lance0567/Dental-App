@@ -149,9 +149,6 @@ begin
   frmMain.fPatientModal.Visible := True;
   frmMain.fPatientModal.gIcon.Visible := True;  // Show user ico
 
-  // Gender Display text value
-  frmMain.fPatientModal.lGenderText.Text := frmMain.fPatientModal.cbGender.Text;
-
   // Profile Icon
   frmMain.fPatientModal.gIcon.ImageIndex := 10;
   frmMain.fPatientModal.gIcon.Visible := True;

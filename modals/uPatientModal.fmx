@@ -144,6 +144,13 @@ object fPatientModal: TfPatientModal
             OnClick = mMedicalNotesClick
             Viewport.Width = 502.000000000000000000
             Viewport.Height = 121.000000000000000000
+            object GlowEffect1: TGlowEffect
+              Softness = 0.200000002980232200
+              GlowColor = claBlack
+              Opacity = 0.899999976158142100
+              Trigger = 'IsFocused=true'
+              Enabled = False
+            end
           end
         end
         object lytPatientH: TLayout
@@ -306,13 +313,15 @@ object fPatientModal: TfPatientModal
                   Touch.InteractiveGestures = [LongTap, DoubleTap]
                   Align = Top
                   TabOrder = 5
+                  TextSettings.Font.Family = 'Segoe UI Variable Small'
+                  TextSettings.Font.Size = 14.000000000000000000
                   Position.Y = 27.000000000000000000
                   Margins.Top = 10.000000000000000000
                   Size.Width = 165.000000000000000000
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
                   TextPrompt = 'Enter email address'
-                  StyledSettings = [Family, Size, Style]
+                  StyledSettings = [Family, Style, FontColor]
                 end
               end
               object lytAddress: TLayout
@@ -338,13 +347,15 @@ object fPatientModal: TfPatientModal
                   Touch.InteractiveGestures = [LongTap, DoubleTap]
                   Align = Top
                   TabOrder = 6
+                  TextSettings.Font.Family = 'Segoe UI Variable Small'
+                  TextSettings.Font.Size = 14.000000000000000000
                   Position.Y = 27.000000000000000000
                   Margins.Top = 10.000000000000000000
                   Size.Width = 165.000000000000000000
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
                   TextPrompt = 'Enter full address'
-                  StyledSettings = [Family, Size, Style]
+                  StyledSettings = [Family, Style, FontColor]
                 end
               end
             end
@@ -387,17 +398,6 @@ object fPatientModal: TfPatientModal
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
                   TabOrder = 3
-                  OnChange = cbGenderChange
-                  object lGenderText: TLabel
-                    Align = Client
-                    StyledSettings = [Family, Size, Style]
-                    Margins.Left = 5.000000000000000000
-                    Size.Width = 160.000000000000000000
-                    Size.Height = 40.000000000000000000
-                    Size.PlatformDefault = False
-                    Text = 'Male'
-                    TabOrder = 86
-                  end
                 end
               end
               object lytContactNumber: TLayout
@@ -423,6 +423,8 @@ object fPatientModal: TfPatientModal
                   Touch.InteractiveGestures = [LongTap, DoubleTap]
                   Align = Top
                   TabOrder = 4
+                  TextSettings.Font.Family = 'Segoe UI Variable Small'
+                  TextSettings.Font.Size = 14.000000000000000000
                   Position.Y = 27.000000000000000000
                   Hint = 'Please fillout this field.'
                   Margins.Top = 10.000000000000000000
@@ -430,7 +432,7 @@ object fPatientModal: TfPatientModal
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
                   TextPrompt = 'Enter contact number'
-                  StyledSettings = [Family, Size, Style]
+                  StyledSettings = [Style]
                   ParentShowHint = False
                   ShowHint = True
                   OnChangeTracking = eContactNumberChangeTracking
@@ -514,6 +516,8 @@ object fPatientModal: TfPatientModal
                   Touch.InteractiveGestures = [LongTap, DoubleTap]
                   Align = Top
                   TabOrder = 1
+                  TextSettings.Font.Family = 'Segoe UI Variable Small'
+                  TextSettings.Font.Size = 14.000000000000000000
                   Position.Y = 27.000000000000000000
                   Hint = 'Please fillout this field.'
                   HelpType = htKeyword
@@ -522,7 +526,7 @@ object fPatientModal: TfPatientModal
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
                   TextPrompt = 'Enter patient'#39's full name'
-                  StyledSettings = [Family, Size, Style]
+                  StyledSettings = [Family, Style]
                   ParentShowHint = False
                   ShowHint = True
                   OnChangeTracking = eFullNameChangeTracking
@@ -605,17 +609,20 @@ object fPatientModal: TfPatientModal
                   Size.Width = 165.000000000000000000
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
-                  StyledSettings = [Family, Size, Style]
+                  StyledSettings = [Family]
                   TabOrder = 2
+                  TextSettings.Font.Size = 14.000000000000000000
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
                   TextSettings.FontColor = claWhite
                   object lDateText: TLabel
                     Align = Client
-                    StyledSettings = [Family, Size, Style]
+                    StyledSettings = [Family, Style]
                     Margins.Left = 45.000000000000000000
                     Margins.Top = -3.000000000000000000
                     Size.Width = 120.000000000000000000
                     Size.Height = 43.000000000000000000
                     Size.PlatformDefault = False
+                    TextSettings.Font.Size = 13.000000000000000000
                     TextSettings.FontColor = claGray
                     Text = 'Pick a date'
                     TabOrder = 15
