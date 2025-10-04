@@ -129,11 +129,17 @@ object fPatientModal: TfPatientModal
             TextSettings.Font.StyleExt = {00060000000000000004000000}
             Text = 'Medical Notes'
             TabOrder = 0
+            object PathLabel1: TPathLabel
+              Position.X = 232.000000000000000000
+              Position.Y = -8.000000000000000000
+            end
           end
           object mMedicalNotes: TMemo
             Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
             DataDetectorTypes = []
-            StyledSettings = [Family, Size, Style]
+            StyledSettings = [Style]
+            TextSettings.Font.Family = 'Segoe UI Variable Text'
+            TextSettings.Font.Size = 14.000000000000000000
             TextSettings.WordWrap = True
             Align = Client
             Size.Width = 506.000000000000000000
@@ -172,10 +178,10 @@ object fPatientModal: TfPatientModal
               Align = MostTop
               Fill.Color = xFFA6E3D1
               Size.Width = 201.000000000000000000
-              Size.Height = 112.000000000000000000
+              Size.Height = 115.000000000000000000
               Size.PlatformDefault = False
               Stroke.Color = xFFE2F7EF
-              Stroke.Thickness = 3.000000000000000000
+              Stroke.Thickness = 4.000000000000000000
               object rImageFrame: TRectangle
                 Align = Center
                 Fill.Color = claNull
@@ -195,12 +201,13 @@ object fPatientModal: TfPatientModal
               end
               object lNameH: TLabel
                 Align = Client
-                StyledSettings = [Family, FontColor]
+                StyledSettings = []
                 Size.Width = 201.000000000000000000
                 Size.Height = 112.000000000000000000
                 Size.PlatformDefault = False
-                TextSettings.Font.Size = 34.000000000000000000
-                TextSettings.Font.StyleExt = {00070000000000000004000000}
+                TextSettings.Font.Family = 'Sans Serif Collection'
+                TextSettings.Font.Size = 32.000000000000000000
+                TextSettings.FontColor = xFE004D47
                 TextSettings.HorzAlign = Center
                 Text = 'L'
                 Visible = False
@@ -222,7 +229,7 @@ object fPatientModal: TfPatientModal
               Align = Top
               StyledSettings = [Family]
               Margins.Top = 10.000000000000000000
-              Position.Y = 122.000000000000000000
+              Position.Y = 125.000000000000000000
               Size.Width = 201.000000000000000000
               Size.Height = 17.000000000000000000
               Size.PlatformDefault = False
@@ -239,7 +246,7 @@ object fPatientModal: TfPatientModal
               Margins.Top = 15.000000000000000000
               Margins.Right = 40.000000000000000000
               Position.X = 40.000000000000000000
-              Position.Y = 154.000000000000000000
+              Position.Y = 157.000000000000000000
               Sides = [Top, Left, Bottom, Right]
               Size.Width = 121.000000000000000000
               Size.Height = 35.000000000000000000
@@ -261,7 +268,7 @@ object fPatientModal: TfPatientModal
               Margins.Top = 10.000000000000000000
               Margins.Right = 40.000000000000000000
               Position.X = 40.000000000000000000
-              Position.Y = 199.000000000000000000
+              Position.Y = 202.000000000000000000
               Sides = [Top, Left, Bottom, Right]
               Size.Width = 121.000000000000000000
               Size.Height = 35.000000000000000000
@@ -321,7 +328,8 @@ object fPatientModal: TfPatientModal
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
                   TextPrompt = 'Enter email address'
-                  StyledSettings = [Family, Style, FontColor]
+                  StyledSettings = [Family, Size, Style]
+                  OnChangeTracking = eEmailAddressChangeTracking
                 end
               end
               object lytAddress: TLayout
@@ -355,7 +363,8 @@ object fPatientModal: TfPatientModal
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
                   TextPrompt = 'Enter full address'
-                  StyledSettings = [Family, Style, FontColor]
+                  StyledSettings = [Family, Size, Style]
+                  OnChangeTracking = eAddressChangeTracking
                 end
               end
             end
@@ -432,7 +441,7 @@ object fPatientModal: TfPatientModal
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
                   TextPrompt = 'Enter contact number'
-                  StyledSettings = [Style]
+                  StyledSettings = [Family, Size, Style]
                   ParentShowHint = False
                   ShowHint = True
                   OnChangeTracking = eContactNumberChangeTracking
@@ -526,7 +535,7 @@ object fPatientModal: TfPatientModal
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
                   TextPrompt = 'Enter patient'#39's full name'
-                  StyledSettings = [Family, Style]
+                  StyledSettings = [Family, Size, Style]
                   ParentShowHint = False
                   ShowHint = True
                   OnChangeTracking = eFullNameChangeTracking
@@ -612,17 +621,15 @@ object fPatientModal: TfPatientModal
                   StyledSettings = [Family]
                   TabOrder = 2
                   TextSettings.Font.Size = 14.000000000000000000
-                  TextSettings.Font.StyleExt = {00060000000000000004000000}
                   TextSettings.FontColor = claWhite
                   object lDateText: TLabel
                     Align = Client
                     StyledSettings = [Family, Style]
                     Margins.Left = 45.000000000000000000
-                    Margins.Top = -3.000000000000000000
                     Size.Width = 120.000000000000000000
-                    Size.Height = 43.000000000000000000
+                    Size.Height = 40.000000000000000000
                     Size.PlatformDefault = False
-                    TextSettings.Font.Size = 13.000000000000000000
+                    TextSettings.Font.Size = 14.000000000000000000
                     TextSettings.FontColor = claGray
                     Text = 'Pick a date'
                     TabOrder = 15
@@ -631,8 +638,9 @@ object fPatientModal: TfPatientModal
                 object lAgeCounter: TLabel
                   Align = Client
                   StyledSettings = []
+                  Margins.Top = 5.000000000000000000
                   Size.Width = 165.000000000000000000
-                  Size.Height = 28.000000000000000000
+                  Size.Height = 23.000000000000000000
                   Size.PlatformDefault = False
                   TextSettings.Font.Family = 'Segoe UI Variable Text'
                   TextSettings.Font.Size = 15.000000000000000000

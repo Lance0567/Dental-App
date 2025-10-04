@@ -85,6 +85,7 @@ type
     ShadowEffect2: TShadowEffect;
     lPreviewImage: TLabel;
     GlowEffect1: TGlowEffect;
+    PathLabel1: TPathLabel;
     procedure mMedicalNotesClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure eFullNameChangeTracking(Sender: TObject);
@@ -106,6 +107,8 @@ type
     procedure btnUploadClick(Sender: TObject);
     procedure btnSaveCurrentImageClick(Sender: TObject);
     procedure eContactNumberChangeTracking(Sender: TObject);
+    procedure eEmailAddressChangeTracking(Sender: TObject);
+    procedure eAddressChangeTracking(Sender: TObject);
   private
     FCapturing: Boolean;
     FStatus: Boolean;
@@ -538,13 +541,37 @@ begin
   Self.Visible := False;
 end;
 
+{ Email Address Onchange }
+procedure TfPatientModal.eEmailAddressChangeTracking(Sender: TObject);
+begin
+  // Style setter
+  if eEmailAddress.Text = '' then
+    eEmailAddress.StyledSettings := [TStyledSetting.Style]
+  else
+    eEmailAddress.StyledSettings := [];
+end;
+
 { Patient profile setter & fullname warning reset }
 procedure TfPatientModal.eFullNameChangeTracking(Sender: TObject);
+var
+  Parts: TArray<string>;
+  Initials: string;
 begin
   // Getter of first letter of the Full name
   if eFullName.Text.Trim <> '' then
   begin
-    lNameH.Text := UpperCase(eFullName.Text.Trim[1]);
+    Parts := eFullName.Text.Trim.Split([' ']); // split by space
+    Initials := '';
+
+    // First letter of first word
+    if Length(Parts) >= 1 then
+      Initials := Initials + UpperCase(Parts[0][1]);
+
+    // First letter of second word
+    if Length(Parts) >= 2 then
+      Initials := Initials + UpperCase(Parts[1][1]);
+
+    lNameH.Text := Initials;
 
     // Profile pic changer
     gIcon.ImageIndex := -1;
@@ -556,14 +583,37 @@ begin
     lNameH.Text := '';
     gIcon.ImageIndex := 10;
     lNameH.Visible := False;
-  end;
 
+    // Style setter
+    eFullName.StyledSettings := [TStyledSetting.Style]
+  end
+  else
+    eFullName.StyledSettings := [];
+
+  // Fullname warning reset
   crFullName.Visible := False;
 end;
 
-{ Contact number warning reset }
+{ Address Onchange }
+procedure TfPatientModal.eAddressChangeTracking(Sender: TObject);
+begin
+  // Style setter
+  if eAddress.Text = '' then
+    eAddress.StyledSettings := [TStyledSetting.Style]
+  else
+    eAddress.StyledSettings := [];
+end;
+
+{ Contact Number Onchange }
 procedure TfPatientModal.eContactNumberChangeTracking(Sender: TObject);
 begin
+  // Style setter
+  if eContactNumber.Text = '' then
+    eContactNumber.StyledSettings := [TStyledSetting.Style]
+  else
+    eContactNumber.StyledSettings := [];
+
+  // Contact number warning reset
   crContactNumber.Visible := False;
 end;
 
