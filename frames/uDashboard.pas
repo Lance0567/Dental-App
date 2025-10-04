@@ -91,7 +91,7 @@ begin
   begin
     // Cards
     glytCards.Height := 160;
-    glytCards.ItemWidth := 320;
+    glytCards.ItemWidth := 264;
 
     // Quick actions
     rTodaysAppointment.Width := 205;
@@ -166,8 +166,8 @@ begin
   end
   else if Self.Width >= 1084 then
   begin
-    ItemsPerRow := Max(1, AvailableWidth div 270);
-    glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4 + 4) / ItemsPerRow);
+    ItemsPerRow := Max(1, AvailableWidth div 265);
+    glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4 + 8) / ItemsPerRow);
   end
   else if (Self.Width <= 569) OR (glytCards.Width >= 763) then
   begin

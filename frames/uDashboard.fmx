@@ -464,6 +464,7 @@ object fDashboard: TfDashboard
           TabOrder = 1
           object btnNewPatient: TCornerButton
             Align = Scale
+            Cursor = crHandPoint
             Margins.Right = 10.000000000000000000
             Position.X = 2.000000000000000000
             Position.Y = -1.000000000000000000
@@ -488,6 +489,7 @@ object fDashboard: TfDashboard
           end
           object btnNewAppointment: TCornerButton
             Align = Scale
+            Cursor = crHandPoint
             Position.X = 123.000000000000000000
             Position.Y = -1.000000000000000000
             Sides = [Top, Left, Bottom, Right]
@@ -513,6 +515,7 @@ object fDashboard: TfDashboard
         end
         object btnReportAnIssue: TCornerButton
           Align = Top
+          Cursor = crHandPoint
           Margins.Top = 10.000000000000000000
           Position.X = 20.000000000000000000
           Position.Y = 160.000000000000000000

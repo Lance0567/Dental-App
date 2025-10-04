@@ -41,6 +41,7 @@ object frmMain: TfrmMain
         OnResize = mvSidebarResize
         object sbMenu: TSpeedButton
           Align = Top
+          Cursor = crHandPoint
           StyledSettings = [Style]
           ImageIndex = 13
           Size.Width = 245.000000000000000000
@@ -57,6 +58,7 @@ object frmMain: TfrmMain
         object sbAppointments: TSpeedButton
           StaysPressed = True
           Align = Top
+          Cursor = crHandPoint
           GroupName = 'Navigations'
           StyledSettings = [Family, Style, FontColor]
           Images = dm.imgList
@@ -80,6 +82,7 @@ object frmMain: TfrmMain
         object sbDashboard: TSpeedButton
           StaysPressed = True
           Align = Top
+          Cursor = crHandPoint
           GroupName = 'Navigations'
           StyledSettings = [Family, Style, FontColor]
           Images = dm.imgList
@@ -104,6 +107,7 @@ object frmMain: TfrmMain
         object sbPatients: TSpeedButton
           StaysPressed = True
           Align = Top
+          Cursor = crHandPoint
           GroupName = 'Navigations'
           StyledSettings = [Family, Style, FontColor]
           Images = dm.imgList
@@ -159,6 +163,7 @@ object frmMain: TfrmMain
         object sbUsers: TSpeedButton
           StaysPressed = True
           Align = Top
+          Cursor = crHandPoint
           GroupName = 'Navigations'
           StyledSettings = [Family, Style, FontColor]
           Images = dm.imgList
@@ -192,7 +197,7 @@ object frmMain: TfrmMain
         Size.Width = 605.000000000000000000
         Size.Height = 505.000000000000000000
         Size.PlatformDefault = False
-        TabIndex = 1
+        TabIndex = 0
         TabOrder = 0
         TabPosition = None
         OnChange = tcControllerChange
@@ -212,7 +217,7 @@ object frmMain: TfrmMain
             item
             end>
           TextSettings.Trimming = None
-          IsSelected = False
+          IsSelected = True
           Size.Width = 8.000000000000000000
           Size.Height = 8.000000000000000000
           Size.PlatformDefault = False
@@ -332,7 +337,7 @@ object frmMain: TfrmMain
                   inherited gTodaysAppointment: TGrid
                     Size.Width = 190.000000000000000000
                     Size.Height = 250.000000000000000000
-                    StyleLookup = 'gPatientsStyle1'
+                    StyleLookup = 'gPatientStyle'
                     Viewport.Width = 190.000000000000000000
                     Viewport.Height = 250.000000000000000000
                   end
@@ -399,7 +404,7 @@ object frmMain: TfrmMain
             end>
           TextSettings.Trimming = None
           StyledSettings = [Family, Size, Style]
-          IsSelected = True
+          IsSelected = False
           Size.Width = 8.000000000000000000
           Size.Height = 8.000000000000000000
           Size.PlatformDefault = False
@@ -471,8 +476,8 @@ object frmMain: TfrmMain
                 inherited gPatients: TGrid
                   Size.Width = 491.000000000000000000
                   Size.Height = 171.000000000000000000
-                  Viewport.Width = 487.000000000000000000
-                  Viewport.Height = 141.000000000000000000
+                  Viewport.Width = 491.000000000000000000
+                  Viewport.Height = 171.000000000000000000
                 end
               end
             end
@@ -776,8 +781,8 @@ object frmMain: TfrmMain
             end
             inherited mMedicalNotes: TMemo
               Size.Width = 584.000000000000000000
-              Viewport.Width = 584.000000000000000000
-              Viewport.Height = 125.000000000000000000
+              Viewport.Width = 573.000000000000000000
+              Viewport.Height = 114.000000000000000000
             end
           end
           inherited lytPatientH: TLayout
@@ -787,17 +792,17 @@ object frmMain: TfrmMain
                 Margins.Top = -3.000000000000000000
                 Position.Y = -3.000000000000000000
                 inherited lNameH: TLabel
-                  TextSettings.Font.StyleExt = {00070000000000000004000000}
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
                 end
               end
               inherited lbProfilePhoto: TLabel
-                Position.Y = 119.000000000000000000
+                Position.Y = 122.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
               end
               inherited btnUpload: TCornerButton
                 Images = dm.imgList
                 ImageIndex = 17
-                Position.Y = 151.000000000000000000
+                Position.Y = 154.000000000000000000
                 StyleLookup = 'btnPhotoUploadStyle1'
                 TextSettings.Font.StyleExt = {00060000000000000004000000}
                 TextSettings.Trimming = Character
@@ -805,7 +810,7 @@ object frmMain: TfrmMain
               inherited btnCamera: TCornerButton
                 Images = dm.imgList
                 ImageIndex = 18
-                Position.Y = 196.000000000000000000
+                Position.Y = 199.000000000000000000
                 StyleLookup = 'btnPhotoUploadStyle1'
                 TextSettings.Font.StyleExt = {00060000000000000004000000}
               end
@@ -822,7 +827,7 @@ object frmMain: TfrmMain
                   end
                   inherited eEmailAddress: TEdit
                     Size.Width = 195.000000000000000000
-                    StyledSettings = [Style]
+                    StyledSettings = [Family, Style]
                   end
                 end
                 inherited lytAddress: TLayout
@@ -833,8 +838,9 @@ object frmMain: TfrmMain
                     TextSettings.Font.StyleExt = {00060000000000000004000000}
                   end
                   inherited eAddress: TEdit
+                    StyleLookup = 'editstyle'
                     Size.Width = 195.000000000000000000
-                    StyledSettings = [Style]
+                    StyledSettings = [Family, Style]
                   end
                 end
               end
@@ -859,7 +865,9 @@ object frmMain: TfrmMain
                     TextSettings.Font.StyleExt = {00060000000000000004000000}
                   end
                   inherited eContactNumber: TEdit
+                    Align = Scale
                     Size.Width = 195.000000000000000000
+                    StyledSettings = [Family, Style]
                   end
                 end
               end
@@ -873,7 +881,7 @@ object frmMain: TfrmMain
                   end
                   inherited eFullName: TEdit
                     Size.Width = 195.000000000000000000
-                    StyledSettings = [Style]
+                    StyledSettings = [Family, Style]
                   end
                 end
                 inherited lytDateOfBirth: TLayout
@@ -885,9 +893,10 @@ object frmMain: TfrmMain
                   end
                   inherited deDateOfBirth: TDateEdit
                     Size.Width = 195.000000000000000000
-                    TextSettings.Font.StyleExt = {00060000000000000004000000}
                     inherited lDateText: TLabel
+                      StyledSettings = []
                       Size.Width = 150.000000000000000000
+                      TextSettings.Font.Family = 'Segoe UI Variable Text'
                       TabOrder = 13
                     end
                   end

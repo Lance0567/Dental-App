@@ -67,7 +67,7 @@ var
 begin
   if gPatients.ColumnCount = 0 then Exit;
 
-  FixedWidth := 290; // Width for 2nd and last columns
+  FixedWidth := 230; // Width for 2nd and last columns
   FixedColumns := 2; // number of fixed-width columns (2nd and last)
 
   // Calculate available width for the rest
@@ -103,7 +103,7 @@ begin
         begin
           if gPatients.ColumnCount = 0 then Exit;
 
-          FixedWidth := 250; // Width for 2nd and last columns
+          FixedWidth := 230; // Width for 2nd and last columns
           FixedColumns := 2;
 
           if gPatients.ColumnCount > FixedColumns then

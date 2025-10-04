@@ -158,25 +158,25 @@ begin
 
   // Table style for Dashboard
   if dm.qAppointments.IsEmpty then // no records
-    fDashboard.gTodaysAppointment.StyleLookup := 'gPatientsStyle1'
+    fDashboard.gTodaysAppointment.StyleLookup := 'gPatientStyle'
   else
     fDashboard.gTodaysAppointment.StyleLookup := ''; // with records
 
   // Table style for Patients
   if dm.qPatients.IsEmpty then
-    fPatients.gPatients.StyleLookup := 'gPatientsStyle1'
+    fPatients.gPatients.StyleLookup := 'gPatientStyle'
   else
     fPatients.gPatients.StyleLookup := '';
 
   // Table style for Appointments
   if dm.qAppointments.IsEmpty then
-    fAppointments.gAppointment.StyleLookup := 'gPatientsStyle1'
+    fAppointments.gAppointment.StyleLookup := 'gPatientStyle'
   else
     fAppointments.gAppointment.StyleLookup := '';
 
   // Table style for Users
   if dm.qUsers.IsEmpty then
-    fUsers.gUsers.StyleLookup := 'gPatientsStyle1'
+    fUsers.gUsers.StyleLookup := 'gPatientStyle'
   else
     fUsers.gUsers.StyleLookup := '';
 
