@@ -9,7 +9,7 @@ uses
   FMX.ImgList, FMX.Edit, System.Rtti, FMX.Grid.Style, FMX.ScrollBox, FMX.Grid,
   Data.Bind.EngExt, Fmx.Bind.DBEngExt, Fmx.Bind.Grid, System.Bindings.Outputs,
   Fmx.Bind.Editors, Data.Bind.Components, Data.Bind.Grid, Data.Bind.DBScope, System.Threading,
-  Data.DB, FireDAC.Stan.Param;
+  Data.DB, FireDAC.Stan.Param, FMX.Ani, FMX.MultiView;
 
 type
   TfPatients = class(TFrame)
@@ -37,6 +37,12 @@ type
     bsdbPatients: TBindSourceDB;
     blPatients: TBindingsList;
     LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
+    rPopUp: TRectangle;
+    FloatAnimation4: TFloatAnimation;
+    mvPopUp: TMultiView;
+    cbAccountSettings: TCornerButton;
+    cbLogout: TCornerButton;
+    lDivider: TLine;
     procedure gPatientsCellDblClick(const Column: TColumn; const Row: Integer);
     procedure FrameResize(Sender: TObject);
     procedure FrameResized(Sender: TObject);
@@ -67,21 +73,35 @@ var
 begin
   if gPatients.ColumnCount = 0 then Exit;
 
-  FixedWidth := 230; // Width for 2nd and last columns
-  FixedColumns := 2; // number of fixed-width columns (2nd and last)
-
-  // Calculate available width for the rest
-  if gPatients.ColumnCount > FixedColumns then
-    NewWidth := (gPatients.Width - (FixedWidth * FixedColumns)) / (gPatients.ColumnCount - FixedColumns)
-  else
-    NewWidth := gPatients.Width / gPatients.ColumnCount; // fallback if only 1–2 cols
-
-  for i := 0 to gPatients.ColumnCount - 1 do
+  if frmMain.ClientWidth = 850 then
   begin
-    if (i = 1) or (i = gPatients.ColumnCount - 1) then
-      gPatients.Columns[i].Width := FixedWidth - 1 // 2nd and last column fixed
+    // Fixed layout at 850px
+    for i := 0 to gPatients.ColumnCount - 1 do
+    begin
+      if (i = 1) or (i = 2) then
+        gPatients.Columns[i].Width := 230
+      else
+        gPatients.Columns[i].Width := 170;
+    end;
+  end
+  else if frmMain.ClientWidth > 850 then
+  begin
+    // Dynamic layout when wider than 850px
+    FixedWidth := 230;      // width for 2nd and 3rd columns
+    FixedColumns := 2;      // 2 fixed columns
+
+    if gPatients.ColumnCount > FixedColumns then
+      NewWidth := (gPatients.Width - (FixedWidth * FixedColumns)) / (gPatients.ColumnCount - FixedColumns)
     else
-      gPatients.Columns[i].Width := NewWidth - 2; // the rest share remaining width
+      NewWidth := gPatients.Width / gPatients.ColumnCount;
+
+    for i := 0 to gPatients.ColumnCount - 1 do
+    begin
+      if (i = 1) or (i = gPatients.ColumnCount - 1) then
+        gPatients.Columns[i].Width := FixedWidth - 1
+      else
+        gPatients.Columns[i].Width := NewWidth - 2;
+    end;
   end;
 end;
 
@@ -91,7 +111,7 @@ begin
   TTask.Run(
     procedure
     begin
-      Sleep(200); // wait 2ms second
+      Sleep(200); // wait 200ms
 
       TThread.Synchronize(nil,
         procedure
@@ -103,20 +123,35 @@ begin
         begin
           if gPatients.ColumnCount = 0 then Exit;
 
-          FixedWidth := 230; // Width for 2nd and last columns
-          FixedColumns := 2;
-
-          if gPatients.ColumnCount > FixedColumns then
-            NewWidth := (gPatients.Width - (FixedWidth * FixedColumns)) / (gPatients.ColumnCount - FixedColumns)
-          else
-            NewWidth := gPatients.Width / gPatients.ColumnCount;
-
-          for i := 0 to gPatients.ColumnCount - 1 do
+          if frmMain.ClientWidth = 850 then
           begin
-            if (i = 1) or (i = gPatients.ColumnCount - 1) then
-              gPatients.Columns[i].Width := FixedWidth - 1
+            // Fixed layout for 850px
+            for i := 0 to gPatients.ColumnCount - 1 do
+            begin
+              if (i = 1) or (i = gPatients.ColumnCount - 1) then
+                gPatients.Columns[i].Width := 230
+              else
+                gPatients.Columns[i].Width := 170;
+            end;
+          end
+          else if frmMain.ClientWidth > 850 then
+          begin
+            // Dynamic layout
+            FixedWidth := 230; // Width for 2nd and 3rd columns
+            FixedColumns := 2;
+
+            if gPatients.ColumnCount > FixedColumns then
+              NewWidth := (gPatients.Width - (FixedWidth * FixedColumns)) / (gPatients.ColumnCount - FixedColumns)
             else
-              gPatients.Columns[i].Width := NewWidth - 2;
+              NewWidth := gPatients.Width / gPatients.ColumnCount;
+
+            for i := 0 to gPatients.ColumnCount - 1 do
+            begin
+              if (i = 1) or (i = gPatients.ColumnCount - 1) then
+                gPatients.Columns[i].Width := FixedWidth - 1
+              else
+                gPatients.Columns[i].Width := NewWidth - 2;
+            end;
           end;
         end
       );

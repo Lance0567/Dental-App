@@ -9,7 +9,7 @@ object fPatients: TfPatients
     Size.Width = 580.000000000000000000
     Size.Height = 416.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 2
+    TabOrder = 3
     Viewport.Width = 580.000000000000000000
     Viewport.Height = 416.000000000000000000
     object lytBottom: TLayout
@@ -63,6 +63,7 @@ object fPatients: TfPatients
         TabOrder = 1
         object btnAddNewPatient: TCornerButton
           Align = Client
+          Cursor = crHandPoint
           StyledSettings = [FontColor]
           Sides = [Top, Left, Bottom, Right]
           Size.Width = 150.000000000000000000
@@ -210,6 +211,26 @@ object fPatients: TfPatients
             Size.PlatformDefault = False
             Stroke.Kind = None
           end
+          object rPopUp: TRectangle
+            Align = Contents
+            Cursor = crHandPoint
+            Fill.Color = claWhite
+            Opacity = 0.000000000000000000
+            Margins.Right = 10.000000000000000000
+            Size.Width = 145.000000000000000000
+            Size.Height = 60.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Kind = None
+            object FloatAnimation4: TFloatAnimation
+              Duration = 0.200000002980232200
+              Inverse = True
+              PropertyName = 'Opacity'
+              StartValue = 0.000000000000000000
+              StopValue = 0.300000011920929000
+              Trigger = 'IsMouseOver=true'
+              TriggerInverse = 'IsMouseOver=false'
+            end
+          end
         end
       end
     end
@@ -246,6 +267,81 @@ object fPatients: TfPatients
         Viewport.Width = 466.000000000000000000
         Viewport.Height = 61.000000000000000000
       end
+    end
+  end
+  object mvPopUp: TMultiView
+    DrawerOptions.Placement = Bottom
+    DrawerOptions.TouchAreaSize = 100.000000000000000000
+    PopoverOptions.StyleLookup = ''
+    PopoverOptions.PopupHeight = 85.000000000000000000
+    MasterButton = rPopUp
+    Mode = Popover
+    NavigationPaneOptions.CollapsedWidth = 200.000000000000000000
+    SplitViewOptions.Placement = Bottom
+    Size.Width = 200.000000000000000000
+    Size.Height = 85.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+    TabOrder = 2
+    object cbAccountSettings: TCornerButton
+      Align = Top
+      Cursor = crHandPoint
+      StyledSettings = [Style, FontColor]
+      Images = dm.imgList
+      ImageIndex = 15
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 4.000000000000000000
+      Position.X = 5.000000000000000000
+      Position.Y = 5.000000000000000000
+      Sides = [Top, Left, Bottom, Right]
+      Size.Width = 190.000000000000000000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'Account Settings'
+      TextSettings.Font.Family = 'Segoe UI Variable Text'
+      TextSettings.Font.Size = 15.000000000000000000
+      TextSettings.HorzAlign = Leading
+      TextSettings.Trimming = None
+      XRadius = 13.000000000000000000
+      YRadius = 13.000000000000000000
+    end
+    object cbLogout: TCornerButton
+      Align = Top
+      Cursor = crHandPoint
+      StyledSettings = [Style]
+      Images = dm.imgList
+      ImageIndex = 37
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 1.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Position.X = 5.000000000000000000
+      Position.Y = 44.000000000000000000
+      Sides = [Top, Left, Bottom, Right]
+      Size.Width = 190.000000000000000000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Logout'
+      TextSettings.Font.Family = 'Segoe UI Variable Text'
+      TextSettings.Font.Size = 15.000000000000000000
+      TextSettings.FontColor = claRed
+      TextSettings.HorzAlign = Leading
+      TextSettings.Trimming = None
+      XRadius = 13.000000000000000000
+      YRadius = 13.000000000000000000
+    end
+    object lDivider: TLine
+      Align = Top
+      LineType = Top
+      Position.Y = 39.000000000000000000
+      Size.Width = 200.000000000000000000
+      Size.Height = 4.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Color = xFFE5E5E5
     end
   end
   object bsdbPatients: TBindSourceDB
