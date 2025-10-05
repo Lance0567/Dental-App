@@ -7,7 +7,10 @@ uses
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Controls.Presentation, FMX.Layouts, System.Skia, FMX.Objects, FMX.Skia,
   FMX.ImgList, FMX.Calendar, FMX.Menus, System.Rtti, FMX.Grid.Style,
-  FMX.ScrollBox, FMX.Grid;
+  FMX.ScrollBox, FMX.Grid, Data.Bind.EngExt, Fmx.Bind.DBEngExt, Fmx.Bind.Grid,
+  System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.Components,
+  Data.Bind.Grid, Data.Bind.DBScope, System.Threading,Data.DB, FireDAC.Stan.Param,
+  FMX.Ani, FMX.MultiView, FMX.Edit;
 
 type
   TfAppointments = class(TFrame)
@@ -26,9 +29,24 @@ type
     lytBottom: TLayout;
     RoundRect1: TRoundRect;
     gAppointment: TGrid;
+    bsdbAppointments: TBindSourceDB;
+    blAppointments: TBindingsList;
+    LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
+    ScrollBox1: TScrollBox;
+    lytComponents: TLayout;
+    lytDateButtons: TLayout;
+    lytButtonH: TLayout;
+    btnAddNewAppointment: TCornerButton;
+    cbDay: TCornerButton;
+    cbWeek: TCornerButton;
+    cbMonth: TCornerButton;
+    procedure gAppointmentResized(Sender: TObject);
+    procedure FrameResized(Sender: TObject);
   private
     { Private declarations }
   public
+    procedure GridContentsResponsive;
+    procedure GridContentsResponsive2;
     { Public declarations }
   end;
 
@@ -36,6 +54,114 @@ implementation
 
 {$R *.fmx}
 
-uses uDm;
+uses uDm, uMain;
+
+{ Grid column resize }
+procedure TfAppointments.GridContentsResponsive;
+var
+  i: Integer;
+  NewWidth: Single;
+  FixedWidth: Single;
+  FixedColumns: Integer;
+begin
+  if gAppointment.ColumnCount = 0 then Exit;
+
+  if frmMain.ClientWidth = 850 then
+  begin
+    // Fixed layout at 850px
+    for i := 0 to gAppointment.ColumnCount - 1 do
+    begin
+      if (i = 1) or (i = 2) then
+        gAppointment.Columns[i].Width := 230
+      else
+        gAppointment.Columns[i].Width := 170;
+    end;
+  end
+  else if frmMain.ClientWidth > 850 then
+  begin
+    // Dynamic layout when wider than 850px
+    FixedWidth := 230;      // width for 2nd and 3rd columns
+    FixedColumns := 2;      // 2 fixed columns
+
+    if gAppointment.ColumnCount > FixedColumns then
+      NewWidth := (gAppointment.Width - (FixedWidth * FixedColumns)) / (gAppointment.ColumnCount - FixedColumns)
+    else
+      NewWidth := gAppointment.Width / gAppointment.ColumnCount;
+
+    for i := 0 to gAppointment.ColumnCount - 1 do
+    begin
+      if (i = 1) or (i = 2) then
+        gAppointment.Columns[i].Width := FixedWidth - 1
+      else
+        gAppointment.Columns[i].Width := NewWidth - 2;
+    end;
+  end;
+end;
+
+{ Grid column resize with 2ms delay }
+procedure TfAppointments.GridContentsResponsive2;
+begin
+  TTask.Run(
+    procedure
+    begin
+      Sleep(200); // wait 200ms
+
+      TThread.Synchronize(nil,
+        procedure
+        var
+          i: Integer;
+          NewWidth: Single;
+          FixedWidth: Single;
+          FixedColumns: Integer;
+        begin
+          if gAppointment.ColumnCount = 0 then Exit;
+
+          if frmMain.ClientWidth = 850 then
+          begin
+            // Fixed layout for 850px
+            for i := 0 to gAppointment.ColumnCount - 1 do
+            begin
+              if (i = 1) or (i = 2) then
+                gAppointment.Columns[i].Width := 230
+              else
+                gAppointment.Columns[i].Width := 170;
+            end;
+          end
+          else if frmMain.ClientWidth > 850 then
+          begin
+            // Dynamic layout
+            FixedWidth := 230; // Width for 2nd and 3rd columns
+            FixedColumns := 2;
+
+            if gAppointment.ColumnCount > FixedColumns then
+              NewWidth := (gAppointment.Width - (FixedWidth * FixedColumns)) / (gAppointment.ColumnCount - FixedColumns)
+            else
+              NewWidth := gAppointment.Width / gAppointment.ColumnCount;
+
+            for i := 0 to gAppointment.ColumnCount - 1 do
+            begin
+              if (i = 1) or (i = 2) then
+                gAppointment.Columns[i].Width := FixedWidth - 1
+              else
+                gAppointment.Columns[i].Width := NewWidth - 2;
+            end;
+          end;
+        end
+      );
+    end
+  );
+end;
+
+{ Frame Resized }
+procedure TfAppointments.FrameResized(Sender: TObject);
+begin
+  GridContentsResponsive2;
+end;
+
+{ Grid Resized }
+procedure TfAppointments.gAppointmentResized(Sender: TObject);
+begin
+  GridContentsResponsive2;
+end;
 
 end.
