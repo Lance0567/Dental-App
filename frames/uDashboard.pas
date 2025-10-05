@@ -7,7 +7,7 @@ uses
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   System.Skia, System.Rtti, FMX.Grid.Style, FMX.Calendar, FMX.ScrollBox,
   FMX.Grid, FMX.Skia, FMX.ImgList, FMX.Controls.Presentation, FMX.Objects,
-  FMX.Layouts, Math, FMX.Ani;
+  FMX.Layouts, Math, FMX.Ani, FMX.Menus, FMX.ExtCtrls, FMX.MultiView;
 
 type
   TfDashboard = class(TFrame)
@@ -63,6 +63,15 @@ type
     FloatAnimation1: TFloatAnimation;
     FloatAnimation2: TFloatAnimation;
     FloatAnimation3: TFloatAnimation;
+    PopupMenu1: TPopupMenu;
+    MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
+    rPopUp: TRectangle;
+    FloatAnimation4: TFloatAnimation;
+    mvPopUp: TMultiView;
+    cbAccountSettings: TCornerButton;
+    cbLogout: TCornerButton;
+    lDivider: TLine;
     procedure FrameResize(Sender: TObject);
   private
 

@@ -197,7 +197,7 @@ object frmMain: TfrmMain
         Size.Width = 605.000000000000000000
         Size.Height = 505.000000000000000000
         Size.PlatformDefault = False
-        TabIndex = 0
+        TabIndex = 1
         TabOrder = 0
         TabPosition = None
         OnChange = tcControllerChange
@@ -217,7 +217,7 @@ object frmMain: TfrmMain
             item
             end>
           TextSettings.Trimming = None
-          IsSelected = True
+          IsSelected = False
           Size.Width = 8.000000000000000000
           Size.Height = 8.000000000000000000
           Size.PlatformDefault = False
@@ -396,6 +396,15 @@ object frmMain: TfrmMain
                 end
               end
             end
+            inherited mvPopUp: TMultiView
+              StyleLookup = 'mvPopUpStyle1'
+              inherited cbAccountSettings: TCornerButton
+                StyleLookup = 'cbAccountSettingsStyle1'
+              end
+              inherited cbLogout: TCornerButton
+                StyleLookup = 'cbAccountSettingsStyle1'
+              end
+            end
           end
         end
         object tiPatients: TTabItem
@@ -404,7 +413,7 @@ object frmMain: TfrmMain
             end>
           TextSettings.Trimming = None
           StyledSettings = [Family, Size, Style]
-          IsSelected = False
+          IsSelected = True
           Size.Width = 8.000000000000000000
           Size.Height = 8.000000000000000000
           Size.PlatformDefault = False
@@ -438,6 +447,8 @@ object frmMain: TfrmMain
                 inherited lytButtonH: TLayout
                   Position.X = 421.000000000000000000
                   inherited btnAddNewPatient: TCornerButton
+                    StyledSettings = [Style, FontColor]
+                    StyleLookup = 'btnAddNewPatientStyle1'
                     OnClick = fPatientsbtnAddNewPatientClick
                   end
                 end
@@ -476,9 +487,17 @@ object frmMain: TfrmMain
                 inherited gPatients: TGrid
                   Size.Width = 491.000000000000000000
                   Size.Height = 171.000000000000000000
-                  Viewport.Width = 491.000000000000000000
-                  Viewport.Height = 171.000000000000000000
+                  Viewport.Width = 490.000000000000000000
+                  Viewport.Height = 148.000000000000000000
                 end
+              end
+            end
+            inherited mvPopUp: TMultiView
+              inherited cbAccountSettings: TCornerButton
+                StyleLookup = 'cbAccountSettingsStyle1'
+              end
+              inherited cbLogout: TCornerButton
+                StyleLookup = 'cbAccountSettingsStyle1'
               end
             end
             inherited bsdbPatients: TBindSourceDB
@@ -544,6 +563,23 @@ object frmMain: TfrmMain
             inherited lytBottom: TLayout
               Position.Y = 476.000000000000000000
               Size.Width = 601.000000000000000000
+            end
+            object TBindSourceDB
+              DataSet = dm.qAppointments
+              ScopeMappings = <>
+              Left = 280
+              Top = 192
+            end
+            object TBindingsList
+              Methods = <>
+              OutputConverters = <>
+              Left = 20
+              Top = 5
+              object TLinkGridToDataSource
+                Category = 'Quick Bindings'
+                GridControl = fAppointments.gAppointment
+                Columns = <>
+              end
             end
           end
         end
@@ -781,8 +817,8 @@ object frmMain: TfrmMain
             end
             inherited mMedicalNotes: TMemo
               Size.Width = 584.000000000000000000
-              Viewport.Width = 573.000000000000000000
-              Viewport.Height = 114.000000000000000000
+              Viewport.Width = 584.000000000000000000
+              Viewport.Height = 125.000000000000000000
             end
           end
           inherited lytPatientH: TLayout

@@ -25906,6 +25906,7 @@ object TStyleContainer
     Size.Width = 250.000000000000000000
     Size.Height = 200.000000000000000000
     Size.PlatformDefault = False
+    Visible = False
     TabOrder = 1
     FixedWidth = 250
     FixedHeight = 250
@@ -26286,7 +26287,7 @@ object TStyleContainer
     Size.Height = 121.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 22
+    TabOrder = 32
     object TRectangle
       Align = Contents
       Fill.Color = xFF707070
@@ -26346,7 +26347,7 @@ object TStyleContainer
     Size.Height = 102.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 23
+    TabOrder = 33
     object TRectangle
       StyleName = 'background'
       Align = Client
@@ -26382,7 +26383,7 @@ object TStyleContainer
     Size.Height = 26.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 24
+    TabOrder = 34
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -26427,7 +26428,7 @@ object TStyleContainer
     Size.Height = 26.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 25
+    TabOrder = 35
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -26522,7 +26523,7 @@ object TStyleContainer
     Size.Height = 26.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 26
+    TabOrder = 36
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -26608,7 +26609,7 @@ object TStyleContainer
     Size.Height = 26.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 27
+    TabOrder = 38
     object TEllipse
       StyleName = 'background'
       Align = Fit
@@ -26696,7 +26697,7 @@ object TStyleContainer
     Size.Height = 26.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 28
+    TabOrder = 39
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -26790,7 +26791,7 @@ object TStyleContainer
     Size.Height = 26.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 30
+    TabOrder = 40
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -26867,7 +26868,7 @@ object TStyleContainer
     Size.Height = 26.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 32
+    TabOrder = 42
     object TEllipse
       StyleName = 'background'
       Align = Fit
@@ -26957,7 +26958,7 @@ object TStyleContainer
     Size.Height = 50.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 33
+    TabOrder = 44
     object TEllipse
       StyleName = 'grip'
       Align = Fit
@@ -26995,7 +26996,7 @@ object TStyleContainer
     Size.Height = 14.000000953674320000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 34
+    TabOrder = 45
     object TRectangle
       StyleName = 'htrack'
       Align = VertCenter
@@ -27071,7 +27072,7 @@ object TStyleContainer
     Size.Height = 16.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 35
+    TabOrder = 46
     object TEllipse
       StyleName = 'background'
       Align = Center
@@ -27105,7 +27106,7 @@ object TStyleContainer
     Size.Height = 18.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 36
+    TabOrder = 47
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -27140,7 +27141,7 @@ object TStyleContainer
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 37
+    TabOrder = 48
     object TRoundRect
       StyleName = 'background'
       Align = Contents
@@ -27174,7 +27175,7 @@ object TStyleContainer
     Size.Height = 63.000003814697270000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 38
+    TabOrder = 49
     object TThumb
       StyleName = 'thumb'
       Locked = True
@@ -27194,7 +27195,7 @@ object TStyleContainer
     Size.Height = 18.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 39
+    TabOrder = 50
     object TThumb
       StyleName = 'thumb'
       Locked = True
@@ -27214,7 +27215,7 @@ object TStyleContainer
     Size.Height = 21.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 40
+    TabOrder = 51
     object TPath
       Align = Center
       Data.Path = {
@@ -27250,7 +27251,7 @@ object TStyleContainer
     Size.Height = 20.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 41
+    TabOrder = 52
     object TPath
       Align = Center
       Data.Path = {
@@ -27286,7 +27287,7 @@ object TStyleContainer
     Size.Height = 19.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 42
+    TabOrder = 53
     object TPath
       Align = Center
       Data.Path = {
@@ -27322,7 +27323,7 @@ object TStyleContainer
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 43
+    TabOrder = 54
     object TPath
       Align = Center
       Data.Path = {
@@ -27358,7 +27359,7 @@ object TStyleContainer
     Size.Height = 94.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 44
+    TabOrder = 55
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -27488,7 +27489,7 @@ object TStyleContainer
     Size.Height = 94.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 45
+    TabOrder = 56
     object TTrack
       StyleName = 'htrack'
       Align = Client
@@ -27521,7 +27522,7 @@ object TStyleContainer
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 46
+    TabOrder = 57
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -27634,7 +27635,7 @@ object TStyleContainer
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 47
+    TabOrder = 58
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -27720,7 +27721,7 @@ object TStyleContainer
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 48
+    TabOrder = 59
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -27813,7 +27814,7 @@ object TStyleContainer
     Size.Height = 131.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 49
+    TabOrder = 61
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -27909,7 +27910,7 @@ object TStyleContainer
     Size.Height = 26.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 50
+    TabOrder = 63
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -27980,7 +27981,7 @@ object TStyleContainer
     Size.Height = 20.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 51
+    TabOrder = 65
     object TText
       StyleName = 'text'
       Align = Client
@@ -27999,7 +28000,7 @@ object TStyleContainer
     Size.Height = 24.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 52
+    TabOrder = 67
     object TRoundRect
       Align = Contents
       Fill.Color = xFFC7C7C7
@@ -28030,7 +28031,7 @@ object TStyleContainer
     Size.Height = 131.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 53
+    TabOrder = 68
     object TBrushObject
       StyleName = 'AlternatingRowBackground'
       Brush.Color = x80404040
@@ -28153,7 +28154,7 @@ object TStyleContainer
     Size.Height = 26.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 54
+    TabOrder = 69
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -28197,7 +28198,7 @@ object TStyleContainer
     Size.Height = 26.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 55
+    TabOrder = 70
     object TText
       StyleName = 'text'
       Align = Client
@@ -28298,7 +28299,7 @@ object TStyleContainer
     Size.Height = 131.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 56
+    TabOrder = 71
     object TBrushObject
       StyleName = 'AlternatingRowBackground'
       Brush.Color = x80404040
@@ -28399,7 +28400,7 @@ object TStyleContainer
     Size.Height = 24.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 57
+    TabOrder = 72
     object TCheckBox
       StyleName = 'check'
       Align = Left
@@ -28448,7 +28449,7 @@ object TStyleContainer
     Size.Height = 35.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 58
+    TabOrder = 73
     object TGlyph
       StyleName = 'glyphstyle'
       Margins.Left = 2.000000000000000000
@@ -28493,7 +28494,7 @@ object TStyleContainer
     Size.Height = 20.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 59
+    TabOrder = 74
     object TRectangle
       StyleName = 'top'
       Align = Contents
@@ -28663,7 +28664,7 @@ object TStyleContainer
     Size.Height = 21.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 60
+    TabOrder = 75
     object TLayout
       Align = Left
       Size.Width = 20.000000000000000000
@@ -28759,7 +28760,7 @@ object TStyleContainer
     Size.Height = 21.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 61
+    TabOrder = 76
     object TLayout
       Align = Left
       Size.Width = 20.000000000000000000
@@ -28849,7 +28850,7 @@ object TStyleContainer
     Size.Height = 126.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 62
+    TabOrder = 77
     object TRectangle
       StyleName = 'htrack'
       Align = Contents
@@ -29020,7 +29021,7 @@ object TStyleContainer
     Size.Height = 23.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 63
+    TabOrder = 78
     object TImage
       MultiResBitmap = <
         item
@@ -29050,7 +29051,7 @@ object TStyleContainer
     Size.Height = 59.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 64
+    TabOrder = 79
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -29092,7 +29093,7 @@ object TStyleContainer
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 65
+    TabOrder = 80
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -29160,7 +29161,7 @@ object TStyleContainer
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 66
+    TabOrder = 81
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -29330,7 +29331,7 @@ object TStyleContainer
     Size.Height = 131.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 67
+    TabOrder = 82
     object TBrushObject
       StyleName = 'AlternatingRowBackground'
       Brush.Color = x80404040
@@ -29515,7 +29516,7 @@ object TStyleContainer
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 68
+    TabOrder = 83
     object TPath
       Align = Center
       Data.Path = {
@@ -29597,7 +29598,7 @@ object TStyleContainer
     Size.Height = 100.999992370605500000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 69
+    TabOrder = 84
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -29623,7 +29624,7 @@ object TStyleContainer
     Size.Height = 50.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 70
+    TabOrder = 85
     object TRectangle
       Align = Contents
       Fill.Kind = None
@@ -29690,7 +29691,7 @@ object TStyleContainer
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 71
+    TabOrder = 86
     object TBrushObject
       StyleName = 'foreground'
       Brush.Color = xFFEAEAEA
@@ -29719,7 +29720,7 @@ object TStyleContainer
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 72
+    TabOrder = 87
     object TLayout
       Align = Center
       Size.Width = 20.000000000000000000
@@ -29775,7 +29776,7 @@ object TStyleContainer
     Size.Height = 126.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 73
+    TabOrder = 88
     object TLayout
       StyleName = 'htrack'
       Align = Contents
@@ -29815,7 +29816,7 @@ object TStyleContainer
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 74
+    TabOrder = 89
     object TLayout
       Align = Right
       Position.X = 92.000000000000000000
@@ -29872,7 +29873,7 @@ object TStyleContainer
     Size.Height = 26.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 75
+    TabOrder = 90
     object TImage
       StyleName = 'image'
       MultiResBitmap = <
@@ -29897,7 +29898,7 @@ object TStyleContainer
     Size.Height = 26.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 76
+    TabOrder = 96
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -29938,7 +29939,7 @@ object TStyleContainer
     Size.Height = 131.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 77
+    TabOrder = 100
     object TBrushObject
       StyleName = 'AlternatingRowBackground'
       Brush.Color = claNull
@@ -30084,7 +30085,7 @@ object TStyleContainer
     Size.Height = 50.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 87
+    TabOrder = 108
     object TRectangle
       Align = Client
       Fill.Color = xFF333333
@@ -30128,7 +30129,7 @@ object TStyleContainer
     Size.Height = 26.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 88
+    TabOrder = 109
     object TRectangle
       Align = Contents
       Fill.Color = xFF936639
@@ -30293,7 +30294,7 @@ object TStyleContainer
     Size.Height = 26.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 89
+    TabOrder = 110
     object TRectangle
       Align = Contents
       Fill.Color = xFF936639
@@ -30456,7 +30457,7 @@ object TStyleContainer
     Size.Height = 50.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 90
+    TabOrder = 111
     object TLine
       Align = Top
       LineType = Top
@@ -30492,7 +30493,7 @@ object TStyleContainer
     Size.Height = 50.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 92
+    TabOrder = 113
     object TGlowEffect
       Softness = 0.200000002980232200
       GlowColor = xFFF69E2D
@@ -30637,7 +30638,7 @@ object TStyleContainer
     Size.Height = 50.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 93
+    TabOrder = 114
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -30763,7 +30764,7 @@ object TStyleContainer
     Size.Height = 50.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 94
+    TabOrder = 115
     object TLayout
       Size.Width = 50.000000000000000000
       Size.Height = 25.000000000000000000
@@ -30805,7 +30806,7 @@ object TStyleContainer
     Size.Height = 35.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 110
+    TabOrder = 132
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -30857,7 +30858,7 @@ object TStyleContainer
     StyleName = 'editSearchstyle'
     Align = Center
     Visible = False
-    TabOrder = 31
+    TabOrder = 43
     object TRectangle
       StyleName = 'backgroundColor'
       Align = Contents
@@ -30955,7 +30956,7 @@ object TStyleContainer
     Size.Height = 50.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 29
+    TabOrder = 41
     object TRectangle
       StyleName = 'backgroundColor'
       Align = Contents
@@ -30973,11 +30974,11 @@ object TStyleContainer
       StyleName = 'content'
       Align = Client
       Locked = True
-      Margins.Left = 10.000000000000000000
+      Margins.Left = 11.000000000000000000
       Margins.Top = 3.000000000000000000
       Margins.Right = 3.000000000000000000
       Margins.Bottom = 3.000000000000000000
-      Size.Width = 35.000000000000000000
+      Size.Width = 34.000000000000000000
       Size.Height = 44.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
@@ -31019,7 +31020,7 @@ object TStyleContainer
       StyledSettings = [Family, Size, Style, FontColor, Other]
       Locked = True
       Opacity = 0.500000000000000000
-      Margins.Left = 10.000000000000000000
+      Margins.Left = 11.000000000000000000
       TextSettings.Font.Size = 14.000000000000000000
       TextSettings.FontColor = claGray
       TextSettings.Trimming = None
@@ -31042,7 +31043,7 @@ object TStyleContainer
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 109
+    TabOrder = 131
     FixedHeight = 30
     object TRectangle
       StyleName = 'backgroundColor'
@@ -31374,7 +31375,7 @@ object TStyleContainer
     Size.Height = 50.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 108
+    TabOrder = 130
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -31526,11 +31527,11 @@ object TStyleContainer
       StyleName = 'content'
       Align = Client
       Locked = True
-      Margins.Left = 5.000000000000000000
+      Margins.Left = 8.000000000000000000
       Margins.Top = 2.000000000000000000
       Margins.Right = 20.000000000000000000
       Margins.Bottom = 2.000000000000000000
-      Size.Width = 170.000000000000000000
+      Size.Width = 167.000000000000000000
       Size.Height = 46.000000000000000000
       Size.PlatformDefault = False
     end
@@ -31570,7 +31571,7 @@ object TStyleContainer
     Size.Height = 40.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 115
+    TabOrder = 136
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -31625,7 +31626,7 @@ object TStyleContainer
     Size.Height = 30.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 21
+    TabOrder = 31
     object TButtonStyleObject
       StyleName = 'background'
       Align = Contents
@@ -31817,7 +31818,7 @@ object TStyleContainer
     Size.Height = 25.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 129
+    TabOrder = 160
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -31879,7 +31880,7 @@ object TStyleContainer
     Size.Height = 35.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 128
+    TabOrder = 159
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -31933,7 +31934,7 @@ object TStyleContainer
     Size.Height = 532.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 211
+    TabOrder = 242
     FixedHeight = 65
     object TButtonStyleObject
       StyleName = 'background'
@@ -32640,7 +32641,7 @@ object TStyleContainer
     Size.Height = 62.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 114
+    TabOrder = 137
     object TRectangle
       StyleName = 'background'
       Align = Contents
@@ -32713,7 +32714,7 @@ object TStyleContainer
     Size.Height = 131.000000000000000000
     Size.PlatformDefault = False
     Visible = False
-    TabOrder = 79
+    TabOrder = 93
     object TBrushObject
       StyleName = 'AlternatingRowBackground'
       Brush.Color = claNull
@@ -32838,6 +32839,228 @@ object TStyleContainer
     object TBrushObject
       StyleName = 'linefill'
       Brush.Color = claDarkgray
+    end
+  end
+  object TStyleObject
+    StyleName = 'mvPopUpStyle1'
+    Align = Center
+    SourceLookup = 'Windows 10 Modern Darkstyle.png'
+    Size.Width = 250.000000000000000000
+    Size.Height = 400.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+    SourceLink = <
+      item
+        CapInsets.Left = 2.000000000000000000
+        CapInsets.Top = 2.000000000000000000
+        CapInsets.Right = 2.000000000000000000
+        CapInsets.Bottom = 2.000000000000000000
+        SourceRect.Left = 421.000000000000000000
+        SourceRect.Top = 11.000000000000000000
+        SourceRect.Right = 441.000000000000000000
+        SourceRect.Bottom = 26.000000000000000000
+      end
+      item
+        CapInsets.Left = 3.000000000000000000
+        CapInsets.Top = 3.000000000000000000
+        CapInsets.Right = 3.000000000000000000
+        CapInsets.Bottom = 3.000000000000000000
+        Scale = 1.500000000000000000
+        SourceRect.Left = 633.000000000000000000
+        SourceRect.Top = 22.000000000000000000
+        SourceRect.Right = 653.000000000000000000
+        SourceRect.Bottom = 37.000000000000000000
+      end
+      item
+        CapInsets.Left = 4.000000000000000000
+        CapInsets.Top = 4.000000000000000000
+        CapInsets.Right = 4.000000000000000000
+        CapInsets.Bottom = 4.000000000000000000
+        Scale = 2.000000000000000000
+        SourceRect.Left = 849.000000000000000000
+        SourceRect.Top = 31.000000000000000000
+        SourceRect.Right = 871.000000000000000000
+        SourceRect.Bottom = 49.000000000000000000
+      end
+      item
+        CapInsets.Left = 6.000000000000000000
+        CapInsets.Top = 6.000000000000000000
+        CapInsets.Right = 6.000000000000000000
+        CapInsets.Bottom = 6.000000000000000000
+        Scale = 3.000000000000000000
+        SourceRect.Left = 1280.000000000000000000
+        SourceRect.Top = 48.000000000000000000
+        SourceRect.Right = 1316.000000000000000000
+        SourceRect.Bottom = 64.000000000000000000
+      end>
+    object TBrushObject
+      StyleName = 'dropline'
+      Brush.Color = xFF151515
+    end
+    object TRectangle
+      StyleName = 'rmBackground'
+      Align = Contents
+      Fill.Color = claWhite
+      Size.Width = 250.000000000000000000
+      Size.Height = 400.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Color = claDarkgray
+      XRadius = 13.000000000000000000
+      YRadius = 13.000000000000000000
+    end
+    object ShadowEffect1: TShadowEffect
+      Distance = 6.000000000000000000
+      Direction = 55.000000000000000000
+      Softness = 0.300000011920929000
+      Opacity = 0.200000002980232200
+      ShadowColor = claBlack
+      Trigger = 'IsFocused=true'
+    end
+  end
+  object TLayout
+    StyleName = 'cbAccountSettingsStyle1'
+    Align = Center
+    Size.Width = 240.000000000000000000
+    Size.Height = 30.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+    TabOrder = 30
+    object TRectangle
+      StyleName = 'background'
+      Align = Contents
+      Fill.Color = claWhite
+      Locked = True
+      HitTest = False
+      Size.Width = 240.000000000000000000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      XRadius = 13.000000000000000000
+      YRadius = 13.000000000000000000
+      object TColorAnimation
+        Duration = 0.200000002980232200
+        Inverse = True
+        PropertyName = 'Fill.Color'
+        StartValue = claWhite
+        StopValue = xFFA6E3D1
+        Trigger = 'IsMouseOver=true'
+        TriggerInverse = 'IsMouseOver=false'
+      end
+    end
+    object TGlyph
+      StyleName = 'glyphstyle'
+      Margins.Left = 8.000000000000000000
+      Margins.Top = 2.000000000000000000
+      Margins.Right = 1.000000000000000000
+      Margins.Bottom = 2.000000000000000000
+      Align = Left
+      Position.X = 5.000000000000000000
+      Position.Y = 2.000000000000000000
+      Size.Width = 18.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object TText
+      StyleName = 'text'
+      Align = Client
+      Locked = True
+      HitTest = False
+      Margins.Left = 8.000000000000000000
+      Margins.Top = 2.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 2.000000000000000000
+      Size.Width = 227.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+    end
+  end
+  object TLayout
+    StyleName = 'popoverstyle'
+    Align = Center
+    Visible = False
+    TabOrder = 62
+    object TRectangle
+      StyleName = 'bg'
+      Align = Client
+      Fill.Color = claWhite
+      Size.Width = 50.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Color = xFEE1E7EF
+      XRadius = 13.000000000000000000
+      YRadius = 13.000000000000000000
+      object TShadowEffect
+        Distance = 4.000000000000000000
+        Direction = 45.000000000000000000
+        Softness = 0.200000017881393400
+        Opacity = 0.400000005960464500
+        ShadowColor = claBlack
+      end
+      object TLayout
+        StyleName = 'content'
+        Align = Client
+        Size.Width = 50.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+      end
+    end
+  end
+  object TLayout
+    StyleName = 'btnAddNewPatientStyle1'
+    Align = Center
+    Size.Width = 150.000000000000000000
+    Size.Height = 40.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 37
+    object TRectangle
+      StyleName = 'background'
+      Align = Contents
+      Fill.Color = xFFA6E3D1
+      Locked = True
+      HitTest = False
+      Size.Width = 150.000000000000000000
+      Size.Height = 40.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+      XRadius = 13.000000000000000000
+      YRadius = 13.000000000000000000
+      object TColorAnimation
+        Duration = 0.200000002980232200
+        Inverse = True
+        PropertyName = 'Fill.Color'
+        StartValue = xFFA6E3D1
+        StopValue = xFF76D5B9
+        Trigger = 'IsMouseOver=true'
+        TriggerInverse = 'IsMouseOver=false'
+      end
+    end
+    object TGlyph
+      StyleName = 'glyphstyle'
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 2.000000000000000000
+      Margins.Right = 1.000000000000000000
+      Margins.Bottom = 2.000000000000000000
+      Align = Left
+      Size.Width = 16.000000000000000000
+      Size.Height = 16.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object TText
+      StyleName = 'text'
+      Align = Client
+      Locked = True
+      HitTest = False
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 2.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 2.000000000000000000
+      Size.Width = 140.000000000000000000
+      Size.Height = 36.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Text'
+      TextSettings.Font.StyleExt = {00060000000000000004000000}
+      TextSettings.FontColor = xFE004D47
     end
   end
 end
