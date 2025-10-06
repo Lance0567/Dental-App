@@ -1,0 +1,434 @@
+object fAppointmentModal: TfAppointmentModal
+  Size.Width = 722.000000000000000000
+  Size.Height = 540.000000000000000000
+  Size.PlatformDefault = False
+  object lytContentH: TLayout
+    Align = Client
+    Size.Width = 722.000000000000000000
+    Size.Height = 540.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object rBackground: TRectangle
+      Align = Contents
+      Fill.Color = xFE00000C
+      Opacity = 0.699999988079071000
+      Size.Width = 722.000000000000000000
+      Size.Height = 540.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object rModalInfo: TRectangle
+      Align = Center
+      Anchors = [akTop, akBottom]
+      Fill.Color = xFEF8FBFB
+      Margins.Top = 50.000000000000000000
+      Margins.Bottom = 50.000000000000000000
+      Size.Width = 450.000000000000000000
+      Size.Height = 440.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Color = xFFDBD9D9
+      XRadius = 13.000000000000000000
+      YRadius = 13.000000000000000000
+      object ScrollBox1: TScrollBox
+        Align = Client
+        Padding.Left = 25.000000000000000000
+        Padding.Top = 15.000000000000000000
+        Padding.Right = 25.000000000000000000
+        Padding.Bottom = 20.000000000000000000
+        Size.Width = 450.000000000000000000
+        Size.Height = 440.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Viewport.Width = 434.000000000000000000
+        Viewport.Height = 440.000000000000000000
+        object lytTitle: TLayout
+          Align = MostTop
+          Margins.Right = -15.000000000000000000
+          Position.X = 25.000000000000000000
+          Position.Y = 15.000000000000000000
+          Size.Width = 399.000000000000000000
+          Size.Height = 35.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object lbTitle: TLabel
+            Align = Client
+            StyledSettings = []
+            Size.Width = 364.000000000000000000
+            Size.Height = 35.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Segoe UI Variable Small'
+            TextSettings.Font.Size = 18.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            Text = 'Create New Appointment'
+            TabOrder = 0
+          end
+          object btnClose: TSpeedButton
+            Align = Right
+            Margins.Right = -5.000000000000000000
+            Position.X = 364.000000000000000000
+            Size.Width = 40.000000000000000000
+            Size.Height = 35.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'cleareditbutton'
+            Text = 'btnClose'
+            TextSettings.Trimming = None
+          end
+        end
+        object lytHolder: TLayout
+          Align = Top
+          Margins.Top = 20.000000000000000000
+          Position.X = 25.000000000000000000
+          Position.Y = 70.000000000000000000
+          Size.Width = 384.000000000000000000
+          Size.Height = 530.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          object lytDetails1: TLayout
+            Align = Top
+            Size.Width = 384.000000000000000000
+            Size.Height = 70.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 2
+            object lPatient: TLabel
+              Align = Top
+              StyledSettings = [Family]
+              Size.Width = 384.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 14.000000000000000000
+              TextSettings.Font.StyleExt = {00060000000000000004000000}
+              Text = 'Patient'
+              TabOrder = 0
+            end
+            object crPatient: TCalloutRectangle
+              Align = Top
+              Fill.Color = claWhite
+              Padding.Left = 8.000000000000000000
+              Padding.Top = 15.000000000000000000
+              Padding.Bottom = 10.000000000000000000
+              Margins.Left = 30.000000000000000000
+              Margins.Top = -5.000000000000000000
+              Margins.Right = 30.000000000000000000
+              Position.X = 30.000000000000000000
+              Position.Y = 62.000000000000000000
+              Size.Width = 105.000000000000000000
+              Size.Height = 50.000000000000000000
+              Size.PlatformDefault = False
+              Stroke.Color = claDimgray
+              Visible = False
+              XRadius = 4.000000000000000000
+              YRadius = 4.000000000000000000
+              CalloutWidth = 23.000000000000000000
+              CalloutLength = 8.000000000000000000
+              object gPatient: TGlyph
+                Align = Left
+                Position.X = 8.000000000000000000
+                Position.Y = 15.000000000000000000
+                Size.Width = 25.000000000000000000
+                Size.Height = 25.000000000000000000
+                Size.PlatformDefault = False
+                ImageIndex = 31
+                Images = dm.imgList
+              end
+              object lPatientW: TLabel
+                Align = Client
+                StyledSettings = [Family, Style]
+                Margins.Left = 5.000000000000000000
+                Size.Width = 67.000000000000000000
+                Size.Height = 25.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Size = 13.000000000000000000
+                Text = 'Please fill out this field.'
+                TabOrder = 1
+              end
+              object ShadowEffect1: TShadowEffect
+                Distance = 6.000000000000000000
+                Direction = 55.000000000000000000
+                Softness = 0.300000011920929000
+                Opacity = 0.300000011920929000
+                ShadowColor = claBlack
+              end
+            end
+            object cbPatient: TComboBox
+              Align = Top
+              DisableMouseWheel = True
+              Margins.Top = 10.000000000000000000
+              Position.Y = 27.000000000000000000
+              Size.Width = 384.000000000000000000
+              Size.Height = 40.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 3
+            end
+          end
+          object lytDetails2: TLayout
+            Align = Top
+            Margins.Top = 20.000000000000000000
+            Position.Y = 90.000000000000000000
+            Size.Width = 384.000000000000000000
+            Size.Height = 70.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            object lAppointmentTitle: TLabel
+              Align = Top
+              StyledSettings = [Family]
+              Size.Width = 384.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 14.000000000000000000
+              TextSettings.Font.StyleExt = {00060000000000000004000000}
+              Text = 'Appointment Title'
+              TabOrder = 0
+            end
+            object eAppointmentTitle: TEdit
+              Touch.InteractiveGestures = [LongTap, DoubleTap]
+              Align = Top
+              TabOrder = 1
+              Text = 'E.g., Dental Cleaning, Consultation, etc.'
+              TextSettings.Font.Family = 'Segoe UI Variable Small'
+              TextSettings.Font.Size = 14.000000000000000000
+              Position.Y = 27.000000000000000000
+              Hint = 'Please fillout this field.'
+              HelpType = htKeyword
+              Margins.Top = 10.000000000000000000
+              Size.Width = 384.000000000000000000
+              Size.Height = 40.000000000000000000
+              Size.PlatformDefault = False
+              TextPrompt = 'Enter patient'#39's full name'
+              StyledSettings = [Family, Size]
+              ParentShowHint = False
+              ShowHint = True
+            end
+            object crAppointmentTitle: TCalloutRectangle
+              Align = Top
+              Fill.Color = claWhite
+              Padding.Left = 8.000000000000000000
+              Padding.Top = 15.000000000000000000
+              Padding.Bottom = 10.000000000000000000
+              Margins.Left = 30.000000000000000000
+              Margins.Top = -5.000000000000000000
+              Margins.Right = 30.000000000000000000
+              Position.X = 30.000000000000000000
+              Position.Y = 62.000000000000000000
+              Size.Width = 105.000000000000000000
+              Size.Height = 50.000000000000000000
+              Size.PlatformDefault = False
+              Stroke.Color = claDimgray
+              Visible = False
+              XRadius = 4.000000000000000000
+              YRadius = 4.000000000000000000
+              CalloutWidth = 23.000000000000000000
+              CalloutLength = 8.000000000000000000
+              object gAppointmentTitle: TGlyph
+                Align = Left
+                Position.X = 8.000000000000000000
+                Position.Y = 15.000000000000000000
+                Size.Width = 25.000000000000000000
+                Size.Height = 25.000000000000000000
+                Size.PlatformDefault = False
+                ImageIndex = 31
+                Images = dm.imgList
+              end
+              object lAppointmentTitleW: TLabel
+                Align = Client
+                StyledSettings = [Family, Style]
+                Margins.Left = 5.000000000000000000
+                Size.Width = 67.000000000000000000
+                Size.Height = 25.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Size = 13.000000000000000000
+                Text = 'Please fill out this field.'
+                TabOrder = 1
+              end
+              object ShadowEffect2: TShadowEffect
+                Distance = 6.000000000000000000
+                Direction = 55.000000000000000000
+                Softness = 0.300000011920929000
+                Opacity = 0.300000011920929000
+                ShadowColor = claBlack
+              end
+            end
+          end
+          object lytDetails3: TLayout
+            Align = Top
+            Margins.Top = 20.000000000000000000
+            Position.Y = 180.000000000000000000
+            Size.Width = 384.000000000000000000
+            Size.Height = 70.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 4
+            object lytStatus: TLayout
+              Align = Left
+              Margins.Left = 20.000000000000000000
+              Position.X = 200.000000000000000000
+              Size.Width = 180.000000000000000000
+              Size.Height = 70.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+              object lStatus: TLabel
+                Align = Top
+                StyledSettings = [Family]
+                Size.Width = 180.000000000000000000
+                Size.Height = 17.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Size = 14.000000000000000000
+                TextSettings.Font.StyleExt = {00060000000000000004000000}
+                Text = 'Status'
+                TabOrder = 0
+              end
+              object cbStatus: TComboBox
+                Align = Top
+                DisableMouseWheel = True
+                Items.Strings = (
+                  'New'
+                  'Ongoing'
+                  'Completed'
+                  'Cancelled')
+                ItemIndex = 0
+                Margins.Top = 10.000000000000000000
+                Position.Y = 27.000000000000000000
+                Size.Width = 180.000000000000000000
+                Size.Height = 40.000000000000000000
+                Size.PlatformDefault = False
+                TabOrder = 3
+              end
+            end
+            object lytDate: TLayout
+              Align = Left
+              Size.Width = 180.000000000000000000
+              Size.Height = 70.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 1
+              object lDate: TLabel
+                Align = Top
+                StyledSettings = [Family]
+                Size.Width = 180.000000000000000000
+                Size.Height = 17.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Size = 14.000000000000000000
+                TextSettings.Font.StyleExt = {00060000000000000004000000}
+                Text = 'Date'
+                TabOrder = 0
+              end
+              object deDate: TDateEdit
+                Date = 45885.000000000000000000
+                DateFormatKind = Long
+                Align = Top
+                Margins.Top = 10.000000000000000000
+                Position.Y = 27.000000000000000000
+                Size.Width = 180.000000000000000000
+                Size.Height = 40.000000000000000000
+                Size.PlatformDefault = False
+                TabOrder = 2
+                TextSettings.Font.Size = 14.000000000000000000
+              end
+            end
+          end
+          object lytDetails4: TLayout
+            Align = Top
+            Margins.Top = 20.000000000000000000
+            Position.Y = 270.000000000000000000
+            Size.Width = 384.000000000000000000
+            Size.Height = 70.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 3
+            object lytEndTIme: TLayout
+              Align = Left
+              Margins.Left = 20.000000000000000000
+              Position.X = 200.000000000000000000
+              Size.Width = 180.000000000000000000
+              Size.Height = 70.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+              object lEndTime: TLabel
+                Align = Top
+                StyledSettings = [Family]
+                Size.Width = 180.000000000000000000
+                Size.Height = 17.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Size = 14.000000000000000000
+                TextSettings.Font.StyleExt = {00060000000000000004000000}
+                Text = 'End Time'
+                TabOrder = 0
+              end
+              object teEndTime: TTimeEdit
+                Time = 0.575482465277777800
+                Align = Top
+                Margins.Top = 10.000000000000000000
+                Position.Y = 27.000000000000000000
+                Size.Width = 180.000000000000000000
+                Size.Height = 43.000000000000000000
+                Size.PlatformDefault = False
+                StyledSettings = [Style, FontColor]
+                TextSettings.Font.Family = 'Segoe UI Variable Text'
+                TextSettings.Font.Size = 14.000000000000000000
+                TabOrder = 2
+              end
+            end
+            object lytStartTime: TLayout
+              Align = Left
+              Size.Width = 180.000000000000000000
+              Size.Height = 70.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 1
+              object lStartTime: TLabel
+                Align = Top
+                StyledSettings = [Family]
+                Size.Width = 180.000000000000000000
+                Size.Height = 17.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Size = 14.000000000000000000
+                TextSettings.Font.StyleExt = {00060000000000000004000000}
+                Text = 'Start Time'
+                TabOrder = 0
+              end
+              object teStartTime: TTimeEdit
+                Time = 0.575482465277777800
+                Align = Top
+                Margins.Top = 10.000000000000000000
+                Position.Y = 27.000000000000000000
+                Size.Width = 180.000000000000000000
+                Size.Height = 43.000000000000000000
+                Size.PlatformDefault = False
+                StyledSettings = [Style, FontColor]
+                TextSettings.Font.Family = 'Segoe UI Variable Text'
+                TextSettings.Font.Size = 14.000000000000000000
+                TabOrder = 2
+              end
+            end
+          end
+          object lytDetails5: TLayout
+            Align = Top
+            Margins.Top = 20.000000000000000000
+            Position.Y = 360.000000000000000000
+            Size.Width = 384.000000000000000000
+            Size.Height = 161.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            object lNotes: TLabel
+              Align = Top
+              StyledSettings = [Family]
+              Size.Width = 384.000000000000000000
+              Size.Height = 17.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 14.000000000000000000
+              TextSettings.Font.StyleExt = {00060000000000000004000000}
+              Text = 'Notes'
+              TabOrder = 0
+            end
+            object mNotes: TMemo
+              Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+              DataDetectorTypes = []
+              Align = Client
+              Margins.Top = 10.000000000000000000
+              Size.Width = 384.000000000000000000
+              Size.Height = 134.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 3
+              Viewport.Width = 384.000000000000000000
+              Viewport.Height = 134.000000000000000000
+            end
+          end
+        end
+      end
+    end
+  end
+end

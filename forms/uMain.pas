@@ -8,7 +8,9 @@ uses
   FMX.Controls.Presentation, FMX.MultiView, FMX.TabControl, FMX.StdCtrls,
   FMX.Objects, uDashboard, FMX.ImgList, uPatients, uAppointments, uPatientModal,
   uUsers, uUserProfile, uUserModal, System.Skia, FMX.Skia, FMX.Ani, FireDAC.Stan.Param,
-  FMX.Effects, FMX.Grid, Data.DB;
+  FMX.Effects, FMX.Grid, Data.DB, Data.Bind.EngExt, Fmx.Bind.DBEngExt,
+  Fmx.Bind.Grid, System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors,
+  Data.Bind.Components, Data.Bind.Grid, Data.Bind.DBScope, uAppointmentModal;
 
 type
   TfrmMain = class(TForm)
@@ -45,6 +47,7 @@ type
     lbPopUp: TSkLabel;
     fUsers: TfUsers;
     ShadowEffect1: TShadowEffect;
+    fAppointmentModal: TfAppointmentModal;
     procedure FormCreate(Sender: TObject);
     procedure mvSidebarResize(Sender: TObject);
     procedure FormResize(Sender: TObject);

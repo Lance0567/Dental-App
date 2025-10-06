@@ -42,6 +42,7 @@ type
     cbMonth: TCornerButton;
     procedure gAppointmentResized(Sender: TObject);
     procedure FrameResized(Sender: TObject);
+    procedure btnAddNewAppointmentClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -150,6 +151,18 @@ begin
       );
     end
   );
+end;
+
+{ Add new appointment }
+procedure TfAppointments.btnAddNewAppointmentClick(Sender: TObject);
+begin
+  // Show modal
+  frmMain.fAppointmentModal.Visible := False;
+
+  // Set text prompt in notes
+  frmMain.fAppointmentModal.mNotes.Text := 'Add any relevant notes about this appointment';
+
+
 end;
 
 { Frame Resized }

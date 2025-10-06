@@ -1036,6 +1036,7 @@ Coordinates=2610,729,158,33
 
 [dm.qAppointments]
 Coordinates=16,171,108,213
+Visible=False
 
 [fPatientModal.ShadowEffect1]
 Coordinates=2610,781,158,33

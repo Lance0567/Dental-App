@@ -396,6 +396,7 @@ object fPatientModal: TfPatientModal
                 end
                 object cbGender: TComboBox
                   Align = Top
+                  DisableMouseWheel = True
                   Items.Strings = (
                     'Male'
                     'Female'

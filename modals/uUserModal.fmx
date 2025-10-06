@@ -981,7 +981,7 @@ object fUserModal: TfUserModal
             TextSettings.Font.Size = 14.000000000000000000
             TextSettings.FontColor = claDimgray
             Text = 'Default Camera'
-            TabOrder = 86
+            TabOrder = 85
           end
         end
       end
