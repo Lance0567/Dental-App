@@ -184,6 +184,8 @@ end;
 { Modal Frame Resize }
 procedure TfPatientModal.FrameResize(Sender: TObject);
 begin
+  EditComponentsResponsive;
+
   // Modal content margins
   if (frmMain.ClientHeight >= 520) AND (frmMain.ClientWidth >= 870) then
   begin

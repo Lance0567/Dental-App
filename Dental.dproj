@@ -209,6 +209,11 @@
             <Form>frmLogin</Form>
             <FormType>fmx</FormType>
         </DCCReference>
+        <DCCReference Include="modals\uAppointmentModal.pas">
+            <Form>fAppointmentModal</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

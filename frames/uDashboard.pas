@@ -47,7 +47,6 @@ type
     lytTwoColumns: TLayout;
     btnNewPatient: TCornerButton;
     btnNewAppointment: TCornerButton;
-    lytBottom: TLayout;
     btnReportAnIssue: TCornerButton;
     rToolbar: TRectangle;
     lytToolbarH: TLayout;
@@ -72,6 +71,7 @@ type
     cbAccountSettings: TCornerButton;
     cbLogout: TCornerButton;
     lDivider: TLine;
+    lytBottom: TLayout;
     procedure FrameResize(Sender: TObject);
   private
 
@@ -91,12 +91,12 @@ uses uDm, uMain;
 procedure TfDashboard.FrameResize(Sender: TObject);
 begin
   // Client width resize
-  if (frmMain.ClientWidth > 1900) then
+  if (frmMain.ClientWidth > 1900) AND not (frmMain.ClientWidth < 1360) then
   begin
-    glytCards.Height := 120;
-    glytCards.ItemWidth := 320;
+    glytCards.Height := 165;
+    glytCards.ItemWidth := 400;
   end
-  else if (frmMain.ClientWidth > 1360) AND (frmMain.ClientHeight >= 505) then
+  else if (frmMain.ClientWidth > 1360) AND not (frmMain.ClientWidth < 1165) then
   begin
     // Cards
     glytCards.Height := 160;
@@ -115,7 +115,7 @@ begin
   begin
     glytCards.Height := 120;
   end
-  else if (frmMain.ClientWidth <= 850) AND (frmMain.ClientHeight <= 505) then
+  else if (frmMain.ClientWidth <= 850) then
   begin
     // Cards
     glytCards.Height := 290;
@@ -151,12 +151,12 @@ begin
   end;
 
   // Client Dimension condition
-  if frmMain.ClientWidth > 1900 then
+  if (frmMain.ClientWidth > 1900) AND not (frmMain.ClientWidth < 900) then
   begin
-    ItemsPerRow := Max(1, AvailableWidth div 400);
+    ItemsPerRow := Max(1, AvailableWidth div 500);
     glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
   end
-  else if (frmMain.ClientWidth > 900) then
+  else if (frmMain.ClientWidth > 900) AND not (frmMain.ClientWidth < 850) then
   begin
     ItemsPerRow := Max(1, AvailableWidth div 270);
     glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4 + 4) / ItemsPerRow);
@@ -170,8 +170,8 @@ begin
   // Frame Dimension condition
   if Self.Width >= 1278 then
   begin
-    ItemsPerRow := Max(1, AvailableWidth div 290);
-    glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
+    ItemsPerRow := Max(1, AvailableWidth div 410);
+    glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4 + 6) / ItemsPerRow);
   end
   else if Self.Width >= 1084 then
   begin

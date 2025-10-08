@@ -189,9 +189,6 @@ begin
 
   fDashboard.FrameResize(Sender);
   fDashboard.CardsResize;
-
-  // Patient Modal content responsive
-  fPatientModal.EditComponentsResponsive;
 end;
 
 { Form Resized }

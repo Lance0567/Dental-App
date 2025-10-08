@@ -118,9 +118,6 @@ Coordinates=314,78,100,58
 [gIcon3]
 Coordinates=88,306,53,36
 
-[lytBottom]
-Coordinates=10,306,68,36
-
 [dm.qTemp]
 Coordinates=397,146,76,58
 
@@ -179,6 +176,6 @@ Coordinates=10,214,58,36
 Coordinates=606,146,79,36
 
 []
-Coordinates=406,214,70,36
+Coordinates=10,306,68,36
 Visible=True
 

@@ -43,20 +43,20 @@ object fPatientModal: TfPatientModal
         Viewport.Height = 440.000000000000000000
         object lytButtonSaveH: TLayout
           Align = Top
-          Padding.Top = 10.000000000000000000
+          Padding.Top = 15.000000000000000000
           Padding.Right = 15.000000000000000000
-          Padding.Bottom = 10.000000000000000000
+          Padding.Bottom = 15.000000000000000000
           Position.X = 15.000000000000000000
           Position.Y = 505.000000000000000000
           Size.Width = 546.000000000000000000
-          Size.Height = 60.000000000000000000
+          Size.Height = 70.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 2
           object btnSavePatient: TCornerButton
             Align = Right
             StyledSettings = []
             Position.X = 401.000000000000000000
-            Position.Y = 10.000000000000000000
+            Position.Y = 15.000000000000000000
             Sides = [Top, Left, Bottom, Right]
             Size.Width = 130.000000000000000000
             Size.Height = 40.000000000000000000
@@ -89,7 +89,7 @@ object fPatientModal: TfPatientModal
             Margins.Left = 25.000000000000000000
             Margins.Right = 10.000000000000000000
             Position.X = 301.000000000000000000
-            Position.Y = 10.000000000000000000
+            Position.Y = 15.000000000000000000
             Sides = [Top, Left, Bottom, Right]
             Size.Width = 90.000000000000000000
             Size.Height = 40.000000000000000000
@@ -148,8 +148,8 @@ object fPatientModal: TfPatientModal
             TabOrder = 7
             OnExit = mMedicalNotesExit
             OnClick = mMedicalNotesClick
-            Viewport.Width = 502.000000000000000000
-            Viewport.Height = 121.000000000000000000
+            Viewport.Width = 506.000000000000000000
+            Viewport.Height = 125.000000000000000000
             object GlowEffect1: TGlowEffect
               Softness = 0.200000002980232200
               GlowColor = claBlack
@@ -633,7 +633,7 @@ object fPatientModal: TfPatientModal
                     TextSettings.Font.Size = 14.000000000000000000
                     TextSettings.FontColor = claGray
                     Text = 'Pick a date'
-                    TabOrder = 15
+                    TabOrder = 14
                   end
                 end
                 object lAgeCounter: TLabel

@@ -156,13 +156,27 @@ end;
 { Add new appointment }
 procedure TfAppointments.btnAddNewAppointmentClick(Sender: TObject);
 begin
+  // Set record status to add
+  frmMain.fAppointmentModal.RecordStatus := 'Add';
+
+  // Set Modal Title
+  frmMain.fAppointmentModal.lbTitle.Text := 'Create New Appointment';
+
+  // Set Button Text
+  frmMain.fAppointmentModal.btnCreateAppointment.Text := 'Create Appointment';
+
+  // Clear items
+  frmMain.fAppointmentModal.ClearItems;
+
+  // Hide validation components
+  frmMain.fAppointmentModal.crPatient.Visible := False;
+  frmMain.fAppointmentModal.crAppointmentTitle.Visible := False;
+
   // Show modal
-  frmMain.fAppointmentModal.Visible := False;
+  frmMain.fAppointmentModal.Visible := True;
 
-  // Set text prompt in notes
-  frmMain.fAppointmentModal.mNotes.Text := 'Add any relevant notes about this appointment';
-
-
+  // Reset Scrollbox
+  frmMain.fAppointmentModal.ScrollBox1.ViewportPosition := PointF(0,0);
 end;
 
 { Frame Resized }

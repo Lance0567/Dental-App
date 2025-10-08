@@ -2,6 +2,7 @@ object fAppointmentModal: TfAppointmentModal
   Size.Width = 722.000000000000000000
   Size.Height = 540.000000000000000000
   Size.PlatformDefault = False
+  OnResized = FrameResized
   object lytContentH: TLayout
     Align = Client
     Size.Width = 722.000000000000000000
@@ -17,12 +18,13 @@ object fAppointmentModal: TfAppointmentModal
       Size.PlatformDefault = False
     end
     object rModalInfo: TRectangle
-      Align = Center
-      Anchors = [akTop, akBottom]
+      Align = Client
       Fill.Color = xFEF8FBFB
+      Margins.Left = 135.000000000000000000
       Margins.Top = 50.000000000000000000
+      Margins.Right = 135.000000000000000000
       Margins.Bottom = 50.000000000000000000
-      Size.Width = 450.000000000000000000
+      Size.Width = 452.000000000000000000
       Size.Height = 440.000000000000000000
       Size.PlatformDefault = False
       Stroke.Color = xFFDBD9D9
@@ -34,25 +36,25 @@ object fAppointmentModal: TfAppointmentModal
         Padding.Top = 15.000000000000000000
         Padding.Right = 25.000000000000000000
         Padding.Bottom = 20.000000000000000000
-        Size.Width = 450.000000000000000000
+        Size.Width = 452.000000000000000000
         Size.Height = 440.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
-        Viewport.Width = 434.000000000000000000
+        Viewport.Width = 436.000000000000000000
         Viewport.Height = 440.000000000000000000
         object lytTitle: TLayout
           Align = MostTop
           Margins.Right = -15.000000000000000000
           Position.X = 25.000000000000000000
           Position.Y = 15.000000000000000000
-          Size.Width = 399.000000000000000000
+          Size.Width = 401.000000000000000000
           Size.Height = 35.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
           object lbTitle: TLabel
             Align = Client
             StyledSettings = []
-            Size.Width = 364.000000000000000000
+            Size.Width = 366.000000000000000000
             Size.Height = 35.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.Family = 'Segoe UI Variable Small'
@@ -64,13 +66,14 @@ object fAppointmentModal: TfAppointmentModal
           object btnClose: TSpeedButton
             Align = Right
             Margins.Right = -5.000000000000000000
-            Position.X = 364.000000000000000000
+            Position.X = 366.000000000000000000
             Size.Width = 40.000000000000000000
             Size.Height = 35.000000000000000000
             Size.PlatformDefault = False
             StyleLookup = 'cleareditbutton'
             Text = 'btnClose'
             TextSettings.Trimming = None
+            OnClick = btnCloseClick
           end
         end
         object lytHolder: TLayout
@@ -78,20 +81,22 @@ object fAppointmentModal: TfAppointmentModal
           Margins.Top = 20.000000000000000000
           Position.X = 25.000000000000000000
           Position.Y = 70.000000000000000000
-          Size.Width = 384.000000000000000000
-          Size.Height = 530.000000000000000000
+          Size.Width = 386.000000000000000000
+          Size.Height = 620.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
           object lytDetails1: TLayout
             Align = Top
-            Size.Width = 384.000000000000000000
+            Margins.Top = 20.000000000000000000
+            Position.Y = 110.000000000000000000
+            Size.Width = 386.000000000000000000
             Size.Height = 70.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 2
             object lPatient: TLabel
               Align = Top
               StyledSettings = [Family]
-              Size.Width = 384.000000000000000000
+              Size.Width = 386.000000000000000000
               Size.Height = 17.000000000000000000
               Size.PlatformDefault = False
               TextSettings.Font.Size = 14.000000000000000000
@@ -151,9 +156,12 @@ object fAppointmentModal: TfAppointmentModal
             object cbPatient: TComboBox
               Align = Top
               DisableMouseWheel = True
+              Items.Strings = (
+                'Select patient...')
+              ItemIndex = 0
               Margins.Top = 10.000000000000000000
               Position.Y = 27.000000000000000000
-              Size.Width = 384.000000000000000000
+              Size.Width = 386.000000000000000000
               Size.Height = 40.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 3
@@ -162,15 +170,15 @@ object fAppointmentModal: TfAppointmentModal
           object lytDetails2: TLayout
             Align = Top
             Margins.Top = 20.000000000000000000
-            Position.Y = 90.000000000000000000
-            Size.Width = 384.000000000000000000
+            Position.Y = 200.000000000000000000
+            Size.Width = 386.000000000000000000
             Size.Height = 70.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
             object lAppointmentTitle: TLabel
               Align = Top
               StyledSettings = [Family]
-              Size.Width = 384.000000000000000000
+              Size.Width = 386.000000000000000000
               Size.Height = 17.000000000000000000
               Size.PlatformDefault = False
               TextSettings.Font.Size = 14.000000000000000000
@@ -182,17 +190,16 @@ object fAppointmentModal: TfAppointmentModal
               Touch.InteractiveGestures = [LongTap, DoubleTap]
               Align = Top
               TabOrder = 1
-              Text = 'E.g., Dental Cleaning, Consultation, etc.'
               TextSettings.Font.Family = 'Segoe UI Variable Small'
               TextSettings.Font.Size = 14.000000000000000000
               Position.Y = 27.000000000000000000
               Hint = 'Please fillout this field.'
               HelpType = htKeyword
               Margins.Top = 10.000000000000000000
-              Size.Width = 384.000000000000000000
+              Size.Width = 386.000000000000000000
               Size.Height = 40.000000000000000000
               Size.PlatformDefault = False
-              TextPrompt = 'Enter patient'#39's full name'
+              TextPrompt = 'E.g., Dental Cleaning, Consultation, etc.'
               StyledSettings = [Family, Size]
               ParentShowHint = False
               ShowHint = True
@@ -250,23 +257,24 @@ object fAppointmentModal: TfAppointmentModal
           object lytDetails3: TLayout
             Align = Top
             Margins.Top = 20.000000000000000000
-            Position.Y = 180.000000000000000000
-            Size.Width = 384.000000000000000000
+            Position.Y = 20.000000000000000000
+            Size.Width = 386.000000000000000000
             Size.Height = 70.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 4
+            OnResized = lytDetails3Resized
             object lytStatus: TLayout
               Align = Left
               Margins.Left = 20.000000000000000000
-              Position.X = 200.000000000000000000
-              Size.Width = 180.000000000000000000
+              Position.X = 202.000000000000000000
+              Size.Width = 182.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 0
               object lStatus: TLabel
                 Align = Top
                 StyledSettings = [Family]
-                Size.Width = 180.000000000000000000
+                Size.Width = 182.000000000000000000
                 Size.Height = 17.000000000000000000
                 Size.PlatformDefault = False
                 TextSettings.Font.Size = 14.000000000000000000
@@ -285,7 +293,7 @@ object fAppointmentModal: TfAppointmentModal
                 ItemIndex = 0
                 Margins.Top = 10.000000000000000000
                 Position.Y = 27.000000000000000000
-                Size.Width = 180.000000000000000000
+                Size.Width = 182.000000000000000000
                 Size.Height = 40.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 3
@@ -293,14 +301,14 @@ object fAppointmentModal: TfAppointmentModal
             end
             object lytDate: TLayout
               Align = Left
-              Size.Width = 180.000000000000000000
+              Size.Width = 182.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 1
               object lDate: TLabel
                 Align = Top
                 StyledSettings = [Family]
-                Size.Width = 180.000000000000000000
+                Size.Width = 182.000000000000000000
                 Size.Height = 17.000000000000000000
                 Size.PlatformDefault = False
                 TextSettings.Font.Size = 14.000000000000000000
@@ -310,38 +318,56 @@ object fAppointmentModal: TfAppointmentModal
               end
               object deDate: TDateEdit
                 Date = 45885.000000000000000000
+                WeekNumbers = True
                 DateFormatKind = Long
+                OnClosePicker = deDateClosePicker
                 Align = Top
                 Margins.Top = 10.000000000000000000
                 Position.Y = 27.000000000000000000
-                Size.Width = 180.000000000000000000
+                Size.Width = 182.000000000000000000
                 Size.Height = 40.000000000000000000
                 Size.PlatformDefault = False
+                StyledSettings = [Size, Style]
                 TabOrder = 2
+                TextSettings.Font.Family = 'Segoe UI Variable Text'
                 TextSettings.Font.Size = 14.000000000000000000
+                TextSettings.FontColor = claWhite
+                object lPickDate: TLabel
+                  Align = Client
+                  StyledSettings = [Style, FontColor]
+                  Margins.Left = 35.000000000000000000
+                  Size.Width = 147.000000000000000000
+                  Size.Height = 40.000000000000000000
+                  Size.PlatformDefault = False
+                  TextSettings.Font.Family = 'Segoe UI Variable Text'
+                  TextSettings.Font.Size = 14.000000000000000000
+                  Text = 'Pick a date'
+                  TabOrder = 15
+                end
               end
             end
           end
           object lytDetails4: TLayout
             Align = Top
             Margins.Top = 20.000000000000000000
-            Position.Y = 270.000000000000000000
-            Size.Width = 384.000000000000000000
+            Position.Y = 290.000000000000000000
+            Size.Width = 386.000000000000000000
             Size.Height = 70.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 3
-            object lytEndTIme: TLayout
+            OnResized = lytDetails4Resized
+            object lytEndTime: TLayout
               Align = Left
               Margins.Left = 20.000000000000000000
-              Position.X = 200.000000000000000000
-              Size.Width = 180.000000000000000000
+              Position.X = 202.000000000000000000
+              Size.Width = 182.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 0
               object lEndTime: TLabel
                 Align = Top
                 StyledSettings = [Family]
-                Size.Width = 180.000000000000000000
+                Size.Width = 182.000000000000000000
                 Size.Height = 17.000000000000000000
                 Size.PlatformDefault = False
                 TextSettings.Font.Size = 14.000000000000000000
@@ -354,7 +380,7 @@ object fAppointmentModal: TfAppointmentModal
                 Align = Top
                 Margins.Top = 10.000000000000000000
                 Position.Y = 27.000000000000000000
-                Size.Width = 180.000000000000000000
+                Size.Width = 182.000000000000000000
                 Size.Height = 43.000000000000000000
                 Size.PlatformDefault = False
                 StyledSettings = [Style, FontColor]
@@ -365,14 +391,14 @@ object fAppointmentModal: TfAppointmentModal
             end
             object lytStartTime: TLayout
               Align = Left
-              Size.Width = 180.000000000000000000
+              Size.Width = 182.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 1
               object lStartTime: TLabel
                 Align = Top
                 StyledSettings = [Family]
-                Size.Width = 180.000000000000000000
+                Size.Width = 182.000000000000000000
                 Size.Height = 17.000000000000000000
                 Size.PlatformDefault = False
                 TextSettings.Font.Size = 14.000000000000000000
@@ -385,7 +411,7 @@ object fAppointmentModal: TfAppointmentModal
                 Align = Top
                 Margins.Top = 10.000000000000000000
                 Position.Y = 27.000000000000000000
-                Size.Width = 180.000000000000000000
+                Size.Width = 182.000000000000000000
                 Size.Height = 43.000000000000000000
                 Size.PlatformDefault = False
                 StyledSettings = [Style, FontColor]
@@ -398,15 +424,15 @@ object fAppointmentModal: TfAppointmentModal
           object lytDetails5: TLayout
             Align = Top
             Margins.Top = 20.000000000000000000
-            Position.Y = 360.000000000000000000
-            Size.Width = 384.000000000000000000
+            Position.Y = 380.000000000000000000
+            Size.Width = 386.000000000000000000
             Size.Height = 161.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
             object lNotes: TLabel
               Align = Top
               StyledSettings = [Family]
-              Size.Width = 384.000000000000000000
+              Size.Width = 386.000000000000000000
               Size.Height = 17.000000000000000000
               Size.PlatformDefault = False
               TextSettings.Font.Size = 14.000000000000000000
@@ -417,14 +443,66 @@ object fAppointmentModal: TfAppointmentModal
             object mNotes: TMemo
               Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
               DataDetectorTypes = []
+              StyledSettings = [Style]
+              TextSettings.Font.Family = 'Segoe UI Variable Text'
+              TextSettings.Font.Size = 14.000000000000000000
               Align = Client
               Margins.Top = 10.000000000000000000
-              Size.Width = 384.000000000000000000
+              Size.Width = 386.000000000000000000
               Size.Height = 134.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 3
-              Viewport.Width = 384.000000000000000000
-              Viewport.Height = 134.000000000000000000
+              OnExit = mNotesExit
+              OnClick = mNotesClick
+              Viewport.Width = 382.000000000000000000
+              Viewport.Height = 130.000000000000000000
+            end
+          end
+          object lytButtonH: TLayout
+            Align = Top
+            Margins.Top = 20.000000000000000000
+            Position.Y = 561.000000000000000000
+            Size.Width = 386.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 5
+            object btnCreateAppointment: TCornerButton
+              Align = Right
+              StyledSettings = []
+              Position.X = 234.000000000000000000
+              Sides = [Top, Left, Bottom, Right]
+              Size.Width = 152.000000000000000000
+              Size.Height = 40.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 4
+              Text = 'Create Appointment'
+              TextSettings.Font.Family = 'Segoe UI Variable Display'
+              TextSettings.Font.Size = 14.000000000000000000
+              TextSettings.Font.StyleExt = {00060000000000000004000000}
+              TextSettings.FontColor = xFF004D47
+              TextSettings.Trimming = None
+              XRadius = 13.000000000000000000
+              YRadius = 13.000000000000000000
+            end
+            object btnCancel: TCornerButton
+              Align = Right
+              StyledSettings = [FontColor]
+              Margins.Left = 25.000000000000000000
+              Margins.Right = 10.000000000000000000
+              Position.X = 134.000000000000000000
+              Sides = [Top, Left, Bottom, Right]
+              Size.Width = 90.000000000000000000
+              Size.Height = 40.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 3
+              Text = 'Cancel'
+              TextSettings.Font.Family = 'Segoe UI Variable Display'
+              TextSettings.Font.Size = 14.000000000000000000
+              TextSettings.Font.StyleExt = {00060000000000000004000000}
+              TextSettings.Trimming = None
+              XRadius = 13.000000000000000000
+              YRadius = 13.000000000000000000
+              OnClick = btnCloseClick
             end
           end
         end

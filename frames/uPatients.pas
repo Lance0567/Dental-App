@@ -182,7 +182,7 @@ begin
 
   // Patient Modal visibility
   frmMain.fPatientModal.Visible := True;
-  frmMain.fPatientModal.gIcon.Visible := True;  // Show user ico
+  frmMain.fPatientModal.gIcon.Visible := True;  // Show user icon
 
   // Profile Icon
   frmMain.fPatientModal.gIcon.ImageIndex := 10;

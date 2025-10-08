@@ -15,7 +15,8 @@ uses
   uUserModal in 'modals\uUserModal.pas' {fUserModal: TFrame},
   uUserDetails in 'modals\uUserDetails.pas' {fUserDetails: TFrame},
   uUpdateProfilePhoto in 'modals\uUpdateProfilePhoto.pas' {fUpdateProfilePhoto: TFrame},
-  uLogin in 'forms\uLogin.pas' {frmLogin};
+  uLogin in 'forms\uLogin.pas' {frmLogin},
+  uAppointmentModal in 'modals\uAppointmentModal.pas' {fAppointmentModal: TFrame};
 
 {$R *.res}
 
