@@ -705,7 +705,7 @@ object fUserModal: TfUserModal
           Position.X = 25.000000000000000000
           Position.Y = 745.000000000000000000
           Size.Width = 396.000000000000000000
-          Size.Height = 410.000000000000000000
+          Size.Height = 340.000000000000000000
           Size.PlatformDefault = False
           Stroke.Color = xFFDBD9D9
           XRadius = 16.000000000000000000
@@ -713,60 +713,9 @@ object fUserModal: TfUserModal
           object lytRoleAndAccessH: TLayout
             Align = Client
             Size.Width = 346.000000000000000000
-            Size.Height = 370.000000000000000000
+            Size.Height = 300.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
-            object lytButtonSaveH: TLayout
-              Align = Top
-              Padding.Top = 10.000000000000000000
-              Padding.Bottom = 10.000000000000000000
-              Margins.Top = 10.000000000000000000
-              Position.Y = 304.000000000000000000
-              Size.Width = 346.000000000000000000
-              Size.Height = 60.000000000000000000
-              Size.PlatformDefault = False
-              TabOrder = 4
-              object btnSaveUser: TCornerButton
-                Align = Right
-                StyledSettings = []
-                Position.X = 226.000000000000000000
-                Position.Y = 10.000000000000000000
-                Sides = [Top, Left, Bottom, Right]
-                Size.Width = 120.000000000000000000
-                Size.Height = 40.000000000000000000
-                Size.PlatformDefault = False
-                TabOrder = 9
-                Text = 'Create User'
-                TextSettings.Font.Family = 'Segoe UI Variable Display'
-                TextSettings.Font.Size = 14.000000000000000000
-                TextSettings.Font.StyleExt = {00060000000000000004000000}
-                TextSettings.FontColor = xFF004D47
-                TextSettings.Trimming = None
-                XRadius = 13.000000000000000000
-                YRadius = 13.000000000000000000
-                OnClick = btnSaveUserClick
-              end
-              object btnCancel: TCornerButton
-                Align = Right
-                StyledSettings = [FontColor]
-                Margins.Right = 10.000000000000000000
-                Position.X = 136.000000000000000000
-                Position.Y = 10.000000000000000000
-                Sides = [Top, Left, Bottom, Right]
-                Size.Width = 80.000000000000000000
-                Size.Height = 40.000000000000000000
-                Size.PlatformDefault = False
-                TabOrder = 8
-                Text = 'Cancel'
-                TextSettings.Font.Family = 'Segoe UI Variable Display'
-                TextSettings.Font.Size = 14.000000000000000000
-                TextSettings.Font.StyleExt = {00060000000000000004000000}
-                TextSettings.Trimming = None
-                XRadius = 13.000000000000000000
-                YRadius = 13.000000000000000000
-                OnClick = btnCancelClick
-              end
-            end
             object lytRole: TLayout
               Align = Top
               Margins.Top = 20.000000000000000000
@@ -794,25 +743,13 @@ object fUserModal: TfUserModal
                 Items.Strings = (
                   'Admin'
                   'Receptionist')
-                ItemIndex = 1
+                ItemIndex = 0
                 Margins.Top = 10.000000000000000000
                 Position.Y = 37.000000000000000000
                 Size.Width = 346.000000000000000000
                 Size.Height = 40.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 1
-                OnChange = cbRoleChange
-                OnMouseWheel = cbRoleMouseWheel
-                object lRoleInput: TLabel
-                  Align = Client
-                  StyledSettings = [Family, Style]
-                  Margins.Left = 5.000000000000000000
-                  Size.Width = 341.000000000000000000
-                  Size.Height = 40.000000000000000000
-                  Size.PlatformDefault = False
-                  Text = 'Receptionist'
-                  TabOrder = 86
-                end
               end
             end
             object lytStatus: TLayout
@@ -847,17 +784,6 @@ object fUserModal: TfUserModal
                 Size.Height = 40.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 1
-                OnMouseWheel = cbStatusMouseWheel
-                object lStatusInput: TLabel
-                  Align = Client
-                  StyledSettings = [Family, Style]
-                  Margins.Left = 5.000000000000000000
-                  Size.Width = 341.000000000000000000
-                  Size.Height = 40.000000000000000000
-                  Size.PlatformDefault = False
-                  Text = 'Active'
-                  TabOrder = 86
-                end
               end
             end
             object slRoleAndAccess: TSkLabel
@@ -881,7 +807,7 @@ object fUserModal: TfUserModal
               Size.Width = 346.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
-              TabOrder = 8
+              TabOrder = 7
               object lDepartment: TLabel
                 Align = Top
                 StyledSettings = [Family]
@@ -911,6 +837,60 @@ object fUserModal: TfUserModal
                 ShowHint = True
               end
             end
+          end
+        end
+        object lytButtonSaveH: TLayout
+          Align = Top
+          Padding.Top = 10.000000000000000000
+          Padding.Bottom = 10.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Position.X = 25.000000000000000000
+          Position.Y = 1095.000000000000000000
+          Size.Width = 396.000000000000000000
+          Size.Height = 60.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 4
+          object btnSaveUser: TCornerButton
+            Align = Right
+            Cursor = crHandPoint
+            StyledSettings = []
+            Position.X = 276.000000000000000000
+            Position.Y = 10.000000000000000000
+            Sides = [Top, Left, Bottom, Right]
+            Size.Width = 120.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 9
+            Text = 'Create User'
+            TextSettings.Font.Family = 'Segoe UI Variable Display'
+            TextSettings.Font.Size = 14.000000000000000000
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+            TextSettings.FontColor = xFF004D47
+            TextSettings.Trimming = None
+            XRadius = 13.000000000000000000
+            YRadius = 13.000000000000000000
+            OnClick = btnSaveUserClick
+          end
+          object btnCancel: TCornerButton
+            Align = Right
+            Cursor = crHandPoint
+            StyledSettings = [FontColor]
+            Margins.Right = 10.000000000000000000
+            Position.X = 186.000000000000000000
+            Position.Y = 10.000000000000000000
+            Sides = [Top, Left, Bottom, Right]
+            Size.Width = 80.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 8
+            Text = 'Cancel'
+            TextSettings.Font.Family = 'Segoe UI Variable Display'
+            TextSettings.Font.Size = 14.000000000000000000
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+            TextSettings.Trimming = None
+            XRadius = 13.000000000000000000
+            YRadius = 13.000000000000000000
+            OnClick = btnCancelClick
           end
         end
       end

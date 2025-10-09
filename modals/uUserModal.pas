@@ -43,17 +43,12 @@ type
     rUser: TRectangle;
     rRoleAndAccess: TRectangle;
     lytRoleAndAccessH: TLayout;
-    lytButtonSaveH: TLayout;
-    btnSaveUser: TCornerButton;
-    btnCancel: TCornerButton;
     lytRole: TLayout;
     lRole: TLabel;
     cbRole: TComboBox;
-    lRoleInput: TLabel;
     lytStatus: TLayout;
     lStatus: TLabel;
     cbStatus: TComboBox;
-    lStatusInput: TLabel;
     slRoleAndAccess: TSkLabel;
     lytDepartment: TLayout;
     lDepartment: TLabel;
@@ -100,13 +95,11 @@ type
     btnCameraClose: TSpeedButton;
     lytPaintBox: TLayout;
     imgPhoto: TImage;
+    lytButtonSaveH: TLayout;
+    btnSaveUser: TCornerButton;
+    btnCancel: TCornerButton;
     procedure btnCloseClick(Sender: TObject);
-    procedure cbRoleChange(Sender: TObject);
     procedure FrameResize(Sender: TObject);
-    procedure cbStatusMouseWheel(Sender: TObject; Shift: TShiftState;
-      WheelDelta: Integer; var Handled: Boolean);
-    procedure cbRoleMouseWheel(Sender: TObject; Shift: TShiftState;
-      WheelDelta: Integer; var Handled: Boolean);
     procedure btnCancelClick(Sender: TObject);
     procedure btnSaveUserClick(Sender: TObject);
     procedure btnCameraClick(Sender: TObject);
@@ -482,26 +475,6 @@ begin
   lCameraDesc.Text := cbCameraOption.Text;
 end;
 
-{ Role On Change }
-procedure TfUserModal.cbRoleChange(Sender: TObject);
-begin
-  lRoleInput.Text := cbRole.Text;
-end;
-
-{ Prevents Mouse wheel on Role }
-procedure TfUserModal.cbRoleMouseWheel(Sender: TObject; Shift: TShiftState;
-  WheelDelta: Integer; var Handled: Boolean);
-begin
-  Handled := True; // Prevents the combo box from scrolling
-end;
-
-{ Prevents Mouse wheel on Status }
-procedure TfUserModal.cbStatusMouseWheel(Sender: TObject; Shift: TShiftState;
-  WheelDelta: Integer; var Handled: Boolean);
-begin
-  Handled := True; // Prevents the combo box from scrolling
-end;
-
 { Camera component buffer }
 procedure TfUserModal.ccCapturePhotoSampleBufferReady(Sender: TObject;
   const ATime: TMediaTime);
@@ -513,20 +486,26 @@ end;
 procedure TfUserModal.FrameResize(Sender: TObject);
 begin
   // Modal content margins
-  if (frmMain.ClientHeight >= 520) AND (frmMain.ClientWidth >= 870) then
+  if (frmMain.ClientWidth >= 1920) then
   begin
-    rModalInfo.Margins.Left := 310;
-    rModalInfo.Margins.Right := 310;
-    rModalInfo.Margins.Top := 60;
-    rModalInfo.Margins.Bottom := 60;
-  end;
-
-  if (frmMain.ClientHeight <= 510) AND (frmMain.ClientWidth <= 860) then
+    rModalInfo.Margins.Left := 700;
+    rModalInfo.Margins.Right := 700;
+    rModalInfo.Margins.Top := 150;
+    rModalInfo.Margins.Bottom := 150;
+  end
+  else if (frmMain.ClientWidth >= 1366) then
   begin
-    rModalInfo.Margins.Left := 70;
-    rModalInfo.Margins.Right := 70;
-    rModalInfo.Margins.Top := 30;
-    rModalInfo.Margins.Bottom := 30;
+    rModalInfo.Margins.Left := 400;
+    rModalInfo.Margins.Right := 400;
+    rModalInfo.Margins.Top := 75;
+    rModalInfo.Margins.Bottom := 75;
+  end
+  else if (frmMain.ClientHeight <= 510) AND (frmMain.ClientWidth <= 860) then
+  begin
+    rModalInfo.Margins.Left := 190;
+    rModalInfo.Margins.Right := 190;
+    rModalInfo.Margins.Top := 50;
+    rModalInfo.Margins.Bottom := 50;
   end;
 end;
 

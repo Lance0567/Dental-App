@@ -296,10 +296,6 @@ procedure TfrmMain.fUsers1btnAddNewUserClick(Sender: TObject);
 begin
   // User Modal visibility
   fUserModal.Visible := True;
-
-  // Role & Status text value
-  fUserModal.lRoleInput.Text := fUserModal.cbRole.Text;
-  fUserModal.lStatusInput.Text := fUserModal.cbStatus.Text;
 end;
 
 { Sidebar Resized }
