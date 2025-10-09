@@ -343,6 +343,10 @@ begin
   // Switch tab index
   tcController.TabIndex := 2;
   fAppointments.Visible := True;
+  fAppointments.ScrollBox1.ViewportPosition := PointF(0,0); // reset scrollbox
+
+  // Grid responsive
+  fAppointments.GridContentsResponsive;
 end;
 
 { Dashboard tab }

@@ -233,80 +233,18 @@ object frmMain: TfrmMain
             Size.PlatformDefault = False
             inherited ScrollBox1: TScrollBox
               Size.Width = 601.000000000000000000
-              Size.Height = 451.000000000000000000
+              Size.Height = 501.000000000000000000
               Viewport.Width = 585.000000000000000000
-              Viewport.Height = 451.000000000000000000
-              inherited glytCards: TGridLayout
-                ItemWidth = 270.000000000000000000
-                Padding.Top = 15.000000000000000000
-                Margins.Right = 5.000000000000000000
-                Size.Width = 555.000000000000000000
-                inherited rCard1: TRectangle
-                  Size.Width = 260.000000000000000000
-                  inherited lytCardD1: TLayout
-                    Size.Width = 220.000000000000000000
-                    inherited lbTotalPatients: TLabel
-                      Size.Width = 220.000000000000000000
-                      TextSettings.Font.StyleExt = {00070000000000000004000000}
-                    end
-                  end
-                  inherited lbTotalPatientsC: TLabel
-                    Size.Width = 220.000000000000000000
-                    TextSettings.Font.StyleExt = {00070000000000000004000000}
-                    inherited cIcon1: TCircle
-                      Position.X = 170.000000000000000000
-                    end
-                  end
+              Viewport.Height = 501.000000000000000000
+              inherited rToolbar: TRectangle
+                Size.Width = 585.000000000000000000
+                inherited lBevel: TLine
+                  Size.Width = 585.000000000000000000
                 end
-                inherited rCard2: TRectangle
-                  Size.Width = 260.000000000000000000
-                  inherited lytCardD2: TLayout
-                    Size.Width = 220.000000000000000000
-                    inherited lbAppointments: TLabel
-                      Size.Width = 220.000000000000000000
-                      TextSettings.Font.StyleExt = {00070000000000000004000000}
-                    end
-                  end
-                  inherited lbTodaysAppointmentC: TLabel
-                    Size.Width = 220.000000000000000000
-                    TextSettings.Font.StyleExt = {00070000000000000004000000}
-                    inherited cIcon2: TCircle
-                      Position.X = 170.000000000000000000
-                    end
-                  end
-                end
-                inherited rCard3: TRectangle
-                  Size.Width = 260.000000000000000000
-                  inherited lytCardD3: TLayout
-                    Size.Width = 220.000000000000000000
-                    inherited lbNewAppointments: TLabel
-                      Size.Width = 220.000000000000000000
-                      TextSettings.Font.StyleExt = {00070000000000000004000000}
-                    end
-                  end
-                  inherited lbNewAppointmentsC: TLabel
-                    Size.Width = 220.000000000000000000
-                    TextSettings.Font.StyleExt = {00070000000000000004000000}
-                    inherited cIcon3: TCircle
-                      Position.X = 170.000000000000000000
-                    end
-                  end
-                end
-                inherited rCard4: TRectangle
-                  Size.Width = 260.000000000000000000
-                  inherited lytCardD4: TLayout
-                    Size.Width = 220.000000000000000000
-                    inherited lbCompleted: TLabel
-                      Size.Width = 220.000000000000000000
-                      TextSettings.Font.StyleExt = {00070000000000000004000000}
-                    end
-                  end
-                  inherited lbCompletedC: TLabel
-                    Size.Width = 220.000000000000000000
-                    TextSettings.Font.StyleExt = {00070000000000000004000000}
-                    inherited cIcon4: TCircle
-                      Position.X = 170.000000000000000000
-                    end
+                inherited lytToolbarH: TLayout
+                  Size.Width = 585.000000000000000000
+                  inherited lytUser: TLayout
+                    Position.X = 430.000000000000000000
                   end
                 end
               end
@@ -323,71 +261,73 @@ object frmMain: TfrmMain
                   end
                 end
               end
-              inherited lytRecords: TLayout
-                Padding.Right = 25.000000000000000000
-                Size.Width = 585.000000000000000000
-                Size.Height = 350.000000000000000000
-                inherited rTodaysAppointment: TRectangle
-                  Size.Width = 230.000000000000000000
-                  Size.Height = 340.000000000000000000
-                  inherited lbTodayAppointments: TLabel
-                    Size.Width = 190.000000000000000000
+              inherited glytCards: TGridLayout
+                Size.Width = 560.000000000000000000
+                inherited rCard1: TRectangle
+                  inherited lytCardD1: TLayout
+                    inherited lbTotalPatients: TLabel
+                      TextSettings.Font.StyleExt = {00070000000000000004000000}
+                    end
+                  end
+                  inherited lbTotalPatientsC: TLabel
                     TextSettings.Font.StyleExt = {00070000000000000004000000}
                   end
-                  inherited gTodaysAppointment: TGrid
-                    Size.Width = 190.000000000000000000
-                    Size.Height = 250.000000000000000000
-                    StyleLookup = 'gPatientStyle'
-                    Viewport.Width = 190.000000000000000000
-                    Viewport.Height = 250.000000000000000000
+                end
+                inherited rCard2: TRectangle
+                  inherited lytCardD2: TLayout
+                    inherited lbAppointments: TLabel
+                      TextSettings.Font.StyleExt = {00070000000000000004000000}
+                    end
+                  end
+                  inherited lbTodaysAppointmentC: TLabel
+                    TextSettings.Font.StyleExt = {00070000000000000004000000}
                   end
                 end
-                inherited rQuickActions: TRectangle
-                  Position.X = 280.000000000000000000
-                  Size.Height = 340.000000000000000000
-                  inherited lytTwoColumns: TLayout
-                    inherited btnNewPatient: TCornerButton
-                      StyledSettings = [Family, FontColor]
-                      Position.X = 4.000000000000000000
-                      StyleLookup = 'btnQuickActions'
-                      TextSettings.Font.Size = 14.000000000000000000
-                      TextSettings.Font.StyleExt = {00060000000000000004000000}
-                      XRadius = 13.000000000000000000
-                      YRadius = 13.000000000000000000
-                      OnClick = fDashboardbtnNewPatientClick
-                    end
-                    inherited btnNewAppointment: TCornerButton
-                      StyledSettings = [Family, FontColor]
-                      StyleLookup = 'btnQuickActions'
-                      TextSettings.Font.Size = 14.000000000000000000
-                      TextSettings.Font.StyleExt = {00060000000000000004000000}
-                      XRadius = 13.000000000000000000
-                      YRadius = 13.000000000000000000
-                      OnClick = fDashboardbtnNewAppointmentClick
+                inherited rCard3: TRectangle
+                  inherited lytCardD3: TLayout
+                    inherited lbNewAppointments: TLabel
+                      TextSettings.Font.StyleExt = {00070000000000000004000000}
                     end
                   end
-                  inherited btnReportAnIssue: TCornerButton
-                    StyledSettings = [Family, FontColor]
-                    StyleLookup = 'btnQuickActions'
-                    TextSettings.Font.Size = 14.000000000000000000
-                    TextSettings.Font.StyleExt = {00060000000000000004000000}
-                    XRadius = 13.000000000000000000
-                    YRadius = 13.000000000000000000
+                  inherited lbNewAppointmentsC: TLabel
+                    TextSettings.Font.StyleExt = {00070000000000000004000000}
                   end
-                  inherited lbQuickActions: TLabel
+                end
+                inherited rCard4: TRectangle
+                  inherited lytCardD4: TLayout
+                    inherited lbCompleted: TLabel
+                      TextSettings.Font.StyleExt = {00070000000000000004000000}
+                    end
+                  end
+                  inherited lbCompletedC: TLabel
                     TextSettings.Font.StyleExt = {00070000000000000004000000}
                   end
                 end
               end
-              inherited rToolbar: TRectangle
+              inherited lytRecords: TLayout
                 Size.Width = 585.000000000000000000
-                inherited lBevel: TLine
-                  Size.Width = 585.000000000000000000
+                inherited rTodaysAppointment: TRectangle
+                  Size.Width = 225.000000000000000000
+                  inherited lbTodayAppointments: TLabel
+                    Size.Width = 185.000000000000000000
+                    TextSettings.Font.StyleExt = {00070000000000000004000000}
+                  end
+                  inherited gTodaysAppointment: TGrid
+                    Size.Width = 185.000000000000000000
+                    StyleLookup = 'gPatientStyle'
+                    Viewport.Width = 184.000000000000000000
+                    Viewport.Height = 225.000000000000000000
+                  end
                 end
-                inherited lytToolbarH: TLayout
-                  Size.Width = 585.000000000000000000
-                  inherited lytUser: TLayout
-                    Position.X = 430.000000000000000000
+                inherited rQuickActions: TRectangle
+                  Position.X = 275.000000000000000000
+                  inherited lytTwoColumns: TLayout
+                    inherited btnNewPatient: TCornerButton
+                      StyleLookup = 'btnCancelStyle1'
+                    end
+                  end
+                  inherited lbQuickActions: TLabel
+                    TextSettings.Font.StyleExt = {00070000000000000004000000}
                   end
                 end
               end
@@ -395,10 +335,6 @@ object frmMain: TfrmMain
             inherited PopupMenu1: TPopupMenu
               Left = 328
               Top = 200
-            end
-            inherited lytBottom: TLayout
-              Position.Y = 471.000000000000000000
-              Size.Width = 601.000000000000000000
             end
             inherited mvPopUp: TMultiView
               StyleLookup = 'mvPopUpStyle1'
@@ -630,57 +566,57 @@ object frmMain: TfrmMain
             inherited ScrollBox1: TScrollBox
               Size.Width = 601.000000000000000000
               Size.Height = 501.000000000000000000
-              Viewport.Width = 605.000000000000000000
-              Viewport.Height = 505.000000000000000000
+              Viewport.Width = 601.000000000000000000
+              Viewport.Height = 501.000000000000000000
               inherited lytBottom: TLayout
-                Position.Y = 470.000000000000000000
-                Size.Width = 605.000000000000000000
+                Position.Y = 466.000000000000000000
+                Size.Width = 601.000000000000000000
               end
               inherited lytComponents: TLayout
-                Size.Width = 605.000000000000000000
+                Size.Width = 601.000000000000000000
                 inherited lytSearch: TLayout
-                  Size.Width = 395.000000000000000000
+                  Size.Width = 391.000000000000000000
                   inherited eSearch: TEdit
                     StyleLookup = 'editSearchstyle'
                   end
                 end
                 inherited lytButtonH: TLayout
-                  Position.X = 425.000000000000000000
+                  Position.X = 421.000000000000000000
                 end
               end
               inherited lytHeader: TLayout
-                Size.Width = 605.000000000000000000
+                Size.Width = 601.000000000000000000
                 inherited lytTitle: TLayout
-                  Size.Width = 575.000000000000000000
+                  Size.Width = 571.000000000000000000
                   inherited lbTitle: TLabel
-                    Size.Width = 575.000000000000000000
+                    Size.Width = 571.000000000000000000
                     TextSettings.Font.StyleExt = {00070000000000000004000000}
                   end
                   inherited lbDescription: TLabel
-                    Size.Width = 575.000000000000000000
+                    Size.Width = 571.000000000000000000
                   end
                 end
               end
               inherited rToolbar: TRectangle
-                Size.Width = 605.000000000000000000
+                Size.Width = 601.000000000000000000
                 inherited lBevel: TLine
-                  Size.Width = 605.000000000000000000
+                  Size.Width = 601.000000000000000000
                 end
                 inherited lytToolbarH: TLayout
-                  Size.Width = 605.000000000000000000
+                  Size.Width = 601.000000000000000000
                   inherited lytUser: TLayout
-                    Position.X = 450.000000000000000000
+                    Position.X = 446.000000000000000000
                   end
                 end
               end
               inherited rPatients: TRectangle
-                Size.Width = 545.000000000000000000
-                Size.Height = 225.000000000000000000
+                Size.Width = 541.000000000000000000
+                Size.Height = 221.000000000000000000
                 inherited gUsers: TGrid
-                  Size.Width = 495.000000000000000000
-                  Size.Height = 175.000000000000000000
-                  Viewport.Width = 495.000000000000000000
-                  Viewport.Height = 175.000000000000000000
+                  Size.Width = 491.000000000000000000
+                  Size.Height = 171.000000000000000000
+                  Viewport.Width = 491.000000000000000000
+                  Viewport.Height = 171.000000000000000000
                 end
               end
             end
@@ -708,56 +644,56 @@ object frmMain: TfrmMain
             inherited ScrollBox1: TScrollBox
               Size.Width = 601.000000000000000000
               Size.Height = 501.000000000000000000
-              Viewport.Width = 605.000000000000000000
-              Viewport.Height = 505.000000000000000000
+              Viewport.Width = 601.000000000000000000
+              Viewport.Height = 501.000000000000000000
               inherited lytContent: TLayout
-                Size.Width = 605.000000000000000000
+                Size.Width = 601.000000000000000000
                 inherited lytMyAccount: TLayout
-                  Size.Width = 605.000000000000000000
+                  Size.Width = 601.000000000000000000
                   inherited lFrameDesc: TLabel
-                    Size.Width = 585.000000000000000000
+                    Size.Width = 581.000000000000000000
                   end
                   inherited lFrameTitle: TLabel
-                    Size.Width = 585.000000000000000000
+                    Size.Width = 581.000000000000000000
                     TextSettings.Font.StyleExt = {00070000000000000004000000}
                   end
                 end
                 inherited lytPersonalInfo: TLayout
-                  Size.Width = 355.000000000000000000
+                  Size.Width = 351.000000000000000000
                   inherited rPersonalInfo: TRectangle
-                    Size.Width = 315.000000000000000000
+                    Size.Width = 311.000000000000000000
                     inherited lytHeader: TLayout
-                      Size.Width = 275.000000000000000000
+                      Size.Width = 271.000000000000000000
                       inherited lbDescription: TLabel
-                        Size.Width = 275.000000000000000000
+                        Size.Width = 271.000000000000000000
                       end
                       inherited lbTitle: TLabel
-                        Size.Width = 275.000000000000000000
+                        Size.Width = 271.000000000000000000
                         TextSettings.Font.StyleExt = {00070000000000000004000000}
                       end
                     end
                     inherited lytEmail: TLayout
-                      Size.Width = 275.000000000000000000
+                      Size.Width = 271.000000000000000000
                       inherited eEmail: TEdit
-                        Size.Width = 275.000000000000000000
+                        Size.Width = 271.000000000000000000
                       end
                       inherited lEmail: TLabel
-                        Size.Width = 275.000000000000000000
+                        Size.Width = 271.000000000000000000
                         TextSettings.Font.StyleExt = {00060000000000000004000000}
                       end
                     end
                     inherited lytPhoneNumber: TLayout
-                      Size.Width = 275.000000000000000000
+                      Size.Width = 271.000000000000000000
                       inherited ePhoneNumber: TEdit
-                        Size.Width = 275.000000000000000000
+                        Size.Width = 271.000000000000000000
                       end
                       inherited lPhone: TLabel
-                        Size.Width = 275.000000000000000000
+                        Size.Width = 271.000000000000000000
                         TextSettings.Font.StyleExt = {00060000000000000004000000}
                       end
                     end
                     inherited lytDetails1: TLayout
-                      Size.Width = 275.000000000000000000
+                      Size.Width = 271.000000000000000000
                       inherited lytFullName: TLayout
                         inherited lbFullName: TLabel
                           TextSettings.Font.StyleExt = {00060000000000000004000000}
@@ -926,7 +862,6 @@ object frmMain: TfrmMain
                     TextSettings.Font.StyleExt = {00060000000000000004000000}
                   end
                   inherited eContactNumber: TEdit
-                    Align = Scale
                     Size.Width = 195.000000000000000000
                     StyledSettings = [Family, Style]
                   end
@@ -1351,11 +1286,11 @@ object frmMain: TfrmMain
           inherited lytTitle: TLayout
             Size.Width = 399.000000000000000000
             inherited lbTitle: TLabel
-              Size.Width = 364.000000000000000000
+              Size.Width = 359.000000000000000000
               TextSettings.Font.StyleExt = {00070000000000000004000000}
             end
             inherited btnClose: TSpeedButton
-              Position.X = 364.000000000000000000
+              Position.X = 359.000000000000000000
             end
           end
           inherited lytHolder: TLayout
@@ -1392,11 +1327,11 @@ object frmMain: TfrmMain
                 end
               end
               inherited lytDate: TLayout
-                inherited lDate: TLabel
-                  TextSettings.Font.StyleExt = {00060000000000000004000000}
-                end
                 inherited deDate: TDateEdit
                   StyleLookup = 'deDateStyle1'
+                end
+                inherited lDate: TLabel
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
                 end
               end
             end

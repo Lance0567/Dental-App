@@ -187,20 +187,26 @@ begin
   EditComponentsResponsive;
 
   // Modal content margins
-  if (frmMain.ClientHeight >= 520) AND (frmMain.ClientWidth >= 870) then
+  if (frmMain.ClientWidth >= 1920) then
   begin
-    rModalInfo.Margins.Left := 310;
-    rModalInfo.Margins.Right := 310;
-    rModalInfo.Margins.Top := 60;
-    rModalInfo.Margins.Bottom := 60;
-  end;
-
-  if (frmMain.ClientHeight <= 510) AND (frmMain.ClientWidth <= 860) then
+    rModalInfo.Margins.Left := 500;
+    rModalInfo.Margins.Right := 500;
+    rModalInfo.Margins.Top := 200;
+    rModalInfo.Margins.Bottom := 200;
+  end
+  else if (frmMain.ClientWidth >= 1366) then
   begin
-    rModalInfo.Margins.Left := 70;
-    rModalInfo.Margins.Right := 70;
-    rModalInfo.Margins.Top := 30;
-    rModalInfo.Margins.Bottom := 30;
+    rModalInfo.Margins.Left := 300;
+    rModalInfo.Margins.Right := 300;
+    rModalInfo.Margins.Top := 90;
+    rModalInfo.Margins.Bottom := 90;
+  end
+  else if (frmMain.ClientHeight <= 510) AND (frmMain.ClientWidth <= 860) then
+  begin
+    rModalInfo.Margins.Left := 90;
+    rModalInfo.Margins.Right := 90;
+    rModalInfo.Margins.Top := 50;
+    rModalInfo.Margins.Bottom := 50;
   end;
 end;
 

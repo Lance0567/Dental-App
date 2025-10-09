@@ -1,9 +1,6 @@
 ﻿[ScrollBox1]
 Coordinates=503,398,76,36
 
-[FloatAnimation1]
-Coordinates=14,269,108,36
-
 [lytCardD3]
 Coordinates=421,398,72,36
 
@@ -12,9 +9,6 @@ Coordinates=10,78,49,58
 
 [gIcon]
 Coordinates=365,398,46,36
-
-[rQuickActions]
-Coordinates=261,398,94,36
 
 [cIcon3]
 Coordinates=199,398,52,36
@@ -27,9 +21,6 @@ Coordinates=341,10,138,58
 
 [lbTotalPatientsC]
 Coordinates=278,146,109,58
-
-[FloatAnimation2]
-Coordinates=406,365,108,36
 
 [rCard2]
 Coordinates=135,398,54,36
@@ -48,9 +39,6 @@ Coordinates=581,352,81,36
 
 [lbCompleted]
 Coordinates=424,78,87,58
-
-[FloatAnimation3]
-Coordinates=31,365,108,36
 
 [rrUserImage]
 Coordinates=485,352,86,36
@@ -82,12 +70,6 @@ Coordinates=10,352,54,36
 [lDate]
 Coordinates=483,146,45,58
 
-[btnNewAppointment]
-Coordinates=642,306,130,36
-
-[gTodaysAppointment]
-Coordinates=607,78,136,58
-
 [cIcon1]
 Coordinates=580,306,52,36
 
@@ -103,17 +85,11 @@ Coordinates=361,306,63,36
 [gIcon1]
 Coordinates=298,306,53,36
 
-[lytRecords]
-Coordinates=213,306,75,36
-
 [cIcon2]
 Coordinates=151,306,52,36
 
 [lbTotalPatients]
 Coordinates=168,146,100,58
-
-[lbQuickActions]
-Coordinates=314,78,100,58
 
 [gIcon3]
 Coordinates=88,306,53,36
@@ -121,29 +97,17 @@ Coordinates=88,306,53,36
 [dm.qTemp]
 Coordinates=397,146,76,58
 
-[lbTodayAppointments]
-Coordinates=602,10,139,58
-
 [lytCardD1]
 Coordinates=563,260,72,36
 
 [lytHeader]
 Coordinates=483,260,70,36
 
-[btnReportAnIssue]
-Coordinates=356,260,117,36
-
 [dm.qPatients]
 Coordinates=10,10,90,58
 
 [lbTodaysAppointmentC]
 Coordinates=10,146,148,58
-
-[rTodaysAppointment]
-Coordinates=213,260,133,36
-
-[btnNewPatient]
-Coordinates=105,260,98,36
 
 [dm.qUsers]
 Coordinates=521,78,76,58
@@ -160,9 +124,6 @@ Coordinates=489,10,103,58
 [rCard1]
 Coordinates=598,214,54,36
 
-[lytTwoColumns]
-Coordinates=486,214,102,36
-
 [MenuItem1]
 Coordinates=186,214,79,36
 
@@ -176,6 +137,6 @@ Coordinates=10,214,58,36
 Coordinates=606,146,79,36
 
 []
-Coordinates=10,306,68,36
+Coordinates=213,306,75,36
 Visible=True
 

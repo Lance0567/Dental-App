@@ -89,8 +89,8 @@ object fAppointments: TfAppointments
         TabOrder = 0
         RowCount = 0
         OnResized = gAppointmentResized
-        Viewport.Width = 470.000000000000000000
-        Viewport.Height = 106.000000000000000000
+        Viewport.Width = 466.000000000000000000
+        Viewport.Height = 81.000000000000000000
       end
     end
     object lytComponents: TLayout

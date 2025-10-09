@@ -105,7 +105,7 @@ begin
   lPickDate.Visible := False;
 
   // Show date text
-  deDate.StyledSettings := [TStyledSetting.Style];
+  deDate.StyledSettings := [TStyledSetting.FontColor];
 end;
 
 { Layout Responsiveness adjuster }
@@ -123,15 +123,21 @@ begin
   FieldComponentsResponsive;
 
   // Modal content margins
-  if (frmMain.ClientHeight >= 520) AND (frmMain.ClientWidth >= 870) then
+  if (frmMain.ClientWidth >= 1920) then
   begin
-    rModalInfo.Margins.Left := 455;
-    rModalInfo.Margins.Right := 455;
-    rModalInfo.Margins.Top := 60;
-    rModalInfo.Margins.Bottom := 60;
-  end;
-
-  if (frmMain.ClientHeight <= 510) AND (frmMain.ClientWidth <= 860) then
+    rModalInfo.Margins.Left := 700;
+    rModalInfo.Margins.Right := 700;
+    rModalInfo.Margins.Top := 150;
+    rModalInfo.Margins.Bottom := 150;
+  end
+  else if (frmMain.ClientWidth >= 1366) then
+  begin
+    rModalInfo.Margins.Left := 500;
+    rModalInfo.Margins.Right := 500;
+    rModalInfo.Margins.Top := 75;
+    rModalInfo.Margins.Bottom := 75;
+  end
+  else if (frmMain.ClientHeight <= 510) AND (frmMain.ClientWidth <= 860) then
   begin
     rModalInfo.Margins.Left := 220;
     rModalInfo.Margins.Right := 220;

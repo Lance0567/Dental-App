@@ -73,7 +73,7 @@ var
 begin
   if gPatients.ColumnCount = 0 then Exit;
 
-  if frmMain.ClientWidth = 850 then
+  if frmMain.ClientWidth <= 850 then
   begin
     // Fixed layout at 850px
     for i := 0 to gPatients.ColumnCount - 1 do
@@ -123,7 +123,7 @@ begin
         begin
           if gPatients.ColumnCount = 0 then Exit;
 
-          if frmMain.ClientWidth = 850 then
+          if frmMain.ClientWidth <= 850 then
           begin
             // Fixed layout for 850px
             for i := 0 to gPatients.ColumnCount - 1 do

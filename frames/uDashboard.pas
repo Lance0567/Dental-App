@@ -15,7 +15,6 @@ type
     glytCards: TGridLayout;
     lytHeader: TLayout;
     lbTitle: TLabel;
-    rTodaysAppointment: TRectangle;
     lbDescription: TLabel;
     lytTitle: TLayout;
     rCard1: TRectangle;
@@ -42,12 +41,6 @@ type
     gIcon3: TGlyph;
     cIcon4: TCircle;
     gIcon4: TGlyph;
-    lytRecords: TLayout;
-    rQuickActions: TRectangle;
-    lytTwoColumns: TLayout;
-    btnNewPatient: TCornerButton;
-    btnNewAppointment: TCornerButton;
-    btnReportAnIssue: TCornerButton;
     rToolbar: TRectangle;
     lytToolbarH: TLayout;
     lDate: TLabel;
@@ -56,12 +49,6 @@ type
     slUserName: TSkLabel;
     rrUserImage: TRoundRect;
     lBevel: TLine;
-    lbTodayAppointments: TLabel;
-    lbQuickActions: TLabel;
-    gTodaysAppointment: TGrid;
-    FloatAnimation1: TFloatAnimation;
-    FloatAnimation2: TFloatAnimation;
-    FloatAnimation3: TFloatAnimation;
     PopupMenu1: TPopupMenu;
     MenuItem1: TMenuItem;
     MenuItem2: TMenuItem;
@@ -71,7 +58,19 @@ type
     cbAccountSettings: TCornerButton;
     cbLogout: TCornerButton;
     lDivider: TLine;
-    lytBottom: TLayout;
+    lytRecords: TLayout;
+    rTodaysAppointment: TRectangle;
+    lbTodayAppointments: TLabel;
+    gTodaysAppointment: TGrid;
+    rQuickActions: TRectangle;
+    lytTwoColumns: TLayout;
+    btnNewPatient: TCornerButton;
+    FloatAnimation1: TFloatAnimation;
+    btnNewAppointment: TCornerButton;
+    FloatAnimation2: TFloatAnimation;
+    btnReportAnIssue: TCornerButton;
+    FloatAnimation3: TFloatAnimation;
+    lbQuickActions: TLabel;
     procedure FrameResize(Sender: TObject);
   private
 
@@ -90,46 +89,44 @@ uses uDm, uMain;
 { Frame Resize }
 procedure TfDashboard.FrameResize(Sender: TObject);
 begin
-  // Client width resize
-  if (frmMain.ClientWidth > 1900) AND not (frmMain.ClientWidth < 1360) then
-  begin
-    glytCards.Height := 165;
-    glytCards.ItemWidth := 400;
-  end
-  else if (frmMain.ClientWidth > 1360) AND not (frmMain.ClientWidth < 1165) then
+  // Cards responsiveness
+  CardsResize;
+
+  // Display Resolution
+  if (frmMain.ClientWidth >= 1920) then
   begin
     // Cards
     glytCards.Height := 160;
-    glytCards.ItemWidth := 264;
 
-    // Quick actions
-    rTodaysAppointment.Width := 205;
-    rQuickActions.Width := 280;
-
-    // Button text font size
-    btnNewPatient.TextSettings.Font.Size := 14;
-    btnNewAppointment.TextSettings.Font.Size := 14;
-    btnReportAnIssue.TextSettings.Font.Size := 14;
+    // Quick Actions
+    rQuickActions.Width := 300;
   end
-  else if (frmMain.ClientWidth > 1165) then
+  else if (frmMain.ClientWidth >= 1600) then
   begin
-    glytCards.Height := 120;
+
+  end
+  else if (frmMain.ClientWidth >= 1366) then
+  begin
+    // Cards
+    glytCards.Height := 160;
+
+    // Quick Actions
+    rQuickActions.Width := 240;
   end
   else if (frmMain.ClientWidth <= 850) then
   begin
     // Cards
     glytCards.Height := 290;
-    glytCards.ItemWidth := 275;
 
-    // Quick actions
+    // Quick Actions
     rTodaysAppointment.Width := 280;
     rQuickActions.Width := 215;
 
-    // Button text font size
+    // Button Text font size
     btnNewPatient.TextSettings.Font.Size := 12;
     btnNewAppointment.TextSettings.Font.Size := 12;
     btnReportAnIssue.TextSettings.Font.Size := 12;
-  end
+  end;
 end;
 
 { Card Resize }
