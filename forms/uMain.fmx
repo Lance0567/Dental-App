@@ -315,8 +315,8 @@ object frmMain: TfrmMain
                   inherited gTodaysAppointment: TGrid
                     Size.Width = 185.000000000000000000
                     StyleLookup = 'gPatientStyle'
-                    Viewport.Width = 185.000000000000000000
-                    Viewport.Height = 250.000000000000000000
+                    Viewport.Width = 184.000000000000000000
+                    Viewport.Height = 225.000000000000000000
                   end
                 end
                 inherited rQuickActions: TRectangle

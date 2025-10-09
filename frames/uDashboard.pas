@@ -116,7 +116,7 @@ begin
     glytCards.Height := 160;
 
     // Quick Actions
-    rQuickActions.Width := 240;
+    rQuickActions.Width := 260;
   end
   else if (frmMain.ClientWidth <= 850) then
   begin
@@ -125,7 +125,7 @@ begin
 
     // Quick Actions
     rTodaysAppointment.Width := 280;
-    rQuickActions.Width := 215;
+    rQuickActions.Width := 230;
 
     // Button Text font size
     btnNewPatient.TextSettings.Font.Size := 12;
