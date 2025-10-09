@@ -99,7 +99,12 @@ begin
     glytCards.Height := 160;
 
     // Quick Actions
-    rQuickActions.Width := 300;
+    rQuickActions.Width := 340;
+
+    // Button Text font size
+    btnNewPatient.TextSettings.Font.Size := 14;
+    btnNewAppointment.TextSettings.Font.Size := 14;
+    btnReportAnIssue.TextSettings.Font.Size := 14;
   end
   else if (frmMain.ClientWidth >= 1600) then
   begin

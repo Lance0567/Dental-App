@@ -9652,7 +9652,7 @@ object fDashboard: TfDashboard
           TabOrder = 1
           object cIcon1: TCircle
             Align = Right
-            Fill.Color = xFFC8EDDF
+            Fill.Color = xA6CCEFDB
             Padding.Left = 10.000000000000000000
             Padding.Top = 10.000000000000000000
             Padding.Right = 10.000000000000000000
@@ -9667,7 +9667,7 @@ object fDashboard: TfDashboard
               Size.Width = 30.000000000000000000
               Size.Height = 30.000000000000000000
               Size.PlatformDefault = False
-              ImageIndex = 5
+              ImageIndex = 40
               Images = dm.imgList
             end
           end
@@ -9738,7 +9738,7 @@ object fDashboard: TfDashboard
           TabOrder = 1
           object cIcon2: TCircle
             Align = Right
-            Fill.Color = xFFC8EDDF
+            Fill.Color = x89CDE9F9
             Padding.Left = 12.000000000000000000
             Padding.Top = 12.000000000000000000
             Padding.Right = 12.000000000000000000
@@ -9811,7 +9811,7 @@ object fDashboard: TfDashboard
           TabOrder = 1
           object cIcon3: TCircle
             Align = Right
-            Fill.Color = xFFC8EDDF
+            Fill.Color = xA6CCEFDB
             Padding.Left = 12.000000000000000000
             Padding.Top = 12.000000000000000000
             Padding.Right = 12.000000000000000000
@@ -9884,7 +9884,7 @@ object fDashboard: TfDashboard
           TabOrder = 1
           object cIcon4: TCircle
             Align = Right
-            Fill.Color = xFFC8EDDF
+            Fill.Color = xFEDCFCE7
             Padding.Left = 12.000000000000000000
             Padding.Top = 12.000000000000000000
             Padding.Right = 12.000000000000000000
@@ -9984,6 +9984,8 @@ object fDashboard: TfDashboard
           object btnNewPatient: TCornerButton
             Align = Scale
             Cursor = crHandPoint
+            Images = dm.imgList
+            ImageIndex = 40
             Margins.Right = 10.000000000000000000
             Position.X = 2.000000000000000000
             Position.Y = -1.000000000000000000
@@ -10009,8 +10011,10 @@ object fDashboard: TfDashboard
           object btnNewAppointment: TCornerButton
             Align = Scale
             Cursor = crHandPoint
-            Position.X = 123.000000000000000000
-            Position.Y = -1.000000000000000000
+            Images = dm.imgList
+            ImageIndex = 7
+            Position.X = 129.000000000000000000
+            Position.Y = -4.000000000000000000
             Sides = [Top, Left, Bottom, Right]
             Size.Width = 115.000000000000000000
             Size.Height = 80.000000000000000000
@@ -10035,6 +10039,8 @@ object fDashboard: TfDashboard
         object btnReportAnIssue: TCornerButton
           Align = Top
           Cursor = crHandPoint
+          Images = dm.imgList
+          ImageIndex = 39
           Margins.Top = 10.000000000000000000
           Position.X = 20.000000000000000000
           Position.Y = 160.000000000000000000

@@ -315,16 +315,47 @@ object frmMain: TfrmMain
                   inherited gTodaysAppointment: TGrid
                     Size.Width = 185.000000000000000000
                     StyleLookup = 'gPatientStyle'
-                    Viewport.Width = 184.000000000000000000
-                    Viewport.Height = 225.000000000000000000
+                    Viewport.Width = 185.000000000000000000
+                    Viewport.Height = 250.000000000000000000
                   end
                 end
                 inherited rQuickActions: TRectangle
                   Position.X = 275.000000000000000000
                   inherited lytTwoColumns: TLayout
+                    Size.Height = 115.000000000000000000
                     inherited btnNewPatient: TCornerButton
-                      StyleLookup = 'btnCancelStyle1'
+                      StyledSettings = [FontColor]
+                      Size.Width = 115.000000000000000000
+                      Size.Height = 114.999992370605500000
+                      StyleLookup = 'btnQuickActions2'
+                      TextSettings.Font.Family = 'Segoe UI Variable Text'
+                      TextSettings.Font.Size = 14.000000000000000000
+                      TextSettings.Font.StyleExt = {00060000000000000004000000}
+                      XRadius = 13.000000000000000000
+                      YRadius = 13.000000000000000000
                     end
+                    inherited btnNewAppointment: TCornerButton
+                      StyledSettings = [FontColor]
+                      Position.Y = -1.437500000000000000
+                      Size.Height = 114.999992370605500000
+                      StyleLookup = 'btnQuickActions'
+                      TextSettings.Font.Family = 'Segoe UI Variable Text'
+                      TextSettings.Font.Size = 14.000000000000000000
+                      TextSettings.Font.StyleExt = {00060000000000000004000000}
+                      XRadius = 13.000000000000000000
+                      YRadius = 13.000000000000000000
+                    end
+                  end
+                  inherited btnReportAnIssue: TCornerButton
+                    StyledSettings = [FontColor]
+                    Position.Y = 195.000000000000000000
+                    Size.Height = 100.000000000000000000
+                    StyleLookup = 'btnQuickActions'
+                    TextSettings.Font.Family = 'Segoe UI Variable Text'
+                    TextSettings.Font.Size = 14.000000000000000000
+                    TextSettings.Font.StyleExt = {00060000000000000004000000}
+                    XRadius = 13.000000000000000000
+                    YRadius = 13.000000000000000000
                   end
                   inherited lbQuickActions: TLabel
                     TextSettings.Font.StyleExt = {00070000000000000004000000}
@@ -427,6 +458,7 @@ object frmMain: TfrmMain
                 inherited gPatients: TGrid
                   Size.Width = 491.000000000000000000
                   Size.Height = 171.000000000000000000
+                  StyleLookup = 'gPatientStyle'
                   Viewport.Width = 491.000000000000000000
                   Viewport.Height = 171.000000000000000000
                 end
@@ -496,6 +528,7 @@ object frmMain: TfrmMain
                 inherited gAppointment: TGrid
                   Size.Width = 491.000000000000000000
                   Size.Height = 191.000000000000000000
+                  StyleLookup = 'gPatientStyle'
                   Viewport.Width = 491.000000000000000000
                   Viewport.Height = 191.000000000000000000
                 end
@@ -615,6 +648,7 @@ object frmMain: TfrmMain
                 inherited gUsers: TGrid
                   Size.Width = 491.000000000000000000
                   Size.Height = 171.000000000000000000
+                  StyleLookup = 'gPatientStyle'
                   Viewport.Width = 491.000000000000000000
                   Viewport.Height = 171.000000000000000000
                 end
