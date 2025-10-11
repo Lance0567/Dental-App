@@ -23,6 +23,7 @@ type
     qUsers: TFDQuery;
     qTemp: TFDQuery;
     qAppointments: TFDQuery;
+    qPatientSelection: TFDQuery;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
@@ -55,6 +56,8 @@ begin
   // Deactivate queries
   qUsers.Close;
   qPatients.Close;
+  qAppointments.Close;
+  qPatientSelection.Close;
 
   // activate connection
   conDental.Connected := True;

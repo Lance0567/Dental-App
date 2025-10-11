@@ -124,19 +124,10 @@ Coordinates=489,10,103,58
 [rCard1]
 Coordinates=598,214,54,36
 
-[MenuItem1]
-Coordinates=186,214,79,36
-
-[PopupMenu1]
-Coordinates=875,496,90,36
-
 [rPopUp]
 Coordinates=10,214,58,36
 
-[MenuItem2]
-Coordinates=606,146,79,36
-
 []
-Coordinates=213,306,75,36
+Coordinates=875,496,90,36
 Visible=True
 

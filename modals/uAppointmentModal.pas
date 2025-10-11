@@ -7,7 +7,9 @@ uses
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   System.Skia, FMX.Skia, FMX.ListBox, FMX.Effects, FMX.Objects, FMX.Edit,
   FMX.ImgList, FMX.Controls.Presentation, FMX.Layouts, FMX.DateTimeCtrls,
-  FMX.Memo.Types, FMX.ScrollBox, FMX.Memo;
+  FMX.Memo.Types, FMX.ScrollBox, FMX.Memo, FMX.ComboEdit, System.Rtti,
+  System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.EngExt,
+  Fmx.Bind.DBEngExt, Data.Bind.Components, Data.Bind.DBScope;
 
 type
   TfAppointmentModal = class(TFrame)
@@ -25,7 +27,6 @@ type
     gPatient: TGlyph;
     lPatientW: TLabel;
     ShadowEffect1: TShadowEffect;
-    cbPatient: TComboBox;
     lytDetails2: TLayout;
     lAppointmentTitle: TLabel;
     eAppointmentTitle: TEdit;
@@ -54,6 +55,13 @@ type
     lytButtonH: TLayout;
     btnCreateAppointment: TCornerButton;
     btnCancel: TCornerButton;
+    cbPatient: TComboEdit;
+    bsdbPatientSelection: TBindSourceDB;
+    blPatientSelection: TBindingsList;
+    crDate: TCalloutRectangle;
+    gDate: TGlyph;
+    lDateW: TLabel;
+    ShadowEffect3: TShadowEffect;
     procedure btnCloseClick(Sender: TObject);
     procedure FrameResized(Sender: TObject);
     procedure lytDetails3Resized(Sender: TObject);
@@ -61,6 +69,8 @@ type
     procedure deDateClosePicker(Sender: TObject);
     procedure mNotesClick(Sender: TObject);
     procedure mNotesExit(Sender: TObject);
+    procedure btnCreateAppointmentClick(Sender: TObject);
+    procedure cbPatientEnter(Sender: TObject);
   private
     { Private declarations }
   public
@@ -75,9 +85,9 @@ implementation
 
 {$R *.fmx}
 
-uses uMain;
+uses uMain, uDm;
 
-{ Clear items for add patient modal }
+{ Clear }
 procedure TfAppointmentModal.ClearItems;
 begin
   // Reset Date
@@ -96,6 +106,101 @@ begin
   // Reset Notes
   MemoTrackingReset := 'Empty';
   mNotes.Text := 'Add any relevant notes about this appointment';
+end;
+
+{ Create/Update }
+procedure TfAppointmentModal.btnCreateAppointmentClick(Sender: TObject);
+var
+  HasError: Boolean;
+begin
+  HasError:= False;
+
+  // Date validation
+  if lPickDate.Visible then
+  begin
+    crDate.Visible := True;
+    HasError := True;
+  end
+  else
+    crDate.Visible := False;
+
+  // Patient validation
+  if cbPatient.Text = 'Select patient...' then
+  begin
+    crPatient.Visible := True;
+    HasError := True;
+  end
+  else
+    crPatient.Visible := False;
+
+  // Appointment Title validation
+  if eAppointmentTitle.Text = '' then
+  begin
+    crAppointmentTitle.Visible := True;
+    HasError := True;
+  end
+  else
+    crAppointmentTitle.Visible := False;
+
+  // Stop if any error is found
+  if HasError = True then
+  begin
+    Exit;
+  end;
+
+  // Handle record state
+  if RecordStatus = 'Add' then
+    dm.qAppointments.Append
+  else
+    dm.qAppointments.Edit;
+
+  // Fields to save
+  dm.qAppointments.FieldByName('date').AsDateTime := deDate.Date;
+  dm.qAppointments.FieldByName('date_long').AsString := deDate.Text;
+  dm.qAppointments.FieldByName('status').AsString := cbStatus.Text;
+  dm.qAppointments.FieldByName('patient').AsString := cbPatient.Text;
+  dm.qAppointments.FieldByName('appointment_title').AsString := eAppointmentTitle.Text;
+  dm.qAppointments.FieldByName('start_time').AsString := teStartTime.Text;
+  dm.qAppointments.FieldByName('end_time').AsString := teEndTime.Text;
+
+  // Set notes to empty
+  if mNotes.Text = 'Add any relevant notes about this appointment' then
+    mNotes.Text := '';
+  dm.qAppointments.FieldByName('notes').AsString := mNotes.Text;
+  dm.qAppointments.FieldByName('created_at').AsDateTime := Now;
+
+  dm.qAppointments.Post;
+  dm.qAppointments.Refresh;
+  dm.qPatientSelection.Close;
+
+  ClearItems; // clear fields
+
+  // Set record pop up message
+  if RecordStatus = 'Add' then
+    frmMain.Tag := 3
+  else
+    frmMain.Tag := 4;
+
+  frmMain.RecordMessage('Appointment', 'appointment');
+
+  // Hide patient modal
+  Self.Visible := False;
+end;
+
+{ Patient On Enter }
+procedure TfAppointmentModal.cbPatientEnter(Sender: TObject);
+begin
+  cbPatient.Items.Clear;
+  cbPatient.Items.Add('Select patient...');
+
+  dm.qPatientSelection.Close;
+  dm.qPatientSelection.Open;
+  while not dm.qPatientSelection.Eof do
+  begin
+    cbPatient.Items.Add(dm.qPatientSelection.FieldByName('fullname').AsString);
+    dm.qPatientSelection.Next;
+  end;
+  cbPatient.ItemIndex := 0; // Reset to the hint item
 end;
 
 { On Close picker Date }
@@ -132,8 +237,8 @@ begin
   end
   else if (frmMain.ClientWidth >= 1366) then
   begin
-    rModalInfo.Margins.Left := 500;
-    rModalInfo.Margins.Right := 500;
+    rModalInfo.Margins.Left := 490;
+    rModalInfo.Margins.Right := 490;
     rModalInfo.Margins.Top := 75;
     rModalInfo.Margins.Bottom := 75;
   end
@@ -186,6 +291,9 @@ end;
 procedure TfAppointmentModal.btnCloseClick(Sender: TObject);
 begin
   Self.Visible := False;
+
+  // Close query
+  dm.qPatientSelection.Close;
 end;
 
 end.

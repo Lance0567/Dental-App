@@ -476,12 +476,12 @@ object fUserModal: TfUserModal
                 Padding.Left = 8.000000000000000000
                 Padding.Top = 15.000000000000000000
                 Padding.Bottom = 10.000000000000000000
-                Margins.Left = 30.000000000000000000
+                Margins.Left = 70.000000000000000000
                 Margins.Top = -5.000000000000000000
-                Margins.Right = 30.000000000000000000
-                Position.X = 30.000000000000000000
+                Margins.Right = 70.000000000000000000
+                Position.X = 70.000000000000000000
                 Position.Y = 62.000000000000000000
-                Size.Width = 286.000000000000000000
+                Size.Width = 206.000000000000000000
                 Size.Height = 50.000000000000000000
                 Size.PlatformDefault = False
                 Stroke.Color = claDimgray
@@ -504,7 +504,7 @@ object fUserModal: TfUserModal
                   Align = Client
                   StyledSettings = [Family, Style]
                   Margins.Left = 5.000000000000000000
-                  Size.Width = 248.000000000000000000
+                  Size.Width = 168.000000000000000000
                   Size.Height = 25.000000000000000000
                   Size.PlatformDefault = False
                   TextSettings.Font.Size = 13.000000000000000000
@@ -949,20 +949,6 @@ object fUserModal: TfUserModal
           Size.Height = 30.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
-          OnChange = cbCameraOptionChange
-          object lCameraDesc: TLabel
-            Align = Left
-            StyledSettings = [Family]
-            Margins.Left = 10.000000000000000000
-            Position.X = 10.000000000000000000
-            Size.Width = 175.000000000000000000
-            Size.Height = 30.000000000000000000
-            Size.PlatformDefault = False
-            TextSettings.Font.Size = 14.000000000000000000
-            TextSettings.FontColor = claDimgray
-            Text = 'Default Camera'
-            TabOrder = 85
-          end
         end
       end
       object btnSaveCurrentImage: TCornerButton

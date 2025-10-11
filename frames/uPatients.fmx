@@ -14,10 +14,10 @@ object fPatients: TfPatients
     Viewport.Height = 416.000000000000000000
     object lytBottom: TLayout
       Align = Bottom
-      Margins.Top = 20.000000000000000000
-      Position.Y = 381.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Position.Y = 391.000000000000000000
       Size.Width = 580.000000000000000000
-      Size.Height = 35.000000000000000000
+      Size.Height = 25.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 3
     end
@@ -245,7 +245,7 @@ object fPatients: TfPatients
       Margins.Top = 20.000000000000000000
       Margins.Right = 30.000000000000000000
       Size.Width = 520.000000000000000000
-      Size.Height = 136.000000000000000000
+      Size.Height = 156.000000000000000000
       Size.PlatformDefault = False
       Stroke.Color = xFFDBD9D9
       XRadius = 13.000000000000000000
@@ -255,7 +255,7 @@ object fPatients: TfPatients
         CanFocus = True
         ClipChildren = True
         Size.Width = 470.000000000000000000
-        Size.Height = 86.000000000000000000
+        Size.Height = 106.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Size = 15.000000000000000000
         StyledSettings = [Family]
@@ -264,8 +264,8 @@ object fPatients: TfPatients
         Options = [ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
         OnResize = gPatientsResize
         OnCellDblClick = gPatientsCellDblClick
-        Viewport.Width = 466.000000000000000000
-        Viewport.Height = 61.000000000000000000
+        Viewport.Width = 470.000000000000000000
+        Viewport.Height = 106.000000000000000000
       end
     end
   end

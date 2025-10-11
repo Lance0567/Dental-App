@@ -73,7 +73,6 @@ type
     ccCapturePhoto: TCameraComponent;
     sdSavePicture: TSaveDialog;
     imgPhoto: TImage;
-    lCameraDesc: TLabel;
     rImageFrame: TRectangle;
     crContactNumber: TCalloutRectangle;
     gContactNumber: TGlyph;
@@ -102,7 +101,6 @@ type
     procedure ccCapturePhotoSampleBufferReady(Sender: TObject;
       const ATime: TMediaTime);
     procedure btnTakePictureClick(Sender: TObject);
-    procedure cbCameraOptionChange(Sender: TObject);
     procedure imgProfilePhotoClick(Sender: TObject);
     procedure btnUploadClick(Sender: TObject);
     procedure btnSaveCurrentImageClick(Sender: TObject);
@@ -266,25 +264,6 @@ begin
   crFullName.Visible := False;
 end;
 
-{ Save current image }
-procedure TfPatientModal.btnSaveCurrentImageClick(Sender: TObject);
-begin
-  if (imgPhoto.Bitmap <> nil) and not imgPhoto.Bitmap.IsEmpty then
-  begin
-    sdSavePicture.Filter := 'PNG Image|*.png|JPEG Image|*.jpg|Bitmap Image|*.bmp';
-    sdSavePicture.DefaultExt := 'png';
-    sdSavePicture.FileName := 'CapturedImage.png';
-
-    if sdSavePicture.Execute then
-    begin
-      imgPhoto.Bitmap.SaveToFile(sdSavePicture.FileName);
-      ShowMessage('Image saved to: ' + sdSavePicture.FileName);
-    end;
-  end
-  else
-    ShowMessage('No image to save.');
-end;
-
 { Save Button }
 procedure TfPatientModal.btnSavePatientClick(Sender: TObject);
 var
@@ -443,10 +422,23 @@ begin
   end;
 end;
 
-{ Camera Option OnChange }
-procedure TfPatientModal.cbCameraOptionChange(Sender: TObject);
+{ Save current image }
+procedure TfPatientModal.btnSaveCurrentImageClick(Sender: TObject);
 begin
-  lCameraDesc.Text := cbCameraOption.Text;
+  if (imgPhoto.Bitmap <> nil) and not imgPhoto.Bitmap.IsEmpty then
+  begin
+    sdSavePicture.Filter := 'PNG Image|*.png|JPEG Image|*.jpg|Bitmap Image|*.bmp';
+    sdSavePicture.DefaultExt := 'png';
+    sdSavePicture.FileName := 'CapturedImage.png';
+
+    if sdSavePicture.Execute then
+    begin
+      imgPhoto.Bitmap.SaveToFile(sdSavePicture.FileName);
+      ShowMessage('Image saved to: ' + sdSavePicture.FileName);
+    end;
+  end
+  else
+    ShowMessage('No image to save.');
 end;
 
 { Camera component buffer }
@@ -512,9 +504,6 @@ begin
 
   // Show components
   lytImgTools.Visible := True;
-
-  // Set the current camera used
-  lCameraDesc.Text := cbCameraOption.Text;
 
   if not FCapturing then
   begin

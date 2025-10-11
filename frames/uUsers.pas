@@ -7,7 +7,9 @@ uses
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   System.Skia, System.Rtti, FMX.Grid.Style, FMX.ScrollBox, FMX.Grid,
   FMX.Objects, FMX.Skia, FMX.ImgList, FMX.Controls.Presentation, FMX.Edit,
-  FMX.Layouts, Data.DB;
+  FMX.Layouts, Data.DB, Data.Bind.EngExt, Fmx.Bind.DBEngExt, Fmx.Bind.Grid,
+  System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.Components,
+  Data.Bind.Grid, Data.Bind.DBScope, FireDAC.Stan.Param;
 
 type
   TfUsers = class(TFrame)
@@ -32,8 +34,12 @@ type
     rrUserImage: TRoundRect;
     rPatients: TRectangle;
     gUsers: TGrid;
+    bsdbUsers: TBindSourceDB;
+    blUsers: TBindingsList;
+    LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
     procedure btnAddNewUserClick(Sender: TObject);
     procedure gUsersCellDblClick(const Column: TColumn; const Row: Integer);
+    procedure eSearchChangeTracking(Sender: TObject);
   private
     { Private declarations }
   public
@@ -83,6 +89,34 @@ begin
   frmMain.fUserModal.crEmailAddress.Visible := False;
   frmMain.fUserModal.crContactNumber.Visible := False;
   frmMain.fUserModal.crUsername.Visible := False;
+end;
+
+{ Search user }
+procedure TfUsers.eSearchChangeTracking(Sender: TObject);
+var
+  SearchText: string;
+begin
+  dm.qUsers.DisableControls;
+  try
+    dm.qUsers.Close;
+
+    if Trim(eSearch.Text) = '' then
+    begin
+      // No search: load all records
+      dm.qUsers.SQL.Text := 'SELECT * FROM patients';
+    end
+    else
+    begin
+      // Search with parameter
+      dm.qUsers.SQL.Text := 'SELECT * FROM patients WHERE name LIKE :search';
+      SearchText := '%' + eSearch.Text + '%';
+      dm.qUsers.ParamByName('search').AsString := SearchText;
+    end;
+
+    dm.qUsers.Open;
+  finally
+    dm.qUsers.EnableControls;
+  end;
 end;
 
 { Edit User record }

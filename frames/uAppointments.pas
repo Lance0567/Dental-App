@@ -43,6 +43,8 @@ type
     procedure gAppointmentResized(Sender: TObject);
     procedure FrameResized(Sender: TObject);
     procedure btnAddNewAppointmentClick(Sender: TObject);
+    procedure gAppointmentCellDblClick(const Column: TColumn;
+      const Row: Integer);
   private
     { Private declarations }
   public
@@ -177,6 +179,57 @@ begin
 
   // Reset Scrollbox
   frmMain.fAppointmentModal.ScrollBox1.ViewportPosition := PointF(0,0);
+end;
+
+{ Edit Appointment }
+procedure TfAppointments.gAppointmentCellDblClick(const Column: TColumn;
+  const Row: Integer);
+var
+  cStatus: String;
+begin
+  // Set record status to edit
+  frmMain.fAppointmentModal.RecordStatus := 'Edit';
+
+  // Set Modal Title
+  frmMain.fAppointmentModal.lbTitle.Text := 'Edit Existing Appointment';
+
+  // Set Button Text
+  frmMain.fAppointmentModal.btnCreateAppointment.Text := 'Update Appointment';
+
+  // Get Date from the database
+  frmMain.fAppointmentModal.deDate.Date := dm.qAppointments.FieldByName('date').AsDateTime;
+
+  // Get Status
+  cStatus := dm.qAppointments.FieldByName('status').AsString;
+  if cStatus = 'New' then
+    frmMain.fAppointmentModal.cbStatus.ItemIndex := 0
+  else if cStatus = 'Ongoing' then
+    frmMain.fAppointmentModal.cbStatus.ItemIndex := 1
+  else if cStatus = 'Completed' then
+    frmMain.fAppointmentModal.cbStatus.ItemIndex := 2
+  else if cStatus = 'Cancelled' then
+    frmMain.fAppointmentModal.cbStatus.ItemIndex := 3;
+
+  // Get Patient
+  frmMain.fAppointmentModal.cbPatient.Enabled := False;
+
+  // Get Appointment Title
+  frmMain.fAppointmentModal.eAppointmentTitle.Text := dm.qAppointments.FieldByName('appointment_title').AsString;
+
+  // Get Start Time
+  frmMain.fAppointmentModal.teStartTime.Text := dm.qAppointments.FieldByName('start_time').AsString;
+
+  // Get End Time
+  frmMain.fAppointmentModal.teEndTime.Text := dm.qAppointments.FieldByName('end_time').AsString;
+
+  // Get Notes
+  frmMain.fAppointmentModal.mNotes.Text := dm.qAppointments.FieldByName('notes').AsString;
+
+  // Show Modal
+  frmMain.fAppointmentModal.Visible := True;
+
+  // Reset Scrollbox
+  frmMain.fAppointmentModal.ScrollBox1.ViewportPosition := PointF(0, 0);
 end;
 
 { Frame Resized }

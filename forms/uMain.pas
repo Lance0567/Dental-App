@@ -37,7 +37,6 @@ type
     tiUsers: TTabItem;
     tiUserProfile: TTabItem;
     fUserProfile: TfUserProfile;
-    fUserModal: TfUserModal;
     lytPopUpBottom: TLayout;
     lytPopUpMessage: TLayout;
     rPopUp: TRectangle;
@@ -48,6 +47,7 @@ type
     fUsers: TfUsers;
     ShadowEffect1: TShadowEffect;
     fAppointmentModal: TfAppointmentModal;
+    fUserModal: TfUserModal;
     procedure FormCreate(Sender: TObject);
     procedure mvSidebarResize(Sender: TObject);
     procedure FormResize(Sender: TObject);
@@ -64,6 +64,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FloatAnimation1Finish(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     procedure HideFrames;
     procedure ButtonPressedResetter;
@@ -82,7 +83,7 @@ implementation
 
 {$R *.fmx}
 
-uses uDm;
+uses uDm, uUserDetails;
 
 { Hide Frames }
 procedure TfrmMain.HideFrames;
@@ -187,8 +188,7 @@ begin
   mvSidebar.ShowMaster;
   mvSidebar.NavigationPaneOptions.CollapsedWidth := 50;
 
-  fDashboard.FrameResize(Sender);
-  fDashboard.CardsResize;
+  fDashboard.FrameResized(Sender);
 end;
 
 { Form Resized }
@@ -223,6 +223,12 @@ begin
 
   // Dashboard cards resize
   fDashboard.CardsResize;
+end;
+
+{ Show Form }
+procedure TfrmMain.FormShow(Sender: TObject);
+begin
+  fDashboard.FrameResized(Sender);
 end;
 
 { Save/Update Patient Modal }
@@ -282,6 +288,28 @@ begin
         // Icon set to red success
         gPopUp.ImageIndex := 33;
       end;
+      3:
+      begin
+        lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.Black;
+        lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Dimgray;
+        lbPopUp.Words.Items[0].Text := AEntity + ' created';
+        lbPopUp.Words.Items[1].Text := 'New ' + ADetail +
+          ' has been scheduled successfully.';
+        rPopUp.Fill.Color := TAlphaColorRec.White;
+        // Icon set to green success
+        gPopUp.ImageIndex := 8;
+      end;
+      4:
+      begin
+        lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.Black;
+        lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Dimgray;
+        lbPopUp.Words.Items[0].Text := AEntity + ' updated';
+        lbPopUp.Words.Items[1].Text := 'The ' + ADetail +
+          ' has been updated successfully.';
+        rPopUp.Fill.Color := TAlphaColorRec.White;
+        // Icon set to yellow success
+        gPopUp.ImageIndex := 32;
+      end;
   end;
 end;
 
@@ -301,12 +329,6 @@ end;
 { Sidebar Resized }
 procedure TfrmMain.mvSidebarResize(Sender: TObject);
 begin
-  // Date formatted display
-  fDashboard.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
-  fPatients.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
-  fAppointments.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
-  fUsers.lDate.Text := FormatDateTime('dddd, mmmm d, yyyy', Now);
-
   // Sidebar adjustment
   if mvSidebar.Width < 51 then
   begin
@@ -470,11 +492,11 @@ begin
   // Deactivate queries for optimization
   QueryHandler;
 
-  // Patient Grid reponsive
-  if tcController.TabIndex = 1 then
-  begin
-    fPatients.GridContentsResponsive;
-  end;
+  // Date formatted display
+  fDashboard.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
+  fPatients.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
+  fAppointments.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
+  fUsers.lDate.Text := FormatDateTime('dddd, mmmm d, yyyy', Now);
 
   // Change database connection according to the selected tab
   case tcController.TabIndex of

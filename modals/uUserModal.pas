@@ -88,7 +88,6 @@ type
     lytCameraOption: TLayout;
     lCamera: TLabel;
     cbCameraOption: TComboBox;
-    lCameraDesc: TLabel;
     btnSaveCurrentImage: TCornerButton;
     btnTakePicture: TCornerButton;
     lytClosebtn: TLayout;
@@ -109,7 +108,6 @@ type
     procedure btnTakePictureClick(Sender: TObject);
     procedure btnSaveCurrentImageClick(Sender: TObject);
     procedure btnCameraCloseClick(Sender: TObject);
-    procedure cbCameraOptionChange(Sender: TObject);
   private
     FCapturing: Boolean;
     FStatus: Boolean;
@@ -202,9 +200,6 @@ begin
 
   // Show components
   lytImgTools.Visible := True;
-
-  // Set the current camera used
-  lCameraDesc.Text := cbCameraOption.Text;
 
   if not FCapturing then
   begin
@@ -469,12 +464,6 @@ begin
   Self.Visible := False;
 end;
 
-{ Camera option OnChange }
-procedure TfUserModal.cbCameraOptionChange(Sender: TObject);
-begin
-  lCameraDesc.Text := cbCameraOption.Text;
-end;
-
 { Camera component buffer }
 procedure TfUserModal.ccCapturePhotoSampleBufferReady(Sender: TObject;
   const ATime: TMediaTime);
@@ -495,8 +484,8 @@ begin
   end
   else if (frmMain.ClientWidth >= 1366) then
   begin
-    rModalInfo.Margins.Left := 400;
-    rModalInfo.Margins.Right := 400;
+    rModalInfo.Margins.Left := 430;
+    rModalInfo.Margins.Right := 430;
     rModalInfo.Margins.Top := 75;
     rModalInfo.Margins.Bottom := 75;
   end

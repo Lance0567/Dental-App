@@ -49,9 +49,6 @@ type
     slUserName: TSkLabel;
     rrUserImage: TRoundRect;
     lBevel: TLine;
-    PopupMenu1: TPopupMenu;
-    MenuItem1: TMenuItem;
-    MenuItem2: TMenuItem;
     rPopUp: TRectangle;
     FloatAnimation4: TFloatAnimation;
     mvPopUp: TMultiView;
@@ -71,7 +68,7 @@ type
     btnReportAnIssue: TCornerButton;
     FloatAnimation3: TFloatAnimation;
     lbQuickActions: TLabel;
-    procedure FrameResize(Sender: TObject);
+    procedure FrameResized(Sender: TObject);
   private
 
     { Private declarations }
@@ -87,7 +84,7 @@ implementation
 uses uDm, uMain;
 
 { Frame Resize }
-procedure TfDashboard.FrameResize(Sender: TObject);
+procedure TfDashboard.FrameResized(Sender: TObject);
 begin
   // Cards responsiveness
   CardsResize;
@@ -113,15 +110,29 @@ begin
   else if (frmMain.ClientWidth >= 1366) then
   begin
     // Cards
-    glytCards.Height := 160;
+    glytCards.Height := 140;
+
+    // Records Padding
+    lytRecords.Padding.Right := 30;
 
     // Quick Actions
     rQuickActions.Width := 260;
   end
-  else if (frmMain.ClientWidth <= 850) then
+  else if (frmMain.ClientWidth >= 1050) then
   begin
     // Cards
-    glytCards.Height := 290;
+    glytCards.Height := 140;
+
+    // Records Padding
+    lytRecords.Padding.Right := 30;
+  end
+  else if (frmMain.ClientWidth >= 850) OR (frmMain.ClientWidth <= 850) then
+  begin
+    // Cards
+    glytCards.Height := 275;
+
+    // Records Padding
+    lytRecords.Padding.Right := 20;
 
     // Quick Actions
     rTodaysAppointment.Width := 280;
@@ -142,47 +153,20 @@ var
 begin
   AvailableWidth := Trunc(glytCards.Width);
 
-  // Device Dimension setter
-  if frmMain.Width > 1900 then   // Dimension greater than 1900
-  begin
-    glytCards.Width := 1660;
-  end
-  else
-  begin
-    glytCards.Width := 270;
-  end;
-
   // Client Dimension condition
   if (frmMain.ClientWidth > 1900) AND not (frmMain.ClientWidth < 900) then
   begin
     ItemsPerRow := Max(1, AvailableWidth div 500);
     glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
   end
-  else if (frmMain.ClientWidth > 900) AND not (frmMain.ClientWidth < 850) then
+  else if (frmMain.ClientWidth >= 1366) then
   begin
-    ItemsPerRow := Max(1, AvailableWidth div 270);
-    glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4 + 4) / ItemsPerRow);
-  end
-  else if (frmMain.ClientWidth <= 850) then
-  begin
-    ItemsPerRow := Max(1, AvailableWidth div 240);
+    ItemsPerRow := Max(1, AvailableWidth div 216);
     glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
-  end;
-
-  // Frame Dimension condition
-  if Self.Width >= 1278 then
-  begin
-    ItemsPerRow := Max(1, AvailableWidth div 410);
-    glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4 + 6) / ItemsPerRow);
   end
-  else if Self.Width >= 1084 then
+  else if (frmMain.ClientWidth >= 850) OR (frmMain.ClientWidth <= 850) then
   begin
-    ItemsPerRow := Max(1, AvailableWidth div 265);
-    glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4 + 8) / ItemsPerRow);
-  end
-  else if (Self.Width <= 569) OR (glytCards.Width >= 763) then
-  begin
-    ItemsPerRow := Max(1, AvailableWidth div 245);
+    ItemsPerRow := Max(1, AvailableWidth div 190);
     glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
   end;
 end;

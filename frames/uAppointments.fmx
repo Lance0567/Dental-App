@@ -83,14 +83,16 @@ object fAppointments: TfAppointments
         Align = Client
         CanFocus = True
         ClipChildren = True
+        Cursor = crHandPoint
         Size.Width = 470.000000000000000000
         Size.Height = 106.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         RowCount = 0
         OnResized = gAppointmentResized
-        Viewport.Width = 466.000000000000000000
-        Viewport.Height = 81.000000000000000000
+        OnCellDblClick = gAppointmentCellDblClick
+        Viewport.Width = 470.000000000000000000
+        Viewport.Height = 106.000000000000000000
       end
     end
     object lytComponents: TLayout

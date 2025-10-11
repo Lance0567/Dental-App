@@ -12,10 +12,10 @@ object fUsers: TfUsers
     Viewport.Height = 416.000000000000000000
     object lytBottom: TLayout
       Align = Bottom
-      Margins.Top = 20.000000000000000000
-      Position.Y = 381.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Position.Y = 391.000000000000000000
       Size.Width = 580.000000000000000000
-      Size.Height = 35.000000000000000000
+      Size.Height = 25.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 3
     end
@@ -47,6 +47,7 @@ object fUsers: TfUsers
           Size.PlatformDefault = False
           TextPrompt = 'Search users by name...'
           StyledSettings = [Family, Size, Style]
+          OnChangeTracking = eSearchChangeTracking
         end
       end
       object lytButtonH: TLayout
@@ -60,6 +61,7 @@ object fUsers: TfUsers
         TabOrder = 1
         object btnAddNewUser: TCornerButton
           Align = Client
+          Cursor = crHandPoint
           StyledSettings = [FontColor]
           Sides = [Top, Left, Bottom, Right]
           Size.Width = 150.000000000000000000
@@ -69,6 +71,7 @@ object fUsers: TfUsers
           Text = 'Add New User'
           TextSettings.Font.Family = 'Segoe UI Variable Small'
           TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.Font.StyleExt = {00060000000000000004000000}
           TextSettings.Trimming = None
           XRadius = 11.000000000000000000
           YRadius = 11.000000000000000000
@@ -221,7 +224,7 @@ object fUsers: TfUsers
       Margins.Top = 20.000000000000000000
       Margins.Right = 30.000000000000000000
       Size.Width = 520.000000000000000000
-      Size.Height = 136.000000000000000000
+      Size.Height = 156.000000000000000000
       Size.PlatformDefault = False
       Stroke.Color = xFFDBD9D9
       XRadius = 13.000000000000000000
@@ -231,14 +234,68 @@ object fUsers: TfUsers
         CanFocus = True
         ClipChildren = True
         Size.Width = 470.000000000000000000
-        Size.Height = 86.000000000000000000
+        Size.Height = 106.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 4
+        RowCount = 0
         Options = [ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
         OnCellDblClick = gUsersCellDblClick
-        Viewport.Width = 470.000000000000000000
-        Viewport.Height = 86.000000000000000000
+        Viewport.Width = 466.000000000000000000
+        Viewport.Height = 81.000000000000000000
       end
+    end
+  end
+  object bsdbUsers: TBindSourceDB
+    DataSet = dm.qUsers
+    ScopeMappings = <>
+    Left = 280
+    Top = 192
+  end
+  object blUsers: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 412
+    Top = 197
+    object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = bsdbUsers
+      GridControl = gUsers
+      Columns = <
+        item
+          MemberName = 'id'
+          Header = 'ID'
+          Width = 100
+        end
+        item
+          MemberName = 'user_role'
+          Header = 'Role'
+          Width = 120
+        end
+        item
+          MemberName = 'name'
+          Header = 'Name'
+          Width = 170
+        end
+        item
+          MemberName = 'profile_pic'
+          Header = 'Profile Picture'
+          Width = 90
+        end
+        item
+          MemberName = 'status'
+          Header = 'Status'
+          Width = 100
+        end
+        item
+          MemberName = 'department'
+          Header = 'Department'
+          Width = 150
+        end
+        item
+          MemberName = 'last_login'
+          Header = 'Last Login'
+          Width = 150
+        end>
     end
   end
 end

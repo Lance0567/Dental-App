@@ -205,6 +205,7 @@ var
   ms: TMemoryStream;
 begin
   frmMain.fPatientModal.Visible := True;  // Show patient modal
+  frmMain.fPatientModal.ScrollBox1.ViewportPosition := PointF(0, 0);
   frmMain.fPatientModal.RecordStatus := 'Edit'; // Set record Status
   frmMain.fPatientModal.lbTitle.Text := 'Update Existing Patient';
   frmMain.fPatientModal.btnSavePatient.Text := 'Update Patient';

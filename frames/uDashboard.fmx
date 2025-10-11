@@ -2,7 +2,7 @@ object fDashboard: TfDashboard
   Size.Width = 580.000000000000000000
   Size.Height = 416.000000000000000000
   Size.PlatformDefault = False
-  OnResize = FrameResize
+  OnResized = FrameResized
   object ScrollBox1: TScrollBox
     Align = Client
     Padding.Bottom = 25.000000000000000000
@@ -9512,7 +9512,6 @@ object fDashboard: TfDashboard
             Fill.Color = claWhite
             Opacity = 0.000000000000000000
             Margins.Right = 10.000000000000000000
-            PopupMenu = PopupMenu1
             Size.Width = 145.000000000000000000
             Size.Height = 60.000000000000000000
             Size.PlatformDefault = False
@@ -9577,7 +9576,6 @@ object fDashboard: TfDashboard
       Align = Top
       ItemHeight = 135.000000000000000000
       ItemWidth = 260.000000000000000000
-      Padding.Right = 10.000000000000000000
       Orientation = Horizontal
       Margins.Left = 25.000000000000000000
       Margins.Top = 10.000000000000000000
@@ -9952,8 +9950,8 @@ object fDashboard: TfDashboard
           Size.Height = 250.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 4
-          Viewport.Width = 160.000000000000000000
-          Viewport.Height = 225.000000000000000000
+          Viewport.Width = 164.000000000000000000
+          Viewport.Height = 250.000000000000000000
         end
       end
       object rQuickActions: TRectangle
@@ -10079,16 +10077,6 @@ object fDashboard: TfDashboard
           TabOrder = 0
         end
       end
-    end
-  end
-  object PopupMenu1: TPopupMenu
-    Left = 280
-    Top = 192
-    object MenuItem1: TMenuItem
-      Text = 'Account Settings'
-    end
-    object MenuItem2: TMenuItem
-      Text = 'Logout'
     end
   end
   object mvPopUp: TMultiView
