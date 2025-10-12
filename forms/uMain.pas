@@ -46,8 +46,8 @@ type
     lbPopUp: TSkLabel;
     fUsers: TfUsers;
     ShadowEffect1: TShadowEffect;
-    fAppointmentModal: TfAppointmentModal;
     fUserModal: TfUserModal;
+    fAppointmentModal: TfAppointmentModal;
     procedure FormCreate(Sender: TObject);
     procedure mvSidebarResize(Sender: TObject);
     procedure FormResize(Sender: TObject);

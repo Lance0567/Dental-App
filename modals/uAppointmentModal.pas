@@ -56,8 +56,6 @@ type
     btnCreateAppointment: TCornerButton;
     btnCancel: TCornerButton;
     cbPatient: TComboEdit;
-    bsdbPatientSelection: TBindSourceDB;
-    blPatientSelection: TBindingsList;
     crDate: TCalloutRectangle;
     gDate: TGlyph;
     lDateW: TLabel;
@@ -108,7 +106,7 @@ begin
   mNotes.Text := 'Add any relevant notes about this appointment';
 end;
 
-{ Create/Update }
+{ Create/Update Appointment }
 procedure TfAppointmentModal.btnCreateAppointmentClick(Sender: TObject);
 var
   HasError: Boolean;
