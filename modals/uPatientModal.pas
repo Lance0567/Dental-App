@@ -107,6 +107,7 @@ type
     procedure eContactNumberChangeTracking(Sender: TObject);
     procedure eEmailAddressChangeTracking(Sender: TObject);
     procedure eAddressChangeTracking(Sender: TObject);
+    procedure deDateOfBirthCheckChanged(Sender: TObject);
   private
     FCapturing: Boolean;
     FStatus: Boolean;
@@ -481,6 +482,15 @@ begin
     Age := 0; // defensive
 
   lAgeCounter.Text := Format('Age: %d years', [Age]);
+end;
+
+procedure TfPatientModal.deDateOfBirthCheckChanged(Sender: TObject);
+begin
+  if deDateOfBirth.Date = Now then
+  begin
+    deDateOfBirth.TextSettings.FontColor := TAlphaColors.Black;
+    lDateText.Visible := False;
+  end;
 end;
 
 { Camera button }

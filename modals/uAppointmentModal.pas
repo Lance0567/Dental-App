@@ -193,12 +193,12 @@ begin
 
   dm.qPatientSelection.Close;
   dm.qPatientSelection.Open;
+
   while not dm.qPatientSelection.Eof do
   begin
     cbPatient.Items.Add(dm.qPatientSelection.FieldByName('fullname').AsString);
     dm.qPatientSelection.Next;
   end;
-  cbPatient.ItemIndex := 0; // Reset to the hint item
 end;
 
 { On Close picker Date }
