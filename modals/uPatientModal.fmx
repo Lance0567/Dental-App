@@ -11,7 +11,7 @@ object fPatientModal: TfPatientModal
     TabOrder = 0
     object rBackground: TRectangle
       Align = Contents
-      Fill.Color = claBlack
+      Fill.Color = xFE00000C
       Opacity = 0.699999988079071000
       Size.Width = 772.000000000000000000
       Size.Height = 540.000000000000000000
@@ -615,7 +615,7 @@ object fPatientModal: TfPatientModal
                   TabOrder = 0
                 end
                 object deDateOfBirth: TDateEdit
-                  Date = 45942.000000000000000000
+                  Date = 45943.000000000000000000
                   TodayDefault = True
                   OnChange = deDateOfBirthChange
                   OnCheckChanged = deDateOfBirthCheckChanged

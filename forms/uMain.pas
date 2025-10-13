@@ -188,7 +188,14 @@ begin
   mvSidebar.ShowMaster;
   mvSidebar.NavigationPaneOptions.CollapsedWidth := 50;
 
+  // Dashboard Frame resize
   fDashboard.FrameResized(Sender);
+
+  // Date formatted display
+  fDashboard.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
+  fPatients.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
+  fAppointments.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
+  fUsers.lDate.Text := FormatDateTime('dddd, mmmm d, yyyy', Now);
 end;
 
 { Form Resized }
@@ -491,12 +498,6 @@ procedure TfrmMain.tcControllerChange(Sender: TObject);
 begin
   // Deactivate queries for optimization
   QueryHandler;
-
-  // Date formatted display
-  fDashboard.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
-  fPatients.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
-  fAppointments.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
-  fUsers.lDate.Text := FormatDateTime('dddd, mmmm d, yyyy', Now);
 
   // Change database connection according to the selected tab
   case tcController.TabIndex of

@@ -64,11 +64,12 @@ type
     procedure FrameResized(Sender: TObject);
     procedure lytDetails3Resized(Sender: TObject);
     procedure lytDetails4Resized(Sender: TObject);
-    procedure deDateClosePicker(Sender: TObject);
     procedure mNotesClick(Sender: TObject);
     procedure mNotesExit(Sender: TObject);
     procedure btnCreateAppointmentClick(Sender: TObject);
     procedure cbPatientEnter(Sender: TObject);
+    procedure deDateCheckChanged(Sender: TObject);
+    procedure deDateChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -201,14 +202,27 @@ begin
   end;
 end;
 
-{ On Close picker Date }
-procedure TfAppointmentModal.deDateClosePicker(Sender: TObject);
+{ On Change picker Date }
+procedure TfAppointmentModal.deDateChange(Sender: TObject);
 begin
   // Hide Date pick label
   lPickDate.Visible := False;
 
   // Show date text
   deDate.StyledSettings := [TStyledSetting.FontColor];
+end;
+
+{ On Check change }
+procedure TfAppointmentModal.deDateCheckChanged(Sender: TObject);
+begin
+  if deDate.Date = Now then
+  begin
+  // Hide Date pick label
+  lPickDate.Visible := False;
+
+  // Show date text
+  deDate.StyledSettings := [TStyledSetting.FontColor];
+  end;
 end;
 
 { Layout Responsiveness adjuster }

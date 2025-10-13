@@ -19,7 +19,6 @@ type
     lbDescription: TLabel;
     rToolbar: TRectangle;
     lytToolbarH: TLayout;
-    lDate: TLabel;
     gIcon: TGlyph;
     lytUser: TLayout;
     slUserName: TSkLabel;
@@ -43,6 +42,7 @@ type
     cbAccountSettings: TCornerButton;
     cbLogout: TCornerButton;
     lDivider: TLine;
+    lDate: TLabel;
     procedure gPatientsCellDblClick(const Column: TColumn; const Row: Integer);
     procedure FrameResize(Sender: TObject);
     procedure FrameResized(Sender: TObject);

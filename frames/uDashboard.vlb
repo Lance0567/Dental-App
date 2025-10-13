@@ -67,9 +67,6 @@ Coordinates=74,352,52,36
 [rCard4]
 Coordinates=10,352,54,36
 
-[lDate]
-Coordinates=483,146,45,58
-
 [cIcon1]
 Coordinates=580,306,52,36
 
@@ -128,6 +125,6 @@ Coordinates=598,214,54,36
 Coordinates=10,214,58,36
 
 []
-Coordinates=875,496,90,36
+Coordinates=483,146,45,58
 Visible=True
 

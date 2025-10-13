@@ -822,8 +822,8 @@ object frmMain: TfrmMain
             end
             inherited mMedicalNotes: TMemo
               Size.Width = 584.000000000000000000
-              Viewport.Width = 573.000000000000000000
-              Viewport.Height = 114.000000000000000000
+              Viewport.Width = 584.000000000000000000
+              Viewport.Height = 125.000000000000000000
             end
           end
           inherited lytPatientH: TLayout
@@ -1352,9 +1352,6 @@ object frmMain: TfrmMain
               inherited lytDate: TLayout
                 inherited deDate: TDateEdit
                   StyleLookup = 'deDateStyle1'
-                  inherited lPickDate: TLabel
-                    TabOrder = 15
-                  end
                 end
                 inherited lDate: TLabel
                   TextSettings.Font.StyleExt = {00060000000000000004000000}

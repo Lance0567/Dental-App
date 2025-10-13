@@ -91,8 +91,8 @@ object fAppointments: TfAppointments
         RowCount = 0
         OnResized = gAppointmentResized
         OnCellDblClick = gAppointmentCellDblClick
-        Viewport.Width = 470.000000000000000000
-        Viewport.Height = 106.000000000000000000
+        Viewport.Width = 466.000000000000000000
+        Viewport.Height = 81.000000000000000000
       end
     end
     object lytComponents: TLayout
@@ -223,19 +223,6 @@ object fAppointments: TfAppointments
         Size.Height = 60.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 5
-        object lDate: TLabel
-          Align = Left
-          StyledSettings = [Family, Style]
-          Margins.Left = 5.000000000000000000
-          Position.X = 40.000000000000000000
-          Size.Width = 572.000000000000000000
-          Size.Height = 60.000000000000000000
-          Size.PlatformDefault = False
-          TextSettings.Font.Size = 15.000000000000000000
-          TextSettings.FontColor = claDimgray
-          Text = 'Date'
-          TabOrder = 5
-        end
         object gIcon: TGlyph
           Margins.Left = 10.000000000000000000
           Margins.Top = 10.000000000000000000
@@ -9693,6 +9680,20 @@ object fAppointments: TfAppointments
             Size.PlatformDefault = False
             Stroke.Kind = None
           end
+        end
+        object lDate: TLabel
+          Align = Left
+          StyledSettings = [Style]
+          Margins.Left = 5.000000000000000000
+          Position.X = 40.000000000000000000
+          Size.Width = 572.000000000000000000
+          Size.Height = 60.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Family = 'Segoe UI Variable Display'
+          TextSettings.Font.Size = 15.000000000000000000
+          TextSettings.FontColor = claGray
+          Text = 'Date'
+          TabOrder = 5
         end
       end
     end

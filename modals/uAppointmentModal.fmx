@@ -472,7 +472,8 @@ object fAppointmentModal: TfAppointmentModal
               TabOrder = 1
               object deDate: TDateEdit
                 Date = 45885.000000000000000000
-                OnClosePicker = deDateClosePicker
+                OnChange = deDateChange
+                OnCheckChanged = deDateCheckChanged
                 Align = Top
                 Margins.Top = 10.000000000000000000
                 Position.Y = 27.000000000000000000

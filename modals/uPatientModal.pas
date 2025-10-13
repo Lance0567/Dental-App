@@ -188,8 +188,8 @@ begin
   // Modal content margins
   if (frmMain.ClientWidth >= 1920) then
   begin
-    rModalInfo.Margins.Left := 500;
-    rModalInfo.Margins.Right := 500;
+    rModalInfo.Margins.Left := 530;
+    rModalInfo.Margins.Right := 530;
     rModalInfo.Margins.Top := 200;
     rModalInfo.Margins.Bottom := 200;
   end

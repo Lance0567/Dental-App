@@ -20,7 +20,6 @@ type
     lbDescription: TLabel;
     rToolbar: TRectangle;
     lytToolbarH: TLayout;
-    lDate: TLabel;
     gIcon: TGlyph;
     lytUser: TLayout;
     slUserName: TSkLabel;
@@ -40,6 +39,7 @@ type
     cbDay: TCornerButton;
     cbWeek: TCornerButton;
     cbMonth: TCornerButton;
+    lDate: TLabel;
     procedure gAppointmentResized(Sender: TObject);
     procedure FrameResized(Sender: TObject);
     procedure btnAddNewAppointmentClick(Sender: TObject);

@@ -66,11 +66,8 @@ Coordinates=100,10,67,141
 [btnAddNewPatient]
 Coordinates=10,233,105,33
 
-[lDate]
-Coordinates=301,10,40,51
-
 []
-Coordinates=233,392,82,33
+Coordinates=301,10,40,51
 
 [blPatients]
 Coordinates=121,170,82,33

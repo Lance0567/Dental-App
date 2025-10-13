@@ -43,7 +43,6 @@ type
     gIcon4: TGlyph;
     rToolbar: TRectangle;
     lytToolbarH: TLayout;
-    lDate: TLabel;
     gIcon: TGlyph;
     lytUser: TLayout;
     slUserName: TSkLabel;
@@ -68,6 +67,7 @@ type
     btnReportAnIssue: TCornerButton;
     FloatAnimation3: TFloatAnimation;
     lbQuickActions: TLabel;
+    lDate: TLabel;
     procedure FrameResized(Sender: TObject);
   private
 
@@ -94,6 +94,9 @@ begin
   begin
     // Cards
     glytCards.Height := 160;
+
+    // Records Padding
+    lytRecords.Padding.Right := 30;
 
     // Quick Actions
     rQuickActions.Width := 340;
@@ -156,7 +159,7 @@ begin
   // Client Dimension condition
   if (frmMain.ClientWidth > 1900) AND not (frmMain.ClientWidth < 900) then
   begin
-    ItemsPerRow := Max(1, AvailableWidth div 500);
+    ItemsPerRow := Max(1, AvailableWidth div 400);
     glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
   end
   else if (frmMain.ClientWidth >= 1366) then

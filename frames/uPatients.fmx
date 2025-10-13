@@ -145,20 +145,6 @@ object fPatients: TfPatients
         Size.Height = 60.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 5
-        object lDate: TLabel
-          Align = Left
-          StyledSettings = [Style]
-          Margins.Left = 5.000000000000000000
-          Position.X = 40.000000000000000000
-          Size.Width = 572.000000000000000000
-          Size.Height = 60.000000000000000000
-          Size.PlatformDefault = False
-          TextSettings.Font.Family = 'Segoe UI Variable Display'
-          TextSettings.Font.Size = 15.000000000000000000
-          TextSettings.FontColor = claGray
-          Text = 'Date'
-          TabOrder = 5
-        end
         object gIcon: TGlyph
           Margins.Left = 10.000000000000000000
           Margins.Top = 10.000000000000000000
@@ -232,6 +218,20 @@ object fPatients: TfPatients
             end
           end
         end
+        object lDate: TLabel
+          Align = Left
+          StyledSettings = [Style]
+          Margins.Left = 5.000000000000000000
+          Position.X = 40.000000000000000000
+          Size.Width = 572.000000000000000000
+          Size.Height = 60.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Family = 'Segoe UI Variable Display'
+          TextSettings.Font.Size = 15.000000000000000000
+          TextSettings.FontColor = claGray
+          Text = 'Date'
+          TabOrder = 5
+        end
       end
     end
     object rPatients: TRectangle
@@ -264,8 +264,8 @@ object fPatients: TfPatients
         Options = [ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
         OnResize = gPatientsResize
         OnCellDblClick = gPatientsCellDblClick
-        Viewport.Width = 470.000000000000000000
-        Viewport.Height = 106.000000000000000000
+        Viewport.Width = 466.000000000000000000
+        Viewport.Height = 81.000000000000000000
       end
     end
   end

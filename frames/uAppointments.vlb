@@ -21,9 +21,6 @@ Coordinates=624,267,61,33
 [lytUser]
 Coordinates=549,267,49,33
 
-[lDate]
-Coordinates=116,267,40,51
-
 [gAppointment]
 Coordinates=182,100,84,51
 
@@ -58,7 +55,7 @@ Coordinates=182,267,66,51
 Coordinates=398,10,67,51
 
 []
-Coordinates=288,80,82,33
+Coordinates=116,267,40,51
 
 [blAppointments]
 Coordinates=277,80,82,33
