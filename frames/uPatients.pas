@@ -31,11 +31,11 @@ type
     LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
     fToolbar: TfToolbar;
     procedure gPatientsCellDblClick(const Column: TColumn; const Row: Integer);
-    procedure FrameResize(Sender: TObject);
     procedure FrameResized(Sender: TObject);
-    procedure gPatientsResize(Sender: TObject);
     procedure btnAddNewPatientClick(Sender: TObject);
     procedure eSearchChangeTracking(Sender: TObject);
+    procedure gPatientsResized(Sender: TObject);
+    procedure FrameResize(Sender: TObject);
   private
     procedure GridContentsResponsive3;
     { Private declarations }
@@ -66,7 +66,7 @@ begin
     // Fixed layout at 850px
     for i := 0 to gPatients.ColumnCount - 1 do
     begin
-      if (i = 1) or (i = 2) then
+      if (i = 0) or (i = 2) or (i = 3) or (i = 4) then
         gPatients.Columns[i].Width := 230
       else
         gPatients.Columns[i].Width := 170;
@@ -75,8 +75,8 @@ begin
   else if frmMain.ClientWidth > 850 then
   begin
     // Dynamic layout when wider than 850px
-    FixedWidth := 230;      // width for 2nd and 3rd columns
-    FixedColumns := 2;      // 2 fixed columns
+    FixedWidth := 170;      // width for 2nd and last columns
+    FixedColumns := 4;      // 2 fixed columns
 
     if gPatients.ColumnCount > FixedColumns then
       NewWidth := (gPatients.Width - (FixedWidth * FixedColumns)) / (gPatients.ColumnCount - FixedColumns)
@@ -85,7 +85,7 @@ begin
 
     for i := 0 to gPatients.ColumnCount - 1 do
     begin
-      if (i = 1) or (i = gPatients.ColumnCount - 1) then
+      if (i = 0) or (i = 2) or (i = 3) or (i = 4) then
         gPatients.Columns[i].Width := FixedWidth - 1
       else
         gPatients.Columns[i].Width := NewWidth - 2;
@@ -116,7 +116,7 @@ begin
             // Fixed layout for 850px
             for i := 0 to gPatients.ColumnCount - 1 do
             begin
-              if (i = 1) or (i = gPatients.ColumnCount - 1) then
+              if (i = 0) or (i = 2) or (i = 3) or (i = 4) then
                 gPatients.Columns[i].Width := 230
               else
                 gPatients.Columns[i].Width := 170;
@@ -125,8 +125,8 @@ begin
           else if frmMain.ClientWidth > 850 then
           begin
             // Dynamic layout
-            FixedWidth := 230; // Width for 2nd and 3rd columns
-            FixedColumns := 2;
+            FixedWidth := 170; // Width for 2nd and last columns
+            FixedColumns := 4;
 
             if gPatients.ColumnCount > FixedColumns then
               NewWidth := (gPatients.Width - (FixedWidth * FixedColumns)) / (gPatients.ColumnCount - FixedColumns)
@@ -135,7 +135,7 @@ begin
 
             for i := 0 to gPatients.ColumnCount - 1 do
             begin
-              if (i = 1) or (i = gPatients.ColumnCount - 1) then
+              if (i = 0) or (i = 2) or (i = 3) or (i = 4) then
                 gPatients.Columns[i].Width := FixedWidth - 1
               else
                 gPatients.Columns[i].Width := NewWidth - 2;
@@ -170,7 +170,7 @@ begin
             // Fixed layout for 850px
             for i := 0 to gPatients.ColumnCount - 1 do
             begin
-              if (i = 1) or (i = gPatients.ColumnCount - 1) then
+              if (i = 0) or (i = 2) or (i = 3) or (i = 4) then
                 gPatients.Columns[i].Width := 230
               else
                 gPatients.Columns[i].Width := 170;
@@ -179,8 +179,8 @@ begin
           else if frmMain.ClientWidth > 850 then
           begin
             // Dynamic layout
-            FixedWidth := 230; // Width for 2nd and 3rd columns
-            FixedColumns := 2;
+            FixedWidth := 170; // Width for 2nd and last columns
+            FixedColumns := 4;
 
             if gPatients.ColumnCount > FixedColumns then
               NewWidth := (gPatients.Width - (FixedWidth * FixedColumns)) / (gPatients.ColumnCount - FixedColumns)
@@ -189,7 +189,7 @@ begin
 
             for i := 0 to gPatients.ColumnCount - 1 do
             begin
-              if (i = 1) or (i = gPatients.ColumnCount - 1) then
+              if (i = 0) or (i = 2) or (i = 3) or (i = 4) then
                 gPatients.Columns[i].Width := FixedWidth - 1
               else
                 gPatients.Columns[i].Width := NewWidth - 2;
@@ -354,7 +354,7 @@ begin
 end;
 
 { Grid on resize }
-procedure TfPatients.gPatientsResize(Sender: TObject);
+procedure TfPatients.gPatientsResized(Sender: TObject);
 begin
   GridContentsResponsive2;
 end;

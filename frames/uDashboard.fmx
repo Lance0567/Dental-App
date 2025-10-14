@@ -2,6 +2,7 @@ object fDashboard: TfDashboard
   Size.Width = 580.000000000000000000
   Size.Height = 416.000000000000000000
   Size.PlatformDefault = False
+  OnResize = FrameResize
   OnResized = FrameResized
   object ScrollBox1: TScrollBox
     Align = Client
@@ -174,11 +175,11 @@ object fDashboard: TfDashboard
         Padding.Top = 20.000000000000000000
         Padding.Right = 20.000000000000000000
         Padding.Bottom = 30.000000000000000000
-        Margins.Left = 5.000000000000000000
+        Margins.Left = 10.000000000000000000
         Margins.Top = 5.000000000000000000
         Margins.Right = 5.000000000000000000
         Margins.Bottom = 5.000000000000000000
-        Size.Width = 250.000000000000000000
+        Size.Width = 245.000000000000000000
         Size.Height = 125.000000000000000000
         Size.PlatformDefault = False
         Stroke.Color = xFEE1E7EF
@@ -188,14 +189,14 @@ object fDashboard: TfDashboard
           Align = Top
           Position.X = 20.000000000000000000
           Position.Y = 20.000000000000000000
-          Size.Width = 210.000000000000000000
+          Size.Width = 205.000000000000000000
           Size.Height = 25.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
           object lbAppointments: TLabel
             Align = Client
             StyledSettings = []
-            Size.Width = 210.000000000000000000
+            Size.Width = 205.000000000000000000
             Size.Height = 25.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.Family = 'Inter Variable Text'
@@ -208,7 +209,7 @@ object fDashboard: TfDashboard
         object lbTodaysAppointmentC: TLabel
           Align = Client
           StyledSettings = []
-          Size.Width = 210.000000000000000000
+          Size.Width = 205.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
           TextSettings.Font.Family = 'Roboto'
@@ -224,7 +225,7 @@ object fDashboard: TfDashboard
             Padding.Top = 12.000000000000000000
             Padding.Right = 12.000000000000000000
             Padding.Bottom = 12.000000000000000000
-            Position.X = 160.000000000000000000
+            Position.X = 155.000000000000000000
             Size.Width = 50.000000000000000000
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
@@ -320,11 +321,11 @@ object fDashboard: TfDashboard
         Padding.Top = 20.000000000000000000
         Padding.Right = 20.000000000000000000
         Padding.Bottom = 30.000000000000000000
-        Margins.Left = 5.000000000000000000
+        Margins.Left = 10.000000000000000000
         Margins.Top = 5.000000000000000000
         Margins.Right = 5.000000000000000000
         Margins.Bottom = 5.000000000000000000
-        Size.Width = 250.000000000000000000
+        Size.Width = 245.000000000000000000
         Size.Height = 125.000000000000000000
         Size.PlatformDefault = False
         Stroke.Color = xFEE1E7EF
@@ -334,14 +335,14 @@ object fDashboard: TfDashboard
           Align = Top
           Position.X = 20.000000000000000000
           Position.Y = 20.000000000000000000
-          Size.Width = 210.000000000000000000
+          Size.Width = 205.000000000000000000
           Size.Height = 25.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
           object lbCompleted: TLabel
             Align = Client
             StyledSettings = []
-            Size.Width = 210.000000000000000000
+            Size.Width = 205.000000000000000000
             Size.Height = 25.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.Family = 'Inter Variable Text'
@@ -354,7 +355,7 @@ object fDashboard: TfDashboard
         object lbCompletedC: TLabel
           Align = Client
           StyledSettings = []
-          Size.Width = 210.000000000000000000
+          Size.Width = 205.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
           TextSettings.Font.Family = 'Roboto'
@@ -370,7 +371,7 @@ object fDashboard: TfDashboard
             Padding.Top = 12.000000000000000000
             Padding.Right = 12.000000000000000000
             Padding.Bottom = 12.000000000000000000
-            Position.X = 160.000000000000000000
+            Position.X = 155.000000000000000000
             Size.Width = 50.000000000000000000
             Size.Height = 50.000000000000000000
             Size.PlatformDefault = False
@@ -434,8 +435,9 @@ object fDashboard: TfDashboard
           Size.PlatformDefault = False
           TabOrder = 4
           RowCount = 0
-          Viewport.Width = 160.000000000000000000
-          Viewport.Height = 225.000000000000000000
+          OnResized = gTodaysAppointmentResized
+          Viewport.Width = 164.000000000000000000
+          Viewport.Height = 250.000000000000000000
         end
       end
       object rQuickActions: TRectangle

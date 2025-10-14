@@ -2,6 +2,8 @@ object fUsers: TfUsers
   Size.Width = 580.000000000000000000
   Size.Height = 416.000000000000000000
   Size.PlatformDefault = False
+  OnResize = FrameResize
+  OnResized = FrameResized
   object ScrollBox1: TScrollBox
     Align = Client
     Size.Width = 580.000000000000000000
@@ -149,6 +151,7 @@ object fUsers: TfUsers
         TabOrder = 4
         RowCount = 0
         Options = [ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
+        OnResized = gUsersResized
         OnCellDblClick = gUsersCellDblClick
         Viewport.Width = 470.000000000000000000
         Viewport.Height = 106.000000000000000000

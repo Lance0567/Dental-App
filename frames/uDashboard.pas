@@ -9,7 +9,8 @@ uses
   FMX.Grid, FMX.Skia, FMX.ImgList, FMX.Controls.Presentation, FMX.Objects,
   FMX.Layouts, Math, FMX.Ani, FMX.Menus, FMX.ExtCtrls, FMX.MultiView, uToolbar,
   Data.Bind.EngExt, Fmx.Bind.DBEngExt, Fmx.Bind.Grid, System.Bindings.Outputs,
-  Fmx.Bind.Editors, Data.Bind.Components, Data.Bind.Grid, Data.Bind.DBScope;
+  Fmx.Bind.Editors, Data.Bind.Components, Data.Bind.Grid, Data.Bind.DBScope,
+  System.Threading,Data.DB;
 
 type
   TfDashboard = class(TFrame)
@@ -63,10 +64,13 @@ type
     procedure FrameResized(Sender: TObject);
     procedure btnNewPatientClick(Sender: TObject);
     procedure btnNewAppointmentClick(Sender: TObject);
+    procedure gTodaysAppointmentResized(Sender: TObject);
+    procedure FrameResize(Sender: TObject);
   private
-
+    procedure GridContentsResponsive2;
     { Private declarations }
   public
+    procedure GridContentsResponsive;
     procedure CardsResize;
     { Public declarations }
   end;
@@ -77,17 +81,131 @@ implementation
 
 uses uDm, uMain;
 
+{ Grid column resize }
+procedure TfDashboard.GridContentsResponsive;
+var
+  i: Integer;
+  NewWidth: Single;
+  FixedWidth: Single;
+  FixedColumns: Integer;
+begin
+  if gTodaysAppointment.ColumnCount = 0 then Exit;
+
+  if frmMain.ClientWidth = 850 then
+  begin
+    // Fixed layout at 850px
+    for i := 0 to gTodaysAppointment.ColumnCount - 1 do
+    begin
+      if (i = 1) or (i = 2) then
+        gTodaysAppointment.Columns[i].Width := 230
+      else
+        gTodaysAppointment.Columns[i].Width := 170;
+    end;
+  end
+  else if frmMain.ClientWidth > 850 then
+  begin
+    // Dynamic layout when wider than 850px
+    FixedWidth := 140;      // // Width for 1st and last columns
+    FixedColumns := 2;      // 2 fixed columns
+
+    if gTodaysAppointment.ColumnCount > FixedColumns then
+      NewWidth := (gTodaysAppointment.Width - (FixedWidth * FixedColumns)) / (gTodaysAppointment.ColumnCount - FixedColumns)
+    else
+      NewWidth := gTodaysAppointment.Width / gTodaysAppointment.ColumnCount;
+
+    for i := 0 to gTodaysAppointment.ColumnCount - 1 do
+    begin
+      if (i = 0) or (i = gTodaysAppointment.ColumnCount - 1) then
+        gTodaysAppointment.Columns[i].Width := FixedWidth - 1
+      else
+        gTodaysAppointment.Columns[i].Width := NewWidth - 2;
+    end;
+  end;
+end;
+
+{ Grid column resize with 2ms delay }
+procedure TfDashboard.GridContentsResponsive2;
+begin
+  TTask.Run(
+    procedure
+    begin
+      Sleep(200); // wait 200ms
+
+      TThread.Synchronize(nil,
+        procedure
+        var
+          i: Integer;
+          NewWidth: Single;
+          FixedWidth: Single;
+          FixedColumns: Integer;
+        begin
+          if gTodaysAppointment.ColumnCount = 0 then Exit;
+
+          if frmMain.ClientWidth = 850 then
+          begin
+            // Fixed layout for 850px
+            for i := 0 to gTodaysAppointment.ColumnCount - 1 do
+            begin
+              if (i = 1) or (i = 2) then
+                gTodaysAppointment.Columns[i].Width := 230
+              else
+                gTodaysAppointment.Columns[i].Width := 170;
+            end;
+          end
+          else if frmMain.ClientWidth > 850 then
+          begin
+            // Dynamic layout
+            FixedWidth := 140; // Width for 1st and last columns
+            FixedColumns := 2;
+
+            if gTodaysAppointment.ColumnCount > FixedColumns then
+              NewWidth := (gTodaysAppointment.Width - (FixedWidth * FixedColumns)) / (gTodaysAppointment.ColumnCount - FixedColumns)
+            else
+              NewWidth := gTodaysAppointment.Width / gTodaysAppointment.ColumnCount;
+
+            for i := 0 to gTodaysAppointment.ColumnCount - 1 do
+            begin
+              if (i = 0) or (i = gTodaysAppointment.ColumnCount - 1) then
+                gTodaysAppointment.Columns[i].Width := FixedWidth - 1
+              else
+                gTodaysAppointment.Columns[i].Width := NewWidth - 2;
+            end;
+          end;
+        end
+      );
+    end
+  );
+end;
+
 { Frame Resize }
+procedure TfDashboard.FrameResize(Sender: TObject);
+begin
+  GridContentsResponsive2;
+end;
+
+{ Grid Resized }
+procedure TfDashboard.gTodaysAppointmentResized(Sender: TObject);
+begin
+  GridContentsResponsive2;
+end;
+
+{ Frame Resized }
 procedure TfDashboard.FrameResized(Sender: TObject);
 begin
   // Cards responsiveness
   CardsResize;
 
+  // Grid Responsiveness
+  GridContentsResponsive2;
+
   // Display Resolution
   if (frmMain.ClientWidth >= 1920) then
   begin
     // Cards
-    glytCards.Height := 140;
+    glytCards.Height := 150;
+    rCard2.Margins.Left := 10;
+    rCard3.Margins.Left := 10;
+    rCard4.Margins.Left := 10;
 
     // Records Padding
     lytRecords.Padding.Right := 30;
@@ -107,10 +225,13 @@ begin
   else if (frmMain.ClientWidth >= 1366) then
   begin
     // Cards
-    glytCards.Height := 140;
+    glytCards.Height := 150;
+    rCard2.Margins.Left := 10;
+    rCard3.Margins.Left := 10;
+    rCard4.Margins.Left := 10;
 
     // Records Padding
-    lytRecords.Padding.Right := 30;
+    lytRecords.Padding.Right := 25;
 
     // Quick Actions
     rQuickActions.Width := 260;
@@ -163,17 +284,34 @@ begin
   AvailableWidth := Trunc(glytCards.Width);
 
   // Client Dimension condition
-  if (frmMain.ClientWidth > 1900) AND not (frmMain.ClientWidth < 900) then
+  if (frmMain.ClientWidth > 1900) AND not (frmMain.ClientWidth <= 1366) then
   begin
     ItemsPerRow := Max(1, AvailableWidth div 400);
     glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
   end
-  else if (frmMain.ClientWidth >= 1366) then
+  else if (frmMain.ClientWidth >= 1366) AND not (frmMain.ClientWidth <= 850) then
   begin
-    ItemsPerRow := Max(1, AvailableWidth div 216);
+    ItemsPerRow := Max(1, AvailableWidth div 225);
     glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
   end
   else if (frmMain.ClientWidth >= 850) OR (frmMain.ClientWidth <= 850) then
+  begin
+    ItemsPerRow := Max(1, AvailableWidth div 190);
+    glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
+  end;
+
+  // Frame Dimension condition
+  if (Self.Width > 1600) AND not (Self.Width <= 1270) then
+  begin
+    ItemsPerRow := Max(1, AvailableWidth div 400);
+    glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
+  end
+  else if (Self.Width >= 1270) AND not (Self.Width <= 1076) then
+  begin
+    ItemsPerRow := Max(1, AvailableWidth div 310);
+    glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
+  end
+  else if (Self.Width <= 1076) then
   begin
     ItemsPerRow := Max(1, AvailableWidth div 190);
     glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);

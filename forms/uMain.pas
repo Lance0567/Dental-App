@@ -162,6 +162,9 @@ begin
   // Open Records for the Dashboard cards
   Dashboard;
 
+  // Grid Responsiveness
+  fDashboard.GridContentsResponsive;
+
   // Table style for Dashboard
   if dm.qAppointments.IsEmpty then // no records
     fDashboard.gTodaysAppointment.StyleLookup := 'gPatientStyle'
@@ -353,8 +356,6 @@ begin
   // Adjust layout holder
   lytSidebar.Width := mvSidebar.Width;
 
-  fDashboard.CardsResize;
-
   // Form caption
   Self.Caption := 'Dental System | '+ 'Height: ' +
   Self.ClientHeight.ToString + ', ' + 'Width: ' + Self.ClientWidth.ToString + ' Card width: '
@@ -407,6 +408,9 @@ begin
   fDashboard.Visible := True;
   fDashboard.ScrollBox1.ViewportPosition := PointF(0,0); // reset scrollbox
 
+  // Grid Responsiveness
+  fDashboard.GridContentsResponsive;
+
   Self.Caption := 'Dental System | '+ 'Height: ' +
   Self.ClientHeight.ToString + ', ' + 'Width: ' + Self.ClientWidth.ToString + ' Card width: '
   + fDashboard.Width.ToString + ' Card height: ' + fDashboard.Height.ToString;
@@ -445,6 +449,9 @@ begin
   tcController.TabIndex := 3;
   fUsers.Visible := True;
   fUsers.ScrollBox1.ViewportPosition := PointF(0, 0); // reset scrollbox
+
+  // Grid responsive
+  fUsers.GridContentsResponsive;
 end;
 
 { Query Management }

@@ -77,7 +77,7 @@ begin
   else if frmMain.ClientWidth > 850 then
   begin
     // Dynamic layout when wider than 850px
-    FixedWidth := 230;      // width for 2nd and 3rd columns
+    FixedWidth := 250;      // width for 2nd and 3rd columns
     FixedColumns := 2;      // 2 fixed columns
 
     if gAppointment.ColumnCount > FixedColumns then
@@ -127,7 +127,7 @@ begin
           else if frmMain.ClientWidth > 850 then
           begin
             // Dynamic layout
-            FixedWidth := 230; // Width for 2nd and 3rd columns
+            FixedWidth := 250; // Width for 2nd and 3rd columns
             FixedColumns := 2;
 
             if gAppointment.ColumnCount > FixedColumns then

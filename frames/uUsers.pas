@@ -8,7 +8,7 @@ uses
   System.Skia, System.Rtti, FMX.Grid.Style, FMX.ScrollBox, FMX.Grid,
   FMX.Objects, FMX.Skia, FMX.ImgList, FMX.Controls.Presentation, FMX.Edit,
   FMX.Layouts, Data.DB, Data.Bind.EngExt, Fmx.Bind.DBEngExt, Fmx.Bind.Grid,
-  System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.Components,
+  System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.Components, System.Threading,
   Data.Bind.Grid, Data.Bind.DBScope, FireDAC.Stan.Param, uToolbar;
 
 type
@@ -33,9 +33,15 @@ type
     procedure btnAddNewUserClick(Sender: TObject);
     procedure gUsersCellDblClick(const Column: TColumn; const Row: Integer);
     procedure eSearchChangeTracking(Sender: TObject);
+    procedure FrameResize(Sender: TObject);
+    procedure FrameResized(Sender: TObject);
+    procedure gUsersResized(Sender: TObject);
   private
+    procedure GridContentsResponsive2;
+    procedure GridContentsResponsive3;
     { Private declarations }
   public
+    procedure GridContentsResponsive;
     { Public declarations }
   end;
 
@@ -44,6 +50,156 @@ implementation
 {$R *.fmx}
 
 uses uMain, uDm;
+
+{ Grid column resize }
+procedure TfUsers.GridContentsResponsive;
+var
+  i: Integer;
+  NewWidth: Single;
+  FixedWidth: Single;
+  FixedColumns: Integer;
+begin
+  if gUsers.ColumnCount = 0 then Exit;
+
+  if frmMain.ClientWidth <= 850 then
+  begin
+    // Fixed layout at 850px
+    for i := 0 to gUsers.ColumnCount - 1 do
+    begin
+      if (i = 0) or (i = 1) or (i = 3) or (i = 4) or (i = 5) then
+        gUsers.Columns[i].Width := 230
+      else
+        gUsers.Columns[i].Width := 170;
+    end;
+  end
+  else if frmMain.ClientWidth > 850 then
+  begin
+    // Dynamic layout when wider than 850px
+    FixedWidth := 120;      // width for 3rd and last columns
+    FixedColumns := 5;      // 5 fixed columns
+
+    if gUsers.ColumnCount > FixedColumns then
+      NewWidth := (gUsers.Width - (FixedWidth * FixedColumns)) / (gUsers.ColumnCount - FixedColumns)
+    else
+      NewWidth := gUsers.Width / gUsers.ColumnCount;
+
+    for i := 0 to gUsers.ColumnCount - 1 do
+    begin
+      if (i = 0) or (i = 1) or (i = 3) or (i = 4) or (i = 5) then
+        gUsers.Columns[i].Width := FixedWidth - 1
+      else
+        gUsers.Columns[i].Width := NewWidth - 2;
+    end;
+  end;
+end;
+
+{ Grid column resize with 2ms delay }
+procedure TfUsers.GridContentsResponsive2;
+begin
+  TTask.Run(
+    procedure
+    begin
+      Sleep(200); // wait 200ms
+
+      TThread.Synchronize(nil,
+        procedure
+        var
+          i: Integer;
+          NewWidth: Single;
+          FixedWidth: Single;
+          FixedColumns: Integer;
+        begin
+          if gUsers.ColumnCount = 0 then Exit;
+
+          if frmMain.ClientWidth <= 850 then
+          begin
+            // Fixed layout for 850px
+            for i := 0 to gUsers.ColumnCount - 1 do
+            begin
+              if (i = 1) or (i = gUsers.ColumnCount - 1) then
+                gUsers.Columns[i].Width := 230
+              else
+                gUsers.Columns[i].Width := 170;
+            end;
+          end
+          else if frmMain.ClientWidth > 850 then
+          begin
+            // Dynamic layout
+            FixedWidth := 120; // Width for 3rd and last columns
+            FixedColumns := 5;
+
+            if gUsers.ColumnCount > FixedColumns then
+              NewWidth := (gUsers.Width - (FixedWidth * FixedColumns)) / (gUsers.ColumnCount - FixedColumns)
+            else
+              NewWidth := gUsers.Width / gUsers.ColumnCount;
+
+            for i := 0 to gUsers.ColumnCount - 1 do
+            begin
+              if (i = 0) or (i = 1) or (i = 3) or (i = 4) or (i = 5) then
+                gUsers.Columns[i].Width := FixedWidth - 1
+              else
+                gUsers.Columns[i].Width := NewWidth - 2;
+            end;
+          end;
+        end
+      );
+    end
+  );
+end;
+
+{ Grid column resize with 8ms delay }
+procedure TfUsers.GridContentsResponsive3;
+begin
+  TTask.Run(
+    procedure
+    begin
+      Sleep(800); // wait 800ms
+
+      TThread.Synchronize(nil,
+        procedure
+        var
+          i: Integer;
+          NewWidth: Single;
+          FixedWidth: Single;
+          FixedColumns: Integer;
+        begin
+          if gUsers.ColumnCount = 0 then Exit;
+
+          if frmMain.ClientWidth <= 850 then
+          begin
+            // Fixed layout for 850px
+            for i := 0 to gUsers.ColumnCount - 1 do
+            begin
+              if (i = 0) or (i = 1) or (i = 3) or (i = 4) or (i = 5) then
+                gUsers.Columns[i].Width := 230
+              else
+                gUsers.Columns[i].Width := 170;
+            end;
+          end
+          else if frmMain.ClientWidth > 850 then
+          begin
+            // Dynamic layout
+            FixedWidth := 120; // Width for 3rd and last columns
+            FixedColumns := 5;
+
+            if gUsers.ColumnCount > FixedColumns then
+              NewWidth := (gUsers.Width - (FixedWidth * FixedColumns)) / (gUsers.ColumnCount - FixedColumns)
+            else
+              NewWidth := gUsers.Width / gUsers.ColumnCount;
+
+            for i := 0 to gUsers.ColumnCount - 1 do
+            begin
+              if (i = 0) or (i = 1) or (i = 3) or (i = 4) or (i = 5) then
+                gUsers.Columns[i].Width := FixedWidth - 1
+              else
+                gUsers.Columns[i].Width := NewWidth - 2;
+            end;
+          end;
+        end
+      );
+    end
+  );
+end;
 
 { Add New User }
 procedure TfUsers.btnAddNewUserClick(Sender: TObject);
@@ -96,12 +252,12 @@ begin
     if Trim(eSearch.Text) = '' then
     begin
       // No search: load all records
-      dm.qUsers.SQL.Text := 'SELECT * FROM patients';
+      dm.qUsers.SQL.Text := 'SELECT * FROM users';
     end
     else
     begin
       // Search with parameter
-      dm.qUsers.SQL.Text := 'SELECT * FROM patients WHERE name LIKE :search';
+      dm.qUsers.SQL.Text := 'SELECT * FROM users WHERE name LIKE :search';
       SearchText := '%' + eSearch.Text + '%';
       dm.qUsers.ParamByName('search').AsString := SearchText;
     end;
@@ -111,7 +267,7 @@ begin
     dm.qUsers.EnableControls;
   end;
 
-
+  GridContentsResponsive3;
 end;
 
 { Edit User record }
@@ -180,6 +336,24 @@ begin
     frmMain.fUserModal.cbStatus.ItemIndex := 0
   else
     frmMain.fUserModal.cbStatus.ItemIndex := 1;
+end;
+
+{ Grid Resized }
+procedure TfUsers.gUsersResized(Sender: TObject);
+begin
+  GridContentsResponsive2;
+end;
+
+{ Frame Resize }
+procedure TfUsers.FrameResize(Sender: TObject);
+begin
+  GridContentsResponsive2;
+end;
+
+{ Frame Resized }
+procedure TfUsers.FrameResized(Sender: TObject);
+begin
+  GridContentsResponsive2;
 end;
 
 end.

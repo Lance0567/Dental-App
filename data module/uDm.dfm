@@ -32863,7 +32863,6 @@ object dm: Tdm
         'Database=C:\Users\lance\Documents\Embarcadero\Studio\Projects\De' +
         'ntal System\data module\database\dental.db'
       'DriverID=SQLite')
-    Connected = True
     LoginPrompt = False
     Left = 72
     Top = 32
@@ -32908,7 +32907,6 @@ object dm: Tdm
     Top = 200
   end
   object qTodaysAppointment: TFDQuery
-    Active = True
     Connection = conDental
     SQL.Strings = (
       'SELECT id, patient, appointment_title, status'
