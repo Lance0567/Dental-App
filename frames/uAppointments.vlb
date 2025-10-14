@@ -1,11 +1,5 @@
-﻿[slUserName]
-Coordinates=362,267,73,33
-
-[lbDescription]
+﻿[lbDescription]
 Coordinates=10,267,80,51
-
-[lytToolbarH]
-Coordinates=10,344,71,33
 
 [rCalendar]
 Coordinates=461,267,62,33
@@ -18,32 +12,14 @@ Visible=False
 [lytHeader]
 Coordinates=624,267,61,33
 
-[lytUser]
-Coordinates=549,267,49,33
-
 [gAppointment]
 Coordinates=182,100,84,51
-
-[lytBottom]
-Coordinates=274,267,62,33
 
 [lbTitle]
 Coordinates=491,10,44,51
 
 [lytTitle]
 Coordinates=207,344,47,33
-
-[lBevel]
-Coordinates=429,344,44,33
-
-[RoundRect1]
-Coordinates=107,344,74,33
-
-[gIcon]
-Coordinates=280,344,41,33
-
-[rToolbar]
-Coordinates=347,344,56,33
 
 [dm.qPatients]
 Coordinates=292,10,80,213
@@ -55,7 +31,7 @@ Coordinates=182,267,66,51
 Coordinates=398,10,67,51
 
 []
-Coordinates=116,267,40,51
+Coordinates=274,267,62,33
 
 [blAppointments]
 Coordinates=277,80,82,33

@@ -7,7 +7,9 @@ uses
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   System.Skia, System.Rtti, FMX.Grid.Style, FMX.Calendar, FMX.ScrollBox,
   FMX.Grid, FMX.Skia, FMX.ImgList, FMX.Controls.Presentation, FMX.Objects,
-  FMX.Layouts, Math, FMX.Ani, FMX.Menus, FMX.ExtCtrls, FMX.MultiView;
+  FMX.Layouts, Math, FMX.Ani, FMX.Menus, FMX.ExtCtrls, FMX.MultiView, uToolbar,
+  Data.Bind.EngExt, Fmx.Bind.DBEngExt, Fmx.Bind.Grid, System.Bindings.Outputs,
+  Fmx.Bind.Editors, Data.Bind.Components, Data.Bind.Grid, Data.Bind.DBScope;
 
 type
   TfDashboard = class(TFrame)
@@ -41,19 +43,6 @@ type
     gIcon3: TGlyph;
     cIcon4: TCircle;
     gIcon4: TGlyph;
-    rToolbar: TRectangle;
-    lytToolbarH: TLayout;
-    gIcon: TGlyph;
-    lytUser: TLayout;
-    slUserName: TSkLabel;
-    rrUserImage: TRoundRect;
-    lBevel: TLine;
-    rPopUp: TRectangle;
-    FloatAnimation4: TFloatAnimation;
-    mvPopUp: TMultiView;
-    cbAccountSettings: TCornerButton;
-    cbLogout: TCornerButton;
-    lDivider: TLine;
     lytRecords: TLayout;
     rTodaysAppointment: TRectangle;
     lbTodayAppointments: TLabel;
@@ -67,8 +56,13 @@ type
     btnReportAnIssue: TCornerButton;
     FloatAnimation3: TFloatAnimation;
     lbQuickActions: TLabel;
-    lDate: TLabel;
+    fToolbar: TfToolbar;
+    bsdbTodaysAppointment: TBindSourceDB;
+    blTodaysAppointment: TBindingsList;
+    LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
     procedure FrameResized(Sender: TObject);
+    procedure btnNewPatientClick(Sender: TObject);
+    procedure btnNewAppointmentClick(Sender: TObject);
   private
 
     { Private declarations }
@@ -93,7 +87,7 @@ begin
   if (frmMain.ClientWidth >= 1920) then
   begin
     // Cards
-    glytCards.Height := 160;
+    glytCards.Height := 140;
 
     // Records Padding
     lytRecords.Padding.Right := 30;
@@ -146,6 +140,18 @@ begin
     btnNewAppointment.TextSettings.Font.Size := 12;
     btnReportAnIssue.TextSettings.Font.Size := 12;
   end;
+end;
+
+{ Switch to Appointment tab }
+procedure TfDashboard.btnNewAppointmentClick(Sender: TObject);
+begin
+  frmMain.sbAppointmentsClick(Sender);
+end;
+
+{ Switch to Patient tab }
+procedure TfDashboard.btnNewPatientClick(Sender: TObject);
+begin
+  frmMain.sbPatientsClick(Sender);
 end;
 
 { Card Resize }

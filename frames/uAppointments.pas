@@ -10,7 +10,7 @@ uses
   FMX.ScrollBox, FMX.Grid, Data.Bind.EngExt, Fmx.Bind.DBEngExt, Fmx.Bind.Grid,
   System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.Components,
   Data.Bind.Grid, Data.Bind.DBScope, System.Threading,Data.DB, FireDAC.Stan.Param,
-  FMX.Ani, FMX.MultiView, FMX.Edit;
+  FMX.Ani, FMX.MultiView, FMX.Edit, uToolbar;
 
 type
   TfAppointments = class(TFrame)
@@ -18,15 +18,7 @@ type
     lytTitle: TLayout;
     lbTitle: TLabel;
     lbDescription: TLabel;
-    rToolbar: TRectangle;
-    lytToolbarH: TLayout;
-    gIcon: TGlyph;
-    lytUser: TLayout;
-    slUserName: TSkLabel;
-    lBevel: TLine;
     rCalendar: TRectangle;
-    lytBottom: TLayout;
-    RoundRect1: TRoundRect;
     gAppointment: TGrid;
     bsdbAppointments: TBindSourceDB;
     blAppointments: TBindingsList;
@@ -39,12 +31,14 @@ type
     cbDay: TCornerButton;
     cbWeek: TCornerButton;
     cbMonth: TCornerButton;
-    lDate: TLabel;
+    fToolbar: TfToolbar;
+    lytBottom: TLayout;
     procedure gAppointmentResized(Sender: TObject);
     procedure FrameResized(Sender: TObject);
     procedure btnAddNewAppointmentClick(Sender: TObject);
     procedure gAppointmentCellDblClick(const Column: TColumn;
       const Row: Integer);
+    procedure FrameResize(Sender: TObject);
   private
     { Private declarations }
   public
@@ -167,6 +161,9 @@ begin
   // Set Button Text
   frmMain.fAppointmentModal.btnCreateAppointment.Text := 'Create Appointment';
 
+  // Reset tracking
+  frmMain.fAppointmentModal.MemoTrackingReset := '';
+
   // Clear items
   frmMain.fAppointmentModal.ClearItems;
 
@@ -196,8 +193,13 @@ begin
   // Set Button Text
   frmMain.fAppointmentModal.btnCreateAppointment.Text := 'Update Appointment';
 
+  // Reset tracking
+  frmMain.fAppointmentModal.MemoTrackingReset := '';
+
   // Get Date from the database
   frmMain.fAppointmentModal.deDate.Date := dm.qAppointments.FieldByName('date').AsDateTime;
+  frmMain.fAppointmentModal.lPickDate.Visible := False; // Hide Date pick label
+  frmMain.fAppointmentModal.deDate.StyledSettings := [TStyledSetting.FontColor];  // Show date text
 
   // Get Status
   cStatus := dm.qAppointments.FieldByName('status').AsString;
@@ -212,6 +214,7 @@ begin
 
   // Get Patient
   frmMain.fAppointmentModal.cbPatient.Enabled := False;
+  frmMain.fAppointmentModal.cbPatient.Text := dm.qAppointments.FieldByName('patient').AsString;
 
   // Get Appointment Title
   frmMain.fAppointmentModal.eAppointmentTitle.Text := dm.qAppointments.FieldByName('appointment_title').AsString;
@@ -230,6 +233,12 @@ begin
 
   // Reset Scrollbox
   frmMain.fAppointmentModal.ScrollBox1.ViewportPosition := PointF(0, 0);
+end;
+
+{ Frame Resize }
+procedure TfAppointments.FrameResize(Sender: TObject);
+begin
+  GridContentsResponsive2;
 end;
 
 { Frame Resized }

@@ -108,6 +108,7 @@ type
     procedure btnTakePictureClick(Sender: TObject);
     procedure btnSaveCurrentImageClick(Sender: TObject);
     procedure btnCameraCloseClick(Sender: TObject);
+    procedure eFullNameChangeTracking(Sender: TObject);
   private
     FCapturing: Boolean;
     FStatus: Boolean;
@@ -143,6 +144,11 @@ begin
   eDepartment.Text := '';
   cbStatus.ItemIndex := 0;
   imgProfilePhoto.Bitmap := nil; // set image to empty
+end;
+
+procedure TfUserModal.eFullNameChangeTracking(Sender: TObject);
+begin
+  crFullName.Visible := False;
 end;
 
 { Update Camera list }

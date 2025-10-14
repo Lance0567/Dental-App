@@ -5,17 +5,23 @@ Coordinates=55,77,50,33
 Coordinates=180,1,57,33
 
 [qPatients]
-Coordinates=109,10,80,213
+Coordinates=109,10,60,51
 
 [conDental]
 Coordinates=180,56,64,33
 
 [qUsers]
-Coordinates=257,10,80,231
+Coordinates=257,10,49,51
 
 [qTemp]
 Coordinates=199,10,48,51
 
 [qAppointments]
-Coordinates=10,10,89,213
+Coordinates=10,10,89,51
+
+[qPatientSelection]
+Coordinates=285,80,100,51
+
+[qTodaysAppointment]
+Coordinates=423,1,120,123
 

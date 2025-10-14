@@ -41,12 +41,13 @@ object fUsers: TfUsers
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Left
           TabOrder = 0
+          TextSettings.Font.Size = 14.000000000000000000
           Position.Y = 5.000000000000000000
-          Size.Width = 230.000000000000000000
+          Size.Width = 270.000000000000000000
           Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
           TextPrompt = 'Search users by name...'
-          StyledSettings = [Family, Size, Style]
+          StyledSettings = [Family]
           OnChangeTracking = eSearchChangeTracking
         end
       end
@@ -122,97 +123,6 @@ object fUsers: TfUsers
         end
       end
     end
-    object rToolbar: TRectangle
-      Align = MostTop
-      Fill.Color = claWhite
-      Size.Width = 580.000000000000000000
-      Size.Height = 60.000000000000000000
-      Size.PlatformDefault = False
-      Stroke.Kind = None
-      Stroke.Thickness = 0.500000000000000000
-      object lBevel: TLine
-        Align = Client
-        LineType = Bottom
-        Size.Width = 580.000000000000000000
-        Size.Height = 60.000000000000000000
-        Size.PlatformDefault = False
-        Stroke.Thickness = 0.100000001490116100
-      end
-      object lytToolbarH: TLayout
-        Align = Client
-        Size.Width = 580.000000000000000000
-        Size.Height = 60.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 5
-        object lDate: TLabel
-          Align = Left
-          StyledSettings = [Style]
-          Margins.Left = 5.000000000000000000
-          Position.X = 40.000000000000000000
-          Size.Width = 572.000000000000000000
-          Size.Height = 60.000000000000000000
-          Size.PlatformDefault = False
-          TextSettings.Font.Family = 'Segoe UI Variable Display'
-          TextSettings.Font.Size = 15.000000000000000000
-          TextSettings.FontColor = claGray
-          Text = 'Date'
-          TabOrder = 5
-        end
-        object gIcon: TGlyph
-          Margins.Left = 10.000000000000000000
-          Margins.Top = 10.000000000000000000
-          Margins.Bottom = 10.000000000000000000
-          Align = MostLeft
-          Position.X = 10.000000000000000000
-          Position.Y = 10.000000000000000000
-          Size.Width = 25.000000000000000000
-          Size.Height = 40.000000000000000000
-          Size.PlatformDefault = False
-          ImageIndex = 9
-          Images = dm.imgList
-        end
-        object lytUser: TLayout
-          Align = Right
-          Position.X = 425.000000000000000000
-          Size.Width = 155.000000000000000000
-          Size.Height = 60.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 6
-          object slUserName: TSkLabel
-            Align = Client
-            Margins.Left = 15.000000000000000000
-            Size.Width = 100.000000000000000000
-            Size.Height = 60.000000000000000000
-            Size.PlatformDefault = False
-            Words = <
-              item
-                Font.Weight = Semibold
-                Name = 'Item 0'
-                StyledSettings = [Family, Size, FontColor]
-                Text = 'Sofia Chen'
-              end
-              item
-                Font.Families = 'Segoe UI Variable Display'
-                Font.Size = 13.000000000000000000
-                FontColor = claGray
-                Name = 'Item 1'
-                StyledSettings = [Style]
-                Text = #13#10'Receptionist'
-              end>
-          end
-          object rrUserImage: TRoundRect
-            Align = Left
-            Margins.Top = 10.000000000000000000
-            Margins.Bottom = 10.000000000000000000
-            Position.Y = 10.000000000000000000
-            Size.Width = 40.000000000000000000
-            Size.Height = 40.000000000000000000
-            Size.PlatformDefault = False
-            Stroke.Kind = None
-          end
-        end
-      end
-    end
     object rPatients: TRectangle
       Align = Client
       Fill.Color = claWhite
@@ -240,8 +150,29 @@ object fUsers: TfUsers
         RowCount = 0
         Options = [ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
         OnCellDblClick = gUsersCellDblClick
-        Viewport.Width = 466.000000000000000000
-        Viewport.Height = 81.000000000000000000
+        Viewport.Width = 470.000000000000000000
+        Viewport.Height = 106.000000000000000000
+      end
+    end
+    inline fToolbar: TfToolbar
+      Align = MostTop
+      Margins.Left = -1.000000000000000000
+      Margins.Right = -1.000000000000000000
+      Position.X = -1.000000000000000000
+      Size.Width = 582.000000000000000000
+      Size.Height = 60.000000000000000000
+      Size.PlatformDefault = False
+      inherited rToolbar: TRectangle
+        Size.Width = 582.000000000000000000
+        inherited lBevel: TLine
+          Size.Width = 582.000000000000000000
+        end
+        inherited lytToolbarH: TLayout
+          Size.Width = 582.000000000000000000
+          inherited lytUser: TLayout
+            Position.X = 427.000000000000000000
+          end
+        end
       end
     end
   end

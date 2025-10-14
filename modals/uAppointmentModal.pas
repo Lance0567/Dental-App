@@ -70,6 +70,8 @@ type
     procedure cbPatientEnter(Sender: TObject);
     procedure deDateCheckChanged(Sender: TObject);
     procedure deDateChange(Sender: TObject);
+    procedure cbPatientChangeTracking(Sender: TObject);
+    procedure eAppointmentTitleChangeTracking(Sender: TObject);
   private
     { Private declarations }
   public
@@ -86,7 +88,7 @@ implementation
 
 uses uMain, uDm;
 
-{ Clear }
+{ Clear Items }
 procedure TfAppointmentModal.ClearItems;
 begin
   // Reset Date
@@ -98,6 +100,9 @@ begin
 
   // Reset Patient
   cbPatient.ItemIndex := 0;
+  cbPatient.Items.Clear;
+  cbPatient.Text := 'Select patient...';
+  cbPatient.Enabled := True;
 
   // Reset Appointment Title
   eAppointmentTitle.Text := '';
@@ -186,6 +191,12 @@ begin
   Self.Visible := False;
 end;
 
+{ Patient On Change Tracking }
+procedure TfAppointmentModal.cbPatientChangeTracking(Sender: TObject);
+begin
+  crPatient.Visible := False;
+end;
+
 { Patient On Enter }
 procedure TfAppointmentModal.cbPatientEnter(Sender: TObject);
 begin
@@ -210,6 +221,8 @@ begin
 
   // Show date text
   deDate.StyledSettings := [TStyledSetting.FontColor];
+
+  crDate.Visible := False;
 end;
 
 { On Check change }
@@ -217,12 +230,19 @@ procedure TfAppointmentModal.deDateCheckChanged(Sender: TObject);
 begin
   if deDate.Date = Now then
   begin
-  // Hide Date pick label
-  lPickDate.Visible := False;
+    // Show date text
+    deDate.StyledSettings := [TStyledSetting.FontColor];
+    deDate.TextSettings.FontColor := TAlphaColorRec.Black;
 
-  // Show date text
-  deDate.StyledSettings := [TStyledSetting.FontColor];
+    // Hide Date pick label
+    lPickDate.Visible := False;
   end;
+end;
+
+{ Appointment Title On Change Tracking }
+procedure TfAppointmentModal.eAppointmentTitleChangeTracking(Sender: TObject);
+begin
+  crAppointmentTitle.Visible := False;
 end;
 
 { Layout Responsiveness adjuster }
@@ -278,7 +298,7 @@ end;
 { On Click Notes }
 procedure TfAppointmentModal.mNotesClick(Sender: TObject);
 begin
-  if MemoTrackingReset = 'Empty' then
+  if mNotes.Text = 'Add any relevant notes about this appointment' then
   begin
     MemoTrackingReset := 'Clicked';
     mNotes.Text := '';

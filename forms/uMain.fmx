@@ -234,21 +234,9 @@ object frmMain: TfrmMain
             Size.PlatformDefault = False
             inherited ScrollBox1: TScrollBox
               Size.Width = 601.000000000000000000
-              Size.Height = 501.000000000000000000
+              Size.Height = 443.000000000000000000
               Viewport.Width = 585.000000000000000000
-              Viewport.Height = 501.000000000000000000
-              inherited rToolbar: TRectangle
-                Size.Width = 585.000000000000000000
-                inherited lBevel: TLine
-                  Size.Width = 585.000000000000000000
-                end
-                inherited lytToolbarH: TLayout
-                  Size.Width = 585.000000000000000000
-                  inherited lytUser: TLayout
-                    Position.X = 430.000000000000000000
-                  end
-                end
-              end
+              Viewport.Height = 443.000000000000000000
               inherited lytHeader: TLayout
                 Size.Width = 585.000000000000000000
                 inherited lytTitle: TLayout
@@ -317,8 +305,8 @@ object frmMain: TfrmMain
                   inherited gTodaysAppointment: TGrid
                     Size.Width = 185.000000000000000000
                     StyleLookup = 'gPatientStyle'
-                    Viewport.Width = 185.000000000000000000
-                    Viewport.Height = 250.000000000000000000
+                    Viewport.Width = 184.000000000000000000
+                    Viewport.Height = 225.000000000000000000
                   end
                 end
                 inherited rQuickActions: TRectangle
@@ -365,13 +353,19 @@ object frmMain: TfrmMain
                 end
               end
             end
-            inherited mvPopUp: TMultiView
-              StyleLookup = 'mvPopUpStyle1'
-              inherited cbAccountSettings: TCornerButton
-                StyleLookup = 'cbAccountSettingsStyle1'
-              end
-              inherited cbLogout: TCornerButton
-                StyleLookup = 'cbAccountSettingsStyle1'
+            inherited fToolbar: TfToolbar
+              Size.Width = 603.000000000000000000
+              inherited rToolbar: TRectangle
+                Size.Width = 603.000000000000000000
+                inherited lBevel: TLine
+                  Size.Width = 603.000000000000000000
+                end
+                inherited lytToolbarH: TLayout
+                  Size.Width = 603.000000000000000000
+                  inherited lytUser: TLayout
+                    Position.X = 448.000000000000000000
+                  end
+                end
               end
             end
           end
@@ -411,6 +405,8 @@ object frmMain: TfrmMain
                   Size.Width = 391.000000000000000000
                   inherited eSearch: TEdit
                     StyleLookup = 'editSearchstyle'
+                    TextSettings.Font.Size = 14.000000000000000000
+                    StyledSettings = [Family]
                   end
                 end
                 inherited lytButtonH: TLayout
@@ -435,21 +431,6 @@ object frmMain: TfrmMain
                   end
                 end
               end
-              inherited rToolbar: TRectangle
-                Size.Width = 601.000000000000000000
-                inherited lBevel: TLine
-                  Size.Width = 601.000000000000000000
-                end
-                inherited lytToolbarH: TLayout
-                  Size.Width = 601.000000000000000000
-                  inherited lDate: TLabel
-                    TextSettings.FontColor = claDimgray
-                  end
-                  inherited lytUser: TLayout
-                    Position.X = 446.000000000000000000
-                  end
-                end
-              end
               inherited rPatients: TRectangle
                 Size.Width = 541.000000000000000000
                 Size.Height = 241.000000000000000000
@@ -461,13 +442,20 @@ object frmMain: TfrmMain
                   Viewport.Height = 191.000000000000000000
                 end
               end
-            end
-            inherited mvPopUp: TMultiView
-              inherited cbAccountSettings: TCornerButton
-                StyleLookup = 'cbAccountSettingsStyle1'
-              end
-              inherited cbLogout: TCornerButton
-                StyleLookup = 'cbAccountSettingsStyle1'
+              inherited fToolbar: TfToolbar
+                Size.Width = 603.000000000000000000
+                inherited rToolbar: TRectangle
+                  Size.Width = 603.000000000000000000
+                  inherited lBevel: TLine
+                    Size.Width = 603.000000000000000000
+                  end
+                  inherited lytToolbarH: TLayout
+                    Size.Width = 603.000000000000000000
+                    inherited lytUser: TLayout
+                      Position.X = 448.000000000000000000
+                    end
+                  end
+                end
               end
             end
             inherited bsdbPatients: TBindSourceDB
@@ -517,10 +505,6 @@ object frmMain: TfrmMain
                   end
                 end
               end
-              inherited lytBottom: TLayout
-                Position.Y = 476.000000000000000000
-                Size.Width = 601.000000000000000000
-              end
               inherited rCalendar: TRectangle
                 Size.Width = 541.000000000000000000
                 Size.Height = 241.000000000000000000
@@ -557,17 +541,24 @@ object frmMain: TfrmMain
                   end
                 end
               end
-              inherited rToolbar: TRectangle
-                Size.Width = 601.000000000000000000
-                inherited lBevel: TLine
-                  Size.Width = 601.000000000000000000
-                end
-                inherited lytToolbarH: TLayout
-                  Size.Width = 601.000000000000000000
-                  inherited lytUser: TLayout
-                    Position.X = 446.000000000000000000
+              inherited fToolbar: TfToolbar
+                Size.Width = 603.000000000000000000
+                inherited rToolbar: TRectangle
+                  Size.Width = 603.000000000000000000
+                  inherited lBevel: TLine
+                    Size.Width = 603.000000000000000000
+                  end
+                  inherited lytToolbarH: TLayout
+                    Size.Width = 603.000000000000000000
+                    inherited lytUser: TLayout
+                      Position.X = 448.000000000000000000
+                    end
                   end
                 end
+              end
+              inherited lytBottom: TLayout
+                Position.Y = 476.000000000000000000
+                Size.Width = 601.000000000000000000
               end
             end
             inherited bsdbAppointments: TBindSourceDB
@@ -633,18 +624,6 @@ object frmMain: TfrmMain
                   end
                 end
               end
-              inherited rToolbar: TRectangle
-                Size.Width = 601.000000000000000000
-                inherited lBevel: TLine
-                  Size.Width = 601.000000000000000000
-                end
-                inherited lytToolbarH: TLayout
-                  Size.Width = 601.000000000000000000
-                  inherited lytUser: TLayout
-                    Position.X = 446.000000000000000000
-                  end
-                end
-              end
               inherited rPatients: TRectangle
                 Size.Width = 541.000000000000000000
                 Size.Height = 241.000000000000000000
@@ -654,6 +633,21 @@ object frmMain: TfrmMain
                   StyleLookup = 'gPatientStyle'
                   Viewport.Width = 491.000000000000000000
                   Viewport.Height = 191.000000000000000000
+                end
+              end
+              inherited fToolbar: TfToolbar
+                Size.Width = 603.000000000000000000
+                inherited rToolbar: TRectangle
+                  Size.Width = 603.000000000000000000
+                  inherited lBevel: TLine
+                    Size.Width = 603.000000000000000000
+                  end
+                  inherited lytToolbarH: TLayout
+                    Size.Width = 603.000000000000000000
+                    inherited lytUser: TLayout
+                      Position.X = 448.000000000000000000
+                    end
+                  end
                 end
               end
             end
@@ -1133,9 +1127,11 @@ object frmMain: TfrmMain
                   inherited lytPhotoButtonH: TLayout
                     Size.Width = 374.000000000000000000
                     inherited btnPhotoUpload: TCornerButton
+                      StyleLookup = 'btnPhotoUploadStyle1'
                       TextSettings.Font.StyleExt = {00060000000000000004000000}
                     end
                     inherited btnCamera: TCornerButton
+                      StyleLookup = 'btnPhotoUploadStyle1'
                       TextSettings.Font.StyleExt = {00060000000000000004000000}
                     end
                   end
@@ -1216,6 +1212,7 @@ object frmMain: TfrmMain
                 end
                 inherited cbRole: TComboBox
                   Size.Width = 474.000000000000000000
+                  StyleLookup = 'cbGenderStyle1'
                 end
               end
               inherited lytStatus: TLayout
@@ -1226,6 +1223,7 @@ object frmMain: TfrmMain
                 end
                 inherited cbStatus: TComboBox
                   Size.Width = 474.000000000000000000
+                  StyleLookup = 'cbGenderStyle1'
                 end
               end
               inherited slRoleAndAccess: TSkLabel
@@ -1247,10 +1245,12 @@ object frmMain: TfrmMain
             Size.Width = 524.000000000000000000
             inherited btnSaveUser: TCornerButton
               Position.X = 404.000000000000000000
+              StyleLookup = 'btnSavePatientStyle1'
               TextSettings.Font.StyleExt = {00060000000000000004000000}
             end
             inherited btnCancel: TCornerButton
               Position.X = 314.000000000000000000
+              StyleLookup = 'btnCancelStyle1'
               TextSettings.Font.StyleExt = {00060000000000000004000000}
             end
           end
@@ -1352,6 +1352,9 @@ object frmMain: TfrmMain
               inherited lytDate: TLayout
                 inherited deDate: TDateEdit
                   StyleLookup = 'deDateStyle1'
+                  inherited lPickDate: TLabel
+                    TabOrder = 15
+                  end
                 end
                 inherited lDate: TLabel
                   TextSettings.Font.StyleExt = {00060000000000000004000000}

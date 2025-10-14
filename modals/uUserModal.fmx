@@ -472,6 +472,7 @@ object fUserModal: TfUserModal
                 StyledSettings = [Family, Style]
                 ParentShowHint = False
                 ShowHint = True
+                OnChangeTracking = eFullNameChangeTracking
               end
               object crFullName: TCalloutRectangle
                 Align = Top

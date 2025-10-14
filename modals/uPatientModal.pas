@@ -645,7 +645,7 @@ end;
 { Medical memo text prompt remover }
 procedure TfPatientModal.mMedicalNotesClick(Sender: TObject);
 begin
-  if MemoTrackingReset = 'Empty' then
+  if mMedicalNotes.Text = 'Enter any relevant medical history, allergies, or notes' then
   begin
     MemoTrackingReset := 'Clicked';
     mMedicalNotes.Text := '';

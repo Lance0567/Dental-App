@@ -70,6 +70,7 @@ type
     procedure ButtonPressedResetter;
     procedure Dashboard;
     procedure QueryHandler;
+    procedure ButtonPressedReset;
     { Private declarations }
   public
     procedure RecordMessage(const AEntity, ADetail: string);
@@ -144,6 +145,7 @@ end;
 { Form Close }
 procedure TfrmMain.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
+  QueryHandler;
   Application.Terminate;
 end;
 
@@ -192,10 +194,10 @@ begin
   fDashboard.FrameResized(Sender);
 
   // Date formatted display
-  fDashboard.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
-  fPatients.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
-  fAppointments.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
-  fUsers.lDate.Text := FormatDateTime('dddd, mmmm d, yyyy', Now);
+  fDashboard.fToolbar.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
+  fPatients.fToolbar.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
+  fAppointments.fToolbar.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
+  fUsers.fToolbar.lDate.Text := FormatDateTime('dddd, mmmm d, yyyy', Now);
 end;
 
 { Form Resized }
@@ -359,11 +361,24 @@ begin
   + fDashboard.glytCards.Width.ToString + ' Card height: ' + fDashboard.glytCards.Height.ToString;
 end;
 
+{ Button Press Resetter }
+procedure TfrmMain.ButtonPressedReset;
+begin
+  sbAppointments.IsPressed := False;
+  sbDashboard.IsPressed := False;
+  sbPatients.IsPressed := False;
+  sbUsers.IsPressed := False;
+end;
+
 { Appointments tab }
 procedure TfrmMain.sbAppointmentsClick(Sender: TObject);
 begin
   // Hide frames
   HideFrames;
+
+  // Reset Button
+  ButtonPressedReset;
+  sbAppointments.IsPressed := True;
 
   // Switch tab index
   tcController.TabIndex := 2;
@@ -379,6 +394,10 @@ procedure TfrmMain.sbDashboardClick(Sender: TObject);
 begin
   // Hide frames
   HideFrames;
+
+  // Reset Button
+  ButtonPressedReset;
+  sbDashboard.IsPressed := True;
 
   // Dashboard card resize
   fDashboard.CardsResize;
@@ -399,6 +418,10 @@ begin
   // Hide frames
   HideFrames;
 
+  // Reset Button
+  ButtonPressedReset;
+  sbPatients.IsPressed := True;
+
   // Switch tab index
   tcController.TabIndex := 1;
   fPatients.Visible := True;
@@ -412,6 +435,11 @@ end;
 procedure TfrmMain.sbUsersClick(Sender: TObject);
 begin
   // Hide frames
+  HideFrames;
+
+  // Reset Button
+  ButtonPressedReset;
+  sbUsers.IsPressed := True;
 
   // Switch tab index
   tcController.TabIndex := 3;
@@ -425,6 +453,7 @@ begin
   dm.qPatients.Close;
   dm.qAppointments.Close;
   dm.qUsers.Close;
+  dm.qTodaysAppointment.Close;
 end;
 
 { Dashboard tab }
@@ -463,6 +492,7 @@ begin
   // Assign parameter value
   dm.qTemp.ParamByName('today').AsString := todayStr;
   dm.qTemp.Open;
+  dm.qTodaysAppointment.Open;
 
   // Read the field value
   todaysAppointments := dm.qTemp.FieldByName('Todays_Appointments').AsInteger;

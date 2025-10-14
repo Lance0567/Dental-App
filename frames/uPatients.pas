@@ -9,7 +9,7 @@ uses
   FMX.ImgList, FMX.Edit, System.Rtti, FMX.Grid.Style, FMX.ScrollBox, FMX.Grid,
   Data.Bind.EngExt, Fmx.Bind.DBEngExt, Fmx.Bind.Grid, System.Bindings.Outputs,
   Fmx.Bind.Editors, Data.Bind.Components, Data.Bind.Grid, Data.Bind.DBScope, System.Threading,
-  Data.DB, FireDAC.Stan.Param, FMX.Ani, FMX.MultiView;
+  Data.DB, FireDAC.Stan.Param, FMX.Ani, FMX.MultiView, uToolbar;
 
 type
   TfPatients = class(TFrame)
@@ -17,13 +17,6 @@ type
     lytTitle: TLayout;
     lbTitle: TLabel;
     lbDescription: TLabel;
-    rToolbar: TRectangle;
-    lytToolbarH: TLayout;
-    gIcon: TGlyph;
-    lytUser: TLayout;
-    slUserName: TSkLabel;
-    rrUserImage: TRoundRect;
-    lBevel: TLine;
     lytComponents: TLayout;
     eSearch: TEdit;
     lytSearch: TLayout;
@@ -36,13 +29,7 @@ type
     bsdbPatients: TBindSourceDB;
     blPatients: TBindingsList;
     LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
-    rPopUp: TRectangle;
-    FloatAnimation4: TFloatAnimation;
-    mvPopUp: TMultiView;
-    cbAccountSettings: TCornerButton;
-    cbLogout: TCornerButton;
-    lDivider: TLine;
-    lDate: TLabel;
+    fToolbar: TfToolbar;
     procedure gPatientsCellDblClick(const Column: TColumn; const Row: Integer);
     procedure FrameResize(Sender: TObject);
     procedure FrameResized(Sender: TObject);
@@ -50,6 +37,7 @@ type
     procedure btnAddNewPatientClick(Sender: TObject);
     procedure eSearchChangeTracking(Sender: TObject);
   private
+    procedure GridContentsResponsive3;
     { Private declarations }
   public
     procedure GridContentsResponsive;
@@ -159,6 +147,60 @@ begin
   );
 end;
 
+{ Grid column resize with 8ms delay }
+procedure TfPatients.GridContentsResponsive3;
+begin
+  TTask.Run(
+    procedure
+    begin
+      Sleep(800); // wait 800ms
+
+      TThread.Synchronize(nil,
+        procedure
+        var
+          i: Integer;
+          NewWidth: Single;
+          FixedWidth: Single;
+          FixedColumns: Integer;
+        begin
+          if gPatients.ColumnCount = 0 then Exit;
+
+          if frmMain.ClientWidth <= 850 then
+          begin
+            // Fixed layout for 850px
+            for i := 0 to gPatients.ColumnCount - 1 do
+            begin
+              if (i = 1) or (i = gPatients.ColumnCount - 1) then
+                gPatients.Columns[i].Width := 230
+              else
+                gPatients.Columns[i].Width := 170;
+            end;
+          end
+          else if frmMain.ClientWidth > 850 then
+          begin
+            // Dynamic layout
+            FixedWidth := 230; // Width for 2nd and 3rd columns
+            FixedColumns := 2;
+
+            if gPatients.ColumnCount > FixedColumns then
+              NewWidth := (gPatients.Width - (FixedWidth * FixedColumns)) / (gPatients.ColumnCount - FixedColumns)
+            else
+              NewWidth := gPatients.Width / gPatients.ColumnCount;
+
+            for i := 0 to gPatients.ColumnCount - 1 do
+            begin
+              if (i = 1) or (i = gPatients.ColumnCount - 1) then
+                gPatients.Columns[i].Width := FixedWidth - 1
+              else
+                gPatients.Columns[i].Width := NewWidth - 2;
+            end;
+          end;
+        end
+      );
+    end
+  );
+end;
+
 { Add New Patient }
 procedure TfPatients.btnAddNewPatientClick(Sender: TObject);
 begin
@@ -170,6 +212,9 @@ begin
 
   // Set button text
   frmMain.fPatientModal.btnSavePatient.Text := 'Save Patient';
+
+  // Reset tracking
+  frmMain.fPatientModal.MemoTrackingReset := '';
 
   // Clear Fields
   frmMain.fPatientModal.ClearItems;
@@ -209,6 +254,7 @@ begin
   frmMain.fPatientModal.RecordStatus := 'Edit'; // Set record Status
   frmMain.fPatientModal.lbTitle.Text := 'Update Existing Patient';
   frmMain.fPatientModal.btnSavePatient.Text := 'Update Patient';
+  frmMain.fPatientModal.MemoTrackingReset := '';  // Reset tracking
 
   // Populate the modal form
   // Get Fullname
@@ -249,6 +295,8 @@ begin
 
   // Get Birth Date
   frmMain.fPatientModal.deDateOfBirth.Date := dm.qPatients.FieldByName('birth_date').AsDateTime;
+  frmMain.fPatientModal.deDateOfBirth.TextSettings.FontColor := TAlphaColors.Black; // Show date
+  frmMain.fPatientModal.lDateText.Visible := False; // Hide pick label
 
   // Get Contact Number
   frmMain.fPatientModal.eContactNumber.Text := dm.qPatients.FieldByName('contact_number').AsString;
@@ -289,6 +337,8 @@ begin
   finally
     dm.qPatients.EnableControls;
   end;
+
+  GridContentsResponsive3;
 end;
 
 { Frame Resize }

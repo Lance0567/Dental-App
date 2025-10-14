@@ -9,7 +9,7 @@ object fPatients: TfPatients
     Size.Width = 580.000000000000000000
     Size.Height = 416.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 3
+    TabOrder = 2
     Viewport.Width = 580.000000000000000000
     Viewport.Height = 416.000000000000000000
     object lytBottom: TLayout
@@ -44,7 +44,7 @@ object fPatients: TfPatients
           Align = Left
           TabOrder = 0
           Position.Y = 5.000000000000000000
-          Size.Width = 230.000000000000000000
+          Size.Width = 270.000000000000000000
           Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
           TextPrompt = 'Search patients...'
@@ -123,117 +123,6 @@ object fPatients: TfPatients
         end
       end
     end
-    object rToolbar: TRectangle
-      Align = MostTop
-      Fill.Color = claWhite
-      Size.Width = 580.000000000000000000
-      Size.Height = 60.000000000000000000
-      Size.PlatformDefault = False
-      Stroke.Kind = None
-      Stroke.Thickness = 0.500000000000000000
-      object lBevel: TLine
-        Align = Client
-        LineType = Bottom
-        Size.Width = 580.000000000000000000
-        Size.Height = 60.000000000000000000
-        Size.PlatformDefault = False
-        Stroke.Thickness = 0.100000001490116100
-      end
-      object lytToolbarH: TLayout
-        Align = Client
-        Size.Width = 580.000000000000000000
-        Size.Height = 60.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 5
-        object gIcon: TGlyph
-          Margins.Left = 10.000000000000000000
-          Margins.Top = 10.000000000000000000
-          Margins.Bottom = 10.000000000000000000
-          Align = MostLeft
-          Position.X = 10.000000000000000000
-          Position.Y = 10.000000000000000000
-          Size.Width = 25.000000000000000000
-          Size.Height = 40.000000000000000000
-          Size.PlatformDefault = False
-          ImageIndex = 9
-          Images = dm.imgList
-        end
-        object lytUser: TLayout
-          Align = Right
-          Position.X = 425.000000000000000000
-          Size.Width = 155.000000000000000000
-          Size.Height = 60.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 6
-          object slUserName: TSkLabel
-            Align = Client
-            Margins.Left = 15.000000000000000000
-            Size.Width = 100.000000000000000000
-            Size.Height = 60.000000000000000000
-            Size.PlatformDefault = False
-            Words = <
-              item
-                Font.Weight = Semibold
-                Name = 'Item 0'
-                StyledSettings = [Family, Size, FontColor]
-                Text = 'Sofia Chen'
-              end
-              item
-                Font.Families = 'Segoe UI Variable Display'
-                Font.Size = 13.000000000000000000
-                FontColor = claGray
-                Name = 'Item 1'
-                StyledSettings = [Style]
-                Text = #13#10'Receptionist'
-              end>
-          end
-          object rrUserImage: TRoundRect
-            Align = Left
-            Margins.Top = 10.000000000000000000
-            Margins.Bottom = 10.000000000000000000
-            Position.Y = 10.000000000000000000
-            Size.Width = 40.000000000000000000
-            Size.Height = 40.000000000000000000
-            Size.PlatformDefault = False
-            Stroke.Kind = None
-          end
-          object rPopUp: TRectangle
-            Align = Contents
-            Cursor = crHandPoint
-            Fill.Color = claWhite
-            Opacity = 0.000000000000000000
-            Margins.Right = 10.000000000000000000
-            Size.Width = 145.000000000000000000
-            Size.Height = 60.000000000000000000
-            Size.PlatformDefault = False
-            Stroke.Kind = None
-            object FloatAnimation4: TFloatAnimation
-              Duration = 0.200000002980232200
-              Inverse = True
-              PropertyName = 'Opacity'
-              StartValue = 0.000000000000000000
-              StopValue = 0.300000011920929000
-              Trigger = 'IsMouseOver=true'
-              TriggerInverse = 'IsMouseOver=false'
-            end
-          end
-        end
-        object lDate: TLabel
-          Align = Left
-          StyledSettings = [Style]
-          Margins.Left = 5.000000000000000000
-          Position.X = 40.000000000000000000
-          Size.Width = 572.000000000000000000
-          Size.Height = 60.000000000000000000
-          Size.PlatformDefault = False
-          TextSettings.Font.Family = 'Segoe UI Variable Display'
-          TextSettings.Font.Size = 15.000000000000000000
-          TextSettings.FontColor = claGray
-          Text = 'Date'
-          TabOrder = 5
-        end
-      end
-    end
     object rPatients: TRectangle
       Align = Client
       Fill.Color = claWhite
@@ -268,80 +157,26 @@ object fPatients: TfPatients
         Viewport.Height = 81.000000000000000000
       end
     end
-  end
-  object mvPopUp: TMultiView
-    DrawerOptions.Placement = Bottom
-    DrawerOptions.TouchAreaSize = 100.000000000000000000
-    PopoverOptions.StyleLookup = ''
-    PopoverOptions.PopupHeight = 85.000000000000000000
-    MasterButton = rPopUp
-    Mode = Popover
-    NavigationPaneOptions.CollapsedWidth = 200.000000000000000000
-    SplitViewOptions.Placement = Bottom
-    Size.Width = 200.000000000000000000
-    Size.Height = 85.000000000000000000
-    Size.PlatformDefault = False
-    Visible = False
-    TabOrder = 2
-    object cbAccountSettings: TCornerButton
-      Align = Top
-      Cursor = crHandPoint
-      StyledSettings = [Style, FontColor]
-      Images = dm.imgList
-      ImageIndex = 15
-      Margins.Left = 5.000000000000000000
-      Margins.Top = 5.000000000000000000
-      Margins.Right = 5.000000000000000000
-      Margins.Bottom = 4.000000000000000000
-      Position.X = 5.000000000000000000
-      Position.Y = 5.000000000000000000
-      Sides = [Top, Left, Bottom, Right]
-      Size.Width = 190.000000000000000000
-      Size.Height = 30.000000000000000000
+    inline fToolbar: TfToolbar
+      Align = MostTop
+      Margins.Left = -1.000000000000000000
+      Margins.Right = -1.000000000000000000
+      Position.X = -1.000000000000000000
+      Size.Width = 582.000000000000000000
+      Size.Height = 60.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 1
-      Text = 'Account Settings'
-      TextSettings.Font.Family = 'Segoe UI Variable Text'
-      TextSettings.Font.Size = 15.000000000000000000
-      TextSettings.HorzAlign = Leading
-      TextSettings.Trimming = None
-      XRadius = 13.000000000000000000
-      YRadius = 13.000000000000000000
-    end
-    object cbLogout: TCornerButton
-      Align = Top
-      Cursor = crHandPoint
-      StyledSettings = [Style]
-      Images = dm.imgList
-      ImageIndex = 37
-      Margins.Left = 5.000000000000000000
-      Margins.Top = 1.000000000000000000
-      Margins.Right = 5.000000000000000000
-      Margins.Bottom = 5.000000000000000000
-      Position.X = 5.000000000000000000
-      Position.Y = 44.000000000000000000
-      Sides = [Top, Left, Bottom, Right]
-      Size.Width = 190.000000000000000000
-      Size.Height = 30.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 0
-      Text = 'Logout'
-      TextSettings.Font.Family = 'Segoe UI Variable Text'
-      TextSettings.Font.Size = 15.000000000000000000
-      TextSettings.FontColor = claRed
-      TextSettings.HorzAlign = Leading
-      TextSettings.Trimming = None
-      XRadius = 13.000000000000000000
-      YRadius = 13.000000000000000000
-    end
-    object lDivider: TLine
-      Align = Top
-      LineType = Top
-      Position.Y = 39.000000000000000000
-      Size.Width = 200.000000000000000000
-      Size.Height = 4.000000000000000000
-      Size.PlatformDefault = False
-      Stroke.Color = xFFE5E5E5
+      inherited rToolbar: TRectangle
+        Size.Width = 582.000000000000000000
+        inherited lBevel: TLine
+          Size.Width = 582.000000000000000000
+        end
+        inherited lytToolbarH: TLayout
+          Size.Width = 582.000000000000000000
+          inherited lytUser: TLayout
+            Position.X = 427.000000000000000000
+          end
+        end
+      end
     end
   end
   object bsdbPatients: TBindSourceDB

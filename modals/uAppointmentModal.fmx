@@ -208,9 +208,9 @@ object fAppointmentModal: TfAppointmentModal
               Align = Right
               Cursor = crHandPoint
               StyledSettings = []
-              Position.X = 232.000000000000000000
+              Position.X = 224.000000000000000000
               Sides = [Top, Left, Bottom, Right]
-              Size.Width = 152.000000000000000000
+              Size.Width = 160.000000000000000000
               Size.Height = 40.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 4
@@ -230,7 +230,7 @@ object fAppointmentModal: TfAppointmentModal
               StyledSettings = [FontColor]
               Margins.Left = 25.000000000000000000
               Margins.Right = 10.000000000000000000
-              Position.X = 132.000000000000000000
+              Position.X = 124.000000000000000000
               Sides = [Top, Left, Bottom, Right]
               Size.Width = 90.000000000000000000
               Size.Height = 40.000000000000000000
@@ -282,6 +282,7 @@ object fAppointmentModal: TfAppointmentModal
               StyledSettings = [Family, Size]
               ParentShowHint = False
               ShowHint = True
+              OnChangeTracking = eAppointmentTitleChangeTracking
             end
             object crAppointmentTitle: TCalloutRectangle
               Align = Top
@@ -367,6 +368,7 @@ object fAppointmentModal: TfAppointmentModal
               Size.Width = 384.000000000000000000
               Size.Height = 40.000000000000000000
               Size.PlatformDefault = False
+              OnChangeTracking = cbPatientChangeTracking
               OnEnter = cbPatientEnter
             end
             object crPatient: TCalloutRectangle
@@ -449,6 +451,7 @@ object fAppointmentModal: TfAppointmentModal
               end
               object cbStatus: TComboBox
                 Align = Top
+                Cursor = crHandPoint
                 DisableMouseWheel = True
                 Items.Strings = (
                   'New'
@@ -471,7 +474,8 @@ object fAppointmentModal: TfAppointmentModal
               Size.PlatformDefault = False
               TabOrder = 1
               object deDate: TDateEdit
-                Date = 45885.000000000000000000
+                Date = 45944.000000000000000000
+                TodayDefault = True
                 OnChange = deDateChange
                 OnCheckChanged = deDateCheckChanged
                 Align = Top
@@ -495,7 +499,7 @@ object fAppointmentModal: TfAppointmentModal
                   TextSettings.Font.Family = 'Segoe UI Variable Text'
                   TextSettings.Font.Size = 14.000000000000000000
                   Text = 'Pick a date'
-                  TabOrder = 15
+                  TabOrder = 14
                 end
               end
               object lDate: TLabel

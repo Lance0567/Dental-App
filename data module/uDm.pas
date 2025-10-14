@@ -24,6 +24,7 @@ type
     qTemp: TFDQuery;
     qAppointments: TFDQuery;
     qPatientSelection: TFDQuery;
+    qTodaysAppointment: TFDQuery;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
@@ -57,6 +58,7 @@ begin
   qUsers.Close;
   qPatients.Close;
   qAppointments.Close;
+  qTodaysAppointment.Close;
   qPatientSelection.Close;
 
   // activate connection

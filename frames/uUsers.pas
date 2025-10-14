@@ -9,7 +9,7 @@ uses
   FMX.Objects, FMX.Skia, FMX.ImgList, FMX.Controls.Presentation, FMX.Edit,
   FMX.Layouts, Data.DB, Data.Bind.EngExt, Fmx.Bind.DBEngExt, Fmx.Bind.Grid,
   System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.Components,
-  Data.Bind.Grid, Data.Bind.DBScope, FireDAC.Stan.Param;
+  Data.Bind.Grid, Data.Bind.DBScope, FireDAC.Stan.Param, uToolbar;
 
 type
   TfUsers = class(TFrame)
@@ -24,19 +24,12 @@ type
     lytTitle: TLayout;
     lbTitle: TLabel;
     lbDescription: TLabel;
-    rToolbar: TRectangle;
-    lBevel: TLine;
-    lytToolbarH: TLayout;
-    lDate: TLabel;
-    gIcon: TGlyph;
-    lytUser: TLayout;
-    slUserName: TSkLabel;
-    rrUserImage: TRoundRect;
     rPatients: TRectangle;
     gUsers: TGrid;
     bsdbUsers: TBindSourceDB;
     blUsers: TBindingsList;
     LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
+    fToolbar: TfToolbar;
     procedure btnAddNewUserClick(Sender: TObject);
     procedure gUsersCellDblClick(const Column: TColumn; const Row: Integer);
     procedure eSearchChangeTracking(Sender: TObject);
@@ -117,6 +110,8 @@ begin
   finally
     dm.qUsers.EnableControls;
   end;
+
+
 end;
 
 { Edit User record }

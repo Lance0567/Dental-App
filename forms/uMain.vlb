@@ -876,3 +876,6 @@ Coordinates=2806,313,141,33
 
 [dm.qPatientSelection]
 
+[dm.qTodaysAppointment]
+Visible=False
+

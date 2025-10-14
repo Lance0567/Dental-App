@@ -1,13 +1,4 @@
-﻿[slUserName]
-Coordinates=76,319,73,33
-
-[rToolbar]
-Coordinates=10,319,56,33
-
-[lBevel]
-Coordinates=481,276,44,33
-
-[lytSearch]
+﻿[lytSearch]
 Coordinates=411,276,60,33
 
 [eSearch]
@@ -20,12 +11,6 @@ Coordinates=351,10,80,51
 Coordinates=10,10,79,33
 Visible=False
 
-[lytUser]
-Coordinates=352,276,49,33
-
-[gIcon]
-Coordinates=301,276,41,33
-
 [lytTitle]
 Coordinates=244,276,47,33
 
@@ -37,12 +22,6 @@ Coordinates=95,276,61,33
 
 [lbTitle]
 Coordinates=247,10,44,51
-
-[rrUserImage]
-Coordinates=10,276,75,33
-
-[lytToolbarH]
-Coordinates=440,233,71,33
 
 [lytBottom]
 Coordinates=368,233,62,33
@@ -67,7 +46,7 @@ Coordinates=100,10,67,141
 Coordinates=10,233,105,33
 
 []
-Coordinates=301,10,40,51
+Coordinates=10,319,56,33
 
 [blPatients]
 Coordinates=121,170,82,33
