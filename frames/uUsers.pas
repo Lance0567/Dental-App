@@ -329,7 +329,7 @@ begin
   end;
 
   // Get user role in the database
-  roleH := dm.qUsers.FieldByName('role').AsString;
+  roleH := dm.qUsers.FieldByName('user_role').AsString;
   if roleH = 'Admin' then
     frmMain.fUserModal.cbRole.ItemIndex := 0
   else

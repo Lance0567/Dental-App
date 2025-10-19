@@ -139,13 +139,25 @@ begin
     Open;
     if not IsEmpty then
     begin
-      ShowMessage('Login successful!');
+      TDialogService.MessageDialog(
+        'Login successful!',
+        TMsgDlgType.mtInformation,  // info icon
+        [TMsgDlgBtn.mbOK],
+        TMsgDlgBtn.mbOK, 0,
+        nil  // No callback, so code continues immediately
+      );
       frmMain := TfrmMain.Create(Self);
       frmMain.Show;
       frmLogin.Visible := False;
     end
     else
-      ShowMessage('Invalid username or password.');
+      TDialogService.MessageDialog(
+        'Invalid username or password.',
+        TMsgDlgType.mtError,  // info icon
+        [TMsgDlgBtn.mbOK],
+        TMsgDlgBtn.mbOK, 0,
+        nil  // No callback, so code continues immediately
+      );
     Close;
   end;
 end;

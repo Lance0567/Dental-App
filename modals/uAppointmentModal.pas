@@ -93,6 +93,7 @@ procedure TfAppointmentModal.ClearItems;
 begin
   // Reset Date
   deDate.DateFormatKind := TDTFormatKind.Short;
+  deDate.TodayDefault := True;
   lPickDate.Visible := True;
   deDate.StyledSettings := deDate.StyledSettings - [TStyledSetting.FontColor];
 

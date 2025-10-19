@@ -292,6 +292,7 @@ object fUserModal: TfUserModal
                 Touch.InteractiveGestures = [LongTap, DoubleTap]
                 Align = Top
                 TabOrder = 1
+                KeyboardType = PhonePad
                 TextSettings.Font.Size = 14.000000000000000000
                 Position.Y = 27.000000000000000000
                 Hint = 'Please fillout this field.'

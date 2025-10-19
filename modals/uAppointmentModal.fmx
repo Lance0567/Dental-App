@@ -475,7 +475,6 @@ object fAppointmentModal: TfAppointmentModal
               TabOrder = 1
               object deDate: TDateEdit
                 Date = 45949.000000000000000000
-                TodayDefault = True
                 OnChange = deDateChange
                 OnCheckChanged = deDateCheckChanged
                 Align = Top
