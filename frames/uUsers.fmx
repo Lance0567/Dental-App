@@ -153,8 +153,8 @@ object fUsers: TfUsers
         Options = [ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
         OnResized = gUsersResized
         OnCellDblClick = gUsersCellDblClick
-        Viewport.Width = 470.000000000000000000
-        Viewport.Height = 106.000000000000000000
+        Viewport.Width = 466.000000000000000000
+        Viewport.Height = 81.000000000000000000
       end
     end
     inline fToolbar: TfToolbar
@@ -214,6 +214,7 @@ object fUsers: TfUsers
           MemberName = 'profile_pic'
           Header = 'Profile Picture'
           Width = 90
+          ColumnStyle = 'ImageColumn'
         end
         item
           MemberName = 'status'

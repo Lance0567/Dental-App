@@ -99,9 +99,9 @@ begin
   cbStatus.ItemIndex := 0;
 
   // Reset Patient
-  cbPatient.ItemIndex := 0;
   cbPatient.Items.Clear;
-  cbPatient.Text := 'Select patient...';
+  cbPatient.Items.Add('Select patient...');
+  cbPatient.ItemIndex := 0;
   cbPatient.Enabled := True;
 
   // Reset Appointment Title
