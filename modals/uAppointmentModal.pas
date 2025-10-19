@@ -92,6 +92,7 @@ uses uMain, uDm;
 procedure TfAppointmentModal.ClearItems;
 begin
   // Reset Date
+  deDate.DateFormatKind := TDTFormatKind.Short;
   lPickDate.Visible := True;
   deDate.StyledSettings := deDate.StyledSettings - [TStyledSetting.FontColor];
 
@@ -159,8 +160,11 @@ begin
     dm.qAppointments.Edit;
 
   // Fields to save
-  dm.qAppointments.FieldByName('date').AsDateTime := deDate.Date;
+  dm.qAppointments.FieldByName('date_appointment').AsDateTime := deDate.Date;
+
+  deDate.DateFormatKind := TDTFormatKind.Long;  // Set date format to long
   dm.qAppointments.FieldByName('date_long').AsString := deDate.Text;
+
   dm.qAppointments.FieldByName('status').AsString := cbStatus.Text;
   dm.qAppointments.FieldByName('patient').AsString := cbPatient.Text;
   dm.qAppointments.FieldByName('appointment_title').AsString := eAppointmentTitle.Text;

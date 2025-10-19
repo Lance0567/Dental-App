@@ -239,6 +239,7 @@ begin
   // Date of Birth
   deDateOfBirth.TextSettings.FontColor := TAlphaColors.White;
   lDateText.Visible := True;
+  deDateOfBirth.DateFormatKind := TDTFormatKind.Short;
 
   // Font color Style settings of Date of Birth
   deDateOfBirth.StyledSettings :=
@@ -308,6 +309,8 @@ begin
 
   // Field to save
   dm.qPatients.FieldByName('fullname').AsString := eFullName.Text;
+
+  deDateOfBirth.DateFormatKind := TDTFormatKind.Long;  // Date format set to Long
   dm.qPatients.FieldByName('birth_date').AsDateTime := deDateOfBirth.Date;
   dm.qPatients.FieldByName('gender').AsString := cbGender.Text;
   dm.qPatients.FieldByName('contact_number').AsString := eContactNumber.Text;

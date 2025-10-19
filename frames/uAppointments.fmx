@@ -4,7 +4,7 @@ object fAppointments: TfAppointments
   Size.PlatformDefault = False
   OnResize = FrameResize
   OnResized = FrameResized
-  object ScrollBox1: TScrollBox
+  object Scrollbox1: TScrollBox
     Align = Client
     Size.Width = 580.000000000000000000
     Size.Height = 416.000000000000000000
@@ -259,9 +259,9 @@ object fAppointments: TfAppointments
           Width = 200
         end
         item
-          MemberName = 'date'
+          MemberName = 'date_long'
           Header = 'Date'
-          Width = 120
+          Width = 150
         end
         item
           MemberName = 'status'

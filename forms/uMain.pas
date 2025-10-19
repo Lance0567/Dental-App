@@ -486,17 +486,27 @@ begin
   // Format today's date as YYYY-MM-DD (adjust to match your database format)
   todayStr := FormatDateTime('yyyy-mm-dd', Date);
 
-  if dm.qTemp.Active then
+  if (dm.qTemp.Active) OR (dm.qAppointments.Active) then
+  begin
     dm.qTemp.Close;
+    dm.qAppointments.Close;
+  end;
 
   dm.qTemp.SQL.Text :=
     'SELECT COUNT(status) AS Todays_Appointments ' +
     'FROM appointments ' +
     'WHERE (status IN (''New'', ''Ongoing'')) ' +
-    '  AND (DATE(date) = :today)';  // Use a parameter for today's date
+    '  AND (DATE(date_appointment) = :today)';  // Use a parameter for today's date
+
+  dm.qTodaysAppointment.SQL.Text :=
+    'SELECT id, patient, appointment_title, date_appointment, status ' +
+    'FROM appointments ' +
+    'WHERE (status IN (''New'', ''Ongoing'')) ' +
+    '  AND (DATE(date_appointment) = :today)';  // Use a parameter for today's date
 
   // Assign parameter value
   dm.qTemp.ParamByName('today').AsString := todayStr;
+  dm.qTodaysAppointment.ParamByName('today').AsString := todayStr;
   dm.qTemp.Open;
   dm.qTodaysAppointment.Open;
 

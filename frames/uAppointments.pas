@@ -23,7 +23,7 @@ type
     bsdbAppointments: TBindSourceDB;
     blAppointments: TBindingsList;
     LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
-    ScrollBox1: TScrollBox;
+    Scrollbox1: TScrollBox;
     lytComponents: TLayout;
     lytDateButtons: TLayout;
     lytButtonH: TLayout;
@@ -69,7 +69,7 @@ begin
     // Fixed layout at 850px
     for i := 0 to gAppointment.ColumnCount - 1 do
     begin
-      if (i = 1) or (i = 2) then
+      if (i = 1) or (i = 2) or (i = 3) then
         gAppointment.Columns[i].Width := 230
       else
         gAppointment.Columns[i].Width := 170;
@@ -78,7 +78,7 @@ begin
   else if frmMain.ClientWidth > 850 then
   begin
     // Dynamic layout when wider than 850px
-    FixedWidth := 250;      // width for 2nd and 3rd columns
+    FixedWidth := 220;      // width for 1st, 2nd and 3rd columns
     FixedColumns := 2;      // 2 fixed columns
 
     if gAppointment.ColumnCount > FixedColumns then
@@ -88,7 +88,7 @@ begin
 
     for i := 0 to gAppointment.ColumnCount - 1 do
     begin
-      if (i = 1) or (i = 2) then
+      if (i = 1) or (i = 2) or (i = 3)then
         gAppointment.Columns[i].Width := FixedWidth - 1
       else
         gAppointment.Columns[i].Width := NewWidth - 2;
@@ -119,7 +119,7 @@ begin
             // Fixed layout for 850px
             for i := 0 to gAppointment.ColumnCount - 1 do
             begin
-              if (i = 1) or (i = 2) then
+              if (i = 1) or (i = 2) or (i = 3) then
                 gAppointment.Columns[i].Width := 230
               else
                 gAppointment.Columns[i].Width := 170;
@@ -128,7 +128,7 @@ begin
           else if frmMain.ClientWidth > 850 then
           begin
             // Dynamic layout
-            FixedWidth := 250; // Width for 2nd and 3rd columns
+            FixedWidth := 220; // Width for 1st, 2nd and 3rd columns
             FixedColumns := 2;
 
             if gAppointment.ColumnCount > FixedColumns then
@@ -138,7 +138,7 @@ begin
 
             for i := 0 to gAppointment.ColumnCount - 1 do
             begin
-              if (i = 1) or (i = 2) then
+              if (i = 1) or (i = 2) or (i = 3) then
                 gAppointment.Columns[i].Width := FixedWidth - 1
               else
                 gAppointment.Columns[i].Width := NewWidth - 2;
@@ -198,7 +198,7 @@ begin
   frmMain.fAppointmentModal.MemoTrackingReset := '';
 
   // Get Date from the database
-  frmMain.fAppointmentModal.deDate.Date := dm.qAppointments.FieldByName('date').AsDateTime;
+  frmMain.fAppointmentModal.deDate.Date := dm.qAppointments.FieldByName('date_appointment').AsDateTime;
   frmMain.fAppointmentModal.lPickDate.Visible := False; // Hide Date pick label
   frmMain.fAppointmentModal.deDate.StyledSettings := [TStyledSetting.FontColor];  // Show date text
 
