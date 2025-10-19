@@ -39,6 +39,7 @@ type
     procedure gAppointmentCellDblClick(const Column: TColumn;
       const Row: Integer);
     procedure FrameResize(Sender: TObject);
+    procedure cbMonthClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -233,6 +234,12 @@ begin
 
   // Reset Scrollbox
   frmMain.fAppointmentModal.ScrollBox1.ViewportPosition := PointF(0, 0);
+end;
+
+{ Month Button }
+procedure TfAppointments.cbMonthClick(Sender: TObject);
+begin
+
 end;
 
 { Frame Resize }

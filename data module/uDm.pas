@@ -29,6 +29,8 @@ type
   private
     { Private declarations }
   public
+    FormReader: String;
+    RecordStatus: String;
     { Public declarations }
   end;
 
@@ -38,6 +40,8 @@ var
 implementation
 
 {%CLASSGROUP 'FMX.Controls.TControl'}
+
+uses uLogin;
 
 {$R *.dfm}
 

@@ -106,7 +106,7 @@ object fUserModal: TfUserModal
               Size.Width = 346.000000000000000000
               Size.Height = 110.000000000000000000
               Size.PlatformDefault = False
-              TabOrder = 1
+              TabOrder = 6
               object lytProfilePhoto: TLayout
                 Align = Left
                 Position.Y = 27.000000000000000000
@@ -142,16 +142,6 @@ object fUserModal: TfUserModal
                     Visible = False
                     TabOrder = 0
                   end
-                  object imgProfilePhoto: TImage
-                    MultiResBitmap = <
-                      item
-                      end>
-                    Align = Center
-                    Size.Width = 85.000000000000000000
-                    Size.Height = 85.000000000000000000
-                    Size.PlatformDefault = False
-                    WrapMode = Stretch
-                  end
                   object rImageFrame: TRectangle
                     Align = Center
                     Fill.Color = claNull
@@ -160,6 +150,20 @@ object fUserModal: TfUserModal
                     Size.PlatformDefault = False
                     Stroke.Color = claGray
                     Visible = False
+                    object imgProfilePhoto: TImage
+                      MultiResBitmap = <
+                        item
+                        end>
+                      Align = Client
+                      Margins.Left = 2.000000000000000000
+                      Margins.Top = 2.000000000000000000
+                      Margins.Right = 2.000000000000000000
+                      Margins.Bottom = 2.000000000000000000
+                      Size.Width = 91.000000000000000000
+                      Size.Height = 86.000000000000000000
+                      Size.PlatformDefault = False
+                      WrapMode = Stretch
+                    end
                   end
                 end
               end
@@ -272,7 +276,7 @@ object fUserModal: TfUserModal
               Size.Width = 346.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
-              TabOrder = 2
+              TabOrder = 5
               object lContactNumber: TLabel
                 Align = Top
                 StyledSettings = [Family]
@@ -358,7 +362,7 @@ object fUserModal: TfUserModal
               Size.Width = 346.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
-              TabOrder = 6
+              TabOrder = 4
               object lEmailAddress: TLabel
                 Align = Top
                 StyledSettings = [Family]
@@ -444,7 +448,7 @@ object fUserModal: TfUserModal
               Size.Width = 346.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
-              TabOrder = 5
+              TabOrder = 1
               object lbFullName: TLabel
                 Align = Top
                 StyledSettings = [Family]
@@ -531,7 +535,7 @@ object fUserModal: TfUserModal
               Size.Width = 346.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
-              TabOrder = 4
+              TabOrder = 2
               object lUserName: TLabel
                 Align = Top
                 StyledSettings = [Family]
@@ -633,6 +637,7 @@ object fUserModal: TfUserModal
                 Touch.InteractiveGestures = [LongTap, DoubleTap]
                 Align = Top
                 TabOrder = 1
+                Password = True
                 TextSettings.Font.Size = 14.000000000000000000
                 Position.Y = 27.000000000000000000
                 Hint = 'Please fillout this field.'
@@ -645,6 +650,18 @@ object fUserModal: TfUserModal
                 StyledSettings = [Family, Style]
                 ParentShowHint = False
                 ShowHint = True
+                object cbShowPassword: TCheckBox
+                  Align = Right
+                  StyledSettings = [Family, Size]
+                  Position.X = 286.000000000000000000
+                  Size.Width = 60.000000000000000000
+                  Size.Height = 40.000000000000000000
+                  Size.PlatformDefault = False
+                  TabOrder = 0
+                  Text = 'Show'
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
+                  OnChange = cbShowPasswordChange
+                end
               end
               object crPassword: TCalloutRectangle
                 Align = Top

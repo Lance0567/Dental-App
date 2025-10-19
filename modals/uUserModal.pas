@@ -7,7 +7,8 @@ uses
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Memo.Types, FMX.ListBox, FMX.DateTimeCtrls, FMX.Edit, FMX.ImgList,
   FMX.Objects, FMX.ScrollBox, FMX.Memo, FMX.Controls.Presentation, FMX.Layouts,
-  System.Skia, FMX.Skia, FMX.Effects, Data.DB, System.Hash, FMX.Media, FMX.MediaLibrary.Actions, FMX.MediaLibrary;
+  System.Skia, FMX.Skia, FMX.Effects, Data.DB, System.Hash, FMX.Media,
+  FMX.MediaLibrary.Actions, FMX.DialogService, FMX.MediaLibrary;
 
 type
   TfUserModal = class(TFrame)
@@ -97,6 +98,7 @@ type
     lytButtonSaveH: TLayout;
     btnSaveUser: TCornerButton;
     btnCancel: TCornerButton;
+    cbShowPassword: TCheckBox;
     procedure btnCloseClick(Sender: TObject);
     procedure FrameResize(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
@@ -109,6 +111,7 @@ type
     procedure btnSaveCurrentImageClick(Sender: TObject);
     procedure btnCameraCloseClick(Sender: TObject);
     procedure eFullNameChangeTracking(Sender: TObject);
+    procedure cbShowPasswordChange(Sender: TObject);
   private
     FCapturing: Boolean;
     FStatus: Boolean;
@@ -116,7 +119,7 @@ type
     procedure ShowCameraFrame;
     { Private declarations }
   public
-    RecordStatus: String;
+
     procedure ClearItems;
     { Public declarations }
   end;
@@ -129,13 +132,14 @@ implementation
 
 {$R *.fmx}
 
-uses uDm, uMain, uGlobal;
+uses uDm, uMain, uGlobal, uAdminSetup;
 
 { Clear Fields }
 procedure TfUserModal.ClearItems;
 begin
   // Fields
   eFullName.Text := '';
+  eUsername.ReadOnly := False;
   eUsername.Text := '';
   ePassword.Text := '';
   eEmailAddress.Text := '';
@@ -235,6 +239,7 @@ begin
     begin
       // ✅ Load the selected file into the TImage
       imgProfilePhoto.Bitmap.LoadFromFile(LOpenDialog.FileName);
+      btnTakePicture.Text := 'Retake photo';
     end;
   finally
     LOpenDialog.Free;
@@ -289,6 +294,8 @@ begin
           end);
       end).Start;
   end;
+  Sleep(1500);
+  rCameralModal.Visible := False;
 end;
 
 { Save current image }
@@ -401,19 +408,6 @@ begin
   else
     crContactNumber.Visible := False;
 
-  // Save image to LONGBLOB
-  if Assigned(imgProfilePhoto.Bitmap) and not imgProfilePhoto.Bitmap.IsEmpty then
-  begin
-    ms := TMemoryStream.Create;
-    try
-      imgProfilePhoto.Bitmap.SaveToStream(ms);
-      ms.Position := 0;
-      TBlobField(dm.qPatients.FieldByName('profile_pic')).LoadFromStream(ms);
-    finally
-      ms.Free;
-    end;
-  end;
-
   // Stop if any error is found
   if HasError = True then
   begin
@@ -422,10 +416,10 @@ begin
   end;
 
   // Handle record state
-  if RecordStatus = 'Add' then
-    dm.qPatients.Append
+  if dm.RecordStatus = 'Add' then
+    dm.qUsers.Append
   else
-    dm.qPatients.Edit;
+    dm.qUsers.Edit;
 
   // Hash the password (SHA256 for better security)
   HashedPassword := THashSHA2.GetHashString(ePassword.Text);
@@ -459,18 +453,43 @@ begin
   ClearItems; // Clear fields
 
   // Set record pop up message
-  if RecordStatus = 'Add' then
-    frmMain.Tag := 0
-  else
-    frmMain.Tag := 1;
+  if (dm.FormReader = 'Main') then
+  begin
+    if dm.RecordStatus = 'Add' then
+      frmMain.Tag := 0
+    else
+      frmMain.Tag := 1;
 
-  frmMain.RecordMessage('User', 'user');
+    frmMain.RecordMessage('User', 'user');
+  end
+  else
+  begin
+    // Message dialog with success icon - Successfully completed admin setup
+    TDialogService.MessageDialog(
+        'Successfully completed admin setup. You can now proceed to login',
+        TMsgDlgType.mtConfirmation,  // info icon
+        [TMsgDlgBtn.mbOK],
+        TMsgDlgBtn.mbOK, 0,
+        nil  // No callback, so code continues immediately
+      );
+
+    frmAdminSetup.Close;
+    frmAdminSetup := nil
+  end;
 
   // Hide patient modal
   Self.Visible := False;
 end;
 
 { Camera component buffer }
+procedure TfUserModal.cbShowPasswordChange(Sender: TObject);
+begin
+  if cbShowPassword.IsChecked then
+    ePassword.Password := False
+  else
+    ePassword.Password := True;
+end;
+
 procedure TfUserModal.ccCapturePhotoSampleBufferReady(Sender: TObject;
   const ATime: TMediaTime);
 begin
@@ -480,27 +499,30 @@ end;
 { Frame Resize }
 procedure TfUserModal.FrameResize(Sender: TObject);
 begin
-  // Modal content margins
-  if (frmMain.ClientWidth >= 1920) then
+  if dm.FormReader = 'Main' then
   begin
-    rModalInfo.Margins.Left := 700;
-    rModalInfo.Margins.Right := 700;
-    rModalInfo.Margins.Top := 150;
-    rModalInfo.Margins.Bottom := 150;
-  end
-  else if (frmMain.ClientWidth >= 1366) then
-  begin
-    rModalInfo.Margins.Left := 430;
-    rModalInfo.Margins.Right := 430;
-    rModalInfo.Margins.Top := 75;
-    rModalInfo.Margins.Bottom := 75;
-  end
-  else if (frmMain.ClientHeight <= 510) AND (frmMain.ClientWidth <= 860) then
-  begin
-    rModalInfo.Margins.Left := 190;
-    rModalInfo.Margins.Right := 190;
-    rModalInfo.Margins.Top := 50;
-    rModalInfo.Margins.Bottom := 50;
+    // Modal content margins
+    if (frmMain.ClientWidth >= 1920) then
+    begin
+      rModalInfo.Margins.Left := 700;
+      rModalInfo.Margins.Right := 700;
+      rModalInfo.Margins.Top := 150;
+      rModalInfo.Margins.Bottom := 150;
+    end
+    else if (frmMain.ClientWidth >= 1366) then
+    begin
+      rModalInfo.Margins.Left := 430;
+      rModalInfo.Margins.Right := 430;
+      rModalInfo.Margins.Top := 75;
+      rModalInfo.Margins.Bottom := 75;
+    end
+    else if (frmMain.ClientHeight <= 510) AND (frmMain.ClientWidth <= 860) then
+    begin
+      rModalInfo.Margins.Left := 190;
+      rModalInfo.Margins.Right := 190;
+      rModalInfo.Margins.Top := 50;
+      rModalInfo.Margins.Bottom := 50;
+    end;
   end;
 end;
 

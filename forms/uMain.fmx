@@ -198,7 +198,7 @@ object frmMain: TfrmMain
         Size.Width = 605.000000000000000000
         Size.Height = 505.000000000000000000
         Size.PlatformDefault = False
-        TabIndex = 3
+        TabIndex = 0
         TabOrder = 0
         TabPosition = None
         OnChange = tcControllerChange
@@ -218,7 +218,7 @@ object frmMain: TfrmMain
             item
             end>
           TextSettings.Trimming = None
-          IsSelected = False
+          IsSelected = True
           Size.Width = 8.000000000000000000
           Size.Height = 8.000000000000000000
           Size.PlatformDefault = False
@@ -572,7 +572,7 @@ object frmMain: TfrmMain
             item
             end>
           TextSettings.Trimming = None
-          IsSelected = True
+          IsSelected = False
           Size.Width = 8.000000000000000000
           Size.Height = 8.000000000000000000
           Size.PlatformDefault = False
@@ -754,6 +754,17 @@ object frmMain: TfrmMain
                       inherited lbRoleH: TLabel
                         TextSettings.Font.StyleExt = {00060000000000000004000000}
                       end
+                    end
+                    inherited sbProfile: TSpeedButton
+                      Cursor = crHandPoint
+                      Size.Height = 30.000000000000000000
+                      StyleLookup = 'sbProfileStyle1'
+                    end
+                    inherited sbSettings: TSpeedButton
+                      Cursor = crHandPoint
+                      Position.Y = 272.000000000000000000
+                      Size.Height = 30.000000000000000000
+                      StyleLookup = 'sbProfileStyle1'
                     end
                   end
                 end
@@ -1196,6 +1207,10 @@ object frmMain: TfrmMain
                 end
                 inherited ePassword: TEdit
                   Size.Width = 474.000000000000000000
+                  inherited cbShowPassword: TCheckBox
+                    Position.X = 414.000000000000000000
+                    TextSettings.Font.StyleExt = {00060000000000000004000000}
+                  end
                 end
               end
             end
@@ -1352,9 +1367,6 @@ object frmMain: TfrmMain
               inherited lytDate: TLayout
                 inherited deDate: TDateEdit
                   StyleLookup = 'deDateStyle1'
-                  inherited lPickDate: TLabel
-                    TabOrder = 15
-                  end
                 end
                 inherited lDate: TLabel
                   TextSettings.Font.StyleExt = {00060000000000000004000000}

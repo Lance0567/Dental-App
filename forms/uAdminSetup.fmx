@@ -1,0 +1,218 @@
+object frmAdminSetup: TfrmAdminSetup
+  Left = 0
+  Top = 0
+  Caption = 'Admin Setup'
+  ClientHeight = 591
+  ClientWidth = 724
+  Position = DesktopCenter
+  StyleBook = dm.sbDental
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  inline fUserModal: TfUserModal
+    Align = Client
+    Size.Width = 724.000000000000000000
+    Size.Height = 591.000000000000000000
+    Size.PlatformDefault = False
+    inherited lytContentH: TLayout
+      Size.Width = 724.000000000000000000
+      Size.Height = 591.000000000000000000
+      inherited rBackground: TRectangle
+        Size.Width = 724.000000000000000000
+        Size.Height = 591.000000000000000000
+      end
+      inherited rModalInfo: TRectangle
+        Size.Width = 464.000000000000000000
+        Size.Height = 491.000000000000000000
+        inherited ScrollBox1: TScrollBox
+          Size.Width = 464.000000000000000000
+          Size.Height = 491.000000000000000000
+          Viewport.Width = 448.000000000000000000
+          Viewport.Height = 491.000000000000000000
+          inherited lytTitle: TLayout
+            Size.Width = 413.000000000000000000
+            inherited lbTitle: TLabel
+              Size.Width = 378.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+            end
+            inherited btnClose: TSpeedButton
+              Position.X = 378.000000000000000000
+            end
+          end
+          inherited rUser: TRectangle
+            Size.Width = 398.000000000000000000
+            inherited lytUserH: TLayout
+              Size.Width = 348.000000000000000000
+              inherited lytPatientProfile: TLayout
+                Size.Width = 348.000000000000000000
+                inherited lytProfilePhoto: TLayout
+                  inherited cProfilePhoto: TCircle
+                    inherited lNameH: TLabel
+                      TextSettings.Font.StyleExt = {00070000000000000004000000}
+                    end
+                  end
+                end
+                inherited lytPhotoButton: TLayout
+                  Size.Width = 253.000000000000000000
+                  inherited lytPhotoButtonH: TLayout
+                    Size.Width = 248.000000000000000000
+                    inherited btnPhotoUpload: TCornerButton
+                      StyleLookup = 'btnPhotoUploadStyle1'
+                      TextSettings.Font.StyleExt = {00060000000000000004000000}
+                    end
+                    inherited btnCamera: TCornerButton
+                      StyleLookup = 'btnPhotoUploadStyle1'
+                      TextSettings.Font.StyleExt = {00060000000000000004000000}
+                    end
+                  end
+                  inherited lProfileUploadDesc: TLabel
+                    Size.Width = 246.000000000000000000
+                  end
+                end
+                inherited lProfilePhoto: TLabel
+                  Size.Width = 348.000000000000000000
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
+                end
+              end
+              inherited lPersonalInfo: TLabel
+                Size.Width = 348.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+              end
+              inherited lytContactNumber: TLayout
+                Size.Width = 348.000000000000000000
+                inherited lContactNumber: TLabel
+                  Size.Width = 348.000000000000000000
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
+                end
+                inherited eContactNumber: TEdit
+                  Size.Width = 348.000000000000000000
+                  StyledSettings = [Family]
+                end
+              end
+              inherited lytEmailAddress: TLayout
+                Size.Width = 348.000000000000000000
+                inherited lEmailAddress: TLabel
+                  Size.Width = 348.000000000000000000
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
+                end
+                inherited eEmailAddress: TEdit
+                  Size.Width = 348.000000000000000000
+                  StyledSettings = [Family]
+                end
+              end
+              inherited lytFullName: TLayout
+                Size.Width = 348.000000000000000000
+                inherited lbFullName: TLabel
+                  Size.Width = 348.000000000000000000
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
+                end
+                inherited eFullName: TEdit
+                  Size.Width = 348.000000000000000000
+                  StyledSettings = [Family]
+                end
+              end
+              inherited lytUsername: TLayout
+                Size.Width = 348.000000000000000000
+                inherited lUserName: TLabel
+                  Size.Width = 348.000000000000000000
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
+                end
+                inherited eUsername: TEdit
+                  Size.Width = 348.000000000000000000
+                  StyledSettings = [Family]
+                end
+              end
+              inherited lytPassword: TLayout
+                Size.Width = 348.000000000000000000
+                inherited ePassword: TEdit [0]
+                  Size.Width = 348.000000000000000000
+                  StyledSettings = [Family]
+                  inherited cbShowPassword: TCheckBox
+                    Cursor = crHandPoint
+                    Position.X = 288.000000000000000000
+                    TextSettings.Font.StyleExt = {00060000000000000004000000}
+                  end
+                end
+                inherited lPassword: TLabel [1]
+                  Size.Width = 348.000000000000000000
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
+                end
+              end
+            end
+          end
+          inherited rRoleAndAccess: TRectangle
+            Size.Width = 398.000000000000000000
+            inherited lytRoleAndAccessH: TLayout
+              Size.Width = 348.000000000000000000
+              inherited lytRole: TLayout
+                Size.Width = 348.000000000000000000
+                inherited lRole: TLabel
+                  Size.Width = 348.000000000000000000
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
+                end
+                inherited cbRole: TComboBox
+                  Size.Width = 348.000000000000000000
+                  StyleLookup = 'cbGenderStyle1'
+                end
+              end
+              inherited lytStatus: TLayout
+                Size.Width = 348.000000000000000000
+                inherited lStatus: TLabel
+                  Size.Width = 348.000000000000000000
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
+                end
+                inherited cbStatus: TComboBox
+                  Size.Width = 348.000000000000000000
+                  StyleLookup = 'cbGenderStyle1'
+                end
+              end
+              inherited slRoleAndAccess: TSkLabel
+                Size.Width = 348.000000000000000000
+              end
+              inherited lytDepartment: TLayout
+                Size.Width = 348.000000000000000000
+                inherited lDepartment: TLabel
+                  Size.Width = 348.000000000000000000
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
+                end
+                inherited eDepartment: TEdit
+                  Size.Width = 348.000000000000000000
+                  StyledSettings = [Family]
+                end
+              end
+            end
+          end
+          inherited lytButtonSaveH: TLayout
+            Size.Width = 398.000000000000000000
+            inherited btnSaveUser: TCornerButton
+              Position.X = 278.000000000000000000
+              StyleLookup = 'btnSavePatientStyle1'
+              TextSettings.Font.StyleExt = {00060000000000000004000000}
+            end
+            inherited btnCancel: TCornerButton
+              Position.X = 188.000000000000000000
+              StyleLookup = 'btnCancelStyle1'
+              TextSettings.Font.StyleExt = {00060000000000000004000000}
+            end
+          end
+        end
+      end
+    end
+    inherited rCameralModal: TRectangle
+      inherited lytImgTools: TLayout
+        inherited lytCameraOption: TLayout
+          inherited lCamera: TLabel
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+          end
+        end
+        inherited btnSaveCurrentImage: TCornerButton
+          TextSettings.Font.StyleExt = {00060000000000000004000000}
+        end
+        inherited btnTakePicture: TCornerButton
+          TextSettings.Font.StyleExt = {00060000000000000004000000}
+        end
+      end
+    end
+  end
+end

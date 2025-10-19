@@ -283,38 +283,48 @@ var
 begin
   AvailableWidth := Trunc(glytCards.Width);
 
-  // Client Dimension condition
-  if (frmMain.ClientWidth > 1900) AND not (frmMain.ClientWidth <= 1366) then
+  if Assigned(frmMain) then
   begin
-    ItemsPerRow := Max(1, AvailableWidth div 400);
-    glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
-  end
-  else if (frmMain.ClientWidth >= 1366) AND not (frmMain.ClientWidth <= 850) then
-  begin
-    ItemsPerRow := Max(1, AvailableWidth div 225);
-    glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
-  end
-  else if (frmMain.ClientWidth >= 850) OR (frmMain.ClientWidth <= 850) then
-  begin
-    ItemsPerRow := Max(1, AvailableWidth div 190);
-    glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
-  end;
+    // Client Dimension condition
+    if (frmMain.ClientWidth > 1900) AND not(frmMain.ClientWidth <= 1366) then
+    begin
+      ItemsPerRow := Max(1, AvailableWidth div 400);
+      glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) /
+        ItemsPerRow);
+    end
+    else if (frmMain.ClientWidth >= 1366) AND not(frmMain.ClientWidth <= 850)
+    then
+    begin
+      ItemsPerRow := Max(1, AvailableWidth div 225);
+      glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) /
+        ItemsPerRow);
+    end
+    else if (frmMain.ClientWidth >= 850) OR (frmMain.ClientWidth <= 850) then
+    begin
+      ItemsPerRow := Max(1, AvailableWidth div 190);
+      glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) /
+        ItemsPerRow);
+    end;
 
-  // Frame Dimension condition
-  if (Self.Width > 1600) AND not (Self.Width <= 1270) then
-  begin
-    ItemsPerRow := Max(1, AvailableWidth div 400);
-    glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
-  end
-  else if (Self.Width >= 1270) AND not (Self.Width <= 1076) then
-  begin
-    ItemsPerRow := Max(1, AvailableWidth div 310);
-    glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
-  end
-  else if (Self.Width <= 1076) then
-  begin
-    ItemsPerRow := Max(1, AvailableWidth div 190);
-    glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) / ItemsPerRow);
+    // Frame Dimension condition
+    if (Self.Width > 1600) AND not(Self.Width <= 1270) then
+    begin
+      ItemsPerRow := Max(1, AvailableWidth div 400);
+      glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) /
+        ItemsPerRow);
+    end
+    else if (Self.Width >= 1270) AND not(Self.Width <= 1076) then
+    begin
+      ItemsPerRow := Max(1, AvailableWidth div 310);
+      glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) /
+        ItemsPerRow);
+    end
+    else if (Self.Width <= 1076) then
+    begin
+      ItemsPerRow := Max(1, AvailableWidth div 190);
+      glytCards.ItemWidth := Trunc((AvailableWidth - (ItemsPerRow + 1) * 4) /
+        ItemsPerRow);
+    end;
   end;
 end;
 

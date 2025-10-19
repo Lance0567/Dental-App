@@ -192,8 +192,8 @@ object fAppointmentModal: TfAppointmentModal
               TabOrder = 3
               OnExit = mNotesExit
               OnClick = mNotesClick
-              Viewport.Width = 380.000000000000000000
-              Viewport.Height = 130.000000000000000000
+              Viewport.Width = 384.000000000000000000
+              Viewport.Height = 134.000000000000000000
             end
           end
           object lytButtonH: TLayout
@@ -474,7 +474,7 @@ object fAppointmentModal: TfAppointmentModal
               Size.PlatformDefault = False
               TabOrder = 1
               object deDate: TDateEdit
-                Date = 45944.000000000000000000
+                Date = 45949.000000000000000000
                 TodayDefault = True
                 OnChange = deDateChange
                 OnCheckChanged = deDateCheckChanged

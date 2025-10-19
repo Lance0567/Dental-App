@@ -615,7 +615,7 @@ object fPatientModal: TfPatientModal
                   TabOrder = 0
                 end
                 object deDateOfBirth: TDateEdit
-                  Date = 45944.000000000000000000
+                  Date = 45949.000000000000000000
                   TodayDefault = True
                   OnChange = deDateOfBirthChange
                   OnCheckChanged = deDateOfBirthCheckChanged

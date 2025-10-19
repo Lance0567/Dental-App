@@ -164,6 +164,7 @@ object fAppointments: TfAppointments
           TextSettings.Trimming = None
           XRadius = 11.000000000000000000
           YRadius = 11.000000000000000000
+          OnClick = cbMonthClick
         end
       end
       object lytButtonH: TLayout

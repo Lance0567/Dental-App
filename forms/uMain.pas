@@ -152,6 +152,9 @@ end;
 { Form Create }
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
+  // Form reader
+  dm.FormReader := 'Main';
+
   // Create Dashboard Frame if not yet created
   if not Assigned(fDashboard) then
     fDashboard := TfDashboard.Create(Self);
@@ -188,13 +191,6 @@ begin
     fUsers.gUsers.StyleLookup := 'gPatientStyle'
   else
     fUsers.gUsers.StyleLookup := '';
-
-  // Default Show sidebar
-  mvSidebar.ShowMaster;
-  mvSidebar.NavigationPaneOptions.CollapsedWidth := 50;
-
-  // Dashboard Frame resize
-  fDashboard.FrameResized(Sender);
 
   // Date formatted display
   fDashboard.fToolbar.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
@@ -240,6 +236,9 @@ end;
 { Show Form }
 procedure TfrmMain.FormShow(Sender: TObject);
 begin
+  // Default Show sidebar
+  mvSidebar.ShowMaster;
+  mvSidebar.NavigationPaneOptions.CollapsedWidth := 50;
   fDashboard.FrameResized(Sender);
 end;
 

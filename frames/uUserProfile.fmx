@@ -408,7 +408,7 @@ object fUserProfile: TfUserProfile
             Position.X = 20.000000000000000000
             Position.Y = 242.000000000000000000
             Size.Width = 190.000000000000000000
-            Size.Height = 35.000000000000000000
+            Size.Height = 30.000000000000000000
             Size.PlatformDefault = False
             StyleLookup = 'sbUserStyle1'
             Text = 'Profile'
@@ -421,9 +421,9 @@ object fUserProfile: TfUserProfile
             Images = dm.imgList
             ImageIndex = 15
             Position.X = 20.000000000000000000
-            Position.Y = 277.000000000000000000
+            Position.Y = 272.000000000000000000
             Size.Width = 190.000000000000000000
-            Size.Height = 35.000000000000000000
+            Size.Height = 30.000000000000000000
             Size.PlatformDefault = False
             StyleLookup = 'sbUserStyle1'
             Text = 'Settings'

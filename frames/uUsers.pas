@@ -3,12 +3,14 @@ unit uUsers;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
+  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.Variants,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   System.Skia, System.Rtti, FMX.Grid.Style, FMX.ScrollBox, FMX.Grid,
   FMX.Objects, FMX.Skia, FMX.ImgList, FMX.Controls.Presentation, FMX.Edit,
-  FMX.Layouts, Data.DB, Data.Bind.EngExt, Fmx.Bind.DBEngExt, Fmx.Bind.Grid,
-  System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.Components, System.Threading,
+  FMX.Layouts, Data.DB, Data.Bind.EngExt, FMX.Bind.DBEngExt, FMX.Bind.Grid,
+  System.Bindings.Outputs, FMX.Bind.Editors, Data.Bind.Components,
+  System.Threading,
   Data.Bind.Grid, Data.Bind.DBScope, FireDAC.Stan.Param, uToolbar;
 
 type
@@ -59,7 +61,8 @@ var
   FixedWidth: Single;
   FixedColumns: Integer;
 begin
-  if gUsers.ColumnCount = 0 then Exit;
+  if gUsers.ColumnCount = 0 then
+    Exit;
 
   if frmMain.ClientWidth <= 850 then
   begin
@@ -75,11 +78,12 @@ begin
   else if frmMain.ClientWidth > 850 then
   begin
     // Dynamic layout when wider than 850px
-    FixedWidth := 120;      // width for 3rd and last columns
-    FixedColumns := 5;      // 5 fixed columns
+    FixedWidth := 120; // width for 3rd and last columns
+    FixedColumns := 5; // 5 fixed columns
 
     if gUsers.ColumnCount > FixedColumns then
-      NewWidth := (gUsers.Width - (FixedWidth * FixedColumns)) / (gUsers.ColumnCount - FixedColumns)
+      NewWidth := (gUsers.Width - (FixedWidth * FixedColumns)) /
+        (gUsers.ColumnCount - FixedColumns)
     else
       NewWidth := gUsers.Width / gUsers.ColumnCount;
 
@@ -109,7 +113,8 @@ begin
           FixedWidth: Single;
           FixedColumns: Integer;
         begin
-          if gUsers.ColumnCount = 0 then Exit;
+          if gUsers.ColumnCount = 0 then
+            Exit;
 
           if frmMain.ClientWidth <= 850 then
           begin
@@ -129,7 +134,8 @@ begin
             FixedColumns := 5;
 
             if gUsers.ColumnCount > FixedColumns then
-              NewWidth := (gUsers.Width - (FixedWidth * FixedColumns)) / (gUsers.ColumnCount - FixedColumns)
+              NewWidth := (gUsers.Width - (FixedWidth * FixedColumns)) /
+                (gUsers.ColumnCount - FixedColumns)
             else
               NewWidth := gUsers.Width / gUsers.ColumnCount;
 
@@ -141,10 +147,8 @@ begin
                 gUsers.Columns[i].Width := NewWidth - 2;
             end;
           end;
-        end
-      );
-    end
-  );
+        end);
+    end);
 end;
 
 { Grid column resize with 8ms delay }
@@ -163,7 +167,8 @@ begin
           FixedWidth: Single;
           FixedColumns: Integer;
         begin
-          if gUsers.ColumnCount = 0 then Exit;
+          if gUsers.ColumnCount = 0 then
+            Exit;
 
           if frmMain.ClientWidth <= 850 then
           begin
@@ -183,7 +188,8 @@ begin
             FixedColumns := 5;
 
             if gUsers.ColumnCount > FixedColumns then
-              NewWidth := (gUsers.Width - (FixedWidth * FixedColumns)) / (gUsers.ColumnCount - FixedColumns)
+              NewWidth := (gUsers.Width - (FixedWidth * FixedColumns)) /
+                (gUsers.ColumnCount - FixedColumns)
             else
               NewWidth := gUsers.Width / gUsers.ColumnCount;
 
@@ -195,17 +201,15 @@ begin
                 gUsers.Columns[i].Width := NewWidth - 2;
             end;
           end;
-        end
-      );
-    end
-  );
+        end);
+    end);
 end;
 
 { Add New User }
 procedure TfUsers.btnAddNewUserClick(Sender: TObject);
 begin
   // Set record status to Add
-  frmMain.fUserModal.RecordStatus := 'Add';
+  dm.RecordStatus := 'Add';
 
   // Set title
   frmMain.fUserModal.lbTitle.Text := 'Add New User';
@@ -224,7 +228,7 @@ begin
 
   // User Modal visibility
   frmMain.fUserModal.Visible := True;
-  frmMain.fUserModal.gIcon.Visible := True;  // Show user icon
+  frmMain.fUserModal.gIcon.Visible := True; // Show user icon
 
   // Profile Icon
   frmMain.fUserModal.gIcon.ImageIndex := 10;
@@ -276,25 +280,29 @@ var
   roleH: String;
   ms: TMemoryStream;
 begin
-  frmMain.fUserModal.Visible := True;  // Show patient modal
-  frmMain.fUserModal.RecordStatus := 'Edit'; // Set record Status
+  frmMain.fUserModal.Visible := True; // Show patient modal
+  dm.RecordStatus := 'Edit'; // Set record Status
   frmMain.fUserModal.lbTitle.Text := 'Update Existing Patient'; // Set title
-  frmMain.fUserModal.btnSaveUser.Text := 'Update Patient';  // set text in the button
+  frmMain.fUserModal.btnSaveUser.Text := 'Update Patient';
+  // set text in the button
 
   // Populate the modal form
   // Get Fullname
   frmMain.fUserModal.eFullName.Text := dm.qUsers.FieldByName('name').AsString;
 
   // Get username
-  frmMain.fUserModal.eUsername.Text := dm.qUsers.FieldByName('username').AsString;
+  frmMain.fUserModal.eUsername.Text :=
+    dm.qUsers.FieldByName('username').AsString;
 
   // Get password
 
   // Get email address
-  frmMain.fUserModal.eEmailAddress.Text := dm.qUsers.FieldByName('email_address').AsString;
+  frmMain.fUserModal.eEmailAddress.Text :=
+    dm.qUsers.FieldByName('email_address').AsString;
 
   // Get contact number
-  frmMain.fUserModal.eContactNumber.Text := dm.qUsers.FieldByName('contact_number').AsString;
+  frmMain.fUserModal.eContactNumber.Text :=
+    dm.qUsers.FieldByName('contact_number').AsString;
 
   // Get Profile Photo
   // Load Profile Photo (LONGBLOB -> TImage)
@@ -328,7 +336,8 @@ begin
     frmMain.fUserModal.cbRole.ItemIndex := 1;
 
   // Get Department
-  frmMain.fUserModal.eDepartment.Text := dm.qUsers.FieldByName('department').AsString;
+  frmMain.fUserModal.eDepartment.Text :=
+    dm.qUsers.FieldByName('department').AsString;
 
   // Get user role in the database
   roleH := dm.qUsers.FieldByName('role').AsString;
@@ -353,6 +362,7 @@ end;
 { Frame Resized }
 procedure TfUsers.FrameResized(Sender: TObject);
 begin
+
   GridContentsResponsive2;
 end;
 

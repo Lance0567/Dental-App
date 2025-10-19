@@ -17,14 +17,15 @@ uses
   uUpdateProfilePhoto in 'modals\uUpdateProfilePhoto.pas' {fUpdateProfilePhoto: TFrame},
   uLogin in 'forms\uLogin.pas' {frmLogin},
   uAppointmentModal in 'modals\uAppointmentModal.pas' {fAppointmentModal: TFrame},
-  uToolbar in 'frames\uToolbar.pas' {fToolbar: TFrame};
+  uToolbar in 'frames\uToolbar.pas' {fToolbar: TFrame},
+  uAdminSetup in 'forms\uAdminSetup.pas' {frmAdminSetup};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.CreateForm(Tdm, dm);
-  Application.CreateForm(TfrmMain, frmMain);
   Application.CreateForm(TfrmLogin, frmLogin);
+  Application.CreateForm(TfrmMain, frmMain);
   Application.Run;
 end.
