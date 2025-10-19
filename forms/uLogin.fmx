@@ -41,9 +41,11 @@ object frmLogin: TfrmLogin
       TabOrder = 0
       object rDrag: TRectangle
         Align = Client
+        Fill.Color = claWhite
         Size.Width = 407.000000000000000000
         Size.Height = 30.000000000000000000
         Size.PlatformDefault = False
+        Stroke.Kind = None
         OnMouseDown = rDragMouseDown
         OnMouseMove = rDragMouseMove
         OnMouseUp = rDragMouseUp
@@ -85,7 +87,7 @@ object frmLogin: TfrmLogin
       Size.Width = 381.000000000000000000
       Size.Height = 54.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 1
+      TabOrder = 4
       object rLogo: TRectangle
         Align = Center
         Fill.Color = xFEA6E3D1
@@ -115,15 +117,16 @@ object frmLogin: TfrmLogin
       Position.X = 25.000000000000000000
       Position.Y = 123.000000000000000000
       Size.Width = 381.000000000000000000
-      Size.Height = 43.000000000000000000
+      Size.Height = 41.000000000000000000
       Size.PlatformDefault = False
       TextSettings.HorzAlign = Center
       Words = <
         item
+          Font.Families = 'Roboto'
           Font.Size = 18.000000000000000000
           Font.Weight = Bold
           Name = 'Item 0'
-          StyledSettings = [Family, FontColor]
+          StyledSettings = [FontColor]
           Text = 'Sign In'#11
         end
         item
@@ -137,11 +140,11 @@ object frmLogin: TfrmLogin
       Align = Top
       Margins.Top = 15.000000000000000000
       Position.X = 25.000000000000000000
-      Position.Y = 181.000000000000000000
+      Position.Y = 179.000000000000000000
       Size.Width = 381.000000000000000000
       Size.Height = 55.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 4
+      TabOrder = 1
       object lbUserName: TLabel
         Align = Top
         StyledSettings = [Family]
@@ -171,11 +174,11 @@ object frmLogin: TfrmLogin
       Align = Top
       Margins.Top = 10.000000000000000000
       Position.X = 25.000000000000000000
-      Position.Y = 246.000000000000000000
+      Position.Y = 244.000000000000000000
       Size.Width = 381.000000000000000000
       Size.Height = 55.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 3
+      TabOrder = 2
       object lbPassword: TLabel
         Align = Top
         StyledSettings = [Family]
@@ -191,7 +194,7 @@ object frmLogin: TfrmLogin
         Touch.InteractiveGestures = [LongTap, DoubleTap]
         Align = Client
         StyleLookup = 'ePasswordStyle1'
-        TabOrder = 1
+        TabOrder = 2
         Password = True
         TextSettings.Font.Family = 'Segoe UI Variable Display'
         TextSettings.Font.Size = 13.000000000000000000
@@ -207,11 +210,11 @@ object frmLogin: TfrmLogin
       Align = Top
       Margins.Top = 10.000000000000000000
       Position.X = 25.000000000000000000
-      Position.Y = 311.000000000000000000
+      Position.Y = 309.000000000000000000
       Size.Width = 381.000000000000000000
       Size.Height = 176.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 5
+      TabOrder = 3
       object cbRememberMe: TCheckBox
         Align = Top
         Cursor = crHandPoint
@@ -221,12 +224,12 @@ object frmLogin: TfrmLogin
         Hint = 
           'Next time you start System you won'#39't need to enter your password' +
           '.'
-        Margins.Left = 150.000000000000000000
-        Position.X = 150.000000000000000000
-        Size.Width = 231.000000000000000000
+        Margins.Left = 135.000000000000000000
+        Position.X = 135.000000000000000000
+        Size.Width = 246.000000000000000000
         Size.Height = 19.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 0
+        TabOrder = 1
         Text = 'Remember me'
         ParentShowHint = False
         ShowHint = True
@@ -261,7 +264,7 @@ object frmLogin: TfrmLogin
           Size.Height = 30.000000000000000000
           Size.PlatformDefault = False
           StyleLookup = 'btnGiveMeHelpStyle1'
-          TabOrder = 1
+          TabOrder = 3
           Text = 'LOGIN'
           TextSettings.Font.Family = 'Calibri'
           TextSettings.Trimming = None
@@ -280,7 +283,7 @@ object frmLogin: TfrmLogin
           Size.Height = 30.000000000000000000
           Size.PlatformDefault = False
           StyleLookup = 'btnGiveMeHelpStyle1'
-          TabOrder = 0
+          TabOrder = 5
           Text = 'CANCEL'
           TextSettings.Font.Family = 'Calibri'
           TextSettings.Trimming = None
@@ -299,7 +302,7 @@ object frmLogin: TfrmLogin
         Size.Width = 381.000000000000000000
         Size.Height = 35.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 4
+        TabOrder = 5
         object lbCantSignIn: TLabel
           Align = Left
           StyledSettings = [Family, Style]
@@ -311,7 +314,7 @@ object frmLogin: TfrmLogin
           StyleLookup = 'Label1Style1'
           TextSettings.HorzAlign = Trailing
           Text = 'Can'#39't sign in?'
-          TabOrder = 0
+          TabOrder = 5
         end
         object btnGiveMeHelp: TCornerButton
           Align = Left
@@ -324,7 +327,7 @@ object frmLogin: TfrmLogin
           Size.Height = 25.000000000000000000
           Size.PlatformDefault = False
           StyleLookup = 'btnGiveMeHelpStyle1'
-          TabOrder = 1
+          TabOrder = 6
           Text = 'Give me help!'
           TextSettings.Font.Family = 'Calibri'
           TextSettings.HorzAlign = Leading
@@ -343,7 +346,7 @@ object frmLogin: TfrmLogin
         Size.Width = 381.000000000000000000
         Size.Height = 35.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 3
+        TabOrder = 7
         object lbCreateAccount: TLabel
           Align = Left
           StyledSettings = [Family, Style]
@@ -368,7 +371,7 @@ object frmLogin: TfrmLogin
           Size.Height = 25.000000000000000000
           Size.PlatformDefault = False
           StyleLookup = 'btnGiveMeHelpStyle1'
-          TabOrder = 1
+          TabOrder = 7
           Text = 'Create an account'
           TextSettings.Font.Family = 'Calibri'
           TextSettings.HorzAlign = Leading

@@ -438,8 +438,8 @@ object frmMain: TfrmMain
                   Size.Width = 491.000000000000000000
                   Size.Height = 191.000000000000000000
                   StyleLookup = 'gPatientStyle'
-                  Viewport.Width = 491.000000000000000000
-                  Viewport.Height = 191.000000000000000000
+                  Viewport.Width = 490.000000000000000000
+                  Viewport.Height = 166.000000000000000000
                 end
               end
               inherited fToolbar: TfToolbar
@@ -490,39 +490,74 @@ object frmMain: TfrmMain
             inherited Scrollbox1: TScrollBox
               Size.Width = 601.000000000000000000
               Size.Height = 501.000000000000000000
-              Viewport.Width = 580.000000000000000000
-              Viewport.Height = 416.000000000000000000
+              Viewport.Width = 601.000000000000000000
+              Viewport.Height = 501.000000000000000000
               inherited lytHeader: TLayout
+                Size.Width = 601.000000000000000000
                 inherited lytTitle: TLayout
+                  Size.Width = 571.000000000000000000
                   inherited lbTitle: TLabel
+                    Size.Width = 571.000000000000000000
                     TextSettings.Font.StyleExt = {00070000000000000004000000}
+                  end
+                  inherited lbDescription: TLabel
+                    Size.Width = 571.000000000000000000
                   end
                 end
               end
               inherited rCalendar: TRectangle
+                Size.Width = 541.000000000000000000
+                Size.Height = 241.000000000000000000
                 inherited gAppointment: TGrid
-                  OnSetValue = nil
-                  Viewport.Width = 470.000000000000000000
-                  Viewport.Height = 106.000000000000000000
+                  Size.Width = 491.000000000000000000
+                  Size.Height = 191.000000000000000000
+                  Viewport.Width = 490.000000000000000000
+                  Viewport.Height = 168.000000000000000000
                 end
               end
               inherited lytComponents: TLayout
+                Size.Width = 601.000000000000000000
                 inherited lytDateButtons: TLayout
+                  Size.Width = 351.000000000000000000
                   inherited cbDay: TCornerButton
+                    StyleLookup = 'cbDayStyle1'
                     TextSettings.Font.StyleExt = {00060000000000000004000000}
                   end
                   inherited cbWeek: TCornerButton
+                    StyleLookup = 'cbDayStyle1'
                     TextSettings.Font.StyleExt = {00060000000000000004000000}
                   end
                   inherited cbMonth: TCornerButton
+                    StyleLookup = 'cbDayStyle1'
                     TextSettings.Font.StyleExt = {00060000000000000004000000}
                   end
                 end
                 inherited lytButtonH: TLayout
+                  Position.X = 381.000000000000000000
                   inherited btnAddNewAppointment: TCornerButton
+                    StyleLookup = 'btnAddNewPatientStyle1'
                     TextSettings.Font.StyleExt = {00060000000000000004000000}
                   end
                 end
+              end
+              inherited fToolbar: TfToolbar
+                Size.Width = 603.000000000000000000
+                inherited rToolbar: TRectangle
+                  Size.Width = 603.000000000000000000
+                  inherited lBevel: TLine
+                    Size.Width = 603.000000000000000000
+                  end
+                  inherited lytToolbarH: TLayout
+                    Size.Width = 603.000000000000000000
+                    inherited lytUser: TLayout
+                      Position.X = 448.000000000000000000
+                    end
+                  end
+                end
+              end
+              inherited lytBottom: TLayout
+                Position.Y = 476.000000000000000000
+                Size.Width = 601.000000000000000000
               end
             end
             inherited bsdbAppointments: TBindSourceDB
@@ -898,6 +933,7 @@ object frmMain: TfrmMain
                     TextSettings.Font.StyleExt = {00060000000000000004000000}
                   end
                   inherited deDateOfBirth: TDateEdit
+                    Date = 45950.000000000000000000
                     Size.Width = 195.000000000000000000
                     StyleLookup = 'deDateOfBirthStyle1'
                     inherited lDateText: TLabel
@@ -1327,6 +1363,7 @@ object frmMain: TfrmMain
               end
               inherited lytDate: TLayout
                 inherited deDate: TDateEdit
+                  Date = 45950.000000000000000000
                   StyleLookup = 'deDateStyle1'
                 end
                 inherited lDate: TLabel
