@@ -51,9 +51,6 @@ type
     lStatus: TLabel;
     cbStatus: TComboBox;
     slRoleAndAccess: TSkLabel;
-    lytDepartment: TLayout;
-    lDepartment: TLabel;
-    eDepartment: TEdit;
     imgProfilePhoto: TImage;
     rImageFrame: TRectangle;
     crFullName: TCalloutRectangle;
@@ -99,6 +96,9 @@ type
     btnSaveUser: TCornerButton;
     btnCancel: TCornerButton;
     cbShowPassword: TCheckBox;
+    lytDepartment: TLayout;
+    lDepartment: TLabel;
+    eDepartment: TEdit;
     procedure btnCloseClick(Sender: TObject);
     procedure FrameResize(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);

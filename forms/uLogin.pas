@@ -260,6 +260,12 @@ procedure TfrmLogin.FormShow(Sender: TObject);
 begin
   dm.FormReader := 'Login';
 
+  {$IFDEF DEBUG}
+    eUsername.Text := 'admin';
+    ePassword.Text := 'admin';
+    btnLogin.SetFocus;
+  {$ENDIF}
+
   // Hide Show password
   cbShowPassword.Visible := False;
 
