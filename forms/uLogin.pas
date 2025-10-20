@@ -40,6 +40,7 @@ type
     gLogo: TGlyph;
     btnClose: TSpeedButton;
     rDrag: TRectangle;
+    cbShowPassword: TCheckBox;
     procedure btnLoginClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure btnMinimizeClick(Sender: TObject);
@@ -49,6 +50,15 @@ type
     procedure rDragMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Single);
     procedure rDragMouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Single);
+    procedure eUsernameKeyDown(Sender: TObject; var Key: Word;
+      var KeyChar: WideChar; Shift: TShiftState);
+    procedure cbShowPasswordChange(Sender: TObject);
+    procedure ePasswordKeyUp(Sender: TObject; var Key: Word;
+      var KeyChar: WideChar; Shift: TShiftState);
+    procedure ePasswordEnter(Sender: TObject);
+    procedure ePasswordExit(Sender: TObject);
+    procedure cbShowPasswordClick(Sender: TObject);
+    procedure btnCreateAccountClick(Sender: TObject);
   private
     HasRecord: Boolean;
     procedure CheckRecords;
@@ -114,15 +124,72 @@ begin
   end;
 end;
 
+{ Password OnEnter }
+procedure TfrmLogin.ePasswordEnter(Sender: TObject);
+begin
+  cbShowPassword.Visible := True;
+end;
+
+{ Password OnExit }
+procedure TfrmLogin.ePasswordExit(Sender: TObject);
+begin
+  cbShowPassword.Visible := False;
+end;
+
+{ Password Key down }
+procedure TfrmLogin.ePasswordKeyUp(Sender: TObject; var Key: Word;
+  var KeyChar: WideChar; Shift: TShiftState);
+begin
+  if Key = vkReturn then
+  begin
+    btnLoginClick(Sender);
+    Key := 0; // Optional: prevent beep
+  end;
+end;
+
+{ Username Key down }
+procedure TfrmLogin.eUsernameKeyDown(Sender: TObject; var Key: Word;
+  var KeyChar: WideChar; Shift: TShiftState);
+begin
+  if Key = vkReturn then
+  begin
+    ePassword.SetFocus;
+    Key := 0; // Optional: prevent beep
+  end;
+end;
+
+{ Create New Account }
+procedure TfrmLogin.btnCreateAccountClick(Sender: TObject);
+begin
+  // Create frmAdminSetup form
+  if not Assigned(frmAdminSetup) then
+    frmAdminSetup := TfrmAdminSetup.Create(Application);
+  frmAdminSetup.Show;  // Show form
+
+  // Clear items in user modal
+  frmAdminSetup.fUserModal.ClearItems;
+  frmAdminSetup.fUserModal.rRoleAndAccess.Visible := False;
+
+  frmAdminSetup.fUserModal.lbTitle.Text := 'Add New User';  // Set title
+  frmAdminSetup.Caption := 'Create New User Account'; // Set form caption
+  frmAdminSetup.fUserModal.btnSaveUser.Text := 'Create User'; // Button caption
+  frmAdminSetup.fUserModal.cbRole.Enabled := False; // Set Role dropdown to read only
+  frmAdminSetup.fUserModal.cbRole.ItemIndex := 1; //  Set to 'Receptionist'
+  frmAdminSetup.fUserModal.cbStatus.Enabled := False; // Set Status dropdown to read only
+  frmAdminSetup.fusermodal.eDepartment.Text := 'Front Desk';
+  frmAdminSetup.fUserModal.cbStatus.ItemIndex := 0; // Set to Active
+end;
+
 { Login Button }
 procedure TfrmLogin.btnLoginClick(Sender: TObject);
 var
-  InputUser, InputPass, InputPassHash: string;
+  InputUser, InputPass, DateAndTime, InputPassHash: string;
 begin
   HasRecord := False; // Record checker trigger
   InputUser := Trim(eUsername.Text);
   InputPass := ePassword.Text; // Do NOT trim passwords!
   InputPassHash := THashSHA2.GetHashString(InputPass);
+  DateAndTime := FormatDateTime('mmmm dd, yyyy "at" hh:nn AM/PM', Now); // Get date and time now
 
   CheckRecords; // Record checker
 
@@ -134,12 +201,18 @@ begin
   with dm.qTemp do
   begin
     Close;
-    SQL.Text := 'SELECT username FROM users WHERE username = :u AND password = :p';
+    SQL.Text := 'SELECT username, last_login FROM users WHERE username = :u AND password = :p';
     ParamByName('u').AsString := InputUser;
     ParamByName('p').AsString := InputPassHash;
     Open;
     if not IsEmpty then
     begin
+      // Record the login date & time
+      Edit;
+      FieldByName('last_login').AsString := DateAndTime;
+      Post;
+      Refresh;
+
       TDialogService.MessageDialog(
         'Login successful!',
         TMsgDlgType.mtInformation,  // info icon
@@ -162,10 +235,24 @@ begin
   end;
 end;
 
-{ Minimize }
+{ Minimize Button }
 procedure TfrmLogin.btnMinimizeClick(Sender: TObject);
 begin
   WindowState := TWindowState.wsMinimized;
+end;
+
+{ Show Password Onchanges }
+procedure TfrmLogin.cbShowPasswordChange(Sender: TObject);
+begin
+  if cbShowPassword.IsChecked then
+    ePassword.Password := False
+  else
+    ePassword.Password := True;
+end;
+
+procedure TfrmLogin.cbShowPasswordClick(Sender: TObject);
+begin
+  ePassword.SetFocus;
 end;
 
 { Form Show }
@@ -173,11 +260,15 @@ procedure TfrmLogin.FormShow(Sender: TObject);
 begin
   dm.FormReader := 'Login';
 
+  // Hide Show password
+  cbShowPassword.Visible := False;
+
   // Create Main form
   if not Assigned(frmMain) then
     Application.CreateForm(TfrmMain, frmMain);
 
-  CheckRecords; // Record Checker
+  // Record Checker
+  CheckRecords;
 end;
 
 { rDrag for borderless login form with draggable feature }

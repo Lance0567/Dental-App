@@ -439,8 +439,8 @@ object fDashboard: TfDashboard
           RowCount = 0
           Options = [ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
           OnResized = gTodaysAppointmentResized
-          Viewport.Width = 164.000000000000000000
-          Viewport.Height = 250.000000000000000000
+          Viewport.Width = 160.000000000000000000
+          Viewport.Height = 225.000000000000000000
         end
       end
       object rQuickActions: TRectangle
@@ -474,7 +474,7 @@ object fDashboard: TfDashboard
             Images = dm.imgList
             ImageIndex = 40
             Margins.Right = 10.000000000000000000
-            Position.X = 2.000000000000000000
+            Position.X = 1.000000000000000000
             Position.Y = -1.000000000000000000
             Sides = [Top, Left, Bottom, Right]
             Size.Width = 113.000000000000000000
@@ -501,8 +501,7 @@ object fDashboard: TfDashboard
             Cursor = crHandPoint
             Images = dm.imgList
             ImageIndex = 7
-            Position.X = 129.000000000000000000
-            Position.Y = -4.000000000000000000
+            Position.X = 124.000000000000000000
             Sides = [Top, Left, Bottom, Right]
             Size.Width = 115.000000000000000000
             Size.Height = 80.000000000000000000
@@ -614,6 +613,7 @@ object fDashboard: TfDashboard
           MemberName = 'id'
           Header = 'ID'
           Width = 100
+          Alignment = taLeftJustify
         end
         item
           MemberName = 'patient'

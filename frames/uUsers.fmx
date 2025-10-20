@@ -201,11 +201,13 @@ object fUsers: TfUsers
           MemberName = 'id'
           Header = 'ID'
           Width = 100
+          Alignment = taLeftJustify
         end
         item
-          MemberName = 'user_role'
-          Header = 'Role'
-          Width = 120
+          MemberName = 'profile_pic'
+          Header = 'Profile Picture'
+          Width = 90
+          ColumnStyle = 'ImageColumn'
         end
         item
           MemberName = 'name'
@@ -213,10 +215,9 @@ object fUsers: TfUsers
           Width = 170
         end
         item
-          MemberName = 'profile_pic'
-          Header = 'Profile Picture'
-          Width = 90
-          ColumnStyle = 'ImageColumn'
+          MemberName = 'user_role'
+          Header = 'Role'
+          Width = 120
         end
         item
           MemberName = 'status'

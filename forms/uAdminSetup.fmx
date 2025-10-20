@@ -38,6 +38,7 @@ object frmAdminSetup: TfrmAdminSetup
             end
             inherited btnClose: TSpeedButton
               Position.X = 378.000000000000000000
+              OnClick = fUserModalbtnCloseClick
             end
           end
           inherited rUser: TRectangle
@@ -87,7 +88,6 @@ object frmAdminSetup: TfrmAdminSetup
                 end
                 inherited eContactNumber: TEdit
                   Size.Width = 348.000000000000000000
-                  StyledSettings = [Family]
                 end
               end
               inherited lytEmailAddress: TLayout
@@ -98,7 +98,6 @@ object frmAdminSetup: TfrmAdminSetup
                 end
                 inherited eEmailAddress: TEdit
                   Size.Width = 348.000000000000000000
-                  StyledSettings = [Family]
                 end
               end
               inherited lytFullName: TLayout
@@ -109,7 +108,6 @@ object frmAdminSetup: TfrmAdminSetup
                 end
                 inherited eFullName: TEdit
                   Size.Width = 348.000000000000000000
-                  StyledSettings = [Family]
                 end
               end
               inherited lytUsername: TLayout
@@ -120,21 +118,18 @@ object frmAdminSetup: TfrmAdminSetup
                 end
                 inherited eUsername: TEdit
                   Size.Width = 348.000000000000000000
-                  StyledSettings = [Family]
                 end
               end
               inherited lytPassword: TLayout
                 Size.Width = 348.000000000000000000
-                inherited ePassword: TEdit [0]
+                inherited ePassword: TEdit
                   Size.Width = 348.000000000000000000
-                  StyledSettings = [Family]
                   inherited cbShowPassword: TCheckBox
-                    Cursor = crHandPoint
-                    Position.X = 288.000000000000000000
+                    Position.X = 283.000000000000000000
                     TextSettings.Font.StyleExt = {00060000000000000004000000}
                   end
                 end
-                inherited lPassword: TLabel [1]
+                inherited lPassword: TLabel
                   Size.Width = 348.000000000000000000
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
                 end
@@ -178,7 +173,6 @@ object frmAdminSetup: TfrmAdminSetup
                 end
                 inherited eDepartment: TEdit
                   Size.Width = 348.000000000000000000
-                  StyledSettings = [Family]
                 end
               end
             end
@@ -194,6 +188,7 @@ object frmAdminSetup: TfrmAdminSetup
               Position.X = 188.000000000000000000
               StyleLookup = 'btnCancelStyle1'
               TextSettings.Font.StyleExt = {00060000000000000004000000}
+              OnClick = fUserModalbtnCancelClick
             end
           end
         end

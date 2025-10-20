@@ -69,17 +69,17 @@ begin
     // Fixed layout at 850px
     for i := 0 to gAppointment.ColumnCount - 1 do
     begin
-      if (i = 1) or (i = 2) or (i = 3) then
-        gAppointment.Columns[i].Width := 230
+      if (i = 0) or (i = 4) or (i = 5) or (i = 6) then
+        gAppointment.Columns[i].Width := 180
       else
-        gAppointment.Columns[i].Width := 170;
+        gAppointment.Columns[i].Width := 220;
     end;
   end
   else if frmMain.ClientWidth > 850 then
   begin
     // Dynamic layout when wider than 850px
-    FixedWidth := 220;      // width for 1st, 2nd and 3rd columns
-    FixedColumns := 2;      // 2 fixed columns
+    FixedWidth := 180;      // width for 1st, 2nd and 3rd columns
+    FixedColumns := 4;      // 2 fixed columns
 
     if gAppointment.ColumnCount > FixedColumns then
       NewWidth := (gAppointment.Width - (FixedWidth * FixedColumns)) / (gAppointment.ColumnCount - FixedColumns)
@@ -88,7 +88,7 @@ begin
 
     for i := 0 to gAppointment.ColumnCount - 1 do
     begin
-      if (i = 1) or (i = 2) or (i = 3)then
+      if (i = 0) or (i = 4) or (i = 5) or (i = 6) then
         gAppointment.Columns[i].Width := FixedWidth - 1
       else
         gAppointment.Columns[i].Width := NewWidth - 2;
@@ -119,17 +119,17 @@ begin
             // Fixed layout for 850px
             for i := 0 to gAppointment.ColumnCount - 1 do
             begin
-              if (i = 1) or (i = 2) or (i = 3) then
-                gAppointment.Columns[i].Width := 230
+              if (i = 0) or (i = 4) or (i = 5) or (i = 6) then
+                gAppointment.Columns[i].Width := 180
               else
-                gAppointment.Columns[i].Width := 170;
+                gAppointment.Columns[i].Width := 220;
             end;
           end
           else if frmMain.ClientWidth > 850 then
           begin
             // Dynamic layout
-            FixedWidth := 220; // Width for 1st, 2nd and 3rd columns
-            FixedColumns := 2;
+            FixedWidth := 180; // Width for 1st, 2nd and 3rd columns
+            FixedColumns := 4;
 
             if gAppointment.ColumnCount > FixedColumns then
               NewWidth := (gAppointment.Width - (FixedWidth * FixedColumns)) / (gAppointment.ColumnCount - FixedColumns)
@@ -138,7 +138,7 @@ begin
 
             for i := 0 to gAppointment.ColumnCount - 1 do
             begin
-              if (i = 1) or (i = 2) or (i = 3) then
+              if (i = 0) or (i = 4) or (i = 5) or (i = 6) then
                 gAppointment.Columns[i].Width := FixedWidth - 1
               else
                 gAppointment.Columns[i].Width := NewWidth - 2;

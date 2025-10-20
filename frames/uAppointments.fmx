@@ -247,6 +247,7 @@ object fAppointments: TfAppointments
           MemberName = 'id'
           Header = 'ID'
           Width = 100
+          Alignment = taLeftJustify
         end
         item
           MemberName = 'patient'

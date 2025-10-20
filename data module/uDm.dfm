@@ -32854,6 +32854,7 @@ object dm: Tdm
         'ntal System\Win32\Debug\database\dental.db'
       'LockingMode=Normal'
       'DriverID=SQLite')
+    Connected = True
     LoginPrompt = False
     Left = 72
     Top = 32

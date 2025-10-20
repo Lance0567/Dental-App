@@ -67,15 +67,15 @@ begin
     for i := 0 to gPatients.ColumnCount - 1 do
     begin
       if (i = 0) or (i = 2) or (i = 3) or (i = 4) then
-        gPatients.Columns[i].Width := 230
+        gPatients.Columns[i].Width := 180
       else
-        gPatients.Columns[i].Width := 170;
+        gPatients.Columns[i].Width := 220;
     end;
   end
   else if frmMain.ClientWidth > 850 then
   begin
     // Dynamic layout when wider than 850px
-    FixedWidth := 170;      // width for 2nd and last columns
+    FixedWidth := 180;      // width for 2nd and last columns
     FixedColumns := 4;      // 2 fixed columns
 
     if gPatients.ColumnCount > FixedColumns then
@@ -117,15 +117,15 @@ begin
             for i := 0 to gPatients.ColumnCount - 1 do
             begin
               if (i = 0) or (i = 2) or (i = 3) or (i = 4) then
-                gPatients.Columns[i].Width := 230
+                gPatients.Columns[i].Width := 180
               else
-                gPatients.Columns[i].Width := 170;
+                gPatients.Columns[i].Width := 220;
             end;
           end
           else if frmMain.ClientWidth > 850 then
           begin
             // Dynamic layout
-            FixedWidth := 170; // Width for 2nd and last columns
+            FixedWidth := 180; // Width for 2nd and last columns
             FixedColumns := 4;
 
             if gPatients.ColumnCount > FixedColumns then
@@ -179,7 +179,7 @@ begin
           else if frmMain.ClientWidth > 850 then
           begin
             // Dynamic layout
-            FixedWidth := 170; // Width for 2nd and last columns
+            FixedWidth := 180; // Width for 2nd and last columns
             FixedColumns := 4;
 
             if gPatients.ColumnCount > FixedColumns then

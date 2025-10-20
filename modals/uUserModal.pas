@@ -343,10 +343,12 @@ var
   ms: TMemoryStream;
   HasError: Boolean;
   FirstInvalidPos: Single;
-  HashedPassword: string;
+  HashedPassword: String;
+  DateCreated: String;
 begin
   HasError := False;
   FirstInvalidPos := -1;
+  DateCreated := FormatDateTime('mmmm dd, yyyy', Date);
 
   // FullName validation
   if eFullName.Text = '' then
@@ -447,6 +449,8 @@ begin
   dm.qUsers.FieldByName('user_role').AsString := cbRole.Text;
   dm.qUsers.FieldByName('department').AsString := eDepartment.Text;
   dm.qUsers.FieldByName('status').AsString := cbStatus.Text;
+  dm.qUsers.FieldByName('date_created').AsString := DateCreated;
+  dm.qUsers.FieldByName('last_login').AsString := 'Never logged in';
 
   dm.qUsers.Post;
   dm.qUsers.Refresh;

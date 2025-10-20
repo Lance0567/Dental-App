@@ -642,6 +642,7 @@ object fUserModal: TfUserModal
                 ShowHint = True
                 object cbShowPassword: TCheckBox
                   Align = Right
+                  Cursor = crHandPoint
                   StyledSettings = [Family, Size]
                   Margins.Right = 5.000000000000000000
                   Position.X = 281.000000000000000000

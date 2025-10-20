@@ -156,29 +156,31 @@ begin
   dm.FormReader := 'Main';
 
   // Create Dashboard Frame if not yet created
-  if not Assigned(fDashboard) then
-    fDashboard := TfDashboard.Create(Application);
+//  if not Assigned(fDashboard) then
+//    fDashboard := TfDashboard.Create(Application);
+//
+//  if not Assigned(fAppointments) then
+//    fAppointments := TfAppointments.Create(Application);
+//
+//  if not Assigned(fPatients) then
+//    fPatients := TfPatients.Create(Application);
+//
+//  if not Assigned(fUsers) then
+//    fUsers := TfUsers.Create(Application);
+//
+//  if not Assigned(fUserProfile) then
+//    fUserProfile := TfUserProfile.Create(Application);
+//
+//  if not Assigned(fAppointmentModal) then
+//    fAppointmentModal := TfAppointmentModal.Create(Application);
+//
+//  if not Assigned(fPatientModal) then
+//    fPatientModal := TfPatientModal.Create(Application);
+//
+//  if not Assigned(fUserModal) then
+//    fUserModal := TfUserModal.Create(Application);
 
-  if not Assigned(fAppointments) then
-    fAppointments := TfAppointments.Create(Application);
-
-  if not Assigned(fPatients) then
-    fPatients := TfPatients.Create(Application);
-
-  if not Assigned(fUsers) then
-    fUsers := TfUsers.Create(Application);
-
-  if not Assigned(fUserProfile) then
-    fUserProfile := TfUserProfile.Create(Application);
-
-  if not Assigned(fAppointmentModal) then
-    fAppointmentModal := TfAppointmentModal.Create(Application);
-
-  if not Assigned(fPatientModal) then
-    fPatientModal := TfPatientModal.Create(Application);
-
-  if not Assigned(fUserModal) then
-    fUserModal := TfUserModal.Create(Application);
+  sbDashboardClick(Sender);
 
   // Default tab index
   tcController.TabIndex := 0;
@@ -287,7 +289,7 @@ begin
 
   // Message of the pop up and color setting
   case Self.Tag of
-    0:
+    0:  // Patient Modal
       begin
         lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.Black;
         lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Dimgray;
@@ -298,7 +300,7 @@ begin
         // Icon set to green success
         gPopUp.ImageIndex := 8;
       end;
-    1:
+    1:  // Patient Modal
       begin
         lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.Black;
         lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Dimgray;
@@ -309,7 +311,7 @@ begin
         // Icon set to yellow success
         gPopUp.ImageIndex := 32;
       end;
-    2:
+    2:  // Patient Modal
       begin
         lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.White;
         lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Gray;
@@ -320,7 +322,7 @@ begin
         // Icon set to red success
         gPopUp.ImageIndex := 33;
       end;
-      3:
+      3:  // Appointment Modal
       begin
         lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.Black;
         lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Dimgray;
@@ -331,7 +333,7 @@ begin
         // Icon set to green success
         gPopUp.ImageIndex := 8;
       end;
-      4:
+      4:  // Appointment Modal
       begin
         lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.Black;
         lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Dimgray;
@@ -341,6 +343,17 @@ begin
         rPopUp.Fill.Color := TAlphaColorRec.White;
         // Icon set to yellow success
         gPopUp.ImageIndex := 32;
+      end;
+      5:  // Appointment Modal
+      begin
+        lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.Black;
+        lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Dimgray;
+        lbPopUp.Words.Items[0].Text := AEntity + ' deleted';
+        lbPopUp.Words.Items[1].Text := 'The ' + ADetail +
+          ' has been deleted successfully.';
+        rPopUp.Fill.Color := TAlphaColorRec.White;
+        // Icon set to red success
+        gPopUp.ImageIndex := 33;
       end;
   end;
 end;

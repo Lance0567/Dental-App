@@ -161,13 +161,14 @@ object frmLogin: TfrmLogin
         Align = Client
         StyleLookup = 'eUsernameStyle1'
         TabOrder = 1
-        TextSettings.Font.Size = 13.000000000000000000
+        TextSettings.Font.Size = 14.000000000000000000
         Margins.Top = 5.000000000000000000
         Size.Width = 381.000000000000000000
         Size.Height = 33.000000000000000000
         Size.PlatformDefault = False
         TextPrompt = 'Enter your username'
         StyledSettings = [Family]
+        OnKeyDown = eUsernameKeyDown
       end
     end
     object lytPassword: TLayout
@@ -197,13 +198,37 @@ object frmLogin: TfrmLogin
         TabOrder = 2
         Password = True
         TextSettings.Font.Family = 'Segoe UI Variable Display'
-        TextSettings.Font.Size = 13.000000000000000000
+        TextSettings.Font.Size = 14.000000000000000000
         Margins.Top = 5.000000000000000000
         Size.Width = 381.000000000000000000
         Size.Height = 33.000000000000000000
         Size.PlatformDefault = False
         TextPrompt = 'Enter your password'
         StyledSettings = []
+        OnKeyUp = ePasswordKeyUp
+        OnEnter = ePasswordEnter
+        OnExit = ePasswordExit
+        object cbShowPassword: TCheckBox
+          Align = Right
+          CanFocus = False
+          Cursor = crHandPoint
+          StyledSettings = [Family]
+          HelpContext = 2
+          HelpType = htKeyword
+          Hint = 
+            'Next time you start System you won'#39't need to enter your password' +
+            '.'
+          Position.X = 312.000000000000000000
+          Size.Width = 69.000000000000000000
+          Size.Height = 33.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          Text = 'Show'
+          ParentShowHint = False
+          ShowHint = True
+          OnChange = cbShowPasswordChange
+          OnClick = cbShowPasswordClick
+        end
       end
     end
     object lytBottom: TLayout
@@ -378,6 +403,7 @@ object frmLogin: TfrmLogin
           TextSettings.Trimming = None
           XRadius = 5.000000000000000000
           YRadius = 5.000000000000000000
+          OnClick = btnCreateAccountClick
         end
       end
     end

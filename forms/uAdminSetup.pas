@@ -10,6 +10,8 @@ uses
 type
   TfrmAdminSetup = class(TForm)
     fUserModal: TfUserModal;
+    procedure fUserModalbtnCancelClick(Sender: TObject);
+    procedure fUserModalbtnCloseClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -21,8 +23,25 @@ var
 
 implementation
 
+
 {$R *.fmx}
 
 uses uDm;
+
+{ Cancel Button }
+procedure TfrmAdminSetup.fUserModalbtnCancelClick(Sender: TObject);
+begin
+  fUserModal.btnCancelClick(Sender);
+  frmAdminSetup.Close;
+  frmAdminSetup := nil;
+end;
+
+{ Close Button }
+procedure TfrmAdminSetup.fUserModalbtnCloseClick(Sender: TObject);
+begin
+  fUserModal.btnCloseClick(Sender);
+  frmAdminSetup.Close;
+  frmAdminSetup := nil;
+end;
 
 end.

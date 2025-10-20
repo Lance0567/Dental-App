@@ -70,15 +70,15 @@ begin
     for i := 0 to gUsers.ColumnCount - 1 do
     begin
       if (i = 0) or (i = 1) or (i = 3) or (i = 4) or (i = 5) then
-        gUsers.Columns[i].Width := 230
+        gUsers.Columns[i].Width := 130
       else
-        gUsers.Columns[i].Width := 170;
+        gUsers.Columns[i].Width := 220;
     end;
   end
   else if frmMain.ClientWidth > 850 then
   begin
     // Dynamic layout when wider than 850px
-    FixedWidth := 120; // width for 3rd and last columns
+    FixedWidth := 130; // width for 3rd and last columns
     FixedColumns := 5; // 5 fixed columns
 
     if gUsers.ColumnCount > FixedColumns then
@@ -121,16 +121,16 @@ begin
             // Fixed layout for 850px
             for i := 0 to gUsers.ColumnCount - 1 do
             begin
-              if (i = 1) or (i = gUsers.ColumnCount - 1) then
-                gUsers.Columns[i].Width := 230
+              if (i = 0) or (i = 1) or (i = 3) or (i = 4) or (i = 5) then
+                gUsers.Columns[i].Width := 130
               else
-                gUsers.Columns[i].Width := 170;
+                gUsers.Columns[i].Width := 220;
             end;
           end
           else if frmMain.ClientWidth > 850 then
           begin
             // Dynamic layout
-            FixedWidth := 120; // Width for 3rd and last columns
+            FixedWidth := 130; // Width for 3rd and last columns
             FixedColumns := 5;
 
             if gUsers.ColumnCount > FixedColumns then
@@ -176,15 +176,15 @@ begin
             for i := 0 to gUsers.ColumnCount - 1 do
             begin
               if (i = 0) or (i = 1) or (i = 3) or (i = 4) or (i = 5) then
-                gUsers.Columns[i].Width := 230
+                gUsers.Columns[i].Width := 130
               else
-                gUsers.Columns[i].Width := 170;
+                gUsers.Columns[i].Width := 220;
             end;
           end
           else if frmMain.ClientWidth > 850 then
           begin
             // Dynamic layout
-            FixedWidth := 120; // Width for 3rd and last columns
+            FixedWidth := 130; // Width for 3rd and last columns
             FixedColumns := 5;
 
             if gUsers.ColumnCount > FixedColumns then
