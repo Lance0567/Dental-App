@@ -3,6 +3,7 @@ program Dental;
 uses
   System.StartUpCopy,
   FMX.Forms,
+  uLogin in 'forms\uLogin.pas' {frmLogin},
   uMain in 'forms\uMain.pas' {frmMain},
   uDm in 'data module\uDm.pas' {dm: TDataModule},
   uDashboard in 'frames\uDashboard.pas' {fDashboard: TFrame},
@@ -15,7 +16,6 @@ uses
   uUserModal in 'modals\uUserModal.pas' {fUserModal: TFrame},
   uUserDetails in 'modals\uUserDetails.pas' {fUserDetails: TFrame},
   uUpdateProfilePhoto in 'modals\uUpdateProfilePhoto.pas' {fUpdateProfilePhoto: TFrame},
-  uLogin in 'forms\uLogin.pas' {frmLogin},
   uAppointmentModal in 'modals\uAppointmentModal.pas' {fAppointmentModal: TFrame},
   uToolbar in 'frames\uToolbar.pas' {fToolbar: TFrame},
   uAdminSetup in 'forms\uAdminSetup.pas' {frmAdminSetup};
@@ -24,8 +24,7 @@ uses
 
 begin
   Application.Initialize;
-  Application.CreateForm(Tdm, dm);
   Application.CreateForm(TfrmLogin, frmLogin);
-  Application.CreateForm(TfrmMain, frmMain);
+  Application.CreateForm(Tdm, dm);
   Application.Run;
 end.

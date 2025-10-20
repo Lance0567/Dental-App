@@ -64,6 +64,7 @@ begin
   qAppointments.Close;
   qTodaysAppointment.Close;
   qPatientSelection.Close;
+  qTemp.Close;
 
   // activate connection
   conDental.Connected := True;

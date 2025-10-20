@@ -339,12 +339,12 @@ begin
   frmMain.fUserModal.eDepartment.Text :=
     dm.qUsers.FieldByName('department').AsString;
 
-  // Get user role in the database
-  roleH := dm.qUsers.FieldByName('role').AsString;
+  // Get status in the database
+  roleH := dm.qUsers.FieldByName('status').AsString;
   if roleH = 'Active' then
-    frmMain.fUserModal.cbStatus.ItemIndex := 0
+    frmMain.fUserModal.cbRole.ItemIndex := 0
   else
-    frmMain.fUserModal.cbStatus.ItemIndex := 1;
+    frmMain.fUserModal.cbRole.ItemIndex := 1;
 end;
 
 { Grid Resized }

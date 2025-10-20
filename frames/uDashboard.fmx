@@ -439,8 +439,8 @@ object fDashboard: TfDashboard
           RowCount = 0
           Options = [ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
           OnResized = gTodaysAppointmentResized
-          Viewport.Width = 160.000000000000000000
-          Viewport.Height = 225.000000000000000000
+          Viewport.Width = 164.000000000000000000
+          Viewport.Height = 250.000000000000000000
         end
       end
       object rQuickActions: TRectangle

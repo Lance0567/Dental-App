@@ -150,6 +150,9 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
+        <DCCReference Include="forms\uLogin.pas">
+            <Form>frmLogin</Form>
+        </DCCReference>
         <DCCReference Include="forms\uMain.pas">
             <Form>frmMain</Form>
             <FormType>fmx</FormType>
@@ -204,10 +207,6 @@
             <Form>fUpdateProfilePhoto</Form>
             <FormType>fmx</FormType>
             <DesignClass>TFrame</DesignClass>
-        </DCCReference>
-        <DCCReference Include="forms\uLogin.pas">
-            <Form>frmLogin</Form>
-            <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="modals\uAppointmentModal.pas">
             <Form>fAppointmentModal</Form>
@@ -1233,7 +1232,7 @@
                 <Platform value="Win32">True</Platform>
                 <Platform value="Win64">True</Platform>
             </Platforms>
-            <ModelSupport>True</ModelSupport>
+            <ModelSupport>False</ModelSupport>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>

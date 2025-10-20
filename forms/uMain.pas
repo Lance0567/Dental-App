@@ -84,7 +84,7 @@ implementation
 
 {$R *.fmx}
 
-uses uDm, uUserDetails;
+uses uDm, uUserDetails, uLogin;
 
 { Hide Frames }
 procedure TfrmMain.HideFrames;
@@ -157,7 +157,28 @@ begin
 
   // Create Dashboard Frame if not yet created
   if not Assigned(fDashboard) then
-    fDashboard := TfDashboard.Create(Self);
+    fDashboard := TfDashboard.Create(Application);
+
+  if not Assigned(fAppointments) then
+    fAppointments := TfAppointments.Create(Application);
+
+  if not Assigned(fPatients) then
+    fPatients := TfPatients.Create(Application);
+
+  if not Assigned(fUsers) then
+    fUsers := TfUsers.Create(Application);
+
+  if not Assigned(fUserProfile) then
+    fUserProfile := TfUserProfile.Create(Application);
+
+  if not Assigned(fAppointmentModal) then
+    fAppointmentModal := TfAppointmentModal.Create(Application);
+
+  if not Assigned(fPatientModal) then
+    fPatientModal := TfPatientModal.Create(Application);
+
+  if not Assigned(fUserModal) then
+    fUserModal := TfUserModal.Create(Application);
 
   // Default tab index
   tcController.TabIndex := 0;

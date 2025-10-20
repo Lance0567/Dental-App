@@ -75,6 +75,7 @@ begin
   Application.Terminate;
 end;
 
+{ Check Records }
 procedure TfrmLogin.CheckRecords;
 begin
   with dm.qTemp do
@@ -146,9 +147,8 @@ begin
         TMsgDlgBtn.mbOK, 0,
         nil  // No callback, so code continues immediately
       );
-      frmMain := TfrmMain.Create(Self);
-      frmMain.Show;
-      frmLogin.Visible := False;
+      frmMain.Show; // Show Main form
+      frmLogin.Hide;    // Hide Login form
     end
     else
       TDialogService.MessageDialog(
@@ -172,9 +172,15 @@ end;
 procedure TfrmLogin.FormShow(Sender: TObject);
 begin
   dm.FormReader := 'Login';
+
+  // Create Main form
+  if not Assigned(frmMain) then
+    Application.CreateForm(TfrmMain, frmMain);
+
   CheckRecords; // Record Checker
 end;
 
+{ rDrag for borderless login form with draggable feature }
 procedure TfrmLogin.rDragMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Single);
 begin
