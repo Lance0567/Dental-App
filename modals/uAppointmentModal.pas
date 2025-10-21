@@ -226,6 +226,7 @@ begin
 
   // Show date text
   deDate.StyledSettings := [TStyledSetting.FontColor];
+  deDate.TodayDefault := False;
 
   crDate.Visible := False;
 end;

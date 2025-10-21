@@ -237,6 +237,7 @@ begin
   eFullName.Text := '';
 
   // Date of Birth
+  deDateOfBirth.TodayDefault := True;
   deDateOfBirth.TextSettings.FontColor := TAlphaColors.White;
   lDateText.Visible := True;
   deDateOfBirth.DateFormatKind := TDTFormatKind.Short;
@@ -460,6 +461,7 @@ begin
   // UI tweaks
   deDateOfBirth.TextSettings.FontColor := TAlphaColors.Black;
   lDateText.Visible := False;
+  deDateOfBirth.TodayDefault := False;
 
   // Get the date value (TDateEdit.Date is safer than parsing Text)
   DOB := deDateOfBirth.Date;

@@ -15,9 +15,9 @@ object fPatients: TfPatients
     object lytBottom: TLayout
       Align = Scale
       Margins.Top = 10.000000000000000000
-      Position.Y = 391.000000000000000000
-      Size.Width = 580.000000000000000000
-      Size.Height = 25.000000000000000000
+      Position.Y = 3179.919921875000000000
+      Size.Width = 6728.000000000000000000
+      Size.Height = 281.199951171875000000
       Size.PlatformDefault = False
       TabOrder = 3
     end
@@ -153,8 +153,8 @@ object fPatients: TfPatients
         Options = [ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
         OnResized = gPatientsResized
         OnCellDblClick = gPatientsCellDblClick
-        Viewport.Width = 466.000000000000000000
-        Viewport.Height = 116.000000000000000000
+        Viewport.Width = 470.000000000000000000
+        Viewport.Height = 141.000000000000000000
       end
     end
     inline fToolbar: TfToolbar

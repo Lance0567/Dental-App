@@ -498,7 +498,7 @@ object fAppointmentModal: TfAppointmentModal
                   TextSettings.Font.Family = 'Segoe UI Variable Text'
                   TextSettings.Font.Size = 14.000000000000000000
                   Text = 'Pick a date'
-                  TabOrder = 14
+                  TabOrder = 15
                 end
               end
               object lDate: TLabel

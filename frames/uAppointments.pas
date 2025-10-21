@@ -198,6 +198,7 @@ begin
   frmMain.fAppointmentModal.MemoTrackingReset := '';
 
   // Get Date from the database
+  frmMain.fAppointmentModal.deDate.TodayDefault := False;
   frmMain.fAppointmentModal.deDate.Date := dm.qAppointments.FieldByName('date_appointment').AsDateTime;
   frmMain.fAppointmentModal.lPickDate.Visible := False; // Hide Date pick label
   frmMain.fAppointmentModal.deDate.StyledSettings := [TStyledSetting.FontColor];  // Show date text
