@@ -184,15 +184,7 @@ object fPatientModal: TfPatientModal
               Size.PlatformDefault = False
               Stroke.Color = xFFE2F7EF
               Stroke.Thickness = 4.000000000000000000
-              object rImageFrame: TRectangle
-                Align = Center
-                Fill.Color = claNull
-                Size.Width = 124.000000000000000000
-                Size.Height = 114.000000000000000000
-                Size.PlatformDefault = False
-                Stroke.Color = claGray
-                Visible = False
-              end
+              OnClick = cProfilePhotoClick
               object gIcon: TGlyph
                 Align = Center
                 Size.Width = 44.000000000000000000
@@ -214,17 +206,6 @@ object fPatientModal: TfPatientModal
                 Text = 'L'
                 Visible = False
                 TabOrder = 0
-              end
-              object imgProfilePhoto: TImage
-                MultiResBitmap = <
-                  item
-                  end>
-                Align = Center
-                Size.Width = 120.000000000000000000
-                Size.Height = 110.000000000000000000
-                Size.PlatformDefault = False
-                WrapMode = Stretch
-                OnClick = imgProfilePhotoClick
               end
             end
             object lbProfilePhoto: TLabel

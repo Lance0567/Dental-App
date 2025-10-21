@@ -59,7 +59,6 @@ type
     lDateText: TLabel;
     btnCamera: TCornerButton;
     btnCancel: TCornerButton;
-    imgProfilePhoto: TImage;
     rCameralModal: TRectangle;
     lytImgTools: TLayout;
     lytCameraOption: TLayout;
@@ -73,7 +72,6 @@ type
     ccCapturePhoto: TCameraComponent;
     sdSavePicture: TSaveDialog;
     imgPhoto: TImage;
-    rImageFrame: TRectangle;
     crContactNumber: TCalloutRectangle;
     gContactNumber: TGlyph;
     lContactNumberW: TLabel;
@@ -101,13 +99,13 @@ type
     procedure ccCapturePhotoSampleBufferReady(Sender: TObject;
       const ATime: TMediaTime);
     procedure btnTakePictureClick(Sender: TObject);
-    procedure imgProfilePhotoClick(Sender: TObject);
     procedure btnUploadClick(Sender: TObject);
     procedure btnSaveCurrentImageClick(Sender: TObject);
     procedure eContactNumberChangeTracking(Sender: TObject);
     procedure eEmailAddressChangeTracking(Sender: TObject);
     procedure eAddressChangeTracking(Sender: TObject);
     procedure deDateOfBirthCheckChanged(Sender: TObject);
+    procedure cProfilePhotoClick(Sender: TObject);
   private
     FCapturing: Boolean;
     FStatus: Boolean;
@@ -208,32 +206,12 @@ begin
   end;
 end;
 
-{ Show captured photo }
-procedure TfPatientModal.imgProfilePhotoClick(Sender: TObject);
-begin
-  // Show Captured photo
-  rCameralModal.Visible := True;
-
-  // Show Label in camera modal
-  lPreviewImage.Visible := True;
-
-  // Hide component
-  lytImgTools.Visible := False;
-
-  // Adjust lytPaintBox height
-  lytPaintBox.Margins.Bottom := 45;
-  lytPaintBox.Margins.Left := 60;
-  lytPaintBox.Margins.Right := 60;
-  lytPaintBox.Margins.Top := 25;
-
-  // Dispaly the image
-  imgPhoto.Bitmap.Assign(imgProfilePhoto.Bitmap);
-end;
-
 { Clear items for add patient modal }
 procedure TfPatientModal.ClearItems;
 begin
   // Clear Fields
+  cProfilePhoto.Fill.Bitmap := nil;  // Clear Image
+  cProfilePhoto.Fill.Kind := TBrushKind.Solid;
   eFullName.Text := '';
 
   // Date of Birth
@@ -258,12 +236,31 @@ begin
   mMedicalNotes.Text := 'Enter any relevant medical history, allergies, or notes';
   MemoTrackingReset := 'Empty';
 
-  // Clear Image
-  imgProfilePhoto.Bitmap := nil;
-
   // Hide all warning validation
   crContactNumber.Visible := False;
   crFullName.Visible := False;
+end;
+
+{ Show captured photo }
+procedure TfPatientModal.cProfilePhotoClick(Sender: TObject);
+begin
+  // Show Captured photo
+  rCameralModal.Visible := True;
+
+  // Show Label in camera modal
+  lPreviewImage.Visible := True;
+
+  // Hide component
+  lytImgTools.Visible := False;
+
+  // Adjust lytPaintBox height
+  lytPaintBox.Margins.Bottom := 45;
+  lytPaintBox.Margins.Left := 60;
+  lytPaintBox.Margins.Right := 60;
+  lytPaintBox.Margins.Top := 25;
+
+  // Dispaly the image
+  imgPhoto.Bitmap.Assign(cProfilePhoto.Fill.Bitmap);
 end;
 
 { Save Button }
@@ -324,11 +321,11 @@ begin
   dm.qPatients.FieldByName('medical_notes').AsString := mMedicalNotes.Text;
 
   // Save image to LONGBLOB
-  if Assigned(imgProfilePhoto.Bitmap) and not imgProfilePhoto.Bitmap.IsEmpty then
+  if Assigned(cProfilePhoto.Fill.Bitmap) and not cProfilePhoto.Fill.Bitmap.Bitmap.IsEmpty then
   begin
     ms := TMemoryStream.Create;
     try
-      imgProfilePhoto.Bitmap.SaveToStream(ms);
+      cProfilePhoto.Fill.Bitmap.Bitmap.SaveToStream(ms);
       ms.Position := 0;
       TBlobField(dm.qPatients.FieldByName('profile_photo')).LoadFromStream(ms);
     finally
@@ -361,19 +358,16 @@ begin
     FStatus := True;
 
     // Show captured image on the image holder
-    imgProfilePhoto.Bitmap.Assign(imgPhoto.Bitmap);
+    cProfilePhoto.Fill.Bitmap.Assign(imgPhoto.Bitmap);
 
     // Disable the camera component
     ccCapturePhoto.Active := False;
 
-    // Show captured image
-    imgProfilePhoto.Visible := True;
-
     // Hide Icon for no captured image
     gIcon.Visible := False;
 
-    // Show Image frame
-    rImageFrame.Visible := True;
+    // Change the Fill kind
+    cProfilePhoto.Fill.Kind := TBrushKind.Bitmap;
   end
   else
   begin
@@ -392,7 +386,7 @@ begin
           procedure
           begin
             // Show captured image on the image holder
-            imgProfilePhoto.Bitmap.Assign(imgPhoto.Bitmap);
+            cProfilePhoto.Fill.Bitmap.Assign(imgPhoto.Bitmap);
 
             // Disable the camera component
             ccCapturePhoto.Active := False;
@@ -415,14 +409,10 @@ begin
     if LOpenDialog.Execute then
     begin
       // ✅ Load the selected file into the TImage
-      imgProfilePhoto.Bitmap.LoadFromFile(LOpenDialog.FileName);
+      cProfilePhoto.Fill.Bitmap.Bitmap.LoadFromFile(LOpenDialog.FileName);
     end;
   finally
     LOpenDialog.Free;
-    if imgProfilePhoto.Bitmap.IsEmpty then
-      rImageFrame.Visible := False
-    else
-      rImageFrame.Visible := True;
   end;
 end;
 
