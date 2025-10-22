@@ -3,13 +3,13 @@ object fToolbar: TfToolbar
   Margins.Left = -1.000000000000000000
   Margins.Right = -1.000000000000000000
   Position.X = -1.000000000000000000
-  Size.Width = 775.000000000000000000
+  Size.Width = 660.000000000000000000
   Size.Height = 60.000000000000000000
   Size.PlatformDefault = False
   object rToolbar: TRectangle
     Align = MostTop
     Fill.Color = claWhite
-    Size.Width = 775.000000000000000000
+    Size.Width = 660.000000000000000000
     Size.Height = 60.000000000000000000
     Size.PlatformDefault = False
     Stroke.Kind = None
@@ -17,14 +17,14 @@ object fToolbar: TfToolbar
     object lBevel: TLine
       Align = Client
       LineType = Bottom
-      Size.Width = 775.000000000000000000
+      Size.Width = 660.000000000000000000
       Size.Height = 60.000000000000000000
       Size.PlatformDefault = False
       Stroke.Thickness = 0.100000001490116100
     end
     object lytToolbarH: TLayout
       Align = Client
-      Size.Width = 775.000000000000000000
+      Size.Width = 660.000000000000000000
       Size.Height = 60.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 5
@@ -43,7 +43,7 @@ object fToolbar: TfToolbar
       end
       object lytUser: TLayout
         Align = Right
-        Position.X = 620.000000000000000000
+        Position.X = 505.000000000000000000
         Size.Width = 155.000000000000000000
         Size.Height = 60.000000000000000000
         Size.PlatformDefault = False
@@ -9563,6 +9563,7 @@ object fToolbar: TfToolbar
       TextSettings.Trimming = None
       XRadius = 13.000000000000000000
       YRadius = 13.000000000000000000
+      OnClick = cbAccountSettingsClick
     end
     object cbLogout: TCornerButton
       Align = Top
@@ -9590,6 +9591,7 @@ object fToolbar: TfToolbar
       TextSettings.Trimming = None
       XRadius = 13.000000000000000000
       YRadius = 13.000000000000000000
+      OnClick = cbLogoutClick
     end
     object lDivider: TLine
       Align = Top

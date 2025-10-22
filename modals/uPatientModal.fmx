@@ -179,7 +179,10 @@ object fPatientModal: TfPatientModal
             object cProfilePhoto: TCircle
               Align = MostTop
               Fill.Color = xFFA6E3D1
-              Size.Width = 201.000000000000000000
+              Margins.Left = 40.000000000000000000
+              Margins.Right = 40.000000000000000000
+              Position.X = 40.000000000000000000
+              Size.Width = 121.000000000000000000
               Size.Height = 115.000000000000000000
               Size.PlatformDefault = False
               Stroke.Color = xFFE2F7EF

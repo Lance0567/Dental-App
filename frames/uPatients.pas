@@ -219,15 +219,11 @@ begin
   // Clear Fields
   frmMain.fPatientModal.ClearItems;
 
-  // Hide Image Frame
-  frmMain.fPatientModal.rImageFrame.Visible := False;
-
   // Reset scrollbox
   frmMain.fPatientModal.ScrollBox1.ViewportPosition := PointF(0, 0);
 
   // Patient Modal visibility
   frmMain.fPatientModal.Visible := True;
-  frmMain.fPatientModal.gIcon.Visible := True;  // Show user icon
 
   // Profile Icon
   frmMain.fPatientModal.gIcon.ImageIndex := 10;
@@ -271,25 +267,23 @@ begin
 
   // Get Profile Photo
   // Load Profile Photo (LONGBLOB -> TImage)
+  frmMain.fPatientModal.cProfilePhoto.Fill.Kind := TBrushKind.Bitmap;
   ms := TMemoryStream.Create;
   try
-    if not dm.qPatients.FieldByName('profile_photo').IsNull then
+    if not dm.qUsers.FieldByName('profile_photo').IsNull then
     begin
-      TBlobField(dm.qPatients.FieldByName('profile_photo')).SaveToStream(ms);
+      TBlobField(dm.qUsers.FieldByName('profile_photo')).SaveToStream(ms);
       ms.Position := 0;
-      frmMain.fPatientModal.imgProfilePhoto.Bitmap.LoadFromStream(ms);
-
-      // Image Frame
-      frmMain.fPatientModal.rImageFrame.Visible := True;
+      frmMain.fPatientModal.cProfilePhoto.Fill.Bitmap.Bitmap.LoadFromStream(ms);
     end
     else
     begin
-      frmMain.fPatientModal.imgProfilePhoto.Bitmap := nil; // Clear if no photo
-
-      // Image Frame
-      frmMain.fPatientModal.rImageFrame.Visible := False;
+      frmMain.fPatientModal.cProfilePhoto.Fill.Bitmap.Bitmap := nil; // Clear if no photo
     end;
   finally
+    // Hide Icon
+    frmMain.fPatientModal.gIcon.Visible := False;
+    frmMain.fPatientModal.cProfilePhoto.Fill.Bitmap.WrapMode := TWrapMode.TileStretch;
     ms.Free;
   end;
 

@@ -51,8 +51,6 @@ type
     lStatus: TLabel;
     cbStatus: TComboBox;
     slRoleAndAccess: TSkLabel;
-    imgProfilePhoto: TImage;
-    rImageFrame: TRectangle;
     crFullName: TCalloutRectangle;
     gFullName: TGlyph;
     lFullNameW: TLabel;
@@ -138,6 +136,8 @@ uses uDm, uMain, uGlobal, uAdminSetup;
 procedure TfUserModal.ClearItems;
 begin
   // Fields
+  cProfilePhoto.Fill.Bitmap.Bitmap := nil; // set image to empty
+  gIcon.ImageIndex := 10;
   eFullName.Text := '';
   eUsername.ReadOnly := False;
   eUsername.Text := '';
@@ -147,9 +147,9 @@ begin
   cbRole.ItemIndex := 0;
   eDepartment.Text := '';
   cbStatus.ItemIndex := 0;
-  imgProfilePhoto.Bitmap := nil; // set image to empty
 end;
 
+{ Full name OnChange Tracking }
 procedure TfUserModal.eFullNameChangeTracking(Sender: TObject);
 begin
   crFullName.Visible := False;
@@ -238,12 +238,16 @@ begin
     if LOpenDialog.Execute then
     begin
       // ✅ Load the selected file into the TImage
-      imgProfilePhoto.Bitmap.LoadFromFile(LOpenDialog.FileName);
-      btnTakePicture.Text := 'Retake photo';
+      cProfilePhoto.Fill.Bitmap.Bitmap.LoadFromFile(LOpenDialog.FileName);
+      cProfilePhoto.Fill.Kind := TBrushKind.Bitmap;
+      cProfilePhoto.Fill.Bitmap.WrapMode := TWrapMode.TileStretch;
+      cProfilePhoto.Cursor := crHandPoint;  // Change cursor
+
+      lNameH.Visible := False;  // Hide Name holder
+      gIcon.ImageIndex := -1; // Hide Icon
     end;
   finally
     LOpenDialog.Free;
-    rImageFrame.Visible := True;
   end;
 end;
 
@@ -252,23 +256,10 @@ procedure TfUserModal.btnTakePictureClick(Sender: TObject);
 begin
   if not FStatus then
   begin
-    btnTakePicture.Text := 'Retake photo';
-    FStatus := True;
-
-    // Show captured image on the image holder
-    imgProfilePhoto.Bitmap.Assign(imgPhoto.Bitmap);
-
-    // Disable the camera component
-    ccCapturePhoto.Active := False;
-
-    // Show captured image
-    imgProfilePhoto.Visible := True;
-
-    // Hide Icon for no captured image
-    gIcon.Visible := False;
-
-    // Show Image frame
-    rImageFrame.Visible := True;
+    btnTakePicture.Text := 'Retake photo';  // Change caption of the button
+    FStatus := True;  // Camera status
+    ccCapturePhoto.Active := False; // Disable the camera component
+    cProfilePhoto.Fill.Bitmap.Bitmap.Assign(imgPhoto.Bitmap); // Show captured image on the image holder
   end
   else
   begin
@@ -287,15 +278,17 @@ begin
           procedure
           begin
             // Show captured image on the image holder
-            imgProfilePhoto.Bitmap.Assign(imgPhoto.Bitmap);
+            cProfilePhoto.Fill.Bitmap.Bitmap.Assign(imgPhoto.Bitmap);
 
             // Disable the camera component
             ccCapturePhoto.Active := False;
           end);
       end).Start;
   end;
-  Sleep(1500);
-  rCameralModal.Visible := False;
+  cProfilePhoto.Fill.Bitmap.WrapMode := TWrapMode.TileStretch;  // Wrapmode set to stretch
+  cProfilePhoto.Cursor := crHandPoint;  // Change cursor
+  gIcon.ImageIndex := -1; // Hide Icon
+  lNameH.Visible := False;  // Hide Name holder
 end;
 
 { Save current image }
@@ -434,11 +427,11 @@ begin
   dm.qUsers.FieldByName('contact_number').AsString := eContactNumber.Text;
 
   // Save image to LONGBLOB
-  if Assigned(imgProfilePhoto.Bitmap) and not imgProfilePhoto.Bitmap.IsEmpty then
+  if Assigned(cProfilePhoto.Fill.Bitmap.Bitmap) and not cProfilePhoto.Fill.Bitmap.Bitmap.IsEmpty then
   begin
     ms := TMemoryStream.Create;
     try
-      imgProfilePhoto.Bitmap.SaveToStream(ms);
+      cProfilePhoto.Fill.Bitmap.Bitmap.SaveToStream(ms);
       ms.Position := 0;
       TBlobField(dm.qUsers.FieldByName('profile_pic')).LoadFromStream(ms);
     finally

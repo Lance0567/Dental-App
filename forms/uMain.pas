@@ -51,7 +51,6 @@ type
     procedure FormCreate(Sender: TObject);
     procedure mvSidebarResize(Sender: TObject);
     procedure FormResize(Sender: TObject);
-    procedure tcControllerChange(Sender: TObject);
     procedure sbPatientsClick(Sender: TObject);
     procedure sbDashboardClick(Sender: TObject);
     procedure sbAppointmentsClick(Sender: TObject);
@@ -65,6 +64,7 @@ type
     procedure FloatAnimation1Finish(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure tcControllerChange(Sender: TObject);
   private
     procedure HideFrames;
     procedure ButtonPressedResetter;

@@ -178,7 +178,7 @@ begin
   lytAddress.Width := Trunc(lytDetails3.Width / 2) - 15;
 end;
 
-{ Modal Frame Resize }
+{ Frame Resize }
 procedure TfPatientModal.FrameResize(Sender: TObject);
 begin
   EditComponentsResponsive;
@@ -210,8 +210,9 @@ end;
 procedure TfPatientModal.ClearItems;
 begin
   // Clear Fields
-  cProfilePhoto.Fill.Bitmap := nil;  // Clear Image
-  cProfilePhoto.Fill.Kind := TBrushKind.Solid;
+  cProfilePhoto.Fill.Bitmap.Bitmap := nil;  // Clear Image
+  cProfilePhoto.Fill.Kind := TBrushKind.Solid;  // Set to solid
+  gIcon.ImageIndex := 10;
   eFullName.Text := '';
 
   // Date of Birth
@@ -239,28 +240,6 @@ begin
   // Hide all warning validation
   crContactNumber.Visible := False;
   crFullName.Visible := False;
-end;
-
-{ Show captured photo }
-procedure TfPatientModal.cProfilePhotoClick(Sender: TObject);
-begin
-  // Show Captured photo
-  rCameralModal.Visible := True;
-
-  // Show Label in camera modal
-  lPreviewImage.Visible := True;
-
-  // Hide component
-  lytImgTools.Visible := False;
-
-  // Adjust lytPaintBox height
-  lytPaintBox.Margins.Bottom := 45;
-  lytPaintBox.Margins.Left := 60;
-  lytPaintBox.Margins.Right := 60;
-  lytPaintBox.Margins.Top := 25;
-
-  // Dispaly the image
-  imgPhoto.Bitmap.Assign(cProfilePhoto.Fill.Bitmap);
 end;
 
 { Save Button }
@@ -307,7 +286,6 @@ begin
 
   // Field to save
   dm.qPatients.FieldByName('fullname').AsString := eFullName.Text;
-
   deDateOfBirth.DateFormatKind := TDTFormatKind.Long;  // Date format set to Long
   dm.qPatients.FieldByName('birth_date').AsDateTime := deDateOfBirth.Date;
   dm.qPatients.FieldByName('gender').AsString := cbGender.Text;
@@ -321,7 +299,7 @@ begin
   dm.qPatients.FieldByName('medical_notes').AsString := mMedicalNotes.Text;
 
   // Save image to LONGBLOB
-  if Assigned(cProfilePhoto.Fill.Bitmap) and not cProfilePhoto.Fill.Bitmap.Bitmap.IsEmpty then
+  if Assigned(cProfilePhoto.Fill.Bitmap.Bitmap) and not cProfilePhoto.Fill.Bitmap.Bitmap.IsEmpty then
   begin
     ms := TMemoryStream.Create;
     try
@@ -349,25 +327,40 @@ begin
   Self.Visible := False;
 end;
 
+{ Show captured photo }
+procedure TfPatientModal.cProfilePhotoClick(Sender: TObject);
+begin
+  if cProfilePhoto.Fill.Kind = TBrushKind.Bitmap then
+  begin
+    // Show Captured photo
+    rCameralModal.Visible := True;
+
+    // Show Label in camera modal
+    lPreviewImage.Visible := True;
+
+    // Hide component
+    lytImgTools.Visible := False;
+
+    // Adjust lytPaintBox height
+    lytPaintBox.Margins.Bottom := 45;
+    lytPaintBox.Margins.Left := 60;
+    lytPaintBox.Margins.Right := 60;
+    lytPaintBox.Margins.Top := 25;
+
+    // Dispaly the image
+    imgPhoto.Bitmap.Assign(cProfilePhoto.Fill.Bitmap.Bitmap);
+  end;
+end;
+
 { Take picture }
 procedure TfPatientModal.btnTakePictureClick(Sender: TObject);
 begin
   if not FStatus then
   begin
-    btnTakePicture.Text := 'Retake photo';
-    FStatus := True;
-
-    // Show captured image on the image holder
-    cProfilePhoto.Fill.Bitmap.Assign(imgPhoto.Bitmap);
-
-    // Disable the camera component
-    ccCapturePhoto.Active := False;
-
-    // Hide Icon for no captured image
-    gIcon.Visible := False;
-
-    // Change the Fill kind
-    cProfilePhoto.Fill.Kind := TBrushKind.Bitmap;
+    btnTakePicture.Text := 'Retake photo';  // Change caption of the button
+    FStatus := True;  // Camera component status
+    ccCapturePhoto.Active := False; // Disable the camera component
+    cProfilePhoto.Fill.Bitmap.Bitmap.Assign(imgPhoto.Bitmap);  // Show captured image on the image holder
   end
   else
   begin
@@ -386,13 +379,17 @@ begin
           procedure
           begin
             // Show captured image on the image holder
-            cProfilePhoto.Fill.Bitmap.Assign(imgPhoto.Bitmap);
+            cProfilePhoto.Fill.Bitmap.Bitmap.Assign(imgPhoto.Bitmap);
 
             // Disable the camera component
             ccCapturePhoto.Active := False;
           end);
       end).Start;
   end;
+  cProfilePhoto.Fill.Bitmap.WrapMode := TWrapMode.TileStretch;  // Wrapmode set to stretch
+  cProfilePhoto.Cursor := crHandPoint;  // Change cursor
+  gIcon.ImageIndex := -1; // Hide Icon
+  lNameH.Visible := False;  // Hide Name holder
 end;
 
 { Upload Photo }
@@ -410,6 +407,12 @@ begin
     begin
       // ✅ Load the selected file into the TImage
       cProfilePhoto.Fill.Bitmap.Bitmap.LoadFromFile(LOpenDialog.FileName);
+      cProfilePhoto.Fill.Kind := TBrushKind.Bitmap;
+      cProfilePhoto.Fill.Bitmap.WrapMode := TWrapMode.TileStretch;
+      cProfilePhoto.Cursor := crHandPoint;  // Change cursor
+
+      lNameH.Visible := False;  // Hide Name holder
+      gIcon.ImageIndex := -1; // Hide Icon
     end;
   finally
     LOpenDialog.Free;
@@ -493,6 +496,8 @@ begin
   FCapturing := False;
   FStatus := False;
   UpdateCameraList;
+
+  cProfilePhoto.Fill.Kind := TBrushKind.Bitmap;
 
   // Adjust lytPaintBox height
   lytPaintBox.Margins.Bottom := 20;

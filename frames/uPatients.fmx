@@ -15,9 +15,9 @@ object fPatients: TfPatients
     object lytBottom: TLayout
       Align = Scale
       Margins.Top = 10.000000000000000000
-      Position.Y = 3179.919921875000000000
-      Size.Width = 6728.000000000000000000
-      Size.Height = 281.199951171875000000
+      Position.Y = 26383.732421875000000000
+      Size.Width = 78044.804687500000000000
+      Size.Height = 2412.783203125000000000
       Size.PlatformDefault = False
       TabOrder = 3
     end
