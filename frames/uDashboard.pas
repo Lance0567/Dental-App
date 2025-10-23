@@ -61,6 +61,8 @@ type
     bsdbTodaysAppointment: TBindSourceDB;
     blTodaysAppointment: TBindingsList;
     LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
+    rNoRecords: TRectangle;
+    lNoRecords: TLabel;
     procedure FrameResized(Sender: TObject);
     procedure btnNewPatientClick(Sender: TObject);
     procedure btnNewAppointmentClick(Sender: TObject);

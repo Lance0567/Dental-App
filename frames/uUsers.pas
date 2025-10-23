@@ -10,8 +10,7 @@ uses
   FMX.Objects, FMX.Skia, FMX.ImgList, FMX.Controls.Presentation, FMX.Edit,
   FMX.Layouts, Data.DB, Data.Bind.EngExt, FMX.Bind.DBEngExt, FMX.Bind.Grid,
   System.Bindings.Outputs, FMX.Bind.Editors, Data.Bind.Components,
-  System.Threading,
-  Data.Bind.Grid, Data.Bind.DBScope, FireDAC.Stan.Param, uToolbar;
+  System.Threading, Data.Bind.Grid, Data.Bind.DBScope, FireDAC.Stan.Param, uToolbar;
 
 type
   TfUsers = class(TFrame)
@@ -220,9 +219,6 @@ begin
   // Clear Fields
   frmMain.fUserModal.ClearItems;
 
-  // Hide Image Frame
-  frmMain.fUserModal.rImageFrame.Visible := False;
-
   // Reset scrollbox
   frmMain.fUserModal.ScrollBox1.ViewportPosition := PointF(0, 0);
 
@@ -277,74 +273,57 @@ end;
 { Edit User record }
 procedure TfUsers.gUsersCellDblClick(const Column: TColumn; const Row: Integer);
 var
-  roleH: String;
   ms: TMemoryStream;
 begin
-  frmMain.fUserModal.Visible := True; // Show patient modal
-  dm.RecordStatus := 'Edit'; // Set record Status
-  frmMain.fUserModal.lbTitle.Text := 'Update Existing Patient'; // Set title
-  frmMain.fUserModal.btnSaveUser.Text := 'Update Patient';
-  // set text in the button
+  frmMain.fUserDetails.Visible := True; // Show patient modal
 
   // Populate the modal form
   // Get Fullname
-  frmMain.fUserModal.eFullName.Text := dm.qUsers.FieldByName('name').AsString;
-
-  // Get username
-  frmMain.fUserModal.eUsername.Text :=
-    dm.qUsers.FieldByName('username').AsString;
-
-  // Get password
+  frmMain.fUserDetails.lName.Text := dm.qUsers.FieldByName('name').AsString;
 
   // Get email address
-  frmMain.fUserModal.eEmailAddress.Text :=
-    dm.qUsers.FieldByName('email_address').AsString;
+  frmMain.fUserDetails.slEmail.Words.Items[1].Text := dm.qUsers.FieldByName('email_address').AsString;
 
   // Get contact number
-  frmMain.fUserModal.eContactNumber.Text :=
-    dm.qUsers.FieldByName('contact_number').AsString;
+  frmMain.fUserDetails.slPhone.Words.Items[1].Text := dm.qUsers.FieldByName('contact_number').AsString;
 
   // Get Profile Photo
   // Load Profile Photo (LONGBLOB -> TImage)
+  frmMain.fUserDetails.cProfilePhoto.Fill.Kind := TBrushKind.Bitmap;
   ms := TMemoryStream.Create;
   try
     if not dm.qUsers.FieldByName('profile_pic').IsNull then
     begin
       TBlobField(dm.qUsers.FieldByName('profile_pic')).SaveToStream(ms);
       ms.Position := 0;
-      frmMain.fUserModal.imgProfilePhoto.Bitmap.LoadFromStream(ms);
-
-      // Image Frame
-      frmMain.fUserModal.rImageFrame.Visible := True;
+      frmMain.fUserDetails.cProfilePhoto.Fill.Bitmap.Bitmap.LoadFromStream(ms);
+      frmMain.fUserDetails.lNameH.Visible := False;  // Hide Name holder
     end
     else
     begin
-      frmMain.fUserModal.imgProfilePhoto.Bitmap := nil; // Clear if no photo
-
-      // Image Frame
-      frmMain.fUserModal.rImageFrame.Visible := False;
+      frmMain.fUserDetails.cProfilePhoto.Fill.Bitmap.Bitmap := nil; // Clear if no photo
+      frmMain.fUserDetails.cProfilePhoto.Fill.Kind := TBrushKind.Solid;  // Set background
     end;
   finally
+    frmMain.fUserDetails.gIcon.ImageIndex := -1; // Hide Icon
+    frmMain.fUserDetails.cProfilePhoto.Fill.Bitmap.WrapMode := TWrapMode.TileStretch;
     ms.Free;
   end;
 
   // Get user role in the database
-  roleH := dm.qUsers.FieldByName('user_role').AsString;
-  if roleH = 'Admin' then
-    frmMain.fUserModal.cbRole.ItemIndex := 0
-  else
-    frmMain.fUserModal.cbRole.ItemIndex := 1;
+  frmMain.fUserDetails.lRole.Text := dm.qUsers.FieldByName('user_role').AsString;
 
   // Get Department
-  frmMain.fUserModal.eDepartment.Text :=
-    dm.qUsers.FieldByName('department').AsString;
+  frmMain.fUserDetails.slDepartment.Words.Items[1].Text := dm.qUsers.FieldByName('department').AsString;
 
   // Get status in the database
-  roleH := dm.qUsers.FieldByName('status').AsString;
-  if roleH = 'Active' then
-    frmMain.fUserModal.cbRole.ItemIndex := 0
-  else
-    frmMain.fUserModal.cbRole.ItemIndex := 1;
+  frmMain.fUserDetails.lStatus.Text := dm.qUsers.FieldByName('status').AsString;
+
+  // Get Hire date
+  frmMain.fUserDetails.slHireDate.Words.Items[1].Text := dm.qUsers.FieldByName('date_created').AsString;
+
+  // Get last login
+  frmMain.fUserDetails.slLastLogin.Words.Items[1].Text := dm.qUsers.FieldByName('last_login').AsString;
 end;
 
 { Grid Resized }

@@ -442,6 +442,26 @@ object fDashboard: TfDashboard
           Viewport.Width = 160.000000000000000000
           Viewport.Height = 225.000000000000000000
         end
+        object rNoRecords: TRectangle
+          Align = Client
+          Fill.Color = claDarkgray
+          Opacity = 0.200000002980232200
+          Size.Width = 164.000000000000000000
+          Size.Height = 250.000000000000000000
+          Size.PlatformDefault = False
+        end
+        object lNoRecords: TLabel
+          Align = Client
+          StyledSettings = [FontColor]
+          Size.Width = 164.000000000000000000
+          Size.Height = 250.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Family = 'Segoe UI Variable Text'
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.HorzAlign = Center
+          Text = 'No Appointment for Today!'
+          TabOrder = 6
+        end
       end
       object rQuickActions: TRectangle
         Align = Right

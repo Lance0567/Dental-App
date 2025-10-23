@@ -3,10 +3,10 @@ unit uUserDetails;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   System.Skia, FMX.ListBox, FMX.Skia, FMX.ImgList, FMX.Objects, FMX.Edit,
-  FMX.Controls.Presentation, FMX.Layouts;
+  FMX.Controls.Presentation, FMX.Layouts, Data.DB, FMX.DialogService;
 
 type
   TfUserDetails = class(TFrame)
@@ -22,11 +22,11 @@ type
     cProfilePhoto: TCircle;
     gIcon: TGlyph;
     lNameH: TLabel;
-    lytPhotoButton: TLayout;
-    lytPhotoButtonH: TLayout;
+    lytDetailH: TLayout;
+    lytStatusH: TLayout;
     rRoleH: TRectangle;
     rStatusH: TRectangle;
-    lPersonalInfo: TLabel;
+    lName: TLabel;
     Line1: TLine;
     lytContactInfoH: TLayout;
     lytContactTitle: TLayout;
@@ -57,7 +57,7 @@ type
     slLastLogin: TSkLabel;
     Layout1: TLayout;
     cEmail: TCircle;
-    Circle1: TCircle;
+    cPhone: TCircle;
     gPhone: TGlyph;
     cRole: TCircle;
     gReceptionist: TGlyph;
@@ -67,6 +67,13 @@ type
     gHireDate: TGlyph;
     cLastLogin: TCircle;
     gLastLogin: TGlyph;
+    lytSection1: TLayout;
+    btnEdit: TCornerButton;
+    btnDelete: TCornerButton;
+    procedure btnEditClick(Sender: TObject);
+    procedure lNamePaint(Sender: TObject; Canvas: TCanvas; const ARect: TRectF);
+    procedure btnDeleteClick(Sender: TObject);
+    procedure btnCloseClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -77,6 +84,142 @@ implementation
 
 {$R *.fmx}
 
-uses uDm;
+uses uDm, uMain;
+
+{ Close Button }
+procedure TfUserDetails.btnCloseClick(Sender: TObject);
+begin
+
+end;
+
+{ Delete Button }
+procedure TfUserDetails.btnDeleteClick(Sender: TObject);
+begin
+  TDialogService.MessageDialog('Are you sure you want to Delete this user?',
+    TMsgDlgType.mtWarning, // warning icon
+    [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbCancel], // Yes + Cancel buttons
+    TMsgDlgBtn.mbCancel, // Default button
+    0, // Help context
+    procedure(const AResult: TModalResult)
+    begin
+      if AResult = mrYes then
+      begin
+        with dm.qUsers do
+        begin
+          Delete;
+          Refresh;
+        end;
+      end;
+      // If Cancel pressed, do nothing
+    end);
+end;
+
+{ Edit Button }
+procedure TfUserDetails.btnEditClick(Sender: TObject);
+var
+  roleH, statusH: String;
+  ms: TMemoryStream;
+begin
+  frmMain.fUserModal.Visible := True; // Show patient modal
+  dm.RecordStatus := 'Edit'; // Set record Status
+  frmMain.fUserModal.lbTitle.Text := 'Update Existing Patient'; // Set title
+  frmMain.fUserModal.btnSaveUser.Text := 'Update Patient';
+  // set text in the button
+
+  // Populate the modal form
+  // Get Fullname
+  frmMain.fUserModal.eFullName.Text := dm.qUsers.FieldByName('name').AsString;
+
+  // Get username
+  frmMain.fUserModal.eUsername.Text :=
+    dm.qUsers.FieldByName('username').AsString;
+
+  // Get password
+
+  // Get email address
+  frmMain.fUserModal.eEmailAddress.Text :=
+    dm.qUsers.FieldByName('email_address').AsString;
+
+  // Get contact number
+  frmMain.fUserModal.eContactNumber.Text :=
+    dm.qUsers.FieldByName('contact_number').AsString;
+
+  // Get Profile Photo
+  // Load Profile Photo (LONGBLOB -> TImage)
+  frmMain.fUserModal.cProfilePhoto.Fill.Kind := TBrushKind.Bitmap;
+  ms := TMemoryStream.Create;
+  try
+    if not dm.qUsers.FieldByName('profile_pic').IsNull then
+    begin
+      TBlobField(dm.qUsers.FieldByName('profile_pic')).SaveToStream(ms);
+      ms.Position := 0;
+      frmMain.fUserModal.cProfilePhoto.Fill.Bitmap.Bitmap.LoadFromStream(ms);
+      frmMain.fUserModal.lNameH.Visible := False;  // Hide Name holder
+    end
+    else
+    begin
+      frmMain.fUserModal.cProfilePhoto.Fill.Bitmap.Bitmap := nil; // Clear if no photo
+      frmMain.fUserModal.cProfilePhoto.Fill.Kind := TBrushKind.Solid;  // Set background
+    end;
+  finally
+    frmMain.fUserModal.gIcon.ImageIndex := -1; // Hide Icon
+    frmMain.fUserModal.cProfilePhoto.Fill.Bitmap.WrapMode := TWrapMode.TileStretch;
+    ms.Free;
+  end;
+
+  // Get user role in the database
+  roleH := dm.qUsers.FieldByName('user_role').AsString;
+  if roleH = 'Admin' then
+    frmMain.fUserModal.cbRole.ItemIndex := 0
+  else
+    frmMain.fUserModal.cbRole.ItemIndex := 1;
+
+  // Get Department
+  frmMain.fUserModal.eDepartment.Text :=
+    dm.qUsers.FieldByName('department').AsString;
+
+  // Get status in the database
+  statusH := dm.qUsers.FieldByName('status').AsString;
+  if statusH = 'Active' then
+    frmMain.fUserModal.cbRole.ItemIndex := 0
+  else
+    frmMain.fUserModal.cbRole.ItemIndex := 1;
+end;
+
+{ User profile setter & fullname warning reset }
+procedure TfUserDetails.lNamePaint(Sender: TObject; Canvas: TCanvas;
+  const ARect: TRectF);
+var
+  Parts: TArray<string>;
+  Initials: string;
+begin
+  // Getter of first letter of the Full name
+  if lName.Text.Trim <> '' then
+  begin
+    Parts := lName.Text.Trim.Split([' ']); // split by space
+    Initials := '';
+
+    // First letter of first word
+    if Length(Parts) >= 1 then
+      Initials := Initials + UpperCase(Parts[0][1]);
+
+    // First letter of second word
+    if Length(Parts) >= 2 then
+      Initials := Initials + UpperCase(Parts[1][1]);
+
+    lNameH.Text := Initials;
+
+    // Profile pic changer
+    gIcon.ImageIndex := -1;
+    lNameH.Visible := True;
+  end;
+
+  if lName.Text.Trim = '' then
+  begin
+    lNameH.Text := '';
+    gIcon.ImageIndex := 10;
+    lNameH.Visible := False;
+  end;
+end;
 
 end.

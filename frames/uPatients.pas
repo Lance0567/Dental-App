@@ -270,19 +270,20 @@ begin
   frmMain.fPatientModal.cProfilePhoto.Fill.Kind := TBrushKind.Bitmap;
   ms := TMemoryStream.Create;
   try
-    if not dm.qUsers.FieldByName('profile_photo').IsNull then
+    if not dm.qPatients.FieldByName('profile_photo').IsNull then
     begin
-      TBlobField(dm.qUsers.FieldByName('profile_photo')).SaveToStream(ms);
+      TBlobField(dm.qPatients.FieldByName('profile_photo')).SaveToStream(ms);
       ms.Position := 0;
       frmMain.fPatientModal.cProfilePhoto.Fill.Bitmap.Bitmap.LoadFromStream(ms);
+      frmMain.fPatientModal.lNameH.Visible := False;  // Hide Name holder
     end
     else
     begin
       frmMain.fPatientModal.cProfilePhoto.Fill.Bitmap.Bitmap := nil; // Clear if no photo
+      frmMain.fPatientModal.cProfilePhoto.Fill.Kind := TBrushKind.Solid; // Set color background
     end;
   finally
-    // Hide Icon
-    frmMain.fPatientModal.gIcon.Visible := False;
+    frmMain.fPatientModal.gIcon.ImageIndex := -1; // Hide Icon
     frmMain.fPatientModal.cProfilePhoto.Fill.Bitmap.WrapMode := TWrapMode.TileStretch;
     ms.Free;
   end;

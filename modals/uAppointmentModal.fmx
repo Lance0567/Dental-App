@@ -192,8 +192,8 @@ object fAppointmentModal: TfAppointmentModal
               TabOrder = 3
               OnExit = mNotesExit
               OnClick = mNotesClick
-              Viewport.Width = 384.000000000000000000
-              Viewport.Height = 134.000000000000000000
+              Viewport.Width = 380.000000000000000000
+              Viewport.Height = 130.000000000000000000
             end
           end
           object lytButtonH: TLayout

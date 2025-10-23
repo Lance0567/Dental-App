@@ -10,7 +10,8 @@ uses
   uUsers, uUserProfile, uUserModal, System.Skia, FMX.Skia, FMX.Ani, FireDAC.Stan.Param,
   FMX.Effects, FMX.Grid, Data.DB, Data.Bind.EngExt, Fmx.Bind.DBEngExt,
   Fmx.Bind.Grid, System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors,
-  Data.Bind.Components, Data.Bind.Grid, Data.Bind.DBScope, uAppointmentModal;
+  Data.Bind.Components, Data.Bind.Grid, Data.Bind.DBScope, uAppointmentModal,
+  uUserDetails, FMX.DialogService;
 
 type
   TfrmMain = class(TForm)
@@ -48,6 +49,7 @@ type
     ShadowEffect1: TShadowEffect;
     fUserModal: TfUserModal;
     fAppointmentModal: TfAppointmentModal;
+    fUserDetails: TfUserDetails;
     procedure FormCreate(Sender: TObject);
     procedure mvSidebarResize(Sender: TObject);
     procedure FormResize(Sender: TObject);
@@ -84,7 +86,7 @@ implementation
 
 {$R *.fmx}
 
-uses uDm, uUserDetails, uLogin;
+uses uDm, uLogin;
 
 { Hide Frames }
 procedure TfrmMain.HideFrames;
@@ -145,8 +147,22 @@ end;
 { Form Close }
 procedure TfrmMain.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  QueryHandler;
+  TDialogService.MessageDialog(
+    'Are you sure you want to logout?',
+    TMsgDlgType.mtWarning,                  // warning icon
+    [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbCancel],// Yes + Cancel buttons
+    TMsgDlgBtn.mbCancel,                    // Default button
+    0,                                      // Help context
+    procedure(const AResult: TModalResult)
+    begin
+      if AResult = mrYes then
+      begin
+        QueryHandler;
   Application.Terminate;
+      end;
+      // If Cancel pressed, do nothing
+    end
+  );
 end;
 
 { Form Create }
@@ -155,31 +171,7 @@ begin
   // Form reader
   dm.FormReader := 'Main';
 
-  // Create Dashboard Frame if not yet created
-//  if not Assigned(fDashboard) then
-//    fDashboard := TfDashboard.Create(Application);
-//
-//  if not Assigned(fAppointments) then
-//    fAppointments := TfAppointments.Create(Application);
-//
-//  if not Assigned(fPatients) then
-//    fPatients := TfPatients.Create(Application);
-//
-//  if not Assigned(fUsers) then
-//    fUsers := TfUsers.Create(Application);
-//
-//  if not Assigned(fUserProfile) then
-//    fUserProfile := TfUserProfile.Create(Application);
-//
-//  if not Assigned(fAppointmentModal) then
-//    fAppointmentModal := TfAppointmentModal.Create(Application);
-//
-//  if not Assigned(fPatientModal) then
-//    fPatientModal := TfPatientModal.Create(Application);
-//
-//  if not Assigned(fUserModal) then
-//    fUserModal := TfUserModal.Create(Application);
-
+  // Assign default tab index
   sbDashboardClick(Sender);
 
   // Default tab index
@@ -547,6 +539,18 @@ begin
   // Read the field value
   todaysAppointments := dm.qTemp.FieldByName('Todays_Appointments').AsInteger;
   fDashboard.lbTodaysAppointmentC.Text := todaysAppointments.ToString;
+
+  // Records checker for todays appointment
+  if dm.qTodaysAppointment.IsEmpty then
+  begin
+    frmMain.fDashboard.lNoRecords.Visible := True;
+    frmMain.fDashboard.rNoRecords.Visible := True;
+  end
+  else
+  begin
+    frmMain.fDashboard.lNoRecords.Visible :=  False;
+    frmMain.fDashboard.rNoRecords.Visible := False;
+  end;
 
   // Assign value to new appointments
   if dm.qTemp.Active then
