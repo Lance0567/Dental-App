@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   System.Skia, FMX.ListBox, FMX.Skia, FMX.ImgList, FMX.Objects, FMX.Edit,
-  FMX.Controls.Presentation, FMX.Layouts, Data.DB, FMX.DialogService;
+  FMX.Controls.Presentation, FMX.Layouts, Data.DB, FMX.DialogService, System.Hash;
 
 type
   TfUserDetails = class(TFrame)
@@ -55,7 +55,7 @@ type
     slHireDate: TSkLabel;
     lytLastLogin: TLayout;
     slLastLogin: TSkLabel;
-    Layout1: TLayout;
+    lytBottom: TLayout;
     cEmail: TCircle;
     cPhone: TCircle;
     gPhone: TGlyph;
@@ -71,25 +71,73 @@ type
     btnEdit: TCornerButton;
     btnDelete: TCornerButton;
     procedure btnEditClick(Sender: TObject);
-    procedure lNamePaint(Sender: TObject; Canvas: TCanvas; const ARect: TRectF);
     procedure btnDeleteClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
+    procedure FrameResize(Sender: TObject);
   private
+    procedure EditComponentsResponsive;
     { Private declarations }
   public
     { Public declarations }
+    procedure ClearItems;
   end;
 
 implementation
 
 {$R *.fmx}
 
-uses uDm, uMain;
+uses uDm, uMain, uToolbar;
+
+{ Clear Items }
+procedure TfUserDetails.ClearItems;
+var
+  Parts: TArray<string>;
+  Initials: string;
+begin
+  // Getter of first letter of the Full name
+  if lName.Text.Trim <> '' then
+  begin
+    Parts := lName.Text.Trim.Split([' ']); // split by space
+    Initials := '';
+
+    // First letter of first word
+    if Length(Parts) >= 1 then
+      Initials := Initials + UpperCase(Parts[0][1]);
+
+    // First letter of second word
+    if Length(Parts) >= 2 then
+      Initials := Initials + UpperCase(Parts[1][1]);
+
+    lNameH.Text := Initials;
+
+    // Profile pic changer
+    gIcon.ImageIndex := -1;
+  end;
+
+  // Button Visibility
+  if lName.Text.Trim = '' then
+  begin
+    lNameH.Text := '';
+    gIcon.ImageIndex := 10;
+    lNameH.Visible := False;
+  end;
+
+  if dm.User.RoleH = 'Admin' then
+  begin
+    btnDelete.Visible := True;
+    btnEdit.Visible := True;
+  end
+  else
+  begin
+    btnDelete.Visible := False;
+    btnEdit.Visible := False;
+  end;
+end;
 
 { Close Button }
 procedure TfUserDetails.btnCloseClick(Sender: TObject);
 begin
-
+  Self.Visible := False;
 end;
 
 { Delete Button }
@@ -97,8 +145,8 @@ procedure TfUserDetails.btnDeleteClick(Sender: TObject);
 begin
   TDialogService.MessageDialog('Are you sure you want to Delete this user?',
     TMsgDlgType.mtWarning, // warning icon
-    [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbCancel], // Yes + Cancel buttons
-    TMsgDlgBtn.mbCancel, // Default button
+    [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbNo], // Yes + Cancel buttons
+    TMsgDlgBtn.mbNo, // Default button
     0, // Help context
     procedure(const AResult: TModalResult)
     begin
@@ -117,9 +165,10 @@ end;
 { Edit Button }
 procedure TfUserDetails.btnEditClick(Sender: TObject);
 var
-  roleH, statusH: String;
+  roleH, statusH, InputPass, InputPassUnhash: String;
   ms: TMemoryStream;
 begin
+  frmMain.fUserDetails.Visible := False;  // Hide UserDetails modal
   frmMain.fUserModal.Visible := True; // Show patient modal
   dm.RecordStatus := 'Edit'; // Set record Status
   frmMain.fUserModal.lbTitle.Text := 'Update Existing Patient'; // Set title
@@ -135,6 +184,21 @@ begin
     dm.qUsers.FieldByName('username').AsString;
 
   // Get password
+  InputPass := dm.User.PasswordH;
+  InputPassUnhash := THashSHA2.GetHashString(InputPass);  // unHashed the password
+  frmMain.fUserModal.ePassword.Text := InputPassUnhash;
+
+  // Password properties config
+  if dm.User.RoleH = 'Admin' then
+  begin
+    frmMain.fUserModal.ePassword.ReadOnly := False; // Allow Edit
+    frmMain.fUserModal.cbShowPassword.Visible := True;  // Hide show password
+  end
+  else if dm.User.RoleH = 'Receptionist' then
+  begin
+    frmMain.fUserModal.ePassword.ReadOnly := True;  // Prevent Edit
+    frmMain.fUserModal.cbShowPassword.Visible := False;  // Prevent to show password
+  end;
 
   // Get email address
   frmMain.fUserModal.eEmailAddress.Text :=
@@ -186,39 +250,42 @@ begin
     frmMain.fUserModal.cbRole.ItemIndex := 1;
 end;
 
-{ User profile setter & fullname warning reset }
-procedure TfUserDetails.lNamePaint(Sender: TObject; Canvas: TCanvas;
-  const ARect: TRectF);
-var
-  Parts: TArray<string>;
-  Initials: string;
+{ Layout Responsiveness adjuster }
+procedure TfUserDetails.EditComponentsResponsive;
 begin
-  // Getter of first letter of the Full name
-  if lName.Text.Trim <> '' then
+  lytEmailH.Width := Trunc(lytContactInfoH.Width / 2) - 15; // -15 to account for spacing
+  lytPhone.Width := Trunc(lytContactInfoH.Width / 2) - 15;
+  lytRole.Width := Trunc(lytWorkInfo1.Width / 2) - 15;
+  lytDepartment.Width := Trunc(lytWorkInfo1.Width / 2) - 15;
+  lytHireDate.Width := Trunc(lytWorkInfo2.Width / 2) - 15;
+  lytLastLogin.Width := Trunc(lytWorkInfo2.Width / 2) - 15;
+end;
+
+{ Frame Resize }
+procedure TfUserDetails.FrameResize(Sender: TObject);
+begin
+  EditComponentsResponsive;
+
+  if (frmMain.ClientWidth >= 1920) then
   begin
-    Parts := lName.Text.Trim.Split([' ']); // split by space
-    Initials := '';
-
-    // First letter of first word
-    if Length(Parts) >= 1 then
-      Initials := Initials + UpperCase(Parts[0][1]);
-
-    // First letter of second word
-    if Length(Parts) >= 2 then
-      Initials := Initials + UpperCase(Parts[1][1]);
-
-    lNameH.Text := Initials;
-
-    // Profile pic changer
-    gIcon.ImageIndex := -1;
-    lNameH.Visible := True;
-  end;
-
-  if lName.Text.Trim = '' then
+    rModalInfo.Margins.Left := 580;
+    rModalInfo.Margins.Right := 580;
+    rModalInfo.Margins.Top := 235;
+    rModalInfo.Margins.Bottom := 235;
+  end
+  else if (frmMain.ClientWidth >= 1366) then
   begin
-    lNameH.Text := '';
-    gIcon.ImageIndex := 10;
-    lNameH.Visible := False;
+    rModalInfo.Margins.Left := 300;
+    rModalInfo.Margins.Right := 300;
+    rModalInfo.Margins.Top := 90;
+    rModalInfo.Margins.Bottom := 90;
+  end
+  else if (frmMain.ClientHeight <= 510) AND (frmMain.ClientWidth <= 860) then
+  begin
+    rModalInfo.Margins.Left := 90;
+    rModalInfo.Margins.Right := 90;
+    rModalInfo.Margins.Top := 50;
+    rModalInfo.Margins.Bottom := 50;
   end;
 end;
 

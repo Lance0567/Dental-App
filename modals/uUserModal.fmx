@@ -121,6 +121,7 @@ object fUserModal: TfUserModal
                   Size.Height = 90.000000000000000000
                   Size.PlatformDefault = False
                   Stroke.Color = xFFDBD9D9
+                  OnPainting = cProfilePhotoPainting
                   object gIcon: TGlyph
                     Align = Center
                     Size.Width = 44.000000000000000000
@@ -174,6 +175,7 @@ object fUserModal: TfUserModal
                     Size.Width = 115.000000000000000000
                     Size.Height = 35.000000000000000000
                     Size.PlatformDefault = False
+                    StyleLookup = 'btnPhotoUploadStyle1'
                     TabOrder = 1
                     Text = 'Upload'
                     TextSettings.Font.Family = 'Segoe UI Variable Display'
@@ -197,6 +199,7 @@ object fUserModal: TfUserModal
                     Size.Width = 115.000000000000000000
                     Size.Height = 35.000000000000000000
                     Size.PlatformDefault = False
+                    StyleLookup = 'btnPhotoUploadStyle1'
                     TabOrder = 2
                     Text = 'Camera'
                     TextSettings.Font.Family = 'Segoe UI Variable Display'
@@ -606,6 +609,7 @@ object fUserModal: TfUserModal
               object ePassword: TEdit
                 Touch.InteractiveGestures = [LongTap, DoubleTap]
                 Align = Top
+                StyleLookup = 'ePasswordStyle1'
                 TabOrder = 1
                 Password = True
                 TextSettings.Font.Size = 14.000000000000000000
@@ -617,9 +621,12 @@ object fUserModal: TfUserModal
                 Size.Height = 40.000000000000000000
                 Size.PlatformDefault = False
                 TextPrompt = 'Enter password'
-                StyledSettings = [Family]
+                StyledSettings = [Family, Style]
                 ParentShowHint = False
                 ShowHint = True
+                OnClick = ePasswordClick
+                OnEnter = ePasswordEnter
+                OnExit = ePasswordExit
                 object cbShowPassword: TCheckBox
                   Align = Right
                   CanFocus = False
@@ -752,6 +759,7 @@ object fUserModal: TfUserModal
                 Size.Width = 357.000000000000000000
                 Size.Height = 40.000000000000000000
                 Size.PlatformDefault = False
+                StyleLookup = 'cbGenderStyle1'
                 TabOrder = 1
               end
             end
@@ -786,6 +794,7 @@ object fUserModal: TfUserModal
                 Size.Width = 357.000000000000000000
                 Size.Height = 40.000000000000000000
                 Size.PlatformDefault = False
+                StyleLookup = 'cbGenderStyle1'
                 TabOrder = 1
               end
             end
@@ -863,6 +872,7 @@ object fUserModal: TfUserModal
             Size.Width = 120.000000000000000000
             Size.Height = 40.000000000000000000
             Size.PlatformDefault = False
+            StyleLookup = 'btnSavePatientStyle1'
             TabOrder = 9
             Text = 'Create User'
             TextSettings.Font.Family = 'Segoe UI Variable Display'
@@ -885,6 +895,7 @@ object fUserModal: TfUserModal
             Size.Width = 80.000000000000000000
             Size.Height = 40.000000000000000000
             Size.PlatformDefault = False
+            StyleLookup = 'btnCancelStyle1'
             TabOrder = 8
             Text = 'Cancel'
             TextSettings.Font.Family = 'Segoe UI Variable Display'

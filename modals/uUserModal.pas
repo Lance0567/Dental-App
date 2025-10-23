@@ -110,6 +110,11 @@ type
     procedure btnCameraCloseClick(Sender: TObject);
     procedure eFullNameChangeTracking(Sender: TObject);
     procedure cbShowPasswordChange(Sender: TObject);
+    procedure cProfilePhotoPainting(Sender: TObject; Canvas: TCanvas;
+      const ARect: TRectF);
+    procedure ePasswordClick(Sender: TObject);
+    procedure ePasswordEnter(Sender: TObject);
+    procedure ePasswordExit(Sender: TObject);
   private
     FCapturing: Boolean;
     FStatus: Boolean;
@@ -142,17 +147,99 @@ begin
   eUsername.ReadOnly := False;
   eUsername.Text := '';
   ePassword.Text := '';
+  ePassword.TextPrompt := 'Enter password';
   eEmailAddress.Text := '';
   eContactNumber.Text := '';
   cbRole.ItemIndex := 0;
   eDepartment.Text := '';
   cbStatus.ItemIndex := 0;
+
+  // Hide validation warnings
+  crFullName.Visible := False;
+  crEmailAddress.Visible := False;
+  crContactNumber.Visible := False;
+  crUsername.Visible := False;
+  crPassword.Visible := False;
+
+  ScrollBox1.ViewportPosition := PointF(0, 0);  // Reset Scrollbox
+end;
+
+{ Profile Changer }
+procedure TfUserModal.cProfilePhotoPainting(Sender: TObject; Canvas: TCanvas;
+  const ARect: TRectF);
+begin
+  if cProfilePhoto.Fill.Kind = TBrushKind.Bitmap then
+    lNameH.Visible := False
+  else if (not gIcon.ImageIndex = 10 ) AND (cProfilePhoto.Fill.Kind = TBrushKind.Solid) then
+    lNameH.Visible := True;
 end;
 
 { Full name OnChange Tracking }
 procedure TfUserModal.eFullNameChangeTracking(Sender: TObject);
+var
+  Parts: TArray<string>;
+  Initials: string;
 begin
+  // Getter of first letter of the Full name
+  if eFullName.Text.Trim <> '' then
+  begin
+    Parts := eFullName.Text.Trim.Split([' ']); // split by space
+    Initials := '';
+
+    // First letter of first word
+    if Length(Parts) >= 1 then
+      Initials := Initials + UpperCase(Parts[0][1]);
+
+    // First letter of second word
+    if Length(Parts) >= 2 then
+      Initials := Initials + UpperCase(Parts[1][1]);
+
+    lNameH.Text := Initials;
+
+    // Profile pic changer
+    gIcon.ImageIndex := -1;
+    lNameH.Visible := True;
+  end;
+
+
+  if (eFullName.Text.Trim = '') AND (cProfilePhoto.Fill.Kind = TBrushKind.Solid) then
+  begin
+    lNameH.Text := '';
+    gIcon.ImageIndex := 10;
+    lNameH.Visible := False;
+
+    // Style setter
+    eFullName.StyledSettings := [TStyledSetting.Style]
+  end
+  else
+    eFullName.StyledSettings := [];
+
+  // Fullname warning reset
   crFullName.Visible := False;
+end;
+
+{ On click Password }
+procedure TfUserModal.ePasswordClick(Sender: TObject);
+begin
+  if dm.User.RoleH = 'Admin' then  // if Admin
+  begin
+    ePassword.Text := '';
+    ePassword.TextPrompt := 'Enter new password';
+  end
+  else
+    ShowMessage('Only an Admin can change password');
+end;
+
+{ OnEnter Edit Password }
+procedure TfUserModal.ePasswordEnter(Sender: TObject);
+begin
+  cbShowPassword.Visible := True;
+end;
+
+{ OnExit Edit Password }
+procedure TfUserModal.ePasswordExit(Sender: TObject);
+begin
+  cbShowPassword.Visible := False;
 end;
 
 { Update Camera list }

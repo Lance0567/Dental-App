@@ -9,7 +9,7 @@ object frmLogin: TfrmLogin
   Padding.Top = 20.000000000000000000
   Padding.Right = 50.000000000000000000
   Padding.Bottom = 20.000000000000000000
-  Position = ScreenCenter
+  Position = DesktopCenter
   StyleBook = dm.sbDental
   Transparency = True
   FormFactor.Width = 320
@@ -204,7 +204,7 @@ object frmLogin: TfrmLogin
         Size.Height = 33.000000000000000000
         Size.PlatformDefault = False
         TextPrompt = 'Enter your password'
-        StyledSettings = []
+        StyledSettings = [Style]
         OnKeyUp = ePasswordKeyUp
         OnEnter = ePasswordEnter
         OnExit = ePasswordExit

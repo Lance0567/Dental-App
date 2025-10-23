@@ -324,6 +324,8 @@ begin
 
   // Get last login
   frmMain.fUserDetails.slLastLogin.Words.Items[1].Text := dm.qUsers.FieldByName('last_login').AsString;
+
+  frmMain.fUserDetails.ClearItems;  // Clear items
 end;
 
 { Grid Resized }

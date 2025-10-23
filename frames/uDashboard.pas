@@ -57,12 +57,12 @@ type
     btnReportAnIssue: TCornerButton;
     FloatAnimation3: TFloatAnimation;
     lbQuickActions: TLabel;
-    fToolbar: TfToolbar;
     bsdbTodaysAppointment: TBindSourceDB;
     blTodaysAppointment: TBindingsList;
     LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
     rNoRecords: TRectangle;
     lNoRecords: TLabel;
+    fToolbar: TfToolbar;
     procedure FrameResized(Sender: TObject);
     procedure btnNewPatientClick(Sender: TObject);
     procedure btnNewAppointmentClick(Sender: TObject);

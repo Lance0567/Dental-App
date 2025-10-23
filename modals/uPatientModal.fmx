@@ -150,8 +150,8 @@ object fPatientModal: TfPatientModal
             TabOrder = 7
             OnExit = mMedicalNotesExit
             OnClick = mMedicalNotesClick
-            Viewport.Width = 502.000000000000000000
-            Viewport.Height = 121.000000000000000000
+            Viewport.Width = 506.000000000000000000
+            Viewport.Height = 125.000000000000000000
             object GlowEffect1: TGlowEffect
               Softness = 0.200000002980232200
               GlowColor = claBlack
@@ -188,6 +188,7 @@ object fPatientModal: TfPatientModal
               Stroke.Color = xFFE2F7EF
               Stroke.Thickness = 4.000000000000000000
               OnClick = cProfilePhotoClick
+              OnPainting = cProfilePhotoPainting
               object gIcon: TGlyph
                 Align = Center
                 Size.Width = 44.000000000000000000
@@ -622,7 +623,7 @@ object fPatientModal: TfPatientModal
                     TextSettings.Font.Size = 14.000000000000000000
                     TextSettings.FontColor = claGray
                     Text = 'Pick a date'
-                    TabOrder = 15
+                    TabOrder = 14
                   end
                 end
                 object lAgeCounter: TLabel

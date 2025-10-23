@@ -7,17 +7,17 @@ object fPatients: TfPatients
   object ScrollBox1: TScrollBox
     Align = Client
     Size.Width = 580.000000000000000000
-    Size.Height = 416.000000000000000000
+    Size.Height = 356.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 2
     Viewport.Width = 580.000000000000000000
-    Viewport.Height = 416.000000000000000000
+    Viewport.Height = 356.000000000000000000
     object lytBottom: TLayout
       Align = Scale
       Margins.Top = 10.000000000000000000
-      Position.Y = 219439.453125000000000000
-      Size.Width = 905319.750000000000000000
-      Size.Height = 20147.546875000000000000
+      Position.Y = 12998658.000000000000000000
+      Size.Width = 121819840.000000000000000000
+      Size.Height = 1194090.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 3
     end
@@ -26,7 +26,7 @@ object fPatients: TfPatients
       Padding.Left = 30.000000000000000000
       Padding.Right = 30.000000000000000000
       Margins.Top = 20.000000000000000000
-      Position.Y = 155.000000000000000000
+      Position.Y = 95.000000000000000000
       Size.Width = 580.000000000000000000
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
@@ -83,7 +83,7 @@ object fPatients: TfPatients
     object lytHeader: TLayout
       Align = Top
       Margins.Top = 20.000000000000000000
-      Position.Y = 80.000000000000000000
+      Position.Y = 20.000000000000000000
       Size.Width = 580.000000000000000000
       Size.Height = 55.000000000000000000
       Size.PlatformDefault = False
@@ -157,24 +157,24 @@ object fPatients: TfPatients
         Viewport.Height = 116.000000000000000000
       end
     end
-    inline fToolbar: TfToolbar
-      Align = MostTop
-      Margins.Left = -1.000000000000000000
-      Margins.Right = -1.000000000000000000
-      Position.X = -1.000000000000000000
+  end
+  inline fToolbar: TfToolbar
+    Align = MostTop
+    Margins.Left = -1.000000000000000000
+    Margins.Right = -1.000000000000000000
+    Position.X = -1.000000000000000000
+    Size.Width = 582.000000000000000000
+    Size.Height = 60.000000000000000000
+    Size.PlatformDefault = False
+    inherited rToolbar: TRectangle
       Size.Width = 582.000000000000000000
-      Size.Height = 60.000000000000000000
-      Size.PlatformDefault = False
-      inherited rToolbar: TRectangle
+      inherited lBevel: TLine
         Size.Width = 582.000000000000000000
-        inherited lBevel: TLine
-          Size.Width = 582.000000000000000000
-        end
-        inherited lytToolbarH: TLayout
-          Size.Width = 582.000000000000000000
-          inherited lytUser: TLayout
-            Position.X = 427.000000000000000000
-          end
+      end
+      inherited lytToolbarH: TLayout
+        Size.Width = 582.000000000000000000
+        inherited lytUser: TLayout
+          Position.X = 437.000000000000000000
         end
       end
     end

@@ -2,6 +2,7 @@ object fUserDetails: TfUserDetails
   Size.Width = 770.000000000000000000
   Size.Height = 540.000000000000000000
   Size.PlatformDefault = False
+  OnResize = FrameResize
   object lytContentH: TLayout
     Align = Client
     Size.Width = 770.000000000000000000
@@ -64,9 +65,8 @@ object fUserDetails: TfUserDetails
           end
           object btnClose: TSpeedButton
             Align = Right
-            Margins.Right = -5.000000000000000000
             Position.X = 464.000000000000000000
-            Size.Width = 40.000000000000000000
+            Size.Width = 35.000000000000000000
             Size.Height = 35.000000000000000000
             Size.PlatformDefault = False
             StyleLookup = 'cleareditbutton'
@@ -178,7 +178,7 @@ object fUserDetails: TfUserDetails
               end
               object rStatusH: TRectangle
                 Align = Left
-                Fill.Color = xFEDBEAFE
+                Fill.Color = xFEDCFCE7
                 Margins.Left = 10.000000000000000000
                 Position.X = 135.000000000000000000
                 Position.Y = 5.000000000000000000
@@ -214,28 +214,29 @@ object fUserDetails: TfUserDetails
                 Align = Client
                 StyledSettings = [Family]
                 Margins.Top = 5.000000000000000000
-                Size.Width = 199.000000000000000000
+                Size.Width = 194.000000000000000000
                 Size.Height = 40.000000000000000000
                 Size.PlatformDefault = False
                 TextSettings.Font.Size = 22.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
                 Text = 'Sofia Chen'
                 TabOrder = 0
-                OnPaint = lNamePaint
               end
               object btnEdit: TCornerButton
                 Align = Right
+                Cursor = crHandPoint
                 StyledSettings = [FontColor]
                 Images = dm.imgList
                 ImageIndex = 41
                 Margins.Top = 5.000000000000000000
                 Margins.Bottom = 5.000000000000000000
-                Position.X = 289.000000000000000000
+                Position.X = 284.000000000000000000
                 Position.Y = 5.000000000000000000
                 Sides = [Top, Left, Bottom, Right]
-                Size.Width = 90.000000000000000000
+                Size.Width = 95.000000000000000000
                 Size.Height = 35.000000000000000000
                 Size.PlatformDefault = False
+                StyleLookup = 'btnEditStyle1'
                 TabOrder = 2
                 Text = 'Edit User'
                 TextSettings.Font.Family = 'Segoe UI Variable Text'
@@ -248,23 +249,26 @@ object fUserDetails: TfUserDetails
               end
               object btnDelete: TCornerButton
                 Align = Right
+                Cursor = crHandPoint
                 StyledSettings = []
                 Images = dm.imgList
                 ImageIndex = 42
                 Margins.Top = 5.000000000000000000
                 Margins.Right = 5.000000000000000000
                 Margins.Bottom = 5.000000000000000000
-                Position.X = 199.000000000000000000
+                Position.X = 194.000000000000000000
                 Position.Y = 5.000000000000000000
                 Sides = [Top, Left, Bottom, Right]
                 Size.Width = 85.000000000000000000
                 Size.Height = 35.000000000000000000
                 Size.PlatformDefault = False
+                StyleLookup = 'btnDeleteStyle1'
                 TabOrder = 1
                 Text = 'Delete'
                 TextSettings.Font.Family = 'Segoe UI Variable Text'
                 TextSettings.Font.Size = 13.000000000000000000
                 TextSettings.Font.StyleExt = {00060000000000000004000000}
+                TextSettings.FontColor = claWhite
                 TextSettings.Trimming = None
                 XRadius = 12.000000000000000000
                 YRadius = 12.000000000000000000
@@ -339,9 +343,10 @@ object fUserDetails: TfUserDetails
               Size.PlatformDefault = False
               Words = <
                 item
-                  FontColor = claGray
+                  Font.Weight = Semibold
+                  FontColor = xFE67707E
                   Name = 'Item 0'
-                  StyledSettings = [Family, Size, Style]
+                  StyledSettings = [Family, Size]
                   Text = 'Email'#11
                 end
                 item
@@ -392,9 +397,10 @@ object fUserDetails: TfUserDetails
               Size.PlatformDefault = False
               Words = <
                 item
-                  FontColor = claGray
+                  Font.Weight = Semibold
+                  FontColor = xFE67707E
                   Name = 'Item 0'
-                  StyledSettings = [Family, Size, Style]
+                  StyledSettings = [Family, Size]
                   Text = 'Phone'#11
                 end
                 item
@@ -504,7 +510,7 @@ object fUserDetails: TfUserDetails
                 Words = <
                   item
                     Font.Weight = Semibold
-                    FontColor = claGray
+                    FontColor = xFE67707E
                     Name = 'Item 0'
                     StyledSettings = [Family]
                     Text = 'Role'#11
@@ -557,7 +563,7 @@ object fUserDetails: TfUserDetails
                 Words = <
                   item
                     Font.Weight = Semibold
-                    FontColor = claGray
+                    FontColor = xFE67707E
                     Name = 'Item 0'
                     StyledSettings = [Family, Size]
                     Text = 'Department'#11
@@ -617,7 +623,7 @@ object fUserDetails: TfUserDetails
                 Words = <
                   item
                     Font.Weight = Semibold
-                    FontColor = claGray
+                    FontColor = xFE67707E
                     Name = 'Item 0'
                     StyledSettings = [Family]
                     Text = 'Hire Date'#11
@@ -670,7 +676,7 @@ object fUserDetails: TfUserDetails
                 Words = <
                   item
                     Font.Weight = Semibold
-                    FontColor = claGray
+                    FontColor = xFE67707E
                     Name = 'Item 0'
                     StyledSettings = [Family]
                     Text = 'Last Login'#11
@@ -709,7 +715,7 @@ object fUserDetails: TfUserDetails
             end
           end
         end
-        object Layout1: TLayout
+        object lytBottom: TLayout
           Align = Top
           Margins.Top = 10.000000000000000000
           Position.X = 25.000000000000000000

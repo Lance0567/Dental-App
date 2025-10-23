@@ -47,9 +47,9 @@ type
     lbPopUp: TSkLabel;
     fUsers: TfUsers;
     ShadowEffect1: TShadowEffect;
-    fUserModal: TfUserModal;
     fAppointmentModal: TfAppointmentModal;
     fUserDetails: TfUserDetails;
+    fUserModal: TfUserModal;
     procedure FormCreate(Sender: TObject);
     procedure mvSidebarResize(Sender: TObject);
     procedure FormResize(Sender: TObject);
@@ -62,19 +62,19 @@ type
     procedure fUsers1btnAddNewUserClick(Sender: TObject);
     procedure sbUsersClick(Sender: TObject);
     procedure fPatientModalbtnSavePatientClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FloatAnimation1Finish(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure tcControllerChange(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
   private
-    procedure HideFrames;
-    procedure ButtonPressedResetter;
     procedure Dashboard;
     procedure QueryHandler;
-    procedure ButtonPressedReset;
+    procedure ButtonPressedResetter;
     { Private declarations }
   public
+    procedure HideFrames;
+    procedure ButtonPressedReset;
     procedure RecordMessage(const AEntity, ADetail: string);
     { Public declarations }
   end;
@@ -86,7 +86,7 @@ implementation
 
 {$R *.fmx}
 
-uses uDm, uLogin;
+uses uDm, uLogin, uToolbar;
 
 { Hide Frames }
 procedure TfrmMain.HideFrames;
@@ -145,22 +145,24 @@ begin
 end;
 
 { Form Close }
-procedure TfrmMain.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmMain.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
 begin
+  CanClose := False;
+
   TDialogService.MessageDialog(
-    'Are you sure you want to logout?',
+    'Are you sure you want to close the application?',
     TMsgDlgType.mtWarning,                  // warning icon
-    [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbCancel],// Yes + Cancel buttons
-    TMsgDlgBtn.mbCancel,                    // Default button
+    [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbNo],    // Yes + No buttons
+    TMsgDlgBtn.mbNo,                        // Default button is No
     0,                                      // Help context
     procedure(const AResult: TModalResult)
     begin
       if AResult = mrYes then
       begin
         QueryHandler;
-  Application.Terminate;
+        Application.Terminate;
       end;
-      // If Cancel pressed, do nothing
+      // If No pressed, do nothing
     end
   );
 end;
@@ -173,6 +175,12 @@ begin
 
   // Assign default tab index
   sbDashboardClick(Sender);
+
+  // Set the profile display in toolbar
+  fDashboard.fToolbar.ProfileSetter;
+  fPatients.fToolbar.ProfileSetter;
+  fAppointments.fToolbar.ProfileSetter;
+  fUsers.fToolbar.ProfileSetter;
 
   // Default tab index
   tcController.TabIndex := 0;

@@ -106,6 +106,8 @@ type
     procedure eAddressChangeTracking(Sender: TObject);
     procedure deDateOfBirthCheckChanged(Sender: TObject);
     procedure cProfilePhotoClick(Sender: TObject);
+    procedure cProfilePhotoPainting(Sender: TObject; Canvas: TCanvas;
+      const ARect: TRectF);
   private
     FCapturing: Boolean;
     FStatus: Boolean;
@@ -240,6 +242,8 @@ begin
   // Hide all warning validation
   crContactNumber.Visible := False;
   crFullName.Visible := False;
+
+  ScrollBox1.ViewportPosition := PointF(0, 0);  // Reset scrollbox
 end;
 
 { Save Button }
@@ -350,6 +354,16 @@ begin
     // Dispaly the image
     imgPhoto.Bitmap.Assign(cProfilePhoto.Fill.Bitmap.Bitmap);
   end;
+end;
+
+{ Profile Changer }
+procedure TfPatientModal.cProfilePhotoPainting(Sender: TObject; Canvas: TCanvas;
+  const ARect: TRectF);
+begin
+  if cProfilePhoto.Fill.Kind = TBrushKind.Bitmap then
+    lNameH.Visible := False
+  else if (not gIcon.ImageIndex = 10 ) AND (cProfilePhoto.Fill.Kind = TBrushKind.Solid) then
+    lNameH.Visible := True;
 end;
 
 { Take picture }
@@ -584,7 +598,8 @@ begin
     lNameH.Visible := True;
   end;
 
-  if eFullName.Text.Trim = '' then
+
+  if (eFullName.Text.Trim = '') AND (cProfilePhoto.Fill.Kind = TBrushKind.Solid) then
   begin
     lNameH.Text := '';
     gIcon.ImageIndex := 10;

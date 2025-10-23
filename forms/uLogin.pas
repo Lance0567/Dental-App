@@ -77,7 +77,7 @@ implementation
 
 {$R *.fmx}
 
-uses uDm, uMain, uAdminSetup;
+uses uDm, uMain, uAdminSetup, uToolbar;
 
 { Close Button }
 procedure TfrmLogin.btnCloseClick(Sender: TObject);
@@ -201,7 +201,7 @@ begin
   with dm.qTemp do
   begin
     Close;
-    SQL.Text := 'SELECT username, last_login FROM users WHERE username = :u AND password = :p';
+    SQL.Text := 'SELECT username, user_role, password, last_login FROM users WHERE username = :u AND password = :p';
     ParamByName('u').AsString := InputUser;
     ParamByName('p').AsString := InputPassHash;
     Open;
@@ -209,7 +209,10 @@ begin
     begin
       // Record the login date & time
       Edit;
-      FieldByName('last_login').AsString := DateAndTime;
+      dm.User.UsernameH := FieldByName('username').AsString; // Get username
+      dm.User.RoleH := FieldByName('user_role').AsString;; // Get role
+      dm.User.PasswordH := FieldByName('password').AsString; // Get password
+      FieldByName('last_login').AsString := DateAndTime;  // Insert last login
       Post;
       Refresh;
 
