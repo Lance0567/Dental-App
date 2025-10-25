@@ -110,9 +110,6 @@ Coordinates=485,254,123,51
 [FloatAnimation2]
 Coordinates=374,242,95,33
 
-[fToolbar.slUserName]
-Coordinates=129,331,117,33
-
 [fToolbar.rrUserImage]
 Coordinates=713,390,119,33
 
@@ -128,32 +125,11 @@ Coordinates=10,390,85,33
 [dm.qPatientSelection]
 Coordinates=259,177,119,51
 
-[fToolbar.lBevel]
-Coordinates=272,331,88,33
-
-[fToolbar.lytToolbarH]
-Coordinates=386,331,115,33
-
-[fToolbar.lytUser]
-Coordinates=10,331,93,33
-
-[fToolbar.rToolbar]
-Coordinates=583,449,100,33
-
-[fToolbar.lDivider]
-Coordinates=314,508,96,33
-
 [btnNewAppointment]
 Coordinates=709,449,115,33
 
-[fToolbar]
-Coordinates=789,331,55,33
-
 [lytRecords]
 Coordinates=523,508,67,33
-
-[fToolbar.rPopUp]
-Coordinates=188,449,95,33
 
 [FloatAnimation3]
 Coordinates=864,331,95,33
@@ -163,9 +139,6 @@ Coordinates=141,567,85,33
 
 [rQuickActions]
 Coordinates=355,390,84,33
-
-[fToolbar.mvPopUp]
-Coordinates=870,331,106,33
 
 [gTodaysAppointment]
 Coordinates=210,55,120,123
@@ -177,20 +150,8 @@ Coordinates=672,331,91,33
 [lbQuickActions]
 Coordinates=465,10,89,51
 
-[fToolbar.cbLogout]
-Coordinates=10,567,105,33
-
-[fToolbar.cbAccountSettings]
-Coordinates=10,449,152,33
-
-[fToolbar.lDate]
-Coordinates=356,10,83,51
-
 [FloatAnimation1]
 Coordinates=627,426,95,33
-
-[fToolbar.FloatAnimation4]
-Coordinates=1034,111,139,33
 
 [dm.qTodaysAppointment]
 Coordinates=10,10,138,33

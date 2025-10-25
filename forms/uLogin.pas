@@ -77,7 +77,7 @@ implementation
 
 {$R *.fmx}
 
-uses uDm, uMain, uAdminSetup;
+uses uDm, uMain, uAdminSetup, uToolbar;
 
 { Close Button }
 procedure TfrmLogin.btnCloseClick(Sender: TObject);
@@ -201,15 +201,27 @@ begin
   with dm.qTemp do
   begin
     Close;
-    SQL.Text := 'SELECT username, last_login FROM users WHERE username = :u AND password = :p';
+    SQL.Text :=
+      'SELECT id, name, email_address, contact_number, username, user_role, password, last_login, bio ' +
+      'FROM users ' +
+      'WHERE username = :u AND password = :p';
     ParamByName('u').AsString := InputUser;
     ParamByName('p').AsString := InputPassHash;
     Open;
     if not IsEmpty then
     begin
+      dm.User.IDH := FieldByName('id').AsInteger;  // Get Fullname
+      dm.User.FullnameH := FieldByName('name').AsString;  // Get Fullname
+      dm.User.UsernameH := FieldByName('username').AsString; // Get username
+      dm.User.RoleH := FieldByName('user_role').AsString;; // Get role
+      dm.User.PasswordH := FieldByName('password').AsString; // Get password
+      dm.User.EmailH := FieldByName('email_address').AsString;  // Get email
+      dm.User.PhoneH := FieldByName('contact_number').AsString;  // Get Phone number
+      dm.User.BioH := FieldByName('bio').AsString;  // Get bio
+
       // Record the login date & time
       Edit;
-      FieldByName('last_login').AsString := DateAndTime;
+      FieldByName('last_login').AsString := DateAndTime;  // Insert last login
       Post;
       Refresh;
 

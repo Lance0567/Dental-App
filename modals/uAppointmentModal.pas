@@ -155,7 +155,7 @@ begin
   end;
 
   // Handle record state
-  if RecordStatus = 'Add' then
+  if dm.RecordStatus = 'Add' then
     dm.qAppointments.Append
   else
     dm.qAppointments.Edit;
@@ -185,7 +185,7 @@ begin
   ClearItems; // clear fields
 
   // Set record pop up message
-  if RecordStatus = 'Add' then
+  if dm.RecordStatus = 'Add' then
     frmMain.Tag := 3
   else
     frmMain.Tag := 4;

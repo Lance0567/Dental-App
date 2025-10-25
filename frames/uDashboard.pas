@@ -10,7 +10,7 @@ uses
   FMX.Layouts, Math, FMX.Ani, FMX.Menus, FMX.ExtCtrls, FMX.MultiView, uToolbar,
   Data.Bind.EngExt, Fmx.Bind.DBEngExt, Fmx.Bind.Grid, System.Bindings.Outputs,
   Fmx.Bind.Editors, Data.Bind.Components, Data.Bind.Grid, Data.Bind.DBScope,
-  System.Threading,Data.DB;
+  System.Threading,Data.DB, FMX.Effects;
 
 type
   TfDashboard = class(TFrame)
@@ -57,10 +57,18 @@ type
     btnReportAnIssue: TCornerButton;
     FloatAnimation3: TFloatAnimation;
     lbQuickActions: TLabel;
-    fToolbar: TfToolbar;
     bsdbTodaysAppointment: TBindSourceDB;
     blTodaysAppointment: TBindingsList;
     LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
+    rNoRecords: TRectangle;
+    lNoRecords: TLabel;
+    fToolbar: TfToolbar;
+    ShadowEffect1: TShadowEffect;
+    ShadowEffect2: TShadowEffect;
+    ShadowEffect3: TShadowEffect;
+    ShadowEffect4: TShadowEffect;
+    ShadowEffect5: TShadowEffect;
+    ShadowEffect6: TShadowEffect;
     procedure FrameResized(Sender: TObject);
     procedure btnNewPatientClick(Sender: TObject);
     procedure btnNewAppointmentClick(Sender: TObject);

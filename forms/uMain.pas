@@ -10,7 +10,8 @@ uses
   uUsers, uUserProfile, uUserModal, System.Skia, FMX.Skia, FMX.Ani, FireDAC.Stan.Param,
   FMX.Effects, FMX.Grid, Data.DB, Data.Bind.EngExt, Fmx.Bind.DBEngExt,
   Fmx.Bind.Grid, System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors,
-  Data.Bind.Components, Data.Bind.Grid, Data.Bind.DBScope, uAppointmentModal;
+  Data.Bind.Components, Data.Bind.Grid, Data.Bind.DBScope, uAppointmentModal,
+  uUserDetails, FMX.DialogService, uUpdateProfilePhoto;
 
 type
   TfrmMain = class(TForm)
@@ -36,7 +37,6 @@ type
     sbUsers: TSpeedButton;
     tiUsers: TTabItem;
     tiUserProfile: TTabItem;
-    fUserProfile: TfUserProfile;
     lytPopUpBottom: TLayout;
     lytPopUpMessage: TLayout;
     rPopUp: TRectangle;
@@ -46,8 +46,11 @@ type
     lbPopUp: TSkLabel;
     fUsers: TfUsers;
     ShadowEffect1: TShadowEffect;
-    fUserModal: TfUserModal;
     fAppointmentModal: TfAppointmentModal;
+    fUserDetails: TfUserDetails;
+    fUserModal: TfUserModal;
+    fUpdateProfilePhoto: TfUpdateProfilePhoto;
+    fUserProfile: TfUserProfile;
     procedure FormCreate(Sender: TObject);
     procedure mvSidebarResize(Sender: TObject);
     procedure FormResize(Sender: TObject);
@@ -60,19 +63,20 @@ type
     procedure fUsers1btnAddNewUserClick(Sender: TObject);
     procedure sbUsersClick(Sender: TObject);
     procedure fPatientModalbtnSavePatientClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FloatAnimation1Finish(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure tcControllerChange(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
   private
-    procedure HideFrames;
-    procedure ButtonPressedResetter;
     procedure Dashboard;
     procedure QueryHandler;
-    procedure ButtonPressedReset;
+    procedure ButtonPressedResetter;
     { Private declarations }
   public
+    procedure HideFrames;
+    procedure ButtonPressedReset;
+    procedure AccountSetting;
     procedure RecordMessage(const AEntity, ADetail: string);
     { Public declarations }
   end;
@@ -84,7 +88,7 @@ implementation
 
 {$R *.fmx}
 
-uses uDm, uUserDetails, uLogin;
+uses uDm, uLogin, uToolbar;
 
 { Hide Frames }
 procedure TfrmMain.HideFrames;
@@ -102,6 +106,12 @@ begin
   sbDashboard.IsPressed := False;
   sbPatients.IsPressed := False;
   sbAppointments.IsPressed := False;
+end;
+
+{ Account Settings }
+procedure TfrmMain.AccountSetting;
+begin
+  //
 end;
 
 { New Appointment }
@@ -143,10 +153,26 @@ begin
 end;
 
 { Form Close }
-procedure TfrmMain.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmMain.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
 begin
-  QueryHandler;
-  Application.Terminate;
+  CanClose := False;
+
+  TDialogService.MessageDialog(
+    'Are you sure you want to close the application?',
+    TMsgDlgType.mtWarning,                  // warning icon
+    [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbNo],    // Yes + No buttons
+    TMsgDlgBtn.mbNo,                        // Default button is No
+    0,                                      // Help context
+    procedure(const AResult: TModalResult)
+    begin
+      if AResult = mrYes then
+      begin
+        QueryHandler;
+        Application.Terminate;
+      end;
+      // If No pressed, do nothing
+    end
+  );
 end;
 
 { Form Create }
@@ -155,32 +181,15 @@ begin
   // Form reader
   dm.FormReader := 'Main';
 
-  // Create Dashboard Frame if not yet created
-//  if not Assigned(fDashboard) then
-//    fDashboard := TfDashboard.Create(Application);
-//
-//  if not Assigned(fAppointments) then
-//    fAppointments := TfAppointments.Create(Application);
-//
-//  if not Assigned(fPatients) then
-//    fPatients := TfPatients.Create(Application);
-//
-//  if not Assigned(fUsers) then
-//    fUsers := TfUsers.Create(Application);
-//
-//  if not Assigned(fUserProfile) then
-//    fUserProfile := TfUserProfile.Create(Application);
-//
-//  if not Assigned(fAppointmentModal) then
-//    fAppointmentModal := TfAppointmentModal.Create(Application);
-//
-//  if not Assigned(fPatientModal) then
-//    fPatientModal := TfPatientModal.Create(Application);
-//
-//  if not Assigned(fUserModal) then
-//    fUserModal := TfUserModal.Create(Application);
-
+  // Assign default tab index
   sbDashboardClick(Sender);
+
+  // Set the profile display in toolbar
+  fDashboard.fToolbar.ProfileSetter;
+  fPatients.fToolbar.ProfileSetter;
+  fAppointments.fToolbar.ProfileSetter;
+  fUsers.fToolbar.ProfileSetter;
+  fUserProfile.fToolbar.ProfileSetter;
 
   // Default tab index
   tcController.TabIndex := 0;
@@ -220,6 +229,7 @@ begin
   fPatients.fToolbar.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
   fAppointments.fToolbar.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
   fUsers.fToolbar.lDate.Text := FormatDateTime('dddd, mmmm d, yyyy', Now);
+  fUserProfile.fToolbar.lDate.Text := FormatDateTime('dddd, mmmm d, yyyy', Now);
 end;
 
 { Form Resized }
@@ -354,6 +364,17 @@ begin
         rPopUp.Fill.Color := TAlphaColorRec.White;
         // Icon set to red success
         gPopUp.ImageIndex := 33;
+      end;
+      6:  // Profile Update
+      begin
+        lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.Black;
+        lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Dimgray;
+        lbPopUp.Words.Items[0].Text := AEntity + ' updated';
+        lbPopUp.Words.Items[1].Text := 'Your ' + ADetail +
+          ' information has been successfully updated.';
+        rPopUp.Fill.Color := TAlphaColorRec.White;
+        // Icon set to yellow success
+        gPopUp.ImageIndex := 32;
       end;
   end;
 end;
@@ -547,6 +568,18 @@ begin
   // Read the field value
   todaysAppointments := dm.qTemp.FieldByName('Todays_Appointments').AsInteger;
   fDashboard.lbTodaysAppointmentC.Text := todaysAppointments.ToString;
+
+  // Records checker for todays appointment
+  if dm.qTodaysAppointment.IsEmpty then
+  begin
+    frmMain.fDashboard.lNoRecords.Visible := True;
+    frmMain.fDashboard.rNoRecords.Visible := True;
+  end
+  else
+  begin
+    frmMain.fDashboard.lNoRecords.Visible :=  False;
+    frmMain.fDashboard.rNoRecords.Visible := False;
+  end;
 
   // Assign value to new appointments
   if dm.qTemp.Active then

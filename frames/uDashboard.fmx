@@ -8,11 +8,11 @@ object fDashboard: TfDashboard
     Align = Client
     Padding.Bottom = 25.000000000000000000
     Size.Width = 580.000000000000000000
-    Size.Height = 358.000000000000000000
+    Size.Height = 356.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     Viewport.Width = 564.000000000000000000
-    Viewport.Height = 358.000000000000000000
+    Viewport.Height = 356.000000000000000000
     object lytHeader: TLayout
       Align = MostTop
       Margins.Top = 20.000000000000000000
@@ -154,6 +154,13 @@ object fDashboard: TfDashboard
             end
           end
         end
+        object ShadowEffect1: TShadowEffect
+          Distance = 1.000000000000000000
+          Direction = 45.000000000000000000
+          Softness = 0.200000002980232200
+          Opacity = 0.100000001490116100
+          ShadowColor = claBlack
+        end
       end
       object rCard2: TRectangle
         Align = Center
@@ -240,6 +247,13 @@ object fDashboard: TfDashboard
             end
           end
         end
+        object ShadowEffect2: TShadowEffect
+          Distance = 1.000000000000000000
+          Direction = 45.000000000000000000
+          Softness = 0.200000002980232200
+          Opacity = 0.100000001490116100
+          ShadowColor = claBlack
+        end
       end
       object rCard3: TRectangle
         Align = Center
@@ -312,6 +326,13 @@ object fDashboard: TfDashboard
               Images = dm.imgList
             end
           end
+        end
+        object ShadowEffect3: TShadowEffect
+          Distance = 1.000000000000000000
+          Direction = 45.000000000000000000
+          Softness = 0.200000002980232200
+          Opacity = 0.100000001490116100
+          ShadowColor = claBlack
         end
       end
       object rCard4: TRectangle
@@ -386,6 +407,13 @@ object fDashboard: TfDashboard
             end
           end
         end
+        object ShadowEffect4: TShadowEffect
+          Distance = 1.000000000000000000
+          Direction = 45.000000000000000000
+          Softness = 0.200000002980232200
+          Opacity = 0.100000001490116100
+          ShadowColor = claBlack
+        end
       end
     end
     object lytRecords: TLayout
@@ -439,8 +467,35 @@ object fDashboard: TfDashboard
           RowCount = 0
           Options = [ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
           OnResized = gTodaysAppointmentResized
-          Viewport.Width = 160.000000000000000000
-          Viewport.Height = 225.000000000000000000
+          Viewport.Width = 164.000000000000000000
+          Viewport.Height = 250.000000000000000000
+        end
+        object rNoRecords: TRectangle
+          Align = Client
+          Fill.Color = claDarkgray
+          Opacity = 0.200000002980232200
+          Size.Width = 164.000000000000000000
+          Size.Height = 250.000000000000000000
+          Size.PlatformDefault = False
+        end
+        object lNoRecords: TLabel
+          Align = Client
+          StyledSettings = [FontColor]
+          Size.Width = 164.000000000000000000
+          Size.Height = 250.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Family = 'Segoe UI Variable Text'
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.HorzAlign = Center
+          Text = 'No Appointment for Today!'
+          TabOrder = 6
+        end
+        object ShadowEffect5: TShadowEffect
+          Distance = 1.000000000000000000
+          Direction = 45.000000000000000000
+          Softness = 0.200000002980232200
+          Opacity = 0.100000001490116100
+          ShadowColor = claBlack
         end
       end
       object rQuickActions: TRectangle
@@ -566,17 +621,21 @@ object fDashboard: TfDashboard
           Text = 'Quick Actions'
           TabOrder = 0
         end
+        object ShadowEffect6: TShadowEffect
+          Distance = 1.000000000000000000
+          Direction = 45.000000000000000000
+          Softness = 0.200000002980232200
+          Opacity = 0.100000001490116100
+          ShadowColor = claBlack
+        end
       end
     end
   end
   inline fToolbar: TfToolbar
     Align = MostTop
     Margins.Left = -1.000000000000000000
-    Margins.Top = -1.000000000000000000
     Margins.Right = -1.000000000000000000
-    Margins.Bottom = -1.000000000000000000
     Position.X = -1.000000000000000000
-    Position.Y = -1.000000000000000000
     Size.Width = 582.000000000000000000
     Size.Height = 60.000000000000000000
     Size.PlatformDefault = False
@@ -588,7 +647,7 @@ object fDashboard: TfDashboard
       inherited lytToolbarH: TLayout
         Size.Width = 582.000000000000000000
         inherited lytUser: TLayout
-          Position.X = 427.000000000000000000
+          Position.X = 437.000000000000000000
         end
       end
     end

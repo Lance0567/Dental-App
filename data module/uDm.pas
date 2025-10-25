@@ -12,8 +12,15 @@ uses
   FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, FireDAC.Comp.DataSet;
 
 type
-  Tpatients = class(TObject)
-
+  TUser = class(TObject)
+    IDH: Integer;
+    RoleH: String;
+    UsernameH: String;
+    PasswordH: String;
+    EmailH: String;
+    PhoneH: String;
+    BioH: String;
+    FullnameH: String;
   end;
   Tdm = class(TDataModule)
     sbDental: TStyleBook;
@@ -26,11 +33,14 @@ type
     qPatientSelection: TFDQuery;
     qTodaysAppointment: TFDQuery;
     procedure DataModuleCreate(Sender: TObject);
+    procedure DataModuleDestroy(Sender: TObject);
   private
     { Private declarations }
+    FUser: TUser;
   public
     FormReader: String;
     RecordStatus: String;
+    property User: TUser read FUser write FUser;
     { Public declarations }
   end;
 
@@ -49,6 +59,9 @@ procedure Tdm.DataModuleCreate(Sender: TObject);
 var
   DBPath: String;
 begin
+  // Class
+  FUser := TUser.Create;
+
   // Connection clearing
   conDental.Connected := False;
   conDental.Params.Values['Database'] := '';
@@ -68,6 +81,11 @@ begin
 
   // activate connection
   conDental.Connected := True;
+end;
+
+procedure Tdm.DataModuleDestroy(Sender: TObject);
+begin
+  FUser.Free;
 end;
 
 end.

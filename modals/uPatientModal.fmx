@@ -188,6 +188,7 @@ object fPatientModal: TfPatientModal
               Stroke.Color = xFFE2F7EF
               Stroke.Thickness = 4.000000000000000000
               OnClick = cProfilePhotoClick
+              OnPainting = cProfilePhotoPainting
               object gIcon: TGlyph
                 Align = Center
                 Size.Width = 44.000000000000000000
@@ -395,6 +396,7 @@ object fPatientModal: TfPatientModal
                   Size.Width = 165.000000000000000000
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
+                  StyleLookup = 'cbGenderStyle1'
                   TabOrder = 3
                 end
               end
@@ -637,6 +639,55 @@ object fPatientModal: TfPatientModal
                   TextSettings.FontColor = claGray
                   Text = 'Age: 0 years'
                   TabOrder = 1
+                end
+                object crDateOfBirth: TCalloutRectangle
+                  Align = Top
+                  Fill.Color = claWhite
+                  Padding.Left = 8.000000000000000000
+                  Padding.Top = 15.000000000000000000
+                  Padding.Bottom = 10.000000000000000000
+                  Margins.Left = 30.000000000000000000
+                  Margins.Top = -5.000000000000000000
+                  Margins.Right = 30.000000000000000000
+                  Position.X = 30.000000000000000000
+                  Position.Y = 62.000000000000000000
+                  Size.Width = 105.000000000000000000
+                  Size.Height = 50.000000000000000000
+                  Size.PlatformDefault = False
+                  Stroke.Color = claDimgray
+                  Visible = False
+                  XRadius = 4.000000000000000000
+                  YRadius = 4.000000000000000000
+                  CalloutWidth = 23.000000000000000000
+                  CalloutLength = 8.000000000000000000
+                  object gDateOfBirth: TGlyph
+                    Align = Left
+                    Position.X = 8.000000000000000000
+                    Position.Y = 15.000000000000000000
+                    Size.Width = 25.000000000000000000
+                    Size.Height = 25.000000000000000000
+                    Size.PlatformDefault = False
+                    ImageIndex = 31
+                    Images = dm.imgList
+                  end
+                  object lDateOfBirth: TLabel
+                    Align = Client
+                    StyledSettings = [Family, Style]
+                    Margins.Left = 5.000000000000000000
+                    Size.Width = 67.000000000000000000
+                    Size.Height = 25.000000000000000000
+                    Size.PlatformDefault = False
+                    TextSettings.Font.Size = 13.000000000000000000
+                    Text = 'Please fill out this field.'
+                    TabOrder = 1
+                  end
+                  object ShadowEffect3: TShadowEffect
+                    Distance = 6.000000000000000000
+                    Direction = 55.000000000000000000
+                    Softness = 0.300000011920929000
+                    Opacity = 0.300000011920929000
+                    ShadowColor = claBlack
+                  end
                 end
               end
             end

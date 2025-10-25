@@ -83,6 +83,10 @@ type
     lPreviewImage: TLabel;
     GlowEffect1: TGlowEffect;
     PathLabel1: TPathLabel;
+    crDateOfBirth: TCalloutRectangle;
+    gDateOfBirth: TGlyph;
+    lDateOfBirth: TLabel;
+    ShadowEffect3: TShadowEffect;
     procedure mMedicalNotesClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure eFullNameChangeTracking(Sender: TObject);
@@ -106,6 +110,8 @@ type
     procedure eAddressChangeTracking(Sender: TObject);
     procedure deDateOfBirthCheckChanged(Sender: TObject);
     procedure cProfilePhotoClick(Sender: TObject);
+    procedure cProfilePhotoPainting(Sender: TObject; Canvas: TCanvas;
+      const ARect: TRectF);
   private
     FCapturing: Boolean;
     FStatus: Boolean;
@@ -114,7 +120,6 @@ type
     { Private declarations }
   public
     MemoTrackingReset: String;
-    RecordStatus: String;
     procedure EditComponentsResponsive;
     procedure ClearItems;
     { Public declarations }
@@ -240,6 +245,8 @@ begin
   // Hide all warning validation
   crContactNumber.Visible := False;
   crFullName.Visible := False;
+
+  ScrollBox1.ViewportPosition := PointF(0, 0);  // Reset scrollbox
 end;
 
 { Save Button }
@@ -257,9 +264,16 @@ begin
     HasError := True;
   end
   else
-  begin
     crFullName.Visible := False;
-  end;
+
+  // Date of birth validation
+  if lDateText.Text = '' then
+  begin
+    crDateOfBirth.Visible := True;
+    HasError := True;
+  end
+  else
+    crDateOfBirth.Visible := False;
 
   // Contact Number validation
   if eContactNumber.Text = '' then
@@ -268,9 +282,7 @@ begin
     HasError := True;
   end
   else
-  begin
     crContactNumber.Visible := False;
-  end;
 
   // Stop if any error is found
   if HasError = True then
@@ -279,7 +291,7 @@ begin
   end;
 
   // Handle record state
-  if RecordStatus = 'Add' then
+  if dm.RecordStatus = 'Add' then
     dm.qPatients.Append
   else
     dm.qPatients.Edit;
@@ -316,7 +328,7 @@ begin
   ClearItems; // Clear fields
 
   // Set record pop up message
-  if RecordStatus = 'Add' then
+  if dm.RecordStatus = 'Add' then
     frmMain.Tag := 0
   else
     frmMain.Tag := 1;
@@ -350,6 +362,16 @@ begin
     // Dispaly the image
     imgPhoto.Bitmap.Assign(cProfilePhoto.Fill.Bitmap.Bitmap);
   end;
+end;
+
+{ Profile Changer }
+procedure TfPatientModal.cProfilePhotoPainting(Sender: TObject; Canvas: TCanvas;
+  const ARect: TRectF);
+begin
+  if cProfilePhoto.Fill.Kind = TBrushKind.Bitmap then
+    lNameH.Visible := False
+  else if (not gIcon.ImageIndex = 10 ) AND (cProfilePhoto.Fill.Kind = TBrushKind.Solid) then
+    lNameH.Visible := True;
 end;
 
 { Take picture }
@@ -584,7 +606,8 @@ begin
     lNameH.Visible := True;
   end;
 
-  if eFullName.Text.Trim = '' then
+
+  if (eFullName.Text.Trim = '') AND (cProfilePhoto.Fill.Kind = TBrushKind.Solid) then
   begin
     lNameH.Text := '';
     gIcon.ImageIndex := 10;

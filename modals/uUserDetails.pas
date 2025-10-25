@@ -3,10 +3,10 @@ unit uUserDetails;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   System.Skia, FMX.ListBox, FMX.Skia, FMX.ImgList, FMX.Objects, FMX.Edit,
-  FMX.Controls.Presentation, FMX.Layouts;
+  FMX.Controls.Presentation, FMX.Layouts, Data.DB, FMX.DialogService, System.Hash;
 
 type
   TfUserDetails = class(TFrame)
@@ -22,11 +22,11 @@ type
     cProfilePhoto: TCircle;
     gIcon: TGlyph;
     lNameH: TLabel;
-    lytPhotoButton: TLayout;
-    lytPhotoButtonH: TLayout;
+    lytDetailH: TLayout;
+    lytStatusH: TLayout;
     rRoleH: TRectangle;
     rStatusH: TRectangle;
-    lPersonalInfo: TLabel;
+    lName: TLabel;
     Line1: TLine;
     lytContactInfoH: TLayout;
     lytContactTitle: TLayout;
@@ -55,9 +55,9 @@ type
     slHireDate: TSkLabel;
     lytLastLogin: TLayout;
     slLastLogin: TSkLabel;
-    Layout1: TLayout;
+    lytBottom: TLayout;
     cEmail: TCircle;
-    Circle1: TCircle;
+    cPhone: TCircle;
     gPhone: TGlyph;
     cRole: TCircle;
     gReceptionist: TGlyph;
@@ -67,16 +67,211 @@ type
     gHireDate: TGlyph;
     cLastLogin: TCircle;
     gLastLogin: TGlyph;
+    lytSection1: TLayout;
+    btnEdit: TCornerButton;
+    btnDelete: TCornerButton;
+    procedure btnEditClick(Sender: TObject);
+    procedure btnDeleteClick(Sender: TObject);
+    procedure btnCloseClick(Sender: TObject);
+    procedure FrameResize(Sender: TObject);
   private
+    procedure EditComponentsResponsive;
     { Private declarations }
   public
     { Public declarations }
+    procedure ClearItems;
   end;
 
 implementation
 
 {$R *.fmx}
 
-uses uDm;
+uses uDm, uMain, uToolbar;
+
+{ Clear Items }
+procedure TfUserDetails.ClearItems;
+var
+  Parts: TArray<string>;
+  Initials: string;
+begin
+  // Getter of first letter of the Full name
+  if lName.Text.Trim <> '' then
+  begin
+    Parts := lName.Text.Trim.Split([' ']); // split by space
+    Initials := '';
+
+    // First letter of first word
+    if Length(Parts) >= 1 then
+      Initials := Initials + UpperCase(Parts[0][1]);
+
+    // First letter of second word
+    if Length(Parts) >= 2 then
+      Initials := Initials + UpperCase(Parts[1][1]);
+
+    lNameH.Text := Initials;
+
+    // Profile pic changer
+    gIcon.ImageIndex := -1;
+  end;
+
+  // Button Visibility
+  if lName.Text.Trim = '' then
+  begin
+    lNameH.Text := '';
+    gIcon.ImageIndex := 10;
+    lNameH.Visible := False;
+  end;
+
+  if dm.User.RoleH = 'Admin' then
+  begin
+    btnDelete.Visible := True;
+    btnEdit.Visible := True;
+  end
+  else
+  begin
+    btnDelete.Visible := False;
+    btnEdit.Visible := False;
+  end;
+end;
+
+{ Close Button }
+procedure TfUserDetails.btnCloseClick(Sender: TObject);
+begin
+  Self.Visible := False;
+end;
+
+{ Delete Button }
+procedure TfUserDetails.btnDeleteClick(Sender: TObject);
+begin
+  TDialogService.MessageDialog('Are you sure you want to Delete this user?',
+    TMsgDlgType.mtWarning, // warning icon
+    [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbNo], // Yes + Cancel buttons
+    TMsgDlgBtn.mbNo, // Default button
+    0, // Help context
+    procedure(const AResult: TModalResult)
+    begin
+      if AResult = mrYes then
+      begin
+        with dm.qUsers do
+        begin
+          Delete;
+          Refresh;
+        end;
+      end;
+      // If Cancel pressed, do nothing
+    end);
+end;
+
+{ Edit Button }
+procedure TfUserDetails.btnEditClick(Sender: TObject);
+var
+  roleH, statusH: String;
+  ms: TMemoryStream;
+begin
+  Self.Visible := False;  // Hide UserDetails modal
+  frmMain.fUserModal.Visible := True; // Show patient modal
+  dm.RecordStatus := 'Edit'; // Set record Status
+  frmMain.fUserModal.lbTitle.Text := 'Update Existing Patient'; // Set title
+  frmMain.fUserModal.btnSaveUser.Text := 'Update Patient';  // set text in the button
+  frmMain.fUserModal.rSecuritySettings.Visible := True; // Show Change Password section
+  frmMain.fUserModal.lytPassword.Visible := False;
+  frmMain.fUserModal.rUser.Height := 575;
+
+  // Populate the modal form
+  // Get Fullname
+  frmMain.fUserModal.eFullName.Text := dm.qUsers.FieldByName('name').AsString;
+
+  // Get username
+  frmMain.fUserModal.eUsername.Text :=
+    dm.qUsers.FieldByName('username').AsString;
+
+  // Get email address
+  frmMain.fUserModal.eEmailAddress.Text :=
+    dm.qUsers.FieldByName('email_address').AsString;
+
+  // Get contact number
+  frmMain.fUserModal.eContactNumber.Text :=
+    dm.qUsers.FieldByName('contact_number').AsString;
+
+  // Get Profile Photo
+  // Load Profile Photo (LONGBLOB -> TImage)
+  frmMain.fUserModal.cProfilePhoto.Fill.Kind := TBrushKind.Bitmap;
+  ms := TMemoryStream.Create;
+  try
+    if not dm.qUsers.FieldByName('profile_pic').IsNull then
+    begin
+      TBlobField(dm.qUsers.FieldByName('profile_pic')).SaveToStream(ms);
+      ms.Position := 0;
+      frmMain.fUserModal.cProfilePhoto.Fill.Bitmap.Bitmap.LoadFromStream(ms);
+      frmMain.fUserModal.lNameH.Visible := False;  // Hide Name holder
+    end
+    else
+    begin
+      frmMain.fUserModal.cProfilePhoto.Fill.Bitmap.Bitmap := nil; // Clear if no photo
+      frmMain.fUserModal.cProfilePhoto.Fill.Kind := TBrushKind.Solid;  // Set background
+    end;
+  finally
+    frmMain.fUserModal.gIcon.ImageIndex := -1; // Hide Icon
+    frmMain.fUserModal.cProfilePhoto.Fill.Bitmap.WrapMode := TWrapMode.TileStretch;
+    ms.Free;
+  end;
+
+  // Get user role in the database
+  roleH := dm.qUsers.FieldByName('user_role').AsString;
+  if roleH = 'Admin' then
+    frmMain.fUserModal.cbRole.ItemIndex := 0
+  else
+    frmMain.fUserModal.cbRole.ItemIndex := 1;
+
+  // Get Department
+  frmMain.fUserModal.eDepartment.Text :=
+    dm.qUsers.FieldByName('department').AsString;
+
+  // Get status in the database
+  statusH := dm.qUsers.FieldByName('status').AsString;
+  if statusH = 'Active' then
+    frmMain.fUserModal.cbRole.ItemIndex := 0
+  else
+    frmMain.fUserModal.cbRole.ItemIndex := 1;
+end;
+
+{ Layout Responsiveness adjuster }
+procedure TfUserDetails.EditComponentsResponsive;
+begin
+  lytEmailH.Width := Trunc(lytContactInfoH.Width / 2) - 15; // -15 to account for spacing
+  lytPhone.Width := Trunc(lytContactInfoH.Width / 2) - 15;
+  lytRole.Width := Trunc(lytWorkInfo1.Width / 2) - 15;
+  lytDepartment.Width := Trunc(lytWorkInfo1.Width / 2) - 15;
+  lytHireDate.Width := Trunc(lytWorkInfo2.Width / 2) - 15;
+  lytLastLogin.Width := Trunc(lytWorkInfo2.Width / 2) - 15;
+end;
+
+{ Frame Resize }
+procedure TfUserDetails.FrameResize(Sender: TObject);
+begin
+  EditComponentsResponsive;
+
+  if (frmMain.ClientWidth >= 1920) then
+  begin
+    rModalInfo.Margins.Left := 580;
+    rModalInfo.Margins.Right := 580;
+    rModalInfo.Margins.Top := 235;
+    rModalInfo.Margins.Bottom := 235;
+  end
+  else if (frmMain.ClientWidth >= 1366) then
+  begin
+    rModalInfo.Margins.Left := 300;
+    rModalInfo.Margins.Right := 300;
+    rModalInfo.Margins.Top := 90;
+    rModalInfo.Margins.Bottom := 90;
+  end
+  else if (frmMain.ClientHeight <= 510) AND (frmMain.ClientWidth <= 860) then
+  begin
+    rModalInfo.Margins.Left := 90;
+    rModalInfo.Margins.Right := 90;
+    rModalInfo.Margins.Top := 50;
+    rModalInfo.Margins.Bottom := 50;
+  end;
+end;
 
 end.

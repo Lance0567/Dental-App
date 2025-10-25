@@ -8,7 +8,7 @@ uses
   FMX.Memo.Types, FMX.ListBox, FMX.DateTimeCtrls, FMX.Edit, FMX.ImgList,
   FMX.Objects, FMX.ScrollBox, FMX.Memo, FMX.Controls.Presentation, FMX.Layouts,
   System.Skia, FMX.Skia, FMX.Effects, Data.DB, System.Hash, FMX.Media,
-  FMX.MediaLibrary.Actions, FMX.DialogService, FMX.MediaLibrary;
+  FMX.MediaLibrary.Actions, FMX.DialogService, FMX.MediaLibrary, FireDAC.Stan.Param;
 
 type
   TfUserModal = class(TFrame)
@@ -97,6 +97,20 @@ type
     lytDepartment: TLayout;
     lDepartment: TLabel;
     eDepartment: TEdit;
+    rSecuritySettings: TRectangle;
+    lytDetails1: TLayout;
+    slSecuritySettings: TSkLabel;
+    lytNewPassword: TLayout;
+    lNewPassword: TLabel;
+    eNewPassword: TEdit;
+    lytChangePassBH: TLayout;
+    btnChangePassword: TCornerButton;
+    lytConfirmNewPassword: TLayout;
+    lConfirmNewPassword: TLabel;
+    eConfirmNewPassword: TEdit;
+    ShadowEffect6: TShadowEffect;
+    ShadowEffect7: TShadowEffect;
+    ShadowEffect8: TShadowEffect;
     procedure btnCloseClick(Sender: TObject);
     procedure FrameResize(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
@@ -110,6 +124,11 @@ type
     procedure btnCameraCloseClick(Sender: TObject);
     procedure eFullNameChangeTracking(Sender: TObject);
     procedure cbShowPasswordChange(Sender: TObject);
+    procedure cProfilePhotoPainting(Sender: TObject; Canvas: TCanvas;
+      const ARect: TRectF);
+    procedure ePasswordClick(Sender: TObject);
+    procedure ePasswordEnter(Sender: TObject);
+    procedure ePasswordExit(Sender: TObject);
   private
     FCapturing: Boolean;
     FStatus: Boolean;
@@ -142,17 +161,102 @@ begin
   eUsername.ReadOnly := False;
   eUsername.Text := '';
   ePassword.Text := '';
+  ePassword.TextPrompt := 'Enter password';
   eEmailAddress.Text := '';
   eContactNumber.Text := '';
   cbRole.ItemIndex := 0;
   eDepartment.Text := '';
   cbStatus.ItemIndex := 0;
+
+  // Hide Security Settings
+  rSecuritySettings.Visible := False;
+
+  // Hide validation warnings
+  crFullName.Visible := False;
+  crEmailAddress.Visible := False;
+  crContactNumber.Visible := False;
+  crUsername.Visible := False;
+  crPassword.Visible := False;
+
+  ScrollBox1.ViewportPosition := PointF(0, 0);  // Reset Scrollbox
+end;
+
+{ Profile Changer }
+procedure TfUserModal.cProfilePhotoPainting(Sender: TObject; Canvas: TCanvas;
+  const ARect: TRectF);
+begin
+  if cProfilePhoto.Fill.Kind = TBrushKind.Bitmap then
+    lNameH.Visible := False
+  else if (not gIcon.ImageIndex = 10 ) AND (cProfilePhoto.Fill.Kind = TBrushKind.Solid) then
+    lNameH.Visible := True;
 end;
 
 { Full name OnChange Tracking }
 procedure TfUserModal.eFullNameChangeTracking(Sender: TObject);
+var
+  Parts: TArray<string>;
+  Initials: string;
 begin
+  // Getter of first letter of the Full name
+  if eFullName.Text.Trim <> '' then
+  begin
+    Parts := eFullName.Text.Trim.Split([' ']); // split by space
+    Initials := '';
+
+    // First letter of first word
+    if Length(Parts) >= 1 then
+      Initials := Initials + UpperCase(Parts[0][1]);
+
+    // First letter of second word
+    if Length(Parts) >= 2 then
+      Initials := Initials + UpperCase(Parts[1][1]);
+
+    lNameH.Text := Initials;
+
+    // Profile pic changer
+    gIcon.ImageIndex := -1;
+    lNameH.Visible := True;
+  end;
+
+  // Reset Profile Icon
+  if (eFullName.Text.Trim = '') AND (cProfilePhoto.Fill.Kind = TBrushKind.Solid) then
+  begin
+    lNameH.Text := '';
+    gIcon.ImageIndex := 10;
+    lNameH.Visible := False;
+
+    // Style setter
+    eFullName.StyledSettings := [TStyledSetting.Style]
+  end
+  else
+    eFullName.StyledSettings := [];
+
+  // Fullname warning reset
   crFullName.Visible := False;
+end;
+
+{ On click Password }
+procedure TfUserModal.ePasswordClick(Sender: TObject);
+begin
+  if dm.User.RoleH = 'Admin' then  // if Admin
+  begin
+    ePassword.Text := '';
+    ePassword.TextPrompt := 'Enter new password';
+  end
+  else
+    ShowMessage('Only an Admin can change password');
+end;
+
+{ OnEnter Edit Password }
+procedure TfUserModal.ePasswordEnter(Sender: TObject);
+begin
+  cbShowPassword.Visible := True;
+end;
+
+{ OnExit Edit Password }
+procedure TfUserModal.ePasswordExit(Sender: TObject);
+begin
+  cbShowPassword.Visible := False;
 end;
 
 { Update Camera list }
@@ -322,12 +426,14 @@ end;
 procedure TfUserModal.btnCancelClick(Sender: TObject);
 begin
   Self.Visible := False;
+  frmMain.fUserDetails.Visible := True;  // Hide UserDetails modal
 end;
 
 { Close Button }
 procedure TfUserModal.btnCloseClick(Sender: TObject);
 begin
   Self.Visible := False;
+  frmMain.fUserDetails.Visible := True;  // Hide UserDetails modal
 end;
 
 { Create User }
@@ -338,6 +444,7 @@ var
   FirstInvalidPos: Single;
   HashedPassword: String;
   DateCreated: String;
+  UsernameExist: Boolean;
 begin
   HasError := False;
   FirstInvalidPos := -1;
@@ -410,18 +517,45 @@ begin
     Exit;
   end;
 
+  // Query to check for existing username
+  try
+    dm.qTemp.Close;
+    dm.qTemp.SQL.Text :=
+    'SELECT COUNT(*) AS cnt ' +
+    'FROM users WHERE username = :username';
+    dm.qTemp.ParamByName('username').AsString := eUsername.Text;  // ← ADD THIS LINE
+    dm.qTemp.Open;
+
+    UsernameExist := dm.qTemp.FieldByName('cnt').AsInteger > 0;
+    dm.qTemp.Close;
+
+    if UsernameExist then
+    begin
+      TDialogService.MessageDialog(
+        'Username already exists. Please choose a different username.',
+        TMsgDlgType.mtError,  // info icon
+        [TMsgDlgBtn.mbOK],
+        TMsgDlgBtn.mbOK, 0,
+        nil  // No callback, so code continues immediately
+      );
+      Exit;  // Stop the save operation
+    end;
+  finally
+    // Optional: free resources or handle exceptions if needed
+  end;
+
   // Handle record state
   if dm.RecordStatus = 'Add' then
     dm.qUsers.Append
   else
     dm.qUsers.Edit;
 
-  // Hash the password (SHA256 for better security)
-  HashedPassword := THashSHA2.GetHashString(ePassword.Text);
-
   // Fields to save
   dm.qUsers.FieldByName('name').AsString := eFullName.Text;
   dm.qUsers.FieldByName('username').AsString := eUsername.Text;
+
+  // Hash the password (SHA256 for better security)
+  HashedPassword := THashSHA2.GetHashString(ePassword.Text);
   dm.qUsers.FieldByName('password').AsString := HashedPassword;
   dm.qUsers.FieldByName('email_address').AsString := eEmailAddress.Text;
   dm.qUsers.FieldByName('contact_number').AsString := eContactNumber.Text;
