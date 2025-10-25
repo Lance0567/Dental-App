@@ -23,9 +23,6 @@ Coordinates=95,276,61,33
 [lbTitle]
 Coordinates=247,10,44,51
 
-[lytBottom]
-Coordinates=368,233,62,33
-
 [lytButtonH]
 Coordinates=292,233,66,33
 
@@ -46,7 +43,7 @@ Coordinates=100,10,67,141
 Coordinates=10,233,105,33
 
 []
-Coordinates=10,319,56,33
+Coordinates=368,233,62,33
 
 [blPatients]
 Coordinates=121,170,82,33

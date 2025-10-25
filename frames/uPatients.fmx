@@ -12,15 +12,6 @@ object fPatients: TfPatients
     TabOrder = 2
     Viewport.Width = 580.000000000000000000
     Viewport.Height = 356.000000000000000000
-    object lytBottom: TLayout
-      Align = Scale
-      Margins.Top = 10.000000000000000000
-      Position.Y = 12998658.000000000000000000
-      Size.Width = 121819840.000000000000000000
-      Size.Height = 1194090.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 3
-    end
     object lytComponents: TLayout
       Align = Top
       Padding.Left = 30.000000000000000000
@@ -134,7 +125,7 @@ object fPatients: TfPatients
       Margins.Top = 20.000000000000000000
       Margins.Right = 30.000000000000000000
       Size.Width = 520.000000000000000000
-      Size.Height = 191.000000000000000000
+      Size.Height = 156.000000000000000000
       Size.PlatformDefault = False
       Stroke.Color = xFFDBD9D9
       XRadius = 13.000000000000000000
@@ -144,7 +135,7 @@ object fPatients: TfPatients
         CanFocus = True
         ClipChildren = True
         Size.Width = 470.000000000000000000
-        Size.Height = 141.000000000000000000
+        Size.Height = 106.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Size = 15.000000000000000000
         StyledSettings = [Family]
@@ -154,8 +145,17 @@ object fPatients: TfPatients
         OnResized = gPatientsResized
         OnCellDblClick = gPatientsCellDblClick
         Viewport.Width = 466.000000000000000000
-        Viewport.Height = 116.000000000000000000
+        Viewport.Height = 81.000000000000000000
       end
+    end
+    object lytBottom: TLayout
+      Align = Bottom
+      Margins.Top = 10.000000000000000000
+      Position.Y = 331.000000000000000000
+      Size.Width = 580.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
     end
   end
   inline fToolbar: TfToolbar

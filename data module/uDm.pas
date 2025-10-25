@@ -13,9 +13,14 @@ uses
 
 type
   TUser = class(TObject)
+    IDH: Integer;
     RoleH: String;
     UsernameH: String;
     PasswordH: String;
+    EmailH: String;
+    PhoneH: String;
+    BioH: String;
+    FullnameH: String;
   end;
   Tdm = class(TDataModule)
     sbDental: TStyleBook;

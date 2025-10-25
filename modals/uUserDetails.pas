@@ -165,15 +165,17 @@ end;
 { Edit Button }
 procedure TfUserDetails.btnEditClick(Sender: TObject);
 var
-  roleH, statusH, InputPass, InputPassUnhash: String;
+  roleH, statusH: String;
   ms: TMemoryStream;
 begin
-  frmMain.fUserDetails.Visible := False;  // Hide UserDetails modal
+  Self.Visible := False;  // Hide UserDetails modal
   frmMain.fUserModal.Visible := True; // Show patient modal
   dm.RecordStatus := 'Edit'; // Set record Status
   frmMain.fUserModal.lbTitle.Text := 'Update Existing Patient'; // Set title
-  frmMain.fUserModal.btnSaveUser.Text := 'Update Patient';
-  // set text in the button
+  frmMain.fUserModal.btnSaveUser.Text := 'Update Patient';  // set text in the button
+  frmMain.fUserModal.rSecuritySettings.Visible := True; // Show Change Password section
+  frmMain.fUserModal.lytPassword.Visible := False;
+  frmMain.fUserModal.rUser.Height := 575;
 
   // Populate the modal form
   // Get Fullname
@@ -182,23 +184,6 @@ begin
   // Get username
   frmMain.fUserModal.eUsername.Text :=
     dm.qUsers.FieldByName('username').AsString;
-
-  // Get password
-  InputPass := dm.User.PasswordH;
-  InputPassUnhash := THashSHA2.GetHashString(InputPass);  // unHashed the password
-  frmMain.fUserModal.ePassword.Text := InputPassUnhash;
-
-  // Password properties config
-  if dm.User.RoleH = 'Admin' then
-  begin
-    frmMain.fUserModal.ePassword.ReadOnly := False; // Allow Edit
-    frmMain.fUserModal.cbShowPassword.Visible := True;  // Hide show password
-  end
-  else if dm.User.RoleH = 'Receptionist' then
-  begin
-    frmMain.fUserModal.ePassword.ReadOnly := True;  // Prevent Edit
-    frmMain.fUserModal.cbShowPassword.Visible := False;  // Prevent to show password
-  end;
 
   // Get email address
   frmMain.fUserModal.eEmailAddress.Text :=

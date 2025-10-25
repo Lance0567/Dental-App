@@ -22,7 +22,6 @@ type
     lytSearch: TLayout;
     lytButtonH: TLayout;
     btnAddNewPatient: TCornerButton;
-    lytBottom: TLayout;
     gPatients: TGrid;
     ScrollBox1: TScrollBox;
     rPatients: TRectangle;
@@ -30,6 +29,7 @@ type
     blPatients: TBindingsList;
     LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
     fToolbar: TfToolbar;
+    lytBottom: TLayout;
     procedure gPatientsCellDblClick(const Column: TColumn; const Row: Integer);
     procedure FrameResized(Sender: TObject);
     procedure btnAddNewPatientClick(Sender: TObject);
@@ -205,7 +205,7 @@ end;
 procedure TfPatients.btnAddNewPatientClick(Sender: TObject);
 begin
   // Set the record status to Add
-  frmMain.fPatientModal.RecordStatus := 'Add';
+  dm.RecordStatus := 'Add';
 
   // Set title
   frmMain.fPatientModal.lbTitle.Text := 'Add New Patient';
@@ -247,7 +247,7 @@ var
 begin
   frmMain.fPatientModal.Visible := True;  // Show patient modal
   frmMain.fPatientModal.ScrollBox1.ViewportPosition := PointF(0, 0);
-  frmMain.fPatientModal.RecordStatus := 'Edit'; // Set record Status
+  dm.RecordStatus := 'Edit'; // Set record Status
   frmMain.fPatientModal.lbTitle.Text := 'Update Existing Patient';
   frmMain.fPatientModal.btnSavePatient.Text := 'Update Patient';
   frmMain.fPatientModal.MemoTrackingReset := '';  // Reset tracking

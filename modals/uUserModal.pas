@@ -8,7 +8,7 @@ uses
   FMX.Memo.Types, FMX.ListBox, FMX.DateTimeCtrls, FMX.Edit, FMX.ImgList,
   FMX.Objects, FMX.ScrollBox, FMX.Memo, FMX.Controls.Presentation, FMX.Layouts,
   System.Skia, FMX.Skia, FMX.Effects, Data.DB, System.Hash, FMX.Media,
-  FMX.MediaLibrary.Actions, FMX.DialogService, FMX.MediaLibrary;
+  FMX.MediaLibrary.Actions, FMX.DialogService, FMX.MediaLibrary, FireDAC.Stan.Param;
 
 type
   TfUserModal = class(TFrame)
@@ -97,6 +97,20 @@ type
     lytDepartment: TLayout;
     lDepartment: TLabel;
     eDepartment: TEdit;
+    rSecuritySettings: TRectangle;
+    lytDetails1: TLayout;
+    slSecuritySettings: TSkLabel;
+    lytNewPassword: TLayout;
+    lNewPassword: TLabel;
+    eNewPassword: TEdit;
+    lytChangePassBH: TLayout;
+    btnChangePassword: TCornerButton;
+    lytConfirmNewPassword: TLayout;
+    lConfirmNewPassword: TLabel;
+    eConfirmNewPassword: TEdit;
+    ShadowEffect6: TShadowEffect;
+    ShadowEffect7: TShadowEffect;
+    ShadowEffect8: TShadowEffect;
     procedure btnCloseClick(Sender: TObject);
     procedure FrameResize(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
@@ -154,6 +168,9 @@ begin
   eDepartment.Text := '';
   cbStatus.ItemIndex := 0;
 
+  // Hide Security Settings
+  rSecuritySettings.Visible := False;
+
   // Hide validation warnings
   crFullName.Visible := False;
   crEmailAddress.Visible := False;
@@ -201,7 +218,7 @@ begin
     lNameH.Visible := True;
   end;
 
-
+  // Reset Profile Icon
   if (eFullName.Text.Trim = '') AND (cProfilePhoto.Fill.Kind = TBrushKind.Solid) then
   begin
     lNameH.Text := '';
@@ -409,12 +426,14 @@ end;
 procedure TfUserModal.btnCancelClick(Sender: TObject);
 begin
   Self.Visible := False;
+  frmMain.fUserDetails.Visible := True;  // Hide UserDetails modal
 end;
 
 { Close Button }
 procedure TfUserModal.btnCloseClick(Sender: TObject);
 begin
   Self.Visible := False;
+  frmMain.fUserDetails.Visible := True;  // Hide UserDetails modal
 end;
 
 { Create User }
@@ -425,6 +444,7 @@ var
   FirstInvalidPos: Single;
   HashedPassword: String;
   DateCreated: String;
+  UsernameExist: Boolean;
 begin
   HasError := False;
   FirstInvalidPos := -1;
@@ -497,18 +517,45 @@ begin
     Exit;
   end;
 
+  // Query to check for existing username
+  try
+    dm.qTemp.Close;
+    dm.qTemp.SQL.Text :=
+    'SELECT COUNT(*) AS cnt ' +
+    'FROM users WHERE username = :username';
+    dm.qTemp.ParamByName('username').AsString := eUsername.Text;  // ← ADD THIS LINE
+    dm.qTemp.Open;
+
+    UsernameExist := dm.qTemp.FieldByName('cnt').AsInteger > 0;
+    dm.qTemp.Close;
+
+    if UsernameExist then
+    begin
+      TDialogService.MessageDialog(
+        'Username already exists. Please choose a different username.',
+        TMsgDlgType.mtError,  // info icon
+        [TMsgDlgBtn.mbOK],
+        TMsgDlgBtn.mbOK, 0,
+        nil  // No callback, so code continues immediately
+      );
+      Exit;  // Stop the save operation
+    end;
+  finally
+    // Optional: free resources or handle exceptions if needed
+  end;
+
   // Handle record state
   if dm.RecordStatus = 'Add' then
     dm.qUsers.Append
   else
     dm.qUsers.Edit;
 
-  // Hash the password (SHA256 for better security)
-  HashedPassword := THashSHA2.GetHashString(ePassword.Text);
-
   // Fields to save
   dm.qUsers.FieldByName('name').AsString := eFullName.Text;
   dm.qUsers.FieldByName('username').AsString := eUsername.Text;
+
+  // Hash the password (SHA256 for better security)
+  HashedPassword := THashSHA2.GetHashString(ePassword.Text);
   dm.qUsers.FieldByName('password').AsString := HashedPassword;
   dm.qUsers.FieldByName('email_address').AsString := eEmailAddress.Text;
   dm.qUsers.FieldByName('contact_number').AsString := eContactNumber.Text;

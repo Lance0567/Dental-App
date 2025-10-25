@@ -198,7 +198,7 @@ object frmMain: TfrmMain
         Size.Width = 605.000000000000000000
         Size.Height = 505.000000000000000000
         Size.PlatformDefault = False
-        TabIndex = 0
+        TabIndex = 4
         TabOrder = 0
         TabPosition = None
         OnChange = tcControllerChange
@@ -218,7 +218,7 @@ object frmMain: TfrmMain
             item
             end>
           TextSettings.Trimming = None
-          IsSelected = True
+          IsSelected = False
           Size.Width = 8.000000000000000000
           Size.Height = 8.000000000000000000
           Size.PlatformDefault = False
@@ -408,12 +408,7 @@ object frmMain: TfrmMain
               Size.Width = 601.000000000000000000
               Size.Height = 441.000000000000000000
               Viewport.Width = 601.000000000000000000
-              Viewport.Height = 501.000000000000000000
-              inherited lytBottom: TLayout
-                Position.Y = 46796.589843750000000000
-                Size.Width = 86832.726562500000000000
-                Size.Height = 29226.597656250000000000
-              end
+              Viewport.Height = 441.000000000000000000
               inherited lytComponents: TLayout
                 Size.Width = 601.000000000000000000
                 inherited lytSearch: TLayout
@@ -456,6 +451,11 @@ object frmMain: TfrmMain
                   Viewport.Width = 491.000000000000000000
                   Viewport.Height = 226.000000000000000000
                 end
+              end
+              inherited lytBottom: TLayout
+                Position.Y = 412667.718750000000000000
+                Size.Width = 1043729.437500000000000000
+                Size.Height = 257856.781250000000000000
               end
             end
             inherited fToolbar: TfToolbar
@@ -685,7 +685,7 @@ object frmMain: TfrmMain
             item
             end>
           TextSettings.Trimming = None
-          IsSelected = False
+          IsSelected = True
           Size.Width = 8.000000000000000000
           Size.Height = 8.000000000000000000
           Size.PlatformDefault = False
@@ -717,66 +717,85 @@ object frmMain: TfrmMain
                   end
                 end
                 inherited lytPersonalInfo: TLayout
-                  Size.Width = 365.000000000000000000
+                  Size.Width = 335.000000000000000000
                   inherited tcController: TTabControl
-                    Size.Width = 325.000000000000000000
+                    Size.Width = 295.000000000000000000
                     Sizes = (
-                      325s
-                      445s
-                      325s
-                      445s)
+                      291s
+                      556s
+                      291s
+                      556s)
                     inherited tiProfile: TTabItem
                       ExplicitSize.cx = 8.000000000000000000
                       ExplicitSize.cy = 8.000000000000000000
                       inherited rPersonalInfo: TRectangle
-                        Size.Width = 325.000000000000000000
+                        Size.Width = 271.000000000000000000
+                        Size.Height = 542.000000000000000000
                         inherited lytHeader: TLayout
-                          Size.Width = 285.000000000000000000
+                          Size.Width = 221.000000000000000000
                           inherited lbTitle: TLabel
-                            Size.Width = 255.000000000000000000
+                            Size.Width = 191.000000000000000000
                             TextSettings.Font.StyleExt = {00070000000000000004000000}
                           end
                         end
                         inherited lytBio: TLayout
-                          Size.Width = 285.000000000000000000
+                          Size.Width = 221.000000000000000000
                           inherited lBio: TLabel
-                            Size.Width = 285.000000000000000000
+                            Size.Width = 221.000000000000000000
                             TextSettings.Font.StyleExt = {00060000000000000004000000}
                           end
                           inherited mBio: TMemo
-                            Size.Width = 285.000000000000000000
-                            Viewport.Width = 285.000000000000000000
+                            Size.Width = 221.000000000000000000
+                            Viewport.Width = 221.000000000000000000
                             Viewport.Height = 73.000000000000000000
                           end
                         end
-                        inherited lytPhoneNumber: TLayout
-                          Size.Width = 285.000000000000000000
-                          inherited ePhoneNumber: TEdit
-                            Size.Width = 285.000000000000000000
-                          end
-                          inherited lPhone: TLabel
-                            Size.Width = 285.000000000000000000
+                        inherited lytButton: TLayout
+                          Size.Width = 221.000000000000000000
+                          inherited btnSaveProfile: TCornerButton
                             TextSettings.Font.StyleExt = {00060000000000000004000000}
                           end
                         end
+                        inherited lytEmail: TLayout
+                          Size.Width = 221.000000000000000000
+                          inherited eEmail: TEdit
+                            Size.Width = 221.000000000000000000
+                          end
+                          inherited lEmail: TLabel
+                            Size.Width = 221.000000000000000000
+                            TextSettings.Font.StyleExt = {00060000000000000004000000}
+                          end
+                        end
+                        inherited lytDetails2: TLayout
+                          Size.Width = 221.000000000000000000
+                          inherited lytRole: TLayout
+                            Position.X = 236.000000000000000000
+                            inherited lRole: TLabel
+                              TextSettings.Font.StyleExt = {00060000000000000004000000}
+                            end
+                          end
+                          inherited lytPhoneNumber: TLayout
+                            Size.Width = 221.000000000000000000
+                            inherited ePhoneNumber: TEdit
+                              Size.Width = 221.000000000000000000
+                            end
+                            inherited lPhone: TLabel
+                              Size.Width = 221.000000000000000000
+                              TextSettings.Font.StyleExt = {00060000000000000004000000}
+                            end
+                          end
+                        end
                         inherited lytDetails1: TLayout
-                          Size.Width = 285.000000000000000000
+                          Size.Width = 221.000000000000000000
                           inherited lytFullName: TLayout
                             inherited lbFullName: TLabel
                               TextSettings.Font.StyleExt = {00060000000000000004000000}
                             end
                           end
-                          inherited lytDateOfBirth: TLayout
+                          inherited lytUsername: TLayout
                             inherited lUsername: TLabel
                               TextSettings.Font.StyleExt = {00060000000000000004000000}
                             end
-                          end
-                        end
-                        inherited lytButton: TLayout
-                          Size.Width = 285.000000000000000000
-                          inherited btnSaveProfile: TCornerButton
-                            StyledSettings = []
-                            StyleLookup = 'btnSavePatientStyle1'
                           end
                         end
                       end
@@ -785,26 +804,27 @@ object frmMain: TfrmMain
                       ExplicitSize.cx = 8.000000000000000000
                       ExplicitSize.cy = 8.000000000000000000
                       inherited rSecuritySettings: TRectangle
-                        Size.Width = 325.000000000000000000
+                        Size.Width = 271.000000000000000000
+                        Size.Height = 541.000000000000000000
                         inherited lytHeader2: TLayout
-                          Size.Width = 285.000000000000000000
+                          Size.Width = 221.000000000000000000
                           inherited lTitle2: TLabel
-                            Size.Width = 255.000000000000000000
+                            Size.Width = 191.000000000000000000
                             TextSettings.Font.StyleExt = {00070000000000000004000000}
                           end
                         end
                         inherited lytCurrentPassword: TLayout
-                          Size.Width = 285.000000000000000000
+                          Size.Width = 221.000000000000000000
                           inherited eCurrentPassword: TEdit
-                            Size.Width = 285.000000000000000000
+                            Size.Width = 221.000000000000000000
                           end
                           inherited lbCurrentPassowrd: TLabel
-                            Size.Width = 285.000000000000000000
+                            Size.Width = 221.000000000000000000
                             TextSettings.Font.StyleExt = {00060000000000000004000000}
                           end
                         end
-                        inherited lytDetails2: TLayout
-                          Size.Width = 285.000000000000000000
+                        inherited lytDetails3: TLayout
+                          Size.Width = 221.000000000000000000
                           inherited lytNewPassword: TLayout
                             inherited lNewPassword: TLabel
                               TextSettings.Font.StyleExt = {00060000000000000004000000}
@@ -817,7 +837,10 @@ object frmMain: TfrmMain
                           end
                         end
                         inherited lytButton2: TLayout
-                          Size.Width = 285.000000000000000000
+                          Size.Width = 221.000000000000000000
+                          inherited btnChangePassword: TCornerButton
+                            TextSettings.Font.StyleExt = {00060000000000000004000000}
+                          end
                         end
                       end
                     end
@@ -833,13 +856,20 @@ object frmMain: TfrmMain
                         TextSettings.Font.StyleExt = {00060000000000000004000000}
                       end
                     end
-                    inherited sbProfile: TSpeedButton
-                      Cursor = crHandPoint
-                      StyleLookup = 'sbProfileStyle1'
-                    end
-                    inherited sbSettings: TSpeedButton
-                      Cursor = crHandPoint
-                      StyleLookup = 'sbProfileStyle1'
+                  end
+                end
+              end
+              inherited fToolbar: TfToolbar
+                Size.Width = 587.000000000000000000
+                inherited rToolbar: TRectangle
+                  Size.Width = 587.000000000000000000
+                  inherited lBevel: TLine
+                    Size.Width = 587.000000000000000000
+                  end
+                  inherited lytToolbarH: TLayout
+                    Size.Width = 587.000000000000000000
+                    inherited lytUser: TLayout
+                      Position.X = 442.000000000000000000
                     end
                   end
                 end
@@ -975,7 +1005,6 @@ object frmMain: TfrmMain
                   end
                   inherited cbGender: TComboBox
                     Size.Width = 195.000000000000000000
-                    StyleLookup = 'cbGenderStyle1'
                   end
                 end
                 inherited lytContactNumber: TLayout
@@ -1548,6 +1577,32 @@ object frmMain: TfrmMain
               TextSettings.Font.StyleExt = {00060000000000000004000000}
             end
           end
+          inherited rSecuritySettings: TRectangle
+            Size.Width = 524.000000000000000000
+            inherited lytDetails1: TLayout
+              Size.Width = 474.000000000000000000
+              inherited lytNewPassword: TLayout
+                inherited lNewPassword: TLabel
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
+                end
+              end
+              inherited lytConfirmNewPassword: TLayout
+                inherited lConfirmNewPassword: TLabel
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
+                end
+              end
+            end
+            inherited lytChangePassBH: TLayout
+              Size.Width = 474.000000000000000000
+              inherited btnChangePassword: TCornerButton
+                TextSettings.Font.StyleExt = {00060000000000000004000000}
+                OnClick = nil
+              end
+            end
+            inherited slSecuritySettings: TSkLabel
+              Size.Width = 474.000000000000000000
+            end
+          end
         end
       end
     end
@@ -1563,6 +1618,76 @@ object frmMain: TfrmMain
         end
         inherited btnTakePicture: TCornerButton
           TextSettings.Font.StyleExt = {00060000000000000004000000}
+        end
+      end
+    end
+  end
+  inline fUpdateProfilePhoto: TfUpdateProfilePhoto
+    Align = Client
+    Size.Width = 850.000000000000000000
+    Size.Height = 505.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+    inherited lytContentH: TLayout
+      Size.Width = 850.000000000000000000
+      Size.Height = 505.000000000000000000
+      inherited rBackground: TRectangle
+        Size.Width = 850.000000000000000000
+        Size.Height = 505.000000000000000000
+      end
+      inherited rModalInfo: TRectangle
+        inherited lytPatientProfile: TLayout
+          TabOrder = 2
+          inherited lytProfilePhoto: TLayout
+            inherited cProfilePhoto: TCircle
+              inherited lNameH: TLabel
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
+              end
+            end
+          end
+          inherited lytPhotoButton: TLayout
+            inherited lytPhotoButtonH: TLayout
+              inherited btnPhotoUpload: TCornerButton
+                TextSettings.Font.StyleExt = {00060000000000000004000000}
+              end
+              inherited btnCamera: TCornerButton
+                TextSettings.Font.StyleExt = {00060000000000000004000000}
+              end
+              inherited cbRemove: TCornerButton
+                TextSettings.Font.StyleExt = {00060000000000000004000000}
+              end
+            end
+          end
+        end
+        inherited lytTitle: TLayout
+          inherited lbTitle: TLabel
+            Size.Width = 420.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+          end
+          inherited btnClose: TSpeedButton
+            Margins.Right = -5.000000000000000000
+            Position.X = 420.000000000000000000
+          end
+        end
+      end
+    end
+    inherited rCameralModal: TRectangle
+      inherited lytImgTools: TLayout
+        inherited lytCameraOption: TLayout
+          inherited lCamera: TLabel
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+          end
+        end
+        inherited btnSaveCurrentImage: TCornerButton
+          TextSettings.Font.StyleExt = {00060000000000000004000000}
+        end
+        inherited btnTakePicture: TCornerButton
+          TextSettings.Font.StyleExt = {00060000000000000004000000}
+        end
+      end
+      inherited lytClosebtn: TLayout
+        inherited lPreviewImage: TLabel
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
         end
       end
     end

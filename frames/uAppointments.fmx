@@ -212,7 +212,7 @@ object fAppointments: TfAppointments
         inherited lytToolbarH: TLayout
           Size.Width = 582.000000000000000000
           inherited lytUser: TLayout
-            Position.X = 427.000000000000000000
+            Position.X = 437.000000000000000000
           end
         end
       end

@@ -218,6 +218,8 @@ begin
 
   // Clear Fields
   frmMain.fUserModal.ClearItems;
+  frmMain.fUserModal.lytPassword.Visible := True;
+  frmMain.fUserModal.rUser.Height := 660;
 
   // Reset scrollbox
   frmMain.fUserModal.ScrollBox1.ViewportPosition := PointF(0, 0);
@@ -298,11 +300,14 @@ begin
       ms.Position := 0;
       frmMain.fUserDetails.cProfilePhoto.Fill.Bitmap.Bitmap.LoadFromStream(ms);
       frmMain.fUserDetails.lNameH.Visible := False;  // Hide Name holder
+      frmMain.fUserDetails.gIcon.ImageIndex := -1;
     end
     else
     begin
       frmMain.fUserDetails.cProfilePhoto.Fill.Bitmap.Bitmap := nil; // Clear if no photo
       frmMain.fUserDetails.cProfilePhoto.Fill.Kind := TBrushKind.Solid;  // Set background
+      frmMain.fUserDetails.lNameH.Visible := True;
+      frmMain.fUserDetails.gIcon.ImageIndex := -1;
     end;
   finally
     frmMain.fUserDetails.gIcon.ImageIndex := -1; // Hide Icon
@@ -318,13 +323,24 @@ begin
 
   // Get status in the database
   frmMain.fUserDetails.lStatus.Text := dm.qUsers.FieldByName('status').AsString;
+  if frmMain.fUserDetails.lStatus.Text = 'Active' then
+  begin
+    frmMain.fUserDetails.rStatusH.Fill.Color := $FEDCFCE7;
+    frmMain.fUserDetails.rStatusH.Width := 70;
+    frmMain.fUserDetails.lStatus.TextSettings.FontColor := $FE166534;
+  end
+  else
+  begin
+    frmMain.fUserDetails.rStatusH.Fill.Color := $FEFEE2E2;
+    frmMain.fUserDetails.rStatusH.Width := 90;
+    frmMain.fUserDetails.lStatus.TextSettings.FontColor := $FE991B1B;
+  end;
 
   // Get Hire date
   frmMain.fUserDetails.slHireDate.Words.Items[1].Text := dm.qUsers.FieldByName('date_created').AsString;
 
   // Get last login
   frmMain.fUserDetails.slLastLogin.Words.Items[1].Text := dm.qUsers.FieldByName('last_login').AsString;
-
   frmMain.fUserDetails.ClearItems;  // Clear items
 end;
 

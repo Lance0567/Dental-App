@@ -154,7 +154,7 @@ end;
 procedure TfAppointments.btnAddNewAppointmentClick(Sender: TObject);
 begin
   // Set record status to add
-  frmMain.fAppointmentModal.RecordStatus := 'Add';
+  dm.RecordStatus := 'Add';
 
   // Set Modal Title
   frmMain.fAppointmentModal.lbTitle.Text := 'Create New Appointment';
@@ -186,7 +186,7 @@ var
   cStatus: String;
 begin
   // Set record status to edit
-  frmMain.fAppointmentModal.RecordStatus := 'Edit';
+  dm.RecordStatus := 'Edit';
 
   // Set Modal Title
   frmMain.fAppointmentModal.lbTitle.Text := 'Edit Existing Appointment';

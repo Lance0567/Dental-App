@@ -11,7 +11,7 @@ uses
   FMX.Effects, FMX.Grid, Data.DB, Data.Bind.EngExt, Fmx.Bind.DBEngExt,
   Fmx.Bind.Grid, System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors,
   Data.Bind.Components, Data.Bind.Grid, Data.Bind.DBScope, uAppointmentModal,
-  uUserDetails, FMX.DialogService;
+  uUserDetails, FMX.DialogService, uUpdateProfilePhoto;
 
 type
   TfrmMain = class(TForm)
@@ -37,7 +37,6 @@ type
     sbUsers: TSpeedButton;
     tiUsers: TTabItem;
     tiUserProfile: TTabItem;
-    fUserProfile: TfUserProfile;
     lytPopUpBottom: TLayout;
     lytPopUpMessage: TLayout;
     rPopUp: TRectangle;
@@ -50,6 +49,8 @@ type
     fAppointmentModal: TfAppointmentModal;
     fUserDetails: TfUserDetails;
     fUserModal: TfUserModal;
+    fUpdateProfilePhoto: TfUpdateProfilePhoto;
+    fUserProfile: TfUserProfile;
     procedure FormCreate(Sender: TObject);
     procedure mvSidebarResize(Sender: TObject);
     procedure FormResize(Sender: TObject);
@@ -75,6 +76,7 @@ type
   public
     procedure HideFrames;
     procedure ButtonPressedReset;
+    procedure AccountSetting;
     procedure RecordMessage(const AEntity, ADetail: string);
     { Public declarations }
   end;
@@ -104,6 +106,12 @@ begin
   sbDashboard.IsPressed := False;
   sbPatients.IsPressed := False;
   sbAppointments.IsPressed := False;
+end;
+
+{ Account Settings }
+procedure TfrmMain.AccountSetting;
+begin
+  //
 end;
 
 { New Appointment }
@@ -181,6 +189,7 @@ begin
   fPatients.fToolbar.ProfileSetter;
   fAppointments.fToolbar.ProfileSetter;
   fUsers.fToolbar.ProfileSetter;
+  fUserProfile.fToolbar.ProfileSetter;
 
   // Default tab index
   tcController.TabIndex := 0;
@@ -220,6 +229,7 @@ begin
   fPatients.fToolbar.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
   fAppointments.fToolbar.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
   fUsers.fToolbar.lDate.Text := FormatDateTime('dddd, mmmm d, yyyy', Now);
+  fUserProfile.fToolbar.lDate.Text := FormatDateTime('dddd, mmmm d, yyyy', Now);
 end;
 
 { Form Resized }
@@ -354,6 +364,17 @@ begin
         rPopUp.Fill.Color := TAlphaColorRec.White;
         // Icon set to red success
         gPopUp.ImageIndex := 33;
+      end;
+      6:  // Profile Update
+      begin
+        lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.Black;
+        lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Dimgray;
+        lbPopUp.Words.Items[0].Text := AEntity + ' updated';
+        lbPopUp.Words.Items[1].Text := 'Your ' + ADetail +
+          ' information has been successfully updated.';
+        rPopUp.Fill.Color := TAlphaColorRec.White;
+        // Icon set to yellow success
+        gPopUp.ImageIndex := 32;
       end;
   end;
 end;

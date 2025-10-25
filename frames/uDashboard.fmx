@@ -154,6 +154,13 @@ object fDashboard: TfDashboard
             end
           end
         end
+        object ShadowEffect1: TShadowEffect
+          Distance = 1.000000000000000000
+          Direction = 45.000000000000000000
+          Softness = 0.200000002980232200
+          Opacity = 0.100000001490116100
+          ShadowColor = claBlack
+        end
       end
       object rCard2: TRectangle
         Align = Center
@@ -240,6 +247,13 @@ object fDashboard: TfDashboard
             end
           end
         end
+        object ShadowEffect2: TShadowEffect
+          Distance = 1.000000000000000000
+          Direction = 45.000000000000000000
+          Softness = 0.200000002980232200
+          Opacity = 0.100000001490116100
+          ShadowColor = claBlack
+        end
       end
       object rCard3: TRectangle
         Align = Center
@@ -313,6 +327,13 @@ object fDashboard: TfDashboard
             end
           end
         end
+        object ShadowEffect3: TShadowEffect
+          Distance = 1.000000000000000000
+          Direction = 45.000000000000000000
+          Softness = 0.200000002980232200
+          Opacity = 0.100000001490116100
+          ShadowColor = claBlack
+        end
       end
       object rCard4: TRectangle
         Align = Center
@@ -385,6 +406,13 @@ object fDashboard: TfDashboard
               Images = dm.imgList
             end
           end
+        end
+        object ShadowEffect4: TShadowEffect
+          Distance = 1.000000000000000000
+          Direction = 45.000000000000000000
+          Softness = 0.200000002980232200
+          Opacity = 0.100000001490116100
+          ShadowColor = claBlack
         end
       end
     end
@@ -461,6 +489,13 @@ object fDashboard: TfDashboard
           TextSettings.HorzAlign = Center
           Text = 'No Appointment for Today!'
           TabOrder = 6
+        end
+        object ShadowEffect5: TShadowEffect
+          Distance = 1.000000000000000000
+          Direction = 45.000000000000000000
+          Softness = 0.200000002980232200
+          Opacity = 0.100000001490116100
+          ShadowColor = claBlack
         end
       end
       object rQuickActions: TRectangle
@@ -586,6 +621,13 @@ object fDashboard: TfDashboard
           Text = 'Quick Actions'
           TabOrder = 0
         end
+        object ShadowEffect6: TShadowEffect
+          Distance = 1.000000000000000000
+          Direction = 45.000000000000000000
+          Softness = 0.200000002980232200
+          Opacity = 0.100000001490116100
+          ShadowColor = claBlack
+        end
       end
     end
   end
@@ -605,7 +647,7 @@ object fDashboard: TfDashboard
       inherited lytToolbarH: TLayout
         Size.Width = 582.000000000000000000
         inherited lytUser: TLayout
-          Position.X = 427.000000000000000000
+          Position.X = 437.000000000000000000
         end
       end
     end

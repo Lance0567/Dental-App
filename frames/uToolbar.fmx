@@ -3,14 +3,14 @@ object fToolbar: TfToolbar
   Margins.Left = -1.000000000000000000
   Margins.Right = -1.000000000000000000
   Position.X = -1.000000000000000000
-  Size.Width = 1068.000000000000000000
+  Size.Width = 813.000000000000000000
   Size.Height = 60.000000000000000000
   Size.PlatformDefault = False
   OnPainting = FramePainting
   object rToolbar: TRectangle
     Align = MostTop
     Fill.Color = claWhite
-    Size.Width = 1068.000000000000000000
+    Size.Width = 813.000000000000000000
     Size.Height = 60.000000000000000000
     Size.PlatformDefault = False
     Stroke.Kind = None
@@ -18,14 +18,14 @@ object fToolbar: TfToolbar
     object lBevel: TLine
       Align = Client
       LineType = Bottom
-      Size.Width = 1068.000000000000000000
+      Size.Width = 813.000000000000000000
       Size.Height = 60.000000000000000000
       Size.PlatformDefault = False
       Stroke.Thickness = 0.100000001490116100
     end
     object lytToolbarH: TLayout
       Align = Client
-      Size.Width = 1068.000000000000000000
+      Size.Width = 813.000000000000000000
       Size.Height = 60.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 5
@@ -44,7 +44,7 @@ object fToolbar: TfToolbar
       end
       object lytUser: TLayout
         Align = Right
-        Position.X = 923.000000000000000000
+        Position.X = 668.000000000000000000
         Size.Width = 145.000000000000000000
         Size.Height = 60.000000000000000000
         Size.PlatformDefault = False
@@ -60,15 +60,11 @@ object fToolbar: TfToolbar
             item
               Font.Weight = Semibold
               Name = 'Item 0'
-              StyledSettings = [Family, FontColor]
+              StyledSettings = [Family, Size, FontColor]
               Text = 'Sofia Chen'#11
             end
             item
-              Font.Families = 'Segoe UI Variable Display'
-              Font.Size = 13.000000000000000000
-              FontColor = claGray
               Name = 'Item 1'
-              StyledSettings = [Style]
               Text = 'Receptionist'
             end>
         end
@@ -89,6 +85,20 @@ object fToolbar: TfToolbar
             Size.PlatformDefault = False
             ImageIndex = 10
             Images = dm.imgList
+          end
+          object lNameH: TLabel
+            Align = Client
+            StyledSettings = []
+            Size.Width = 40.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Sans Serif Collection'
+            TextSettings.Font.Size = 22.000000000000000000
+            TextSettings.FontColor = xFE004D47
+            TextSettings.HorzAlign = Center
+            Text = 'L'
+            Visible = False
+            TabOrder = 0
           end
         end
         object rPopUp: TRectangle

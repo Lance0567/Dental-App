@@ -118,7 +118,7 @@ object fUserModal: TfUserModal
                   Align = Center
                   Fill.Color = xFFF3F5F7
                   Size.Width = 80.000000000000000000
-                  Size.Height = 90.000000000000000000
+                  Size.Height = 85.000000000000000000
                   Size.PlatformDefault = False
                   Stroke.Color = xFFDBD9D9
                   OnPainting = cProfilePhotoPainting
@@ -133,8 +133,8 @@ object fUserModal: TfUserModal
                   object lNameH: TLabel
                     Align = Client
                     StyledSettings = [Family, FontColor]
-                    Size.Width = 201.000000000000000000
-                    Size.Height = 112.000000000000000000
+                    Size.Width = 80.000000000000000000
+                    Size.Height = 85.000000000000000000
                     Size.PlatformDefault = False
                     TextSettings.Font.Size = 34.000000000000000000
                     TextSettings.Font.StyleExt = {00070000000000000004000000}
@@ -255,7 +255,7 @@ object fUserModal: TfUserModal
             object lytContactNumber: TLayout
               Align = Top
               Margins.Top = 20.000000000000000000
-              Position.Y = 410.000000000000000000
+              Position.Y = 320.000000000000000000
               Size.Width = 357.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
@@ -342,7 +342,7 @@ object fUserModal: TfUserModal
             object lytEmailAddress: TLayout
               Align = Top
               Margins.Top = 20.000000000000000000
-              Position.Y = 320.000000000000000000
+              Position.Y = 230.000000000000000000
               Size.Width = 357.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
@@ -601,7 +601,7 @@ object fUserModal: TfUserModal
             object lytPassword: TLayout
               Align = Top
               Margins.Top = 20.000000000000000000
-              Position.Y = 230.000000000000000000
+              Position.Y = 410.000000000000000000
               Size.Width = 357.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
@@ -704,6 +704,13 @@ object fUserModal: TfUserModal
                 end
               end
             end
+          end
+          object ShadowEffect8: TShadowEffect
+            Distance = 1.000000000000000000
+            Direction = 45.000000000000000000
+            Softness = 0.200000002980232200
+            Opacity = 0.100000001490116100
+            ShadowColor = claBlack
           end
         end
         object rRoleAndAccess: TRectangle
@@ -850,14 +857,21 @@ object fUserModal: TfUserModal
               end
             end
           end
+          object ShadowEffect7: TShadowEffect
+            Distance = 1.000000000000000000
+            Direction = 45.000000000000000000
+            Softness = 0.200000002980232200
+            Opacity = 0.100000001490116100
+            ShadowColor = claBlack
+          end
         end
         object lytButtonSaveH: TLayout
           Align = Top
           Padding.Top = 10.000000000000000000
           Padding.Bottom = 10.000000000000000000
-          Margins.Top = 10.000000000000000000
+          Margins.Top = 20.000000000000000000
           Position.X = 25.000000000000000000
-          Position.Y = 1095.000000000000000000
+          Position.Y = 1345.000000000000000000
           Size.Width = 407.000000000000000000
           Size.Height = 60.000000000000000000
           Size.PlatformDefault = False
@@ -905,6 +919,157 @@ object fUserModal: TfUserModal
             XRadius = 13.000000000000000000
             YRadius = 13.000000000000000000
             OnClick = btnCancelClick
+          end
+        end
+        object rSecuritySettings: TRectangle
+          Align = Top
+          Fill.Color = claWhite
+          Padding.Left = 25.000000000000000000
+          Padding.Top = 20.000000000000000000
+          Padding.Right = 25.000000000000000000
+          Padding.Bottom = 20.000000000000000000
+          Margins.Top = 20.000000000000000000
+          Position.X = 25.000000000000000000
+          Position.Y = 1105.000000000000000000
+          Size.Width = 407.000000000000000000
+          Size.Height = 220.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = xFFDBD9D9
+          XRadius = 16.000000000000000000
+          YRadius = 16.000000000000000000
+          object lytDetails1: TLayout
+            Align = Top
+            Margins.Top = 20.000000000000000000
+            Position.X = 25.000000000000000000
+            Position.Y = 64.000000000000000000
+            Size.Width = 357.000000000000000000
+            Size.Height = 70.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            object lytNewPassword: TLayout
+              Align = Left
+              Size.Width = 170.000000000000000000
+              Size.Height = 70.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 7
+              object lNewPassword: TLabel
+                Align = Top
+                StyledSettings = [Family]
+                Size.Width = 170.000000000000000000
+                Size.Height = 17.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Size = 14.000000000000000000
+                TextSettings.Font.StyleExt = {00060000000000000004000000}
+                Text = 'New Password'
+                TabOrder = 0
+              end
+              object eNewPassword: TEdit
+                Touch.InteractiveGestures = [LongTap, DoubleTap]
+                Align = Top
+                TabOrder = 1
+                TextSettings.Font.Size = 14.000000000000000000
+                Position.Y = 27.000000000000000000
+                Hint = 'Please fillout this field.'
+                HelpType = htKeyword
+                Margins.Top = 10.000000000000000000
+                Size.Width = 170.000000000000000000
+                Size.Height = 40.000000000000000000
+                Size.PlatformDefault = False
+                TextPrompt = 'Enter new password'
+                StyledSettings = [Family]
+                ParentShowHint = False
+                ShowHint = True
+              end
+            end
+            object lytConfirmNewPassword: TLayout
+              Align = Left
+              Margins.Left = 15.000000000000000000
+              Position.X = 185.000000000000000000
+              Size.Width = 170.000000000000000000
+              Size.Height = 70.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 6
+              object lConfirmNewPassword: TLabel
+                Align = Top
+                StyledSettings = [Family]
+                Size.Width = 170.000000000000000000
+                Size.Height = 17.000000000000000000
+                Size.PlatformDefault = False
+                TextSettings.Font.Size = 14.000000000000000000
+                TextSettings.Font.StyleExt = {00060000000000000004000000}
+                Text = 'Confirm New Password'
+                TabOrder = 0
+              end
+              object eConfirmNewPassword: TEdit
+                Touch.InteractiveGestures = [LongTap, DoubleTap]
+                Align = Top
+                TabOrder = 1
+                TextSettings.Font.Size = 14.000000000000000000
+                Position.Y = 27.000000000000000000
+                Hint = 'Please fillout this field.'
+                HelpType = htKeyword
+                Margins.Top = 10.000000000000000000
+                Size.Width = 170.000000000000000000
+                Size.Height = 40.000000000000000000
+                Size.PlatformDefault = False
+                TextPrompt = 'Confirm new password'
+                StyledSettings = [Family]
+                ParentShowHint = False
+                ShowHint = True
+              end
+            end
+          end
+          object lytChangePassBH: TLayout
+            Align = Top
+            Margins.Top = 20.000000000000000000
+            Position.X = 25.000000000000000000
+            Position.Y = 154.000000000000000000
+            Size.Width = 357.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            object btnChangePassword: TCornerButton
+              Align = Left
+              Cursor = crHandPoint
+              StyledSettings = [FontColor]
+              Images = dm.imgList
+              ImageIndex = 29
+              Sides = [Top, Left, Bottom, Right]
+              Size.Width = 175.000000000000000000
+              Size.Height = 40.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'btnChangePasswordStyle1'
+              TabOrder = 3
+              Text = 'Change Password'
+              TextSettings.Font.Size = 14.000000000000000000
+              TextSettings.Font.StyleExt = {00060000000000000004000000}
+              TextSettings.Trimming = None
+              XRadius = 13.000000000000000000
+              YRadius = 13.000000000000000000
+            end
+          end
+          object slSecuritySettings: TSkLabel
+            Align = Top
+            Position.X = 25.000000000000000000
+            Position.Y = 20.000000000000000000
+            Size.Width = 357.000000000000000000
+            Size.Height = 24.000000000000000000
+            Size.PlatformDefault = False
+            StyledSettings = [FontColor]
+            TextSettings.Font.Families = 'Segoe UI'
+            TextSettings.Font.Size = 18.000000000000000000
+            TextSettings.Font.Weight = Bold
+            Words = <
+              item
+                Text = 'Security Settings'
+              end>
+          end
+          object ShadowEffect6: TShadowEffect
+            Distance = 1.000000000000000000
+            Direction = 45.000000000000000000
+            Softness = 0.200000002980232200
+            Opacity = 0.100000001490116100
+            ShadowColor = claBlack
           end
         end
       end
