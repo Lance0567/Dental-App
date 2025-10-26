@@ -88,6 +88,26 @@ object fAppointments: TfAppointments
         Viewport.Width = 466.000000000000000000
         Viewport.Height = 81.000000000000000000
       end
+      object lNoRecords: TLabel
+        Align = Client
+        StyledSettings = [FontColor]
+        Size.Width = 470.000000000000000000
+        Size.Height = 106.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Family = 'Segoe UI Variable Text'
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.HorzAlign = Center
+        Text = 'No Appointment for Today!'
+        TabOrder = 6
+      end
+      object rNoRecords: TRectangle
+        Align = Client
+        Fill.Color = claDarkgray
+        Opacity = 0.200000002980232200
+        Size.Width = 470.000000000000000000
+        Size.Height = 106.000000000000000000
+        Size.PlatformDefault = False
+      end
     end
     object lytComponents: TLayout
       Align = Top
@@ -108,6 +128,7 @@ object fAppointments: TfAppointments
         Size.PlatformDefault = False
         TabOrder = 0
         object cbDay: TCornerButton
+          StaysPressed = True
           Align = Left
           Cursor = crHandPoint
           StyledSettings = [FontColor]
@@ -124,8 +145,10 @@ object fAppointments: TfAppointments
           TextSettings.Trimming = None
           XRadius = 11.000000000000000000
           YRadius = 11.000000000000000000
+          OnClick = cbDayClick
         end
         object cbWeek: TCornerButton
+          StaysPressed = True
           Align = Left
           Cursor = crHandPoint
           StyledSettings = [FontColor]
@@ -144,8 +167,10 @@ object fAppointments: TfAppointments
           TextSettings.Trimming = None
           XRadius = 11.000000000000000000
           YRadius = 11.000000000000000000
+          OnClick = cbWeekClick
         end
         object cbMonth: TCornerButton
+          StaysPressed = True
           Align = Left
           Cursor = crHandPoint
           StyledSettings = [FontColor]

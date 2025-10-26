@@ -10,7 +10,7 @@ uses
   FMX.ScrollBox, FMX.Grid, Data.Bind.EngExt, Fmx.Bind.DBEngExt, Fmx.Bind.Grid,
   System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.Components,
   Data.Bind.Grid, Data.Bind.DBScope, System.Threading,Data.DB, FireDAC.Stan.Param,
-  FMX.Ani, FMX.MultiView, FMX.Edit, uToolbar;
+  FMX.Ani, FMX.MultiView, FMX.Edit, System.DateUtils, uToolbar;
 
 type
   TfAppointments = class(TFrame)
@@ -33,6 +33,8 @@ type
     cbMonth: TCornerButton;
     fToolbar: TfToolbar;
     lytBottom: TLayout;
+    lNoRecords: TLabel;
+    rNoRecords: TRectangle;
     procedure gAppointmentResized(Sender: TObject);
     procedure FrameResized(Sender: TObject);
     procedure btnAddNewAppointmentClick(Sender: TObject);
@@ -40,11 +42,14 @@ type
       const Row: Integer);
     procedure FrameResize(Sender: TObject);
     procedure cbMonthClick(Sender: TObject);
+    procedure cbDayClick(Sender: TObject);
+    procedure cbWeekClick(Sender: TObject);
   private
     { Private declarations }
   public
     procedure GridContentsResponsive;
     procedure GridContentsResponsive2;
+    procedure ButtonPressedResetter;
     { Public declarations }
   end;
 
@@ -236,11 +241,137 @@ begin
   // Reset Scrollbox
   frmMain.fAppointmentModal.ScrollBox1.ViewportPosition := PointF(0, 0);
 end;
+ 
+{ Button Pressed Resetter }
+procedure TfAppointments.ButtonPressedResetter;
+begin
+  cbDay.IsPressed := False;
+  cbWeek.IsPressed := False;
+  cbMonth.IsPressed := False;
+end;
+
+{ Day Button }
+procedure TfAppointments.cbDayClick(Sender: TObject);
+var
+  todayStr: string;
+begin
+  todayStr := FormatDateTime('yyyy-mm-dd', Date); // Get date now
+
+  if (dm.qAppointments.Active) then
+    dm.qAppointments.Close;
+
+  dm.qAppointments.SQL.Text :=
+    'SELECT id, patient, appointment_title, date_appointment, status, start_time, end_time, date_long, notes ' +
+    'FROM appointments ' +
+    'WHERE (status IN (''New'', ''Ongoing'')) ' +
+    '  AND (DATE(date_appointment) = :today)';  // Use a parameter for today's date
+
+  dm.qAppointments.ParamByName('today').AsString := todayStr;
+  dm.qAppointments.Open;
+
+  // Records checker for todays appointment
+  if dm.qAppointments.IsEmpty then
+  begin
+    lNoRecords.Visible := True;
+    lNoRecords.Text := 'No Appointment for Today!';
+    rNoRecords.Visible := True;
+  end
+  else
+  begin
+    lNoRecords.Visible :=  False;
+    rNoRecords.Visible := False;
+  end;
+
+  // Grid responsive
+  GridContentsResponsive;
+
+  // Button Pressed reset
+  ButtonPressedResetter;
+  cbDay.IsPressed := True;
+end;
 
 { Month Button }
 procedure TfAppointments.cbMonthClick(Sender: TObject);
+var
+  startMonth, endMonth: TDateTime;
 begin
+  // Get the first and last date of current month
+  startMonth := StartOfTheMonth(Date);
+  endMonth := EndOfTheMonth(Date);
 
+  if (dm.qAppointments.Active) then
+    dm.qAppointments.Close;
+
+  dm.qAppointments.SQL.Text :=
+    'SELECT id, patient, appointment_title, date_appointment, status, start_time, end_time, date_long, notes ' +
+    'FROM appointments ' +
+    'WHERE (status IN (''New'', ''Ongoing'')) ' +
+    '  AND (DATE(date_appointment) BETWEEN :startMonth AND :endMonth)';
+  dm.qAppointments.ParamByName('startMonth').AsString := FormatDateTime('yyyy-mm-dd', startMonth);
+  dm.qAppointments.ParamByName('endMonth').AsString := FormatDateTime('yyyy-mm-dd', endMonth);
+  dm.qAppointments.Open;
+
+  // Records checker for this month appointment
+  if dm.qAppointments.IsEmpty then
+  begin
+    lNoRecords.Visible := True;
+    lNoRecords.Text := 'No Appointment for this Month!';
+    rNoRecords.Visible := True;
+  end
+  else
+  begin
+    lNoRecords.Visible :=  False;
+    rNoRecords.Visible := False;
+  end;
+
+  // Grid responsive
+  GridContentsResponsive;
+  
+  // Button Pressed reset
+  ButtonPressedResetter;
+  cbMonth.IsPressed := True;
+end;
+
+{ Week Button }
+procedure TfAppointments.cbWeekClick(Sender: TObject);
+var
+  startWeek, endWeek: TDateTime;
+begin
+  // Calculate first and last day of current week (Sunday to Saturday)
+  startWeek := StartOfTheWeek(Date); // Sunday
+  endWeek := EndOfTheWeek(Date);     // Saturday
+
+  if (dm.qAppointments.Active) then
+    dm.qAppointments.Close;
+
+  dm.qAppointments.SQL.Text :=
+    'SELECT id, patient, appointment_title, date_appointment, status, start_time, end_time, date_long, notes ' +
+    'FROM appointments ' +
+    'WHERE (status IN (''New'', ''Ongoing'')) ' +
+    '  AND (DATE(date_appointment) BETWEEN :startWeek AND :endWeek)';
+  dm.qAppointments.ParamByName('startWeek').AsString := FormatDateTime('yyyy-mm-dd', startWeek);
+  dm.qAppointments.ParamByName('endWeek').AsString := FormatDateTime('yyyy-mm-dd', endWeek);
+  dm.qAppointments.Open;
+
+  // Records checker for this month appointment
+  if dm.qAppointments.IsEmpty then
+  begin
+    lNoRecords.Visible := True;
+    lNoRecords.Text := 'No Appointment for this Week!';
+    rNoRecords.Visible := True;
+  end
+  else
+  begin
+    lNoRecords.Visible :=  False;
+    rNoRecords.Visible := False;
+  end;
+
+  // Grid responsive
+  GridContentsResponsive;
+  
+  // Button Pressed reset
+  ButtonPressedResetter;
+  cbWeek.IsPressed := True;
 end;
 
 { Frame Resize }

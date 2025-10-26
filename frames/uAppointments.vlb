@@ -1,41 +1,126 @@
 ﻿[lbDescription]
-Coordinates=10,267,80,51
+Coordinates=411,270,89,58
 
 [rCalendar]
-Coordinates=461,267,62,33
+Coordinates=526,270,71,36
 Visible=True
 
 [dm.qAppointments]
-Coordinates=10,10,108,33
+Coordinates=10,10,122,36
 Visible=False
 
 [lytHeader]
-Coordinates=624,267,61,33
+Coordinates=10,540,70,36
 
 [gAppointment]
-Coordinates=182,100,84,51
+Coordinates=235,21,94,212
+Visible=True
 
 [lbTitle]
-Coordinates=491,10,44,51
+Coordinates=717,10,49,58
 
 [lytTitle]
-Coordinates=207,344,47,33
+Coordinates=851,478,52,36
 
 [dm.qPatients]
-Coordinates=292,10,80,213
+Coordinates=10,270,90,58
 
 [dm.qTemp]
-Coordinates=182,267,66,51
+Coordinates=615,10,76,58
 
 [dm.qUsers]
-Coordinates=398,10,67,51
+Coordinates=309,270,76,58
 
 []
 Coordinates=274,267,62,33
 
 [blAppointments]
-Coordinates=277,80,82,33
+Coordinates=277,80,103,36
 
 [bsdbAppointments]
-Coordinates=10,10,92,231
+Coordinates=10,10,145,234
+
+[fToolbar.lDivider]
+Coordinates=716,478,109,36
+
+[btnAddNewAppointment]
+Coordinates=537,478,153,36
+
+[fToolbar]
+Coordinates=449,478,62,36
+
+[fToolbar.lytUser]
+Coordinates=317,478,106,36
+
+[fToolbar.lNameH]
+Coordinates=355,10,112,58
+
+[cbMonth]
+Coordinates=227,478,64,36
+
+[cbDay]
+Coordinates=150,478,51,36
+
+[fToolbar.rToolbar]
+Coordinates=10,478,114,36
+
+[fToolbar.gDateIcon]
+Coordinates=805,416,124,36
+
+[fToolbar.rUserImage]
+Coordinates=646,416,133,36
+
+[lytButtonH]
+Coordinates=546,416,74,36
+
+[fToolbar.lDate]
+Coordinates=493,10,96,58
+
+[fToolbar.rPopUp]
+Coordinates=411,416,109,36
+
+[fToolbar.mvPopUp]
+Coordinates=263,416,122,36
+
+[fToolbar.lBevel]
+Coordinates=136,416,101,36
+
+[lytComponents]
+Coordinates=10,416,100,36
+
+[fToolbar.cbLogout]
+Coordinates=798,354,118,36
+
+[cbWeek]
+Coordinates=711,354,61,36
+
+[dm.qTodaysAppointment]
+Coordinates=126,270,157,58
+
+[dm.qPatientSelection]
+Coordinates=792,10,136,58
+
+[lytDateButtons]
+Coordinates=587,354,98,36
+
+[lytBottom]
+Coordinates=493,354,68,36
+
+[fToolbar.slUserName]
+Coordinates=331,354,136,36
+
+[fToolbar.gIcon]
+Coordinates=208,354,97,36
+
+[fToolbar.cbAccountSettings]
+Coordinates=10,354,172,36
+
+[fToolbar.lytToolbarH]
+Coordinates=724,270,132,36
+
+[Scrollbox1]
+Coordinates=623,270,75,36
+
+[fToolbar.FloatAnimation4]
+Coordinates=732,386,159,36
 

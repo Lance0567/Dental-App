@@ -176,6 +176,8 @@ begin
   if mNotes.Text = 'Add any relevant notes about this appointment' then
     mNotes.Text := '';
   dm.qAppointments.FieldByName('notes').AsString := mNotes.Text;
+
+
   dm.qAppointments.FieldByName('created_at').AsDateTime := Now;
 
   dm.qAppointments.Post;
