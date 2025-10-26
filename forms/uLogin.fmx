@@ -9,7 +9,7 @@ object frmLogin: TfrmLogin
   Padding.Top = 20.000000000000000000
   Padding.Right = 50.000000000000000000
   Padding.Bottom = 20.000000000000000000
-  Position = DesktopCenter
+  Position = ScreenCenter
   StyleBook = dm.sbDental
   Transparency = True
   FormFactor.Width = 320
@@ -51,7 +51,6 @@ object frmLogin: TfrmLogin
         OnMouseUp = rDragMouseUp
         object btnClose: TSpeedButton
           Align = Right
-          Cursor = crHandPoint
           Margins.Right = -5.000000000000000000
           Position.X = 377.000000000000000000
           Size.Width = 35.000000000000000000
@@ -64,7 +63,6 @@ object frmLogin: TfrmLogin
         end
         object btnMinimize: TSpeedButton
           Align = Right
-          Cursor = crHandPoint
           Images = dm.imgList
           ImageIndex = 34
           Position.X = 353.000000000000000000

@@ -25,7 +25,7 @@ type
     lytTitle: TLayout;
     lbTitle: TLabel;
     lbDescription: TLabel;
-    rPatients: TRectangle;
+    rUsers: TRectangle;
     gUsers: TGrid;
     bsdbUsers: TBindSourceDB;
     blUsers: TBindingsList;
@@ -317,6 +317,18 @@ begin
 
   // Get user role in the database
   frmMain.fUserDetails.lRole.Text := dm.qUsers.FieldByName('user_role').AsString;
+  if frmMain.fUserDetails.lRole.Text = 'Admin' then
+  begin
+    frmMain.fUserDetails.rRoleH.Fill.Color := $FEF3E8FF;
+    frmMain.fUserDetails.rRoleH.Width := 90;
+    frmMain.fUserDetails.lRole.TextSettings.FontColor := $FE6B21A8;
+  end
+  else
+  begin
+    frmMain.fUserDetails.rRoleH.Fill.Color := $FEDBEAFE;
+    frmMain.fUserDetails.rRoleH.Width := 125;
+    frmMain.fUserDetails.lRole.TextSettings.FontColor := $FE1E40AF;
+  end;
 
   // Get Department
   frmMain.fUserDetails.slDepartment.Words.Items[1].Text := dm.qUsers.FieldByName('department').AsString;

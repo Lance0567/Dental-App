@@ -107,11 +107,8 @@ Coordinates=461,943,123,33
 Coordinates=2015,294,159,51
 
 [dm.qPatients]
-Coordinates=10,10,79,33
+Coordinates=188,30,79,33
 Visible=False
-
-[fPatients]
-Coordinates=146,943,57,33
 
 [fUsers.btnAddNewUser]
 Coordinates=2055,900,129,33
@@ -203,12 +200,6 @@ Coordinates=652,857,145,33
 [fUserProfile.lytDateOfBirth]
 Coordinates=497,857,145,33
 
-[fPatients.lytComponents]
-Coordinates=352,857,135,33
-
-[fPatients.lytTitle]
-Coordinates=249,857,93,33
-
 [fPatientModal.lytCameraOption]
 Coordinates=72,857,167,33
 
@@ -230,17 +221,11 @@ Coordinates=1846,814,95,33
 [fDashboard.lytToolbarH]
 Coordinates=1439,814,131,33
 
-[fPatients.lytHeader]
-Coordinates=1322,814,107,33
-
 [fPatientModal.eAddress]
 Coordinates=448,416,131,51
 
 [fPatientModal.lbEmailAddress]
 Coordinates=10,416,162,51
-
-[fPatients.ScrollBox1]
-Coordinates=1033,814,114,33
 
 [fDashboard.slUserName]
 Coordinates=890,814,133,33
@@ -296,9 +281,6 @@ Coordinates=1638,771,115,33
 [fDashboard.lbTitle]
 Coordinates=175,233,104,51
 
-[fPatients.lytButtonH]
-Coordinates=1370,771,113,33
-
 [fPatientModal.lytGender]
 Coordinates=1228,771,132,33
 
@@ -326,9 +308,6 @@ Coordinates=882,771,107,33
 [fDashboard.lytCardD3]
 Coordinates=749,771,123,33
 
-[fPatients.lbTitle]
-Coordinates=1886,477,91,51
-
 [fDashboard.lbTotalPatients]
 Coordinates=1889,10,148,51
 
@@ -343,9 +322,6 @@ Coordinates=630,771,109,33
 
 [fDashboard.lbAppointments]
 Coordinates=755,355,152,51
-
-[fPatients.rPatients]
-Coordinates=516,771,104,33
 
 [fPatientModal.rModalInfo]
 Coordinates=369,771,137,33
@@ -373,9 +349,6 @@ Coordinates=1435,294,154,51
 
 [fPatientModal.gIcon]
 Coordinates=1615,728,112,33
-
-[fPatients.gPatients]
-Coordinates=1916,416,107,159
 
 [fPatientModal.lytContactNumber]
 Coordinates=1432,728,173,33
@@ -425,9 +398,6 @@ Coordinates=127,728,154,33
 [fDashboard.FloatAnimation2]
 Coordinates=2074,937,155,33
 
-[fPatients.lytSearch]
-Coordinates=10,728,107,33
-
 [fUsers.lytBottom]
 Coordinates=2058,685,97,33
 
@@ -470,9 +440,6 @@ Coordinates=1484,685,127,33
 
 [fAppointments.lbTitle]
 Coordinates=1112,416,120,51
-
-[fPatients.lytBottom]
-Coordinates=1366,685,108,33
 
 [fDashboard]
 Coordinates=1175,685,71,33
@@ -555,17 +522,11 @@ Coordinates=245,642,65,33
 [fUsers.lbDescription]
 Coordinates=1067,355,115,51
 
-[fPatients.lbDescription]
-Coordinates=836,416,126,51
-
 [fAppointments.lytUser]
 Coordinates=111,642,124,33
 
 [fPatients.lBevel]
 Coordinates=10,642,91,33
-
-[fPatients.btnAddNewPatient]
-Coordinates=2018,599,152,33
 
 [fPatientModal.lbAddress]
 Coordinates=1614,416,135,51
@@ -642,17 +603,11 @@ Coordinates=1059,538,121,33
 [fPatientModal]
 Coordinates=968,538,81,33
 
-[fPatients.eSearch]
-Coordinates=10,294,100,51
-
 [fDashboard.FloatAnimation3]
 Coordinates=43,1268,155,33
 
 [dm.qTemp]
 Coordinates=155,70,66,51
-
-[fPatients.bsdbPatients]
-Coordinates=855,80,125,339
 
 [fDashboard.lbTodaysAppointmentC]
 Coordinates=1697,80,190,51
@@ -732,9 +687,6 @@ Coordinates=2610,781,158,33
 
 [fDashboard.lbTotalPatientsC]
 Coordinates=0,0,155,51
-
-[fPatients.blPatients]
-Coordinates=2487,625,109,33
 
 [fUserModal.lCameraDesc]
 Coordinates=1925,150,138,51

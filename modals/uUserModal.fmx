@@ -255,7 +255,7 @@ object fUserModal: TfUserModal
             object lytContactNumber: TLayout
               Align = Top
               Margins.Top = 20.000000000000000000
-              Position.Y = 320.000000000000000000
+              Position.Y = 410.000000000000000000
               Size.Width = 357.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
@@ -342,7 +342,7 @@ object fUserModal: TfUserModal
             object lytEmailAddress: TLayout
               Align = Top
               Margins.Top = 20.000000000000000000
-              Position.Y = 230.000000000000000000
+              Position.Y = 320.000000000000000000
               Size.Width = 357.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
@@ -601,7 +601,7 @@ object fUserModal: TfUserModal
             object lytPassword: TLayout
               Align = Top
               Margins.Top = 20.000000000000000000
-              Position.Y = 410.000000000000000000
+              Position.Y = 230.000000000000000000
               Size.Width = 357.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False

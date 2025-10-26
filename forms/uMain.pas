@@ -28,7 +28,6 @@ type
     tcController: TTabControl;
     tiDashboard: TTabItem;
     tiPatients: TTabItem;
-    fPatients: TfPatients;
     tiAppointments: TTabItem;
     fAppointments: TfAppointments;
     fPatientModal: TfPatientModal;
@@ -51,6 +50,7 @@ type
     fUserModal: TfUserModal;
     fUpdateProfilePhoto: TfUpdateProfilePhoto;
     fUserProfile: TfUserProfile;
+    fPatients: TfPatients;
     procedure FormCreate(Sender: TObject);
     procedure mvSidebarResize(Sender: TObject);
     procedure FormResize(Sender: TObject);
@@ -76,7 +76,6 @@ type
   public
     procedure HideFrames;
     procedure ButtonPressedReset;
-    procedure AccountSetting;
     procedure RecordMessage(const AEntity, ADetail: string);
     { Public declarations }
   end;
@@ -106,12 +105,6 @@ begin
   sbDashboard.IsPressed := False;
   sbPatients.IsPressed := False;
   sbAppointments.IsPressed := False;
-end;
-
-{ Account Settings }
-procedure TfrmMain.AccountSetting;
-begin
-  //
 end;
 
 { New Appointment }
@@ -440,6 +433,10 @@ begin
   fAppointments.Visible := True;
   fAppointments.ScrollBox1.ViewportPosition := PointF(0,0); // reset scrollbox
 
+  // Set today's appointment
+  frmMain.fAppointments.cbDayClick(Sender);
+  frmMain.fAppointments.cbDay.IsPressed := True;
+
   // Grid responsive
   fAppointments.GridContentsResponsive;
 end;
@@ -541,10 +538,10 @@ begin
   // Format today's date as YYYY-MM-DD (adjust to match your database format)
   todayStr := FormatDateTime('yyyy-mm-dd', Date);
 
-  if (dm.qTemp.Active) OR (dm.qAppointments.Active) then
+  if (dm.qTemp.Active) OR (dm.qTodaysAppointment.Active) then
   begin
     dm.qTemp.Close;
-    dm.qAppointments.Close;
+    dm.qTodaysAppointment.Close;
   end;
 
   dm.qTemp.SQL.Text :=

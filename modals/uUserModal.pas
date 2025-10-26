@@ -167,6 +167,7 @@ begin
   cbRole.ItemIndex := 0;
   eDepartment.Text := '';
   cbStatus.ItemIndex := 0;
+  lytPassword.Visible := True;
 
   // Hide Security Settings
   rSecuritySettings.Visible := False;
@@ -475,16 +476,19 @@ begin
     crUsername.Visible := False;
 
   // Password validation
-  if ePassword.Text = '' then
+  if lytPassword.Visible then
   begin
-    AdjustLayoutHeight(lytPassword, 95);
-    crPassword.Visible := True;
+    if ePassword.Text = '' then
+    begin
+      AdjustLayoutHeight(lytPassword, 95);
+      crPassword.Visible := True;
     if FirstInvalidPos = -1 then
       FirstInvalidPos := ePassword.Position.Y;
     HasError := True;
   end
   else
     crPassword.Visible := False;
+  end;
 
   // Email validation
   if eEmailAddress.Text = '' then
@@ -642,15 +646,15 @@ begin
     end
     else if (frmMain.ClientWidth >= 1366) then
     begin
-      rModalInfo.Margins.Left := 430;
-      rModalInfo.Margins.Right := 430;
+      rModalInfo.Margins.Left := 230;
+      rModalInfo.Margins.Right := 230;
       rModalInfo.Margins.Top := 75;
       rModalInfo.Margins.Bottom := 75;
     end
     else if (frmMain.ClientHeight <= 510) AND (frmMain.ClientWidth <= 860) then
     begin
-      rModalInfo.Margins.Left := 190;
-      rModalInfo.Margins.Right := 190;
+      rModalInfo.Margins.Left := 135;
+      rModalInfo.Margins.Right := 135;
       rModalInfo.Margins.Top := 50;
       rModalInfo.Margins.Bottom := 50;
     end;

@@ -32,9 +32,6 @@ Coordinates=363,10,108,213
 Coordinates=182,127,49,51
 Visible=True
 
-[rPatients]
-Coordinates=10,398,58,33
-
 [lytComponents]
 Coordinates=412,321,89,33
 
@@ -59,4 +56,7 @@ Coordinates=10,10,92,285
 
 [blUsers]
 Coordinates=121,242,82,33
+
+[rUsers]
+Coordinates=10,398,58,33
 
