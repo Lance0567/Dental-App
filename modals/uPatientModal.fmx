@@ -732,6 +732,13 @@ object fPatientModal: TfPatientModal
           end
         end
       end
+      object ShadowEffect4: TShadowEffect
+        Distance = 1.000000000000000000
+        Direction = 45.000000000000000000
+        Softness = 0.200000002980232200
+        Opacity = 0.100000001490116100
+        ShadowColor = claBlack
+      end
     end
   end
   object rCameralModal: TRectangle
@@ -877,6 +884,13 @@ object fPatientModal: TfPatientModal
         Size.Height = 190.000000000000000000
         Size.PlatformDefault = False
       end
+    end
+    object ShadowEffect5: TShadowEffect
+      Distance = 1.000000000000000000
+      Direction = 45.000000000000000000
+      Softness = 0.200000002980232200
+      Opacity = 0.100000001490116100
+      ShadowColor = claBlack
     end
   end
   object ccCapturePhoto: TCameraComponent

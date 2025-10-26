@@ -272,7 +272,7 @@ begin
       qTemp.Refresh;
 
       // Set record pop up message
-      frmMain.Tag := 6;
+      frmMain.Tag := 9;
       frmMain.RecordMessage('Profile', 'profile');
     end;
     qTemp.Close;

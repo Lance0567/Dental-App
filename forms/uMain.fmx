@@ -443,19 +443,18 @@ object frmMain: TfrmMain
               end
               inherited rPatients: TRectangle
                 Size.Width = 541.000000000000000000
-                Size.Height = 246.000000000000000000
+                Size.Height = 241.000000000000000000
                 inherited gPatients: TGrid
                   Size.Width = 491.000000000000000000
-                  Size.Height = 196.000000000000000000
+                  Size.Height = 191.000000000000000000
                   StyleLookup = 'gPatientStyle'
                   Viewport.Width = 491.000000000000000000
-                  Viewport.Height = 196.000000000000000000
+                  Viewport.Height = 191.000000000000000000
                 end
               end
               inherited lytBottom: TLayout
-                Position.Y = 421.000000000000000000
+                Position.Y = 416.000000000000000000
                 Size.Width = 601.000000000000000000
-                Size.Height = 20.000000000000000000
               end
             end
             inherited fToolbar: TfToolbar
@@ -527,8 +526,8 @@ object frmMain: TfrmMain
                   Size.Width = 491.000000000000000000
                   Size.Height = 191.000000000000000000
                   StyleLookup = 'gPatientStyle'
-                  Viewport.Width = 491.000000000000000000
-                  Viewport.Height = 191.000000000000000000
+                  Viewport.Width = 490.000000000000000000
+                  Viewport.Height = 166.000000000000000000
                 end
                 inherited lNoRecords: TLabel
                   Size.Width = 491.000000000000000000
@@ -544,15 +543,15 @@ object frmMain: TfrmMain
                 inherited lytDateButtons: TLayout
                   Size.Width = 351.000000000000000000
                   inherited cbDay: TCornerButton
-                    StyleLookup = 'cbDayStyle1'
                     TextSettings.Font.StyleExt = {00060000000000000004000000}
                   end
                   inherited cbWeek: TCornerButton
-                    StyleLookup = 'cbDayStyle1'
                     TextSettings.Font.StyleExt = {00060000000000000004000000}
                   end
                   inherited cbMonth: TCornerButton
-                    StyleLookup = 'cbDayStyle1'
+                    TextSettings.Font.StyleExt = {00060000000000000004000000}
+                  end
+                  inherited cbAllRecords: TCornerButton
                     TextSettings.Font.StyleExt = {00060000000000000004000000}
                   end
                 end
@@ -1168,27 +1167,28 @@ object frmMain: TfrmMain
         object lbPopUp: TSkLabel
           Align = Client
           Margins.Left = 30.000000000000000000
-          Margins.Top = -20.000000000000000000
+          Margins.Top = -45.000000000000000000
           Size.Width = 298.000000000000000000
-          Size.Height = 120.000000000000000000
+          Size.Height = 145.000000000000000000
           Size.PlatformDefault = False
           Words = <
             item
-              Font.Families = 'Segoe UI Variable Small'
+              Font.Families = 'Segoe UI Variable Text'
               Font.Size = 15.000000000000000000
               Font.Weight = Bold
               FontColor = claBlack
-              HeightMultiplier = 3.000000000000000000
+              HeightMultiplier = 5.000000000000000000
               Name = 'Item 0'
               StyledSettings = []
               Text = 'Patient information saved'#11
             end
             item
+              Font.Families = 'Segoe UI Variable Text'
               Font.Size = 15.000000000000000000
               Font.Weight = Semibold
-              FontColor = claDimgray
+              FontColor = claBlack
               Name = 'Item 1'
-              StyledSettings = [Family]
+              StyledSettings = []
               Text = 'The patient details have been saved successfully.'
             end>
         end

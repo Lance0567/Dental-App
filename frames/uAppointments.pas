@@ -10,7 +10,7 @@ uses
   FMX.ScrollBox, FMX.Grid, Data.Bind.EngExt, Fmx.Bind.DBEngExt, Fmx.Bind.Grid,
   System.Bindings.Outputs, Fmx.Bind.Editors, Data.Bind.Components,
   Data.Bind.Grid, Data.Bind.DBScope, System.Threading,Data.DB, FireDAC.Stan.Param,
-  FMX.Ani, FMX.MultiView, FMX.Edit, System.DateUtils, uToolbar;
+  FMX.Ani, FMX.MultiView, FMX.Edit, System.DateUtils, uToolbar, FMX.Effects;
 
 type
   TfAppointments = class(TFrame)
@@ -35,6 +35,8 @@ type
     lytBottom: TLayout;
     lNoRecords: TLabel;
     rNoRecords: TRectangle;
+    ShadowEffect1: TShadowEffect;
+    cbAllRecords: TCornerButton;
     procedure gAppointmentResized(Sender: TObject);
     procedure FrameResized(Sender: TObject);
     procedure btnAddNewAppointmentClick(Sender: TObject);
@@ -44,6 +46,7 @@ type
     procedure cbMonthClick(Sender: TObject);
     procedure cbDayClick(Sender: TObject);
     procedure cbWeekClick(Sender: TObject);
+    procedure cbAllRecordsClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -75,7 +78,7 @@ begin
     for i := 0 to gAppointment.ColumnCount - 1 do
     begin
       if (i = 0) or (i = 4) or (i = 5) or (i = 6) then
-        gAppointment.Columns[i].Width := 180
+        gAppointment.Columns[i].Width := 140
       else
         gAppointment.Columns[i].Width := 220;
     end;
@@ -83,8 +86,8 @@ begin
   else if frmMain.ClientWidth > 850 then
   begin
     // Dynamic layout when wider than 850px
-    FixedWidth := 180;      // width for 1st, 2nd and 3rd columns
-    FixedColumns := 4;      // 2 fixed columns
+    FixedWidth := 140;      // width for 1st, 5th, 6th columns
+    FixedColumns := 4;      // 4 fixed columns
 
     if gAppointment.ColumnCount > FixedColumns then
       NewWidth := (gAppointment.Width - (FixedWidth * FixedColumns)) / (gAppointment.ColumnCount - FixedColumns)
@@ -125,7 +128,7 @@ begin
             for i := 0 to gAppointment.ColumnCount - 1 do
             begin
               if (i = 0) or (i = 4) or (i = 5) or (i = 6) then
-                gAppointment.Columns[i].Width := 180
+                gAppointment.Columns[i].Width := 140
               else
                 gAppointment.Columns[i].Width := 220;
             end;
@@ -133,7 +136,7 @@ begin
           else if frmMain.ClientWidth > 850 then
           begin
             // Dynamic layout
-            FixedWidth := 180; // Width for 1st, 2nd and 3rd columns
+            FixedWidth := 140; // Width for 1st, 5th and 6th columns
             FixedColumns := 4;
 
             if gAppointment.ColumnCount > FixedColumns then
@@ -248,6 +251,40 @@ begin
   cbDay.IsPressed := False;
   cbWeek.IsPressed := False;
   cbMonth.IsPressed := False;
+  cbAllRecords.IsPressed := False;
+end;
+
+{ All Records }
+procedure TfAppointments.cbAllRecordsClick(Sender: TObject);
+begin
+  if (dm.qAppointments.Active) then
+    dm.qAppointments.Close;
+
+  dm.qAppointments.SQL.Text :=
+    'SELECT * ' +
+    'FROM appointments';
+
+  dm.qAppointments.Open;
+
+  // Records checker for All appointment
+  if dm.qAppointments.IsEmpty then
+  begin
+    lNoRecords.Visible := True;
+    lNoRecords.Text := 'No records!';
+    rNoRecords.Visible := True;
+  end
+  else
+  begin
+    lNoRecords.Visible :=  False;
+    rNoRecords.Visible := False;
+  end;
+
+  // Grid responsive
+  GridContentsResponsive;
+
+  // Button Pressed reset
+  ButtonPressedResetter;
+  cbAllRecords.IsPressed := True;
 end;
 
 { Day Button }
@@ -261,7 +298,7 @@ begin
     dm.qAppointments.Close;
 
   dm.qAppointments.SQL.Text :=
-    'SELECT id, patient, appointment_title, date_appointment, status, start_time, end_time, date_long, notes ' +
+    'SELECT * ' +
     'FROM appointments ' +
     'WHERE (status IN (''New'', ''Ongoing'')) ' +
     '  AND (DATE(date_appointment) = :today)';  // Use a parameter for today's date
@@ -303,7 +340,7 @@ begin
     dm.qAppointments.Close;
 
   dm.qAppointments.SQL.Text :=
-    'SELECT id, patient, appointment_title, date_appointment, status, start_time, end_time, date_long, notes ' +
+    'SELECT * ' +
     'FROM appointments ' +
     'WHERE (status IN (''New'', ''Ongoing'')) ' +
     '  AND (DATE(date_appointment) BETWEEN :startMonth AND :endMonth)';
@@ -345,7 +382,7 @@ begin
     dm.qAppointments.Close;
 
   dm.qAppointments.SQL.Text :=
-    'SELECT id, patient, appointment_title, date_appointment, status, start_time, end_time, date_long, notes ' +
+    'SELECT * ' +
     'FROM appointments ' +
     'WHERE (status IN (''New'', ''Ongoing'')) ' +
     '  AND (DATE(date_appointment) BETWEEN :startWeek AND :endWeek)';

@@ -87,6 +87,8 @@ type
     gDateOfBirth: TGlyph;
     lDateOfBirth: TLabel;
     ShadowEffect3: TShadowEffect;
+    ShadowEffect4: TShadowEffect;
+    ShadowEffect5: TShadowEffect;
     procedure mMedicalNotesClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure eFullNameChangeTracking(Sender: TObject);

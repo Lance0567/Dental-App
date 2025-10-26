@@ -85,8 +85,8 @@ object fAppointments: TfAppointments
         Options = [ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
         OnResized = gAppointmentResized
         OnCellDblClick = gAppointmentCellDblClick
-        Viewport.Width = 466.000000000000000000
-        Viewport.Height = 81.000000000000000000
+        Viewport.Width = 470.000000000000000000
+        Viewport.Height = 106.000000000000000000
       end
       object lNoRecords: TLabel
         Align = Client
@@ -107,6 +107,13 @@ object fAppointments: TfAppointments
         Size.Width = 470.000000000000000000
         Size.Height = 106.000000000000000000
         Size.PlatformDefault = False
+      end
+      object ShadowEffect1: TShadowEffect
+        Distance = 1.000000000000000000
+        Direction = 45.000000000000000000
+        Softness = 0.200000002980232200
+        Opacity = 0.100000001490116100
+        ShadowColor = claBlack
       end
     end
     object lytComponents: TLayout
@@ -137,7 +144,8 @@ object fAppointments: TfAppointments
           Size.Width = 60.000000000000000000
           Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
-          TabOrder = 2
+          StyleLookup = 'cbDayStyle1'
+          TabOrder = 3
           Text = 'Day'
           TextSettings.Font.Family = 'Segoe UI Variable Small'
           TextSettings.Font.Size = 13.000000000000000000
@@ -159,7 +167,8 @@ object fAppointments: TfAppointments
           Size.Width = 65.000000000000000000
           Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
-          TabOrder = 1
+          StyleLookup = 'cbDayStyle1'
+          TabOrder = 2
           Text = 'Week'
           TextSettings.Font.Family = 'Segoe UI Variable Small'
           TextSettings.Font.Size = 13.000000000000000000
@@ -181,7 +190,8 @@ object fAppointments: TfAppointments
           Size.Width = 65.000000000000000000
           Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
-          TabOrder = 0
+          StyleLookup = 'cbDayStyle1'
+          TabOrder = 1
           Text = 'Month'
           TextSettings.Font.Family = 'Segoe UI Variable Small'
           TextSettings.Font.Size = 13.000000000000000000
@@ -190,6 +200,29 @@ object fAppointments: TfAppointments
           XRadius = 11.000000000000000000
           YRadius = 11.000000000000000000
           OnClick = cbMonthClick
+        end
+        object cbAllRecords: TCornerButton
+          StaysPressed = True
+          Align = Left
+          Cursor = crHandPoint
+          StyledSettings = [FontColor]
+          Margins.Left = 10.000000000000000000
+          Position.X = 220.000000000000000000
+          Position.Y = 5.000000000000000000
+          Sides = [Top, Left, Bottom, Right]
+          Size.Width = 90.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'cbDayStyle1'
+          TabOrder = 0
+          Text = 'All Records'
+          TextSettings.Font.Family = 'Segoe UI Variable Small'
+          TextSettings.Font.Size = 13.000000000000000000
+          TextSettings.Font.StyleExt = {00060000000000000004000000}
+          TextSettings.Trimming = None
+          XRadius = 11.000000000000000000
+          YRadius = 11.000000000000000000
+          OnClick = cbAllRecordsClick
         end
       end
       object lytButtonH: TLayout

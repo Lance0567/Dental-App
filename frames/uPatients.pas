@@ -9,7 +9,7 @@ uses
   FMX.ImgList, FMX.Edit, System.Rtti, FMX.Grid.Style, FMX.ScrollBox, FMX.Grid,
   Data.Bind.EngExt, Fmx.Bind.DBEngExt, Fmx.Bind.Grid, System.Bindings.Outputs,
   Fmx.Bind.Editors, Data.Bind.Components, Data.Bind.Grid, Data.Bind.DBScope, System.Threading,
-  Data.DB, FireDAC.Stan.Param, FMX.Ani, FMX.MultiView, uToolbar;
+  Data.DB, FireDAC.Stan.Param, FMX.Ani, FMX.MultiView, uToolbar, FMX.Effects;
 
 type
   TfPatients = class(TFrame)
@@ -30,6 +30,7 @@ type
     LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
     fToolbar: TfToolbar;
     lytBottom: TLayout;
+    ShadowEffect1: TShadowEffect;
     procedure gPatientsCellDblClick(const Column: TColumn; const Row: Integer);
     procedure FrameResized(Sender: TObject);
     procedure btnAddNewPatientClick(Sender: TObject);
@@ -67,7 +68,7 @@ begin
     for i := 0 to gPatients.ColumnCount - 1 do
     begin
       if (i = 0) or (i = 2) or (i = 3) or (i = 4) then
-        gPatients.Columns[i].Width := 180
+        gPatients.Columns[i].Width := 110
       else
         gPatients.Columns[i].Width := 220;
     end;
@@ -75,7 +76,7 @@ begin
   else if frmMain.ClientWidth > 850 then
   begin
     // Dynamic layout when wider than 850px
-    FixedWidth := 180;      // width for 2nd and last columns
+    FixedWidth := 110;      // width for 2nd and last columns
     FixedColumns := 4;      // 2 fixed columns
 
     if gPatients.ColumnCount > FixedColumns then
@@ -117,7 +118,7 @@ begin
             for i := 0 to gPatients.ColumnCount - 1 do
             begin
               if (i = 0) or (i = 2) or (i = 3) or (i = 4) then
-                gPatients.Columns[i].Width := 180
+                gPatients.Columns[i].Width := 110
               else
                 gPatients.Columns[i].Width := 220;
             end;
@@ -125,7 +126,7 @@ begin
           else if frmMain.ClientWidth > 850 then
           begin
             // Dynamic layout
-            FixedWidth := 180; // Width for 2nd and last columns
+            FixedWidth := 110; // Width for 2nd and last columns
             FixedColumns := 4;
 
             if gPatients.ColumnCount > FixedColumns then
@@ -171,15 +172,15 @@ begin
             for i := 0 to gPatients.ColumnCount - 1 do
             begin
               if (i = 0) or (i = 2) or (i = 3) or (i = 4) then
-                gPatients.Columns[i].Width := 230
+                gPatients.Columns[i].Width := 110
               else
-                gPatients.Columns[i].Width := 170;
+                gPatients.Columns[i].Width := 220;
             end;
           end
           else if frmMain.ClientWidth > 850 then
           begin
             // Dynamic layout
-            FixedWidth := 180; // Width for 2nd and last columns
+            FixedWidth := 110; // Width for 2nd and last columns
             FixedColumns := 4;
 
             if gPatients.ColumnCount > FixedColumns then

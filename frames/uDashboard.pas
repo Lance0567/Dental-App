@@ -105,15 +105,15 @@ begin
     for i := 0 to gTodaysAppointment.ColumnCount - 1 do
     begin
       if (i = 1) or (i = 2) then
-        gTodaysAppointment.Columns[i].Width := 230
+        gTodaysAppointment.Columns[i].Width := 110
       else
-        gTodaysAppointment.Columns[i].Width := 170;
+        gTodaysAppointment.Columns[i].Width := 180;
     end;
   end
   else if frmMain.ClientWidth > 850 then
   begin
     // Dynamic layout when wider than 850px
-    FixedWidth := 140;      // // Width for 1st and last columns
+    FixedWidth := 110;      // // Width for 1st and last columns
     FixedColumns := 2;      // 2 fixed columns
 
     if gTodaysAppointment.ColumnCount > FixedColumns then
@@ -155,15 +155,15 @@ begin
             for i := 0 to gTodaysAppointment.ColumnCount - 1 do
             begin
               if (i = 1) or (i = 2) then
-                gTodaysAppointment.Columns[i].Width := 230
+                gTodaysAppointment.Columns[i].Width := 110
               else
-                gTodaysAppointment.Columns[i].Width := 170;
+                gTodaysAppointment.Columns[i].Width := 180;
             end;
           end
           else if frmMain.ClientWidth > 850 then
           begin
             // Dynamic layout
-            FixedWidth := 140; // Width for 1st and last columns
+            FixedWidth := 110; // Width for 1st and last columns
             FixedColumns := 2;
 
             if gTodaysAppointment.ColumnCount > FixedColumns then

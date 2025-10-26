@@ -292,7 +292,7 @@ begin
 
   // Message of the pop up and color setting
   case Self.Tag of
-    0:  // Patient Modal
+    0:  // Patient create
       begin
         lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.Black;
         lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Dimgray;
@@ -303,7 +303,7 @@ begin
         // Icon set to green success
         gPopUp.ImageIndex := 8;
       end;
-    1:  // Patient Modal
+    1:  // Patient update
       begin
         lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.Black;
         lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Dimgray;
@@ -314,7 +314,7 @@ begin
         // Icon set to yellow success
         gPopUp.ImageIndex := 32;
       end;
-    2:  // Patient Modal
+    2:  // Patient delete
       begin
         lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.White;
         lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Gray;
@@ -325,7 +325,7 @@ begin
         // Icon set to red success
         gPopUp.ImageIndex := 33;
       end;
-      3:  // Appointment Modal
+      3:  // Appointment create
       begin
         lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.Black;
         lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Dimgray;
@@ -336,7 +336,7 @@ begin
         // Icon set to green success
         gPopUp.ImageIndex := 8;
       end;
-      4:  // Appointment Modal
+      4:  // Appointment update
       begin
         lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.Black;
         lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Dimgray;
@@ -347,7 +347,7 @@ begin
         // Icon set to yellow success
         gPopUp.ImageIndex := 32;
       end;
-      5:  // Appointment Modal
+      5:  // Appointment delete
       begin
         lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.Black;
         lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Dimgray;
@@ -358,7 +358,40 @@ begin
         // Icon set to red success
         gPopUp.ImageIndex := 33;
       end;
-      6:  // Profile Update
+      6:  // User create
+      begin
+        lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.Black;
+        lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Dimgray;
+        lbPopUp.Words.Items[0].Text := AEntity + ' added successfully';
+        lbPopUp.Words.Items[1].Text := 'Your ' + ADetail +
+          ' has been added to the system.';
+        rPopUp.Fill.Color := TAlphaColorRec.White;
+        // Icon set to yellow success
+        gPopUp.ImageIndex := 32;
+      end;
+      7:  // User Update
+      begin
+        lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.Black;
+        lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Black;
+        lbPopUp.Words.Items[0].Text := AEntity + ' updated successfully';
+        lbPopUp.Words.Items[1].Text := ADetail +
+          ' information has been updated.';
+        rPopUp.Fill.Color := TAlphaColorRec.White;
+        // Icon set to yellow success
+        gPopUp.ImageIndex := 32;
+      end;
+      8:  // User delete
+      begin
+        lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.White;
+        lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Dimgray;
+        lbPopUp.Words.Items[0].Text := AEntity + ' deleted successfully';
+        lbPopUp.Words.Items[1].Text := ADetail +
+          ' has been removed from the system.';
+        rPopUp.Fill.Color := TAlphaColorRec.White;
+        // Icon set to yellow success
+        gPopUp.ImageIndex := 32;
+      end;
+      9:  // User Profile Update
       begin
         lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.Black;
         lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Dimgray;

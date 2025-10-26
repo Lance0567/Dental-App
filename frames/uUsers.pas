@@ -10,7 +10,8 @@ uses
   FMX.Objects, FMX.Skia, FMX.ImgList, FMX.Controls.Presentation, FMX.Edit,
   FMX.Layouts, Data.DB, Data.Bind.EngExt, FMX.Bind.DBEngExt, FMX.Bind.Grid,
   System.Bindings.Outputs, FMX.Bind.Editors, Data.Bind.Components,
-  System.Threading, Data.Bind.Grid, Data.Bind.DBScope, FireDAC.Stan.Param, uToolbar;
+  System.Threading, Data.Bind.Grid, Data.Bind.DBScope, FireDAC.Stan.Param, uToolbar,
+  FMX.Effects;
 
 type
   TfUsers = class(TFrame)
@@ -31,6 +32,7 @@ type
     blUsers: TBindingsList;
     LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource;
     fToolbar: TfToolbar;
+    ShadowEffect1: TShadowEffect;
     procedure btnAddNewUserClick(Sender: TObject);
     procedure gUsersCellDblClick(const Column: TColumn; const Row: Integer);
     procedure eSearchChangeTracking(Sender: TObject);

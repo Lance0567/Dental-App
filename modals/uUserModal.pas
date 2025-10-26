@@ -585,20 +585,20 @@ begin
 
   dm.qUsers.Post;
   dm.qUsers.Refresh;
-  ClearItems; // Clear fields
 
   // Set record pop up message
   if (dm.FormReader = 'Main') then
   begin
     if dm.RecordStatus = 'Add' then
-      frmMain.Tag := 0
+      frmMain.Tag := 6
     else
-      frmMain.Tag := 1;
+      frmMain.Tag := 7;
 
-    frmMain.RecordMessage('User', 'user');
+    frmMain.RecordMessage('User', eUsername.Text);
   end
   else
   begin
+    // Creating first admin
     // Message dialog with success icon - Successfully completed admin setup
     TDialogService.MessageDialog(
         'Successfully completed admin setup. You can now proceed to login',
@@ -612,8 +612,8 @@ begin
     frmAdminSetup := nil
   end;
 
-  // Hide patient modal
-  Self.Visible := False;
+  ClearItems; // Clear fields
+  Self.Visible := False;  // Hide patient modal
 end;
 
 { Camera component buffer }

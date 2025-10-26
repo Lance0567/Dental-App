@@ -154,8 +154,15 @@ begin
       begin
         with dm.qUsers do
         begin
+          // Set record pop up message
+          if dm.RecordStatus = 'Add' then
+            frmMain.Tag := 8;
+
+            frmMain.RecordMessage('User', lName.Text);
+
           Delete;
           Refresh;
+          Self.Visible := False;
         end;
       end;
       // If Cancel pressed, do nothing

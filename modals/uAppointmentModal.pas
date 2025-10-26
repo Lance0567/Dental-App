@@ -177,8 +177,9 @@ begin
     mNotes.Text := '';
   dm.qAppointments.FieldByName('notes').AsString := mNotes.Text;
 
-
-  dm.qAppointments.FieldByName('created_at').AsDateTime := Now;
+  // Empty created_at checker
+//  if dm.qAppointments.FieldByName('created_at').AsString.IsEmpty then
+//    dm.qAppointments.FieldByName('created_at').AsDateTime := Now;
 
   dm.qAppointments.Post;
   dm.qAppointments.Refresh;
