@@ -168,6 +168,7 @@ begin
   eDepartment.Text := '';
   cbStatus.ItemIndex := 0;
   lytPassword.Visible := True;
+  cbShowPassword.Visible := False;
 
   // Hide Security Settings
   rSecuritySettings.Visible := False;
@@ -427,14 +428,14 @@ end;
 procedure TfUserModal.btnCancelClick(Sender: TObject);
 begin
   Self.Visible := False;
-  frmMain.fUserDetails.Visible := True;  // Hide UserDetails modal
+  frmMain.fUserDetails.Visible := False;  // Hide UserDetails modal
 end;
 
 { Close Button }
 procedure TfUserModal.btnCloseClick(Sender: TObject);
 begin
   Self.Visible := False;
-  frmMain.fUserDetails.Visible := True;  // Hide UserDetails modal
+  frmMain.fUserDetails.Visible := False;  // Hide UserDetails modal
 end;
 
 { Create User }
@@ -646,15 +647,15 @@ begin
     end
     else if (frmMain.ClientWidth >= 1366) then
     begin
-      rModalInfo.Margins.Left := 230;
-      rModalInfo.Margins.Right := 230;
+      rModalInfo.Margins.Left := 450;
+      rModalInfo.Margins.Right := 450;
       rModalInfo.Margins.Top := 75;
       rModalInfo.Margins.Bottom := 75;
     end
-    else if (frmMain.ClientHeight <= 510) AND (frmMain.ClientWidth <= 860) then
+    else if (frmMain.ClientWidth <= 850) then
     begin
-      rModalInfo.Margins.Left := 135;
-      rModalInfo.Margins.Right := 135;
+      rModalInfo.Margins.Left := 190;
+      rModalInfo.Margins.Right := 190;
       rModalInfo.Margins.Top := 50;
       rModalInfo.Margins.Bottom := 50;
     end;

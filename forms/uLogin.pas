@@ -285,6 +285,10 @@ begin
   if not Assigned(frmMain) then
     Application.CreateForm(TfrmMain, frmMain);
 
+  if not Assigned(frmAdminSetup) then
+    Application.CreateForm(TfrmAdminSetup, frmAdminSetup);
+
+
   // Record Checker
   CheckRecords;
 end;

@@ -206,6 +206,36 @@ begin
     end);
 end;
 
+{ Search user }
+procedure TfUsers.eSearchChangeTracking(Sender: TObject);
+var
+  SearchText: string;
+begin
+  dm.qUsers.DisableControls;
+  try
+    dm.qUsers.Close;
+
+    if Trim(eSearch.Text) = '' then
+    begin
+      // No search: load all records
+      dm.qUsers.SQL.Text := 'SELECT * FROM users';
+    end
+    else
+    begin
+      // Search with parameter
+      dm.qUsers.SQL.Text := 'SELECT * FROM users WHERE name LIKE :search';
+      SearchText := '%' + eSearch.Text + '%';
+      dm.qUsers.ParamByName('search').AsString := SearchText;
+    end;
+
+    dm.qUsers.Open;
+  finally
+    dm.qUsers.EnableControls;
+  end;
+
+  GridContentsResponsive3;
+end;
+
 { Add New User }
 procedure TfUsers.btnAddNewUserClick(Sender: TObject);
 begin
@@ -242,36 +272,6 @@ begin
   frmMain.fUserModal.crEmailAddress.Visible := False;
   frmMain.fUserModal.crContactNumber.Visible := False;
   frmMain.fUserModal.crUsername.Visible := False;
-end;
-
-{ Search user }
-procedure TfUsers.eSearchChangeTracking(Sender: TObject);
-var
-  SearchText: string;
-begin
-  dm.qUsers.DisableControls;
-  try
-    dm.qUsers.Close;
-
-    if Trim(eSearch.Text) = '' then
-    begin
-      // No search: load all records
-      dm.qUsers.SQL.Text := 'SELECT * FROM users';
-    end
-    else
-    begin
-      // Search with parameter
-      dm.qUsers.SQL.Text := 'SELECT * FROM users WHERE name LIKE :search';
-      SearchText := '%' + eSearch.Text + '%';
-      dm.qUsers.ParamByName('search').AsString := SearchText;
-    end;
-
-    dm.qUsers.Open;
-  finally
-    dm.qUsers.EnableControls;
-  end;
-
-  GridContentsResponsive3;
 end;
 
 { Edit User record }

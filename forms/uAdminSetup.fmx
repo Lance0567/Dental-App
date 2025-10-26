@@ -3,50 +3,41 @@ object frmAdminSetup: TfrmAdminSetup
   Top = 0
   Caption = 'Admin Setup'
   ClientHeight = 591
-  ClientWidth = 730
+  ClientWidth = 733
   Position = ScreenCenter
   StyleBook = dm.sbDental
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnResize = FormResize
   DesignerMasterStyle = 0
   inline fUserModal: TfUserModal
     Align = Client
-    Size.Width = 730.000000000000000000
+    Size.Width = 733.000000000000000000
     Size.Height = 591.000000000000000000
     Size.PlatformDefault = False
     inherited lytContentH: TLayout
-      Size.Width = 730.000000000000000000
       Size.Height = 591.000000000000000000
       inherited rBackground: TRectangle
-        Size.Width = 730.000000000000000000
         Size.Height = 591.000000000000000000
       end
       inherited rModalInfo: TRectangle
-        Size.Width = 470.000000000000000000
         Size.Height = 491.000000000000000000
         inherited ScrollBox1: TScrollBox
-          Size.Width = 470.000000000000000000
           Size.Height = 491.000000000000000000
-          Viewport.Width = 454.000000000000000000
+          Viewport.Width = 457.000000000000000000
           Viewport.Height = 491.000000000000000000
           inherited lytTitle: TLayout
-            Size.Width = 419.000000000000000000
             inherited lbTitle: TLabel
-              Size.Width = 384.000000000000000000
               TextSettings.Font.StyleExt = {00070000000000000004000000}
             end
             inherited btnClose: TSpeedButton
-              Position.X = 384.000000000000000000
               OnClick = fUserModalbtnCloseClick
             end
           end
           inherited rUser: TRectangle
-            Size.Width = 404.000000000000000000
             inherited lytUserH: TLayout
-              Size.Width = 354.000000000000000000
               inherited lytPatientProfile: TLayout
-                Size.Width = 354.000000000000000000
                 inherited lytProfilePhoto: TLayout
                   inherited cProfilePhoto: TCircle
                     inherited lNameH: TLabel
@@ -55,9 +46,7 @@ object frmAdminSetup: TfrmAdminSetup
                   end
                 end
                 inherited lytPhotoButton: TLayout
-                  Size.Width = 249.000000000000000000
                   inherited lytPhotoButtonH: TLayout
-                    Size.Width = 244.000000000000000000
                     inherited btnPhotoUpload: TCornerButton
                       TextSettings.Font.StyleExt = {00060000000000000004000000}
                     end
@@ -65,133 +54,76 @@ object frmAdminSetup: TfrmAdminSetup
                       TextSettings.Font.StyleExt = {00060000000000000004000000}
                     end
                   end
-                  inherited lProfileUploadDesc: TLabel
-                    Size.Width = 242.000000000000000000
-                  end
                 end
                 inherited lProfilePhoto: TLabel
-                  Size.Width = 354.000000000000000000
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
                 end
               end
               inherited lPersonalInfo: TLabel
-                Size.Width = 354.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
               end
               inherited lytContactNumber: TLayout
-                Position.Y = 410.000000000000000000
-                Size.Width = 354.000000000000000000
                 inherited lContactNumber: TLabel
-                  Size.Width = 354.000000000000000000
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
-                end
-                inherited eContactNumber: TEdit
-                  Size.Width = 354.000000000000000000
                 end
               end
               inherited lytEmailAddress: TLayout
-                Position.Y = 320.000000000000000000
-                Size.Width = 354.000000000000000000
                 inherited lEmailAddress: TLabel
-                  Size.Width = 354.000000000000000000
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
-                end
-                inherited eEmailAddress: TEdit
-                  Size.Width = 354.000000000000000000
                 end
               end
               inherited lytFullName: TLayout
-                Size.Width = 354.000000000000000000
                 inherited lbFullName: TLabel
-                  Size.Width = 354.000000000000000000
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
-                end
-                inherited eFullName: TEdit
-                  Size.Width = 354.000000000000000000
                 end
               end
               inherited lytUsername: TLayout
-                Size.Width = 354.000000000000000000
                 inherited lUserName: TLabel
-                  Size.Width = 354.000000000000000000
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
-                end
-                inherited eUsername: TEdit
-                  Size.Width = 354.000000000000000000
                 end
               end
               inherited lytPassword: TLayout
-                Position.Y = 230.000000000000000000
-                Size.Width = 354.000000000000000000
                 inherited ePassword: TEdit
-                  Size.Width = 354.000000000000000000
                   inherited cbShowPassword: TCheckBox
-                    Position.X = 289.000000000000000000
                     TextSettings.Font.StyleExt = {00060000000000000004000000}
                   end
                 end
                 inherited lPassword: TLabel
-                  Size.Width = 354.000000000000000000
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
                 end
               end
             end
           end
           inherited rRoleAndAccess: TRectangle
-            Size.Width = 404.000000000000000000
             inherited lytRoleAndAccessH: TLayout
-              Size.Width = 354.000000000000000000
               inherited lytRole: TLayout
-                Size.Width = 354.000000000000000000
                 inherited lRole: TLabel
-                  Size.Width = 354.000000000000000000
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
-                end
-                inherited cbRole: TComboBox
-                  Size.Width = 354.000000000000000000
                 end
               end
               inherited lytStatus: TLayout
-                Size.Width = 354.000000000000000000
                 inherited lStatus: TLabel
-                  Size.Width = 354.000000000000000000
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
                 end
-                inherited cbStatus: TComboBox
-                  Size.Width = 354.000000000000000000
-                end
-              end
-              inherited slRoleAndAccess: TSkLabel
-                Size.Width = 354.000000000000000000
               end
               inherited lytDepartment: TLayout
-                Size.Width = 354.000000000000000000
                 inherited lDepartment: TLabel
-                  Size.Width = 354.000000000000000000
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
-                end
-                inherited eDepartment: TEdit
-                  Size.Width = 354.000000000000000000
                 end
               end
             end
           end
           inherited lytButtonSaveH: TLayout
-            Size.Width = 404.000000000000000000
             inherited btnSaveUser: TCornerButton
-              Position.X = 284.000000000000000000
               TextSettings.Font.StyleExt = {00060000000000000004000000}
             end
             inherited btnCancel: TCornerButton
-              Position.X = 194.000000000000000000
               TextSettings.Font.StyleExt = {00060000000000000004000000}
               OnClick = fUserModalbtnCancelClick
             end
           end
           inherited rSecuritySettings: TRectangle
-            Size.Width = 404.000000000000000000
             inherited lytDetails1: TLayout
-              Size.Width = 354.000000000000000000
               inherited lytNewPassword: TLayout
                 inherited lNewPassword: TLabel
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
@@ -204,13 +136,9 @@ object frmAdminSetup: TfrmAdminSetup
               end
             end
             inherited lytChangePassBH: TLayout
-              Size.Width = 354.000000000000000000
               inherited btnChangePassword: TCornerButton
                 TextSettings.Font.StyleExt = {00060000000000000004000000}
               end
-            end
-            inherited slSecuritySettings: TSkLabel
-              Size.Width = 354.000000000000000000
             end
           end
         end
