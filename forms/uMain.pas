@@ -402,6 +402,17 @@ begin
         // Icon set to yellow success
         gPopUp.ImageIndex := 32;
       end;
+      10:  // Update password
+      begin
+        lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.Black;
+        lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Dimgray;
+        lbPopUp.Words.Items[0].Text := AEntity + ' updated';
+        lbPopUp.Words.Items[1].Text := 'Your ' + ADetail +
+          ' has been changed successfully.';
+        rPopUp.Fill.Color := TAlphaColorRec.White;
+        // Icon set to yellow success
+        gPopUp.ImageIndex := 32;
+      end;
   end;
 end;
 

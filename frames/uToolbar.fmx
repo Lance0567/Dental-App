@@ -3,14 +3,14 @@ object fToolbar: TfToolbar
   Margins.Left = -1.000000000000000000
   Margins.Right = -1.000000000000000000
   Position.X = -1.000000000000000000
-  Size.Width = 813.000000000000000000
+  Size.Width = 933.000000000000000000
   Size.Height = 60.000000000000000000
   Size.PlatformDefault = False
   OnPainting = FramePainting
   object rToolbar: TRectangle
     Align = MostTop
     Fill.Color = claWhite
-    Size.Width = 813.000000000000000000
+    Size.Width = 933.000000000000000000
     Size.Height = 60.000000000000000000
     Size.PlatformDefault = False
     Stroke.Kind = None
@@ -18,14 +18,14 @@ object fToolbar: TfToolbar
     object lBevel: TLine
       Align = Client
       LineType = Bottom
-      Size.Width = 813.000000000000000000
+      Size.Width = 933.000000000000000000
       Size.Height = 60.000000000000000000
       Size.PlatformDefault = False
       Stroke.Thickness = 0.100000001490116100
     end
     object lytToolbarH: TLayout
       Align = Client
-      Size.Width = 813.000000000000000000
+      Size.Width = 933.000000000000000000
       Size.Height = 60.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 5
@@ -44,7 +44,7 @@ object fToolbar: TfToolbar
       end
       object lytUser: TLayout
         Align = Right
-        Position.X = 668.000000000000000000
+        Position.X = 788.000000000000000000
         Size.Width = 145.000000000000000000
         Size.Height = 60.000000000000000000
         Size.PlatformDefault = False

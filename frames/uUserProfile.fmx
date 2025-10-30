@@ -74,7 +74,7 @@ object fUserProfile: TfUserProfile
           Size.Width = 384.000000000000000000
           Size.Height = 560.000000000000000000
           Size.PlatformDefault = False
-          TabIndex = 0
+          TabIndex = 1
           TabOrder = 0
           TabPosition = None
           OnChange = tcControllerChange
@@ -88,7 +88,7 @@ object fUserProfile: TfUserProfile
               item
               end>
             TextSettings.Trimming = None
-            IsSelected = True
+            IsSelected = False
             Size.Width = 8.000000000000000000
             Size.Height = 8.000000000000000000
             Size.PlatformDefault = False
@@ -170,14 +170,17 @@ object fUserProfile: TfUserProfile
                 object mBio: TMemo
                   Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
                   DataDetectorTypes = []
+                  StyledSettings = [Style]
+                  TextSettings.Font.Family = 'Segoe UI Variable Text'
+                  TextSettings.Font.Size = 14.000000000000000000
                   Align = Client
                   Margins.Top = 10.000000000000000000
                   Size.Width = 314.000000000000000000
                   Size.Height = 73.000000000000000000
                   Size.PlatformDefault = False
                   TabOrder = 1
-                  Viewport.Width = 310.000000000000000000
-                  Viewport.Height = 69.000000000000000000
+                  Viewport.Width = 314.000000000000000000
+                  Viewport.Height = 73.000000000000000000
                 end
               end
               object lytButton: TLayout
@@ -622,7 +625,7 @@ object fUserProfile: TfUserProfile
               item
               end>
             TextSettings.Trimming = None
-            IsSelected = False
+            IsSelected = True
             Size.Width = 8.000000000000000000
             Size.Height = 8.000000000000000000
             Size.PlatformDefault = False

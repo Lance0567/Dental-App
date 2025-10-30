@@ -153,6 +153,7 @@ begin
     begin
       if AResult = mrYes then
       begin
+        dm.conDental.Connected := False;
         frmMain.Free;
         frmMain := nil;
         frmLogin.Show;

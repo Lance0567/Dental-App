@@ -193,6 +193,9 @@ begin
 
   CheckRecords; // Record checker
 
+  if dm.conDental.Connected = False then
+    dm.conDental.Connected := True;
+
   if HasRecord then
   begin
     Exit;

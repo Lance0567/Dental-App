@@ -146,19 +146,37 @@ begin
     Open;
     if not IsEmpty then
     begin
-      TDialogService.MessageDialog('Login successful!',
-        TMsgDlgType.mtInformation, // info icon
+      if eNewPassword.Text = eConfirmNewPassword.Text then
+      begin
+        Edit;
+        InputPassHash := THashSHA2.GetHashString(eConfirmNewPassword.Text);
+        FieldByName('password').AsString := InputPassHash;
+        Post;
+
+        // Record message
+        frmMain.Tag := 10;
+        frmMain.RecordMessage('Password', 'password');
+      end
+      else
+        TDialogService.MessageDialog('New passwords does not match',
+        TMsgDlgType.mtError, // info icon
         [TMsgDlgBtn.mbOK], TMsgDlgBtn.mbOK, 0, nil
         // No callback, so code continues immediately
-        );
+        )
     end
+    else if eCurrentPassword.Text.IsEmpty then
+      TDialogService.MessageDialog('Please input your current password.',
+        TMsgDlgType.mtError, // info icon
+        [TMsgDlgBtn.mbOK], TMsgDlgBtn.mbOK, 0, nil
+        // No callback, so code continues immediately
+        )
     else
-      TDialogService.MessageDialog('Invalid username or password.',
+      TDialogService.MessageDialog('Invalid password.',
         TMsgDlgType.mtError, // info icon
         [TMsgDlgBtn.mbOK], TMsgDlgBtn.mbOK, 0, nil
         // No callback, so code continues immediately
         );
-    Close;
+      Close;
   end;
 end;
 
@@ -439,6 +457,11 @@ begin
   // Switch tab
   tcController.TabIndex := 1;
   rSecuritySettings.Visible := True;
+
+  // Clear password
+  eCurrentPassword.Text := '';
+  eNewPassword.Text := '';
+  eConfirmNewPassword.Text := '';
 end;
 
 { OnChange Tab control }
