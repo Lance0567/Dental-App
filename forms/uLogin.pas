@@ -235,6 +235,9 @@ begin
         TMsgDlgBtn.mbOK, 0,
         nil  // No callback, so code continues immediately
       );
+      if not Assigned(frmMain) then
+        Application.CreateForm(TfrmMain, frmMain);
+
       frmMain.Show; // Show Main form
       frmLogin.Hide;    // Hide Login form
     end
