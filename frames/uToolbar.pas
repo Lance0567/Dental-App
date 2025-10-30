@@ -154,11 +154,19 @@ begin
       if AResult = mrYes then
       begin
         dm.conDental.Connected := False;
-        frmMain.Free;
-        frmMain := nil;
+
+        // Show login form first
+        if not Assigned(frmLogin) then
+          Application.CreateForm(TfrmLogin, frmLogin);
         frmLogin.Show;
+
+        // Then release main form safely
+        if Assigned(frmMain) then
+        begin
+          frmMain.Release;
+          frmMain := nil;
+        end;
       end;
-      // If Cancel pressed, do nothing
     end);
 end;
 
