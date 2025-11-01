@@ -64,16 +64,26 @@ end;
 procedure TfrmAdminSetup.fUserModalbtnCancelClick(Sender: TObject);
 begin
   fUserModal.btnCancelClick(Sender);
-  frmAdminSetup.Close;
-  frmAdminSetup := nil;
+
+  // Then release AdminSetup form safely
+  if Assigned(frmAdminSetup) then
+  begin
+    frmAdminSetup.Free;
+    frmAdminSetup := nil;
+  end;
 end;
 
 { Close Button }
 procedure TfrmAdminSetup.fUserModalbtnCloseClick(Sender: TObject);
 begin
   fUserModal.btnCloseClick(Sender);
-  frmAdminSetup.Close;
-  frmAdminSetup := nil;
+
+  // Then release AdminSetup form safely
+  if Assigned(frmAdminSetup) then
+  begin
+    frmAdminSetup.Free;
+    frmAdminSetup := nil;
+  end;
 end;
 
 end.

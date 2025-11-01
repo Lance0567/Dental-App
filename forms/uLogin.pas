@@ -158,12 +158,12 @@ begin
   end;
 end;
 
-{ Create New Account }
+{ Create New Account Button }
 procedure TfrmLogin.btnCreateAccountClick(Sender: TObject);
 begin
   // Create frmAdminSetup form
   if not Assigned(frmAdminSetup) then
-    frmAdminSetup := TfrmAdminSetup.Create(Application);
+    Application.CreateForm(TfrmAdminSetup, frmAdminSetup);
   frmAdminSetup.Show;  // Show form
 
   // Clear items in user modal

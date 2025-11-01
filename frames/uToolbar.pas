@@ -163,7 +163,7 @@ begin
         // Then release main form safely
         if Assigned(frmMain) then
         begin
-          frmMain.Release;
+          frmMain.Free;
           frmMain := nil;
         end;
       end;

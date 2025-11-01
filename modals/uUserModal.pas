@@ -435,7 +435,6 @@ end;
 procedure TfUserModal.btnCloseClick(Sender: TObject);
 begin
   Self.Visible := False;
-  frmMain.fUserDetails.Visible := False;  // Hide UserDetails modal
 end;
 
 { Create User }
