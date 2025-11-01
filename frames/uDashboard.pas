@@ -74,6 +74,7 @@ type
     procedure btnNewAppointmentClick(Sender: TObject);
     procedure gTodaysAppointmentResized(Sender: TObject);
     procedure FrameResize(Sender: TObject);
+    procedure btnReportAnIssueClick(Sender: TObject);
   private
     procedure GridContentsResponsive2;
     { Private declarations }
@@ -281,6 +282,12 @@ end;
 procedure TfDashboard.btnNewPatientClick(Sender: TObject);
 begin
   frmMain.sbPatientsClick(Sender);
+end;
+
+{ Report an Issue button }
+procedure TfDashboard.btnReportAnIssueClick(Sender: TObject);
+begin
+  frmMain.fContactInfo.Visible := True;
 end;
 
 { Card Resize }

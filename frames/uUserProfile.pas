@@ -125,7 +125,7 @@ implementation
 
 {$R *.fmx}
 
-uses uDm, uMain;
+uses uDm, uMain, uUpdateProfilePhoto;
 
 { Change Password Button }
 procedure TfUserProfile.btnChangePasswordClick(Sender: TObject);
@@ -359,7 +359,23 @@ end;
 { Camera Button }
 procedure TfUserProfile.cCameraClick(Sender: TObject);
 begin
-  // sample
+  if rUserPhoto.Fill.Kind = TBrushKind.Bitmap then
+  begin
+    frmMain.fUpdateProfilePhoto.cProfilePhoto.Fill.Kind := TBrushKind.Bitmap;
+    frmMain.fUpdateProfilePhoto.cProfilePhoto.Fill.Bitmap.Bitmap.Assign(rUserPhoto.Fill.Bitmap.Bitmap);
+    frmMain.fUpdateProfilePhoto.cProfilePhoto.Fill.Bitmap.WrapMode := TWrapMode.TileStretch;
+    frmMain.fUpdateProfilePhoto.gIcon.ImageIndex := -1;
+    frmMain.fUpdateProfilePhoto.lNameH.Visible := False;
+  end
+  else
+  begin
+    frmMain.fUpdateProfilePhoto.cProfilePhoto.Fill.Kind := TBrushKind.Solid;
+    frmMain.fUpdateProfilePhoto.gIcon.ImageIndex := -1;
+    frmMain.fUpdateProfilePhoto.lNameH.Visible := True;
+  end;
+
+  // Show update profile photo modal
+  frmMain.fUpdateProfilePhoto.Visible := True;
 end;
 
 { Layout Responsiveness adjuster }

@@ -18,7 +18,8 @@ uses
   uUpdateProfilePhoto in 'modals\uUpdateProfilePhoto.pas' {fUpdateProfilePhoto: TFrame},
   uAppointmentModal in 'modals\uAppointmentModal.pas' {fAppointmentModal: TFrame},
   uToolbar in 'frames\uToolbar.pas' {fToolbar: TFrame},
-  uAdminSetup in 'forms\uAdminSetup.pas' {frmAdminSetup};
+  uAdminSetup in 'forms\uAdminSetup.pas' {frmAdminSetup},
+  uContactInfo in 'modals\uContactInfo.pas' {fContactInfo: TFrame};
 
 {$R *.res}
 

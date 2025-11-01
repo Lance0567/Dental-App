@@ -11,7 +11,7 @@ uses
   FMX.Effects, FMX.Grid, Data.DB, Data.Bind.EngExt, Fmx.Bind.DBEngExt,
   Fmx.Bind.Grid, System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors,
   Data.Bind.Components, Data.Bind.Grid, Data.Bind.DBScope, uAppointmentModal,
-  uUserDetails, FMX.DialogService, uUpdateProfilePhoto;
+  uUserDetails, FMX.DialogService, uUpdateProfilePhoto, uContactInfo;
 
 type
   TfrmMain = class(TForm)
@@ -48,9 +48,10 @@ type
     fAppointmentModal: TfAppointmentModal;
     fUserDetails: TfUserDetails;
     fUserModal: TfUserModal;
-    fUpdateProfilePhoto: TfUpdateProfilePhoto;
     fUserProfile: TfUserProfile;
     fPatients: TfPatients;
+    fContactInfo: TfContactInfo;
+    fUpdateProfilePhoto: TfUpdateProfilePhoto;
     procedure FormCreate(Sender: TObject);
     procedure mvSidebarResize(Sender: TObject);
     procedure FormResize(Sender: TObject);
@@ -409,6 +410,17 @@ begin
         lbPopUp.Words.Items[0].Text := AEntity + ' updated';
         lbPopUp.Words.Items[1].Text := 'Your ' + ADetail +
           ' has been changed successfully.';
+        rPopUp.Fill.Color := TAlphaColorRec.White;
+        // Icon set to yellow success
+        gPopUp.ImageIndex := 32;
+      end;
+      11:  // Update profile
+      begin
+        lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.Black;
+        lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Dimgray;
+        lbPopUp.Words.Items[0].Text := AEntity + ' updated';
+        lbPopUp.Words.Items[1].Text := 'Your ' + ADetail +
+          ' photo has been updated successfully.';
         rPopUp.Fill.Color := TAlphaColorRec.White;
         // Icon set to yellow success
         gPopUp.ImageIndex := 32;

@@ -1,13 +1,15 @@
-unit uUpdateProfilePhoto;
+﻿unit uUpdateProfilePhoto;
 
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
+  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.Variants,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
   FMX.Objects, FMX.Controls.Presentation, FMX.Layouts, FMX.Media, FMX.ListBox,
   FMX.MediaLibrary, System.Actions, FMX.ActnList, FMX.StdActns,
-  FMX.MediaLibrary.Actions, FMX.DialogService, System.DateUtils, FMX.Effects;
+  FMX.MediaLibrary.Actions, FMX.DialogService, System.DateUtils, FMX.Effects,
+  FMX.ImgList, Data.DB, FireDAC.Stan.Param;
 
 type
   TfUpdateProfilePhoto = class(TFrame)
@@ -41,11 +43,15 @@ type
     lPreviewImage: TLabel;
     lytPaintBox: TLayout;
     imgPhoto: TImage;
+    gIcon: TGlyph;
     procedure btnCameraClick(Sender: TObject);
     procedure ccCapturePhotoSampleBufferReady(Sender: TObject;
       const ATime: TMediaTime);
     procedure btnCameraCloseClick(Sender: TObject);
     procedure btnTakePictureClick(Sender: TObject);
+    procedure btnPhotoUploadClick(Sender: TObject);
+    procedure cbRemoveClick(Sender: TObject);
+    procedure btnCloseClick(Sender: TObject);
   private
     FCapturing: Boolean;
     FStatus: Boolean;
@@ -56,13 +62,15 @@ type
     { Public declarations }
   end;
 
-  const
-  TARGET_WIDTH  = 320;
+const
+  TARGET_WIDTH = 320;
   TARGET_HEIGHT = 240;
 
 implementation
 
 {$R *.fmx}
+
+uses uMain, uDm, uUserProfile;
 
 { Camera option list }
 procedure TfUpdateProfilePhoto.UpdateCameraList;
@@ -77,17 +85,91 @@ end;
 procedure TfUpdateProfilePhoto.btnCameraCloseClick(Sender: TObject);
 begin
   rCameralModal.Visible := False;
+  ccCapturePhoto.Active := False;
+  FCapturing := False
+end;
+
+{ Close button }
+procedure TfUpdateProfilePhoto.btnCloseClick(Sender: TObject);
+begin
+  Self.Visible := False;
+end;
+
+{ Upload Button }
+procedure TfUpdateProfilePhoto.btnPhotoUploadClick(Sender: TObject);
+var
+  LOpenDialog: TOpenDialog;
+  ms: TMemoryStream;
+begin
+  LOpenDialog := TOpenDialog.Create(Self);
+  try
+    // Filter for image types
+    LOpenDialog.Filter := 'Image Files|*.bmp;*.jpg;*.jpeg;*.png|All Files|*.*';
+    LOpenDialog.Title := 'Select a photo to upload';
+
+    if LOpenDialog.Execute then
+    begin
+      // ✅ Load the selected file into the TImage
+      cProfilePhoto.Fill.Bitmap.Bitmap.LoadFromFile(LOpenDialog.FileName);
+      cProfilePhoto.Fill.Kind := TBrushKind.Bitmap;
+      cProfilePhoto.Fill.Bitmap.WrapMode := TWrapMode.TileStretch;
+      cProfilePhoto.Cursor := crHandPoint; // Change cursor
+      frmMain.fUserProfile.rUserPhoto.Fill.Bitmap.Bitmap.Assign(cProfilePhoto.Fill.Bitmap.Bitmap);
+      frmMain.fUserProfile.fToolbar.rUserImage.Fill.Bitmap.Bitmap.Assign(cProfilePhoto.Fill.Bitmap.Bitmap);
+
+      lNameH.Visible := False; // Hide Name holder
+      gIcon.ImageIndex := -1; // Hide Icon
+
+      // Save in database
+      with dm do
+      begin
+        qTemp.Close;
+        qTemp.SQL.Text := 'SELECT id, username, profile_pic ' + 'FROM users ' +
+          'WHERE id = :u AND username = :p';
+        qTemp.ParamByName('u').AsInteger := User.IDH;
+        qTemp.ParamByName('p').AsString := User.UsernameH;
+        qTemp.Open;
+        qTemp.Edit;
+
+        // Save image to LONGBLOB
+        if Assigned(cProfilePhoto.Fill.Bitmap.Bitmap) and
+          not cProfilePhoto.Fill.Bitmap.Bitmap.IsEmpty then
+        begin
+          ms := TMemoryStream.Create;
+          try
+            cProfilePhoto.Fill.Bitmap.Bitmap.SaveToStream(ms);
+            ms.Position := 0;
+            TBlobField(qTemp.FieldByName('profile_pic')).LoadFromStream(ms);
+          finally
+            ms.Free;
+          end;
+        end;
+        qTemp.Post;
+        qTemp.Refresh;
+
+        // Set record pop up message
+        frmMain.Tag := 11;
+        frmMain.RecordMessage('Photo', 'profile');
+        qTemp.Close;
+      end;
+    end;
+  finally
+    LOpenDialog.Free;
+  end;
 end;
 
 { Take Picture }
 procedure TfUpdateProfilePhoto.btnTakePictureClick(Sender: TObject);
+var
+  ms: TMemoryStream;
 begin
   if not FStatus then
   begin
-    btnTakePicture.Text := 'Retake photo';  // Change caption of the button
-    FStatus := True;  // Camera component status
+    btnTakePicture.Text := 'Retake photo'; // Change caption of the button
+    FStatus := True; // Camera component status
     ccCapturePhoto.Active := False; // Disable the camera component
-    cProfilePhoto.Fill.Bitmap.Bitmap.Assign(imgPhoto.Bitmap);  // Show captured image on the image holder
+    cProfilePhoto.Fill.Bitmap.Bitmap.Assign(imgPhoto.Bitmap);
+    // Show captured image on the image holder
   end
   else
   begin
@@ -113,14 +195,58 @@ begin
           end);
       end).Start;
   end;
-  cProfilePhoto.Fill.Bitmap.WrapMode := TWrapMode.TileStretch;  // Wrapmode set to stretch
-  cProfilePhoto.Cursor := crHandPoint;  // Change cursor
-  lNameH.Visible := False;  // Hide Name holder
+  cProfilePhoto.Fill.Bitmap.WrapMode := TWrapMode.TileStretch;
+  // Wrapmode set to stretch
+  cProfilePhoto.Cursor := crHandPoint; // Change cursor
+  lNameH.Visible := False; // Hide Name holder
+  frmMain.fUserProfile.rUserPhoto.Fill.Bitmap.Bitmap.Assign(imgPhoto.Bitmap);
+  frmMain.fUserProfile.fToolbar.rUserImage.Fill.Bitmap.Bitmap.Assign(imgPhoto.Bitmap);
+
+  // Save in database
+  with dm do
+  begin
+    qTemp.Close;
+    qTemp.SQL.Text := 'SELECT id, username, profile_pic ' + 'FROM users ' +
+      'WHERE id = :u AND username = :p';
+    qTemp.ParamByName('u').AsInteger := User.IDH;
+    qTemp.ParamByName('p').AsString := User.UsernameH;
+    qTemp.Open;
+    qTemp.Edit;
+
+    // Save image to LONGBLOB
+    if Assigned(cProfilePhoto.Fill.Bitmap.Bitmap) and
+      not cProfilePhoto.Fill.Bitmap.Bitmap.IsEmpty then
+    begin
+      ms := TMemoryStream.Create;
+      try
+        cProfilePhoto.Fill.Bitmap.Bitmap.SaveToStream(ms);
+        ms.Position := 0;
+        TBlobField(qTemp.FieldByName('profile_pic')).LoadFromStream(ms);
+      finally
+        ms.Free;
+      end;
+    end;
+    qTemp.Post;
+    qTemp.Refresh;
+
+    // Set record pop up message
+    frmMain.Tag := 11;
+    frmMain.RecordMessage('Photo', 'profile');
+    qTemp.Close;
+  end;
+end;
+
+{ Remove Button }
+procedure TfUpdateProfilePhoto.cbRemoveClick(Sender: TObject);
+begin
+  cProfilePhoto.Fill.Kind := TBrushKind.Solid;
+  cProfilePhoto.Fill.Bitmap.Bitmap.Clear(TAlphaColorRec.Null);
+  gIcon.ImageIndex := 10;
 end;
 
 { Camera live }
 procedure TfUpdateProfilePhoto.ccCapturePhotoSampleBufferReady(Sender: TObject;
-  const ATime: TMediaTime);
+const ATime: TMediaTime);
 begin
   TThread.Synchronize(nil, ShowCameraFrame);
 end;
@@ -140,11 +266,9 @@ begin
     imgPhoto.Bitmap.Clear(TAlphaColors.Black); // Optional: background fill
     imgPhoto.Bitmap.Canvas.BeginScene;
     try
-      imgPhoto.Bitmap.Canvas.DrawBitmap(
-        TempBitmap,
+      imgPhoto.Bitmap.Canvas.DrawBitmap(TempBitmap,
         RectF(0, 0, TempBitmap.Width, TempBitmap.Height),
-        RectF(0, 0, TARGET_WIDTH, TARGET_HEIGHT),
-        1, True);
+        RectF(0, 0, TARGET_WIDTH, TARGET_HEIGHT), 1, True);
     finally
       imgPhoto.Bitmap.Canvas.EndScene;
     end;
@@ -179,7 +303,7 @@ begin
 
   if not FCapturing then
   begin
-    ccCapturePhoto.Kind := TCameraKind.Default;  // or ckBackCamera
+    ccCapturePhoto.Kind := TCameraKind.Default; // or ckBackCamera
     ccCapturePhoto.Active := True;
     FCapturing := True;
   end

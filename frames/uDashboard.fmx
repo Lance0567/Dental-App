@@ -596,6 +596,7 @@ object fDashboard: TfDashboard
           TextSettings.Trimming = None
           XRadius = 3.000000000000000000
           YRadius = 3.000000000000000000
+          OnClick = btnReportAnIssueClick
           object FloatAnimation3: TFloatAnimation
             Duration = 0.200000002980232200
             Inverse = True

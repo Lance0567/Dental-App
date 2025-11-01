@@ -624,7 +624,7 @@ object fPatientModal: TfPatientModal
                     TextSettings.Font.Size = 14.000000000000000000
                     TextSettings.FontColor = claGray
                     Text = 'Pick a date'
-                    TabOrder = 14
+                    TabOrder = 15
                   end
                 end
                 object lAgeCounter: TLabel
@@ -784,6 +784,7 @@ object fPatientModal: TfPatientModal
           Size.Width = 208.000000000000000000
           Size.Height = 30.000000000000000000
           Size.PlatformDefault = False
+          StyleLookup = 'cbGenderStyle1'
           TabOrder = 0
         end
       end

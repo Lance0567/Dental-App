@@ -1084,7 +1084,6 @@ object frmMain: TfrmMain
             Margins.Top = -5.000000000000000000
             Position.Y = -5.000000000000000000
             Size.Height = 35.000000000000000000
-            StyleLookup = 'cbGenderStyle1'
           end
         end
         inherited btnSaveCurrentImage: TCornerButton
@@ -1626,6 +1625,40 @@ object frmMain: TfrmMain
       end
     end
   end
+  inline fContactInfo: TfContactInfo
+    Align = Client
+    Size.Width = 850.000000000000000000
+    Size.Height = 505.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+    inherited lytContentH: TLayout
+      Size.Width = 850.000000000000000000
+      Size.Height = 505.000000000000000000
+      inherited rBackground: TRectangle
+        Size.Width = 850.000000000000000000
+        Size.Height = 505.000000000000000000
+      end
+      inherited rModalInfo: TRectangle
+        inherited lytPatientProfile: TLayout
+          inherited lLance: TLabel
+            StyledSettings = [FontColor]
+            TextSettings.Font.Family = 'Segoe UI Variable Text'
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+          end
+          inherited lFrnacis: TLabel
+            StyledSettings = [FontColor]
+            TextSettings.Font.Family = 'Segoe UI Variable Text'
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+          end
+        end
+        inherited lytTitle: TLayout
+          inherited lbTitle: TLabel
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+          end
+        end
+      end
+    end
+  end
   inline fUpdateProfilePhoto: TfUpdateProfilePhoto
     Align = Client
     Size.Width = 850.000000000000000000
@@ -1641,7 +1674,6 @@ object frmMain: TfrmMain
       end
       inherited rModalInfo: TRectangle
         inherited lytPatientProfile: TLayout
-          TabOrder = 2
           inherited lytProfilePhoto: TLayout
             inherited cProfilePhoto: TCircle
               inherited lNameH: TLabel
@@ -1665,12 +1697,7 @@ object frmMain: TfrmMain
         end
         inherited lytTitle: TLayout
           inherited lbTitle: TLabel
-            Size.Width = 420.000000000000000000
             TextSettings.Font.StyleExt = {00070000000000000004000000}
-          end
-          inherited btnClose: TSpeedButton
-            Margins.Right = -5.000000000000000000
-            Position.X = 420.000000000000000000
           end
         end
       end
