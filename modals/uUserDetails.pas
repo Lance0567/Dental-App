@@ -214,6 +214,10 @@ begin
   frmMain.fUserModal.eUsername.Text :=
     dm.qUsers.FieldByName('username').AsString;
 
+  // Get password
+  frmMain.fUserModal.ePassword.Text :=
+    dm.qUsers.FieldByName('password').AsString;
+
   // Get email address
   frmMain.fUserModal.eEmailAddress.Text :=
     dm.qUsers.FieldByName('email_address').AsString;

@@ -84,11 +84,6 @@ object frmAdminSetup: TfrmAdminSetup
                 end
               end
               inherited lytPassword: TLayout
-                inherited ePassword: TEdit
-                  inherited cbShowPassword: TCheckBox
-                    TextSettings.Font.StyleExt = {00060000000000000004000000}
-                  end
-                end
                 inherited lPassword: TLabel
                   TextSettings.Font.StyleExt = {00060000000000000004000000}
                 end
@@ -117,6 +112,7 @@ object frmAdminSetup: TfrmAdminSetup
           inherited lytButtonSaveH: TLayout
             inherited btnSaveUser: TCornerButton
               TextSettings.Font.StyleExt = {00060000000000000004000000}
+              OnClick = fUserModalbtnSaveUserClick
             end
             inherited btnCancel: TCornerButton
               TextSettings.Font.StyleExt = {00060000000000000004000000}

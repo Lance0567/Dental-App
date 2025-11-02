@@ -14,6 +14,7 @@ type
     procedure fUserModalbtnCloseClick(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure fUserModalbtnSaveUserClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -81,6 +82,11 @@ begin
   fUserModal.btnCloseClick(Sender);
 
   Close; // Triggers OnClose which frees the form
+end;
+
+procedure TfrmAdminSetup.fUserModalbtnSaveUserClick(Sender: TObject);
+begin
+  fUserModal.btnSaveUserClick(Sender);
 end;
 
 end.

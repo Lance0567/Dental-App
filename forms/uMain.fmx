@@ -1562,9 +1562,8 @@ object frmMain: TfrmMain
                 Size.Width = 474.000000000000000000
                 inherited ePassword: TEdit
                   Size.Width = 474.000000000000000000
-                  inherited cbShowPassword: TCheckBox
-                    Position.X = 409.000000000000000000
-                    TextSettings.Font.StyleExt = {00060000000000000004000000}
+                  inherited btnEye1: TButton
+                    Position.X = 439.000000000000000000
                   end
                 end
                 inherited lPassword: TLabel

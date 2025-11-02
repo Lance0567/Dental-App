@@ -93,7 +93,6 @@ type
     lytButtonSaveH: TLayout;
     btnSaveUser: TCornerButton;
     btnCancel: TCornerButton;
-    cbShowPassword: TCheckBox;
     lytDepartment: TLayout;
     lDepartment: TLabel;
     eDepartment: TEdit;
@@ -111,6 +110,9 @@ type
     ShadowEffect6: TShadowEffect;
     ShadowEffect7: TShadowEffect;
     ShadowEffect8: TShadowEffect;
+    btnEye2: TButton;
+    btnEye3: TButton;
+    btnEye1: TButton;
     procedure btnCloseClick(Sender: TObject);
     procedure FrameResize(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
@@ -123,13 +125,19 @@ type
     procedure btnSaveCurrentImageClick(Sender: TObject);
     procedure btnCameraCloseClick(Sender: TObject);
     procedure eFullNameChangeTracking(Sender: TObject);
-    procedure cbShowPasswordChange(Sender: TObject);
     procedure cProfilePhotoPainting(Sender: TObject; Canvas: TCanvas;
       const ARect: TRectF);
     procedure ePasswordEnter(Sender: TObject);
     procedure ePasswordExit(Sender: TObject);
     procedure lytDetails1Resize(Sender: TObject);
     procedure btnChangePasswordClick(Sender: TObject);
+    procedure btnEye2Click(Sender: TObject);
+    procedure btnEye3Click(Sender: TObject);
+    procedure eNewPasswordEnter(Sender: TObject);
+    procedure eNewPasswordExit(Sender: TObject);
+    procedure eConfirmNewPasswordEnter(Sender: TObject);
+    procedure eConfirmNewPasswordExit(Sender: TObject);
+    procedure btnEye1Click(Sender: TObject);
   private
     FCapturing: Boolean;
     FStatus: Boolean;
@@ -170,7 +178,9 @@ begin
   eDepartment.Text := '';
   cbStatus.ItemIndex := 0;
   lytPassword.Visible := True;
-  cbShowPassword.Visible := False;
+  btnEye1.Visible := False;
+  btnEye2.Visible := False;
+  btnEye3.Visible := False;
 
   // Hide validation warnings
   crFullName.Visible := False;
@@ -240,16 +250,40 @@ begin
   crFullName.Visible := False;
 end;
 
+{ OnEnter Confirm new password }
+procedure TfUserModal.eConfirmNewPasswordEnter(Sender: TObject);
+begin
+  btnEye3.Visible := True;
+end;
+
+{ OnExit Confirm new password }
+procedure TfUserModal.eConfirmNewPasswordExit(Sender: TObject);
+begin
+  btnEye3.Visible := False;
+end;
+
+{ OnEnter New password }
+procedure TfUserModal.eNewPasswordEnter(Sender: TObject);
+begin
+  btnEye2.Visible := True;
+end;
+
+{ OnExit New password }
+procedure TfUserModal.eNewPasswordExit(Sender: TObject);
+begin
+  btnEye2.Visible := False;
+end;
+
 { OnEnter Edit Password }
 procedure TfUserModal.ePasswordEnter(Sender: TObject);
 begin
-  cbShowPassword.Visible := True;
+  btnEye1.Visible := True;
 end;
 
 { OnExit Edit Password }
 procedure TfUserModal.ePasswordExit(Sender: TObject);
 begin
-  cbShowPassword.Visible := False;
+  btnEye1.Visible := False;
 end;
 
 { Update Camera list }
@@ -424,14 +458,83 @@ end;
 
 { Change Password Button }
 procedure TfUserModal.btnChangePasswordClick(Sender: TObject);
+var
+  InputUser, InputPassHash: String;
 begin
+  InputUser := eUsername.Text;
 
+  with dm.qTemp do
+  begin
+    Close;
+    SQL.Text := 'SELECT username, password FROM users WHERE username = :u AND password = :p';
+    ParamByName('u').AsString := InputUser;
+    ParamByName('p').AsString := THashSHA2.GetHashString(ePassword.Text);
+    Open;
+
+    if not IsEmpty then
+    begin
+      Edit;
+      InputPassHash := THashSHA2.GetHashString(eConfirmNewPassword.Text);
+      FieldByName('password').AsString := InputPassHash;
+      Post;
+
+      // Record Message
+      frmMain.Tag := 12;
+      frmMain.RecordMessage('Password', eUsername.Text);
+    end;
+    Close;
+  end;
 end;
 
 { Close Button }
 procedure TfUserModal.btnCloseClick(Sender: TObject);
 begin
   Self.Visible := False;
+end;
+
+{ Password Show Button }
+procedure TfUserModal.btnEye1Click(Sender: TObject);
+begin
+  if ePassword.Password then
+  begin
+    ePassword.Password := False;
+    btnEye1.ImageIndex := 44;
+  end
+  else
+  begin
+    ePassword.Password := True;
+    btnEye1.ImageIndex := 43;
+  end;
+end;
+
+{ New password Show Button }
+procedure TfUserModal.btnEye2Click(Sender: TObject);
+begin
+  if eNewPassword.Password then
+  begin
+    eNewPassword.Password := False;
+    btnEye2.ImageIndex := 44;
+  end
+  else
+  begin
+    eNewPassword.Password := True;
+    btnEye2.ImageIndex := 43;
+  end;
+end;
+
+{ Confirm new password Show Button }
+procedure TfUserModal.btnEye3Click(Sender: TObject);
+begin
+  if eConfirmNewPassword.Password then
+  begin
+    eConfirmNewPassword.Password := False;
+    btnEye3.ImageIndex := 44;
+  end
+  else
+  begin
+    eConfirmNewPassword.Password := True;
+    btnEye3.ImageIndex := 43;
+  end;
 end;
 
 { Create User }
@@ -474,18 +577,16 @@ begin
 
   // Password validation
   if lytPassword.Visible then
-  begin
     if ePassword.Text = '' then
     begin
       AdjustLayoutHeight(lytPassword, 95);
       crPassword.Visible := True;
-    if FirstInvalidPos = -1 then
-      FirstInvalidPos := ePassword.Position.Y;
-    HasError := True;
-  end
-  else
-    crPassword.Visible := False;
-  end;
+      if FirstInvalidPos = -1 then
+        FirstInvalidPos := ePassword.Position.Y;
+      HasError := True;
+    end
+    else
+      crPassword.Visible := False;
 
   // Email validation
   if eEmailAddress.Text = '' then
@@ -556,8 +657,12 @@ begin
   dm.qUsers.FieldByName('username').AsString := eUsername.Text;
 
   // Hash the password (SHA256 for better security)
-  HashedPassword := THashSHA2.GetHashString(ePassword.Text);
-  dm.qUsers.FieldByName('password').AsString := HashedPassword;
+  if ePassword.Visible then
+  begin
+    HashedPassword := THashSHA2.GetHashString(ePassword.Text);
+    dm.qUsers.FieldByName('password').AsString := HashedPassword;
+  end;
+
   dm.qUsers.FieldByName('email_address').AsString := eEmailAddress.Text;
   dm.qUsers.FieldByName('contact_number').AsString := eContactNumber.Text;
 
@@ -614,15 +719,6 @@ begin
 end;
 
 { Camera component buffer }
-procedure TfUserModal.cbShowPasswordChange(Sender: TObject);
-begin
-  if cbShowPassword.IsChecked then
-    ePassword.Password := False
-  else
-    ePassword.Password := True;
-end;
-
-{ Camera live }
 procedure TfUserModal.ccCapturePhotoSampleBufferReady(Sender: TObject;
   const ATime: TMediaTime);
 begin

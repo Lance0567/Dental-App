@@ -426,7 +426,7 @@ object fUserModal: TfUserModal
               end
             end
             object lytFullName: TLayout
-              Align = Top
+              Align = MostTop
               Margins.Top = 20.000000000000000000
               Position.Y = 50.000000000000000000
               Size.Width = 357.000000000000000000
@@ -513,7 +513,7 @@ object fUserModal: TfUserModal
               end
             end
             object lytUsername: TLayout
-              Align = Top
+              Align = MostTop
               Margins.Top = 20.000000000000000000
               Position.Y = 140.000000000000000000
               Size.Width = 357.000000000000000000
@@ -599,7 +599,7 @@ object fUserModal: TfUserModal
               end
             end
             object lytPassword: TLayout
-              Align = Top
+              Align = MostTop
               Margins.Top = 20.000000000000000000
               Position.Y = 230.000000000000000000
               Size.Width = 357.000000000000000000
@@ -626,20 +626,23 @@ object fUserModal: TfUserModal
                 ShowHint = True
                 OnEnter = ePasswordEnter
                 OnExit = ePasswordExit
-                object cbShowPassword: TCheckBox
+                object btnEye1: TButton
                   Align = Right
                   CanFocus = False
-                  Cursor = crHandPoint
-                  StyledSettings = [Family, Size]
+                  Images = dm.imgList
+                  ImageIndex = 43
+                  Margins.Top = 5.000000000000000000
                   Margins.Right = 5.000000000000000000
-                  Position.X = 292.000000000000000000
-                  Size.Width = 60.000000000000000000
-                  Size.Height = 40.000000000000000000
+                  Margins.Bottom = 5.000000000000000000
+                  Position.X = 322.000000000000000000
+                  Position.Y = 5.000000000000000000
+                  Size.Width = 30.000000000000000000
+                  Size.Height = 30.000000000000000000
                   Size.PlatformDefault = False
+                  StyleLookup = 'btnEye2Style1'
                   TabOrder = 0
-                  Text = 'Show'
-                  TextSettings.Font.StyleExt = {00060000000000000004000000}
-                  OnChange = cbShowPasswordChange
+                  TextSettings.Trimming = None
+                  OnClick = btnEye1Click
                 end
               end
               object lPassword: TLabel
@@ -966,7 +969,9 @@ object fUserModal: TfUserModal
               object eNewPassword: TEdit
                 Touch.InteractiveGestures = [LongTap, DoubleTap]
                 Align = Top
+                StyleLookup = 'eNewPasswordStyle1'
                 TabOrder = 1
+                Password = True
                 TextSettings.Font.Size = 14.000000000000000000
                 Position.Y = 27.000000000000000000
                 Hint = 'Please fillout this field.'
@@ -979,6 +984,26 @@ object fUserModal: TfUserModal
                 StyledSettings = [Family]
                 ParentShowHint = False
                 ShowHint = True
+                OnEnter = eNewPasswordEnter
+                OnExit = eNewPasswordExit
+                object btnEye2: TButton
+                  Align = Right
+                  CanFocus = False
+                  Images = dm.imgList
+                  ImageIndex = 43
+                  Margins.Top = 5.000000000000000000
+                  Margins.Right = 5.000000000000000000
+                  Margins.Bottom = 5.000000000000000000
+                  Position.X = 135.000000000000000000
+                  Position.Y = 5.000000000000000000
+                  Size.Width = 30.000000000000000000
+                  Size.Height = 30.000000000000000000
+                  Size.PlatformDefault = False
+                  StyleLookup = 'btnEye2Style1'
+                  TabOrder = 0
+                  TextSettings.Trimming = None
+                  OnClick = btnEye2Click
+                end
               end
             end
             object lytConfirmNewPassword: TLayout
@@ -1003,7 +1028,9 @@ object fUserModal: TfUserModal
               object eConfirmNewPassword: TEdit
                 Touch.InteractiveGestures = [LongTap, DoubleTap]
                 Align = Top
+                StyleLookup = 'eNewPasswordStyle1'
                 TabOrder = 1
+                Password = True
                 TextSettings.Font.Size = 14.000000000000000000
                 Position.Y = 27.000000000000000000
                 Hint = 'Please fillout this field.'
@@ -1016,6 +1043,26 @@ object fUserModal: TfUserModal
                 StyledSettings = [Family]
                 ParentShowHint = False
                 ShowHint = True
+                OnEnter = eConfirmNewPasswordEnter
+                OnExit = eConfirmNewPasswordExit
+                object btnEye3: TButton
+                  Align = Right
+                  CanFocus = False
+                  Images = dm.imgList
+                  ImageIndex = 43
+                  Margins.Top = 5.000000000000000000
+                  Margins.Right = 5.000000000000000000
+                  Margins.Bottom = 5.000000000000000000
+                  Position.X = 135.000000000000000000
+                  Position.Y = 5.000000000000000000
+                  Size.Width = 30.000000000000000000
+                  Size.Height = 30.000000000000000000
+                  Size.PlatformDefault = False
+                  StyleLookup = 'btnEye2Style1'
+                  TabOrder = 0
+                  TextSettings.Trimming = None
+                  OnClick = btnEye3Click
+                end
               end
             end
           end
