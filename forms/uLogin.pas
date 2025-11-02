@@ -164,7 +164,6 @@ begin
   // Create frmAdminSetup form
   if not Assigned(frmAdminSetup) then
     Application.CreateForm(TfrmAdminSetup, frmAdminSetup);
-  frmAdminSetup.Show;  // Show form
 
   // Clear items in user modal
   frmAdminSetup.fUserModal.ClearItems;
@@ -178,6 +177,8 @@ begin
   frmAdminSetup.fUserModal.cbStatus.Enabled := False; // Set Status dropdown to read only
   frmAdminSetup.fusermodal.eDepartment.Text := 'Front Desk';
   frmAdminSetup.fUserModal.cbStatus.ItemIndex := 0; // Set to Active
+
+  frmAdminSetup.ShowModal;  // Show modal form
 end;
 
 { Login Button }

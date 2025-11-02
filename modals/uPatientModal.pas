@@ -89,6 +89,17 @@ type
     ShadowEffect3: TShadowEffect;
     ShadowEffect4: TShadowEffect;
     ShadowEffect5: TShadowEffect;
+    btnDelete: TCornerButton;
+    rDeleteBackground: TRectangle;
+    rDeleteModal: TRectangle;
+    lytDeleteInfo: TLayout;
+    lDeleteDesc: TLabel;
+    lytDeleteButtonH: TLayout;
+    btnDeleteCancel: TCornerButton;
+    btnDeletePatient: TCornerButton;
+    lytDeleteTitle: TLayout;
+    lDeleteTItle: TLabel;
+    btnDeleteClose: TSpeedButton;
     procedure mMedicalNotesClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure eFullNameChangeTracking(Sender: TObject);
@@ -114,6 +125,10 @@ type
     procedure cProfilePhotoClick(Sender: TObject);
     procedure cProfilePhotoPainting(Sender: TObject; Canvas: TCanvas;
       const ARect: TRectF);
+    procedure btnDeleteCancelClick(Sender: TObject);
+    procedure btnDeletePatientClick(Sender: TObject);
+    procedure btnDeleteClick(Sender: TObject);
+    procedure btnDeleteCloseClick(Sender: TObject);
   private
     FCapturing: Boolean;
     FStatus: Boolean;
@@ -247,6 +262,16 @@ begin
   // Hide all warning validation
   crContactNumber.Visible := False;
   crFullName.Visible := False;
+
+  // Button Visibility
+  if dm.User.RoleH = 'Admin' then
+  begin
+    btnDelete.Visible := True;
+  end
+  else
+  begin
+    btnDelete.Visible := False;
+  end;
 
   ScrollBox1.ViewportPosition := PointF(0, 0);  // Reset scrollbox
 end;
@@ -569,6 +594,38 @@ end;
 procedure TfPatientModal.btnCloseClick(Sender: TObject);
 begin
   Self.Visible := False;
+end;
+
+{ Delete Patient Button }
+procedure TfPatientModal.btnDeletePatientClick(Sender: TObject);
+begin
+  dm.qPatients.Delete;
+  dm.qPatients.Refresh;
+
+  // Set record pop up message
+  frmMain.Tag := 5;
+  frmMain.RecordMessage('Patient', eFullName.Text);
+
+  Self.Visible := False;
+end;
+
+{ Cancel Button - Delete }
+procedure TfPatientModal.btnDeleteCancelClick(Sender: TObject);
+begin
+  rDeleteBackground.Visible := False;
+end;
+
+{ Delete Button }
+procedure TfPatientModal.btnDeleteClick(Sender: TObject);
+begin
+  rDeleteBackground.Visible := True;
+  lDeleteDesc.Text := 'Are you sure you want to delete ' + eFullName.Text + '? This action cannot be undone.'
+end;
+
+{ Close Button - Delete }
+procedure TfPatientModal.btnDeleteCloseClick(Sender: TObject);
+begin
+  rDeleteBackground.Visible := False;
 end;
 
 { Email Address Onchange }

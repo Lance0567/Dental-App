@@ -175,6 +175,7 @@ begin
 
   // Clear items
   frmMain.fAppointmentModal.ClearItems;
+  frmMain.fAppointmentModal.btnDelete.Visible := False;
 
   // Hide validation components
   frmMain.fAppointmentModal.crPatient.Visible := False;
@@ -197,7 +198,7 @@ begin
   dm.RecordStatus := 'Edit';
 
   // Set Modal Title
-  frmMain.fAppointmentModal.lbTitle.Text := 'Edit Existing Appointment';
+  frmMain.fAppointmentModal.lbTitle.Text := 'Appointment Details';
 
   // Set Button Text
   frmMain.fAppointmentModal.btnCreateAppointment.Text := 'Update Appointment';

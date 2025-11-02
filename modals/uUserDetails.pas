@@ -70,10 +70,23 @@ type
     lytSection1: TLayout;
     btnEdit: TCornerButton;
     btnDelete: TCornerButton;
+    rDeleteBackground: TRectangle;
+    rDeleteModal: TRectangle;
+    lytDeleteInfo: TLayout;
+    lDeleteDesc: TLabel;
+    lytDeleteButtonH: TLayout;
+    btnDeleteCancel: TCornerButton;
+    btnDeleteUser: TCornerButton;
+    lytDeleteTitle: TLayout;
+    lDeleteTItle: TLabel;
+    btnDeleteClose: TSpeedButton;
     procedure btnEditClick(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure FrameResize(Sender: TObject);
+    procedure btnDeleteCancelClick(Sender: TObject);
+    procedure btnDeleteCloseClick(Sender: TObject);
+    procedure btnDeleteUserClick(Sender: TObject);
   private
     procedure EditComponentsResponsive;
     { Private declarations }
@@ -114,7 +127,7 @@ begin
     gIcon.ImageIndex := -1;
   end;
 
-  // Button Visibility
+  // Icon visibility
   if lName.Text.Trim = '' then
   begin
     lNameH.Text := '';
@@ -122,6 +135,7 @@ begin
     lNameH.Visible := False;
   end;
 
+  // Button Visibility
   if dm.User.RoleH = 'Admin' then
   begin
     btnDelete.Visible := True;
@@ -140,33 +154,38 @@ begin
   Self.Visible := False;
 end;
 
+{ Cancel Button - Delete }
+procedure TfUserDetails.btnDeleteCancelClick(Sender: TObject);
+begin
+  rDeleteBackground.Visible := False;
+end;
+
+{ Close Button - Delete }
+procedure TfUserDetails.btnDeleteCloseClick(Sender: TObject);
+begin
+  rDeleteBackground.Visible := False;
+end;
+
+{ Delete User Button }
+procedure TfUserDetails.btnDeleteUserClick(Sender: TObject);
+begin
+  with dm.qUsers do
+  begin
+    // Set record pop up message
+    frmMain.Tag := 8;
+    frmMain.RecordMessage('User', lName.Text);
+
+    Delete;
+    Refresh;
+    Self.Visible := False;
+  end;
+end;
+
 { Delete Button }
 procedure TfUserDetails.btnDeleteClick(Sender: TObject);
 begin
-  TDialogService.MessageDialog('Are you sure you want to Delete this user?',
-    TMsgDlgType.mtWarning, // warning icon
-    [TMsgDlgBtn.mbYes, TMsgDlgBtn.mbNo], // Yes + Cancel buttons
-    TMsgDlgBtn.mbNo, // Default button
-    0, // Help context
-    procedure(const AResult: TModalResult)
-    begin
-      if AResult = mrYes then
-      begin
-        with dm.qUsers do
-        begin
-          // Set record pop up message
-          if dm.RecordStatus = 'Add' then
-            frmMain.Tag := 8;
-
-            frmMain.RecordMessage('User', lName.Text);
-
-          Delete;
-          Refresh;
-          Self.Visible := False;
-        end;
-      end;
-      // If Cancel pressed, do nothing
-    end);
+  rDeleteBackground.Visible := True;
+  lDeleteDesc.Text := 'This will permanently delete '  + lName.Text + '`s ' + 'account. This action cannot be undone.';
 end;
 
 { Edit Button }
@@ -176,11 +195,14 @@ var
   ms: TMemoryStream;
 begin
   Self.Visible := False;  // Hide UserDetails modal
-  frmMain.fUserModal.Visible := True; // Show patient modal
   dm.RecordStatus := 'Edit'; // Set record Status
   frmMain.fUserModal.lbTitle.Text := 'Update Existing Patient'; // Set title
   frmMain.fUserModal.btnSaveUser.Text := 'Update Patient';  // set text in the button
-  frmMain.fUserModal.rSecuritySettings.Visible := True; // Show Change Password section
+
+  // Show Change Password section
+  frmMain.fUserModal.rSecuritySettings.Opacity := 1;
+  frmMain.fUserModal.rSecuritySettings.Height := 220;
+
   frmMain.fUserModal.lytPassword.Visible := False;
   frmMain.fUserModal.rUser.Height := 575;
 
@@ -240,6 +262,8 @@ begin
     frmMain.fUserModal.cbRole.ItemIndex := 0
   else
     frmMain.fUserModal.cbRole.ItemIndex := 1;
+
+  frmMain.fUserModal.Visible := True; // Show patient modal
 end;
 
 { Layout Responsiveness adjuster }

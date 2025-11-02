@@ -915,7 +915,7 @@ object frmMain: TfrmMain
             inherited btnSavePatient: TCornerButton
               Position.X = 479.000000000000000000
               StyleLookup = 'btnSavePatientStyle1'
-              TabOrder = 5
+              TabOrder = 6
               TextSettings.Font.StyleExt = {00060000000000000004000000}
               OnClick = fPatientModalbtnSavePatientClick
             end
@@ -925,6 +925,10 @@ object frmMain: TfrmMain
             inherited btnCancel: TCornerButton
               Position.X = 379.000000000000000000
               StyleLookup = 'btnCancelStyle1'
+              TabOrder = 5
+              TextSettings.Font.StyleExt = {00060000000000000004000000}
+            end
+            inherited btnDelete: TCornerButton
               TextSettings.Font.StyleExt = {00060000000000000004000000}
             end
           end
@@ -936,8 +940,8 @@ object frmMain: TfrmMain
             end
             inherited mMedicalNotes: TMemo
               Size.Width = 584.000000000000000000
-              Viewport.Width = 573.000000000000000000
-              Viewport.Height = 114.000000000000000000
+              Viewport.Width = 584.000000000000000000
+              Viewport.Height = 125.000000000000000000
             end
           end
           inherited lytPatientH: TLayout
@@ -1109,6 +1113,30 @@ object frmMain: TfrmMain
       Left = 392
       Top = 240
     end
+    inherited rDeleteBackground: TRectangle
+      Size.Width = 850.000000000000000000
+      Size.Height = 505.000000000000000000
+      inherited rDeleteModal: TRectangle
+        inherited lytDeleteInfo: TLayout
+          inherited lytDeleteButtonH: TLayout
+            inherited btnDeleteCancel: TCornerButton
+              TextSettings.Font.StyleExt = {00060000000000000004000000}
+            end
+            inherited btnDeletePatient: TCornerButton
+              TextSettings.Font.StyleExt = {00060000000000000004000000}
+            end
+          end
+        end
+        inherited lytDeleteTitle: TLayout
+          inherited lDeleteTItle: TLabel
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+          end
+          inherited btnDeleteClose: TSpeedButton
+            OnClick = nil
+          end
+        end
+      end
+    end
   end
   object lytPopUpBottom: TLayout
     Align = Contents
@@ -1255,7 +1283,9 @@ object frmMain: TfrmMain
                 TextSettings.Font.StyleExt = {00060000000000000004000000}
               end
               inherited btnCancel: TCornerButton
-                StyleLookup = 'btnCancelStyle1'
+                TextSettings.Font.StyleExt = {00060000000000000004000000}
+              end
+              inherited btnDelete: TCornerButton
                 TextSettings.Font.StyleExt = {00060000000000000004000000}
               end
             end
@@ -1283,7 +1313,7 @@ object frmMain: TfrmMain
                   Date = 45950.000000000000000000
                   StyleLookup = 'deDateStyle1'
                   inherited lPickDate: TLabel
-                    TabOrder = 14
+                    TabOrder = 15
                   end
                 end
                 inherited lDate: TLabel
@@ -1295,8 +1325,27 @@ object frmMain: TfrmMain
         end
       end
     end
+    inherited rDeleteBackground: TRectangle
+      inherited rDeleteModal: TRectangle
+        inherited lytDeleteInfo: TLayout
+          inherited lytDeleteButtonH: TLayout
+            inherited btnDeleteCancel: TCornerButton
+              TextSettings.Font.StyleExt = {00060000000000000004000000}
+            end
+            inherited btnDeleteAppointment: TCornerButton
+              TextSettings.Font.StyleExt = {00060000000000000004000000}
+            end
+          end
+        end
+        inherited lytDeleteTitle: TLayout
+          inherited lDeleteTItle: TLabel
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+          end
+        end
+      end
+    end
   end
-  inline fUserDetails: TfUserDetails
+  inline fContactInfo: TfContactInfo
     Align = Client
     Size.Width = 850.000000000000000000
     Size.Height = 505.000000000000000000
@@ -1310,99 +1359,93 @@ object frmMain: TfrmMain
         Size.Height = 505.000000000000000000
       end
       inherited rModalInfo: TRectangle
-        Size.Width = 630.000000000000000000
-        Size.Height = 405.000000000000000000
-        inherited ScrollBox1: TScrollBox
-          Size.Width = 630.000000000000000000
-          Size.Height = 405.000000000000000000
-          Viewport.Width = 614.000000000000000000
-          Viewport.Height = 405.000000000000000000
-          inherited lytTitle: TLayout
-            Size.Width = 579.000000000000000000
-            inherited lbTitle: TLabel
-              Size.Width = 544.000000000000000000
-              TextSettings.Font.StyleExt = {00070000000000000004000000}
-            end
-            inherited btnClose: TSpeedButton
-              Position.X = 544.000000000000000000
-            end
+        inherited lytPatientProfile: TLayout
+          inherited lLance: TLabel
+            StyledSettings = [FontColor]
+            TextSettings.Font.Family = 'Segoe UI Variable Text'
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
           end
-          inherited lytPatientProfile: TLayout
-            Size.Width = 564.000000000000000000
-            inherited lytProfilePhoto: TLayout
-              inherited cProfilePhoto: TCircle
-                inherited lNameH: TLabel
-                  TextSettings.Font.StyleExt = {00070000000000000004000000}
-                end
-              end
-            end
-            inherited lytDetailH: TLayout
-              Size.Width = 464.000000000000000000
-              inherited lytStatusH: TLayout
-                Size.Width = 459.000000000000000000
-                inherited rRoleH: TRectangle
-                  inherited lRole: TLabel
-                    TextSettings.Font.StyleExt = {00060000000000000004000000}
-                  end
-                end
-                inherited rStatusH: TRectangle
-                  inherited lStatus: TLabel
-                    TextSettings.Font.StyleExt = {00060000000000000004000000}
-                  end
-                end
-              end
-              inherited lytSection1: TLayout
-                Size.Width = 459.000000000000000000
-                inherited lName: TLabel
-                  Size.Width = 274.000000000000000000
-                  TextSettings.Font.StyleExt = {00070000000000000004000000}
-                end
-                inherited btnEdit: TCornerButton
-                  Position.X = 364.000000000000000000
-                  TextSettings.Font.StyleExt = {00060000000000000004000000}
-                end
-                inherited btnDelete: TCornerButton
-                  Position.X = 274.000000000000000000
-                  TextSettings.Font.StyleExt = {00060000000000000004000000}
-                end
-              end
-            end
+          inherited lFrnacis: TLabel
+            StyledSettings = [FontColor]
+            TextSettings.Font.Family = 'Segoe UI Variable Text'
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
           end
-          inherited Line1: TLine
-            Size.Width = 564.000000000000000000
+        end
+        inherited lytTitle: TLayout
+          inherited lbTitle: TLabel
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
           end
-          inherited lytContactInfoH: TLayout
-            Size.Width = 564.000000000000000000
-            inherited lytContactTitle: TLayout
-              Size.Width = 564.000000000000000000
-              inherited lContactTitle: TLabel
-                Size.Width = 529.000000000000000000
+        end
+        object ShadowEffect2: TShadowEffect
+          Distance = 1.000000000000000000
+          Direction = 45.000000000000000000
+          Softness = 0.200000002980232200
+          Opacity = 0.100000001490116100
+          ShadowColor = claBlack
+        end
+      end
+    end
+  end
+  inline fUpdateProfilePhoto: TfUpdateProfilePhoto
+    Align = Client
+    Size.Width = 850.000000000000000000
+    Size.Height = 505.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+    inherited lytContentH: TLayout
+      Size.Width = 850.000000000000000000
+      Size.Height = 505.000000000000000000
+      inherited rBackground: TRectangle
+        Size.Width = 850.000000000000000000
+        Size.Height = 505.000000000000000000
+      end
+      inherited rModalInfo: TRectangle
+        inherited lytPatientProfile: TLayout
+          inherited lytProfilePhoto: TLayout
+            inherited cProfilePhoto: TCircle
+              inherited lNameH: TLabel
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
               end
             end
           end
-          inherited Line2: TLine
-            Size.Width = 564.000000000000000000
-          end
-          inherited lytWorkInfoH: TLayout
-            Size.Width = 564.000000000000000000
-            inherited lytWorkTitle: TLayout
-              Size.Width = 564.000000000000000000
-              inherited lWorkInfo: TLabel
-                Size.Width = 529.000000000000000000
-                TextSettings.Font.StyleExt = {00070000000000000004000000}
+          inherited lytPhotoButton: TLayout
+            inherited lytPhotoButtonH: TLayout
+              inherited btnPhotoUpload: TCornerButton
+                TextSettings.Font.StyleExt = {00060000000000000004000000}
+              end
+              inherited btnCamera: TCornerButton
+                TextSettings.Font.StyleExt = {00060000000000000004000000}
+              end
+              inherited cbRemove: TCornerButton
+                TextSettings.Font.StyleExt = {00060000000000000004000000}
               end
             end
-            inherited lytWorkInfo1: TLayout
-              Size.Width = 564.000000000000000000
-            end
-            inherited lytWorkInfo2: TLayout
-              Size.Width = 564.000000000000000000
-            end
           end
-          inherited lytBottom: TLayout
-            Size.Width = 564.000000000000000000
+        end
+        inherited lytTitle: TLayout
+          inherited lbTitle: TLabel
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
           end
+        end
+      end
+    end
+    inherited rCameralModal: TRectangle
+      inherited lytImgTools: TLayout
+        inherited lytCameraOption: TLayout
+          inherited lCamera: TLabel
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+          end
+        end
+        inherited btnSaveCurrentImage: TCornerButton
+          TextSettings.Font.StyleExt = {00060000000000000004000000}
+        end
+        inherited btnTakePicture: TCornerButton
+          TextSettings.Font.StyleExt = {00060000000000000004000000}
+        end
+      end
+      inherited lytClosebtn: TLayout
+        inherited lPreviewImage: TLabel
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
         end
       end
     end
@@ -1625,7 +1668,7 @@ object frmMain: TfrmMain
       end
     end
   end
-  inline fContactInfo: TfContactInfo
+  inline fUserDetails: TfUserDetails
     Align = Client
     Size.Width = 850.000000000000000000
     Size.Height = 505.000000000000000000
@@ -1639,86 +1682,118 @@ object frmMain: TfrmMain
         Size.Height = 505.000000000000000000
       end
       inherited rModalInfo: TRectangle
-        inherited lytPatientProfile: TLayout
-          inherited lLance: TLabel
-            StyledSettings = [FontColor]
-            TextSettings.Font.Family = 'Segoe UI Variable Text'
-            TextSettings.Font.StyleExt = {00060000000000000004000000}
+        Size.Width = 630.000000000000000000
+        Size.Height = 405.000000000000000000
+        inherited ScrollBox1: TScrollBox
+          Size.Width = 630.000000000000000000
+          Size.Height = 405.000000000000000000
+          Viewport.Width = 614.000000000000000000
+          Viewport.Height = 405.000000000000000000
+          inherited lytTitle: TLayout
+            Size.Width = 579.000000000000000000
+            inherited lbTitle: TLabel
+              Size.Width = 544.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+            end
+            inherited btnClose: TSpeedButton
+              Position.X = 544.000000000000000000
+            end
           end
-          inherited lFrnacis: TLabel
-            StyledSettings = [FontColor]
-            TextSettings.Font.Family = 'Segoe UI Variable Text'
-            TextSettings.Font.StyleExt = {00060000000000000004000000}
+          inherited lytPatientProfile: TLayout
+            Size.Width = 564.000000000000000000
+            inherited lytProfilePhoto: TLayout
+              inherited cProfilePhoto: TCircle
+                inherited lNameH: TLabel
+                  TextSettings.Font.StyleExt = {00070000000000000004000000}
+                end
+              end
+            end
+            inherited lytDetailH: TLayout
+              Size.Width = 464.000000000000000000
+              inherited lytStatusH: TLayout
+                Size.Width = 459.000000000000000000
+                inherited rRoleH: TRectangle
+                  inherited lRole: TLabel
+                    TextSettings.Font.StyleExt = {00060000000000000004000000}
+                  end
+                end
+                inherited rStatusH: TRectangle
+                  inherited lStatus: TLabel
+                    TextSettings.Font.StyleExt = {00060000000000000004000000}
+                  end
+                end
+              end
+              inherited lytSection1: TLayout
+                Size.Width = 459.000000000000000000
+                inherited lName: TLabel
+                  Size.Width = 274.000000000000000000
+                  TextSettings.Font.StyleExt = {00070000000000000004000000}
+                end
+                inherited btnEdit: TCornerButton
+                  Position.X = 364.000000000000000000
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
+                end
+                inherited btnDelete: TCornerButton
+                  Position.X = 274.000000000000000000
+                  TextSettings.Font.StyleExt = {00060000000000000004000000}
+                end
+              end
+            end
           end
-        end
-        inherited lytTitle: TLayout
-          inherited lbTitle: TLabel
-            TextSettings.Font.StyleExt = {00070000000000000004000000}
+          inherited Line1: TLine
+            Size.Width = 564.000000000000000000
           end
-        end
-      end
-    end
-  end
-  inline fUpdateProfilePhoto: TfUpdateProfilePhoto
-    Align = Client
-    Size.Width = 850.000000000000000000
-    Size.Height = 505.000000000000000000
-    Size.PlatformDefault = False
-    Visible = False
-    inherited lytContentH: TLayout
-      Size.Width = 850.000000000000000000
-      Size.Height = 505.000000000000000000
-      inherited rBackground: TRectangle
-        Size.Width = 850.000000000000000000
-        Size.Height = 505.000000000000000000
-      end
-      inherited rModalInfo: TRectangle
-        inherited lytPatientProfile: TLayout
-          inherited lytProfilePhoto: TLayout
-            inherited cProfilePhoto: TCircle
-              inherited lNameH: TLabel
+          inherited lytContactInfoH: TLayout
+            Size.Width = 564.000000000000000000
+            inherited lytContactTitle: TLayout
+              Size.Width = 564.000000000000000000
+              inherited lContactTitle: TLabel
+                Size.Width = 529.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
               end
             end
           end
-          inherited lytPhotoButton: TLayout
-            inherited lytPhotoButtonH: TLayout
-              inherited btnPhotoUpload: TCornerButton
-                TextSettings.Font.StyleExt = {00060000000000000004000000}
-              end
-              inherited btnCamera: TCornerButton
-                TextSettings.Font.StyleExt = {00060000000000000004000000}
-              end
-              inherited cbRemove: TCornerButton
-                TextSettings.Font.StyleExt = {00060000000000000004000000}
+          inherited Line2: TLine
+            Size.Width = 564.000000000000000000
+          end
+          inherited lytWorkInfoH: TLayout
+            Size.Width = 564.000000000000000000
+            inherited lytWorkTitle: TLayout
+              Size.Width = 564.000000000000000000
+              inherited lWorkInfo: TLabel
+                Size.Width = 529.000000000000000000
+                TextSettings.Font.StyleExt = {00070000000000000004000000}
               end
             end
+            inherited lytWorkInfo1: TLayout
+              Size.Width = 564.000000000000000000
+            end
+            inherited lytWorkInfo2: TLayout
+              Size.Width = 564.000000000000000000
+            end
           end
-        end
-        inherited lytTitle: TLayout
-          inherited lbTitle: TLabel
-            TextSettings.Font.StyleExt = {00070000000000000004000000}
+          inherited lytBottom: TLayout
+            Size.Width = 564.000000000000000000
           end
         end
       end
     end
-    inherited rCameralModal: TRectangle
-      inherited lytImgTools: TLayout
-        inherited lytCameraOption: TLayout
-          inherited lCamera: TLabel
-            TextSettings.Font.StyleExt = {00060000000000000004000000}
+    inherited rDeleteBackground: TRectangle
+      inherited rDeleteModal: TRectangle
+        inherited lytDeleteInfo: TLayout
+          inherited lytDeleteButtonH: TLayout
+            inherited btnDeleteCancel: TCornerButton
+              TextSettings.Font.StyleExt = {00060000000000000004000000}
+            end
+            inherited btnDeleteUser: TCornerButton
+              TextSettings.Font.StyleExt = {00060000000000000004000000}
+            end
           end
         end
-        inherited btnSaveCurrentImage: TCornerButton
-          TextSettings.Font.StyleExt = {00060000000000000004000000}
-        end
-        inherited btnTakePicture: TCornerButton
-          TextSettings.Font.StyleExt = {00060000000000000004000000}
-        end
-      end
-      inherited lytClosebtn: TLayout
-        inherited lPreviewImage: TLabel
-          TextSettings.Font.StyleExt = {00070000000000000004000000}
+        inherited lytDeleteTitle: TLayout
+          inherited lDeleteTItle: TLabel
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+          end
         end
       end
     end

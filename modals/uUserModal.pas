@@ -126,14 +126,16 @@ type
     procedure cbShowPasswordChange(Sender: TObject);
     procedure cProfilePhotoPainting(Sender: TObject; Canvas: TCanvas;
       const ARect: TRectF);
-    procedure ePasswordClick(Sender: TObject);
     procedure ePasswordEnter(Sender: TObject);
     procedure ePasswordExit(Sender: TObject);
+    procedure lytDetails1Resize(Sender: TObject);
+    procedure btnChangePasswordClick(Sender: TObject);
   private
     FCapturing: Boolean;
     FStatus: Boolean;
     procedure UpdateCameraList;
     procedure ShowCameraFrame;
+    procedure EditComponentsResponsive;
     { Private declarations }
   public
 
@@ -170,15 +172,16 @@ begin
   lytPassword.Visible := True;
   cbShowPassword.Visible := False;
 
-  // Hide Security Settings
-  rSecuritySettings.Visible := False;
-
   // Hide validation warnings
   crFullName.Visible := False;
   crEmailAddress.Visible := False;
   crContactNumber.Visible := False;
   crUsername.Visible := False;
   crPassword.Visible := False;
+
+  // Hide Change Password Section
+  rSecuritySettings.Opacity := 0;
+  rSecuritySettings.Height := 0;
 
   ScrollBox1.ViewportPosition := PointF(0, 0);  // Reset Scrollbox
 end;
@@ -235,18 +238,6 @@ begin
 
   // Fullname warning reset
   crFullName.Visible := False;
-end;
-
-{ On click Password }
-procedure TfUserModal.ePasswordClick(Sender: TObject);
-begin
-  if dm.User.RoleH = 'Admin' then  // if Admin
-  begin
-    ePassword.Text := '';
-    ePassword.TextPrompt := 'Enter new password';
-  end
-  else
-    ShowMessage('Only an Admin can change password');
 end;
 
 { OnEnter Edit Password }
@@ -429,6 +420,12 @@ procedure TfUserModal.btnCancelClick(Sender: TObject);
 begin
   Self.Visible := False;
   frmMain.fUserDetails.Visible := False;  // Hide UserDetails modal
+end;
+
+{ Change Password Button }
+procedure TfUserModal.btnChangePasswordClick(Sender: TObject);
+begin
+
 end;
 
 { Close Button }
@@ -625,6 +622,7 @@ begin
     ePassword.Password := True;
 end;
 
+{ Camera live }
 procedure TfUserModal.ccCapturePhotoSampleBufferReady(Sender: TObject;
   const ATime: TMediaTime);
 begin
@@ -634,6 +632,8 @@ end;
 { Frame Resize }
 procedure TfUserModal.FrameResize(Sender: TObject);
 begin
+  EditComponentsResponsive;
+
   if dm.FormReader = 'Main' then
   begin
     // Modal content margins
@@ -659,6 +659,19 @@ begin
       rModalInfo.Margins.Bottom := 50;
     end;
   end;
+end;
+
+{ Layout Responsiveness adjuster }
+procedure TfUserModal.EditComponentsResponsive;
+begin
+  lytNewPassword.Width := Trunc(lytDetails1.Width / 2) - 8; // -8 to account for spacing
+  lytConfirmNewPassword.Width := Trunc(lytDetails1.Width / 2) - 8;
+end;
+
+{ Details 1 responsive }
+procedure TfUserModal.lytDetails1Resize(Sender: TObject);
+begin
+  EditComponentsResponsive;
 end;
 
 end.

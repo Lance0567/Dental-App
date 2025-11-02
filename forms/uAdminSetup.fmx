@@ -9,6 +9,7 @@ object frmAdminSetup: TfrmAdminSetup
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnClose = FormClose
   OnResize = FormResize
   DesignerMasterStyle = 0
   inline fUserModal: TfUserModal

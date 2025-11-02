@@ -4,9 +4,8 @@ interface
 
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes,
-  System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, uUserModal,
-  uAppointmentModal;
+  System.Variants, FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
+  uUserModal, uAppointmentModal;
 
 type
   TfrmAdminSetup = class(TForm)
@@ -14,6 +13,7 @@ type
     procedure fUserModalbtnCancelClick(Sender: TObject);
     procedure fUserModalbtnCloseClick(Sender: TObject);
     procedure FormResize(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -28,6 +28,13 @@ implementation
 {$R *.fmx}
 
 uses uDm;
+
+{ OnClose }
+procedure TfrmAdminSetup.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Action := TCloseAction(2);
+  frmAdminSetup := nil;
+end;
 
 { OnResize Form }
 procedure TfrmAdminSetup.FormResize(Sender: TObject);
@@ -65,12 +72,7 @@ procedure TfrmAdminSetup.fUserModalbtnCancelClick(Sender: TObject);
 begin
   fUserModal.btnCancelClick(Sender);
 
-  // Then release AdminSetup form safely
-  if Assigned(frmAdminSetup) then
-  begin
-    frmAdminSetup.Free;
-    frmAdminSetup := nil;
-  end;
+  Close; // Triggers OnClose which frees the form
 end;
 
 { Close Button }
@@ -78,12 +80,7 @@ procedure TfrmAdminSetup.fUserModalbtnCloseClick(Sender: TObject);
 begin
   fUserModal.btnCloseClick(Sender);
 
-  // Then release AdminSetup form safely
-  if Assigned(frmAdminSetup) then
-  begin
-    frmAdminSetup.Free;
-    frmAdminSetup := nil;
-  end;
+  Close; // Triggers OnClose which frees the form
 end;
 
 end.

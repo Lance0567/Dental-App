@@ -60,6 +60,17 @@ type
     gDate: TGlyph;
     lDateW: TLabel;
     ShadowEffect3: TShadowEffect;
+    btnDelete: TCornerButton;
+    rDeleteBackground: TRectangle;
+    rDeleteModal: TRectangle;
+    lytDeleteInfo: TLayout;
+    lytDeleteButtonH: TLayout;
+    btnDeleteCancel: TCornerButton;
+    btnDeleteAppointment: TCornerButton;
+    lDeleteDesc: TLabel;
+    lytDeleteTitle: TLayout;
+    lDeleteTItle: TLabel;
+    btnDeleteClose: TSpeedButton;
     procedure btnCloseClick(Sender: TObject);
     procedure FrameResized(Sender: TObject);
     procedure lytDetails3Resized(Sender: TObject);
@@ -72,6 +83,10 @@ type
     procedure deDateChange(Sender: TObject);
     procedure cbPatientChangeTracking(Sender: TObject);
     procedure eAppointmentTitleChangeTracking(Sender: TObject);
+    procedure btnDeleteCancelClick(Sender: TObject);
+    procedure btnDeleteCloseClick(Sender: TObject);
+    procedure btnDeleteClick(Sender: TObject);
+    procedure btnDeleteAppointmentClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -199,6 +214,37 @@ begin
   Self.Visible := False;
 end;
 
+{ Delete Button }
+procedure TfAppointmentModal.btnDeleteClick(Sender: TObject);
+begin
+  rDeleteBackground.Visible := True;
+end;
+
+{ Delete Appointment Button }
+procedure TfAppointmentModal.btnDeleteAppointmentClick(Sender: TObject);
+begin
+  dm.qAppointments.Delete;
+  dm.qAppointments.Refresh;
+
+  // Set record pop up message
+  frmMain.Tag := 5;
+  frmMain.RecordMessage('Appointment', 'appointment');
+
+  Self.Visible := False;
+end;
+
+{ Cancel Button - Delete }
+procedure TfAppointmentModal.btnDeleteCancelClick(Sender: TObject);
+begin
+  rDeleteBackground.Visible := False;
+end;
+
+{ Close Button - Delete }
+procedure TfAppointmentModal.btnDeleteCloseClick(Sender: TObject);
+begin
+  rDeleteBackground.Visible := False;
+end;
+
 { Patient On Change Tracking }
 procedure TfAppointmentModal.cbPatientChangeTracking(Sender: TObject);
 begin
@@ -278,8 +324,8 @@ begin
   end
   else if (frmMain.ClientWidth >= 1366) then
   begin
-    rModalInfo.Margins.Left := 490;
-    rModalInfo.Margins.Right := 490;
+    rModalInfo.Margins.Left := 455;
+    rModalInfo.Margins.Right := 455;
     rModalInfo.Margins.Top := 75;
     rModalInfo.Margins.Bottom := 75;
   end

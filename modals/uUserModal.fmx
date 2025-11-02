@@ -624,7 +624,6 @@ object fUserModal: TfUserModal
                 StyledSettings = [Family, Style]
                 ParentShowHint = False
                 ShowHint = True
-                OnClick = ePasswordClick
                 OnEnter = ePasswordEnter
                 OnExit = ePasswordExit
                 object cbShowPassword: TCheckBox
@@ -946,6 +945,7 @@ object fUserModal: TfUserModal
             Size.Height = 70.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
+            OnResize = lytDetails1Resize
             object lytNewPassword: TLayout
               Align = Left
               Size.Width = 170.000000000000000000
@@ -1046,6 +1046,7 @@ object fUserModal: TfUserModal
               TextSettings.Trimming = None
               XRadius = 13.000000000000000000
               YRadius = 13.000000000000000000
+              OnClick = btnChangePasswordClick
             end
           end
           object slSecuritySettings: TSkLabel

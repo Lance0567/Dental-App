@@ -46,12 +46,13 @@ type
     fUsers: TfUsers;
     ShadowEffect1: TShadowEffect;
     fAppointmentModal: TfAppointmentModal;
-    fUserDetails: TfUserDetails;
-    fUserModal: TfUserModal;
     fUserProfile: TfUserProfile;
     fPatients: TfPatients;
     fContactInfo: TfContactInfo;
     fUpdateProfilePhoto: TfUpdateProfilePhoto;
+    fUserModal: TfUserModal;
+    fUserDetails: TfUserDetails;
+    ShadowEffect2: TShadowEffect;
     procedure FormCreate(Sender: TObject);
     procedure mvSidebarResize(Sender: TObject);
     procedure FormResize(Sender: TObject);
@@ -319,9 +320,9 @@ begin
       begin
         lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.White;
         lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Gray;
-        lbPopUp.Words.Items[0].Text := AEntity + ' information deleted';
-        lbPopUp.Words.Items[1].Text := 'The ' + ADetail +
-          ' details have been saved successfully.';
+        lbPopUp.Words.Items[0].Text := AEntity + ' deleted successfully';
+        lbPopUp.Words.Items[1].Text := ADetail +
+          ' has been removed from patient records.';
         rPopUp.Fill.Color := TAlphaColorRec.White;
         // Icon set to red success
         gPopUp.ImageIndex := 33;

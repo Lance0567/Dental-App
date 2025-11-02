@@ -192,8 +192,8 @@ object fAppointmentModal: TfAppointmentModal
               TabOrder = 3
               OnExit = mNotesExit
               OnClick = mNotesClick
-              Viewport.Width = 384.000000000000000000
-              Viewport.Height = 134.000000000000000000
+              Viewport.Width = 380.000000000000000000
+              Viewport.Height = 130.000000000000000000
             end
           end
           object lytButtonH: TLayout
@@ -213,7 +213,7 @@ object fAppointmentModal: TfAppointmentModal
               Size.Width = 160.000000000000000000
               Size.Height = 40.000000000000000000
               Size.PlatformDefault = False
-              TabOrder = 4
+              TabOrder = 5
               Text = 'Create Appointment'
               TextSettings.Font.Family = 'Segoe UI Variable Display'
               TextSettings.Font.Size = 14.000000000000000000
@@ -235,7 +235,8 @@ object fAppointmentModal: TfAppointmentModal
               Size.Width = 90.000000000000000000
               Size.Height = 40.000000000000000000
               Size.PlatformDefault = False
-              TabOrder = 3
+              StyleLookup = 'btnCancelStyle1'
+              TabOrder = 4
               Text = 'Cancel'
               TextSettings.Font.Family = 'Segoe UI Variable Display'
               TextSettings.Font.Size = 14.000000000000000000
@@ -244,6 +245,26 @@ object fAppointmentModal: TfAppointmentModal
               XRadius = 13.000000000000000000
               YRadius = 13.000000000000000000
               OnClick = btnCloseClick
+            end
+            object btnDelete: TCornerButton
+              Align = Left
+              Cursor = crHandPoint
+              StyledSettings = [FontColor]
+              Margins.Right = 10.000000000000000000
+              Sides = [Top, Left, Bottom, Right]
+              Size.Width = 90.000000000000000000
+              Size.Height = 40.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'btnDeleteStyle1'
+              TabOrder = 3
+              Text = 'Delete'
+              TextSettings.Font.Family = 'Segoe UI Variable Display'
+              TextSettings.Font.Size = 14.000000000000000000
+              TextSettings.Font.StyleExt = {00060000000000000004000000}
+              TextSettings.Trimming = None
+              XRadius = 13.000000000000000000
+              YRadius = 13.000000000000000000
+              OnClick = btnDeleteClick
             end
           end
           object lytDetails2: TLayout
@@ -498,7 +519,7 @@ object fAppointmentModal: TfAppointmentModal
                   TextSettings.Font.Family = 'Segoe UI Variable Text'
                   TextSettings.Font.Size = 14.000000000000000000
                   Text = 'Pick a date'
-                  TabOrder = 15
+                  TabOrder = 14
                 end
               end
               object lDate: TLabel
@@ -560,6 +581,142 @@ object fAppointmentModal: TfAppointmentModal
               end
             end
           end
+        end
+      end
+    end
+  end
+  object rDeleteBackground: TRectangle
+    Align = Contents
+    Fill.Color = xB9000000
+    Size.Width = 850.000000000000000000
+    Size.Height = 540.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    Visible = False
+    object rDeleteModal: TRectangle
+      Align = Center
+      Fill.Color = xFEF8FBFB
+      Padding.Left = 25.000000000000000000
+      Padding.Top = 15.000000000000000000
+      Padding.Right = 25.000000000000000000
+      Padding.Bottom = 15.000000000000000000
+      Margins.Left = 120.000000000000000000
+      Margins.Top = 50.000000000000000000
+      Margins.Right = 120.000000000000000000
+      Margins.Bottom = 50.000000000000000000
+      Size.Width = 490.000000000000000000
+      Size.Height = 197.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Color = xFFDBD9D9
+      XRadius = 13.000000000000000000
+      YRadius = 13.000000000000000000
+      object lytDeleteInfo: TLayout
+        Align = Client
+        Margins.Top = 10.000000000000000000
+        Size.Width = 440.000000000000000000
+        Size.Height = 122.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object lDeleteDesc: TLabel
+          Align = Top
+          StyledSettings = []
+          Size.Width = 440.000000000000000000
+          Size.Height = 45.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Family = 'Roboto'
+          TextSettings.Font.Size = 15.000000000000000000
+          TextSettings.FontColor = xFE67707E
+          Text = 
+            'This will permanently delete this appointment with Barbara Rodri' +
+            'guez. This action cannot be undone.'
+          TabOrder = 1
+        end
+        object lytDeleteButtonH: TLayout
+          Align = Top
+          Padding.Top = 5.000000000000000000
+          Padding.Bottom = 5.000000000000000000
+          Margins.Top = 20.000000000000000000
+          Position.Y = 65.000000000000000000
+          Size.Width = 440.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object btnDeleteCancel: TCornerButton
+            Align = Right
+            Cursor = crHandPoint
+            StyledSettings = [FontColor]
+            Margins.Right = 10.000000000000000000
+            Position.X = 176.000000000000000000
+            Position.Y = 5.000000000000000000
+            Sides = [Top, Left, Bottom, Right]
+            Size.Width = 86.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'btnCancelStyle1'
+            TabOrder = 2
+            Text = 'Cancel'
+            TextSettings.Font.Family = 'Segoe UI Variable Small'
+            TextSettings.Font.Size = 14.000000000000000000
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+            TextSettings.Trimming = Word
+            XRadius = 13.000000000000000000
+            YRadius = 13.000000000000000000
+            OnClick = btnDeleteCancelClick
+          end
+          object btnDeleteAppointment: TCornerButton
+            Align = Right
+            Cursor = crHandPoint
+            StyledSettings = [FontColor]
+            Position.X = 272.000000000000000000
+            Position.Y = 5.000000000000000000
+            Sides = [Top, Left, Bottom, Right]
+            Size.Width = 168.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'btnDeleteStyle1'
+            TabOrder = 1
+            Text = 'Delete Appointment'
+            TextSettings.Font.Family = 'Segoe UI Variable Small'
+            TextSettings.Font.Size = 14.000000000000000000
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
+            TextSettings.Trimming = Word
+            XRadius = 13.000000000000000000
+            YRadius = 13.000000000000000000
+            OnClick = btnDeleteAppointmentClick
+          end
+        end
+      end
+      object lytDeleteTitle: TLayout
+        Align = MostTop
+        Margins.Right = -10.000000000000000000
+        Position.X = 25.000000000000000000
+        Position.Y = 15.000000000000000000
+        Size.Width = 450.000000000000000000
+        Size.Height = 35.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object lDeleteTItle: TLabel
+          Align = Client
+          StyledSettings = []
+          Size.Width = 415.000000000000000000
+          Size.Height = 35.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Family = 'Segoe UI Variable Small'
+          TextSettings.Font.Size = 18.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          Text = 'Are you sure?'
+          TabOrder = 0
+        end
+        object btnDeleteClose: TSpeedButton
+          Align = Right
+          Position.X = 415.000000000000000000
+          Size.Width = 35.000000000000000000
+          Size.Height = 35.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'cleareditbutton'
+          Text = 'Close'
+          TextSettings.Trimming = None
+          OnClick = btnDeleteCloseClick
         end
       end
     end

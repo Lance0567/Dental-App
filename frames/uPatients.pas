@@ -219,6 +219,7 @@ begin
 
   // Clear Fields
   frmMain.fPatientModal.ClearItems;
+  frmMain.fPatientModal.btnDelete.Visible := False;
 
   // Reset scrollbox
   frmMain.fPatientModal.ScrollBox1.ViewportPosition := PointF(0, 0);
