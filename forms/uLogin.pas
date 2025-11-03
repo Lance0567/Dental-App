@@ -7,7 +7,8 @@ uses
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, System.Skia,
   FMX.StdCtrls, FMX.Edit, FMX.Controls.Presentation, FMX.Skia, FMX.Layouts,
   FMX.Objects, FMX.Platform, FMX.Effects, FMX.ImgList, System.Hash,
-  FireDAC.Stan.Param, System.Math, FMX.DialogService, Data.DB, uUserModal;
+  FireDAC.Stan.Param, System.Math, FMX.DialogService, Data.DB, System.IniFiles,
+  System.IOUtils;
 
 type
   TfrmLogin = class(TForm)
@@ -94,7 +95,26 @@ implementation
 
 {$R *.fmx}
 
-uses uDm, uMain, uAdminSetup, uToolbar;
+uses uDm, uMain, uAdminSetup, uToolbar, uUserModal, uGlobal;
+
+{ Remember me }
+procedure SaveRememberMeUsername(const AUsername: string);
+var
+  Ini: TMemIniFile;
+  IniFileName: string;
+begin
+  IniFileName := TPath.Combine(TPath.GetHomePath, 'MyAppSettings.ini');
+  Ini := TMemIniFile.Create(IniFileName);
+  try
+    if AUsername <> '' then
+      Ini.WriteString('Login', 'Username', AUsername)
+    else
+      Ini.DeleteKey('Login', 'Username');
+    Ini.UpdateFile;
+  finally
+    Ini.Free;
+  end;
+end;
 
 { Close Button }
 procedure TfrmLogin.btnCloseClick(Sender: TObject);
@@ -265,6 +285,13 @@ begin
         TMsgDlgBtn.mbOK, 0,
         nil  // No callback, so code continues immediately
       );
+
+      // Remember me
+      if cbRememberMe.IsChecked then
+        SaveRememberMeUsername(InputUser)
+      else
+        SaveRememberMeUsername('');  // Clear saved username
+
       if not Assigned(frmMain) then
         Application.CreateForm(TfrmMain, frmMain);
 
@@ -305,6 +332,8 @@ end;
 
 { Form Show }
 procedure TfrmLogin.FormShow(Sender: TObject);
+var
+  SavedUser: string;
 begin
   dm.FormReader := 'Login';
 
@@ -324,9 +353,21 @@ begin
   if not Assigned(frmAdminSetup) then
     Application.CreateForm(TfrmAdminSetup, frmAdminSetup);
 
-
   // Record Checker
   CheckRecords;
+
+  // Load Remember me
+  SavedUser := LoadRememberMeUsername;
+  if SavedUser <> '' then
+  begin
+    eUsername.Text := SavedUser;
+    cbRememberMe.IsChecked := True;
+    ePassword.SetFocus; // user can enter password quickly
+  end
+  else
+  begin
+    cbRememberMe.IsChecked := False;
+  end;
 end;
 
 { rDrag for borderless login form with draggable feature }

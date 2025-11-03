@@ -4,10 +4,11 @@ interface
 
 uses
   System.SysUtils, System.Classes, FMX.Layouts, System.Types, FMX.DialogService,
-  System.UITypes, FireDAC.Stan.Param;
+  System.UITypes, FireDAC.Stan.Param, System.IOUtils, System.IniFiles;
 
 procedure AdjustLayoutHeight(ALayout: TLayout; AHeight: Single);
 procedure QueryExistingUsername;
+function LoadRememberMeUsername: string;
 
 implementation
 
@@ -53,5 +54,26 @@ begin
     // Optional: free resources or handle exceptions if needed
   end;
 end;
+
+{ Load Remember Me }
+function LoadRememberMeUsername: string;
+var
+  Ini: TMemIniFile;
+  IniFileName: string;
+begin
+  IniFileName := TPath.Combine(TPath.GetHomePath, 'MyAppSettings.ini');
+  if FileExists(IniFileName) then
+  begin
+    Ini := TMemIniFile.Create(IniFileName);
+    try
+      Result := Ini.ReadString('Login', 'Username', '');
+    finally
+      Ini.Free;
+    end;
+  end
+  else
+    Result := '';
+end;
+
 
 end.
