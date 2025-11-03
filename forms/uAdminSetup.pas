@@ -50,15 +50,15 @@ begin
   end
   else if (frmAdminSetup.ClientWidth >= 1366) then
   begin
-    fUserModal.rModalInfo.Margins.Left := 450;
-    fUserModal.rModalInfo.Margins.Right := 450;
+    fUserModal.rModalInfo.Margins.Left := 440;
+    fUserModal.rModalInfo.Margins.Right := 440;
     fUserModal.rModalInfo.Margins.Top := 75;
     fUserModal.rModalInfo.Margins.Bottom := 75;
   end
   else if (frmAdminSetup.ClientWidth <= 860) then
   begin
-    fUserModal.rModalInfo.Margins.Left := 130;
-    fUserModal.rModalInfo.Margins.Right := 130;
+    fUserModal.rModalInfo.Margins.Left := 120;
+    fUserModal.rModalInfo.Margins.Right := 120;
     fUserModal.rModalInfo.Margins.Top := 50;
     fUserModal.rModalInfo.Margins.Bottom := 50;
   end;
@@ -73,7 +73,12 @@ procedure TfrmAdminSetup.fUserModalbtnCancelClick(Sender: TObject);
 begin
   fUserModal.btnCancelClick(Sender);
 
-  Close; // Triggers OnClose which frees the form
+  // Then release main form safely
+  if Assigned(frmAdminSetup) then
+  begin
+    Close;  // Triggers OnClose which frees the form
+    frmAdminSetup := nil;
+  end;
 end;
 
 { Close Button }
@@ -81,7 +86,12 @@ procedure TfrmAdminSetup.fUserModalbtnCloseClick(Sender: TObject);
 begin
   fUserModal.btnCloseClick(Sender);
 
-  Close; // Triggers OnClose which frees the form
+  // Then release main form safely
+  if Assigned(frmAdminSetup) then
+  begin
+    Close;  // Triggers OnClose which frees the form
+    frmAdminSetup := nil;
+  end;
 end;
 
 procedure TfrmAdminSetup.fUserModalbtnSaveUserClick(Sender: TObject);

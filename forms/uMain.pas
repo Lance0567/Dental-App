@@ -225,6 +225,8 @@ begin
   fAppointments.fToolbar.lDate.Text :=  FormatDateTime('dddd, mmmm d, yyyy', Now);
   fUsers.fToolbar.lDate.Text := FormatDateTime('dddd, mmmm d, yyyy', Now);
   fUserProfile.fToolbar.lDate.Text := FormatDateTime('dddd, mmmm d, yyyy', Now);
+
+  Self.Caption := 'Dental System';
 end;
 
 { Form Resized }

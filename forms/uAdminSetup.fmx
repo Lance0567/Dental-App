@@ -47,11 +47,13 @@ object frmAdminSetup: TfrmAdminSetup
                   end
                 end
                 inherited lytPhotoButton: TLayout
-                  inherited btnCamera: TCornerButton
-                    TextSettings.Font.StyleExt = {00060000000000000004000000}
-                  end
-                  inherited btnPhotoUpload: TCornerButton
-                    TextSettings.Font.StyleExt = {00060000000000000004000000}
+                  inherited lytPhotoButtonH: TLayout
+                    inherited btnCamera: TCornerButton
+                      TextSettings.Font.StyleExt = {00060000000000000004000000}
+                    end
+                    inherited btnPhotoUpload: TCornerButton
+                      TextSettings.Font.StyleExt = {00060000000000000004000000}
+                    end
                   end
                 end
                 inherited lProfilePhoto: TLabel
