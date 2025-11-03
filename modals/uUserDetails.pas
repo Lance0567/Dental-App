@@ -134,18 +134,6 @@ begin
     gIcon.ImageIndex := 10;
     lNameH.Visible := False;
   end;
-
-  // Button Visibility
-  if dm.User.RoleH = 'Admin' then
-  begin
-    btnDelete.Visible := True;
-    btnEdit.Visible := True;
-  end
-  else
-  begin
-    btnDelete.Visible := False;
-    btnEdit.Visible := False;
-  end;
 end;
 
 { Close Button }
@@ -184,6 +172,41 @@ end;
 { Delete Button }
 procedure TfUserDetails.btnDeleteClick(Sender: TObject);
 begin
+  // Check if user role is not Admin
+  if not (dm.User.RoleH = 'Admin') then
+  begin
+    TDialogService.MessageDialog(
+      'Only an admin can Delete a user.',
+      TMsgDlgType.mtError,  // info icon
+      [TMsgDlgBtn.mbOK],
+      TMsgDlgBtn.mbOK, 0,
+      nil  // No callback, so code continues immediately
+    );
+    Exit;
+  end;
+
+  try
+    dm.qTemp.Close;
+    dm.qTemp.SQL.Text :=
+    'SELECT COUNT(user_role) AS AdminCount ' +
+    'FROM users WHERE user_role = ''Admin''';
+    dm.qTemp.Open;
+
+    if (dm.qTemp.FieldByName('AdminCount').asInteger = 1) then
+    begin
+      TDialogService.MessageDialog(
+        'Deletion is not permitted because this is the only remaining admin account',
+        TMsgDlgType.mtError,  // info icon
+        [TMsgDlgBtn.mbOK],
+        TMsgDlgBtn.mbOK, 0,
+        nil  // No callback, so code continues immediately
+      );
+      Exit;  // Stop the save operation
+    end;
+  finally
+    dm.qTemp.Close;
+  end;
+
   rDeleteBackground.Visible := True;
   lDeleteDesc.Text := 'This will permanently delete '  + lName.Text + '`s ' + 'account. This action cannot be undone.';
 end;
@@ -194,6 +217,21 @@ var
   roleH, statusH: String;
   ms: TMemoryStream;
 begin
+  frmMain.fUserModal.ClearItems;
+
+  // Check if user role is not Admin
+  if not (dm.User.RoleH = 'Admin') then
+  begin
+    TDialogService.MessageDialog(
+      'Only an admin can Edit a user.',
+      TMsgDlgType.mtError,  // info icon
+      [TMsgDlgBtn.mbOK],
+      TMsgDlgBtn.mbOK, 0,
+      nil  // No callback, so code continues immediately
+    );
+    Exit;
+  end;
+
   Self.Visible := False;  // Hide UserDetails modal
   dm.RecordStatus := 'Edit'; // Set record Status
   frmMain.fUserModal.lbTitle.Text := 'Update Existing Patient'; // Set title
@@ -228,11 +266,11 @@ begin
 
   // Get Profile Photo
   // Load Profile Photo (LONGBLOB -> TImage)
-  frmMain.fUserModal.cProfilePhoto.Fill.Kind := TBrushKind.Bitmap;
   ms := TMemoryStream.Create;
   try
     if not dm.qUsers.FieldByName('profile_pic').IsNull then
     begin
+      frmMain.fUserModal.cProfilePhoto.Fill.Kind := TBrushKind.Bitmap;
       TBlobField(dm.qUsers.FieldByName('profile_pic')).SaveToStream(ms);
       ms.Position := 0;
       frmMain.fUserModal.cProfilePhoto.Fill.Bitmap.Bitmap.LoadFromStream(ms);

@@ -50,9 +50,9 @@ type
     fPatients: TfPatients;
     fContactInfo: TfContactInfo;
     fUpdateProfilePhoto: TfUpdateProfilePhoto;
-    fUserModal: TfUserModal;
     fUserDetails: TfUserDetails;
     ShadowEffect2: TShadowEffect;
+    fUserModal: TfUserModal;
     procedure FormCreate(Sender: TObject);
     procedure mvSidebarResize(Sender: TObject);
     procedure FormResize(Sender: TObject);

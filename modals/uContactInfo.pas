@@ -5,7 +5,7 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
-  FMX.ImgList, FMX.Controls.Presentation, FMX.Objects, FMX.Layouts;
+  FMX.ImgList, FMX.Controls.Presentation, FMX.Objects, FMX.Layouts, FMX.Effects;
 
 type
   TfContactInfo = class(TFrame)
@@ -20,6 +20,7 @@ type
     lNumber1: TLabel;
     lFrnacis: TLabel;
     lNumber2: TLabel;
+    ShadowEffect6: TShadowEffect;
     procedure btnCloseClick(Sender: TObject);
   private
     { Private declarations }

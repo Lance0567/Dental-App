@@ -26,7 +26,6 @@ type
     lytPatientProfile: TLayout;
     lytProfilePhoto: TLayout;
     lytPhotoButton: TLayout;
-    lytPhotoButtonH: TLayout;
     cProfilePhoto: TCircle;
     gIcon: TGlyph;
     lNameH: TLabel;
@@ -113,6 +112,15 @@ type
     btnEye2: TButton;
     btnEye3: TButton;
     btnEye1: TButton;
+    lytPhotoButtonH: TLayout;
+    crNewPassword: TCalloutRectangle;
+    gNewPassword: TGlyph;
+    lNewPasswordW: TLabel;
+    ShadowEffect9: TShadowEffect;
+    crConfirmNewPassword: TCalloutRectangle;
+    gConfirmNewPassword: TGlyph;
+    lConfirmNewPasswordW: TLabel;
+    ShadowEffect10: TShadowEffect;
     procedure btnCloseClick(Sender: TObject);
     procedure FrameResize(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
@@ -125,8 +133,6 @@ type
     procedure btnSaveCurrentImageClick(Sender: TObject);
     procedure btnCameraCloseClick(Sender: TObject);
     procedure eFullNameChangeTracking(Sender: TObject);
-    procedure cProfilePhotoPainting(Sender: TObject; Canvas: TCanvas;
-      const ARect: TRectF);
     procedure ePasswordEnter(Sender: TObject);
     procedure ePasswordExit(Sender: TObject);
     procedure lytDetails1Resize(Sender: TObject);
@@ -138,6 +144,9 @@ type
     procedure eConfirmNewPasswordEnter(Sender: TObject);
     procedure eConfirmNewPasswordExit(Sender: TObject);
     procedure btnEye1Click(Sender: TObject);
+    procedure ePasswordChangeTracking(Sender: TObject);
+    procedure eNewPasswordChangeTracking(Sender: TObject);
+    procedure eConfirmNewPasswordChangeTracking(Sender: TObject);
   private
     FCapturing: Boolean;
     FStatus: Boolean;
@@ -146,7 +155,7 @@ type
     procedure EditComponentsResponsive;
     { Private declarations }
   public
-
+    HasError: Boolean;
     procedure ClearItems;
     { Public declarations }
   end;
@@ -196,16 +205,6 @@ begin
   ScrollBox1.ViewportPosition := PointF(0, 0);  // Reset Scrollbox
 end;
 
-{ Profile Changer }
-procedure TfUserModal.cProfilePhotoPainting(Sender: TObject; Canvas: TCanvas;
-  const ARect: TRectF);
-begin
-  if cProfilePhoto.Fill.Kind = TBrushKind.Bitmap then
-    lNameH.Visible := False
-  else if (not gIcon.ImageIndex = 10 ) AND (cProfilePhoto.Fill.Kind = TBrushKind.Solid) then
-    lNameH.Visible := True;
-end;
-
 { Full name OnChange Tracking }
 procedure TfUserModal.eFullNameChangeTracking(Sender: TObject);
 var
@@ -228,9 +227,12 @@ begin
 
     lNameH.Text := Initials;
 
-    // Profile pic changer
-    gIcon.ImageIndex := -1;
-    lNameH.Visible := True;
+    if cProfilePhoto.Fill.Kind = TBrushKind.Solid then
+    begin
+      // Profile pic changer
+      gIcon.ImageIndex := -1;
+      lNameH.Visible := True;
+    end;
   end;
 
   // Reset Profile Icon
@@ -250,40 +252,79 @@ begin
   crFullName.Visible := False;
 end;
 
+{ OnChangeTracking Confirm new password }
+procedure TfUserModal.eConfirmNewPasswordChangeTracking(Sender: TObject);
+begin
+  if not (eConfirmNewPassword.Text = '') then
+    btnEye3.Visible := True
+  else
+    btnEye3.Visible := False;
+end;
+
 { OnEnter Confirm new password }
 procedure TfUserModal.eConfirmNewPasswordEnter(Sender: TObject);
 begin
-  btnEye3.Visible := True;
+  if not (eConfirmNewPassword.Text = '') then
+    btnEye3.Visible := True
+  else
+    btnEye3.Visible := False;
 end;
 
 { OnExit Confirm new password }
 procedure TfUserModal.eConfirmNewPasswordExit(Sender: TObject);
 begin
-  btnEye3.Visible := False;
+  if not (eConfirmNewPassword.Text = '') then
+    btnEye3.Visible := True
+  else
+    btnEye3.Visible := False;
+end;
+
+{ OnChangeTracking New password }
+procedure TfUserModal.eNewPasswordChangeTracking(Sender: TObject);
+begin
+  if not (eNewPassword.Text = '') then
+    btnEye2.Visible := True
+  else
+    btnEye2.Visible := False;
 end;
 
 { OnEnter New password }
 procedure TfUserModal.eNewPasswordEnter(Sender: TObject);
 begin
-  btnEye2.Visible := True;
+  if not (eNewPassword.Text = '') then
+    btnEye2.Visible := True
+  else
+    btnEye2.Visible := False;
 end;
 
 { OnExit New password }
 procedure TfUserModal.eNewPasswordExit(Sender: TObject);
 begin
-  btnEye2.Visible := False;
+  if not (eNewPassword.Text = '') then
+    btnEye2.Visible := True
+  else
+    btnEye2.Visible := False;
+end;
+
+{ OnChangeTracking Password }
+procedure TfUserModal.ePasswordChangeTracking(Sender: TObject);
+begin
+  if not (ePassword.Text = '') then
+    btnEye1.Visible := True;
 end;
 
 { OnEnter Edit Password }
 procedure TfUserModal.ePasswordEnter(Sender: TObject);
 begin
-  btnEye1.Visible := True;
+  if not (ePassword.Text = '') then
+    btnEye1.Visible := True;
 end;
 
 { OnExit Edit Password }
 procedure TfUserModal.ePasswordExit(Sender: TObject);
 begin
-  btnEye1.Visible := False;
+  if not (ePassword.Text = '') then
+    btnEye1.Visible := True;
 end;
 
 { Update Camera list }
@@ -459,29 +500,80 @@ end;
 { Change Password Button }
 procedure TfUserModal.btnChangePasswordClick(Sender: TObject);
 var
+  FirstInvalidPos: Single;
   InputUser, InputPassHash: String;
 begin
-  InputUser := eUsername.Text;
+  HasError := False;
+  FirstInvalidPos := -1;
+  InputUser := Trim(eUsername.Text);
+
+  // New password validation
+  if eNewPassword.Text = '' then
+  begin
+    AdjustLayoutHeight(lytNewPassword, 95);
+    crNewPassword.Visible := True;
+    if FirstInvalidPos = -1 then
+      FirstInvalidPos := eNewPassword.Position.Y;
+    HasError := True;
+  end
+  else
+    crNewPassword.Visible := False;
+
+  // Confirm new password validation
+  if eConfirmNewPassword.Text = '' then
+  begin
+    AdjustLayoutHeight(lytConfirmNewPassword, 95);
+    crConfirmNewPassword.Visible := True;
+    if FirstInvalidPos = -1 then
+      FirstInvalidPos := eConfirmNewPassword.Position.Y;
+    HasError := True;
+  end
+  else
+    crConfirmNewPassword.Visible := False;
+
+  // Stop if any error is found
+  if HasError = True then
+  begin
+    ScrollBox1.ViewportPosition := PointF(0, FirstInvalidPos - 50);
+    dm.qUsers.Cancel;
+    Exit;
+  end;
 
   with dm.qTemp do
   begin
     Close;
-    SQL.Text := 'SELECT username, password FROM users WHERE username = :u AND password = :p';
+    SQL.Text :=
+      'SELECT username, password FROM users WHERE username = :u AND password = :p';
     ParamByName('u').AsString := InputUser;
-    ParamByName('p').AsString := THashSHA2.GetHashString(ePassword.Text);
+    ParamByName('p').AsString := ePassword.Text;
     Open;
 
     if not IsEmpty then
     begin
-      Edit;
-      InputPassHash := THashSHA2.GetHashString(eConfirmNewPassword.Text);
-      FieldByName('password').AsString := InputPassHash;
-      Post;
+      if eNewPassword.Text = eConfirmNewPassword.Text then
+      begin
+        Edit;
+        InputPassHash := THashSHA2.GetHashString(eConfirmNewPassword.Text);
+        FieldByName('password').AsString := InputPassHash;
+        Post;
 
-      // Record Message
-      frmMain.Tag := 12;
-      frmMain.RecordMessage('Password', eUsername.Text);
-    end;
+        // Record Message
+        frmMain.Tag := 12;
+        frmMain.RecordMessage('Password', eUsername.Text);
+      end
+      else
+      TDialogService.MessageDialog('New passwords does not match',
+        TMsgDlgType.mtError, // info icon
+        [TMsgDlgBtn.mbOK], TMsgDlgBtn.mbOK, 0, nil
+        // No callback, so code continues immediately
+        )
+    end
+    else
+      TDialogService.MessageDialog('Invalid password.',
+        TMsgDlgType.mtError, // info icon
+        [TMsgDlgBtn.mbOK], TMsgDlgBtn.mbOK, 0, nil
+        // No callback, so code continues immediately
+        );
     Close;
   end;
 end;
@@ -541,11 +633,9 @@ end;
 procedure TfUserModal.btnSaveUserClick(Sender: TObject);
 var
   ms: TMemoryStream;
-  HasError: Boolean;
   FirstInvalidPos: Single;
   HashedPassword: String;
   DateCreated: String;
-  UsernameExist: Boolean;
 begin
   HasError := False;
   FirstInvalidPos := -1;
@@ -612,52 +702,32 @@ begin
   else
     crContactNumber.Visible := False;
 
+  // Handle record state
+  if dm.RecordStatus = 'Add' then
+  begin
+    // Query to check for existing username
+    QueryExistingUsername;
+    dm.qUsers.Append;
+  end
+  else
+  begin
+    dm.qUsers.Edit;
+  end;
+
   // Stop if any error is found
   if HasError = True then
   begin
     ScrollBox1.ViewportPosition := PointF(0, FirstInvalidPos - 50);
+    dm.qUsers.Cancel;
     Exit;
   end;
-
-  // Query to check for existing username
-  try
-    dm.qTemp.Close;
-    dm.qTemp.SQL.Text :=
-    'SELECT COUNT(*) AS cnt ' +
-    'FROM users WHERE username = :username';
-    dm.qTemp.ParamByName('username').AsString := eUsername.Text;  // ← ADD THIS LINE
-    dm.qTemp.Open;
-
-    UsernameExist := dm.qTemp.FieldByName('cnt').AsInteger > 0;
-    dm.qTemp.Close;
-
-    if UsernameExist then
-    begin
-      TDialogService.MessageDialog(
-        'Username already exists. Please choose a different username.',
-        TMsgDlgType.mtError,  // info icon
-        [TMsgDlgBtn.mbOK],
-        TMsgDlgBtn.mbOK, 0,
-        nil  // No callback, so code continues immediately
-      );
-      Exit;  // Stop the save operation
-    end;
-  finally
-    // Optional: free resources or handle exceptions if needed
-  end;
-
-  // Handle record state
-  if dm.RecordStatus = 'Add' then
-    dm.qUsers.Append
-  else
-    dm.qUsers.Edit;
 
   // Fields to save
   dm.qUsers.FieldByName('name').AsString := eFullName.Text;
   dm.qUsers.FieldByName('username').AsString := eUsername.Text;
 
   // Hash the password (SHA256 for better security)
-  if ePassword.Visible then
+  if dm.RecordStatus = 'Add' then
   begin
     HashedPassword := THashSHA2.GetHashString(ePassword.Text);
     dm.qUsers.FieldByName('password').AsString := HashedPassword;
@@ -703,12 +773,12 @@ begin
     // Creating first admin
     // Message dialog with success icon - Successfully completed admin setup
     TDialogService.MessageDialog(
-        'Successfully completed admin setup. You can now proceed to login',
-        TMsgDlgType.mtConfirmation,  // info icon
-        [TMsgDlgBtn.mbOK],
-        TMsgDlgBtn.mbOK, 0,
-        nil  // No callback, so code continues immediately
-      );
+      'Successfully completed admin setup. You can now proceed to login',
+      TMsgDlgType.mtConfirmation,  // info icon
+      [TMsgDlgBtn.mbOK],
+      TMsgDlgBtn.mbOK, 0,
+      nil  // No callback, so code continues immediately
+    );
 
     frmAdminSetup.Close;
     frmAdminSetup := nil

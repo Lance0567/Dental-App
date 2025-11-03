@@ -80,6 +80,7 @@ object fUserModal: TfUserModal
         object rUser: TRectangle
           Align = Top
           Fill.Color = claWhite
+          HitTest = False
           Padding.Left = 25.000000000000000000
           Padding.Top = 20.000000000000000000
           Padding.Right = 25.000000000000000000
@@ -121,7 +122,6 @@ object fUserModal: TfUserModal
                   Size.Height = 85.000000000000000000
                   Size.PlatformDefault = False
                   Stroke.Color = xFFDBD9D9
-                  OnPainting = cProfilePhotoPainting
                   object gIcon: TGlyph
                     Align = Center
                     Size.Width = 44.000000000000000000
@@ -153,6 +153,21 @@ object fUserModal: TfUserModal
                 Size.Height = 83.000000000000000000
                 Size.PlatformDefault = False
                 TabOrder = 2
+                object lProfileUploadDesc: TLabel
+                  Align = Top
+                  StyledSettings = [Style]
+                  Margins.Left = 2.000000000000000000
+                  Margins.Top = -3.000000000000000000
+                  Position.X = 7.000000000000000000
+                  Position.Y = 52.000000000000000000
+                  Size.Width = 245.000000000000000000
+                  Size.Height = 30.000000000000000000
+                  Size.PlatformDefault = False
+                  TextSettings.Font.Family = 'Segoe UI Variable Small'
+                  TextSettings.FontColor = claGray
+                  Text = 'Upload a photo or use your camera'
+                  TabOrder = 1
+                end
                 object lytPhotoButtonH: TLayout
                   Align = Top
                   Padding.Top = 5.000000000000000000
@@ -164,30 +179,9 @@ object fUserModal: TfUserModal
                   Size.Height = 45.000000000000000000
                   Size.PlatformDefault = False
                   TabOrder = 0
-                  object btnPhotoUpload: TCornerButton
-                    Align = Left
-                    Cursor = crHandPoint
-                    StyledSettings = [FontColor]
-                    Images = dm.imgList
-                    ImageIndex = 17
-                    Position.Y = 5.000000000000000000
-                    Sides = [Top, Left, Bottom, Right]
-                    Size.Width = 115.000000000000000000
-                    Size.Height = 35.000000000000000000
-                    Size.PlatformDefault = False
-                    StyleLookup = 'btnPhotoUploadStyle1'
-                    TabOrder = 1
-                    Text = 'Upload'
-                    TextSettings.Font.Family = 'Segoe UI Variable Display'
-                    TextSettings.Font.Size = 14.000000000000000000
-                    TextSettings.Font.StyleExt = {00060000000000000004000000}
-                    TextSettings.Trimming = None
-                    XRadius = 13.000000000000000000
-                    YRadius = 13.000000000000000000
-                    OnClick = btnPhotoUploadClick
-                  end
                   object btnCamera: TCornerButton
                     Align = Left
+                    CanFocus = False
                     Cursor = crHandPoint
                     StyledSettings = [FontColor]
                     Images = dm.imgList
@@ -210,21 +204,29 @@ object fUserModal: TfUserModal
                     YRadius = 13.000000000000000000
                     OnClick = btnCameraClick
                   end
-                end
-                object lProfileUploadDesc: TLabel
-                  Align = Top
-                  StyledSettings = [Style]
-                  Margins.Left = 2.000000000000000000
-                  Margins.Top = -3.000000000000000000
-                  Position.X = 7.000000000000000000
-                  Position.Y = 52.000000000000000000
-                  Size.Width = 245.000000000000000000
-                  Size.Height = 30.000000000000000000
-                  Size.PlatformDefault = False
-                  TextSettings.Font.Family = 'Segoe UI Variable Small'
-                  TextSettings.FontColor = claGray
-                  Text = 'Upload a photo or use your camera'
-                  TabOrder = 1
+                  object btnPhotoUpload: TCornerButton
+                    Align = Left
+                    CanFocus = False
+                    Cursor = crHandPoint
+                    StyledSettings = [FontColor]
+                    Images = dm.imgList
+                    ImageIndex = 17
+                    Position.Y = 5.000000000000000000
+                    Sides = [Top, Left, Bottom, Right]
+                    Size.Width = 115.000000000000000000
+                    Size.Height = 35.000000000000000000
+                    Size.PlatformDefault = False
+                    StyleLookup = 'btnPhotoUploadStyle1'
+                    TabOrder = 1
+                    Text = 'Upload'
+                    TextSettings.Font.Family = 'Segoe UI Variable Display'
+                    TextSettings.Font.Size = 14.000000000000000000
+                    TextSettings.Font.StyleExt = {00060000000000000004000000}
+                    TextSettings.Trimming = None
+                    XRadius = 13.000000000000000000
+                    YRadius = 13.000000000000000000
+                    OnClick = btnPhotoUploadClick
+                  end
                 end
               end
               object lProfilePhoto: TLabel
@@ -621,25 +623,27 @@ object fUserModal: TfUserModal
                 Size.Height = 40.000000000000000000
                 Size.PlatformDefault = False
                 TextPrompt = 'Enter password'
-                StyledSettings = [Family, Style]
+                StyledSettings = [Family]
                 ParentShowHint = False
                 ShowHint = True
+                OnChangeTracking = ePasswordChangeTracking
                 OnEnter = ePasswordEnter
                 OnExit = ePasswordExit
                 object btnEye1: TButton
                   Align = Right
                   CanFocus = False
+                  Cursor = crHandPoint
                   Images = dm.imgList
                   ImageIndex = 43
                   Margins.Top = 5.000000000000000000
-                  Margins.Right = 5.000000000000000000
+                  Margins.Right = 10.000000000000000000
                   Margins.Bottom = 5.000000000000000000
-                  Position.X = 322.000000000000000000
+                  Position.X = 317.000000000000000000
                   Position.Y = 5.000000000000000000
                   Size.Width = 30.000000000000000000
                   Size.Height = 30.000000000000000000
                   Size.PlatformDefault = False
-                  StyleLookup = 'btnEye2Style1'
+                  StyleLookup = 'btnEye1Style1'
                   TabOrder = 0
                   TextSettings.Trimming = None
                   OnClick = btnEye1Click
@@ -718,6 +722,7 @@ object fUserModal: TfUserModal
         object rRoleAndAccess: TRectangle
           Align = Top
           Fill.Color = claWhite
+          HitTest = False
           Padding.Left = 25.000000000000000000
           Padding.Top = 20.000000000000000000
           Padding.Right = 25.000000000000000000
@@ -744,7 +749,7 @@ object fUserModal: TfUserModal
               Size.Width = 357.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
-              TabOrder = 3
+              TabOrder = 5
               object lRole: TLabel
                 Align = Top
                 StyledSettings = [Family]
@@ -779,7 +784,7 @@ object fUserModal: TfUserModal
               Size.Width = 357.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
-              TabOrder = 2
+              TabOrder = 7
               object lStatus: TLabel
                 Align = Top
                 StyledSettings = [Family]
@@ -828,7 +833,7 @@ object fUserModal: TfUserModal
               Size.Width = 357.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
-              TabOrder = 7
+              TabOrder = 6
               object lDepartment: TLabel
                 Align = Top
                 StyledSettings = [Family]
@@ -954,7 +959,7 @@ object fUserModal: TfUserModal
               Size.Width = 170.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
-              TabOrder = 7
+              TabOrder = 0
               object lNewPassword: TLabel
                 Align = Top
                 StyledSettings = [Family]
@@ -984,25 +989,76 @@ object fUserModal: TfUserModal
                 StyledSettings = [Family]
                 ParentShowHint = False
                 ShowHint = True
+                OnChangeTracking = eNewPasswordChangeTracking
                 OnEnter = eNewPasswordEnter
                 OnExit = eNewPasswordExit
                 object btnEye2: TButton
                   Align = Right
                   CanFocus = False
+                  Cursor = crHandPoint
                   Images = dm.imgList
                   ImageIndex = 43
                   Margins.Top = 5.000000000000000000
-                  Margins.Right = 5.000000000000000000
+                  Margins.Right = 10.000000000000000000
                   Margins.Bottom = 5.000000000000000000
-                  Position.X = 135.000000000000000000
+                  Position.X = 130.000000000000000000
                   Position.Y = 5.000000000000000000
                   Size.Width = 30.000000000000000000
                   Size.Height = 30.000000000000000000
                   Size.PlatformDefault = False
-                  StyleLookup = 'btnEye2Style1'
+                  StyleLookup = 'btnEye1Style1'
                   TabOrder = 0
                   TextSettings.Trimming = None
                   OnClick = btnEye2Click
+                end
+                object crNewPassword: TCalloutRectangle
+                  Align = Top
+                  Fill.Color = claWhite
+                  Padding.Left = 8.000000000000000000
+                  Padding.Top = 15.000000000000000000
+                  Padding.Bottom = 10.000000000000000000
+                  Margins.Left = 30.000000000000000000
+                  Margins.Top = -5.000000000000000000
+                  Margins.Right = 30.000000000000000000
+                  Position.X = 30.000000000000000000
+                  Position.Y = -5.000000000000000000
+                  Size.Width = 110.000000000000000000
+                  Size.Height = 50.000000000000000000
+                  Size.PlatformDefault = False
+                  Stroke.Color = claDimgray
+                  Visible = False
+                  XRadius = 4.000000000000000000
+                  YRadius = 4.000000000000000000
+                  CalloutWidth = 23.000000000000000000
+                  CalloutLength = 8.000000000000000000
+                  object gNewPassword: TGlyph
+                    Align = Left
+                    Position.X = 8.000000000000000000
+                    Position.Y = 15.000000000000000000
+                    Size.Width = 25.000000000000000000
+                    Size.Height = 25.000000000000000000
+                    Size.PlatformDefault = False
+                    ImageIndex = 31
+                    Images = dm.imgList
+                  end
+                  object lNewPasswordW: TLabel
+                    Align = Client
+                    StyledSettings = [Family, Style]
+                    Margins.Left = 5.000000000000000000
+                    Size.Width = 72.000000000000000000
+                    Size.Height = 25.000000000000000000
+                    Size.PlatformDefault = False
+                    TextSettings.Font.Size = 13.000000000000000000
+                    Text = 'Please fill out this field.'
+                    TabOrder = 1
+                  end
+                  object ShadowEffect9: TShadowEffect
+                    Distance = 6.000000000000000000
+                    Direction = 55.000000000000000000
+                    Softness = 0.300000011920929000
+                    Opacity = 0.300000011920929000
+                    ShadowColor = claBlack
+                  end
                 end
               end
             end
@@ -1013,7 +1069,7 @@ object fUserModal: TfUserModal
               Size.Width = 170.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
-              TabOrder = 6
+              TabOrder = 1
               object lConfirmNewPassword: TLabel
                 Align = Top
                 StyledSettings = [Family]
@@ -1029,7 +1085,7 @@ object fUserModal: TfUserModal
                 Touch.InteractiveGestures = [LongTap, DoubleTap]
                 Align = Top
                 StyleLookup = 'eNewPasswordStyle1'
-                TabOrder = 1
+                TabOrder = 2
                 Password = True
                 TextSettings.Font.Size = 14.000000000000000000
                 Position.Y = 27.000000000000000000
@@ -1043,25 +1099,76 @@ object fUserModal: TfUserModal
                 StyledSettings = [Family]
                 ParentShowHint = False
                 ShowHint = True
+                OnChangeTracking = eConfirmNewPasswordChangeTracking
                 OnEnter = eConfirmNewPasswordEnter
                 OnExit = eConfirmNewPasswordExit
                 object btnEye3: TButton
                   Align = Right
                   CanFocus = False
+                  Cursor = crHandPoint
                   Images = dm.imgList
                   ImageIndex = 43
                   Margins.Top = 5.000000000000000000
-                  Margins.Right = 5.000000000000000000
+                  Margins.Right = 10.000000000000000000
                   Margins.Bottom = 5.000000000000000000
-                  Position.X = 135.000000000000000000
+                  Position.X = 130.000000000000000000
                   Position.Y = 5.000000000000000000
                   Size.Width = 30.000000000000000000
                   Size.Height = 30.000000000000000000
                   Size.PlatformDefault = False
-                  StyleLookup = 'btnEye2Style1'
+                  StyleLookup = 'btnEye1Style1'
                   TabOrder = 0
                   TextSettings.Trimming = None
                   OnClick = btnEye3Click
+                end
+                object crConfirmNewPassword: TCalloutRectangle
+                  Align = Top
+                  Fill.Color = claWhite
+                  Padding.Left = 8.000000000000000000
+                  Padding.Top = 15.000000000000000000
+                  Padding.Bottom = 10.000000000000000000
+                  Margins.Left = 30.000000000000000000
+                  Margins.Top = -5.000000000000000000
+                  Margins.Right = 30.000000000000000000
+                  Position.X = 30.000000000000000000
+                  Position.Y = -5.000000000000000000
+                  Size.Width = 110.000000000000000000
+                  Size.Height = 50.000000000000000000
+                  Size.PlatformDefault = False
+                  Stroke.Color = claDimgray
+                  Visible = False
+                  XRadius = 4.000000000000000000
+                  YRadius = 4.000000000000000000
+                  CalloutWidth = 23.000000000000000000
+                  CalloutLength = 8.000000000000000000
+                  object gConfirmNewPassword: TGlyph
+                    Align = Left
+                    Position.X = 8.000000000000000000
+                    Position.Y = 15.000000000000000000
+                    Size.Width = 25.000000000000000000
+                    Size.Height = 25.000000000000000000
+                    Size.PlatformDefault = False
+                    ImageIndex = 31
+                    Images = dm.imgList
+                  end
+                  object lConfirmNewPasswordW: TLabel
+                    Align = Client
+                    StyledSettings = [Family, Style]
+                    Margins.Left = 5.000000000000000000
+                    Size.Width = 72.000000000000000000
+                    Size.Height = 25.000000000000000000
+                    Size.PlatformDefault = False
+                    TextSettings.Font.Size = 13.000000000000000000
+                    Text = 'Please fill out this field.'
+                    TabOrder = 1
+                  end
+                  object ShadowEffect10: TShadowEffect
+                    Distance = 6.000000000000000000
+                    Direction = 55.000000000000000000
+                    Softness = 0.300000011920929000
+                    Opacity = 0.300000011920929000
+                    ShadowColor = claBlack
+                  end
                 end
               end
             end
@@ -1175,6 +1282,7 @@ object fUserModal: TfUserModal
           Size.Width = 200.000000000000000000
           Size.Height = 30.000000000000000000
           Size.PlatformDefault = False
+          StyleLookup = 'cbGenderStyle1'
           TabOrder = 0
         end
       end

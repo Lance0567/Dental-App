@@ -126,6 +126,13 @@ object fContactInfo: TfContactInfo
           OnClick = btnCloseClick
         end
       end
+      object ShadowEffect6: TShadowEffect
+        Distance = 1.000000000000000000
+        Direction = 45.000000000000000000
+        Softness = 0.200000002980232200
+        Opacity = 0.100000001490116100
+        ShadowColor = claBlack
+      end
     end
   end
 end

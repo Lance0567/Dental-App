@@ -168,8 +168,7 @@ begin
     btnTakePicture.Text := 'Retake photo'; // Change caption of the button
     FStatus := True; // Camera component status
     ccCapturePhoto.Active := False; // Disable the camera component
-    cProfilePhoto.Fill.Bitmap.Bitmap.Assign(imgPhoto.Bitmap);
-    // Show captured image on the image holder
+    cProfilePhoto.Fill.Bitmap.Bitmap.Assign(imgPhoto.Bitmap); // Show captured image on the image holder
   end
   else
   begin
