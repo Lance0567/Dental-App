@@ -202,7 +202,7 @@ object frmLogin: TfrmLogin
         Size.Height = 33.000000000000000000
         Size.PlatformDefault = False
         TextPrompt = 'Enter your password'
-        StyledSettings = [Style]
+        StyledSettings = []
         OnKeyUp = ePasswordKeyUp
         OnEnter = ePasswordEnter
         OnExit = ePasswordExit
@@ -357,6 +357,7 @@ object frmLogin: TfrmLogin
           TextSettings.Trimming = None
           XRadius = 5.000000000000000000
           YRadius = 5.000000000000000000
+          OnClick = btnGiveMeHelpClick
         end
       end
       object lytCreateAccount: TLayout
@@ -426,6 +427,177 @@ object frmLogin: TfrmLogin
       TextSettings.HorzAlign = Center
       Text = 'Roces Dental Clinic'
       TabOrder = 6
+    end
+  end
+  object lytContentH: TLayout
+    Align = Client
+    Size.Width = 431.000000000000000000
+    Size.Height = 503.000000000000000000
+    Size.PlatformDefault = False
+    Visible = False
+    TabOrder = 0
+    object rBackground: TRectangle
+      Align = Contents
+      Fill.Color = claBlack
+      Opacity = 0.699999988079071000
+      Size.Width = 431.000000000000000000
+      Size.Height = 503.000000000000000000
+      Size.PlatformDefault = False
+      XRadius = 13.000000000000000000
+      YRadius = 13.000000000000000000
+    end
+    object rModalInfo: TRectangle
+      Align = Center
+      Fill.Color = xFFF8FBFC
+      Padding.Left = 25.000000000000000000
+      Padding.Top = 20.000000000000000000
+      Padding.Right = 25.000000000000000000
+      Padding.Bottom = 20.000000000000000000
+      Margins.Left = 120.000000000000000000
+      Margins.Top = 50.000000000000000000
+      Margins.Right = 120.000000000000000000
+      Margins.Bottom = 50.000000000000000000
+      Size.Width = 380.000000000000000000
+      Size.Height = 275.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Color = xFFDBD9D9
+      XRadius = 13.000000000000000000
+      YRadius = 13.000000000000000000
+      object lytPatientProfile: TLayout
+        Align = Top
+        Margins.Top = 20.000000000000000000
+        Position.X = 25.000000000000000000
+        Position.Y = 118.000000000000000000
+        Size.Width = 330.000000000000000000
+        Size.Height = 140.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object lLance: TLabel
+          Align = Top
+          StyledSettings = [Family, FontColor]
+          Margins.Top = 10.000000000000000000
+          Position.Y = 35.000000000000000000
+          Size.Width = 330.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 18.000000000000000000
+          TextSettings.Font.StyleExt = {00060000000000000004000000}
+          Text = 'Lance Esure'#241'a'
+          TabOrder = 4
+        end
+        object lNumber1: TLabel
+          Align = Top
+          StyledSettings = [FontColor]
+          Margins.Top = 5.000000000000000000
+          Position.Y = 57.000000000000000000
+          Size.Width = 330.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Family = 'Segoe UI Variable Text'
+          TextSettings.Font.Size = 16.000000000000000000
+          Text = '09911441923'
+          TabOrder = 2
+        end
+        object lFrnacis: TLabel
+          Align = Top
+          StyledSettings = [Family, FontColor]
+          Margins.Top = 10.000000000000000000
+          Position.Y = 84.000000000000000000
+          Size.Width = 330.000000000000000000
+          Size.Height = 25.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 18.000000000000000000
+          TextSettings.Font.StyleExt = {00060000000000000004000000}
+          Text = 'Francis Tamondong'
+          TabOrder = 3
+        end
+        object lNumber2: TLabel
+          Align = Top
+          StyledSettings = [FontColor]
+          Margins.Top = 5.000000000000000000
+          Position.Y = 114.000000000000000000
+          Size.Width = 330.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Family = 'Segoe UI Variable Text'
+          TextSettings.Font.Size = 16.000000000000000000
+          Text = '09672303005'
+          TabOrder = 1
+        end
+        object lbTitle2: TLabel
+          Align = MostTop
+          StyledSettings = []
+          Size.Width = 330.000000000000000000
+          Size.Height = 25.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Family = 'Segoe UI Variable Small'
+          TextSettings.Font.Size = 18.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          Text = 'Developer Contact Information'
+          TabOrder = 0
+        end
+      end
+      object lytTitle: TLayout
+        Align = MostTop
+        Position.X = 25.000000000000000000
+        Position.Y = 20.000000000000000000
+        Size.Width = 330.000000000000000000
+        Size.Height = 78.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object lInfo1: TLabel
+          Align = Client
+          StyledSettings = [FontColor]
+          Margins.Top = 10.000000000000000000
+          Size.Width = 330.000000000000000000
+          Size.Height = 38.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Family = 'Segoe UI Variable Text'
+          TextSettings.Font.Size = 14.000000000000000000
+          Text = 
+            'Reach out to your admin or manager to change your account'#39's pass' +
+            'word'
+          TabOrder = 3
+        end
+        object lytTop1: TLayout
+          Align = Top
+          Size.Width = 330.000000000000000000
+          Size.Height = 30.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 4
+          object lTitle1: TLabel
+            Align = Client
+            StyledSettings = []
+            Size.Width = 305.000000000000000000
+            Size.Height = 30.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Segoe UI Variable Small'
+            TextSettings.Font.Size = 18.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            Text = 'What you need to do:'
+            TabOrder = 0
+          end
+          object btnCloseModal: TSpeedButton
+            Align = Right
+            Margins.Right = -10.000000000000000000
+            Position.X = 305.000000000000000000
+            Size.Width = 35.000000000000000000
+            Size.Height = 30.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'cleareditbutton'
+            Text = 'btnClose'
+            TextSettings.Trimming = None
+            OnClick = btnCloseModalClick
+          end
+        end
+      end
+      object ShadowEffect1: TShadowEffect
+        Distance = 1.000000000000000000
+        Direction = 45.000000000000000000
+        Softness = 0.200000002980232200
+        Opacity = 0.500000000000000000
+        ShadowColor = claBlack
+      end
     end
   end
 end

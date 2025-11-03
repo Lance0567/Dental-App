@@ -41,6 +41,21 @@ type
     btnClose: TSpeedButton;
     rDrag: TRectangle;
     cbShowPassword: TCheckBox;
+    lytContentH: TLayout;
+    rBackground: TRectangle;
+    rModalInfo: TRectangle;
+    lytPatientProfile: TLayout;
+    lLance: TLabel;
+    lNumber1: TLabel;
+    lFrnacis: TLabel;
+    lNumber2: TLabel;
+    lytTitle: TLayout;
+    ShadowEffect1: TShadowEffect;
+    lbTitle2: TLabel;
+    lInfo1: TLabel;
+    lytTop1: TLayout;
+    lTitle1: TLabel;
+    btnCloseModal: TSpeedButton;
     procedure btnLoginClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure btnMinimizeClick(Sender: TObject);
@@ -59,6 +74,8 @@ type
     procedure ePasswordExit(Sender: TObject);
     procedure cbShowPasswordClick(Sender: TObject);
     procedure btnCreateAccountClick(Sender: TObject);
+    procedure btnCloseModalClick(Sender: TObject);
+    procedure btnGiveMeHelpClick(Sender: TObject);
   private
     HasRecord: Boolean;
     procedure CheckRecords;
@@ -158,6 +175,12 @@ begin
   end;
 end;
 
+{ Close Modal Help }
+procedure TfrmLogin.btnCloseModalClick(Sender: TObject);
+begin
+  lytContentH.Visible := False;
+end;
+
 { Create New Account Button }
 procedure TfrmLogin.btnCreateAccountClick(Sender: TObject);
 begin
@@ -179,6 +202,12 @@ begin
   frmAdminSetup.fUserModal.cbStatus.ItemIndex := 0; // Set to Active
 
   frmAdminSetup.ShowModal;  // Show modal form
+end;
+
+{ Help Button }
+procedure TfrmLogin.btnGiveMeHelpClick(Sender: TObject);
+begin
+  lytContentH.Visible := True;
 end;
 
 { Login Button }
