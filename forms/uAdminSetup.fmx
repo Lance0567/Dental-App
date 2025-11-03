@@ -32,9 +32,6 @@ object frmAdminSetup: TfrmAdminSetup
             inherited lbTitle: TLabel
               TextSettings.Font.StyleExt = {00070000000000000004000000}
             end
-            inherited btnClose: TSpeedButton
-              OnClick = fUserModalbtnCloseClick
-            end
           end
           inherited rUser: TRectangle
             inherited lytUserH: TLayout
@@ -116,7 +113,6 @@ object frmAdminSetup: TfrmAdminSetup
             end
             inherited btnCancel: TCornerButton
               TextSettings.Font.StyleExt = {00060000000000000004000000}
-              OnClick = fUserModalbtnCancelClick
             end
           end
           inherited rSecuritySettings: TRectangle

@@ -154,6 +154,8 @@ begin
       frmAdminSetup.fUserModal.cbRole.ItemIndex := 0;
       frmAdminSetup.fUserModal.eDepartment.Text := 'Administration';
       frmAdminSetup.fUserModal.rRoleAndAccess.Visible := False; // Hide Role & Access section
+      dm.FormReader := 'Login';
+      dm.RecordStatus := 'Add';
       frmAdminSetup.ShowModal;
 
       // Close database

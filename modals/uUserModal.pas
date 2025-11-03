@@ -765,7 +765,7 @@ begin
   dm.qUsers.Refresh;
 
   // Set record pop up message
-  if (dm.FormReader = 'Main') then
+  if dm.FormReader = 'Main' then
   begin
     if dm.RecordStatus = 'Add' then
       frmMain.Tag := 6
@@ -773,6 +773,7 @@ begin
       frmMain.Tag := 7;
 
     frmMain.RecordMessage('User', eUsername.Text);
+    Self.Visible := False;  // Hide patient modal
   end
   else
   begin
@@ -787,11 +788,9 @@ begin
     );
 
     frmAdminSetup.Close;
-    frmAdminSetup := nil
+    frmAdminSetup := nil;
+    Self.Visible := False;  // Hide patient modal
   end;
-
-  ClearItems; // Clear fields
-  Self.Visible := False;  // Hide patient modal
 end;
 
 { Camera component buffer }
