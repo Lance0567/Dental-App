@@ -140,12 +140,14 @@ begin
         nil  // No callback, so code continues immediately
       );
       HasRecord := True;  // Record checker trigger
-      frmAdminSetup := TfrmAdminSetup.Create(Application);
+      if not Assigned(frmAdminSetup) then
+        Application.CreateForm(TfrmAdminSetup, frmAdminSetup);
 
       // Open database
       dm.qUsers.Open;
 
       // Pre populate fields
+      frmAdminSetup.fUserModal.ClearItems;
       frmAdminSetup.fUserModal.lbTitle.Text := 'Add Admin User';
       frmAdminSetup.fUserModal.eUsername.ReadOnly := True;
       frmAdminSetup.fUserModal.eUsername.Text := 'admin';

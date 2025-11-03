@@ -310,21 +310,27 @@ end;
 procedure TfUserModal.ePasswordChangeTracking(Sender: TObject);
 begin
   if not (ePassword.Text = '') then
-    btnEye1.Visible := True;
+    btnEye1.Visible := True
+  else
+    btnEye1.Visible := False;
 end;
 
 { OnEnter Edit Password }
 procedure TfUserModal.ePasswordEnter(Sender: TObject);
 begin
   if not (ePassword.Text = '') then
-    btnEye1.Visible := True;
+    btnEye1.Visible := True
+  else
+    btnEye1.Visible := False;
 end;
 
 { OnExit Edit Password }
 procedure TfUserModal.ePasswordExit(Sender: TObject);
 begin
   if not (ePassword.Text = '') then
-    btnEye1.Visible := True;
+    btnEye1.Visible := True
+  else
+    btnEye1.Visible := False;
 end;
 
 { Update Camera list }

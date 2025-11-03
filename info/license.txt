@@ -1,0 +1,14 @@
+Roces Dental System – End User License Agreement
+
+Copyright © 2025 Louise F. Roces, DMD. All rights reserved.
+
+This software is licensed, not sold. By installing and using Roces Dental System ("Software"), you accept the following terms:
+
+- You may install and use this Software only for the purpose of managing patients and appointments in a dental clinic.
+- You may not modify, reverse engineer, or distribute this Software without permission from Louise F. Roces, DMD.
+- You are responsible for maintaining data privacy and complying with applicable healthcare regulations when using this Software.
+- The developer is not responsible for any loss of data or other damages resulting from use or misuse of the Software.
+
+If you do not agree to these terms, do not install or use the Software.
+
+For questions or support: [lanceesurena09@gmail.com or +63 967 230 3005]

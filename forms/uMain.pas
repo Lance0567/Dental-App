@@ -231,9 +231,11 @@ end;
 procedure TfrmMain.FormResize(Sender: TObject);
 begin
   // Form Caption
+  {$IFDEF DEBUG}
   Self.Caption := 'Dental System | '+ 'Height: ' +
   Self.ClientHeight.ToString + ', ' + 'Width: ' + Self.ClientWidth.ToString + ' Card width: '
   + fDashboard.glytCards.Width.ToString + ' Card height: ' + fDashboard.glytCards.Height.ToString;
+  {$ENDIF}
 
   // Fixed form dimension
   if Self.ClientHeight < 505 then
@@ -471,10 +473,12 @@ begin
   // Adjust layout holder
   lytSidebar.Width := mvSidebar.Width;
 
+  {$IFDEF DEBUG}
   // Form caption
   Self.Caption := 'Dental System | '+ 'Height: ' +
   Self.ClientHeight.ToString + ', ' + 'Width: ' + Self.ClientWidth.ToString + ' Card width: '
   + fDashboard.glytCards.Width.ToString + ' Card height: ' + fDashboard.glytCards.Height.ToString;
+  {$ENDIF}
 end;
 
 { Button Press Resetter }
@@ -530,9 +534,12 @@ begin
   // Grid Responsiveness
   fDashboard.GridContentsResponsive;
 
+  // Form Caption
+  {$IFDEF DEBUG}
   Self.Caption := 'Dental System | '+ 'Height: ' +
   Self.ClientHeight.ToString + ', ' + 'Width: ' + Self.ClientWidth.ToString + ' Card width: '
   + fDashboard.Width.ToString + ' Card height: ' + fDashboard.Height.ToString;
+  {$ENDIF}
 end;
 
 { Patients tab }

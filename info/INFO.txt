@@ -1,0 +1,17 @@
+Welcome to Roces Dental System Installer!
+
+Roces Dental System is designed to help dentists and clinic staff manage patient records, appointments, and clinical notes efficiently.
+
+Key features:
+• Easy appointment scheduling and patient management
+• Secure patient data storage
+• Customizable appointment reminders
+• User-friendly interface
+
+Before proceeding, please ensure:
+• You have backed up any important clinic data.
+• You have administrator rights on this computer.
+
+For support or feedback, contact: [lanceesurena09@gmail.com or https://web.facebook.com/profile.php?id=61575330703840]
+
+Thank you for choosing Roces Dental System!
