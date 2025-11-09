@@ -1,53 +1,129 @@
 ﻿[lytSearch]
-Coordinates=411,276,60,33
+Coordinates=263,511,60,33
 
 [eSearch]
-Coordinates=441,10,54,51
+Coordinates=733,10,54,51
 
 [lbDescription]
-Coordinates=351,10,80,51
+Coordinates=292,10,80,51
 
 [dm.qPatients]
 Coordinates=10,10,79,33
 Visible=False
 
 [lytTitle]
-Coordinates=244,276,47,33
+Coordinates=819,452,47,33
 
 [ScrollBox1]
-Coordinates=166,276,68,33
+Coordinates=319,452,68,33
 
 [lytHeader]
-Coordinates=95,276,61,33
+Coordinates=151,452,61,33
 
 [lbTitle]
-Coordinates=247,10,44,51
+Coordinates=417,375,44,51
 
 [lytButtonH]
-Coordinates=292,233,66,33
+Coordinates=727,452,66,33
 
 [rPatients]
-Coordinates=224,233,58,33
+Coordinates=512,452,58,33
 
 [lytComponents]
-Coordinates=125,233,89,33
+Coordinates=151,570,89,33
 
 [gPatients]
-Coordinates=177,10,60,51
+Coordinates=206,100,60,159
 Visible=True
 
 [dm.qUsers]
-Coordinates=100,10,67,141
+Coordinates=487,375,67,51
 
 [btnAddNewPatient]
-Coordinates=10,233,105,33
+Coordinates=354,570,105,33
 
 []
 Coordinates=368,233,62,33
 
 [blPatients]
-Coordinates=121,170,82,33
+Coordinates=121,170,63,33
 
 [bsdbPatients]
-Coordinates=10,10,92,231
+Coordinates=10,10,80,231
+
+[dm.qAppointments]
+Coordinates=10,375,108,51
+
+[dm.qPatientSelection]
+Coordinates=490,10,119,51
+
+[fToolbar.lBevel]
+Coordinates=892,452,88,33
+
+[fToolbar.lDivider]
+Coordinates=706,375,96,33
+
+[fToolbar.mvPopUp]
+Coordinates=131,511,106,33
+
+[fToolbar.slUserName]
+Coordinates=349,511,117,33
+
+[fToolbar.gIcon]
+Coordinates=789,511,85,33
+
+[fToolbar]
+Coordinates=238,452,55,33
+
+[ShadowEffect1]
+Coordinates=663,56,88,33
+
+[fToolbar.lytUser]
+Coordinates=670,511,93,33
+
+[dm.qTemp]
+Coordinates=398,10,66,51
+
+[fToolbar.gDateIcon]
+Coordinates=828,375,108,33
+
+[fToolbar.lDate]
+Coordinates=144,375,83,51
+
+[fToolbar.FloatAnimation4]
+Coordinates=663,221,139,33
+
+[fToolbar.rUserImage]
+Coordinates=10,570,115,33
+
+[fToolbar.cbLogout]
+Coordinates=596,452,105,33
+
+[dm.qTodaysAppointment]
+Coordinates=253,375,138,51
+
+[fToolbar.lytToolbarH]
+Coordinates=10,452,115,33
+
+[fToolbar.rPopUp]
+Coordinates=10,511,95,33
+
+[fToolbar.cbAccountSettings]
+Coordinates=492,511,152,33
+
+[fToolbar.rToolbar]
+Coordinates=580,375,100,33
+
+[fToolbar.lNameH]
+Coordinates=813,10,96,51
+
+[lytBottom]
+Coordinates=266,570,62,33
+
+[lNoRecords]
+Coordinates=635,10,72,51
+
+[rNoRecords]
+Coordinates=413,452,73,33
+Visible=True
 

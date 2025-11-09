@@ -245,10 +245,10 @@ begin
   InputPassHash := THashSHA2.GetHashString(InputPass);
   DateAndTime := FormatDateTime('mmmm dd, yyyy "at" hh:nn AM/PM', Now); // Get date and time now
 
-  CheckRecords; // Record checker
-
   if dm.conDental.Connected = False then
     dm.conDental.Connected := True;
+
+  CheckRecords; // Record checker
 
   if HasRecord then
   begin
@@ -299,8 +299,13 @@ begin
       if not Assigned(frmMain) then
         Application.CreateForm(TfrmMain, frmMain);
 
-      frmMain.Show; // Show Main form
-      frmLogin.Hide;    // Hide Login form
+      // Assign Main form
+      Application.MainForm := frmMain;
+
+      // Hide Login form & show Main form
+      frmMain.Show;
+      frmLogin.Free;
+      frmLogin := nil;
     end
     else
       TDialogService.MessageDialog(

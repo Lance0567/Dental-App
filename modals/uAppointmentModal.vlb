@@ -1,9 +1,6 @@
 ﻿[ShadowEffect2]
 Coordinates=530,155,101,36
 
-[mNotes]
-Coordinates=637,234,59,58
-
 [rModalInfo]
 Coordinates=186,416,75,36
 
@@ -132,7 +129,7 @@ Coordinates=121,10,86,102
 Visible=True
 
 []
-Coordinates=217,10,136,80
+Coordinates=637,234,59,58
 
 [dm.qPatients]
 Coordinates=85,166,90,58

@@ -154,6 +154,26 @@ object fPatients: TfPatients
         Opacity = 0.100000001490116100
         ShadowColor = claBlack
       end
+      object lNoRecords: TLabel
+        Align = Client
+        StyledSettings = [FontColor]
+        Size.Width = 470.000000000000000000
+        Size.Height = 106.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Family = 'Segoe UI Variable Text'
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.HorzAlign = Center
+        Text = 'No Patient record yet!'
+        TabOrder = 6
+      end
+      object rNoRecords: TRectangle
+        Align = Client
+        Fill.Color = claDarkgray
+        Opacity = 0.200000002980232200
+        Size.Width = 470.000000000000000000
+        Size.Height = 106.000000000000000000
+        Size.PlatformDefault = False
+      end
     end
     object lytBottom: TLayout
       Align = Bottom

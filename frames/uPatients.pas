@@ -31,6 +31,8 @@ type
     fToolbar: TfToolbar;
     lytBottom: TLayout;
     ShadowEffect1: TShadowEffect;
+    lNoRecords: TLabel;
+    rNoRecords: TRectangle;
     procedure gPatientsCellDblClick(const Column: TColumn; const Row: Integer);
     procedure FrameResized(Sender: TObject);
     procedure btnAddNewPatientClick(Sender: TObject);
@@ -43,6 +45,7 @@ type
   public
     procedure GridContentsResponsive;
     procedure GridContentsResponsive2;
+    procedure PatientRecords;
     { Public declarations }
   end;
 
@@ -51,6 +54,30 @@ implementation
 {$R *.fmx}
 
 uses uPatientModal, uMain, uDashboard, uDm;
+
+{ Patient Records Checker }
+procedure TfPatients.PatientRecords;
+begin
+  if (dm.qPatients.Active) then
+    dm.qPatients.Close;
+
+  dm.qPatients.SQL.Text := 'SELECT * FROM patients';
+  dm.qPatients.Open;
+
+  if dm.qPatients.IsEmpty then
+  begin
+    lNoRecords.Visible := True;
+    rNoRecords.Visible := True;
+  end
+  else
+  begin
+    lNoRecords.Visible := False;
+    rNoRecords.Visible := False;
+  end;
+
+  // Grid responsive
+  GridContentsResponsive;
+end;
 
 { Grid column resize }
 procedure TfPatients.GridContentsResponsive;

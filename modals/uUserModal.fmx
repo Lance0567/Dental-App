@@ -276,7 +276,7 @@ object fUserModal: TfUserModal
               object eContactNumber: TEdit
                 Touch.InteractiveGestures = [LongTap, DoubleTap]
                 Align = Top
-                TabOrder = 1
+                TabOrder = 5
                 KeyboardType = PhonePad
                 TextSettings.Font.Size = 14.000000000000000000
                 Position.Y = 27.000000000000000000
@@ -363,7 +363,7 @@ object fUserModal: TfUserModal
               object eEmailAddress: TEdit
                 Touch.InteractiveGestures = [LongTap, DoubleTap]
                 Align = Top
-                TabOrder = 1
+                TabOrder = 4
                 TextSettings.Font.Size = 14.000000000000000000
                 Position.Y = 27.000000000000000000
                 Hint = 'Please fillout this field.'
@@ -536,7 +536,7 @@ object fUserModal: TfUserModal
               object eUsername: TEdit
                 Touch.InteractiveGestures = [LongTap, DoubleTap]
                 Align = Top
-                TabOrder = 1
+                TabOrder = 2
                 TextSettings.Font.Size = 14.000000000000000000
                 Position.Y = 27.000000000000000000
                 Hint = 'Please fillout this field.'
@@ -612,7 +612,7 @@ object fUserModal: TfUserModal
                 Touch.InteractiveGestures = [LongTap, DoubleTap]
                 Align = Top
                 StyleLookup = 'ePasswordStyle1'
-                TabOrder = 1
+                TabOrder = 2
                 Password = True
                 TextSettings.Font.Size = 14.000000000000000000
                 Position.Y = 27.000000000000000000
@@ -774,7 +774,7 @@ object fUserModal: TfUserModal
                 Size.Height = 40.000000000000000000
                 Size.PlatformDefault = False
                 StyleLookup = 'cbGenderStyle1'
-                TabOrder = 1
+                TabOrder = 6
               end
             end
             object lytStatus: TLayout
@@ -809,7 +809,7 @@ object fUserModal: TfUserModal
                 Size.Height = 40.000000000000000000
                 Size.PlatformDefault = False
                 StyleLookup = 'cbGenderStyle1'
-                TabOrder = 1
+                TabOrder = 8
               end
             end
             object slRoleAndAccess: TSkLabel
@@ -848,7 +848,7 @@ object fUserModal: TfUserModal
               object eDepartment: TEdit
                 Touch.InteractiveGestures = [LongTap, DoubleTap]
                 Align = Top
-                TabOrder = 1
+                TabOrder = 7
                 TextSettings.Font.Size = 14.000000000000000000
                 Position.Y = 27.000000000000000000
                 Hint = 'Please fillout this field.'
@@ -959,7 +959,7 @@ object fUserModal: TfUserModal
               Size.Width = 170.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
-              TabOrder = 0
+              TabOrder = 8
               object lNewPassword: TLabel
                 Align = Top
                 StyledSettings = [Family]
@@ -975,7 +975,7 @@ object fUserModal: TfUserModal
                 Touch.InteractiveGestures = [LongTap, DoubleTap]
                 Align = Top
                 StyleLookup = 'eNewPasswordStyle1'
-                TabOrder = 1
+                TabOrder = 9
                 Password = True
                 TextSettings.Font.Size = 14.000000000000000000
                 Position.Y = 27.000000000000000000
@@ -1069,7 +1069,7 @@ object fUserModal: TfUserModal
               Size.Width = 170.000000000000000000
               Size.Height = 70.000000000000000000
               Size.PlatformDefault = False
-              TabOrder = 1
+              TabOrder = 10
               object lConfirmNewPassword: TLabel
                 Align = Top
                 StyledSettings = [Family]
@@ -1085,7 +1085,7 @@ object fUserModal: TfUserModal
                 Touch.InteractiveGestures = [LongTap, DoubleTap]
                 Align = Top
                 StyleLookup = 'eNewPasswordStyle1'
-                TabOrder = 2
+                TabOrder = 10
                 Password = True
                 TextSettings.Font.Size = 14.000000000000000000
                 Position.Y = 27.000000000000000000

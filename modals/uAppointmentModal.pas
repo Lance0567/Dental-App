@@ -50,7 +50,6 @@ type
     teEndTime: TTimeEdit;
     lytDetails5: TLayout;
     lNotes: TLabel;
-    mNotes: TMemo;
     lPickDate: TLabel;
     lytButtonH: TLayout;
     btnCreateAppointment: TCornerButton;
@@ -71,6 +70,8 @@ type
     lytDeleteTitle: TLayout;
     lDeleteTItle: TLabel;
     btnDeleteClose: TSpeedButton;
+    mNotes: TMemo;
+    GlowEffect1: TGlowEffect;
     procedure btnCloseClick(Sender: TObject);
     procedure FrameResized(Sender: TObject);
     procedure lytDetails3Resized(Sender: TObject);
@@ -212,6 +213,16 @@ begin
 
   // Hide patient modal
   Self.Visible := False;
+
+  // Records checker
+  if frmMain.fAppointments.cbDay.IsPressed then
+    frmMain.fAppointments.cbDayClick(Sender)
+  else if frmMain.fAppointments.cbWeek.IsPressed then
+    frmMain.fAppointments.cbWeekClick(Sender)
+  else if frmMain.fAppointments.cbMonth.IsPressed then
+    frmMain.fAppointments.cbMonthClick(Sender)
+  else if frmMain.fAppointments.cbAllRecords.IsPressed then
+    frmMain.fAppointments.cbAllRecordsClick(Sender);
 end;
 
 { Delete Button }
@@ -230,6 +241,7 @@ begin
   frmMain.Tag := 5;
   frmMain.RecordMessage('Appointment', 'appointment');
 
+  rDeleteBackground.Visible := False;
   Self.Visible := False;
 end;
 

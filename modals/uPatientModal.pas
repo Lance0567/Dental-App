@@ -361,6 +361,7 @@ begin
     frmMain.Tag := 1;
 
   frmMain.RecordMessage('Patient', 'patient');
+  frmMain.fPatients.PatientRecords;
 
   // Hide patient modal
   Self.Visible := False;
@@ -606,6 +607,7 @@ begin
   frmMain.Tag := 5;
   frmMain.RecordMessage('Patient', eFullName.Text);
 
+  rDeleteBackground.Visible := False;
   Self.Visible := False;
 end;
 

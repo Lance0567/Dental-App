@@ -62,12 +62,14 @@ begin
       ms.Position := 0;
       rUserImage.Fill.Bitmap.Bitmap.LoadFromStream(ms);
       gIcon.ImageIndex := -1; // Hide Icon
+      lNameH.Visible := False;
     end
     else
     begin
       rUserImage.Fill.Bitmap.Bitmap := nil; // Clear if no photo
       rUserImage.Fill.Kind := TBrushKind.Solid; // Set color background
-      gIcon.ImageIndex := 10; // Show Icon
+      gIcon.ImageIndex := -1; // Show Icon
+      lNameH.Visible := True;
     end;
   finally
     rUserImage.Fill.Bitmap.WrapMode := TWrapMode.TileStretch;
@@ -158,6 +160,10 @@ begin
         // Show login form first
         if not Assigned(frmLogin) then
           Application.CreateForm(TfrmLogin, frmLogin);
+
+        // Assign Main form
+        Application.MainForm := frmLogin;
+
         frmLogin.Show;
 
         // Then release main form safely

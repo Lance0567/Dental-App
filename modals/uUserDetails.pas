@@ -165,6 +165,8 @@ begin
 
     Delete;
     Refresh;
+
+    rDeleteBackground.Visible := False;
     Self.Visible := False;
   end;
 end;

@@ -33096,9 +33096,7 @@ object dm: Tdm
       
         'Database=C:\Users\lance\Documents\Embarcadero\Studio\Projects\De' +
         'ntal System\Win32\Debug\database\dental.db'
-      'LockingMode=Normal'
       'DriverID=SQLite')
-    Connected = True
     LoginPrompt = False
     Left = 72
     Top = 32

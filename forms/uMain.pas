@@ -45,7 +45,6 @@ type
     lbPopUp: TSkLabel;
     fUsers: TfUsers;
     ShadowEffect1: TShadowEffect;
-    fAppointmentModal: TfAppointmentModal;
     fUserProfile: TfUserProfile;
     fPatients: TfPatients;
     fContactInfo: TfContactInfo;
@@ -53,6 +52,7 @@ type
     fUserDetails: TfUserDetails;
     ShadowEffect2: TShadowEffect;
     fUserModal: TfUserModal;
+    fAppointmentModal: TfAppointmentModal;
     procedure FormCreate(Sender: TObject);
     procedure mvSidebarResize(Sender: TObject);
     procedure FormResize(Sender: TObject);
@@ -689,7 +689,7 @@ begin
   // Change database connection according to the selected tab
   case tcController.TabIndex of
     0: Dashboard;
-    1: dm.qPatients.Open;
+    1: fPatients.PatientRecords;
     2: dm.qAppointments.Open;
     3: dm.qUsers.Open;
   end;

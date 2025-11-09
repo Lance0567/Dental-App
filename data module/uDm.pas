@@ -9,7 +9,7 @@ uses
   FireDAC.Stan.Async, FireDAC.Phys, FireDAC.FMXUI.Wait, Data.DB,
   FireDAC.Comp.Client, FireDAC.Phys.SQLite, FireDAC.Phys.SQLiteDef,
   FireDAC.Stan.ExprFuncs, FireDAC.Phys.SQLiteWrapper.Stat, FireDAC.Stan.Param,
-  FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, FireDAC.Comp.DataSet;
+  FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, FireDAC.Comp.DataSet, System.IOUtils;
 
 type
   TUser = class(TObject)
@@ -57,7 +57,7 @@ uses uLogin;
 
 procedure Tdm.DataModuleCreate(Sender: TObject);
 var
-  DBPath: String;
+  DBDir, DBPath: String;
 begin
   // Class
   FUser := TUser.Create;
@@ -66,8 +66,18 @@ begin
   conDental.Connected := False;
   conDental.Params.Values['Database'] := '';
 
+  {$IFDEF DEBUG}
   // Get the directory of the executable relative path
   DBPath := ExtractFilePath(ParamStr(0)) + 'database\dental.db';
+  {$ENDIF}
+
+  {$IFDEF RELEASE}
+  // Get user appdata directory
+  DBDir := TPath.Combine(TPath.GetHomePath, 'Roces Dental');
+  TDirectory.CreateDirectory(DBDir); // creates if missing
+  DBPath := TPath.Combine(DBDir, 'dental.db');
+  {$ENDIF}
+
   conDental.Params.Values['DriverID'] := 'SQLite';
   conDental.Params.Values['Database'] := DBPath;
 

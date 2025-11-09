@@ -94,7 +94,7 @@ object fUserDetails: TfUserDetails
               Align = Center
               Fill.Color = xFFF3F5F7
               Size.Width = 95.000000000000000000
-              Size.Height = 105.000000000000000000
+              Size.Height = 100.000000000000000000
               Size.PlatformDefault = False
               Stroke.Color = xFFDBD9D9
               object gIcon: TGlyph
