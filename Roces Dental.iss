@@ -40,7 +40,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\Users\lance\Documents\Embarcadero\Studio\Projects\Dental System\data module\database\Fresh\database\dental.db"; DestDir: "{userappdata}\Roces Dental"; Flags: ignoreversion
+Source: "C:\Users\lance\Documents\Embarcadero\Studio\Projects\Dental System\data module\database\Fresh\database\dental.db"; DestDir: "{userappdata}\Roces Dental"; Flags: ignoreversion onlyifdoesntexist
 Source: "C:\Users\lance\Documents\Embarcadero\Studio\Projects\Dental System\Win32\Release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\lance\Documents\Embarcadero\Studio\Projects\Dental System\Win32\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:\Users\lance\Documents\Embarcadero\Studio\Projects\Dental System\Dental.Artwork\Windows\AppIcon.ico"; DestDir: "{app}"; Flags: ignoreversion
