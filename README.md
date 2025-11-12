@@ -21,7 +21,7 @@
 
 *Login Form:*
 
-<img src="./assets/screenshots/login.png" alt="Login Screenshot" width="400" height="200" />
+<img src="./assets/screenshots/login.png" alt="Login Screenshot" width="400" height="500" />
 
 *Main Dashboard:*
 
