@@ -55,10 +55,27 @@ uses uLogin;
 
 {$R *.dfm}
 
+procedure EnsureDatabaseExists;
+var
+  SourcePath, TargetPath: string;
+begin
+  TargetPath := TPath.Combine(TPath.GetHomePath, 'Roces Dental\dental.db');
+  if not TFile.Exists(TargetPath) then
+  begin
+    // Path to where you install the template db (in Program Files directory)
+    SourcePath := TPath.Combine(ExtractFilePath(ParamStr(0)), 'database\dental.db');
+    TDirectory.CreateDirectory(TPath.GetDirectoryName(TargetPath));
+    TFile.Copy(SourcePath, TargetPath);
+  end;
+end;
+
 procedure Tdm.DataModuleCreate(Sender: TObject);
 var
   DBDir, DBPath: String;
 begin
+  // Database checker
+  EnsureDatabaseExists;
+
   // Class
   FUser := TUser.Create;
 
