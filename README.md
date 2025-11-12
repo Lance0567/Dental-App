@@ -51,8 +51,6 @@
 ## Support
 
 For installation help, issues, or feature requests, please contact:
-
-For installation help, issues, or feature requests, please contact:
 - **Developer:** Lance Madel S. Esureña, Software Developer / Computer Engineer
 - **Support**: [Facebook Page](https://web.facebook.com/profile.php?id=61575330703840)
 
