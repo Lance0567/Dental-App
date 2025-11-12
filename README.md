@@ -21,11 +21,10 @@
 
 *Login Form:*
 
-![Login Form](./assets/screenshots/login.png)
+<img src="./assets/screenshots/login.png" alt="Login Screenshot" width="400" height="200" />
 
 *Main Dashboard:*
 
-![Dashboard](./assets/screenshots/dashboard.png)
 <div align="center">
   <img src="./assets/screenshots/dashboard.png" alt="Dashboard Screenshot" width="900" />
 </div>
