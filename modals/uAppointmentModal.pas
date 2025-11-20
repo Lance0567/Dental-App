@@ -79,22 +79,32 @@ type
     procedure mNotesClick(Sender: TObject);
     procedure mNotesExit(Sender: TObject);
     procedure btnCreateAppointmentClick(Sender: TObject);
-    procedure cbPatientEnter(Sender: TObject);
     procedure deDateCheckChanged(Sender: TObject);
-    procedure deDateChange(Sender: TObject);
-    procedure cbPatientChangeTracking(Sender: TObject);
     procedure eAppointmentTitleChangeTracking(Sender: TObject);
     procedure btnDeleteCancelClick(Sender: TObject);
     procedure btnDeleteCloseClick(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
     procedure btnDeleteAppointmentClick(Sender: TObject);
+    procedure teStartTimeChange(Sender: TObject);
+    procedure deDateEnter(Sender: TObject);
+    procedure deDateExit(Sender: TObject);
+    procedure deDateClosePicker(Sender: TObject);
+    procedure deDateOpenPicker(Sender: TObject);
+    procedure cbPatientEnter(Sender: TObject);
+    procedure cbPatientTyping(Sender: TObject);
+    procedure deDateChange(Sender: TObject);
+    procedure cbPatientExit(Sender: TObject);
+    procedure cbPatientClosePopup(Sender: TObject);
   private
     { Private declarations }
   public
     MemoTrackingReset: String;
     RecordStatus: String;
+    FAllPatients: TStringList;
+    ceChecker: Boolean;
     procedure ClearItems;
     procedure FieldComponentsResponsive;
+    procedure FormVisibility;
     { Public declarations }
   end;
 
@@ -104,6 +114,12 @@ implementation
 
 uses uMain, uDm;
 
+procedure TfAppointmentModal.FormVisibility;
+begin
+  if Self.Visible then
+    FAllPatients := TStringList.Create
+end;
+
 { Clear Items }
 procedure TfAppointmentModal.ClearItems;
 begin
@@ -111,7 +127,9 @@ begin
   deDate.DateFormatKind := TDTFormatKind.Short;
   deDate.TodayDefault := True;
   lPickDate.Visible := True;
+  lPickDate.FontColor := TAlphaColorRec.Gray;
   deDate.StyledSettings := deDate.StyledSettings - [TStyledSetting.FontColor];
+  ceChecker := False;
 
   // Reset Status
   cbStatus.ItemIndex := 0;
@@ -121,6 +139,7 @@ begin
   cbPatient.Items.Add('Select patient...');
   cbPatient.ItemIndex := 0;
   cbPatient.Enabled := True;
+  cbPatient.FontColor := TAlphaColorRec.Gray;
 
   // Reset Appointment Title
   eAppointmentTitle.Text := '';
@@ -128,6 +147,7 @@ begin
   // Reset Notes
   MemoTrackingReset := 'Empty';
   mNotes.Text := 'Add any relevant notes about this appointment';
+  mNotes.FontColor := TAlphaColorRec.Gray;
 end;
 
 { Create/Update Appointment }
@@ -179,8 +199,8 @@ begin
   // Fields to save
   dm.qAppointments.FieldByName('date_appointment').AsDateTime := deDate.Date;
 
-  deDate.DateFormatKind := TDTFormatKind.Long;  // Set date format to long
-  dm.qAppointments.FieldByName('date_long').AsString := deDate.Text;
+  // Save formatted date as "mmm dd, yyyy" e.g. "Nov 13, 2025"
+  dm.qAppointments.FieldByName('date_long').AsString := FormatDateTime('mmm dd, yyyy', deDate.Date);
 
   dm.qAppointments.FieldByName('status').AsString := cbStatus.Text;
   dm.qAppointments.FieldByName('patient').AsString := cbPatient.Text;
@@ -192,10 +212,6 @@ begin
   if mNotes.Text = 'Add any relevant notes about this appointment' then
     mNotes.Text := '';
   dm.qAppointments.FieldByName('notes').AsString := mNotes.Text;
-
-  // Empty created_at checker
-//  if dm.qAppointments.FieldByName('created_at').AsString.IsEmpty then
-//    dm.qAppointments.FieldByName('created_at').AsDateTime := Now;
 
   dm.qAppointments.Post;
   dm.qAppointments.Refresh;
@@ -223,6 +239,9 @@ begin
     frmMain.fAppointments.cbMonthClick(Sender)
   else if frmMain.fAppointments.cbAllRecords.IsPressed then
     frmMain.fAppointments.cbAllRecordsClick(Sender);
+
+  // Form visibility
+  FormVisibility;
 end;
 
 { Delete Button }
@@ -243,6 +262,9 @@ begin
 
   rDeleteBackground.Visible := False;
   Self.Visible := False;
+
+  // Form Visibility
+  FormVisibility;
 end;
 
 { Cancel Button - Delete }
@@ -257,53 +279,130 @@ begin
   rDeleteBackground.Visible := False;
 end;
 
-{ Patient On Change Tracking }
-procedure TfAppointmentModal.cbPatientChangeTracking(Sender: TObject);
+{ Patient OnClosePopup }
+procedure TfAppointmentModal.cbPatientClosePopup(Sender: TObject);
 begin
-  crPatient.Visible := False;
+  if cbPatient.Text = 'Select patient...' then
+    cbPatient.FontColor := TAlphaColorRec.Gray
+  else
+    cbPatient.FontColor := TAlphaColorRec.Black;
 end;
 
-{ Patient On Enter }
+{ Patient OnEnter }
 procedure TfAppointmentModal.cbPatientEnter(Sender: TObject);
 begin
+  if cbPatient.Text = 'Select patient...' then
+    cbPatient.Text := '';
+
   cbPatient.Items.Clear;
   cbPatient.Items.Add('Select patient...');
+
+  FAllPatients.Clear;
 
   dm.qPatientSelection.Close;
   dm.qPatientSelection.Open;
 
   while not dm.qPatientSelection.Eof do
   begin
+    FAllPatients.Add(dm.qPatientSelection.FieldByName('fullname').AsString);
     cbPatient.Items.Add(dm.qPatientSelection.FieldByName('fullname').AsString);
     dm.qPatientSelection.Next;
   end;
 end;
 
-{ On Change picker Date }
-procedure TfAppointmentModal.deDateChange(Sender: TObject);
+{ Patient OnExit }
+procedure TfAppointmentModal.cbPatientExit(Sender: TObject);
 begin
-  // Hide Date pick label
-  lPickDate.Visible := False;
-
-  // Show date text
-  deDate.StyledSettings := [TStyledSetting.FontColor];
-  deDate.TodayDefault := False;
-
-  crDate.Visible := False;
+  if cbPatient.Text = '' then
+    cbPatient.Text := 'Select patient...'
+  else if cbPatient.Text = 'Select patient...' then
+    cbPatient.FontColor := TAlphaColorRec.Gray
+  else
+    cbPatient.FontColor := TAlphaColorRec.Black;
 end;
 
-{ On Check change }
+{ Patient OnTyping }
+procedure TfAppointmentModal.cbPatientTyping(Sender: TObject);
+var
+  Filtered: TStringList;
+  i: Integer;
+  SearchText: string;
+begin
+  // Allow editing: Deselect any current item
+  cbPatient.ItemIndex := -1;
+
+  cbPatient.DropDown;
+
+  SearchText := Trim(cbPatient.Text);
+
+  Filtered := TStringList.Create;
+  try
+    for i := 0 to FAllPatients.Count - 1 do
+    begin
+      if (SearchText = '') or (Pos(LowerCase(SearchText), LowerCase(FAllPatients[i])) = 1) then
+        Filtered.Add(FAllPatients[i]);
+    end;
+
+    cbPatient.Items.Clear;
+    cbPatient.Items.Add('Select patient...');
+    for i := 0 to Filtered.Count - 1 do
+      cbPatient.Items.Add(Filtered[i]);
+  finally
+    Filtered.Free;
+  end;
+end;
+
+{ OnChange Date }
+procedure TfAppointmentModal.deDateChange(Sender: TObject);
+begin
+  // Show date text
+  if Self.Visible then
+  begin
+    lPickDate.Text := FormatDateTime('mmm dd, yyyy', deDate.Date);
+    deDate.TodayDefault := False;
+
+    crDate.Visible := False;
+  end;
+end;
+
+{ OnCheckChanged Date }
 procedure TfAppointmentModal.deDateCheckChanged(Sender: TObject);
 begin
   if deDate.Date = Now then
   begin
-    // Show date text
-    deDate.StyledSettings := [TStyledSetting.FontColor];
-    deDate.TextSettings.FontColor := TAlphaColorRec.Black;
-
-    // Hide Date pick label
-    lPickDate.Visible := False;
+    // Set the date in label
+    lPickDate.Text := FormatDateTime('mmm dd, yyyy', deDate.Date);
   end;
+end;
+
+{ OnClosePicker Date }
+procedure TfAppointmentModal.deDateClosePicker(Sender: TObject);
+begin
+  lPickDate.Visible := True;
+  lPickDate.FontColor := TAlphaColorRec.Black;
+  deDate.StyledSettings := [TStyledSetting.Style];
+  deDate.ResetFocus;
+end;
+
+{ OnEnter Date }
+procedure TfAppointmentModal.deDateEnter(Sender: TObject);
+begin
+  lPickDate.Visible := False;
+  deDate.CanFocus := True;
+  deDate.StyledSettings := [TStyledSetting.Style, TStyledSetting.FontColor];
+end;
+
+{ OnExit Date }
+procedure TfAppointmentModal.deDateExit(Sender: TObject);
+begin
+  lPickDate.Visible := True;
+  deDate.StyledSettings := [TStyledSetting.Style];
+end;
+
+procedure TfAppointmentModal.deDateOpenPicker(Sender: TObject);
+begin
+  lPickDate.Visible := True;
+  deDate.StyledSettings := [TStyledSetting.Style];
 end;
 
 { Appointment Title On Change Tracking }
@@ -369,6 +468,7 @@ begin
   begin
     MemoTrackingReset := 'Clicked';
     mNotes.Text := '';
+    mNotes.FontColor := TAlphaColorRec.Black;
   end;
 end;
 
@@ -383,7 +483,13 @@ begin
   if (MemoTrackingReset = 'Empty') then
   begin
     mNotes.Text := 'Add any relevant notes about this appointment';
+    mNotes.FontColor := TAlphaColorRec.Gray;
   end;
+end;
+
+procedure TfAppointmentModal.teStartTimeChange(Sender: TObject);
+begin
+
 end;
 
 { Close Button }
@@ -393,6 +499,8 @@ begin
 
   // Close query
   dm.qPatientSelection.Close;
+
+  FormVisibility;
 end;
 
 end.

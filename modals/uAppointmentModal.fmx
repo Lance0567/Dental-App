@@ -149,6 +149,7 @@ object fAppointmentModal: TfAppointmentModal
               end
               object teStartTime: TTimeEdit
                 Time = 0.575482465277777800
+                OnChange = teStartTimeChange
                 Align = Top
                 Margins.Top = 10.000000000000000000
                 Position.Y = 27.000000000000000000
@@ -195,6 +196,8 @@ object fAppointmentModal: TfAppointmentModal
               Size.Height = 134.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 7
+              OnExit = mNotesExit
+              OnClick = mNotesClick
               Viewport.Width = 380.000000000000000000
               Viewport.Height = 130.000000000000000000
               object GlowEffect1: TGlowEffect
@@ -396,14 +399,17 @@ object fAppointmentModal: TfAppointmentModal
               Text = 'Select patient...'
               TextSettings.Font.Family = 'Segoe UI Variable Text'
               TextSettings.Font.Size = 14.000000000000000000
+              TextSettings.FontColor = claGray
               Position.Y = 27.000000000000000000
               StyledSettings = [Style]
               Margins.Top = 10.000000000000000000
               Size.Width = 384.000000000000000000
               Size.Height = 40.000000000000000000
               Size.PlatformDefault = False
-              OnChangeTracking = cbPatientChangeTracking
+              OnTyping = cbPatientTyping
+              OnClosePopup = cbPatientClosePopup
               OnEnter = cbPatientEnter
+              OnExit = cbPatientExit
             end
             object crPatient: TCalloutRectangle
               Align = Top
@@ -515,17 +521,22 @@ object fAppointmentModal: TfAppointmentModal
                 Date = 45949.000000000000000000
                 OnChange = deDateChange
                 OnCheckChanged = deDateCheckChanged
+                OnClosePicker = deDateClosePicker
+                OnOpenPicker = deDateOpenPicker
                 Align = Top
                 Margins.Top = 10.000000000000000000
                 Position.Y = 27.000000000000000000
                 Size.Width = 182.000000000000000000
                 Size.Height = 40.000000000000000000
                 Size.PlatformDefault = False
-                StyledSettings = [Size, Style]
+                StyleLookup = 'deDateOfBirthStyle1'
+                StyledSettings = [Style]
                 TabOrder = 1
                 TextSettings.Font.Family = 'Segoe UI Variable Text'
-                TextSettings.Font.Size = 14.000000000000000000
+                TextSettings.Font.Size = 13.000000000000000000
                 TextSettings.FontColor = claWhite
+                OnEnter = deDateEnter
+                OnExit = deDateExit
                 object lPickDate: TLabel
                   Align = Client
                   StyledSettings = [Style, FontColor]
@@ -536,7 +547,7 @@ object fAppointmentModal: TfAppointmentModal
                   TextSettings.Font.Family = 'Segoe UI Variable Text'
                   TextSettings.Font.Size = 14.000000000000000000
                   Text = 'Pick a date'
-                  TabOrder = 15
+                  TabOrder = 14
                 end
               end
               object lDate: TLabel
