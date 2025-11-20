@@ -319,6 +319,7 @@ begin
 
   // Get user role in the database
   frmMain.fUserDetails.lRole.Text := dm.qUsers.FieldByName('user_role').AsString;
+  frmMain.fUserDetails.slRole.Words.Items[1].Text := frmMain.fUserDetails.lRole.Text;
   if frmMain.fUserDetails.lRole.Text = 'Admin' then
   begin
     frmMain.fUserDetails.rRoleH.Fill.Color := $FEF3E8FF;
@@ -332,7 +333,7 @@ begin
     frmMain.fUserDetails.lRole.TextSettings.FontColor := $FE1E40AF;
   end;
 
-  // Get Department
+  // Get Department in the database
   frmMain.fUserDetails.slDepartment.Words.Items[1].Text := dm.qUsers.FieldByName('department').AsString;
 
   // Get status in the database

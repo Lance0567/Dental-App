@@ -144,8 +144,8 @@ object fPatients: TfPatients
         Options = [ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
         OnResized = gPatientsResized
         OnCellDblClick = gPatientsCellDblClick
-        Viewport.Width = 466.000000000000000000
-        Viewport.Height = 81.000000000000000000
+        Viewport.Width = 470.000000000000000000
+        Viewport.Height = 106.000000000000000000
       end
       object ShadowEffect1: TShadowEffect
         Distance = 1.000000000000000000

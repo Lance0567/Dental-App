@@ -116,6 +116,7 @@ object frmAdminSetup: TfrmAdminSetup
             end
             inherited btnCancel: TCornerButton
               TextSettings.Font.StyleExt = {00060000000000000004000000}
+              OnClick = fUserModalbtnCloseClick
             end
           end
           inherited rSecuritySettings: TRectangle

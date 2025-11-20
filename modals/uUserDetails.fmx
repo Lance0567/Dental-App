@@ -107,15 +107,15 @@ object fUserDetails: TfUserDetails
               end
               object lNameH: TLabel
                 Align = Client
-                StyledSettings = [Family, FontColor]
+                StyledSettings = [FontColor]
                 Size.Width = 95.000000000000000000
-                Size.Height = 105.000000000000000000
+                Size.Height = 100.000000000000000000
                 Size.PlatformDefault = False
+                TextSettings.Font.Family = 'Sans Serif Collection'
                 TextSettings.Font.Size = 34.000000000000000000
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
                 TextSettings.HorzAlign = Center
                 Text = 'L'
-                Visible = False
                 TabOrder = 0
               end
             end

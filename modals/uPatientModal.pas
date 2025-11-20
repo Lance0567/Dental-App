@@ -129,6 +129,10 @@ type
     procedure btnDeletePatientClick(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
     procedure btnDeleteCloseClick(Sender: TObject);
+    procedure deDateOfBirthEnter(Sender: TObject);
+    procedure deDateOfBirthExit(Sender: TObject);
+    procedure deDateOfBirthOpenPicker(Sender: TObject);
+    procedure deDateOfBirthClosePicker(Sender: TObject);
   private
     FCapturing: Boolean;
     FStatus: Boolean;
@@ -241,6 +245,7 @@ begin
   deDateOfBirth.TodayDefault := True;
   deDateOfBirth.TextSettings.FontColor := TAlphaColors.White;
   lDateText.Visible := True;
+  lDateText.FontColor := TAlphaColorRec.Gray;
   deDateOfBirth.DateFormatKind := TDTFormatKind.Short;
 
   // Font color Style settings of Date of Birth
@@ -258,6 +263,7 @@ begin
   // Medical notes
   mMedicalNotes.Text := 'Enter any relevant medical history, allergies, or notes';
   MemoTrackingReset := 'Empty';
+  mMedicalNotes.TextSettings.FontColor := TAlphaColorRec.Gray;
 
   // Hide all warning validation
   crContactNumber.Visible := False;
@@ -325,8 +331,11 @@ begin
 
   // Field to save
   dm.qPatients.FieldByName('fullname').AsString := eFullName.Text;
-  deDateOfBirth.DateFormatKind := TDTFormatKind.Long;  // Date format set to Long
   dm.qPatients.FieldByName('birth_date').AsDateTime := deDateOfBirth.Date;
+
+  // Save formatted date as "mmm dd, yyyy" e.g. "Nov 13, 2025"
+  dm.qPatients.FieldByName('date_long').AsString := FormatDateTime('mmm dd, yyyy', deDateOfBirth.Date);
+
   dm.qPatients.FieldByName('gender').AsString := cbGender.Text;
   dm.qPatients.FieldByName('contact_number').AsString := eContactNumber.Text;
   dm.qPatients.FieldByName('email_address').AsString := eEmailAddress.Text;
@@ -501,43 +510,77 @@ var
   DOB, Today: TDate;
   Age: Integer;
 begin
-  // UI tweaks
-  deDateOfBirth.TextSettings.FontColor := TAlphaColors.Black;
-  lDateText.Visible := False;
-  deDateOfBirth.TodayDefault := False;
-
-  // Get the date value (TDateEdit.Date is safer than parsing Text)
-  DOB := deDateOfBirth.Date;
-  Today := Date;
-
-  // Validate
-  if (DOB <= 0) or (DOB > Today) then
+  if Self.Visible then
   begin
-    lAgeCounter.Text := 'Age: 0 years';
-    Exit;
-  end;
+    // UI tweaks
+    lDateText.Text := FormatDateTime('mmm dd, yyyy', deDateOfBirth.Date);
+    deDateOfBirth.TodayDefault := False;
 
-  // Basic year difference
-  Age := YearOf(Today) - YearOf(DOB);
+    // Get the date value (TDateEdit.Date is safer than parsing Text)
+    DOB := deDateOfBirth.Date;
+    Today := Date;
 
-  // If birthday this year hasn't happened yet, subtract 1
-  if (MonthOf(Today) < MonthOf(DOB)) or
+    // Validate
+    if (DOB <= 0) or (DOB > Today) then
+    begin
+      lAgeCounter.Text := 'Age: 0 years';
+      Exit;
+    end;
+
+    // Basic year difference
+    Age := YearOf(Today) - YearOf(DOB);
+
+    // If birthday this year hasn't happened yet, subtract 1
+    if (MonthOf(Today) < MonthOf(DOB)) or
      ((MonthOf(Today) = MonthOf(DOB)) and (DayOf(Today) < DayOf(DOB))) then
     Dec(Age);
 
-  if Age < 0 then
-    Age := 0; // defensive
+    if Age < 0 then
+      Age := 0; // defensive
 
-  lAgeCounter.Text := Format('Age: %d years', [Age]);
+    lAgeCounter.Text := Format('Age: %d years', [Age]);
+  end;
 end;
 
+{ OnCheckChanged Birth date }
 procedure TfPatientModal.deDateOfBirthCheckChanged(Sender: TObject);
 begin
   if deDateOfBirth.Date = Now then
   begin
-    deDateOfBirth.TextSettings.FontColor := TAlphaColors.Black;
-    lDateText.Visible := False;
+    // Set date
+    lDateText.Text := FormatDateTime('mmm dd, yyyy', deDateOfBirth.Date)
   end;
+end;
+
+{ OnClosePicker Birth date }
+procedure TfPatientModal.deDateOfBirthClosePicker(Sender: TObject);
+begin
+  lDateText.Visible := True;
+  lDateText.TextSettings.FontColor := TAlphaColorRec.Black;
+  deDateOfBirth.StyledSettings := [TStyledSetting.Style];
+  deDateOfBirth.ResetFocus;
+end;
+
+{ OnEnter Birth date }
+procedure TfPatientModal.deDateOfBirthEnter(Sender: TObject);
+begin
+  lDateText.Visible := False;
+  deDateOfBirth.CanFocus := True;
+  deDateOfBirth.StyledSettings := [TStyledSetting.Style, TStyledSetting.FontColor];
+end;
+
+{ OnExit Birth date }
+procedure TfPatientModal.deDateOfBirthExit(Sender: TObject);
+begin
+  lDateText.Visible := True;
+  deDateOfBirth.StyledSettings := [TStyledSetting.Style];
+end;
+
+{ OnOpenPicker Birth date }
+procedure TfPatientModal.deDateOfBirthOpenPicker(Sender: TObject);
+begin
+  lDateText.Visible := True;
+  deDateOfBirth.StyledSettings := [TStyledSetting.Style]
 end;
 
 { Camera button }
@@ -732,6 +775,7 @@ begin
   begin
     MemoTrackingReset := 'Clicked';
     mMedicalNotes.Text := '';
+    mMedicalNotes.FontColor := TAlphaColorRec.Black;
   end;
 
   lTag.Text := 'Tag Number : ' + MemoTrackingReset;
@@ -748,6 +792,7 @@ begin
   if (MemoTrackingReset = 'Empty') then
   begin
     mMedicalNotes.Text := 'Enter any relevant medical history, allergies, or notes';
+    mMedicalNotes.FontColor := TAlphaColorRec.Gray;
   end;
 
   lTag.Text := 'Tag Number : ' + MemoTrackingReset;

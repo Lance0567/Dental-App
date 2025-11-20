@@ -63,7 +63,7 @@ object fPatientModal: TfPatientModal
             Size.Height = 40.000000000000000000
             Size.PlatformDefault = False
             StyleLookup = 'btnSavePatientStyle1'
-            TabOrder = 6
+            TabOrder = 4
             Text = 'Save Patient'
             TextSettings.Font.Family = 'Segoe UI Variable Display'
             TextSettings.Font.Size = 14.000000000000000000
@@ -97,7 +97,7 @@ object fPatientModal: TfPatientModal
             Size.Width = 90.000000000000000000
             Size.Height = 40.000000000000000000
             Size.PlatformDefault = False
-            TabOrder = 7
+            TabOrder = 6
             Text = 'Cancel'
             TextSettings.Font.Family = 'Segoe UI Variable Display'
             TextSettings.Font.Size = 14.000000000000000000
@@ -627,16 +627,21 @@ object fPatientModal: TfPatientModal
                   Date = 45951.000000000000000000
                   OnChange = deDateOfBirthChange
                   OnCheckChanged = deDateOfBirthCheckChanged
+                  OnClosePicker = deDateOfBirthClosePicker
+                  OnOpenPicker = deDateOfBirthOpenPicker
                   Align = Top
                   Margins.Top = 10.000000000000000000
                   Position.Y = 27.000000000000000000
                   Size.Width = 165.000000000000000000
                   Size.Height = 40.000000000000000000
                   Size.PlatformDefault = False
-                  StyledSettings = [Family]
+                  StyleLookup = 'deDateOfBirthStyle1'
+                  StyledSettings = [Family, Style]
                   TabOrder = 1
                   TextSettings.Font.Size = 14.000000000000000000
                   TextSettings.FontColor = claWhite
+                  OnEnter = deDateOfBirthEnter
+                  OnExit = deDateOfBirthExit
                   object lDateText: TLabel
                     Align = Client
                     StyledSettings = [Family, Style]
@@ -647,7 +652,7 @@ object fPatientModal: TfPatientModal
                     TextSettings.Font.Size = 14.000000000000000000
                     TextSettings.FontColor = claGray
                     Text = 'Pick a date'
-                    TabOrder = 15
+                    TabOrder = 14
                   end
                 end
                 object lAgeCounter: TLabel

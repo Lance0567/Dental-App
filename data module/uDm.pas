@@ -41,7 +41,7 @@ type
     FormReader: String;
     RecordStatus: String;
     property User: TUser read FUser write FUser;
-    { Public declarations }
+//    { Public declarations }
   end;
 
 var

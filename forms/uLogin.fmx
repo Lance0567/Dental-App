@@ -279,7 +279,7 @@ object frmLogin: TfrmLogin
         object btnLogin: TCornerButton
           Align = Scale
           Cursor = crHandPoint
-          StyledSettings = [Style, FontColor]
+          StyledSettings = [Style]
           Position.X = 90.714195251464840000
           Position.Y = 11.000000000000000000
           Sides = [Top, Left, Bottom, Right]

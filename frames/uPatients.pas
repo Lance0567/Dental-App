@@ -241,6 +241,9 @@ begin
   // Set button text
   frmMain.fPatientModal.btnSavePatient.Text := 'Save Patient';
 
+  // Set the Text of Pick date label
+  frmMain.fPatientModal.lDateText.Text := 'Pick a date';
+
   // Reset tracking
   frmMain.fPatientModal.MemoTrackingReset := '';
 
@@ -319,8 +322,7 @@ begin
 
   // Get Birth Date
   frmMain.fPatientModal.deDateOfBirth.Date := dm.qPatients.FieldByName('birth_date').AsDateTime;
-  frmMain.fPatientModal.deDateOfBirth.TextSettings.FontColor := TAlphaColors.Black; // Show date
-  frmMain.fPatientModal.lDateText.Visible := False; // Hide pick label
+  frmMain.fPatientModal.lDateText.Text := FormatDateTime('mmm dd, yyyy', frmMain.fPatientModal.deDateOfBirth.Date); // set date
 
   // Get Contact Number
   frmMain.fPatientModal.eContactNumber.Text := dm.qPatients.FieldByName('contact_number').AsString;

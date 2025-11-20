@@ -170,6 +170,9 @@ begin
   // Set Button Text
   frmMain.fAppointmentModal.btnCreateAppointment.Text := 'Create Appointment';
 
+  // Set the Text of Pick date label
+  frmMain.fAppointmentModal.lPickDate.Text := 'Pick a date';
+
   // Reset tracking
   frmMain.fAppointmentModal.MemoTrackingReset := '';
 
@@ -183,6 +186,9 @@ begin
 
   // Show modal
   frmMain.fAppointmentModal.Visible := True;
+
+  // Form visibility
+  frmMain.fAppointmentModal.FormVisibility;
 
   // Reset Scrollbox
   frmMain.fAppointmentModal.ScrollBox1.ViewportPosition := PointF(0,0);
@@ -209,8 +215,7 @@ begin
   // Get Date from the database
   frmMain.fAppointmentModal.deDate.TodayDefault := False;
   frmMain.fAppointmentModal.deDate.Date := dm.qAppointments.FieldByName('date_appointment').AsDateTime;
-  frmMain.fAppointmentModal.lPickDate.Visible := False; // Hide Date pick label
-  frmMain.fAppointmentModal.deDate.StyledSettings := [TStyledSetting.FontColor];  // Show date text
+  frmMain.fAppointmentModal.lPickDate.Text := FormatDateTime('mmm dd, yyyy', frmMain.fAppointmentModal.deDate.Date);  // Set date
 
   // Get Status
   cStatus := dm.qAppointments.FieldByName('status').AsString;
