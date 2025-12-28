@@ -259,7 +259,7 @@ begin
   begin
     Close;
     SQL.Text :=
-      'SELECT id, name, email_address, contact_number, username, user_role, password, last_login, bio ' +
+      'SELECT id, name, profile_pic, email_address, contact_number, username, user_role, password, last_login, bio ' +
       'FROM users ' +
       'WHERE username = :u AND password = :p';
     ParamByName('u').AsString := InputUser;
@@ -275,6 +275,10 @@ begin
       dm.User.EmailH := FieldByName('email_address').AsString;  // Get email
       dm.User.PhoneH := FieldByName('contact_number').AsString;  // Get Phone number
       dm.User.BioH := FieldByName('bio').AsString;  // Get bio
+      dm.User.profilePicH.Clear;
+
+      if not FieldByName('profile_pic').IsNull then // Get picture
+        TBlobField(FieldByName('profile_pic')).SaveToStream(dm.User.profilePicH);
 
       // Record the login date & time
       Edit;
@@ -298,6 +302,18 @@ begin
 
       if not Assigned(frmMain) then
         Application.CreateForm(TfrmMain, frmMain);
+
+      // Name holder toolbar assigner
+      if (dm.User.profilePicH = nil) or (dm.User.profilePicH.Size = 0) then
+      begin
+        frmMain.fUserProfile.lNameH.Visible := True;
+        frmMain.fUpdateProfilePhoto.lNameH.Visible := True;
+      end
+      else
+      begin
+        frmMain.fUserProfile.lNameH.Visible := False;
+        frmMain.fUpdateProfilePhoto.lNameH.Visible := False;
+      end;
 
       // Assign Main form
       Application.MainForm := frmMain;
