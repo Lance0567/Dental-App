@@ -100,7 +100,6 @@ begin
 
     // Profile pic changer
     gIcon.ImageIndex := -1;
-    lNameH.Visible := True;
   end;
 end;
 

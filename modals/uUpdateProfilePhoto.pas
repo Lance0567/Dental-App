@@ -90,8 +90,8 @@ begin
   frmMain.fAppointments.fToolbar.ProfileSetter;
   frmMain.fUsers.fToolbar.ProfileSetter;
   frmMain.fUserProfile.fToolbar.ProfileSetter;
-  frmMain.fUserProfile.rUserPhoto.Fill.Bitmap.Bitmap.Assign(imgPhoto.Bitmap);
-  frmMain.fUserProfile.fToolbar.rUserImage.Fill.Bitmap.Bitmap.Assign(imgPhoto.Bitmap);
+  frmMain.fUserProfile.fToolbar.ProfileSetter;
+  frmMain.fUserProfile.rUserPhoto.Fill.Bitmap.Bitmap.Assign(cProfilePhoto.Fill.Bitmap.Bitmap);
 end;
 
 { Close Camera modal }
@@ -152,13 +152,15 @@ begin
             TBlobField(qTemp.FieldByName('profile_pic')).LoadFromStream(ms);
             frmMain.fUserProfile.rUserPhoto.Fill.Bitmap.Bitmap.Assign(cProfilePhoto.Fill.Bitmap.Bitmap);
             frmMain.fUserProfile.fToolbar.rUserImage.Fill.Bitmap.Bitmap.Assign(cProfilePhoto.Fill.Bitmap.Bitmap);
-            ProfilePicAssign; // Profile pic update
           finally
             ms.Free;
           end;
         end;
         qTemp.Post;
         qTemp.Refresh;
+
+        // Profile pic update
+        ProfilePicAssign;
 
         // Set record pop up message
         frmMain.Tag := 11;

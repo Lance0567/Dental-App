@@ -305,8 +305,8 @@ object frmMain: TfrmMain
                   inherited gTodaysAppointment: TGrid
                     Size.Width = 185.000000000000000000
                     StyleLookup = 'gPatientStyle'
-                    Viewport.Width = 185.000000000000000000
-                    Viewport.Height = 250.000000000000000000
+                    Viewport.Width = 184.000000000000000000
+                    Viewport.Height = 225.000000000000000000
                   end
                   inherited rNoRecords: TRectangle
                     Size.Width = 185.000000000000000000
@@ -1299,13 +1299,6 @@ object frmMain: TfrmMain
       end
       inherited rModalInfo: TRectangle
         inherited lytPatientProfile: TLayout
-          inherited lytProfilePhoto: TLayout
-            inherited cProfilePhoto: TCircle
-              inherited lNameH: TLabel
-                TextSettings.Font.StyleExt = {00070000000000000004000000}
-              end
-            end
-          end
           inherited lytPhotoButton: TLayout
             inherited lytPhotoButtonH: TLayout
               inherited btnPhotoUpload: TCornerButton
