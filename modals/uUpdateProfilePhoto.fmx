@@ -57,12 +57,13 @@ object fUpdateProfilePhoto: TfUpdateProfilePhoto
             Stroke.Color = xFFDBD9D9
             object lNameH: TLabel
               Align = Client
-              StyledSettings = [Family, FontColor]
+              StyledSettings = []
               Size.Width = 80.000000000000000000
               Size.Height = 90.000000000000000000
               Size.PlatformDefault = False
-              TextSettings.Font.Size = 34.000000000000000000
-              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              TextSettings.Font.Family = 'Sans Serif Collection'
+              TextSettings.Font.Size = 32.000000000000000000
+              TextSettings.FontColor = xFE004D47
               TextSettings.HorzAlign = Center
               Text = 'L'
               Visible = False

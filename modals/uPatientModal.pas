@@ -710,7 +710,6 @@ begin
     lNameH.Visible := True;
   end;
 
-
   if (eFullName.Text.Trim = '') AND (cProfilePhoto.Fill.Kind = TBrushKind.Solid) then
   begin
     lNameH.Text := '';

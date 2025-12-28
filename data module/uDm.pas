@@ -21,6 +21,7 @@ type
     PhoneH: String;
     BioH: String;
     FullnameH: String;
+    profilePicH: TMemoryStream;
   end;
   Tdm = class(TDataModule)
     sbDental: TStyleBook;
@@ -78,6 +79,7 @@ begin
 
   // Class
   FUser := TUser.Create;
+  User.profilePicH := TMemoryStream.Create;
 
   // Connection clearing
   conDental.Connected := False;

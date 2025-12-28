@@ -57,6 +57,7 @@ type
     FStatus: Boolean;
     procedure UpdateCameraList;
     procedure ShowCameraFrame;
+    procedure ProfilePicAssign;
     { Private declarations }
   public
     { Public declarations }
@@ -79,6 +80,18 @@ begin
   // FMX currently provides only Default camera selection, but you can fake list
   cbCameraOption.Items.Add('Default Camera');
   cbCameraOption.ItemIndex := 0;
+end;
+
+procedure TfUpdateProfilePhoto.ProfilePicAssign;
+begin
+  // Update the profile photo in all forms
+  frmMain.fDashboard.fToolbar.ProfileSetter;
+  frmMain.fPatients.fToolbar.ProfileSetter;
+  frmMain.fAppointments.fToolbar.ProfileSetter;
+  frmMain.fUsers.fToolbar.ProfileSetter;
+  frmMain.fUserProfile.fToolbar.ProfileSetter;
+  frmMain.fUserProfile.rUserPhoto.Fill.Bitmap.Bitmap.Assign(imgPhoto.Bitmap);
+  frmMain.fUserProfile.fToolbar.rUserImage.Fill.Bitmap.Bitmap.Assign(imgPhoto.Bitmap);
 end;
 
 { Close Camera modal }
@@ -114,9 +127,6 @@ begin
       cProfilePhoto.Fill.Kind := TBrushKind.Bitmap;
       cProfilePhoto.Fill.Bitmap.WrapMode := TWrapMode.TileStretch;
       cProfilePhoto.Cursor := crHandPoint; // Change cursor
-      frmMain.fUserProfile.rUserPhoto.Fill.Bitmap.Bitmap.Assign(cProfilePhoto.Fill.Bitmap.Bitmap);
-      frmMain.fUserProfile.fToolbar.rUserImage.Fill.Bitmap.Bitmap.Assign(cProfilePhoto.Fill.Bitmap.Bitmap);
-
       lNameH.Visible := False; // Hide Name holder
       gIcon.ImageIndex := -1; // Hide Icon
 
@@ -140,6 +150,9 @@ begin
             cProfilePhoto.Fill.Bitmap.Bitmap.SaveToStream(ms);
             ms.Position := 0;
             TBlobField(qTemp.FieldByName('profile_pic')).LoadFromStream(ms);
+            frmMain.fUserProfile.rUserPhoto.Fill.Bitmap.Bitmap.Assign(cProfilePhoto.Fill.Bitmap.Bitmap);
+            frmMain.fUserProfile.fToolbar.rUserImage.Fill.Bitmap.Bitmap.Assign(cProfilePhoto.Fill.Bitmap.Bitmap);
+            ProfilePicAssign; // Profile pic update
           finally
             ms.Free;
           end;
@@ -237,10 +250,51 @@ end;
 
 { Remove Button }
 procedure TfUpdateProfilePhoto.cbRemoveClick(Sender: TObject);
+var
+  ms: TMemoryStream;
 begin
+  { TODO -oLance -chotfix : Properly removed the image of the user from the database when "Removed" button is triggered }
   cProfilePhoto.Fill.Kind := TBrushKind.Solid;
   cProfilePhoto.Fill.Bitmap.Bitmap.Clear(TAlphaColorRec.Null);
-  gIcon.ImageIndex := 10;
+  gIcon.ImageIndex := - 1;
+
+  with dm do
+  begin
+    qTemp.Close;
+    qTemp.SQL.Text := 'SELECT id, username, profile_pic ' + 'FROM users ' +
+      'WHERE id = :u AND username = :p';
+    qTemp.ParamByName('u').AsInteger := User.IDH;
+    qTemp.ParamByName('p').AsString := User.UsernameH;
+    qTemp.Open;
+    qTemp.Edit;
+
+    ms := TMemoryStream.Create;
+    try
+      cProfilePhoto.Fill.Bitmap.Bitmap.SaveToStream(ms);
+      ms.Position := 0;
+      TBlobField(qTemp.FieldByName('profile_pic')).LoadFromStream(ms);
+      frmMain.fUserProfile.rUserPhoto.Fill.Bitmap.Bitmap.Assign(cProfilePhoto.Fill.Bitmap.Bitmap);
+      frmMain.fUserProfile.fToolbar.rUserImage.Fill.Bitmap.Bitmap.Assign(cProfilePhoto.Fill.Bitmap.Bitmap);
+      qTemp.FieldByName('profile_pic').Clear;
+    finally
+      ms.Free;
+    end;
+
+    frmMain.fUserProfile.lNameH.Visible := True;
+    frmMain.fUserProfile.gUserPhoto.ImageIndex := -1;
+
+    qTemp.Post;
+    qTemp.Refresh;
+
+    // Profile pic update
+    ProfilePicAssign;
+    lNameH.Visible := True;
+
+    // Set record pop up message
+    frmMain.Tag := 12;
+    frmMain.RecordMessage('Photo', 'profile');
+    qTemp.Close;
+  end;
 end;
 
 { Camera live }
@@ -279,6 +333,7 @@ end;
 { Camera Button }
 procedure TfUpdateProfilePhoto.btnCameraClick(Sender: TObject);
 begin
+  lNameH.Visible := False;
   FCapturing := False;
   FStatus := False;
   UpdateCameraList;
@@ -311,6 +366,9 @@ begin
     ccCapturePhoto.Active := False;
     FCapturing := False;
   end;
+
+  // Profile pic update
+  ProfilePicAssign;
 end;
 
 end.

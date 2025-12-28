@@ -48,6 +48,8 @@ uses uMain, uLogin, uDm;
 procedure TfToolbar.ProfileSetter;
 var
   ms: TMemoryStream;
+  Parts: TArray<string>;
+  Initials: string;
 begin
   dm.qUsers.Open; // Open users query
 
@@ -77,6 +79,29 @@ begin
   end;
 
   dm.qUsers.Close; // Close users query
+
+  // Getter of first letter of the Fullname
+  if  dm.User.FullnameH.Trim <> '' then
+  begin
+    Parts := dm.User.FullnameH.Trim.Split([' ']); // split by space
+    Initials := '';
+
+    // First letter of first word
+    if Length(Parts) >= 1 then
+      Initials := Initials + UpperCase(Parts[0][1]);
+
+    // First letter of second word
+    if Length(Parts) >= 2 then
+      Initials := Initials + UpperCase(Parts[1][1]);
+
+    lNameH.Text := Initials;
+    frmMain.fUserProfile.lNameH.Text := Initials;
+    frmMain.fUpdateProfilePhoto.lNameH.Text := Initials;
+
+    // Profile pic changer
+    gIcon.ImageIndex := -1;
+    lNameH.Visible := True;
+  end;
 end;
 
 { Account Settings Button }

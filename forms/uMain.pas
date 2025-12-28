@@ -179,13 +179,6 @@ begin
   // Assign default tab index
   sbDashboardClick(Sender);
 
-  // Set the profile display in toolbar
-  fDashboard.fToolbar.ProfileSetter;
-  fPatients.fToolbar.ProfileSetter;
-  fAppointments.fToolbar.ProfileSetter;
-  fUsers.fToolbar.ProfileSetter;
-  fUserProfile.fToolbar.ProfileSetter;
-
   // Default tab index
   tcController.TabIndex := 0;
 
@@ -272,6 +265,13 @@ begin
   mvSidebar.ShowMaster;
   mvSidebar.NavigationPaneOptions.CollapsedWidth := 50;
   fDashboard.FrameResized(Sender);
+
+  // Set the profile display in toolbar
+  fDashboard.fToolbar.ProfileSetter;
+  fPatients.fToolbar.ProfileSetter;
+  fAppointments.fToolbar.ProfileSetter;
+  fUsers.fToolbar.ProfileSetter;
+  fUserProfile.fToolbar.ProfileSetter;
 end;
 
 { Save/Update Patient Modal }
@@ -430,7 +430,18 @@ begin
         // Icon set to yellow success
         gPopUp.ImageIndex := 32;
       end;
-      12:  // Update user password
+      12:  // Update profile
+      begin
+        lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.Black;
+        lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Dimgray;
+        lbPopUp.Words.Items[0].Text := AEntity + ' removed';
+        lbPopUp.Words.Items[1].Text := 'Your ' + ADetail +
+          ' photo has been removed successfully.';
+        rPopUp.Fill.Color := TAlphaColorRec.White;
+        // Icon set to yellow success
+        gPopUp.ImageIndex := 32;
+      end;
+      13:  // Update user password
       begin
         lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.Black;
         lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Dimgray;
