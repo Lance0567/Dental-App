@@ -29,7 +29,7 @@ LicenseFile=C:\Users\lance\Documents\Embarcadero\Studio\Projects\Dental System\i
 InfoBeforeFile=C:\Users\lance\Documents\Embarcadero\Studio\Projects\Dental System\info\INFO.txt
 ; Uncomment the following line to run in non administrative install mode (install for current user only).
 PrivilegesRequired=lowest
-OutputBaseFilename=Roces Dental setup
+OutputBaseFilename=Roces Dental setup Win32
 SolidCompression=yes
 WizardStyle=modern
 

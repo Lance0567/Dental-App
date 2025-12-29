@@ -1,0 +1,12 @@
+Before installing following steps:
+
+Step 1 - Check the processor of the PC
+- Press windows in the keyboard and then search "About your PC"
+- Check the system type if 32-bit or 64-bit
+
+Step 2 - Choose the installer type
+- if the PC's system type is 32-bit choose the "Win32" installer
+- if the PC's system type is 64-bit choose the "Win64" installer
+
+Step 3 - Finish installer setup
+- After the setup the client may now proceed in using the system.

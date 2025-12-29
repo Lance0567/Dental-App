@@ -236,8 +236,8 @@ begin
 
   Self.Visible := False;  // Hide UserDetails modal
   dm.RecordStatus := 'Edit'; // Set record Status
-  frmMain.fUserModal.lbTitle.Text := 'Update Existing Patient'; // Set title
-  frmMain.fUserModal.btnSaveUser.Text := 'Update Patient';  // set text in the button
+  frmMain.fUserModal.lbTitle.Text := 'Update Existing User'; // Set title
+  frmMain.fUserModal.btnSaveUser.Text := 'Update User';  // set text in the button
 
   // Show Change Password section
   frmMain.fUserModal.rSecuritySettings.Opacity := 1;
@@ -251,20 +251,16 @@ begin
   frmMain.fUserModal.eFullName.Text := dm.qUsers.FieldByName('name').AsString;
 
   // Get username
-  frmMain.fUserModal.eUsername.Text :=
-    dm.qUsers.FieldByName('username').AsString;
+  frmMain.fUserModal.eUsername.Text := dm.qUsers.FieldByName('username').AsString;
 
   // Get password
-  frmMain.fUserModal.ePassword.Text :=
-    dm.qUsers.FieldByName('password').AsString;
+  frmMain.fUserModal.ePassword.Text := dm.qUsers.FieldByName('password').AsString;
 
   // Get email address
-  frmMain.fUserModal.eEmailAddress.Text :=
-    dm.qUsers.FieldByName('email_address').AsString;
+  frmMain.fUserModal.eEmailAddress.Text := dm.qUsers.FieldByName('email_address').AsString;
 
   // Get contact number
-  frmMain.fUserModal.eContactNumber.Text :=
-    dm.qUsers.FieldByName('contact_number').AsString;
+  frmMain.fUserModal.eContactNumber.Text := dm.qUsers.FieldByName('contact_number').AsString;
 
   // Get Profile Photo
   // Load Profile Photo (LONGBLOB -> TImage)
@@ -297,8 +293,7 @@ begin
     frmMain.fUserModal.cbRole.ItemIndex := 1;
 
   // Get Department
-  frmMain.fUserModal.eDepartment.Text :=
-    dm.qUsers.FieldByName('department').AsString;
+  frmMain.fUserModal.eDepartment.Text := dm.qUsers.FieldByName('department').AsString;
 
   // Get status in the database
   statusH := dm.qUsers.FieldByName('status').AsString;
