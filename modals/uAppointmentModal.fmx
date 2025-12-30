@@ -196,6 +196,7 @@ object fAppointmentModal: TfAppointmentModal
               Size.Height = 134.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 7
+              OnEnter = mNotesEnter
               OnExit = mNotesExit
               OnClick = mNotesClick
               Viewport.Width = 380.000000000000000000

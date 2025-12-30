@@ -95,6 +95,7 @@ type
     procedure deDateChange(Sender: TObject);
     procedure cbPatientExit(Sender: TObject);
     procedure cbPatientClosePopup(Sender: TObject);
+    procedure mNotesEnter(Sender: TObject);
   private
     { Private declarations }
   public
@@ -463,6 +464,17 @@ end;
 
 { On Click Notes }
 procedure TfAppointmentModal.mNotesClick(Sender: TObject);
+begin
+  if mNotes.Text = 'Add any relevant notes about this appointment' then
+  begin
+    MemoTrackingReset := 'Clicked';
+    mNotes.Text := '';
+    mNotes.FontColor := TAlphaColorRec.Black;
+  end;
+end;
+
+{ On Enter Notes }
+procedure TfAppointmentModal.mNotesEnter(Sender: TObject);
 begin
   if mNotes.Text = 'Add any relevant notes about this appointment' then
   begin

@@ -133,6 +133,7 @@ type
     procedure deDateOfBirthExit(Sender: TObject);
     procedure deDateOfBirthOpenPicker(Sender: TObject);
     procedure deDateOfBirthClosePicker(Sender: TObject);
+    procedure mMedicalNotesEnter(Sender: TObject);
   private
     FCapturing: Boolean;
     FStatus: Boolean;
@@ -778,6 +779,17 @@ begin
   end;
 
   lTag.Text := 'Tag Number : ' + MemoTrackingReset;
+end;
+
+{ OnEnter Medical Notes }
+procedure TfPatientModal.mMedicalNotesEnter(Sender: TObject);
+begin
+  if mMedicalNotes.Text = 'Enter any relevant medical history, allergies, or notes' then
+  begin
+    MemoTrackingReset := 'Clicked';
+    mMedicalNotes.Text := '';
+    mMedicalNotes.FontColor := TAlphaColorRec.Black;
+  end;
 end;
 
 { Medical memo text prompt inserter }

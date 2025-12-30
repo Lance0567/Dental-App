@@ -171,6 +171,7 @@ object fPatientModal: TfPatientModal
             Size.Height = 125.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 6
+            OnEnter = mMedicalNotesEnter
             OnExit = mMedicalNotesExit
             OnClick = mMedicalNotesClick
             Viewport.Width = 502.000000000000000000
