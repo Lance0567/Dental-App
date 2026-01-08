@@ -1914,17 +1914,17 @@ object frmMain: TfrmMain
       Control = lvAppointments
       Track = True
       FillDataSource = BindSourceDB1
-      FillDisplayFieldName = 'patient'
+      FillDisplayFieldName = 'appointment_title'
       AutoFill = True
       FillExpressions = <
-        item
-          SourceMemberName = 'appointment_title'
-          ControlMemberName = 'Detail1'
-        end
         item
           SourceMemberName = 'id'
           ControlMemberName = 'ImageIndex'
           CustomFormat = '47'
+        end
+        item
+          SourceMemberName = 'patient'
+          ControlMemberName = 'Detail1'
         end
         item
           SourceMemberName = 'status'

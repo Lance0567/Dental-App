@@ -62,9 +62,9 @@ type
     btnCloseAppointment: TSpeedButton;
     BindSourceDB1: TBindSourceDB;
     BindingsList1: TBindingsList;
-    LinkFillControlToField1: TLinkFillControlToField;
     rNoRecords: TRectangle;
     lNoRecords: TLabel;
+    LinkFillControlToField1: TLinkFillControlToField;
     procedure FormCreate(Sender: TObject);
     procedure mvSidebarResize(Sender: TObject);
     procedure FormResize(Sender: TObject);
@@ -284,9 +284,9 @@ begin
 
   // mvAppointments resize
   if Self.ClientWidth = 1366 then
-    mvAppointments.Width := 250
+    mvAppointments.Width := 300
   else if Self.ClientWidth = 1920 then
-    mvAppointments.Width := 250;
+    mvAppointments.Width := 300;
 end;
 
 { Show Form }
