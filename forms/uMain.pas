@@ -70,12 +70,13 @@ type
     procedure FormShow(Sender: TObject);
     procedure tcControllerChange(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+    procedure fDashboardsbListClick(Sender: TObject);
   private
-    procedure Dashboard;
     procedure QueryHandler;
     procedure ButtonPressedResetter;
     { Private declarations }
   public
+    procedure Dashboard;
     procedure HideFrames;
     procedure ButtonPressedReset;
     procedure RecordMessage(const AEntity, ADetail: string);
@@ -139,6 +140,17 @@ begin
   // Button pressed
   ButtonPressedResetter;  // resetter
   sbPatients.IsPressed := True;
+end;
+
+procedure TfrmMain.fDashboardsbListClick(Sender: TObject);
+begin
+  fDashboard.sbListClick(Sender);
+
+  // Dashboard card resize
+  fDashboard.CardsResize;
+
+  // Grid Responsiveness
+  fDashboard.GridContentsResponsive;
 end;
 
 { Float animation }

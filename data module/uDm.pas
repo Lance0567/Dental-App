@@ -33,6 +33,7 @@ type
     qAppointments: TFDQuery;
     qPatientSelection: TFDQuery;
     qTodaysAppointment: TFDQuery;
+    qMonthAppointments: TFDQuery;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
   private
@@ -107,6 +108,7 @@ begin
   qTodaysAppointment.Close;
   qPatientSelection.Close;
   qTemp.Close;
+  qMonthAppointments.Close;
 
   // activate connection
   conDental.Connected := True;

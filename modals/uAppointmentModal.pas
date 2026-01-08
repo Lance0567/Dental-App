@@ -159,7 +159,7 @@ begin
   HasError:= False;
 
   // Date validation
-  if lPickDate.Visible then
+  if lPickDate.Text = 'Pick a date' then
   begin
     crDate.Visible := True;
     HasError := True;

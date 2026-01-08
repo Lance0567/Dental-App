@@ -101,11 +101,8 @@ Coordinates=634,254,92,51
 Coordinates=121,390,47,33
 
 []
-Coordinates=149,80,82,33
-Visible=True
-
-[lbTodayAppointments]
 Coordinates=485,254,123,51
+Visible=True
 
 [FloatAnimation2]
 Coordinates=374,242,95,33

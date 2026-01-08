@@ -439,21 +439,6 @@ object fDashboard: TfDashboard
         Stroke.Color = xFEE1E7EF
         XRadius = 13.000000000000000000
         YRadius = 13.000000000000000000
-        object lbTodayAppointments: TLabel
-          Align = Top
-          StyledSettings = []
-          Margins.Bottom = 15.000000000000000000
-          Position.X = 20.000000000000000000
-          Position.Y = 15.000000000000000000
-          Size.Width = 164.000000000000000000
-          Size.Height = 40.000000000000000000
-          Size.PlatformDefault = False
-          TextSettings.Font.Family = 'Candara'
-          TextSettings.Font.Size = 25.000000000000000000
-          TextSettings.Font.StyleExt = {00070000000000000004000000}
-          Text = 'Today'#39's Appointments'
-          TabOrder = 0
-        end
         object gTodaysAppointment: TGrid
           Align = Client
           CanFocus = True
@@ -463,12 +448,12 @@ object fDashboard: TfDashboard
           Size.PlatformDefault = False
           TextSettings.Font.Size = 15.000000000000000000
           StyledSettings = [Family, Style]
-          TabOrder = 4
+          TabOrder = 3
           RowCount = 0
           Options = [ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
           OnResized = gTodaysAppointmentResized
-          Viewport.Width = 164.000000000000000000
-          Viewport.Height = 250.000000000000000000
+          Viewport.Width = 160.000000000000000000
+          Viewport.Height = 225.000000000000000000
         end
         object rNoRecords: TRectangle
           Align = Client
@@ -488,7 +473,7 @@ object fDashboard: TfDashboard
           TextSettings.Font.Size = 14.000000000000000000
           TextSettings.HorzAlign = Center
           Text = 'No Appointment for Today!'
-          TabOrder = 6
+          TabOrder = 5
         end
         object ShadowEffect5: TShadowEffect
           Distance = 1.000000000000000000
@@ -496,6 +481,77 @@ object fDashboard: TfDashboard
           Softness = 0.200000002980232200
           Opacity = 0.100000001490116100
           ShadowColor = claBlack
+        end
+        object lytTodaysAppointment: TLayout
+          Align = Top
+          Margins.Bottom = 15.000000000000000000
+          Position.X = 20.000000000000000000
+          Position.Y = 15.000000000000000000
+          Size.Width = 164.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 6
+          object lbTodayAppointments: TLabel
+            Align = Client
+            StyledSettings = []
+            Size.Width = 104.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Candara'
+            TextSettings.Font.Size = 25.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            Text = 'Today'#39's Appointments'
+            TabOrder = 0
+          end
+          object sbList: TSpeedButton
+            StyleName = 'group4'
+            StaysPressed = True
+            Align = Right
+            GroupName = 'group3'
+            Images = dm.imgList
+            ImageIndex = 45
+            Margins.Top = 5.000000000000000000
+            Margins.Bottom = 5.000000000000000000
+            Position.X = 104.000000000000000000
+            Position.Y = 5.000000000000000000
+            Size.Width = 30.000000000000000000
+            Size.Height = 30.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'sbListStyle1'
+            TextSettings.Trimming = None
+            OnClick = sbListClick
+          end
+          object sbCalendar: TSpeedButton
+            StyleName = 'group4'
+            StaysPressed = True
+            Align = Right
+            GroupName = 'group3'
+            Images = dm.imgList
+            ImageIndex = 46
+            Margins.Top = 5.000000000000000000
+            Margins.Bottom = 5.000000000000000000
+            Position.X = 134.000000000000000000
+            Position.Y = 5.000000000000000000
+            Size.Width = 30.000000000000000000
+            Size.Height = 30.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'sbCalendarStyle1'
+            TextSettings.Trimming = None
+            OnClick = sbCalendarClick
+          end
+        end
+        object cTodaysAppointment: TCalendar
+          Align = Client
+          Date = 46030.000000000000000000
+          Size.Width = 164.000000000000000000
+          Size.Height = 250.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'cTodaysAppointmentStyle1'
+          TabOrder = 7
+          TodayDefault = True
+          Visible = False
+          OnChange = cTodaysAppointmentChange
+          OnMouseWheel = cTodaysAppointmentMouseWheel
         end
       end
       object rQuickActions: TRectangle
@@ -520,26 +576,31 @@ object fDashboard: TfDashboard
           Position.X = 20.000000000000000000
           Position.Y = 70.000000000000000000
           Size.Width = 240.000000000000000000
-          Size.Height = 80.000000000000000000
+          Size.Height = 115.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
           object btnNewPatient: TCornerButton
             Align = Scale
             Cursor = crHandPoint
+            StyledSettings = [FontColor]
             Images = dm.imgList
             ImageIndex = 40
             Margins.Right = 10.000000000000000000
             Position.X = 1.000000000000000000
-            Position.Y = -1.000000000000000000
+            Position.Y = -1.437500000000000000
             Sides = [Top, Left, Bottom, Right]
             Size.Width = 113.000000000000000000
-            Size.Height = 80.000000000000000000
+            Size.Height = 115.000000000000000000
             Size.PlatformDefault = False
+            StyleLookup = 'btnQuickActions2'
             TabOrder = 3
             Text = 'New Patient'
+            TextSettings.Font.Family = 'Segoe UI Variable Text'
+            TextSettings.Font.Size = 14.000000000000000000
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
             TextSettings.Trimming = None
-            XRadius = 3.000000000000000000
-            YRadius = 3.000000000000000000
+            XRadius = 13.000000000000000000
+            YRadius = 13.000000000000000000
             OnClick = btnNewPatientClick
             object FloatAnimation1: TFloatAnimation
               Duration = 0.200000002980232200
@@ -554,19 +615,24 @@ object fDashboard: TfDashboard
           object btnNewAppointment: TCornerButton
             Align = Scale
             Cursor = crHandPoint
+            StyledSettings = [FontColor]
             Images = dm.imgList
             ImageIndex = 7
             Position.X = 124.000000000000000000
             Sides = [Top, Left, Bottom, Right]
             Size.Width = 115.000000000000000000
-            Size.Height = 80.000000000000000000
+            Size.Height = 115.000000000000000000
             Size.PlatformDefault = False
+            StyleLookup = 'btnQuickActions'
             TabOrder = 2
             Text = 'New Appointment'
+            TextSettings.Font.Family = 'Segoe UI Variable Text'
+            TextSettings.Font.Size = 14.000000000000000000
+            TextSettings.Font.StyleExt = {00060000000000000004000000}
             TextSettings.WordWrap = True
             TextSettings.Trimming = None
-            XRadius = 3.000000000000000000
-            YRadius = 3.000000000000000000
+            XRadius = 13.000000000000000000
+            YRadius = 13.000000000000000000
             OnClick = btnNewAppointmentClick
             object FloatAnimation2: TFloatAnimation
               Duration = 0.200000002980232200
@@ -582,20 +648,25 @@ object fDashboard: TfDashboard
         object btnReportAnIssue: TCornerButton
           Align = Top
           Cursor = crHandPoint
+          StyledSettings = [FontColor]
           Images = dm.imgList
           ImageIndex = 39
           Margins.Top = 10.000000000000000000
           Position.X = 20.000000000000000000
-          Position.Y = 160.000000000000000000
+          Position.Y = 195.000000000000000000
           Sides = [Top, Left, Bottom, Right]
           Size.Width = 240.000000000000000000
-          Size.Height = 62.000000000000000000
+          Size.Height = 100.000000000000000000
           Size.PlatformDefault = False
+          StyleLookup = 'btnQuickActions'
           TabOrder = 2
           Text = 'Report an Issue'
+          TextSettings.Font.Family = 'Segoe UI Variable Text'
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.Font.StyleExt = {00060000000000000004000000}
           TextSettings.Trimming = None
-          XRadius = 3.000000000000000000
-          YRadius = 3.000000000000000000
+          XRadius = 13.000000000000000000
+          YRadius = 13.000000000000000000
           OnClick = btnReportAnIssueClick
           object FloatAnimation3: TFloatAnimation
             Duration = 0.200000002980232200

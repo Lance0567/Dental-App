@@ -10,7 +10,9 @@ uses
   FMX.Layouts, Math, FMX.Ani, FMX.Menus, FMX.ExtCtrls, FMX.MultiView, uToolbar,
   Data.Bind.EngExt, Fmx.Bind.DBEngExt, Fmx.Bind.Grid, System.Bindings.Outputs,
   Fmx.Bind.Editors, Data.Bind.Components, Data.Bind.Grid, Data.Bind.DBScope,
-  System.Threading,Data.DB, FMX.Effects;
+  System.Threading,Data.DB, FMX.Effects, FMX.ListBox, System.DateUtils,
+  FireDAC.Stan.Param, FMX.ListView.Types, FMX.ListView.Appearances,
+  FMX.ListView.Adapters.Base, FMX.ListView;
 
 type
   TfDashboard = class(TFrame)
@@ -46,7 +48,6 @@ type
     gIcon4: TGlyph;
     lytRecords: TLayout;
     rTodaysAppointment: TRectangle;
-    lbTodayAppointments: TLabel;
     gTodaysAppointment: TGrid;
     rQuickActions: TRectangle;
     lytTwoColumns: TLayout;
@@ -69,14 +70,26 @@ type
     ShadowEffect4: TShadowEffect;
     ShadowEffect5: TShadowEffect;
     ShadowEffect6: TShadowEffect;
+    lytTodaysAppointment: TLayout;
+    lbTodayAppointments: TLabel;
+    sbList: TSpeedButton;
+    sbCalendar: TSpeedButton;
+    cTodaysAppointment: TCalendar;
     procedure FrameResized(Sender: TObject);
     procedure btnNewPatientClick(Sender: TObject);
     procedure btnNewAppointmentClick(Sender: TObject);
     procedure gTodaysAppointmentResized(Sender: TObject);
     procedure FrameResize(Sender: TObject);
     procedure btnReportAnIssueClick(Sender: TObject);
+    procedure sbCalendarClick(Sender: TObject);
+    procedure sbListClick(Sender: TObject);
+    procedure cTodaysAppointmentChange(Sender: TObject);
+    procedure cTodaysAppointmentMouseWheel(Sender: TObject; Shift: TShiftState;
+      WheelDelta: Integer; var Handled: Boolean);
   private
     procedure GridContentsResponsive2;
+    procedure CleanListBox(AListBox: TListBox; AIndex: Integer);
+    procedure RefreshCalendarBadges;
     { Private declarations }
   public
     procedure GridContentsResponsive;
@@ -196,6 +209,158 @@ end;
 procedure TfDashboard.gTodaysAppointmentResized(Sender: TObject);
 begin
   GridContentsResponsive2;
+end;
+
+{ Calendar Notification badge }
+procedure TfDashboard.CleanListBox(AListBox: TListBox; AIndex: Integer);
+var
+  Item: TListBoxItem;
+begin
+  Item := AListBox.ItemByIndex(AIndex);
+  // Check if a badge exists in the TagObject
+  if (Item.TagObject <> nil) and (Item.TagObject is TCircle) then
+  begin
+    // Remove the circle from the UI and free memory
+    TCircle(Item.TagObject).Parent := nil;
+    TCircle(Item.TagObject).Free;
+    Item.TagObject := nil;
+  end;
+end;
+
+{ OnChange cTodaysAppointment }
+procedure TfDashboard.cTodaysAppointmentChange(Sender: TObject);
+begin
+  TThread.ForceQueue(nil, procedure
+  begin
+    RefreshCalendarBadges;
+  end);
+end;
+
+{ OnMouseWheel cTodaysAppointment }
+procedure TfDashboard.cTodaysAppointmentMouseWheel(Sender: TObject;
+  Shift: TShiftState; WheelDelta: Integer; var Handled: Boolean);
+begin
+  // Queue the refresh to ensure the UI has time to draw the Calendar first
+  TThread.ForceQueue(nil, procedure
+  begin
+    RefreshCalendarBadges;
+  end);
+end;
+
+{ Calendar Refresh Badges }
+procedure TfDashboard.RefreshCalendarBadges;
+var
+  I: Integer;
+  LB: TListBox;
+  Circle: TCircle;
+  BadgeText: TText;
+  StartOfMonth, EndOfMonth, DayDate: TDateTime;
+  DaysInMonth, StartMonthActive, EndMonthActive: Integer;
+  DayValue: Integer;
+  SearchDateStr: string;
+  ItemWidth: Single;
+begin
+  cTodaysAppointment.ApplyStyleLookup;
+
+  if (cTodaysAppointment.ControlsCount = 0) or
+     (cTodaysAppointment.Controls[0].ControlsCount = 0) or
+     (cTodaysAppointment.Controls[0].Controls[0].ControlsCount < 4) then
+    Exit;
+
+  try
+    LB := TListBox(cTodaysAppointment.Controls.Items[0].Controls.Items[0].Controls.Items[3]);
+  except
+    Exit;
+  end;
+
+  StartOfMonth := EncodeDate(YearOf(cTodaysAppointment.DateTime), MonthOfTheYear(cTodaysAppointment.DateTime), 1);
+  DaysInMonth := DaysInAMonth(YearOf(cTodaysAppointment.DateTime), MonthOfTheYear(cTodaysAppointment.DateTime));
+  EndOfMonth := EncodeDate(YearOf(cTodaysAppointment.DateTime), MonthOfTheYear(cTodaysAppointment.DateTime), DaysInMonth);
+
+  dm.qMonthAppointments.Close;
+  dm.qMonthAppointments.ParamByName('start').AsString := FormatDateTime('yyyy-mm-dd', StartOfMonth);
+  dm.qMonthAppointments.ParamByName('end').AsString := FormatDateTime('yyyy-mm-dd', EndOfMonth);
+  dm.qMonthAppointments.Open;
+
+  StartMonthActive := 0;
+  EndMonthActive := 0;
+
+  for I := 0 to LB.Count - 1 do
+  begin
+    CleanListBox(LB, I);
+
+    if TryStrToInt(LB.ItemByIndex(I).Text, DayValue) then
+    begin
+      if DayValue = 1 then StartMonthActive := 1;
+
+      if (StartMonthActive = 1) and (EndMonthActive = 0) then
+      begin
+        DayDate := EncodeDate(YearOf(cTodaysAppointment.DateTime), MonthOfTheYear(cTodaysAppointment.DateTime), DayValue);
+        SearchDateStr := FormatDateTime('yyyy-mm-dd', DayDate);
+
+        if dm.qMonthAppointments.Locate('app_date', SearchDateStr, []) then
+        begin
+          Circle := TCircle.Create(LB.ItemByIndex(I));
+          Circle.Parent := LB.ItemByIndex(I);
+          Circle.Fill.Color := TAlphaColorRec.Red;
+          Circle.Stroke.Kind := TBrushKind.None;
+          Circle.Size.Size := TSizeF.Create(16, 16);
+
+          // --- POSITIONING FIX START ---
+          ItemWidth := LB.ItemByIndex(I).Width;
+
+          // If the item hasn't rendered yet, estimate its width based on the ListBox width
+          if ItemWidth <= 0 then
+            ItemWidth := LB.Width / 7;
+
+          Circle.Position.X := ItemWidth - Circle.Width - 2;
+          Circle.Position.Y := 2;
+
+          // Use Anchors to pin the badge to the Top-Right regardless of layout changes
+          Circle.Anchors := [TAnchorKind.akTop, TAnchorKind.akRight];
+          // --- POSITIONING FIX END ---
+
+          BadgeText := TText.Create(Circle);
+          BadgeText.Parent := Circle;
+          BadgeText.Align := TAlignLayout.Client;
+          BadgeText.Text := dm.qMonthAppointments.FieldByName('total').AsString;
+          BadgeText.TextSettings.FontColor := TAlphaColorRec.White;
+          BadgeText.TextSettings.Font.Size := 9;
+          BadgeText.TextSettings.Font.Style := [TFontStyle.fsBold];
+          BadgeText.HitTest := False;
+
+          LB.ItemByIndex(I).TagObject := Circle;
+        end;
+
+        if DayValue = DaysInMonth then EndMonthActive := 1;
+      end;
+    end;
+  end;
+end;
+
+{ OnClick sbCalendar }
+procedure TfDashboard.sbCalendarClick(Sender: TObject);
+begin
+  cTodaysAppointment.Visible := True;
+  gTodaysAppointment.Visible := False;
+
+  // Queue the refresh to ensure the UI has time to draw the Calendar first
+  TThread.ForceQueue(nil, procedure
+  begin
+    RefreshCalendarBadges;
+  end);
+
+  frmMain.Dashboard;
+end;
+
+{ OnClick sbList }
+procedure TfDashboard.sbListClick(Sender: TObject);
+begin
+  gTodaysAppointment.Visible := True;
+  cTodaysAppointment.Visible := False;
+
+  // Execute dashboard logic
+  frmMain.Dashboard;
 end;
 
 { Frame Resized }

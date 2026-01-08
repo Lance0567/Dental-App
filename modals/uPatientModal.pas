@@ -301,7 +301,7 @@ begin
     crFullName.Visible := False;
 
   // Date of birth validation
-  if lDateText.Text = '' then
+  if lDateText.Text = 'Pick a date' then
   begin
     crDateOfBirth.Visible := True;
     HasError := True;
