@@ -249,6 +249,9 @@ begin
 
   // Reset Scrollbox
   frmMain.fAppointmentModal.ScrollBox1.ViewportPosition := PointF(0, 0);
+
+  // Show Delete button
+  frmMain.fAppointmentModal.btnDelete.Visible := True;
 end;
  
 { Button Pressed Resetter }

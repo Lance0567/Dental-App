@@ -132,6 +132,10 @@ begin
   deDate.StyledSettings := deDate.StyledSettings - [TStyledSetting.FontColor];
   ceChecker := False;
 
+  // Reset Time
+  teStartTime.Time := StrToTime('0:0:0');
+  teEndTime.Time := StrToTime('0:0:0');
+
   // Reset Status
   cbStatus.ItemIndex := 0;
 

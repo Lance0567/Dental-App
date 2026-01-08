@@ -473,7 +473,7 @@ object fDashboard: TfDashboard
           TextSettings.Font.Size = 14.000000000000000000
           TextSettings.HorzAlign = Center
           Text = 'No Appointment for Today!'
-          TabOrder = 5
+          TabOrder = 4
         end
         object ShadowEffect5: TShadowEffect
           Distance = 1.000000000000000000
@@ -490,7 +490,7 @@ object fDashboard: TfDashboard
           Size.Width = 164.000000000000000000
           Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
-          TabOrder = 6
+          TabOrder = 5
           object lbTodayAppointments: TLabel
             Align = Client
             StyledSettings = []
@@ -507,7 +507,10 @@ object fDashboard: TfDashboard
             StyleName = 'group4'
             StaysPressed = True
             Align = Right
+            Cursor = crHandPoint
             GroupName = 'group3'
+            Hint = 'List'
+            IsPressed = True
             Images = dm.imgList
             ImageIndex = 45
             Margins.Top = 5.000000000000000000
@@ -517,6 +520,8 @@ object fDashboard: TfDashboard
             Size.Width = 30.000000000000000000
             Size.Height = 30.000000000000000000
             Size.PlatformDefault = False
+            ParentShowHint = False
+            ShowHint = True
             StyleLookup = 'sbListStyle1'
             TextSettings.Trimming = None
             OnClick = sbListClick
@@ -525,7 +530,9 @@ object fDashboard: TfDashboard
             StyleName = 'group4'
             StaysPressed = True
             Align = Right
+            Cursor = crHandPoint
             GroupName = 'group3'
+            Hint = 'Calendar'
             Images = dm.imgList
             ImageIndex = 46
             Margins.Top = 5.000000000000000000
@@ -535,6 +542,8 @@ object fDashboard: TfDashboard
             Size.Width = 30.000000000000000000
             Size.Height = 30.000000000000000000
             Size.PlatformDefault = False
+            ParentShowHint = False
+            ShowHint = True
             StyleLookup = 'sbCalendarStyle1'
             TextSettings.Trimming = None
             OnClick = sbCalendarClick
@@ -542,7 +551,7 @@ object fDashboard: TfDashboard
         end
         object cTodaysAppointment: TCalendar
           Align = Client
-          Date = 46030.000000000000000000
+          Date = 46031.000000000000000000
           Size.Width = 164.000000000000000000
           Size.Height = 250.000000000000000000
           Size.PlatformDefault = False
@@ -551,6 +560,8 @@ object fDashboard: TfDashboard
           TodayDefault = True
           Visible = False
           OnChange = cTodaysAppointmentChange
+          OnDateSelected = cTodaysAppointmentDateSelected
+          OnDayClick = cTodaysAppointmentDayClick
           OnMouseWheel = cTodaysAppointmentMouseWheel
         end
       end

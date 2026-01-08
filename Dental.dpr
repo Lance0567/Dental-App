@@ -19,7 +19,8 @@ uses
   uAppointmentModal in 'modals\uAppointmentModal.pas' {fAppointmentModal: TFrame},
   uToolbar in 'frames\uToolbar.pas' {fToolbar: TFrame},
   uAdminSetup in 'forms\uAdminSetup.pas' {frmAdminSetup},
-  uContactInfo in 'modals\uContactInfo.pas' {fContactInfo: TFrame};
+  uContactInfo in 'modals\uContactInfo.pas' {fContactInfo: TFrame},
+  MultiDetailAppearanceU in 'appearance\MultiDetailAppearanceU.pas';
 
 {$R *.res}
 

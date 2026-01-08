@@ -283,6 +283,7 @@ begin
   frmMain.fPatientModal.lbTitle.Text := 'Update Existing Patient';
   frmMain.fPatientModal.btnSavePatient.Text := 'Update Patient';
   frmMain.fPatientModal.MemoTrackingReset := '';  // Reset tracking
+  frmMain.fPatientModal.btnDelete.Visible := True;
 
   // Populate the modal form
   // Get Fullname

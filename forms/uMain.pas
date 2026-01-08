@@ -11,7 +11,9 @@ uses
   FMX.Effects, FMX.Grid, Data.DB, Data.Bind.EngExt, Fmx.Bind.DBEngExt,
   Fmx.Bind.Grid, System.Rtti, System.Bindings.Outputs, Fmx.Bind.Editors,
   Data.Bind.Components, Data.Bind.Grid, Data.Bind.DBScope, uAppointmentModal,
-  uUserDetails, FMX.DialogService, uUpdateProfilePhoto, uContactInfo;
+  uUserDetails, FMX.DialogService, uUpdateProfilePhoto, uContactInfo,
+  FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base,
+  FMX.ListView, MultiDetailAppearanceU;
 
 type
   TfrmMain = class(TForm)
@@ -53,6 +55,16 @@ type
     ShadowEffect2: TShadowEffect;
     fUserModal: TfUserModal;
     fAppointmentModal: TfAppointmentModal;
+    mvAppointments: TMultiView;
+    lvAppointments: TListView;
+    lytAppointment: TLayout;
+    lbAppointments: TLabel;
+    btnCloseAppointment: TSpeedButton;
+    BindSourceDB1: TBindSourceDB;
+    BindingsList1: TBindingsList;
+    LinkFillControlToField1: TLinkFillControlToField;
+    rNoRecords: TRectangle;
+    lNoRecords: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure mvSidebarResize(Sender: TObject);
     procedure FormResize(Sender: TObject);
@@ -71,6 +83,7 @@ type
     procedure tcControllerChange(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure fDashboardsbListClick(Sender: TObject);
+    procedure btnCloseAppointmentClick(Sender: TObject);
   private
     procedure QueryHandler;
     procedure ButtonPressedResetter;
@@ -268,11 +281,20 @@ begin
 
   // Dashboard cards resize
   fDashboard.CardsResize;
+
+  // mvAppointments resize
+  if Self.ClientWidth = 1366 then
+    mvAppointments.Width := 250
+  else if Self.ClientWidth = 1920 then
+    mvAppointments.Width := 250;
 end;
 
 { Show Form }
 procedure TfrmMain.FormShow(Sender: TObject);
 begin
+  lNoRecords.Visible := False;
+  rNoRecords.Visible := False;
+
   // Default Show sidebar
   mvSidebar.ShowMaster;
   mvSidebar.NavigationPaneOptions.CollapsedWidth := 50;
@@ -506,6 +528,12 @@ begin
   {$ENDIF}
 end;
 
+{ OnClick btnCloseAppointment }
+procedure TfrmMain.btnCloseAppointmentClick(Sender: TObject);
+begin
+  mvAppointments.HideMaster;
+end;
+
 { Button Press Resetter }
 procedure TfrmMain.ButtonPressedReset;
 begin
@@ -558,6 +586,9 @@ begin
 
   // Grid Responsiveness
   fDashboard.GridContentsResponsive;
+
+  // Refresh the calendar notification badge
+  fDashboard.RefreshCalendarBadges;
 
   // Form Caption
   {$IFDEF DEBUG}
@@ -612,6 +643,8 @@ begin
   dm.qAppointments.Close;
   dm.qUsers.Close;
   dm.qTodaysAppointment.Close;
+  dm.qMonthAppointments.Close;
+  dm.qDrawerAppointments.Close;
 end;
 
 { Dashboard tab }
@@ -708,6 +741,9 @@ procedure TfrmMain.tcControllerChange(Sender: TObject);
 begin
   // Deactivate queries for optimization
   QueryHandler;
+
+  // Hide mvAppointments
+  mvAppointments.HideMaster;
 
   // Change database connection according to the selected tab
   case tcController.TabIndex of

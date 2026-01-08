@@ -198,6 +198,7 @@ object frmMain: TfrmMain
         Size.Width = 605.000000000000000000
         Size.Height = 505.000000000000000000
         Size.PlatformDefault = False
+        StyleLookup = 'rNoRecordsClick'
         TabIndex = 0
         TabOrder = 0
         TabPosition = None
@@ -219,8 +220,8 @@ object frmMain: TfrmMain
             end>
           TextSettings.Trimming = None
           IsSelected = True
-          Size.Width = 8.000000000000000000
-          Size.Height = 8.000000000000000000
+          Size.Width = 601.000000000000000000
+          Size.Height = 10.000000000000000000
           Size.PlatformDefault = False
           StyleLookup = ''
           TabOrder = 0
@@ -313,9 +314,7 @@ object frmMain: TfrmMain
                   inherited lytTodaysAppointment: TLayout
                     Size.Width = 185.000000000000000000
                     inherited lbTodayAppointments: TLabel
-                      Margins.Bottom = 15.000000000000000000
                       Size.Width = 125.000000000000000000
-                      Size.Height = 25.000000000000000000
                       TextSettings.Font.StyleExt = {00070000000000000004000000}
                     end
                     inherited sbList: TSpeedButton
@@ -366,12 +365,12 @@ object frmMain: TfrmMain
               end
             end
             inherited bsdbTodaysAppointment: TBindSourceDB
-              Left = 192
-              Top = 352
+              Left = 284
+              Top = 440
             end
             inherited blTodaysAppointment: TBindingsList
-              Left = 188
-              Top = 293
+              Left = 284
+              Top = 381
             end
           end
         end
@@ -472,12 +471,12 @@ object frmMain: TfrmMain
               end
             end
             inherited bsdbPatients: TBindSourceDB
-              Left = 192
-              Top = 184
+              Left = 285
+              Top = 272
             end
             inherited blPatients: TBindingsList
-              Left = 188
-              Top = 133
+              Left = 285
+              Top = 219
             end
           end
         end
@@ -583,12 +582,11 @@ object frmMain: TfrmMain
               end
             end
             inherited bsdbAppointments: TBindSourceDB
-              Left = 384
-              Top = 368
+              Left = 392
+              Top = 440
             end
             inherited blAppointments: TBindingsList
-              Left = 188
-              Top = 239
+              Top = 327
             end
           end
         end
@@ -676,11 +674,11 @@ object frmMain: TfrmMain
               end
             end
             inherited bsdbUsers: TBindSourceDB
-              Left = 520
-              Top = 296
+              Left = 392
+              Top = 368
             end
             inherited blUsers: TBindingsList
-              Left = 388
+              Left = 396
               Top = 301
             end
           end
@@ -1107,12 +1105,12 @@ object frmMain: TfrmMain
       end
     end
     inherited ccCapturePhoto: TCameraComponent
-      Left = 392
-      Top = 120
+      Left = 352
+      Top = 104
     end
     inherited sdSavePicture: TSaveDialog
-      Left = 392
-      Top = 240
+      Left = 72
+      Top = 296
     end
     inherited rDeleteBackground: TRectangle
       Size.Width = 850.000000000000000000
@@ -1330,6 +1328,13 @@ object frmMain: TfrmMain
           TextSettings.Font.StyleExt = {00070000000000000004000000}
         end
       end
+    end
+    inherited ccCapturePhoto: TCameraComponent
+      Left = 352
+      Top = 40
+    end
+    inherited sdSavePicture: TSaveDialog
+      Top = 440
     end
   end
   inline fUserDetails: TfUserDetails
@@ -1663,6 +1668,14 @@ object frmMain: TfrmMain
         end
       end
     end
+    inherited ccCapturePhoto: TCameraComponent
+      Left = 352
+      Top = 168
+    end
+    inherited sdSavePicture: TSaveDialog
+      Left = 72
+      Top = 368
+    end
     inherited rCameralModal: TRectangle
       inherited lytImgTools: TLayout
         inherited lytCameraOption: TLayout
@@ -1783,6 +1796,146 @@ object frmMain: TfrmMain
           end
         end
       end
+    end
+  end
+  object mvAppointments: TMultiView
+    TargetControl = tiDashboard
+    BorderOptions.Color = xFFBDBDBD
+    DrawerOptions.Placement = Right
+    Mode = Drawer
+    ShadowOptions.Opacity = 0.100000001490116100
+    Padding.Left = 15.000000000000000000
+    Padding.Top = 15.000000000000000000
+    Padding.Right = 15.000000000000000000
+    Padding.Bottom = 15.000000000000000000
+    Size.Width = 250.000000000000000000
+    Size.Height = 505.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'mvAppointmentsStyle1'
+    Visible = False
+    TabOrder = 9
+    object lvAppointments: TListView
+      ItemAppearanceClassName = 'TMultiDetailItemAppearance'
+      ItemEditAppearanceClassName = 'TMultiDetailDeleteAppearance'
+      HeaderAppearanceClassName = 'TCustomizeItemObjects'
+      FooterAppearanceClassName = 'TListHeaderObjects'
+      Images = dm.imgList
+      Align = Client
+      Margins.Top = 10.000000000000000000
+      Padding.Top = 10.000000000000000000
+      Size.Width = 220.000000000000000000
+      Size.Height = 435.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      ItemAppearance.HeaderHeight = 30
+      ItemAppearanceObjects.ItemObjects.Image.ScalingMode = Original
+      ItemAppearanceObjects.ItemObjects.Image.Width = 50.000000000000000000
+      ItemAppearanceObjects.ItemObjects.Image.Height = 50.000000000000000000
+      ItemAppearanceObjects.ItemObjects.Image.Visible = True
+      ItemAppearanceObjects.ItemObjects.Image.PlaceOffset.X = 5.000000000000000000
+      ItemAppearanceObjects.ItemObjects.MultiDetail1.Width = 110.000000000000000000
+      ItemAppearanceObjects.ItemObjects.MultiDetail1.PlaceOffset.X = 70.000000000000000000
+      ItemAppearanceObjects.ItemObjects.MultiDetail2.Width = 110.000000000000000000
+      ItemAppearanceObjects.ItemObjects.MultiDetail2.PlaceOffset.X = 70.000000000000000000
+      ItemAppearanceObjects.ItemObjects.MultiDetail3.Width = 110.000000000000000000
+      ItemAppearanceObjects.ItemObjects.MultiDetail3.PlaceOffset.X = 70.000000000000000000
+      ItemAppearanceObjects.ItemObjects.Accessory.Visible = False
+      ItemAppearanceObjects.HeaderObjects.Text.Height = 30.000000000000000000
+      ItemAppearanceObjects.FooterObjects.Text.Width = 200.000000000000000000
+      StyleLookup = 'lvAppointmentsStyle1'
+    end
+    object lytAppointment: TLayout
+      Align = MostTop
+      Size.Width = 220.000000000000000000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object lbAppointments: TLabel
+        Align = Client
+        StyledSettings = [FontColor]
+        Size.Width = 190.000000000000000000
+        Size.Height = 30.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Family = 'Segoe UI Variable Text'
+        TextSettings.Font.Size = 16.000000000000000000
+        TextSettings.Font.StyleExt = {00060000000000000004000000}
+        Text = 'Appointments'
+        TabOrder = 0
+      end
+      object btnCloseAppointment: TSpeedButton
+        Align = Right
+        Position.X = 190.000000000000000000
+        Size.Width = 30.000000000000000000
+        Size.Height = 30.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'cleareditbutton'
+        Text = 'SpeedButton1'
+        TextSettings.Trimming = None
+        OnClick = btnCloseAppointmentClick
+      end
+    end
+    object rNoRecords: TRectangle
+      Align = Client
+      Fill.Color = claDarkgray
+      Opacity = 0.200000002980232200
+      Margins.Top = 10.000000000000000000
+      Size.Width = 220.000000000000000000
+      Size.Height = 435.000000000000000000
+      Size.PlatformDefault = False
+      Visible = False
+    end
+    object lNoRecords: TLabel
+      Align = Client
+      StyledSettings = [FontColor]
+      Size.Width = 220.000000000000000000
+      Size.Height = 445.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Family = 'Segoe UI Variable Text'
+      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.HorzAlign = Center
+      Text = 'No records'
+      Visible = False
+      TabOrder = 4
+    end
+  end
+  object BindSourceDB1: TBindSourceDB
+    DataSet = dm.qDrawerAppointments
+    ScopeMappings = <>
+    Left = 400
+    Top = 240
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 148
+    Top = 141
+    object LinkFillControlToField1: TLinkFillControlToField
+      Category = 'Quick Bindings'
+      Control = lvAppointments
+      Track = True
+      FillDataSource = BindSourceDB1
+      FillDisplayFieldName = 'patient'
+      AutoFill = True
+      FillExpressions = <
+        item
+          SourceMemberName = 'appointment_title'
+          ControlMemberName = 'Detail1'
+        end
+        item
+          SourceMemberName = 'id'
+          ControlMemberName = 'ImageIndex'
+          CustomFormat = '47'
+        end
+        item
+          SourceMemberName = 'status'
+          ControlMemberName = 'Detail2'
+        end
+        item
+          SourceMemberName = 'start_time'
+          ControlMemberName = 'Detail3'
+        end>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
     end
   end
 end

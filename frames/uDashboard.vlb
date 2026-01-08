@@ -160,3 +160,6 @@ Coordinates=10,10,138,141
 [blTodaysAppointment]
 Coordinates=149,80,123,33
 
+[dm.qDrawerAppointments]
+Visible=False
+

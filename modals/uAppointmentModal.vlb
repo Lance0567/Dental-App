@@ -158,3 +158,6 @@ Coordinates=130,302,52,36
 [lDateW]
 Coordinates=570,234,57,58
 
+[dm.qDrawerAppointments]
+Visible=False
+

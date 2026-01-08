@@ -2,25 +2,25 @@
 Coordinates=1547,10,156,51
 
 [fDashboard.btnReportAnIssue]
-Coordinates=1124,1386,163,33
+Coordinates=1404,1404,163,33
 
 [fPatientModal.lytEmailAddress]
-Coordinates=799,1032,165,33
+Coordinates=887,1345,165,33
 
 [fUserModal.lRoleInput]
 Coordinates=1536,233,123,51
 
 [fDashboard.cIcon2]
-Coordinates=1897,955,107,33
+Coordinates=1807,1522,107,33
 
 [fUsers.lytComponents]
-Coordinates=983,955,124,33
+Coordinates=3162,1109,124,33
 
 [fUsers.lytSearch]
-Coordinates=1577,955,95,33
+Coordinates=1360,1286,95,33
 
 [fUsers.lytTitle]
-Coordinates=689,955,82,33
+Coordinates=699,1227,82,33
 
 [fAppointments.lytToolbarH]
 Coordinates=1230,986,147,33
@@ -32,10 +32,10 @@ Coordinates=1112,986,108,33
 Coordinates=827,233,149,51
 
 [fPatientModal.lNameH]
-Coordinates=357,416,123,51
+Coordinates=1653,434,123,51
 
 [fDashboard.lytTwoColumns]
-Coordinates=1264,1268,151,33
+Coordinates=3018,1050,151,33
 
 [fPatients.lytToolbarH]
 Coordinates=824,986,117,33
@@ -44,7 +44,7 @@ Coordinates=824,986,117,33
 Coordinates=707,477,149,51
 
 [fPatientModal.lytDetails3]
-Coordinates=2843,1150,136,33
+Coordinates=1175,1463,136,33
 
 [fUserModal.lytPhoneNumber]
 Coordinates=513,986,155,33
@@ -53,22 +53,23 @@ Coordinates=513,986,155,33
 Coordinates=412,986,91,33
 
 [tiUsers]
-Coordinates=1189,1268,49,33
+Coordinates=1337,1640,49,33
 
 [fDashboard.rCard1]
-Coordinates=627,1209,107,33
+Coordinates=3246,1522,107,33
+Visible=True
 
 [lbMainMenu]
-Coordinates=3154,647,73,51
+Coordinates=1374,896,73,51
 
 [fPatientModal.btnCancel]
-Coordinates=1443,1032,134,33
+Coordinates=2177,1345,134,33
 
 [fDashboard.rrUserImage]
 Coordinates=1745,943,135,33
 
 [fUsers]
-Coordinates=361,1858,46,33
+Coordinates=193,1699,46,33
 
 [fDashboard.lytBottom]
 Coordinates=1557,943,122,33
@@ -77,134 +78,135 @@ Coordinates=1557,943,122,33
 Coordinates=1427,943,120,33
 
 [fDashboard.rCard3]
-Coordinates=3123,1504,107,33
+Coordinates=1612,1758,107,33
+Visible=True
 
 [fAppointments.slUserName]
 Coordinates=1151,943,149,33
 
 [fAppointments.lytHeader]
-Coordinates=199,1858,136,33
+Coordinates=2176,1758,136,33
 
 [fDashboard.Label2]
 Coordinates=567,538,107,51
 
 [fDashboard.lytCardD4]
-Coordinates=551,1504,123,33
+Coordinates=1687,1463,123,33
 
 [fDashboard.lytTitle]
-Coordinates=1343,1091,107,33
+Coordinates=1845,1581,107,33
 
 [fPatientModal.cProfilePhoto]
-Coordinates=1663,1681,151,33
+Coordinates=2125,1168,151,33
 
 [fPatientModal.lGenderText]
 Coordinates=1726,294,144,51
 
 [fAppointments.lytTitle]
-Coordinates=2974,1504,123,33
+Coordinates=3142,1817,123,33
 
 [fPatientModal.eEmailAddress]
-Coordinates=3172,724,159,51
+Coordinates=1364,511,159,51
 
 [dm.qPatients]
 Coordinates=188,30,79,33
 Visible=False
 
 [fUsers.btnAddNewUser]
-Coordinates=631,1386,129,33
+Coordinates=2657,1581,129,33
 
 [fUsers.gIcon]
 Coordinates=1969,900,76,33
 
 [fDashboard.rQuickActions]
-Coordinates=167,1622,144,33
+Coordinates=1955,1168,144,33
 
 [fPatientModal.lbTitle]
-Coordinates=2576,801,115,51
+Coordinates=875,511,115,51
 
 [fDashboard.cIcon4]
-Coordinates=1603,1032,107,33
+Coordinates=566,1227,107,33
 
 [fUsers.lytUser]
 Coordinates=1325,900,84,33
 
 [fPatientModal.mMedicalNotes]
-Coordinates=1978,416,160,51
+Coordinates=2113,742,160,51
 
 [lbPopUp]
-Coordinates=1476,1091,56,33
+Coordinates=340,1050,56,33
 
 [fPatientModal.lytMedicalNotes]
-Coordinates=184,1917,163,33
+Coordinates=2911,1345,163,33
 
 [fPatientModal.lytFullName]
-Coordinates=2315,1268,143,33
+Coordinates=1026,1286,143,33
 
 [tiAppointments]
-Coordinates=143,1209,89,33
+Coordinates=3461,1286,89,33
 
 [fPatientModal.lbProfilePhoto]
-Coordinates=1319,416,155,51
+Coordinates=1341,434,155,51
 
 [fUsers.ScrollBox1]
-Coordinates=2782,955,103,33
+Coordinates=2603,1758,103,33
 
 [lytSidebar]
-Coordinates=627,1917,64,33
+Coordinates=2490,1286,64,33
 
 [sbMenu]
-Coordinates=2108,878,53,51
+Coordinates=3402,896,53,51
 
 [fAppointments.RoundRect1]
 Coordinates=147,900,150,33
 
 [fDashboard.cIcon3]
-Coordinates=557,1091,107,33
+Coordinates=10,1994,107,33
 
 [fUsers.eSearch]
-Coordinates=595,339,89,51
+Coordinates=2626,588,89,51
 
 [fDashboard.lbQuickActions]
-Coordinates=1933,878,149,51
+Coordinates=3056,819,149,51
 
 [fDashboard.lytCardD2]
-Coordinates=1990,1681,123,33
+Coordinates=438,1699,123,33
 
 [fPatientModal.lAgeCounter]
-Coordinates=423,339,146,51
+Coordinates=2040,321,146,51
 
 [fPatients.slUserName]
 Coordinates=1567,857,120,33
 
 [fPatientModal.lytButtonSaveH]
-Coordinates=184,1740,161,33
+Coordinates=2232,1522,161,33
 
 [fPatientModal.btnCameraClose]
-Coordinates=3283,570,166,51
+Coordinates=930,665,166,51
 
 [fPatientModal.lytPatientProfile]
-Coordinates=3058,1681,163,33
+Coordinates=174,1109,163,33
 
 [fPatientModal.btnUpload]
-Coordinates=2740,1681,135,33
+Coordinates=1337,1463,135,33
 
 [fPatientModal.ScrollBox1]
-Coordinates=763,1150,138,33
+Coordinates=1011,1463,138,33
 
 [fDashboard.Layout1]
 Coordinates=807,857,113,33
 
 [fDashboard.btnNewPatient]
-Coordinates=859,1445,145,33
+Coordinates=1956,1640,145,33
 
 [fUserProfile.lytDateOfBirth]
 Coordinates=497,857,145,33
 
 [fPatientModal.lytCameraOption]
-Coordinates=438,1386,167,33
+Coordinates=2626,1876,167,33
 
 [lDivider]
-Coordinates=1273,1681,52,33
+Coordinates=3293,973,52,33
 
 [fDashboard.gIcon]
 Coordinates=2092,814,101,33
@@ -222,49 +224,49 @@ Coordinates=1846,814,95,33
 Coordinates=1439,814,131,33
 
 [fPatientModal.eAddress]
-Coordinates=3357,724,131,51
+Coordinates=2365,511,131,51
 
 [fPatientModal.lbEmailAddress]
-Coordinates=1337,493,162,51
+Coordinates=311,742,162,51
 
 [fDashboard.slUserName]
 Coordinates=890,814,133,33
 
 [sbPatients]
-Coordinates=947,416,66,51
+Coordinates=2087,511,66,51
 
 [fPatientModal.lytClosebtn]
-Coordinates=3397,1386,140,33
+Coordinates=1412,1640,140,33
 
 [fUsers.gPatients]
 Coordinates=518,477,95,51
 
 [fPatientModal.lytDetails2]
-Coordinates=1578,1268,136,33
+Coordinates=2876,973,136,33
 
 [fPatientModal.cbCameraOption]
-Coordinates=2430,10,167,123
+Coordinates=3077,10,167,123
 
 [fPatientModal.eContactNumber]
-Coordinates=3287,339,167,51
+Coordinates=856,321,167,51
 
 [fPatientModal.lbContactNumber]
-Coordinates=10,493,171,51
+Coordinates=1890,511,171,51
 
 [fPatientModal.btnTakePicture]
-Coordinates=834,1799,159,33
+Coordinates=549,1817,159,33
 
 [fDashboard.FloatAnimation1]
 Coordinates=1869,1041,155,33
 
 [fPatientModal.lytContentH]
-Coordinates=2581,1622,143,33
+Coordinates=2138,1463,143,33
 
 [fUsers.rPatients]
 Coordinates=10,814,93,33
 
 [fUsers.lytHeader]
-Coordinates=2281,1681,96,33
+Coordinates=2173,1227,96,33
 
 [fUsers.lDate]
 Coordinates=623,477,74,51
@@ -273,107 +275,107 @@ Coordinates=623,477,74,51
 Coordinates=1910,771,102,33
 
 [fAppointments.rCalendar]
-Coordinates=1859,1622,137,33
+Coordinates=2458,1463,137,33
 
 [fUserProfile.lytEmail]
-Coordinates=1047,1858,115,33
+Coordinates=1506,1935,115,33
 
 [fDashboard.lbTitle]
-Coordinates=643,416,104,51
+Coordinates=1784,973,104,51
 
 [fPatientModal.lytGender]
-Coordinates=1538,1209,132,33
+Coordinates=662,1935,132,33
 
 [tiDashboard]
-Coordinates=373,1917,74,33
+Coordinates=3038,973,74,33
 
 [fAppointments.lbDescription]
-Coordinates=1671,416,155,51
+Coordinates=675,321,155,51
 
 [fDashboard.lbCompleted]
-Coordinates=2933,801,136,51
+Coordinates=1462,321,136,51
 
 [tcController]
-Coordinates=3298,1445,72,33
+Coordinates=2338,1758,72,33
 
 [gPopUp]
-Coordinates=1090,1091,53,33
+Coordinates=1928,1227,53,33
 
 [fPatientModal.eFullName]
-Coordinates=1239,339,136,51
+Coordinates=1719,588,136,51
 
 [fDashboard.rCard2]
-Coordinates=1275,1209,107,33
+Coordinates=1912,1758,107,33
 
 [fDashboard.lytCardD3]
-Coordinates=1362,1622,123,33
+Coordinates=1807,1817,123,33
 
 [fDashboard.lbTotalPatients]
-Coordinates=1036,878,148,51
+Coordinates=2884,321,148,51
 
 [FloatAnimation1]
 Coordinates=820,1143,95,33
 
 [fPatientModal.lbGender]
-Coordinates=1671,801,129,51
+Coordinates=1735,511,129,51
 
 [fDashboard.lytUser]
 Coordinates=630,771,109,33
 
 [fDashboard.lbAppointments]
-Coordinates=2782,570,152,51
+Coordinates=196,321,152,51
 
 [fPatientModal.rModalInfo]
-Coordinates=2465,955,137,33
+Coordinates=2066,1404,137,33
 
 [fDashboard.rCard4]
-Coordinates=2950,1799,107,33
+Coordinates=2367,1581,107,33
 
 [mvSidebar]
-Coordinates=106,1858,67,33
+Coordinates=844,1994,67,33
 Visible=True
 
 [fDashboard.lDate]
 Coordinates=2047,10,99,51
 
 [fPatientModal.btnSavePatient]
-Coordinates=1019,1563,159,33
+Coordinates=196,1817,159,33
 
 [sbAppointments]
-Coordinates=3395,493,95,51
+Coordinates=716,896,95,51
 
 [fUserModal.btnCreateUser]
 Coordinates=1884,728,144,33
 
 [fPatientModal.deDateOfBirth]
-Coordinates=1015,647,154,51
+Coordinates=3222,896,154,51
 
 [fPatientModal.gIcon]
-Coordinates=378,1799,112,33
+Coordinates=2900,1758,112,33
 
 [fPatientModal.lytContactNumber]
-Coordinates=1698,955,173,33
+Coordinates=10,1286,173,33
 
 [fDashboard.lytHeader]
-Coordinates=1354,1504,121,33
+Coordinates=10,1935,121,33
 
 [fDashboard.lbFullyPaidC]
 Coordinates=1131,477,136,51
 
 [fDashboard.lbNewAppointments]
-Coordinates=224,339,173,51
+Coordinates=825,588,173,51
 
 [fDashboard.gIcon4]
-Coordinates=2023,1268,107,33
+Coordinates=1170,1817,107,33
 
 [fDashboard.lbDescription]
-Coordinates=3006,724,140,51
+Coordinates=2704,511,140,51
 
 [fAppointments.tmsCalendar]
 Coordinates=879,728,152,33
 
 [fPatientModal.lytPatientDetails]
-Coordinates=3433,1327,164,33
+Coordinates=2560,973,164,33
 
 [fPatientModal.imgProfilePhoto]
 Coordinates=1137,294,164,51
@@ -382,10 +384,10 @@ Coordinates=1137,294,164,51
 Coordinates=589,728,106,33
 
 [fPatientModal.lytPaintBox]
-Coordinates=331,1327,141,33
+Coordinates=1745,1758,141,33
 
 [fAppointments.lytBottom]
-Coordinates=1665,1386,137,33
+Coordinates=1828,1935,137,33
 
 [fUserModal.lStatusInput]
 Coordinates=266,294,132,51
@@ -394,35 +396,35 @@ Coordinates=266,294,132,51
 Coordinates=900,10,152,51
 
 [fPatientModal.lytDateOfBirth]
-Coordinates=167,1032,154,33
+Coordinates=2102,1876,154,33
 
 [fDashboard.FloatAnimation2]
 Coordinates=2074,937,155,33
 
 [fUsers.lytBottom]
-Coordinates=724,1563,97,33
+Coordinates=1138,1050,97,33
 
 [fDashboard.gIcon1]
-Coordinates=817,1622,107,33
+Coordinates=685,1168,107,33
 
 [fUserProfile.lbDescription]
 Coordinates=1101,233,141,51
 
 [fPatientModal.btnClose]
-Coordinates=1013,570,128,51
+Coordinates=247,588,128,51
 
 [dm.qUsers]
 Coordinates=100,10,67,33
 Visible=False
 
 [fUserProfile.lEmail]
-Coordinates=149,724,105,51
+Coordinates=1522,434,105,51
 
 [fUserModal.lTag]
 Coordinates=732,416,94,51
 
 [fDashboard.gIcon2]
-Coordinates=10,1209,107,33
+Coordinates=3100,1345,107,33
 
 [fPatients.lDate]
 Coordinates=266,355,85,51
@@ -434,94 +436,94 @@ Coordinates=2285,1,164,33
 Coordinates=1705,685,109,33
 
 [lytContainer]
-Coordinates=10,1504,74,33
+Coordinates=1545,1345,74,33
 
 [fDashboard.lytRecords]
-Coordinates=1624,1445,127,33
+Coordinates=1606,1109,127,33
 
 [fAppointments.lbTitle]
-Coordinates=453,724,120,51
+Coordinates=2918,896,120,51
 
 [fDashboard]
-Coordinates=3417,1268,71,33
+Coordinates=235,1522,71,33
 
 [fDashboard.gPatients]
 Coordinates=10,355,120,51
 
 [fUserProfile.eEmail]
-Coordinates=3253,647,108,51
+Coordinates=2489,742,108,51
 
 [tiUserProfile]
-Coordinates=1325,1445,75,33
+Coordinates=332,1522,75,33
 
 [fDashboard.btnNewAppointment]
-Coordinates=3006,1563,175,33
+Coordinates=3119,1463,175,33
 
 [fPatientModal.lCamera]
-Coordinates=487,647,125,51
+Coordinates=931,819,125,51
 
 [fDashboard.rToolbar]
 Coordinates=477,685,116,33
 
 [tiPatients]
-Coordinates=1558,1091,60,33
+Coordinates=940,1286,60,33
 
 [fPatientModal.lbDateOfBirth]
-Coordinates=2405,339,151,51
+Coordinates=698,511,151,51
 
 [fDashboard.gIcon3]
-Coordinates=3396,1445,107,33
+Coordinates=1450,1050,107,33
 
 [fUserModal.Layout1]
 Coordinates=2076,642,112,33
 
 [fPatientModal.lDateText]
-Coordinates=2960,570,131,51
+Coordinates=1587,819,131,51
 
 [lytPopUpBottom]
-Coordinates=2171,1858,95,33
+Coordinates=1314,1581,95,33
 
 [fAppointments.gIcon]
 Coordinates=1844,642,117,33
 
 [fUsers.lytButtonH]
-Coordinates=2931,1858,101,33
+Coordinates=2819,1876,101,33
 
 [fDashboard.cIcon1]
-Coordinates=305,1386,107,33
+Coordinates=2986,1463,107,33
 
 [fPatientModal.lbFullName]
-Coordinates=3117,570,140,51
+Coordinates=1049,321,140,51
 
 [lytPopUpMessage]
-Coordinates=896,1268,103,33
+Coordinates=2499,1404,103,33
 
 [fPatientModal.sdSavePicture]
 Coordinates=2285,261,155,33
 
 [fPatientModal.lytImgTools]
-Coordinates=2612,1504,142,33
+Coordinates=2732,1758,142,33
 
 [Timer1]
 Coordinates=0,1110,48,33
 
 [fPatientModal.lytTitle]
-Coordinates=1334,1799,117,33
+Coordinates=2446,1640,117,33
 
 [fPatientModal.lbMedicalNotes]
-Coordinates=1485,801,160,51
+Coordinates=349,896,160,51
 
 [fDashboard.ScrollBox1]
-Coordinates=501,1740,128,33
+Coordinates=1802,1640,128,33
 
 [fPatientModal.lytPatientH]
-Coordinates=2767,1858,138,33
+Coordinates=1724,1876,138,33
 
 [lytContent]
-Coordinates=3306,1386,65,33
+Coordinates=1660,1286,65,33
 
 [fUsers.lbDescription]
-Coordinates=627,878,115,51
+Coordinates=1321,321,115,51
 
 [fAppointments.lytUser]
 Coordinates=111,642,124,33
@@ -530,22 +532,22 @@ Coordinates=111,642,124,33
 Coordinates=10,642,91,33
 
 [fPatientModal.lbAddress]
-Coordinates=1359,570,135,51
+Coordinates=2461,434,135,51
 
 [fPatientModal.imgPhoto]
-Coordinates=10,647,132,51
+Coordinates=389,434,132,51
 
 [fPatientModal.btnSaveCurrentImage]
-Coordinates=3374,1799,191,33
+Coordinates=1028,1699,191,33
 
 [fPatientModal.btnCamera]
-Coordinates=2437,1563,138,33
+Coordinates=10,1109,138,33
 
 [fPatientModal.lytAddress]
-Coordinates=2122,1150,137,33
+Coordinates=980,1581,137,33
 
 [fDashboard.lbTodayAppointments]
-Coordinates=1063,724,183,51
+Coordinates=1831,321,183,51
 
 [fDashboard.lBevel]
 Coordinates=1251,599,104,33
@@ -554,46 +556,47 @@ Coordinates=1251,599,104,33
 Coordinates=1036,599,79,33
 
 [fPatientModal.lytDetails1]
-Coordinates=921,1917,136,33
+Coordinates=659,1286,136,33
 
 [fDashboard.glytCards]
-Coordinates=2835,1091,121,33
+Coordinates=2858,1817,121,33
+Visible=True
 
 [fPatients.gIcon]
 Coordinates=661,599,88,33
 
 [fPatientModal.rBackground]
-Coordinates=10,1917,148,33
+Coordinates=3357,1050,148,33
 
 [sbDashboard]
-Coordinates=1210,878,80,51
+Coordinates=1215,321,80,51
 
 [fPatientModal.lTag]
-Coordinates=1520,570,105,51
+Coordinates=2618,896,105,51
 
 [rPopUp]
-Coordinates=3256,1504,51,33
+Coordinates=903,1581,51,33
 
 [fPatientModal.rImageFrame]
 Coordinates=2070,538,149,33
 
 [fPatientModal.cbGender]
-Coordinates=2765,10,132,123
+Coordinates=2784,10,132,123
 
 [lytMenuH]
-Coordinates=10,1445,60,33
+Coordinates=1435,1581,60,33
 
 [fAppointments]
-Coordinates=3005,1150,86,33
+Coordinates=3390,1345,86,33
 
 [sbUsers]
-Coordinates=2721,339,54,51
+Coordinates=566,973,54,51
 
 [fUsers.lbTitle]
-Coordinates=3095,801,79,51
+Coordinates=694,434,79,51
 
 [fPatientModal.rCameralModal]
-Coordinates=425,1445,159,33
+Coordinates=500,1404,159,33
 
 [fDashboard.rUrgentContracts]
 Coordinates=1190,538,159,33
@@ -602,16 +605,16 @@ Coordinates=1190,538,159,33
 Coordinates=1059,538,121,33
 
 [fPatientModal]
-Coordinates=2249,1032,81,33
+Coordinates=2589,1640,81,33
 
 [fDashboard.FloatAnimation3]
 Coordinates=43,1268,155,33
 
 [dm.qTemp]
-Coordinates=1688,878,66,51
+Coordinates=733,588,66,51
 
 [fDashboard.lbTodaysAppointmentC]
-Coordinates=2717,801,190,51
+Coordinates=799,434,190,51
 
 [fPatientModal.GlowEffect1]
 Coordinates=2212,211,144,33
@@ -620,7 +623,7 @@ Coordinates=2212,211,144,33
 Coordinates=2235,383,112,33
 
 [fPatientModal.gFullName]
-Coordinates=1970,1740,137,33
+Coordinates=563,1522,137,33
 
 [fDashboard.PopupMenu1]
 Coordinates=2212,435,139,33
@@ -632,46 +635,46 @@ Coordinates=2106,651,168,33
 Coordinates=2257,539,155,33
 
 [fDashboard.lytCardD1]
-Coordinates=3243,955,123,33
+Coordinates=1457,1109,123,33
 
 [fPatientModal.lPreviewImage]
-Coordinates=532,570,156,51
+Coordinates=749,819,156,51
 
 [fDashboard.MenuItem2]
 Coordinates=2312,643,128,33
 
 [fDashboard.lbCompletedC]
-Coordinates=1167,493,144,51
+Coordinates=2689,665,144,51
 
 [fPatientModal.lContactNumberW]
-Coordinates=1285,801,174,51
+Coordinates=1011,896,174,51
 
 [fDashboard.MenuItem1]
 Coordinates=2312,747,128,33
 
 [fPatientModal.PathLabel1]
-Coordinates=1736,339,139,51
+Coordinates=2605,819,139,51
 
 [fDashboard.mvPopUp]
 Coordinates=2293,885,122,33
 
 [fUsers.gUsers]
-Coordinates=192,73,84,177
+Coordinates=987,19,84,177
 
 [fDashboard.gTodaysAppointment]
-Coordinates=1366,28,180,123
+Coordinates=1713,19,180,123
 
 [fPatientModal.crContactNumber]
-Coordinates=3058,1327,171,33
+Coordinates=419,1640,171,33
 
 [fPatientModal.lFullNameW]
-Coordinates=3252,878,143,51
+Coordinates=1326,973,143,51
 
 [fDashboard.rTodaysAppointment]
-Coordinates=3292,1209,178,33
+Coordinates=2722,1522,178,33
 
 [fDashboard.lbNewAppointmentsC]
-Coordinates=2801,339,181,51
+Coordinates=1624,321,181,51
 
 [fDashboard.rPopUp]
 Coordinates=2487,521,111,33
@@ -687,13 +690,13 @@ Visible=False
 Coordinates=2610,781,158,33
 
 [fDashboard.lbTotalPatientsC]
-Coordinates=1652,724,155,51
+Coordinates=1744,819,155,51
 
 [fUserModal.lCameraDesc]
 Coordinates=1925,150,138,51
 
 [fPatientModal.gContactNumber]
-Coordinates=2780,1504,168,33
+Coordinates=2637,1168,168,33
 
 [ShadowEffect1]
 Coordinates=1018,80,88,33
@@ -702,10 +705,10 @@ Coordinates=1018,80,88,33
 Coordinates=2591,971,121,33
 
 [fPatientModal.crFullName]
-Coordinates=3077,955,140,33
+Coordinates=2007,1227,140,33
 
 [fAppointments.gAppointment]
-Coordinates=565,46,159,177
+Coordinates=620,19,159,177
 
 [fPatients.rPopUp]
 Coordinates=1339,80,97,33
@@ -732,284 +735,284 @@ Coordinates=2432,971,154,33
 Coordinates=2806,313,141,33
 
 [dm.qPatientSelection]
-Coordinates=3109,10,119,69
+Coordinates=2770,819,119,51
 
 [dm.qTodaysAppointment]
 Visible=False
 Coordinates=880,1632,138,33
 
 [fUserProfile.gSecurityPassword]
-Coordinates=1386,1150,171,33
+Coordinates=2713,1227,171,33
 
 [fUserProfile.tiSettings]
-Coordinates=1667,1740,122,33
+Coordinates=2910,1227,122,33
 
 [fUserProfile.lEmailH]
-Coordinates=2322,416,113,51
+Coordinates=480,665,113,51
 
 [fUserDetails.cLastLogin]
-Coordinates=10,1091,132,33
+Coordinates=3122,1581,132,33
 
 [fUserDetails.lytDepartment]
-Coordinates=1495,1740,146,33
+Coordinates=809,1522,146,33
 
 [fUserProfile.rRole]
-Coordinates=2133,1740,101,33
+Coordinates=1330,1109,101,33
 
 [fUserModal.lPassword]
-Coordinates=477,878,124,51
+Coordinates=10,742,124,51
 
 [fUserModal.lProfilePhoto]
-Coordinates=145,570,137,51
+Coordinates=1811,742,137,51
 
 [fUserProfile.btnSaveProfile]
-Coordinates=370,1150,147,33
+Coordinates=3291,1817,147,33
 
 [fUpdateProfilePhoto.lytPaintBox]
-Coordinates=1983,1386,173,33
+Coordinates=3280,1581,173,33
 
 [fUserProfile.lBio]
-Coordinates=1039,416,95,51
+Coordinates=359,665,95,51
 
 [fUserModal.lPasswordW]
-Coordinates=2702,647,134,51
+Coordinates=2623,742,134,51
 
 [fUserModal.ShadowEffect2]
 Coordinates=2490,313,147,33
 
 [fPatients.lbTitle]
-Coordinates=3170,339,91,51
+Coordinates=813,665,91,51
 
 [fUpdateProfilePhoto.lytPhotoButtonH]
-Coordinates=3264,1032,198,33
+Coordinates=1578,1640,198,33
 
 [fUserDetails.lytHireDate]
-Coordinates=10,1622,131,33
+Coordinates=1077,1404,131,33
 
 [fUserModal.eContactNumber]
-Coordinates=1525,493,156,51
+Coordinates=2522,511,156,51
 
 [fDashboard.bsdbTodaysAppointment]
-Coordinates=1088,10,198,159
+Coordinates=1435,10,198,141
 
 [fUserModal.gNewPassword]
-Coordinates=2484,1268,149,33
+Coordinates=902,1404,149,33
 
 [fUserProfile.lytMyAccount]
-Coordinates=269,1268,143,33
+Coordinates=3374,1758,143,33
 
 [fPatients.lytBottom]
-Coordinates=1139,1681,108,33
+Coordinates=1593,1404,108,33
 
 [fUserProfile.lPhoneNumberW]
-Coordinates=2168,647,158,51
+Coordinates=1122,665,158,51
 
 [fPatientModal.rDeleteModal]
-Coordinates=1684,1622,149,33
+Coordinates=2282,1876,149,33
 
 [fPatientModal.ShadowEffect3]
 Coordinates=2490,851,158,33
 
 [fUserDetails.rRoleH]
-Coordinates=168,1386,111,33
+Coordinates=1078,1345,111,33
 
 [fUserModal.crEmailAddress]
-Coordinates=2667,1445,151,33
+Coordinates=2094,1109,151,33
 
 [fUserDetails.gReceptionist]
-Coordinates=3450,1681,145,33
+Coordinates=3075,1522,145,33
 
 [fUpdateProfilePhoto.lPreviewImage]
-Coordinates=2635,724,188,51
+Coordinates=1331,588,188,51
 
 [fPatients.lytComponents]
-Coordinates=108,1268,135,33
+Coordinates=2290,1699,135,33
 
 [fUserDetails.cHireDate]
-Coordinates=809,1327,125,33
+Coordinates=3379,1522,125,33
 
 [fUserModal.lytTitle]
-Coordinates=3086,1622,106,33
+Coordinates=569,1109,106,33
 
 [fUserProfile.ePhoneNumber]
-Coordinates=886,724,151,51
+Coordinates=2186,588,151,51
 
 [fAppointments.ShadowEffect1]
 Coordinates=2490,955,163,33
 
 [fUserModal.lytConfirmNewPassword]
-Coordinates=700,1504,194,33
+Coordinates=1551,1227,194,33
 
 [fUserDetails.lNameH]
-Coordinates=2862,647,115,51
+Coordinates=646,973,115,51
 
 [fUserModal.cbCameraOption]
-Coordinates=2248,10,156,123
+Coordinates=2277,10,156,123
 
 [fDashboard.ShadowEffect2]
 Coordinates=2490,1059,148,33
 
 [fUserProfile.tcController]
-Coordinates=3163,1091,133,33
+Coordinates=3317,1168,133,33
 
 [fUserProfile]
-Coordinates=10,1268,72,33
+Coordinates=2452,1050,72,33
 
 [fContactInfo.lFrnacis]
-Coordinates=1509,724,117,51
+Coordinates=3245,742,117,51
 
 [fUserModal.lRole]
-Coordinates=1161,801,98,51
+Coordinates=2502,588,98,51
 
 [fUserProfile.sbSettings]
-Coordinates=1833,724,128,51
+Coordinates=521,321,128,51
 
 [fPatients.fToolbar]
-Coordinates=807,1681,101,33
+Coordinates=2105,1522,101,33
 
 [fDashboard.blTodaysAppointment]
 Coordinates=2707,1,183,33
 
 [fUserModal.eUsername]
-Coordinates=2482,493,128,51
+Coordinates=147,511,128,51
 
 [fUserModal.btnClose]
-Coordinates=2985,493,117,51
+Coordinates=980,742,117,51
 
 [fPatients.lytSearch]
-Coordinates=1503,1563,107,33
+Coordinates=2366,1404,107,33
 
 [fUserModal.ShadowEffect8]
 Coordinates=2490,1163,147,33
 
 [fUserProfile.gRoleIcon]
-Coordinates=10,1327,125,33
+Coordinates=967,1758,125,33
 
 [fUserModal.lStatus]
-Coordinates=753,724,107,51
+Coordinates=2869,588,107,51
 
 [fUserDetails.cProfilePhoto]
-Coordinates=2022,1622,144,33
+Coordinates=1234,1404,144,33
 
 [fUserDetails.Line2]
-Coordinates=371,1740,104,33
+Coordinates=3172,1286,104,33
 
 [fUserDetails.lytContactTitle]
-Coordinates=1960,1091,148,33
+Coordinates=713,1345,148,33
 
 [fContactInfo.btnClose]
-Coordinates=1092,339,121,51
+Coordinates=374,321,121,51
 
 [fDashboard.lNoRecords]
-Coordinates=2303,724,132,51
+Coordinates=2531,665,132,51
 
 [fUserModal.ePassword]
-Coordinates=3377,801,127,51
+Coordinates=2033,588,127,51
 
 [fUserModal.lytImgTools]
-Coordinates=347,1032,131,33
+Coordinates=3233,1345,131,33
 
 [fUserDetails.btnDelete]
-Coordinates=1495,1327,124,33
+Coordinates=2993,1168,124,33
 
 [fUserModal.gConfirmNewPassword]
-Coordinates=413,1209,188,33
+Coordinates=1888,1876,188,33
 
 [fUserModal.lytButtonSaveH]
-Coordinates=2270,1504,149,33
+Coordinates=2315,1286,149,33
 
 [fUserDetails.Line1]
-Coordinates=1865,1799,104,33
+Coordinates=587,1699,104,33
 
 [fUserProfile.gUsername]
-Coordinates=2423,1740,131,33
+Coordinates=2500,1581,131,33
 
 [fUserDetails.lDeleteDesc]
-Coordinates=196,416,135,51
+Coordinates=1983,434,135,51
 
 [fPatientModal.btnDeletePatient]
-Coordinates=2330,1445,165,33
+Coordinates=499,1994,165,33
 
 [fUpdateProfilePhoto.lytImgTools]
-Coordinates=1240,1917,174,33
+Coordinates=1013,1876,174,33
 
 [fUserModal.eConfirmNewPassword]
-Coordinates=10,339,188,51
+Coordinates=1112,973,188,51
 
 [fUserProfile.crEmail]
-Coordinates=1740,1268,112,33
+Coordinates=143,1758,112,33
 
 [fUserProfile.lytButton]
-Coordinates=2521,1445,120,33
+Coordinates=1907,1050,120,33
 
 [fUserModal.gContactNumber]
-Coordinates=1771,1327,156,33
+Coordinates=981,1522,156,33
 
 [fPatients.gPatients]
-Coordinates=955,46,107,159
+Coordinates=1302,19,107,159
 
 [fUpdateProfilePhoto.btnPhotoUpload]
-Coordinates=2784,1563,196,33
+Coordinates=1329,1227,196,33
 
 [fContactInfo.lytContentH]
-Coordinates=1204,1563,136,33
+Coordinates=3195,1050,136,33
 
 [fUserModal.lytRoleAndAccessH]
-Coordinates=2384,1622,171,33
+Coordinates=3038,1758,171,33
 
 [fUserModal.cProfilePhoto]
-Coordinates=2519,1150,140,33
+Coordinates=862,1699,140,33
 
 [fUserProfile.lytHeader2]
-Coordinates=2628,955,128,33
+Coordinates=3164,1699,128,33
 
 [fUserDetails.cPhone]
-Coordinates=3166,1386,114,33
+Coordinates=209,1286,114,33
 
 [fUserModal.lbFullName]
-Coordinates=2964,416,128,51
+Coordinates=2622,434,128,51
 
 [fUserModal.btnChangePassword]
-Coordinates=2331,1327,175,33
+Coordinates=616,1640,175,33
 
 [fUserProfile.crUsername]
-Coordinates=1887,1504,135,33
+Coordinates=1905,1404,135,33
 
 [fUserProfile.ScrollBox1]
-Coordinates=2282,1563,129,33
+Coordinates=205,1168,129,33
 
 [fPatientModal.btnDelete]
-Coordinates=1313,1386,131,33
+Coordinates=330,1935,131,33
 
 [fAppointments.cbWeek]
-Coordinates=3514,1268,128,33
+Coordinates=3086,1640,128,33
 
 [fPatientModal.lDeleteDesc]
-Coordinates=2392,570,143,51
+Coordinates=2749,896,143,51
 
 [fUserProfile.crPhoneNumber]
-Coordinates=2769,1799,155,33
+Coordinates=1628,1168,155,33
 
 [fUserModal.gIcon]
-Coordinates=921,1858,100,33
+Coordinates=10,1581,100,33
 
 [fUserModal.lytEmailAddress]
-Coordinates=10,1150,153,33
+Coordinates=1481,1286,153,33
 
 [fUserModal.lytCameraOption]
-Coordinates=2881,1032,156,33
+Coordinates=10,1463,156,33
 
 [fUserModal.lytPhotoButton]
-Coordinates=477,1622,147,33
+Coordinates=157,1935,147,33
 
 [fUserModal]
-Coordinates=10,1858,70,33
+Coordinates=2117,1581,70,33
 
 [fUserModal.lUserName]
-Coordinates=2239,570,127,51
+Coordinates=10,665,127,51
 
 [fUserModal.lDepartment]
-Coordinates=1160,416,133,51
+Coordinates=1271,819,133,51
 
 [fUserModal.ShadowEffect1]
 Coordinates=2806,573,147,33
@@ -1018,19 +1021,19 @@ Coordinates=2806,573,147,33
 Coordinates=2806,625,149,33
 
 [fUpdateProfilePhoto.gIcon]
-Coordinates=2599,1799,144,33
+Coordinates=1583,1050,144,33
 
 [fUpdateProfilePhoto.rModalInfo]
-Coordinates=1470,1386,169,33
+Coordinates=10,1168,169,33
 
 [fContactInfo.lytTitle]
-Coordinates=2328,955,111,33
+Coordinates=2419,1522,111,33
 
 [fUserDetails.btnEdit]
-Coordinates=586,1563,112,33
+Coordinates=118,1640,112,33
 
 [fPatientModal.btnDeleteClose]
-Coordinates=2346,878,159,51
+Coordinates=2870,511,159,51
 
 [fUserProfile.ShadowEffect3]
 Coordinates=2806,729,149,33
@@ -1039,148 +1042,148 @@ Coordinates=2806,729,149,33
 Coordinates=2806,781,148,33
 
 [fUserModal.gUsername]
-Coordinates=1815,1740,129,33
+Coordinates=2189,1935,129,33
 
 [fUserDetails.slRole]
-Coordinates=498,1327,108,33
+Coordinates=2503,1168,108,33
 
 [fUserModal.lytContactNumber]
-Coordinates=438,1268,162,33
+Coordinates=2525,1227,162,33
 
 [fUserDetails.lytBottom]
-Coordinates=2365,1799,125,33
+Coordinates=1178,1227,125,33
 
 [fUserProfile.gUserPhoto]
-Coordinates=2844,1386,133,33
+Coordinates=3302,1286,133,33
 
 [fUserDetails.lytWorkInfo2]
-Coordinates=1700,1799,139,33
+Coordinates=1195,1286,139,33
 
 [fDashboard.rNoRecords]
-Coordinates=1963,1150,133,33
+Coordinates=1118,1758,133,33
 
 [fUserDetails.lytContactInfoH]
-Coordinates=1657,1917,153,33
+Coordinates=2621,1463,153,33
 
 [fUserDetails.lytTitle]
-Coordinates=3103,1740,110,33
+Coordinates=183,1404,110,33
 
 [fUserProfile.lytNewPassword]
-Coordinates=1887,1209,157,33
+Coordinates=1445,1168,157,33
 
 [fUserDetails.lWorkInfo]
-Coordinates=3276,416,124,51
+Coordinates=1635,896,124,51
 
 [fUserProfile.lytDetails2]
-Coordinates=3401,1563,127,33
+Coordinates=413,1227,127,33
 
 [fPatients.ScrollBox1]
-Coordinates=337,1622,114,33
+Coordinates=2946,1876,114,33
 
 [fPatientModal.lytDeleteButtonH]
-Coordinates=3207,1563,168,33
+Coordinates=3381,1640,168,33
 
 [fUserModal.btnSaveCurrentImage]
-Coordinates=3086,1209,180,33
+Coordinates=363,1109,180,33
 
 [fUserProfile.eConfirmNewPassword]
-Coordinates=770,493,190,51
+Coordinates=2776,434,190,51
 
 [fUserDetails.rDeleteBackground]
-Coordinates=1426,1445,172,33
+Coordinates=1277,1758,172,33
 
 [fUserDetails.slDepartment]
-Coordinates=1501,1504,143,33
+Coordinates=2457,1876,143,33
 
 [fUserModal.lytRole]
-Coordinates=418,1504,107,33
+Coordinates=10,1758,107,33
 
 [fContactInfo.lNumber2]
-Coordinates=2017,647,125,51
+Coordinates=1955,896,125,51
 
 [fUserDetails.lytWorkInfo1]
-Coordinates=504,1032,139,33
+Coordinates=1940,1522,139,33
 
 [fUserProfile.btnChangePassword]
-Coordinates=717,1917,178,33
+Coordinates=1287,1994,178,33
 
 [fUserModal.lContactNumberW]
-Coordinates=2114,724,163,51
+Coordinates=1082,819,163,51
 
 [fPatientModal.lDateOfBirth]
-Coordinates=1500,416,145,51
+Coordinates=1193,511,145,51
 
 [fPatientModal.ShadowEffect4]
 Coordinates=2854,1371,158,33
 
 [fPatients.lytButtonH]
-Coordinates=786,1386,113,33
+Coordinates=2127,1640,113,33
 
 [fUpdateProfilePhoto.lytCameraOption]
-Coordinates=1777,1445,199,33
+Coordinates=10,1522,199,33
 
 [fAppointments.cbMonth]
-Coordinates=2685,1150,132,33
+Coordinates=855,1876,132,33
 
 [fUserModal.lytPhotoButtonH]
-Coordinates=1995,1799,155,33
+Coordinates=2696,1640,155,33
 
 [fUserProfile.lytBio]
-Coordinates=1265,1740,104,33
+Coordinates=1971,1699,104,33
 
 [fUserModal.lEmailAddress]
-Coordinates=2069,570,144,51
+Coordinates=1015,434,144,51
 
 [fUserModal.lytPassword]
-Coordinates=2840,1268,133,33
+Coordinates=1128,1994,133,33
 
 [fUserDetails.rModalInfo]
-Coordinates=258,1209,129,33
+Coordinates=3138,973,129,33
 
 [fUserProfile.rSecuritySettings]
-Coordinates=1240,955,160,33
+Coordinates=2800,1463,160,33
 
 [fUserModal.btnEye3]
-Coordinates=1878,647,113,51
+Coordinates=1974,742,113,51
 
 [fUserProfile.eFullName]
-Coordinates=1780,878,127,51
+Coordinates=3123,434,127,51
 
 [fUserProfile.ShadowEffect5]
 Coordinates=3116,209,149,33
 
 [fUpdateProfilePhoto.lytPhotoButton]
-Coordinates=1440,1917,191,33
+Coordinates=2053,1050,191,33
 
 [fUserDetails.lStatus]
-Coordinates=899,878,111,51
+Coordinates=10,511,111,51
 
 [fUserModal.lytNewPassword]
-Coordinates=189,1150,155,33
+Coordinates=2737,1286,155,33
 
 [fUserDetails]
-Coordinates=3083,1799,74,33
+Coordinates=2271,1109,74,33
 
 [ShadowEffect2]
 Coordinates=1329,303,88,33
 
 [fUserModal.btnEye2]
-Coordinates=10,724,113,51
+Coordinates=2783,742,113,51
 
 [fUpdateProfilePhoto.btnCamera]
-Coordinates=1583,1150,170,33
+Coordinates=2092,973,170,33
 
 [fUserModal.ccCapturePhoto]
 Coordinates=3203,261,152,33
 
 [fUserModal.lytClosebtn]
-Coordinates=1495,1858,129,33
+Coordinates=2550,1050,129,33
 
 [fUserModal.ShadowEffect10]
 Coordinates=3203,313,152,33
 
 [fUserModal.eNewPassword]
-Coordinates=2461,724,148,51
+Coordinates=1659,665,148,51
 
 [fPatients.blPatients]
 Coordinates=1913,1464,109,33
@@ -1189,106 +1192,106 @@ Coordinates=1913,1464,109,33
 Coordinates=3116,469,149,33
 
 [fUserModal.imgPhoto]
-Coordinates=207,493,120,51
+Coordinates=3276,434,120,51
 
 [fUserProfile.lbCurrentPassowrd]
-Coordinates=1682,647,170,51
+Coordinates=1479,742,170,51
 
 [fUserProfile.sbProfile]
-Coordinates=1401,339,119,51
+Coordinates=1639,973,119,51
 
 [fUserProfile.lytCurrentPassword]
-Coordinates=3218,1622,173,33
+Coordinates=3315,1404,173,33
 
 [fUserModal.gFullName]
-Coordinates=1094,1150,125,33
+Coordinates=1943,1109,125,33
 
 [fPatientModal.btnDeleteCancel]
-Coordinates=1118,1327,165,33
+Coordinates=2124,1286,165,33
 
 [fUserDetails.lytPhone]
-Coordinates=990,1032,120,33
+Coordinates=2765,1345,120,33
 
 [fUserProfile.lytContent]
-Coordinates=2248,1209,126,33
+Coordinates=1011,1935,126,33
 
 [fPatientModal.lytDeleteInfo]
-Coordinates=847,1563,146,33
+Coordinates=974,1640,146,33
 
 [fUserDetails.lName]
-Coordinates=3426,416,108,51
+Coordinates=306,973,108,51
 
 [fUserModal.sdSavePicture]
 Coordinates=1506,1464,144,33
 
 [fUserProfile.lTitle2]
-Coordinates=1195,647,105,51
+Coordinates=10,973,105,51
 
 [fUpdateProfilePhoto.lNameH]
-Coordinates=986,493,155,51
+Coordinates=535,896,155,51
 
 [fUserModal.lytPaintBox]
-Coordinates=1828,1386,129,33
+Coordinates=1956,1817,129,33
 
 [fUserDetails.rDeleteModal]
-Coordinates=1828,1858,141,33
+Coordinates=2436,1758,141,33
 
 [fUserProfile.gPersonalInfo]
-Coordinates=161,1327,144,33
+Coordinates=663,1463,144,33
 
 [fUserDetails.lytDetailH]
-Coordinates=1840,1681,124,33
+Coordinates=877,1817,124,33
 
 [fUserProfile.lRole]
-Coordinates=511,493,100,51
+Coordinates=440,973,100,51
 
 [fUserModal.ShadowEffect3]
 Coordinates=3116,833,147,33
 
 [fUserProfile.lytHeader]
-Coordinates=438,1563,122,33
+Coordinates=10,1876,122,33
 
 [fUserProfile.lytRole]
-Coordinates=1940,1032,109,33
+Coordinates=1589,1876,109,33
 
 [fUserProfile.gPhoneNumber]
-Coordinates=3255,1327,152,33
+Coordinates=464,1758,152,33
 
 [fPatients.lbDescription]
-Coordinates=2917,878,126,51
+Coordinates=1881,588,126,51
 
 [fUserProfile.gCamera]
-Coordinates=1180,1445,119,33
+Coordinates=2873,1050,119,33
 
 [fPatients.eSearch]
-Coordinates=1852,416,100,51
+Coordinates=2758,321,100,51
 
 [fUserModal.eEmailAddress]
-Coordinates=280,724,147,51
+Coordinates=3306,588,147,51
 
 [fDashboard.ShadowEffect5]
 Coordinates=3116,885,148,33
 
 [fUserDetails.gContactInfo]
-Coordinates=2288,1091,140,33
+Coordinates=2556,1522,140,33
 
 [fPatients.lytHeader]
-Coordinates=2844,1445,107,33
+Coordinates=756,1050,107,33
 
 [fAppointments.lytDateButtons]
-Coordinates=1086,1209,163,33
+Coordinates=2101,1699,163,33
 
 [fUserModal.lytDetails1]
-Coordinates=1030,1445,124,33
+Coordinates=606,1050,124,33
 
 [fUserModal.ShadowEffect7]
 Coordinates=3116,937,147,33
 
 [fUserModal.crNewPassword]
-Coordinates=2070,1209,152,33
+Coordinates=1914,973,152,33
 
 [fUserModal.gEmailAddress]
-Coordinates=10,1740,148,33
+Coordinates=2948,1581,148,33
 
 [fDashboard.ShadowEffect1]
 Coordinates=3116,1041,148,33
@@ -1297,478 +1300,478 @@ Coordinates=3116,1041,148,33
 Coordinates=3208,573,158,33
 
 [fUserModal.btnCancel]
-Coordinates=2292,1858,123,33
+Coordinates=2926,1522,123,33
 
 [fUserDetails.lytContentH]
-Coordinates=3117,1150,135,33
+Coordinates=1303,1817,135,33
 
 [fAppointments.cbDay]
-Coordinates=3058,1858,120,33
+Coordinates=1809,1168,120,33
 
 [fUserDetails.gPhone]
-Coordinates=3118,1268,115,33
+Coordinates=3240,1640,115,33
 
 [fUserModal.rBackground]
-Coordinates=3003,1386,137,33
+Coordinates=10,1050,137,33
 
 [fContactInfo.lytPatientProfile]
-Coordinates=2580,1740,156,33
+Coordinates=2270,1050,156,33
 
 [fUserDetails.cDepartment]
-Coordinates=2164,1445,140,33
+Coordinates=386,1345,140,33
 
 [fUserModal.lNewPassword]
-Coordinates=10,955,145,51
+Coordinates=2389,321,145,51
 
 [fContactInfo.ShadowEffect6]
 Coordinates=3208,765,151,33
 
 [fUsers.bsdbUsers]
-Coordinates=10,10,102,303
+Coordinates=805,10,102,195
 
 [fPatients.lytTitle]
-Coordinates=2999,1268,93,33
+Coordinates=821,1286,93,33
 
 [fUserDetails.lContactTitle]
-Coordinates=1901,339,139,51
+Coordinates=3080,742,139,51
 
 [fPatients.rNoRecords]
-Coordinates=175,1681,119,33
+Coordinates=2936,1935,119,33
 
 [fContactInfo.lNumber1]
-Coordinates=2813,416,125,51
+Coordinates=160,742,125,51
 
 [fUserProfile.lNameH]
-Coordinates=2582,339,113,51
+Coordinates=2363,588,113,51
 
 [fAppointments.Scrollbox1]
-Coordinates=2935,1740,142,33
+Coordinates=381,1817,142,33
 
 [fUserProfile.cbRole]
-Coordinates=1797,10,109,123
+Coordinates=2942,10,109,123
 
 [fUserModal.crPassword]
-Coordinates=2901,1681,131,33
+Coordinates=642,1758,131,33
 
 [fUserProfile.lytDetails1]
-Coordinates=1290,1032,127,33
+Coordinates=1821,1345,127,33
 
 [fUserModal.eFullName]
-Coordinates=3003,647,125,51
+Coordinates=2859,665,125,51
 
 [fUserProfile.gFullName]
-Coordinates=2134,1091,128,33
+Coordinates=2611,1345,128,33
 
 [fUserModal.btnSaveUser]
-Coordinates=2002,1445,136,33
+Coordinates=3086,1876,136,33
 
 [fAppointments.lNoRecords]
-Coordinates=3387,647,147,51
+Coordinates=1960,665,147,51
 
 [fUserDetails.lbTitle]
-Coordinates=637,493,107,51
+Coordinates=3388,742,107,51
 
 [fContactInfo.lbTitle]
-Coordinates=879,570,108,51
+Coordinates=3422,434,108,51
 
 [fUserProfile.lytPhoneNumber]
-Coordinates=2601,1563,157,33
+Coordinates=281,1758,157,33
 
 [fUpdateProfilePhoto.lytClosebtn]
-Coordinates=2542,1681,172,33
+Coordinates=1773,1699,172,33
 
 [fUpdateProfilePhoto.lytContentH]
-Coordinates=3063,1032,175,33
+Coordinates=1464,1817,175,33
 
 [fUserProfile.lytButton2]
-Coordinates=655,1681,126,33
+Coordinates=1751,1286,126,33
 
 [fUserModal.btnPhotoUpload]
-Coordinates=1929,1563,153,33
+Coordinates=2800,1109,153,33
 
 [fUserProfile.cCamera]
-Coordinates=1878,1268,119,33
+Coordinates=717,1699,119,33
 
 [fUserModal.lPersonalInfo]
-Coordinates=851,647,138,51
+Coordinates=10,819,138,51
 
 [fUserModal.btnCamera]
-Coordinates=3204,1858,127,33
+Coordinates=136,1581,127,33
 
 [fUserDetails.lytDeleteButtonH]
-Coordinates=2900,1209,160,33
+Coordinates=1163,1522,160,33
 
 [fUserModal.lConfirmNewPassword]
-Coordinates=1900,493,185,51
+Coordinates=3058,321,185,51
 
 [fUserModal.ShadowEffect4]
 Coordinates=3472,261,147,33
 
 [fUserProfile.lytPersonalInfo]
-Coordinates=1644,1091,149,33
+Coordinates=487,1935,149,33
 
 [fUserModal.gPassword]
-Coordinates=1188,1858,128,33
+Coordinates=690,1994,128,33
 
 [fUserDetails.ScrollBox1]
-Coordinates=2504,1386,131,33
+Coordinates=1688,1581,131,33
 
 [fUserProfile.lDivider]
-Coordinates=782,1858,113,33
+Coordinates=2472,1345,113,33
 
 [fUserDetails.btnClose]
-Coordinates=678,801,121,51
+Coordinates=547,434,121,51
 
 [fUserProfile.eNewPassword]
-Coordinates=331,801,151,51
+Coordinates=1302,742,151,51
 
 [fUserModal.ShadowEffect5]
 Coordinates=3472,365,147,33
 
 [fUpdateProfilePhoto.lCamera]
-Coordinates=3069,878,157,51
+Coordinates=336,819,157,51
 
 [fUserDetails.lytWorkInfoH]
-Coordinates=2542,1209,141,33
+Coordinates=2518,1935,141,33
 
 [fUserDetails.btnDeleteCancel]
-Coordinates=2661,1386,157,33
+Coordinates=10,1699,157,33
 
 [fUserProfile.lEmailW]
-Coordinates=10,878,115,51
+Coordinates=2915,819,115,51
 
 [fUserProfile.lytFullName]
-Coordinates=2156,1268,133,33
+Coordinates=1430,1876,133,33
 
 [fDashboard.fToolbar]
-Coordinates=1819,1091,115,33
+Coordinates=2628,1404,115,33
 
 [fUpdateProfilePhoto.btnCameraClose]
-Coordinates=308,570,198,51
+Coordinates=474,511,198,51
 
 [fUserModal.eDepartment]
-Coordinates=3008,339,136,51
+Coordinates=174,819,136,51
 
 [fUserModal.lFullNameW]
-Coordinates=2164,416,132,51
+Coordinates=231,434,132,51
 
 [fUserModal.btnTakePicture]
-Coordinates=168,1091,147,33
+Coordinates=2835,1699,147,33
 
 [fUserProfile.gEmail]
-Coordinates=2746,1032,109,33
+Coordinates=2337,1345,109,33
 
 [fUserModal.crUsername]
-Coordinates=3259,1268,132,33
+Coordinates=360,1168,132,33
 
 [fUserProfile.lytConfirmNewPassword]
-Coordinates=2048,1504,196,33
+Coordinates=1585,1522,196,33
 
 [fUserDetails.gEmail]
-Coordinates=1441,1268,111,33
+Coordinates=3005,1817,111,33
 
 [fUsers.ShadowEffect1]
 Coordinates=1246,1535,123,33
 
 [fPatientModal.crDateOfBirth]
-Coordinates=320,1681,152,33
+Coordinates=1727,1404,152,33
 
 [fAppointments.fToolbar]
-Coordinates=498,1681,131,33
+Coordinates=2580,1286,131,33
 
 [fPatients.ShadowEffect1]
 Coordinates=968,1535,134,33
 
 [fUserModal.lytStatus]
-Coordinates=2400,1209,116,33
+Coordinates=10,1345,116,33
 
 [fUpdateProfilePhoto.lytPatientProfile]
-Coordinates=3417,1622,195,33
+Coordinates=1903,1286,195,33
 
 [fUserProfile.lytUsername]
-Coordinates=2260,1740,137,33
+Coordinates=256,1640,137,33
 
 [fUpdateProfilePhoto.sdSavePicture]
 Coordinates=3472,625,187,33
 
 [fUserDetails.slPhone]
-Coordinates=1019,1799,117,33
+Coordinates=1027,1817,117,33
 
 [fUserProfile.crFullName]
-Coordinates=1351,1681,131,33
+Coordinates=817,1640,131,33
 
 [fUserProfile.eUserName]
-Coordinates=353,493,132,51
+Coordinates=3064,896,132,51
 
 [fUsers.blUsers]
 Coordinates=1329,909,87,33
 
 [fUpdateProfilePhoto.btnTakePicture]
-Coordinates=1670,1504,191,33
+Coordinates=685,1404,191,33
 
 [fUserModal.lNewPasswordW]
-Coordinates=10,801,155,51
+Coordinates=1802,434,155,51
 
 [fUserModal.cbStatus]
-Coordinates=2623,10,116,123
+Coordinates=2459,10,116,123
 
 [fUserDetails.lytWorkTitle]
-Coordinates=96,1445,136,33
+Coordinates=2831,1168,136,33
 
 [fUpdateProfilePhoto.cProfilePhoto]
-Coordinates=881,1091,183,33
+Coordinates=2877,1640,183,33
 
 [fUserModal.lCamera]
-Coordinates=348,647,113,51
+Coordinates=2265,896,113,51
 
 [fUserModal.lytContentH]
-Coordinates=1083,1917,131,33
+Coordinates=349,1286,131,33
 
 [fUpdateProfilePhoto]
-Coordinates=2628,1858,113,33
+Coordinates=192,1463,113,33
 
 [fUserModal.rRoleAndAccess]
-Coordinates=2659,1268,155,33
+Coordinates=1647,1935,155,33
 
 [fUsers.fToolbar]
-Coordinates=2212,955,90,33
+Coordinates=1836,1463,90,33
 
 [fUserModal.lytFullName]
-Coordinates=1772,1563,131,33
+Coordinates=1771,1227,131,33
 
 [fPatients.btnAddNewPatient]
-Coordinates=1650,1858,152,33
+Coordinates=2657,1699,152,33
 
 [fUpdateProfilePhoto.ccCapturePhoto]
 Coordinates=3525,1041,196,33
 
 [fUserProfile.fToolbar]
-Coordinates=2139,1681,116,33
+Coordinates=1665,1817,116,33
 
 [fUserModal.crConfirmNewPassword]
-Coordinates=310,955,192,33
+Coordinates=2111,1817,192,33
 
 [fUserModal.lNameH]
-Coordinates=506,416,111,51
+Coordinates=3383,511,111,51
 
 [fUpdateProfilePhoto.cbCameraOption]
-Coordinates=1572,10,199,123
+Coordinates=2052,10,199,123
 
 [fUpdateProfilePhoto.lytProfilePhoto]
-Coordinates=341,1091,190,33
+Coordinates=332,1876,190,33
 
 [fUserModal.lEmailAddressW]
-Coordinates=168,647,154,51
+Coordinates=3231,819,154,51
 
 [fUserDetails.lytEmailH]
-Coordinates=516,1799,124,33
+Coordinates=1180,1109,124,33
 
 [fUserDetails.gIcon]
-Coordinates=1408,1209,104,33
+Coordinates=433,1522,104,33
 
 [fUserProfile.lUsernameW]
-Coordinates=2636,493,137,51
+Coordinates=1211,896,137,51
 
 [fPatients.bsdbPatients]
-Coordinates=750,10,125,231
+Coordinates=1097,10,125,177
 
 [fUserDetails.lytSection1]
-Coordinates=10,1386,132,33
+Coordinates=2642,1109,132,33
 
 [fUserModal.ShadowEffect9]
 Coordinates=3472,1301,147,33
 
 [fUserDetails.lytDeleteInfo]
-Coordinates=10,1681,139,33
+Coordinates=2288,973,139,33
 
 [fPatientModal.lytDeleteTitle]
-Coordinates=10,1799,148,33
+Coordinates=1599,1699,148,33
 
 [fUserModal.btnEye1]
-Coordinates=3128,493,113,51
+Coordinates=401,588,113,51
 
 [fUserProfile.rPersonalInfo]
-Coordinates=927,1150,141,33
+Coordinates=173,1050,141,33
 
 [fAppointments.btnAddNewAppointment]
-Coordinates=202,1563,210,33
+Coordinates=1349,1522,210,33
 
 [fUpdateProfilePhoto.btnClose]
-Coordinates=2019,801,160,51
+Coordinates=1549,511,160,51
 
 [fUserModal.lytChangePassBH]
-Coordinates=2441,1858,161,33
+Coordinates=1245,1699,161,33
 
 [fUserModal.lytUsername]
-Coordinates=528,955,135,33
+Coordinates=1163,1935,135,33
 
 [fUserModal.ScrollBox1]
-Coordinates=1342,1858,127,33
+Coordinates=2963,1404,127,33
 
 [fContactInfo.lLance]
-Coordinates=2352,647,110,51
+Coordinates=1675,742,110,51
 
 [fUpdateProfilePhoto.cbRemove]
-Coordinates=184,1799,168,33
+Coordinates=2769,1404,168,33
 
 [fUserProfile.lbTitle]
-Coordinates=768,878,105,51
+Coordinates=2992,434,105,51
 
 [fUpdateProfilePhoto.rCameralModal]
-Coordinates=3392,955,191,33
+Coordinates=1213,1876,191,33
 
 [fUserDetails.lytProfilePhoto]
-Coordinates=1995,1858,150,33
+Coordinates=1645,1345,150,33
 
 [fUserProfile.ShadowEffect6]
 Coordinates=3135,1598,149,33
 
 [fUserDetails.slEmail]
-Coordinates=2403,1681,113,33
+Coordinates=3235,1758,113,33
 
 [fUserProfile.lFrameDesc]
-Coordinates=2187,878,133,51
+Coordinates=2106,896,133,51
 
 [fAppointments.cbAllRecords]
-Coordinates=2030,955,156,33
+Coordinates=1324,1935,156,33
 
 [fUserModal.lytProfilePhoto]
-Coordinates=1162,1799,146,33
+Coordinates=2329,1817,146,33
 
 [fUserModal.cbRole]
-Coordinates=2115,10,107,123
+Coordinates=1919,10,107,123
 
 [fPatients.lNoRecords]
-Coordinates=2205,801,118,51
+Coordinates=1495,973,118,51
 
 [fUserModal.rModalInfo]
-Coordinates=1426,955,125,33
+Coordinates=143,1994,125,33
 
 [fUserModal.lUsernameW]
-Coordinates=316,878,135,51
+Coordinates=2300,434,135,51
 
 [fUserDetails.gLastLogin]
-Coordinates=960,1327,132,33
+Coordinates=858,1109,132,33
 
 [fUserModal.slRoleAndAccess]
-Coordinates=3322,1091,160,33
+Coordinates=477,1463,160,33
 
 [fUserProfile.rUserPhoto]
-Coordinates=10,1032,131,33
+Coordinates=701,1109,131,33
 
 [fPatientModal.gDateOfBirth]
-Coordinates=2108,1563,148,33
+Coordinates=2344,1935,148,33
 
 [fUserProfile.ShadowEffect2]
 Coordinates=2350,1598,149,33
 
 [fUpdateProfilePhoto.rBackground]
-Coordinates=1059,1740,180,33
+Coordinates=2451,1699,180,33
 
 [fUserDetails.lRole]
-Coordinates=3267,493,102,51
+Coordinates=2741,588,102,51
 
 [fDashboard.ShadowEffect3]
 Coordinates=2201,1598,148,33
 
 [fUserModal.slSecuritySettings]
-Coordinates=2356,1032,163,33
+Coordinates=1498,1463,163,33
 
 [fUserDetails.lytDeleteTitle]
-Coordinates=650,1622,141,33
+Coordinates=1432,1699,141,33
 
 [fUserProfile.lbFullName]
-Coordinates=2849,724,131,51
+Coordinates=1430,819,131,51
 
 [fUserModal.crFullName]
-Coordinates=1508,1681,129,33
+Coordinates=1215,1345,129,33
 
 [fUpdateProfilePhoto.imgPhoto]
-Coordinates=1546,339,164,51
+Coordinates=3247,665,164,51
 
 [fContactInfo.rModalInfo]
-Coordinates=3239,1740,130,33
+Coordinates=3008,1699,130,33
 
 [fContactInfo.rBackground]
-Coordinates=2445,1504,141,33
+Coordinates=1521,1581,141,33
 
 [fUserDetails.btnDeleteClose]
-Coordinates=2635,416,152,51
+Coordinates=1153,588,152,51
 
 [fUserModal.lytDepartment]
-Coordinates=666,1799,142,33
+Coordinates=807,1227,142,33
 
 [fUserProfile.lFullNameW]
-Coordinates=2245,339,134,51
+Coordinates=952,973,134,51
 
 [fUserProfile.lPhone]
-Coordinates=10,570,109,51
+Coordinates=499,742,109,51
 
 [fUserModal.btnCameraClose]
-Coordinates=1651,570,155,51
+Coordinates=3055,511,155,51
 
 [fUserProfile.lytDetails3]
-Coordinates=2933,1622,127,33
+Coordinates=506,1286,127,33
 
 [fUserProfile.lFrameTitle]
-Coordinates=2531,878,130,51
+Coordinates=2144,434,130,51
 
 [fAppointments.lytComponents]
-Coordinates=3357,1858,164,33
+Coordinates=493,1581,164,33
 
 [fUserDetails.gWorkInfo]
-Coordinates=2350,1386,128,33
+Coordinates=2918,1286,128,33
 
 [fUserModal.lConfirmNewPasswordW]
-Coordinates=2561,570,195,51
+Coordinates=10,434,195,51
 
 [fUserDetails.gHireDate]
-Coordinates=2684,1091,125,33
+Coordinates=2307,1463,125,33
 
 [fAppointments.bsdbAppointments]
-Coordinates=302,10,183,249
+Coordinates=357,10,183,195
 
 [fUserDetails.btnDeleteUser]
-Coordinates=2762,1740,147,33
+Coordinates=265,1699,147,33
 
 [fUserModal.rUser]
-Coordinates=1645,1327,100,33
+Coordinates=2750,973,100,33
 
 [fUserDetails.rBackground]
-Coordinates=258,1445,141,33
+Coordinates=518,1168,141,33
 
 [fAppointments.rNoRecords]
-Coordinates=1169,1091,148,33
+Coordinates=158,1876,148,33
 
 [fContactInfo]
-Coordinates=1395,1740,74,33
+Coordinates=3072,1286,74,33
 
 [fUsers.rUsers]
-Coordinates=1133,955,81,33
+Coordinates=2453,973,81,33
 
 [fUserDetails.lytPatientProfile]
-Coordinates=2982,1091,155,33
+Coordinates=319,1404,155,33
 
 [fUserDetails.gDepartment]
-Coordinates=2911,955,140,33
+Coordinates=2692,1817,140,33
 
 [fUserProfile.tiProfile]
-Coordinates=626,1268,113,33
+Coordinates=1978,1581,113,33
 
 [fUserProfile.eCurrentPassword]
-Coordinates=1826,801,167,51
+Coordinates=540,588,167,51
 
 [fUserProfile.mBio]
-Coordinates=1987,724,101,51
+Coordinates=1833,665,101,51
 
 [fPatientModal.lDeleteTItle]
-Coordinates=714,570,139,51
+Coordinates=787,973,139,51
 
 [fUserProfile.ShadowEffect1]
 Coordinates=969,1598,149,33
 
 [fUpdateProfilePhoto.btnSaveCurrentImage]
-Coordinates=610,1445,223,33
+Coordinates=889,1050,223,33
 
 [fUserModal.ShadowEffect6]
 Coordinates=820,1598,147,33
@@ -1777,107 +1780,330 @@ Coordinates=820,1598,147,33
 Coordinates=671,1598,148,33
 
 [fUpdateProfilePhoto.lProfileUploadDesc]
-Coordinates=1272,724,211,51
+Coordinates=3010,665,211,51
 
 [fUserProfile.rUserBriefinfo]
-Coordinates=655,1740,144,33
+Coordinates=818,1168,144,33
 
 [fUserDetails.cRole]
-Coordinates=760,1209,105,33
+Coordinates=2045,1758,105,33
 
 [fUserDetails.slHireDate]
-Coordinates=1136,1032,128,33
+Coordinates=1753,1050,128,33
 
 [fUserDetails.gRole]
-Coordinates=765,1268,105,33
+Coordinates=3479,1581,105,33
 
 [fUserDetails.slLastLogin]
-Coordinates=950,1622,135,33
+Coordinates=552,1345,135,33
 
 [fUserProfile.lUsername]
-Coordinates=599,724,128,51
+Coordinates=634,742,128,51
 
 [fAppointments.blAppointments]
 Coordinates=3312,1145,168,33
 
 [fUserProfile.lConfirmNewPassword]
-Coordinates=638,647,187,51
+Coordinates=1306,665,187,51
 
 [fUserDetails.lytLastLogin]
-Coordinates=1025,1268,138,33
+Coordinates=1016,1109,138,33
 
 [fUserDetails.lDeleteTItle]
-Coordinates=3118,416,132,51
+Coordinates=2922,742,132,51
 
 [fPatients]
-Coordinates=2516,1799,57,33
+Coordinates=726,1522,57,33
 
 [fUserProfile.lytUserBriefInfo]
-Coordinates=3120,1445,152,33
+Coordinates=833,1463,152,33
 
 [fUserProfile.lbRoleH]
-Coordinates=191,801,114,51
+Coordinates=1519,665,114,51
 
 [fUserModal.lbTitle]
-Coordinates=181,955,103,51
+Coordinates=1024,588,103,51
 
 [fPatients.rPatients]
-Coordinates=669,1032,104,33
+Coordinates=2512,1109,104,33
 
 [fUpdateProfilePhoto.lbTitle]
-Coordinates=1509,647,147,51
+Coordinates=301,511,147,51
 
 [fUserModal.rCameralModal]
-Coordinates=1511,1622,147,33
+Coordinates=10,1404,147,33
 
 [fUserProfile.lUserNameH]
-Coordinates=825,801,136,51
+Coordinates=1473,896,136,51
 
 [fPatientModal.rDeleteBackground]
-Coordinates=934,1681,179,33
+Coordinates=3231,1227,179,33
 
 [fUserDetails.rStatusH]
-Coordinates=433,1858,120,33
+Coordinates=331,1463,120,33
 
 [fUserDetails.lytStatusH]
-Coordinates=473,1917,128,33
+Coordinates=2213,1581,128,33
 
 [fUserModal.lytPatientProfile]
-Coordinates=632,1327,151,33
+Coordinates=3081,1935,151,33
 
 [fUserDetails.lytRole]
-Coordinates=1366,1563,111,33
+Coordinates=1475,1758,111,33
 
 [fUserDetails.cEmail]
-Coordinates=1636,1563,110,33
+Coordinates=2812,1581,110,33
 
 [fUserModal.lContactNumber]
-Coordinates=2066,339,153,51
+Coordinates=1123,742,153,51
 
 [fUpdateProfilePhoto.lytTitle]
-Coordinates=2532,1327,149,33
+Coordinates=1370,1345,149,33
 
 [fUserModal.lytUserH]
-Coordinates=1245,1150,115,33
+Coordinates=2371,1109,115,33
 
 [fAppointments.lytButtonH]
-Coordinates=2890,1327,142,33
+Coordinates=2705,1050,142,33
 
 [fUserProfile.lNewPassword]
-Coordinates=1316,878,148,51
+Coordinates=2055,819,148,51
 
 [fUserProfile.FloatAnimation1]
 Coordinates=3819,313,156,33
 
 [fUserModal.lProfileUploadDesc]
-Coordinates=1707,493,167,51
+Coordinates=2412,819,167,51
 
 [fUserProfile.lytUserH]
-Coordinates=2977,1445,117,33
+Coordinates=734,1817,117,33
 
 [fUserModal.crContactNumber]
-Coordinates=1309,1327,160,33
+Coordinates=1952,1463,160,33
 
 [fUserModal.rSecuritySettings]
-Coordinates=1779,1150,158,33
+Coordinates=1759,1109,158,33
+
+[fAppointmentModal.lEndTime]
+Coordinates=2179,511,160,51
+
+[fAppointmentModal.teEndTime]
+Coordinates=788,742,166,51
+
+[fAppointmentModal.lPatient]
+Coordinates=1016,511,151,51
+
+[fAppointmentModal.lytDetails4]
+Coordinates=937,1994,165,33
+
+[fAppointmentModal.lNotes]
+Coordinates=2360,665,145,51
+
+[fAppointmentModal.gPatient]
+Coordinates=2266,1640,154,33
+
+[fAppointmentModal.lStartTime]
+Coordinates=2299,742,164,51
+
+[fAppointmentModal.lytDeleteInfo]
+Coordinates=2302,1168,175,33
+
+[fAppointmentModal.lytStartTime]
+Coordinates=3116,1404,173,33
+
+[fAppointmentModal.teStartTime]
+Coordinates=163,665,170,51
+
+[fAppointmentModal.btnDeleteClose]
+Coordinates=2404,896,188,51
+
+[fAppointmentModal.lPickDate]
+Coordinates=3269,321,160,51
+
+[fAppointmentModal.rDeleteBackground]
+Coordinates=1211,1168,208,33
+
+[fAppointmentModal.cbStatus]
+Coordinates=2601,10,157,123
+
+[fAppointmentModal.ScrollBox1]
+Coordinates=3248,1876,167,33
+
+[fAppointmentModal.GlowEffect1]
+Coordinates=3124,142,173,33
+
+[fAppointmentModal.lDeleteTItle]
+Coordinates=619,665,168,51
+
+[fAppointmentModal.ShadowEffect2]
+Coordinates=3603,1,187,33
+
+[fAppointmentModal]
+Coordinates=2229,1404,111,33
+
+[fAppointmentModal.crAppointmentTitle]
+Coordinates=152,1345,208,33
+
+[fDashboard.lytTodaysAppointment]
+Coordinates=201,1227,186,33
+
+[fAppointmentModal.lytDate]
+Coordinates=3143,1168,148,33
+
+[fAppointmentModal.lDateW]
+Coordinates=837,896,148,51
+
+[fAppointmentModal.gDate]
+Coordinates=799,1758,142,33
+
+[fAppointmentModal.ShadowEffect3]
+Coordinates=3635,111,187,33
+
+[fAppointmentModal.btnCancel]
+Coordinates=1261,1050,163,33
+
+[fAppointmentModal.btnDelete]
+Coordinates=10,1817,160,33
+
+[fAppointmentModal.ShadowEffect1]
+Coordinates=3635,420,187,33
+
+[fDashboard.cTodaysAppointment]
+Coordinates=294,1994,179,33
+
+[fAppointmentModal.eAppointmentTitle]
+Coordinates=519,819,204,51
+
+[fAppointmentModal.rBackground]
+Coordinates=975,1227,177,33
+
+[fAppointmentModal.lAppointmentTitleW]
+Coordinates=10,588,211,51
+
+[fAppointmentModal.mNotes]
+Coordinates=2212,321,151,51
+
+[fAppointmentModal.gAppointmentTitle]
+Coordinates=2295,1227,204,33
+
+[dm.qMonthAppointments]
+Coordinates=184,896,139,51
+
+[fAppointmentModal.btnCreateAppointment]
+Coordinates=2685,1935,225,33
+
+[fAppointmentModal.crPatient]
+Coordinates=2979,1109,157,33
+
+[fAppointmentModal.rModalInfo]
+Coordinates=3318,1699,166,33
+
+[fAppointmentModal.lytButtonH]
+Coordinates=3258,1935,166,33
+
+[fAppointmentModal.btnDeleteCancel]
+Coordinates=683,1581,194,33
+
+[fAppointmentModal.lDate]
+Coordinates=141,973,139,51
+
+[fAppointmentModal.btnClose]
+Coordinates=2229,819,157,51
+
+[fAppointmentModal.lytDeleteTitle]
+Coordinates=1974,1345,177,33
+
+[fAppointmentModal.lbTitle]
+Coordinates=1785,896,144,51
+
+[fAppointmentModal.lStatus]
+Coordinates=10,896,148,51
+
+[fAppointmentModal.lytStatus]
+Coordinates=548,1876,157,33
+
+[fAppointmentModal.lytDetails2]
+Coordinates=2501,1817,165,33
+
+[fAppointmentModal.lDeleteDesc]
+Coordinates=2560,321,172,51
+
+[fAppointmentModal.btnDeleteAppointment]
+Coordinates=3312,1109,224,33
+
+[fAppointmentModal.crDate]
+Coordinates=1143,1581,145,33
+
+[fDashboard.sbList]
+Coordinates=1925,819,104,51
+
+[fAppointmentModal.rDeleteModal]
+Coordinates=289,1581,178,33
+
+[fAppointmentModal.lytDetails3]
+Coordinates=1146,1640,165,33
+
+[fAppointmentModal.cbPatient]
+Coordinates=10,321,160,87
+
+[fAppointmentModal.lytDetails1]
+Coordinates=820,1935,165,33
+
+[fAppointmentModal.lAppointmentTitle]
+Coordinates=2133,665,201,51
+
+[fAppointmentModal.lytDeleteButtonH]
+Coordinates=988,1168,197,33
+
+[fAppointmentModal.lytDetails5]
+Coordinates=10,1227,165,33
+
+[fAppointmentModal.lytTitle]
+Coordinates=3058,1227,147,33
+
+[fAppointmentModal.lytContentH]
+Coordinates=1991,1935,172,33
+
+[fDashboard.sbCalendar]
+Coordinates=1185,434,130,51
+
+[fAppointmentModal.deDate]
+Coordinates=1545,588,148,51
+
+[fAppointmentModal.lytHolder]
+Coordinates=422,1050,158,33
+
+[fAppointmentModal.lPatientW]
+Coordinates=3002,588,160,51
+
+[fAppointmentModal.lytEndTime]
+Coordinates=3371,973,169,33
+
+[lvAppointments]
+Coordinates=10,10,116,285
+Visible=True
+
+[btnCloseAppointment]
+Coordinates=3236,511,121,51
+
+[dm.qDrawerAppointments]
+Coordinates=1897,10,143,33
+Visible=False
+
+[lbAppointments]
+Coordinates=3188,588,92,51
+
+[lytAppointment]
+Coordinates=3320,1463,89,33
+
+[BindSourceDB1]
+Coordinates=206,64,125,177
+Visible=True
+
+[BindingsList1]
+Coordinates=10,1640,82,33
+Visible=True
+
+[mvAppointments]
+Coordinates=731,1876,98,33
 

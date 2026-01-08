@@ -82,7 +82,7 @@ object fAppointmentModal: TfAppointmentModal
           Position.X = 25.000000000000000000
           Position.Y = 70.000000000000000000
           Size.Width = 384.000000000000000000
-          Size.Height = 625.000000000000000000
+          Size.Height = 615.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
           object lytDetails4: TLayout
@@ -212,8 +212,8 @@ object fAppointmentModal: TfAppointmentModal
           end
           object lytButtonH: TLayout
             Align = Top
-            Margins.Top = 45.000000000000000000
-            Position.Y = 586.000000000000000000
+            Margins.Top = 35.000000000000000000
+            Position.Y = 576.000000000000000000
             Size.Width = 384.000000000000000000
             Size.Height = 40.000000000000000000
             Size.PlatformDefault = False

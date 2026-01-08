@@ -86,14 +86,17 @@ type
     procedure cTodaysAppointmentChange(Sender: TObject);
     procedure cTodaysAppointmentMouseWheel(Sender: TObject; Shift: TShiftState;
       WheelDelta: Integer; var Handled: Boolean);
+    procedure cTodaysAppointmentDateSelected(Sender: TObject);
+    procedure cTodaysAppointmentDayClick(Sender: TObject);
   private
     procedure GridContentsResponsive2;
     procedure CleanListBox(AListBox: TListBox; AIndex: Integer);
-    procedure RefreshCalendarBadges;
     { Private declarations }
   public
+    procedure PopulateList;
     procedure GridContentsResponsive;
     procedure CardsResize;
+    procedure RefreshCalendarBadges;
     { Public declarations }
   end;
 
@@ -227,6 +230,27 @@ begin
   end;
 end;
 
+{ List view populating }
+procedure TfDashboard.PopulateList;
+begin
+  // 1. Refresh visual badges on the calendar
+  RefreshCalendarBadges;
+
+  // 2. Update the LiveBound query with the selected date
+  dm.qDrawerAppointments.Close;
+  dm.qDrawerAppointments.ParamByName('selected_date').AsString :=
+    FormatDateTime('yyyy-mm-dd', cTodaysAppointment.Date);
+  dm.qDrawerAppointments.Open;
+
+  // 3. Toggle "No Records" components on the Main form drawer
+  // Use frmMain to access the components inside the drawer
+  frmMain.rNoRecords.Visible := dm.qDrawerAppointments.IsEmpty;
+  frmMain.lNoRecords.Visible := dm.qDrawerAppointments.IsEmpty;
+
+  // 4. Show the MultiView drawer
+  frmMain.mvAppointments.ShowMaster;
+end;
+
 { OnChange cTodaysAppointment }
 procedure TfDashboard.cTodaysAppointmentChange(Sender: TObject);
 begin
@@ -234,6 +258,18 @@ begin
   begin
     RefreshCalendarBadges;
   end);
+end;
+
+{ OnDateSelected cTodaysAppointment }
+procedure TfDashboard.cTodaysAppointmentDateSelected(Sender: TObject);
+begin
+  PopulateList;
+end;
+
+{ OnDayClick cTodaysAppointment }
+procedure TfDashboard.cTodaysAppointmentDayClick(Sender: TObject);
+begin
+  PopulateList;
 end;
 
 { OnMouseWheel cTodaysAppointment }
