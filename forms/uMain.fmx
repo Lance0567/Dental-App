@@ -1833,11 +1833,11 @@ object frmMain: TfrmMain
       ItemAppearanceObjects.ItemObjects.Image.Height = 50.000000000000000000
       ItemAppearanceObjects.ItemObjects.Image.Visible = True
       ItemAppearanceObjects.ItemObjects.Image.PlaceOffset.X = 5.000000000000000000
-      ItemAppearanceObjects.ItemObjects.MultiDetail1.Width = 110.000000000000000000
+      ItemAppearanceObjects.ItemObjects.MultiDetail1.Width = 150.000000000000000000
       ItemAppearanceObjects.ItemObjects.MultiDetail1.PlaceOffset.X = 70.000000000000000000
-      ItemAppearanceObjects.ItemObjects.MultiDetail2.Width = 110.000000000000000000
+      ItemAppearanceObjects.ItemObjects.MultiDetail2.Width = 150.000000000000000000
       ItemAppearanceObjects.ItemObjects.MultiDetail2.PlaceOffset.X = 70.000000000000000000
-      ItemAppearanceObjects.ItemObjects.MultiDetail3.Width = 110.000000000000000000
+      ItemAppearanceObjects.ItemObjects.MultiDetail3.Width = 150.000000000000000000
       ItemAppearanceObjects.ItemObjects.MultiDetail3.PlaceOffset.X = 70.000000000000000000
       ItemAppearanceObjects.ItemObjects.Accessory.Visible = False
       ItemAppearanceObjects.HeaderObjects.Text.Height = 30.000000000000000000

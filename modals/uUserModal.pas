@@ -191,6 +191,12 @@ begin
   btnEye2.Visible := False;
   btnEye3.Visible := False;
 
+  // Clear password section
+  eNewPassword.Text := '';
+  eNewPassword.Password := True;
+  eConfirmNewPassword.Text := '';
+  eConfirmNewPassword.Password := True;
+
   // Hide validation warnings
   crFullName.Visible := False;
   crEmailAddress.Visible := False;
@@ -563,7 +569,7 @@ begin
         Post;
 
         // Record Message
-        frmMain.Tag := 12;
+        frmMain.Tag := 13;
         frmMain.RecordMessage('Password', eUsername.Text);
       end
       else

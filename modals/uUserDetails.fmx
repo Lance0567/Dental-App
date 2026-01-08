@@ -116,6 +116,7 @@ object fUserDetails: TfUserDetails
                 TextSettings.Font.StyleExt = {00070000000000000004000000}
                 TextSettings.HorzAlign = Center
                 Text = 'L'
+                Visible = False
                 TabOrder = 0
               end
             end

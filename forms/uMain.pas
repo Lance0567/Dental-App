@@ -251,11 +251,11 @@ end;
 procedure TfrmMain.FormResize(Sender: TObject);
 begin
   // Form Caption
-  {$IFDEF DEBUG}
-  Self.Caption := 'Dental System | '+ 'Height: ' +
-  Self.ClientHeight.ToString + ', ' + 'Width: ' + Self.ClientWidth.ToString + ' Card width: '
-  + fDashboard.glytCards.Width.ToString + ' Card height: ' + fDashboard.glytCards.Height.ToString;
-  {$ENDIF}
+//  {$IFDEF DEBUG}
+//  Self.Caption := 'Dental System | '+ 'Height: ' +
+//  Self.ClientHeight.ToString + ', ' + 'Width: ' + Self.ClientWidth.ToString + ' Card width: '
+//  + fDashboard.glytCards.Width.ToString + ' Card height: ' + fDashboard.glytCards.Height.ToString;
+//  {$ENDIF}
 
   // Fixed form dimension
   if Self.ClientHeight < 505 then
@@ -357,7 +357,7 @@ begin
     2:  // Patient delete
       begin
         lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.White;
-        lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Gray;
+        lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Dimgray;
         lbPopUp.Words.Items[0].Text := AEntity + ' deleted successfully';
         lbPopUp.Words.Items[1].Text := ADetail +
           ' has been removed from patient records.';
@@ -412,7 +412,7 @@ begin
       7:  // User Update
       begin
         lbPopUp.Words.Items[0].FontColor := TAlphaColorRec.Black;
-        lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Black;
+        lbPopUp.Words.Items[1].FontColor := TAlphaColorRec.Dimgray;
         lbPopUp.Words.Items[0].Text := AEntity + ' updated successfully';
         lbPopUp.Words.Items[1].Text := ADetail +
           ' information has been updated.';
@@ -520,12 +520,12 @@ begin
   // Adjust layout holder
   lytSidebar.Width := mvSidebar.Width;
 
-  {$IFDEF DEBUG}
-  // Form caption
-  Self.Caption := 'Dental System | '+ 'Height: ' +
-  Self.ClientHeight.ToString + ', ' + 'Width: ' + Self.ClientWidth.ToString + ' Card width: '
-  + fDashboard.glytCards.Width.ToString + ' Card height: ' + fDashboard.glytCards.Height.ToString;
-  {$ENDIF}
+//  {$IFDEF DEBUG}
+//  // Form caption
+//  Self.Caption := 'Dental System | '+ 'Height: ' +
+//  Self.ClientHeight.ToString + ', ' + 'Width: ' + Self.ClientWidth.ToString + ' Card width: '
+//  + fDashboard.glytCards.Width.ToString + ' Card height: ' + fDashboard.glytCards.Height.ToString;
+//  {$ENDIF}
 end;
 
 { OnClick btnCloseAppointment }
@@ -589,13 +589,6 @@ begin
 
   // Refresh the calendar notification badge
   fDashboard.RefreshCalendarBadges;
-
-  // Form Caption
-  {$IFDEF DEBUG}
-  Self.Caption := 'Dental System | '+ 'Height: ' +
-  Self.ClientHeight.ToString + ', ' + 'Width: ' + Self.ClientWidth.ToString + ' Card width: '
-  + fDashboard.Width.ToString + ' Card height: ' + fDashboard.Height.ToString;
-  {$ENDIF}
 end;
 
 { Patients tab }
