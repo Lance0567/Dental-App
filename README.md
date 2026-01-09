@@ -25,8 +25,9 @@
 
 *Main Dashboard:*
 
-
-
+<div align="center">
+  <img src="./assets/screenshots/dashboard.png" alt="Dashboard Screenshot" width="900" />
+</div>
 
 ## Installation
 
